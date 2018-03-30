@@ -940,9 +940,18 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
     
     //Create the initial request to start the multipart process.
     AWSS3CreateMultipartUploadRequest *uploadRequest = [AWSS3CreateMultipartUploadRequest new];
-    
     uploadRequest.bucket = bucket;
     uploadRequest.key = key;
+  
+    //Add any custom metadata
+    NSMutableDictionary<NSString *, NSString *> *metadata = [NSMutableDictionary new];
+    for (NSString *key in transferUtilityMultiPartUploadTask.expression.requestHeaders) {
+        //Do not include custom meta for part files.
+        if ( [ key hasPrefix:@"x-amz-meta"]) {
+            [metadata setValue:transferUtilityMultiPartUploadTask.expression.requestHeaders[key] forKey:key];
+        }
+    }
+    uploadRequest.metadata = metadata;
     
     //Initiate the multi part
     return [[self.s3 createMultipartUpload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
@@ -951,7 +960,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
             if (transferUtilityMultiPartUploadTask.temporaryFileCreated) {
                 [self removeFile:transferUtilityMultiPartUploadTask.file];
             }
-            return [AWSTask taskWithResult:self];
+            return [AWSTask taskWithError:task.error];
         }
         //Get the uploadID. This will be used with every part that we will upload.
         AWSS3CreateMultipartUploadOutput *output = task.result;
@@ -1023,6 +1032,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
     
     [transferUtilityMultiPartUploadTask.expression assignRequestHeaders:request];
     [transferUtilityMultiPartUploadTask.expression assignRequestParameters:request];
+   
     
     [[self.preSignedURLBuilder getPreSignedURL:request] continueWithSuccessBlock:^id(AWSTask *task) {
         NSURL *presignedURL = task.result;
@@ -1032,8 +1042,13 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
         [request setValue:[self.configuration.userAgent stringByAppendingString:@" MultiPart"] forHTTPHeaderField:@"User-Agent"];
         
         for (NSString *key in transferUtilityMultiPartUploadTask.expression.requestHeaders) {
+            //Do not include custom meta for part files.
+            if ( [ key hasPrefix:@"x-amz-meta"]) {
+                continue;
+            }
             [request setValue:transferUtilityMultiPartUploadTask.expression.requestHeaders[key] forHTTPHeaderField:key];
         }
+        
         
         NSURLSessionUploadTask *nsURLUploadTask = [_session uploadTaskWithRequest:request
                                                                          fromFile:[NSURL fileURLWithPath:subTask.file]];
@@ -1190,7 +1205,6 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
         
         NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithRequest:request];
         transferUtilityDownloadTask.sessionTask = downloadTask;
-        transferUtilityDownloadTask.retryCount = 0;
         
         AWSDDLogDebug(@"Setting taskIdentifier to %@", @(transferUtilityDownloadTask.sessionTask.taskIdentifier));
         
@@ -1577,7 +1591,6 @@ didCompleteWithError:(NSError *)error {
                 
                 //Error is not retriable.
                 transferUtilityMultiPartUploadTask.error = error;
-                
                 //Execute call back if provided.
                 if(transferUtilityMultiPartUploadTask.expression.completionHandler) {
                     transferUtilityMultiPartUploadTask.expression.completionHandler(transferUtilityMultiPartUploadTask,error);
@@ -2479,6 +2492,9 @@ NSString *const AWSS3TransferUtilityWaitingStatus = @"WAITING";
 
 - (void)assignRequestHeaders:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
     for (NSString *key in self.internalRequestHeaders) {
+        if ( [ key hasPrefix:@"x-amz-meta"]) {
+            continue;
+        }
         [getPreSignedURLRequest setValue:self.internalRequestHeaders[key]
                         forRequestHeader:key];
     }

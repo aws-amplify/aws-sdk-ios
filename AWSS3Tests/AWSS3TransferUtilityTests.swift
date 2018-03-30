@@ -46,8 +46,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let serviceConfiguration2 = AWSServiceManager.default().defaultServiceConfiguration
         let transferUtilityConfigurationWithRetry = AWSS3TransferUtilityConfiguration()
         transferUtilityConfigurationWithRetry.isAccelerateModeEnabled = false
-        transferUtilityConfigurationWithRetry.retryLimit = 3
-        transferUtilityConfigurationWithRetry.multiPartConcurrencyLimit = 2
+        transferUtilityConfigurationWithRetry.retryLimit = 10
+        transferUtilityConfigurationWithRetry.multiPartConcurrencyLimit = 6
         
         AWSS3TransferUtility.register(
             with: serviceConfiguration2!,
@@ -157,6 +157,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         uploadExpression.setValue("AES256", forRequestHeader: "x-amz-server-side-encryption-customer-algorithm")
         uploadExpression.setValue(password, forRequestHeader: "x-amz-server-side-encryption-customer-key")
         uploadExpression.setValue(passwordMD5, forRequestHeader: "x-amz-server-side-encryption-customer-key-MD5")
+        
         uploadExpression.progressBlock = {(task, progress) in
             print("Upload progress: ", progress.fractionCompleted)
         }
@@ -681,15 +682,47 @@ class AWSS3TransferUtilityTests: XCTestCase {
     }
     
     func testGoodFilePathUpload() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
         
         let filePath = NSTemporaryDirectory() + "testGoodFilePathUpload.tmp"
         let fileURL = URL(fileURLWithPath: filePath)
         FileManager.default.createFile(atPath: filePath, contents: "Test1234".data(using: .utf8), attributes: nil)
         
         let expression = AWSS3TransferUtilityUploadExpression()
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author");
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
         expression.progressBlock = {(task, progress) in
             print("Upload progress: ", progress.fractionCompleted)
+        }
+        
+        //Create Completion Handler
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            XCTAssertNil(error)
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testGoodFilePathUpload.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
         }
         
         transferUtility.uploadFile(fileURL,
@@ -697,17 +730,24 @@ class AWSS3TransferUtilityTests: XCTestCase {
                                        key: "testGoodFilePathUpload.txt",
                                contentType: "text/plain",
                                 expression: expression,
-                         completionHandler: nil)
+                         completionHandler: uploadCompletionHandler)
             .continueWith { (task: AWSTask<AWSS3TransferUtilityUploadTask>) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
                 return nil
             }.waitUntilFinished()
+       
+        waitForExpectations(timeout: 240) { (error) in
+            XCTAssertNil(error)
+        }
     }
     
     func testLargeFileUpload() {
         let expectation = self.expectation(description: "The completion handler called.")
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        
         //Create a large temp file;
         let filePath = NSTemporaryDirectory() + "testLargeFileUpload.tmp"
         var testData = "Test1234"
@@ -718,6 +758,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
         FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
         
         let expression = AWSS3TransferUtilityUploadExpression()
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author")
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
         expression.progressBlock = {(task, progress) in
             print("Upload progress: ", progress.fractionCompleted)
         }
@@ -725,7 +767,26 @@ class AWSS3TransferUtilityTests: XCTestCase {
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
-            expectation.fulfill()
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testLargeFileUpload.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
         }
         
         transferUtility.uploadFile(fileURL,
@@ -780,7 +841,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 refUploadTask = task.result
                 return nil
             }.waitUntilFinished()
-       sleep(2)
+        sleep(2)
         refUploadTask?.cancel()
     }
     
@@ -796,7 +857,11 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let fileURL = URL(fileURLWithPath: filePath)
         FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
         
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
         let expression = AWSS3TransferUtilityUploadExpression()
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author");
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
         expression.progressBlock = {(task, progress) in
             print("Upload progress: ", progress.fractionCompleted)
         }
@@ -804,10 +869,30 @@ class AWSS3TransferUtilityTests: XCTestCase {
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
-            expectation.fulfill()
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testSuspendResumeLargeFileUpload.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
         }
-        var refUploadTask: AWSS3TransferUtilityUploadTask?
         
+        var refUploadTask: AWSS3TransferUtilityUploadTask?
         transferUtility.uploadFile(fileURL,
                                    bucket: "ios-v2-s3.periods",
                                    key: "testSuspendResumeLargeFileUpload.txt",
@@ -844,7 +929,11 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let fileURL = URL(fileURLWithPath: filePath)
         FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
         
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
         let expression = AWSS3TransferUtilityUploadExpression()
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author");
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
         expression.progressBlock = {(task, progress) in
             print("Upload progress: ", progress.fractionCompleted)
         }
@@ -852,7 +941,26 @@ class AWSS3TransferUtilityTests: XCTestCase {
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
-            expectation.fulfill()
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testSuspendResumeLargeFileUploadLongDelay.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
         }
         var refUploadTask: AWSS3TransferUtilityUploadTask?
         
@@ -880,9 +988,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
     }
     
     func testGoodFilePathUploadDefaultBucket() {
+        let expectation = self.expectation(description: "The file was uploaded.")
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
-        
-        
         let transferUtilityCongiguration = AWSS3TransferUtilityConfiguration()
         transferUtilityCongiguration.bucket = "ios-v2-s3.periods"
         AWSS3TransferUtility.register(with: transferUtility.configuration,
@@ -894,36 +1001,114 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let fileURL = URL(fileURLWithPath: filePath)
         FileManager.default.createFile(atPath: filePath, contents: "Test".data(using: .utf8), attributes: nil)
         
+        let expression = AWSS3TransferUtilityUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author");
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
+        //Create Completion Handler
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            XCTAssertNil(error)
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testGoodFilePathUpload.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
+        }
         customTransferUtility.uploadFile(fileURL,
                                    key: "testGoodFilePathUpload.txt",
                                    contentType: "text/plain",
-                                   expression: nil,
-                                   completionHandler: nil)
+                                   expression: expression,
+                                   completionHandler: uploadCompletionHandler)
             .continueWith { (task: AWSTask<AWSS3TransferUtilityUploadTask>) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
                 return nil
             }.waitUntilFinished()
+        
+        waitForExpectations(timeout: 240) { (error) in
+            XCTAssertNil(error)
+        }
+        
     }
 
     func testGoodFilePathWithSpacesUpload() {
+        let expectation = self.expectation(description: "The file was uploaded.")
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
 
         let filePath = NSTemporaryDirectory() + "test Good File Path Upload.tmp"
         let fileURL = URL(fileURLWithPath: filePath)
         FileManager.default.createFile(atPath: filePath, contents: "Test".data(using: .utf8), attributes: nil)
 
+        let expression = AWSS3TransferUtilityUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author");
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
+        //Create Completion Handler
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            XCTAssertNil(error)
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "test-spaces-Good-spaces-File-spaces-Path-spaces-Upload.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                expectation.fulfill()
+                return nil
+            })
+        }
+        
         transferUtility.uploadFile(fileURL,
                                    bucket: "ios-v2-s3.periods",
                                    key: "test-spaces-Good-spaces-File-spaces-Path-spaces-Upload.txt",
                                    contentType: "text/plain",
-                                   expression: nil,
-                                   completionHandler: nil)
+                                   expression: expression,
+                                   completionHandler: uploadCompletionHandler)
             .continueWith { (task: AWSTask<AWSS3TransferUtilityUploadTask>) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
                 return nil
             }.waitUntilFinished()
+        
+        waitForExpectations(timeout: 30) { (error) in
+            XCTAssertNil(error)
+        }
     }
     
     func testMultiPartUploadSmallFile() {
@@ -934,16 +1119,47 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let fileURL = URL(fileURLWithPath: filePath)
         FileManager.default.createFile(atPath: filePath, contents: "This is a test".data(using: .utf8), attributes: nil)
         
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author")
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
+        //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
-            expectation.fulfill()
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testMultiPartUploadSmallFile.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
+            
         }
     
         transferUtility.uploadUsingMultiPart(fileURL:fileURL,
                                                  bucket: "ios-v2-s3.periods",
                                                  key: "testMultiPartUploadSmallFile.txt",
                                                  contentType: "text/plain",
-                                                 expression: nil,
+                                                 expression: expression,
                                                  completionHandler: uploadCompletionHandler)
             .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
                                                     XCTAssertNil(task.error)
@@ -968,15 +1184,40 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         let expectation = self.expectation(description: "The completion handler called.")
         
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author")
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
-            expectation.fulfill()
-        }
-        
-        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testMultiPartUploadLargeFile.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
+            
         }
         
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
@@ -1008,15 +1249,40 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         let expectation = self.expectation(description: "The completion handler called.")
         
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author")
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
-            expectation.fulfill()
-        }
-        
-        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testMultiPartSinglePartEdgeCase.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
+            
         }
         
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
@@ -1048,15 +1314,40 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         let expectation = self.expectation(description: "The completion handler called.")
         
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author")
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
-            expectation.fulfill()
-        }
-        
-        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testMultiPartEdgeCase.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
+            
         }
         
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
@@ -1123,15 +1414,40 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         let expectation = self.expectation(description: "The completion handler called.")
         
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author")
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
-            expectation.fulfill()
-        }
-        
-        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testSuspendResumeMultipartUpload.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
+            
         }
         
         var refUploadTask: AWSS3TransferUtilityMultiPartUploadTask?
@@ -1170,15 +1486,40 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         let expectation = self.expectation(description: "The completion handler called.")
         
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author")
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
         //Create Completion Handler
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
             XCTAssertNil(error)
-            expectation.fulfill()
-        }
-        
-        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testPauseResumeUploadLongDelay.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if ( task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+                
+                expectation.fulfill()
+                return nil
+            })
+            
         }
         
         var refUploadTask: AWSS3TransferUtilityMultiPartUploadTask?
@@ -1247,5 +1588,133 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
         }
     }
+
+    func testUploadAndDownloadDataWithCustomMetaData() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
+        let uploadExpression = AWSS3TransferUtilityUploadExpression()
+        uploadExpression.setValue(author, forRequestHeader: "x-amz-meta-author");
+        uploadExpression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
+        
+        
+        uploadExpression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            XCTAssertNil(error)
+            if let HTTPResponse = task.response {
+                XCTAssertEqual(HTTPResponse.statusCode, 200)
+                
+                //Get Meta Data and verify that it has been updated
+                let s3 = AWSS3.default()
+                let headObjectRequest = AWSS3HeadObjectRequest()
+                headObjectRequest?.bucket = "ios-v2-s3.periods"
+                headObjectRequest?.key = "testUploadAndDownloadDataWithCustomMetaData"
+                
+                s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                    XCTAssertNil(task.error)
+                    XCTAssertNotNil(task.result)
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata!["author"])
+                    XCTAssertEqual(uuid, output.metadata!["id"])
+                    
+                    print(output.metadata!)
+                    expectation.fulfill()
+                    return nil
+                })
+            } else {
+                XCTFail()
+            }
+        }
+        
+        transferUtility.uploadData(
+            testData,
+            bucket: "ios-v2-s3.periods",
+            key: "testUploadAndDownloadDataWithCustomMetaData",
+            contentType: "text/plain",
+            expression: uploadExpression,
+            completionHandler: uploadCompletionHandler
+            ).continueWith (block: { (task) -> AnyObject? in
+                XCTAssertNil(task.error)
+                
+                return nil
+            })
+        
+        waitForExpectations(timeout: 30) { (error) in
+            XCTAssertNil(error)
+        }
+    }
     
+    func testMultiPartUploadLargeFileWithCustomMetaData() {
+        let expectation = self.expectation(description: "The file was uploaded.")
+        
+        //Create a large temp file;
+        let filePath = NSTemporaryDirectory() + "testMultiPartUploadLargeFileWithCustomMetaData.tmp"
+        var testData = "Test123456789"
+        for _ in 1...21 {
+            testData = testData + testData;
+        }
+        let fileURL = URL(fileURLWithPath: filePath)
+        FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
+        
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author")
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
+        //Create Completion Handler
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
+            XCTAssertNil(error)
+            
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testMultiPartUploadLargeFileWithCustomMetaData.txt"
+            
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                let output:(AWSS3HeadObjectOutput) = task.result!
+                XCTAssertNotNil(output)
+                XCTAssertNotNil(output.metadata)
+                XCTAssertEqual(author, output.metadata!["author"])
+                XCTAssertEqual(uuid, output.metadata!["id"])
+                
+                expectation.fulfill()
+                return nil
+            })
+            
+        }
+        
+       
+        
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
+        transferUtility.uploadUsingMultiPart(fileURL: fileURL, bucket: "ios-v2-s3.periods",
+                                             key: "testMultiPartUploadLargeFileWithCustomMetaData.txt",
+                                             contentType: "text/plain",
+                                             expression: expression,
+                                             completionHandler: uploadCompletionHandler)
+            .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                return nil
+            }.waitUntilFinished()
+        
+        waitForExpectations(timeout: 240) { (error) in
+            XCTAssertNil(error)
+        }
+    }
 }
+
+

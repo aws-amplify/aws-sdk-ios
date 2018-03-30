@@ -191,15 +191,17 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
     return DEFAULT_SESSION_ID;
 }
 
-- (AWSTask<AWSPinpointEvent *> *) saveEvent:(AWSPinpointEvent *) event {
-    AWSDDLogVerbose(@"saveEvent: [%@]", event.toDictionary);
+- (AWSTask<AWSPinpointEvent *> *) saveEvent:(AWSPinpointEvent *) eventToSave {
+    
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     NSTimeInterval diskAgeLimit = self.diskAgeLimit;
     NSString *databasePath = self.databasePath;
     NSUInteger notificationByteThreshold = self.notificationByteThreshold;
     NSUInteger diskByteLimit = self.diskByteLimit;
     __weak id notificationSender = self;
-    event.session = [self validateOrRetrieveSession:event.session];
+    eventToSave.session = [self validateOrRetrieveSession:eventToSave.session];
+    __block AWSPinpointEvent *event = [eventToSave copy];
+    AWSDDLogVerbose(@"saveEvent: [%@]", event.toDictionary);
     
     return [[AWSTask taskWithResult:nil] continueWithExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
         // Inserts a new record to the database.

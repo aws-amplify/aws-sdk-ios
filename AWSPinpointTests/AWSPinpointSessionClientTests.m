@@ -251,11 +251,11 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
         XCTAssertTrue([pauseEvent.eventType isEqualToString:@"_session.pause"]);
         XCTAssertTrue(pauseEvent.eventTimestamp > 0);
         XCTAssertNotNil(pauseEvent.allAttributes);
-        XCTAssertEqual([startEvent.allAttributes count], 0);
-        XCTAssertNotNil(startEvent.session);
-        XCTAssertNotNil(startEvent.session.sessionId);
-        XCTAssertNotNil(startEvent.session.startTime);
-        XCTAssertNotNil(startEvent.session.stopTime);
+        XCTAssertEqual([pauseEvent.allAttributes count], 0);
+        XCTAssertNotNil(pauseEvent.session);
+        XCTAssertNotNil(pauseEvent.session.sessionId);
+        XCTAssertNotNil(pauseEvent.session.startTime);
+        XCTAssertNotNil(pauseEvent.session.stopTime);
         XCTAssertNotNil(pauseEvent.allMetrics);
         XCTAssertEqual([pauseEvent.allMetrics count], 0);
         return nil;

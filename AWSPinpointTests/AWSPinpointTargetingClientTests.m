@@ -18,6 +18,7 @@
 #import "AWSPinpoint.h"
 #import "OCMock.h"
 #import "AWSPinpointContext.h"
+#import "AWSPinpointEndpointProfile.h"
 
 NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpointAnalyticsClientErrorDomain";
 
@@ -129,6 +130,40 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
     @catch (NSException *exception) {
         XCTAssertEqualObjects(exception.name, NSInternalInconsistencyException);
     }
+}
+
+- (void)testEndpointProfileInformationPersistence {
+    NSString *userId = @"UserId";
+    NSString *dummyAppId = @"dummyAppId";
+    [self.pinpoint.configuration.userDefaults removeObjectForKey:@"AWSPinpointEndpointProfileKey"];
+    [self.pinpoint.configuration.userDefaults synchronize];
+    AWSPinpointEndpointProfile *endpointProfile = [self.pinpoint.targetingClient currentEndpointProfile];
+    endpointProfile.user.userId = userId;
+    [[[self.pinpoint.targetingClient updateEndpointProfile:endpointProfile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        return nil;
+    }] waitUntilFinished];
+    XCTAssertNotNil([self.pinpoint.configuration.userDefaults objectForKey:@"AWSPinpointEndpointProfileKey"]);
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertTrue([profile.user.userId isEqualToString:userId]);
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:self.configuration];
+    profile = [pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertTrue([profile.user.userId isEqualToString:userId]);
+    XCTAssertNotNil(profile.location);
+    XCTAssertNotNil(profile.demographic);
+    XCTAssertNotNil(profile.user);
+    XCTAssertNotNil(profile.demographic.make);
+    XCTAssertNotNil(profile.demographic.model);
+    XCTAssertNotNil(profile.demographic.timezone);
+    XCTAssertNotNil(profile.demographic.locale);
+    XCTAssertNotNil(profile.demographic.appVersion);
+    XCTAssertNotNil(profile.demographic.platform);
+    XCTAssertNotNil(profile.demographic.platformVersion);
+    AWSPinpointConfiguration *configuration = [[AWSPinpointConfiguration alloc] initWithAppId:dummyAppId launchOptions:nil];
+    configuration.userDefaults = self.userDefaults;
+    pinpoint = [AWSPinpoint pinpointWithConfiguration:configuration];
+    profile = [pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertFalse([profile.user.userId isEqualToString:userId]);
 }
 
 - (void)testCurrentProfileWithSystemOptOutAndApplicationOptOut {
@@ -273,6 +308,30 @@ NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpo
         
         return nil;
     }] waitUntilFinished];
+
+}
+
+- (void)testUpdateEndpointProfileWithProfile {
+    NSString *userId = @"TestUserId";
+    AWSPinpointEndpointProfile *endpointProfile = [self.pinpoint.targetingClient currentEndpointProfile];
+    endpointProfile.user.userId = userId;
+    [[[self.pinpoint.targetingClient updateEndpointProfile:endpointProfile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        return nil;
+    }] waitUntilFinished];
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertTrue([profile.user.userId isEqualToString:userId]);
+    XCTAssertNotNil(profile.location);
+    XCTAssertNotNil(profile.demographic);
+    XCTAssertNotNil(profile.user);
+    XCTAssertNotNil(profile.demographic.make);
+    XCTAssertNotNil(profile.demographic.model);
+    XCTAssertNotNil(profile.demographic.timezone);
+    XCTAssertNotNil(profile.demographic.locale);
+    XCTAssertNotNil(profile.demographic.appVersion);
+    XCTAssertNotNil(profile.demographic.platform);
+    XCTAssertNotNil(profile.demographic.platformVersion);
+    
 }
 
 - (void) testGlobalAttribute {

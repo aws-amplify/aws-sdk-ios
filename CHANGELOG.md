@@ -1,4 +1,19 @@
+
 # AWS Mobile SDK for iOS CHANGELOG
+
+## 2.6.14
+
+### Bug Fixes
+
+* **AWS AuthUI**
+  * Fixed a bug which would hide the input fields when keyboard shows. The view now moves towards the top when keyboard appears. See [issue#835](https://github.com/aws/aws-sdk-ios/issues/835)
+
+* **Amazon S3**
+  * Fixed bug to handle custom metadata in multipart uploads. See [issue#858](https://github.com/aws/aws-sdk-ios/issues/858)
+
+* **Amazon Pinpoint**
+  * Prevent Crash in endCurrentSessionTimeoutWithTimer [issue#826](https://github.com/aws/aws-sdk-ios/issues/826)
+  * Fixed an issue in which updating the userId in the AWSPinpointEndpointProfileUser is not reflected when retrieving the currentEndpointProfile from the AWSPinpointTargetingClient.
 
 ## 2.6.13
 

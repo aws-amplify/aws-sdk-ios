@@ -165,6 +165,18 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     }
 }
 
+- (void) removeAllAttributes {
+    @synchronized (self) {
+        self.attributes = [NSMutableDictionary new];
+    }
+}
+
+- (void) removeAllMetrics {
+    @synchronized (self) {
+        self.metrics = [NSMutableDictionary new];
+    }
+}
+
 - (NSArray *)attributeForKey:(NSString *)theKey {
     @synchronized(self.attributes) {
         return [self.attributes objectForKey:theKey];
@@ -277,6 +289,39 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     return dictionary;
 }
 
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        _applicationId = [decoder decodeObjectForKey:@"applicationId"];
+        _endpointId = [decoder decodeObjectForKey:@"endpointId"];
+        _channelType = [decoder decodeObjectForKey:@"channelType"];
+        _address = [decoder decodeObjectForKey:@"address"];
+        _location = [decoder decodeObjectForKey:@"location"];
+        _demographic = [decoder decodeObjectForKey:@"demographic"];
+        _attributes = [decoder decodeObjectForKey:@"attributes"];
+        _metrics = [decoder decodeObjectForKey:@"metrics"];
+        _user = [decoder decodeObjectForKey:@"user"];
+        _effectiveDate = [decoder decodeInt64ForKey:@"effectiveDate"];
+        _optOut = [decoder decodeObjectForKey:@"optOut"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_applicationId forKey:@"applicationId"];
+    [encoder encodeObject:_endpointId forKey:@"endpointId"];
+    [encoder encodeObject:_channelType forKey:@"channelType"];
+    [encoder encodeObject:_address forKey:@"address"];
+    [encoder encodeObject:_location forKey:@"location"];
+    [encoder encodeObject:_demographic forKey:@"demographic"];
+    [encoder encodeObject:_attributes forKey:@"attributes"];
+    [encoder encodeObject:_metrics forKey:@"metrics"];
+    [encoder encodeObject:_user forKey:@"user"];
+    [encoder encodeInt64:_effectiveDate forKey:@"effectiveDate"];
+    [encoder encodeObject:_optOut forKey:@"optOut"];
+
+}
+
 @end
 
 
@@ -327,6 +372,27 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
             [self quotedString:self.platformVersion]];
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        _model = [decoder decodeObjectForKey:@"model"];
+        _timezone = [decoder decodeObjectForKey:@"timezone"];
+        _locale = [decoder decodeObjectForKey:@"locale"];
+        _appVersion = [decoder decodeObjectForKey:@"appVersion"];
+        _platform = [decoder decodeObjectForKey:@"platform"];
+        _platformVersion = [decoder decodeObjectForKey:@"platformVersion"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_model forKey:@"model"];
+    [encoder encodeObject:_timezone forKey:@"timezone"];
+    [encoder encodeObject:_locale forKey:@"locale"];
+    [encoder encodeObject:_appVersion forKey:@"appVersion"];
+    [encoder encodeObject:_platform forKey:@"platform"];
+    [encoder encodeObject:_platformVersion forKey:@"platformVersion"];
+}
+
 @end
 
 #pragma mark - AWSPinpointEndpointProfileLocation
@@ -352,6 +418,27 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
             [self quotedString:self.country]];
 }
 
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        _latitude = [decoder decodeObjectForKey:@"latitude"];
+        _longitude = [decoder decodeObjectForKey:@"longitude"];
+        _postalCode = [decoder decodeObjectForKey:@"postalCode"];
+        _city = [decoder decodeObjectForKey:@"city"];
+        _region = [decoder decodeObjectForKey:@"region"];
+        _country = [decoder decodeObjectForKey:@"country"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_latitude forKey:@"latitude"];
+    [encoder encodeObject:_longitude forKey:@"longitude"];
+    [encoder encodeObject:_postalCode forKey:@"postalCode"];
+    [encoder encodeObject:_city forKey:@"city"];
+    [encoder encodeObject:_region forKey:@"region"];
+    [encoder encodeObject:_country forKey:@"country"];
+}
+
 @end
 
 #pragma mark - AWSPinpointEndpointProfileUser
@@ -366,6 +453,17 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
             @"{"
             "\"UserId\" : %@}",
             [self quotedString:self.userId]];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        _userId = [decoder decodeObjectForKey:@"userId"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_userId forKey:@"userId"];
 }
 
 @end

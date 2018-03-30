@@ -25,6 +25,7 @@
 
 #define DEFAULT_BACKGROUND_COLOR_TOP [UIColor darkGrayColor]
 #define DEFAULT_BACKGROUND_COLOR_BOTTOM [UIColor whiteColor]
+#define NAVIGATION_BAR_HEIGHT 64
 
 static NSString *const RESOURCES_BUNDLE = @"AWSAuthUI.bundle";
 static NSString *const SMALL_IMAGE_NAME = @"logo-aws-small";
@@ -102,9 +103,23 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 #pragma mark - UIViewController
 
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    CGSize size = ((NSValue *)[[notification userInfo]
+                               valueForKey:UIKeyboardFrameBeginUserInfoKey]).CGRectValue.size;
+    
+    [self.view setFrame:CGRectMake(0, -NAVIGATION_BAR_HEIGHT - size.height, self.view.frame.size.width, self.view.frame.size.height)];
+}
+
+- (void)keyboardDidHide:(NSNotification *)notification {
+    [self.view setFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT ,self.view.frame.size.width,self.view.frame.size.height)];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     AWSDDLogDebug(@"Sign-In Loading...");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
     // set up the navigation controller
     [self setUpNavigationController];
