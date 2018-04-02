@@ -45,6 +45,14 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 	}];
 }
 
++ (NSValueTransformer *)transformFloat {
+	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+		return [NSNumber numberWithFloat:[value floatValue]];
+	} reverseBlock:^NSString* (NSNumber *number) {
+		return [number stringValue];
+	}];
+}
+
 + (NSValueTransformer*)transformWith:(NSArray*)strings {
 	return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
 		NSUInteger index = [strings indexOfObject:value];
@@ -283,7 +291,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 	};
 }
 
-+ (NSValueTransformer *)resultJSONTransformer {
++ (NSValueTransformer *)resultsJSONTransformer {
 	return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeTranscriptResults class]];
 }
 
@@ -309,7 +317,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 }
 
 + (NSValueTransformer *)transcriptsJSONTransformer {
-	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeTranscriptResultsTranscripts class]];
+	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeTranscriptResultsTranscript class]];
 }
 
 @end
@@ -321,14 +329,22 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
 		@"alternatives" : @"alternatives",
-		@"startTime" : @"startTime",
-		@"endTime" : @"endTime",
+		@"startTime" : @"start_time",
+		@"endTime" : @"end_time",
 		@"type" : @"type",
 	};
 }
 
 + (NSValueTransformer *)alternativesJSONTransformer {
 	return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeTranscriptResultsItemAlternative class]];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+	return [AWSModel transformFloat];
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+	return [AWSModel transformFloat];
 }
 
 + (NSValueTransformer *)typeJSONTransformer {
@@ -348,11 +364,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 	};
 }
 
++ (NSValueTransformer *)confidenceJSONTransformer {
+	return [AWSModel transformFloat];
+}
+
+
 @end
 
 //------------------------------------------------------------------------------
 
-@implementation AWSTranscribeTranscriptResultsTranscripts
+@implementation AWSTranscribeTranscriptResultsTranscript
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

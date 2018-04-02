@@ -121,4 +121,84 @@ static id mockNetworking = nil;
 	XCTAssertNotNil(output);
 }
 
+- (void)testTranscribeTranscript {
+	NSString* jobName = @"job0001";
+	NSString* accountId = @"accountId0001";
+	NSString* aTranscript = @"Transcript goes here.";
+	NSArray* transcriptWords = [aTranscript componentsSeparatedByString:@" "];
+	NSDictionary* outputDict = @{
+		@"jobName": jobName,
+		@"accountId": accountId,
+		@"results": @{
+			@"transcripts": @[
+				@{
+					@"transcript": aTranscript
+				}
+			],
+			@"items": @[
+				 @ {
+					  @"start_time": @"0.000",
+					  @"end_time": @"0.190",
+					  @"alternatives": @[
+							   @{
+								   @"confidence": @"0.9961",
+								   @"content": @"Transcript"
+							   }
+					   ],
+					  @"type": @"pronunciation"
+				},
+				@{
+					@"start_time": @"0.190",
+					@"end_time": @"0.360",
+					@"alternatives": @[
+						@{
+							@"confidence": @"1.0000",
+							@"content": @"goes"
+						}
+					],
+					@"type": @"pronunciation"
+				},
+				@{
+					@"start_time": @"0.360",
+					@"end_time": @"0.550",
+					@"alternatives": @[
+						@{
+							@"confidence": @"1.0000",
+							@"content": @"here"
+						}
+					],
+					@"type": @"pronunciation"
+				}
+			]
+		},
+		@"status": @"COMPLETED"
+	};
+	AWSTranscribeTranscriptResultsItem* item0 = [AWSTranscribeTranscriptResultsItem new];
+	item0.startTime = [NSNumber numberWithFloat:0.0];
+	item0.endTime = [NSNumber numberWithFloat:0.190];
+
+	NSError* error;
+	AWSTranscribeTranscript *output = [AWSMTLJSONAdapter modelOfClass:AWSTranscribeTranscript.class
+																  fromJSONDictionary:outputDict
+																			   error:&error];
+	XCTAssertNil(error);
+	XCTAssertNotNil(output);
+	XCTAssertEqual(output.jobName, jobName);
+	XCTAssertEqual(output.accountId, accountId);
+	XCTAssertEqual(output.results.transcripts.count, 1);
+	XCTAssertEqual(output.results.items.count, 3);
+	XCTAssertEqual(output.status, AWSTranscribeJobStatusCompleted);
+
+	AWSTranscribeTranscriptResultsTranscript* outTranscript = output.results.transcripts[0];
+	XCTAssertEqual(outTranscript.transcript, aTranscript);
+
+	AWSTranscribeTranscriptResultsItem* outItem0 = output.results.items[0];
+	XCTAssertEqual(outItem0.type, AWSTranscribeTranscriptItemTypePronunciation);
+	XCTAssertTrue([outItem0.startTime isEqualToNumber:item0.startTime]);
+	XCTAssertTrue([outItem0.endTime isEqualToNumber:item0.endTime]);
+	XCTAssertEqual(outItem0.alternatives.count, 1);
+	AWSTranscribeTranscriptResultsItemAlternative* alt0 = outItem0.alternatives[0];
+	XCTAssertTrue([alt0.content isEqualToString:transcriptWords[0]]);
+}
+
 @end

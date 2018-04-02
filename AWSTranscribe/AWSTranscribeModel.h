@@ -35,7 +35,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeErrorDomain;
 @class AWSTranscribeTranscriptResults;
 @class AWSTranscribeTranscriptResultsItem;
 @class AWSTranscribeTranscriptResultsItemAlternative;
-@class AWSTranscribeTranscriptResultsTranscripts;
+@class AWSTranscribeTranscriptResultsTranscript;
 
 //------------------------------------------------------------------------------
 
@@ -512,7 +512,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeError) {
 @property (nonatomic, strong) NSArray* _Nullable items;
 
 /**
- An array of `AWSTranscribeTranscriptResultsTranscripts` that contain
+ An array of `AWSTranscribeTranscriptResultsTranscript` that contain
  the transcribed texts.
  */
 @property (nonatomic, strong) NSArray* _Nullable transcripts;
@@ -573,7 +573,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeError) {
 /**
  Describes the output of a transcription job.
  */
-@interface AWSTranscribeTranscriptResultsTranscripts : AWSModel
+@interface AWSTranscribeTranscriptResultsTranscript : AWSModel
 
 /**
  The transcipt.
