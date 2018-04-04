@@ -14,7 +14,7 @@
 //
 
 #import "AWSS3RequestRetryHandler.h"
-#import "AWSService.h"
+#import <AWSCore/AWSService.h>
 
 @implementation AWSS3RequestRetryHandler
 
