@@ -143,9 +143,9 @@
                                   AWSCognitoTableRecordKeyName];
         
         char *error;
-        if(sqlite3_exec(_sqlite, [createString UTF8String], NULL, NULL, &error) != SQLITE_OK)
+        if(sqlite3_exec(self->_sqlite, [createString UTF8String], NULL, NULL, &error) != SQLITE_OK)
         {
-            sqlite3_close(_sqlite);
+            sqlite3_close(self->_sqlite);
             AWSDDLogInfo(@"SQLite setup failed: %s", error);
             
             return;
@@ -172,9 +172,9 @@
                                    AWSCognitoRecordCountFieldName,
                                    AWSCognitoTableIdentityKeyName,
                                    AWSCognitoTableDatasetKeyName ];
-        if(sqlite3_exec(_sqlite, [createString2 UTF8String], NULL, NULL, &error) != SQLITE_OK)
+        if(sqlite3_exec(self->_sqlite, [createString2 UTF8String], NULL, NULL, &error) != SQLITE_OK)
         {
-            sqlite3_close(_sqlite);
+            sqlite3_close(self->_sqlite);
             AWSDDLogInfo(@"SQLite setup failed: %s", error);
             
             return;
