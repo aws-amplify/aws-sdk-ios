@@ -524,7 +524,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
                         if ( uploadTask.temporaryFileCreated) {
                             [self removeFile:uploadTask.file];
                         }
-                        [self deleteTransferRequestFromDB:uploadTask.transferID databaseQueue:_databaseQueue];
+                        [self deleteTransferRequestFromDB:uploadTask.transferID databaseQueue:self->_databaseQueue];
                         if(uploadTask.expression.completionHandler) {
                             uploadTask.expression.completionHandler(uploadTask,nil);
                         }
@@ -782,7 +782,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
         [self.taskDictionary setObject:transferUtilityUploadTask forKey:@(transferUtilityUploadTask.sessionTask.taskIdentifier) ];
         
         //Add to Database
-        [self insertUploadTransferRequestInDB:transferUtilityUploadTask databaseQueue:_databaseQueue];
+        [self insertUploadTransferRequestInDB:transferUtilityUploadTask databaseQueue:self->_databaseQueue];
         [uploadTask resume];
         return [AWSTask taskWithResult:transferUtilityUploadTask];
     }];
@@ -967,7 +967,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
         transferUtilityMultiPartUploadTask.uploadID = output.uploadId;
         
         //Save the Multipart Upload in the DB
-        [self insertMultiPartUploadRequestInDB:transferUtilityMultiPartUploadTask databaseQueue:_databaseQueue];
+        [self insertMultiPartUploadRequestInDB:transferUtilityMultiPartUploadTask databaseQueue:self->_databaseQueue];
         
         AWSDDLogInfo(@"Initiated multipart upload on server: %@", output.uploadId);
         AWSDDLogInfo(@"Concurrency Limit is %@", self.transferUtilityConfiguration.multiPartConcurrencyLimit);
@@ -1050,7 +1050,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
         }
         
         
-        NSURLSessionUploadTask *nsURLUploadTask = [_session uploadTaskWithRequest:request
+        NSURLSessionUploadTask *nsURLUploadTask = [self->_session uploadTaskWithRequest:request
                                                                          fromFile:[NSURL fileURLWithPath:subTask.file]];
         //Create subtask to track this upload
         subTask.sessionTask = nsURLUploadTask;
@@ -1067,7 +1067,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
         }
         
         //Also register transferUtilityMultiPartUploadTask into the taskDictionary for easy lookup in the NSURLCallback
-        [_taskDictionary setObject:transferUtilityMultiPartUploadTask forKey:@(subTask.taskIdentifier)];
+        [self->_taskDictionary setObject:transferUtilityMultiPartUploadTask forKey:@(subTask.taskIdentifier)];
         
         //Save in Database
         [self insertMultiPartUploadRequestSubTaskInDB:transferUtilityMultiPartUploadTask subTask:subTask databaseQueue:self.databaseQueue];
@@ -1212,7 +1212,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
         [self.taskDictionary setObject:transferUtilityDownloadTask forKey:@(transferUtilityDownloadTask.sessionTask.taskIdentifier) ];
         
         //Add to Database
-        [self insertDownloadTransferRequestInDB:transferUtilityDownloadTask databaseQueue:_databaseQueue];
+        [self insertDownloadTransferRequestInDB:transferUtilityDownloadTask databaseQueue:self->_databaseQueue];
         [downloadTask resume];
         return [AWSTask taskWithResult:transferUtilityDownloadTask];
     }];
@@ -1649,7 +1649,7 @@ didCompleteWithError:(NSError *)error {
                     
                     AWSDDLogInfo(@"Completed Multipart Transfer: %@", transferUtilityMultiPartUploadTask.uploadID);
                     [self.taskDictionary removeObjectForKey:@(subTask.taskIdentifier)];
-                    [self deleteTransferRequestFromDB:transferUtilityMultiPartUploadTask.transferID databaseQueue:_databaseQueue];
+                    [self deleteTransferRequestFromDB:transferUtilityMultiPartUploadTask.transferID databaseQueue:self->_databaseQueue];
                     return nil;
                 }];
             }

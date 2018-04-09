@@ -565,7 +565,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [self dispatchBlockOnMainQueue:^{
         if(weakSelf.microphoneDelegate && [weakSelf.microphoneDelegate respondsToSelector:@selector(interactionKitOnRecordingEnd:audioStream:contentType:)]) {
             //TODO: need to decode the audio to something thats understandable by the audio player.
-            [weakSelf.microphoneDelegate interactionKitOnRecordingEnd:weakSelf audioStream:[producerAudioBuffer copy] contentType:[audioSource contentType]];
+            [weakSelf.microphoneDelegate interactionKitOnRecordingEnd:weakSelf audioStream:[self->producerAudioBuffer copy] contentType:[self->audioSource contentType]];
         }
     }];
 }
@@ -740,15 +740,15 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             [self handleError:task.error];
             return nil;
         }else{
-            return [_serviceClient postContent:request];
+            return [self->_serviceClient postContent:request];
         }
     }] continueWithBlock:^id _Nullable(AWSTask<AWSLexPostContentResponse *> * _Nonnull task) {
-        isStreaming = NO;
+        self->isStreaming = NO;
         self.resumeListening = NO;
         
         [self releaseAudioSource];
         
-        postRequest = nil;
+        self->postRequest = nil;
         
         if(task.error){
             [self handleError:task.error];
@@ -940,7 +940,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         };
         
         [self dispatchBlockOnMainQueue:^{
-            [audioPlayer start];
+            [self->audioPlayer start];
         }];
     }
 }
