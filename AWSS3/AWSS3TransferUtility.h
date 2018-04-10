@@ -13,7 +13,10 @@
 // permissions and limitations under the License.
 //
 
+#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
+#endif
+
 #import <AWSCore/AWSCore.h>
 
 #import "AWSS3Service.h"
@@ -288,10 +291,16 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  @param identifier        The identifier of the URL session requiring attention.
  @param completionHandler The completion handler to call when you finish processing the events.
  */
+#if TARGET_OS_IOS
 + (void)interceptApplication:(UIApplication *)application
 handleEventsForBackgroundURLSession:(NSString *)identifier
            completionHandler:(void (^)(void))completionHandler;
-
+#endif
+#if TARGET_OS_OSX
++ (void)interceptApplication:(NSApplication *)application
+handleEventsForBackgroundURLSession:(NSString *)identifier
+		   completionHandler:(void (^)(void))completionHandler;
+#endif
 
 /**
  Saves the `NSData` to a temporary directory and uploads it to the configured Amazon S3 bucket in `AWSS3TransferUtilityConfiguration`.
