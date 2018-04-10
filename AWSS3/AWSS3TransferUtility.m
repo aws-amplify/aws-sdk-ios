@@ -37,7 +37,6 @@ static NSUInteger const AWSS3TransferUtilityMultiPartSize = 5 * 1024 * 1024;
 static NSString *const AWSS3TransferUtiltityRequestTimeoutErrorCode = @"RequestTimeout";
 static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 
-
 #pragma mark - Private classes
 
 @interface AWSS3TransferUtilityUploadSubTask: NSObject
@@ -149,7 +148,6 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property (strong, nonatomic) NSMutableDictionary<NSString *, NSString *> *internalRequestHeaders;
 @property (strong, nonatomic) NSMutableDictionary<NSString *, NSString *> *internalRequestParameters;
 - (void)assignRequestParameters:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest;
-- (void)assignRequestHeaders:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest;
 @property (copy, atomic) AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock completionHandler;
 
 @end
@@ -178,6 +176,15 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @interface AWSS3GetPreSignedURLRequest()
 @property NSString *uploadID;
 @property NSNumber *partNumber;
+@end
+
+@interface AWSS3CreateMultipartUploadRequest()
++ (NSValueTransformer *)ACLJSONTransformer;
++ (NSValueTransformer *)storageClassJSONTransformer;
++ (NSValueTransformer *)serverSideEncryptionJSONTransformer;
++ (NSValueTransformer *)requestPayerJSONTransformer;
++ (NSValueTransformer *)expiresJSONTransformer;
+
 @end
 
 #pragma mark - AWSS3TransferUtility
@@ -904,7 +911,12 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
     if (!expression) {
         expression = [AWSS3TransferUtilityMultiPartUploadExpression new];
     }
-    [expression setValue:contentType forRequestHeader:@"Content-Type"];
+    
+    //Override the content type value set in the expression object with the passed in parameter value. 
+    if ( contentType ) {
+      [expression setValue:contentType forRequestHeader:@"Content-Type"];
+    }
+    
     expression.completionHandler = completionHandler;
     
     //Create TransferUtility Multipart Upload Task
@@ -942,16 +954,8 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
     AWSS3CreateMultipartUploadRequest *uploadRequest = [AWSS3CreateMultipartUploadRequest new];
     uploadRequest.bucket = bucket;
     uploadRequest.key = key;
-  
-    //Add any custom metadata
-    NSMutableDictionary<NSString *, NSString *> *metadata = [NSMutableDictionary new];
-    for (NSString *key in transferUtilityMultiPartUploadTask.expression.requestHeaders) {
-        //Do not include custom meta for part files.
-        if ( [ key hasPrefix:@"x-amz-meta"]) {
-            [metadata setValue:transferUtilityMultiPartUploadTask.expression.requestHeaders[key] forKey:key];
-        }
-    }
-    uploadRequest.metadata = metadata;
+
+    [self propagateHeaderInformation:uploadRequest expression:transferUtilityMultiPartUploadTask.expression];
     
     //Initiate the multi part
     return [[self.s3 createMultipartUpload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
@@ -1014,6 +1018,103 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
     return [AWSTask taskWithResult:transferUtilityMultiPartUploadTask];
 }
 
+-(void) propagateHeaderInformation: (AWSS3CreateMultipartUploadRequest *) uploadRequest
+                        expression: (AWSS3TransferUtilityMultiPartUploadExpression *) expression {
+    
+    //Propagate header info and add custom metadata
+    NSMutableDictionary<NSString *, NSString *> *metadata = [NSMutableDictionary new];
+    for (NSString *key in expression.requestHeaders) {
+        NSString *lKey = [key lowercaseString];
+        if ( [lKey hasPrefix:@"x-amz-meta"]) {
+            [metadata setValue:expression.requestHeaders[key] forKey:[key stringByReplacingOccurrencesOfString:@"x-amz-meta-" withString:@""]];
+        }
+        else if ([lKey isEqualToString:@"x-amz-acl"]) {
+            NSValueTransformer *transformer = [AWSS3CreateMultipartUploadRequest ACLJSONTransformer];
+            uploadRequest.ACL = (AWSS3ObjectCannedACL)[[transformer transformedValue:expression.requestHeaders[key]] integerValue];
+        }
+        else if ([lKey isEqualToString:@"x-amz-grant-read" ]) {
+            uploadRequest.grantRead = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"x-amz-grant-read-acp" ]) {
+            uploadRequest.grantReadACP = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"x-amz-grant-read-acp" ]) {
+            uploadRequest.grantReadACP = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"x-amz-grant-write-acp" ]) {
+            uploadRequest.grantWriteACP = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"x-amz-grant-full-control" ]) {
+            uploadRequest.grantFullControl = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"x-amz-server-side-encryption" ]) {
+            NSValueTransformer *transformer = [AWSS3CreateMultipartUploadRequest serverSideEncryptionJSONTransformer];
+            uploadRequest.serverSideEncryption = (AWSS3ServerSideEncryption)[[transformer transformedValue:expression.requestHeaders[key]] integerValue];
+        }
+        else if ([lKey isEqualToString:@"x-amz-server-side-encryption-aws-kms-key-id" ]) {
+            uploadRequest.SSEKMSKeyId = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"x-amz-server-side​-encryption​-customer-algorithm" ]) {
+            uploadRequest.SSECustomerAlgorithm = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"x-amz-server-side​-encryption​-customer-key" ]) {
+            uploadRequest.SSECustomerKey = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"x-amz-server-side​-encryption​-customer-key-MD5" ]) {
+            uploadRequest.SSECustomerKeyMD5 = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"content-encoding" ]) {
+            uploadRequest.contentEncoding = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"content-type" ]) {
+            uploadRequest.contentType = expression.requestHeaders[key];
+        }
+        else if([lKey isEqualToString:@"cache-control"]) {
+            uploadRequest.cacheControl = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"x-amz-request-payer" ]) {
+            NSValueTransformer *transformer = [AWSS3CreateMultipartUploadRequest requestPayerJSONTransformer];
+            uploadRequest.requestPayer = (AWSS3RequestPayer)[[transformer transformedValue:expression.requestHeaders[key]] integerValue];
+        }
+        else if ([lKey isEqualToString:@"expires" ]) {
+            NSValueTransformer *transformer = [AWSS3CreateMultipartUploadRequest expiresJSONTransformer];
+            uploadRequest.expires = [transformer transformedValue:expression.requestHeaders[key]];
+        }
+        else if ([lKey isEqualToString:@"x-amz-storage-class" ]) {
+            NSValueTransformer *transformer = [AWSS3CreateMultipartUploadRequest storageClassJSONTransformer];
+            uploadRequest.storageClass = (AWSS3StorageClass)[[transformer transformedValue:expression.requestHeaders[key]] integerValue];
+        }
+        else if ([lKey isEqualToString:@"x-amz-website-redirect-location" ]) {
+            uploadRequest.websiteRedirectLocation = expression.requestHeaders[key];
+        }
+        else if ([lKey isEqualToString:@"x-amz-tagging" ]) {
+            uploadRequest.tagging = expression.requestHeaders[key];
+        }
+    }
+    uploadRequest.metadata = metadata;
+}
+
+-(void) filterAndAssignHeaders:(NSDictionary<NSString *, NSString *> *) requestHeaders
+           getPresignedURLRequest:(AWSS3GetPreSignedURLRequest *) getPresignedURLRequest
+                    URLRequest: (NSMutableURLRequest *) URLRequest {
+    
+    NSSet *disallowedHeaders = [[NSSet alloc] initWithArray:
+                                @[@"x-amz-acl", @"x-amz-tagging", @"x-amz-storage-class", @"x-amz-server-side-encryption"]];
+   
+    for (NSString *key in requestHeaders) {
+        //Do not include custom metadata or custom grants
+        NSString *lKey = [key lowercaseString];
+        if ( [ lKey hasPrefix:@"x-amz-meta"] || [lKey hasPrefix:@"x-amz-grant"]) {
+            continue;
+        }
+        if ( [disallowedHeaders containsObject:lKey]) {
+            continue;
+        }
+        [getPresignedURLRequest setValue:requestHeaders[key] forRequestHeader:key];
+        [URLRequest setValue:requestHeaders[key] forHTTPHeaderField:key];
+    }
+}
+
 -(void) createUploadSubTask:(AWSS3TransferUtilityMultiPartUploadTask *) transferUtilityMultiPartUploadTask
                     subTask: (AWSS3TransferUtilityUploadSubTask *) subTask
                       startTransfer: (BOOL) startTransfer
@@ -1029,28 +1130,20 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
     request.expires = [NSDate dateWithTimeIntervalSinceNow:AWSS3TransferUtilityTimeoutIntervalForResource];
     request.minimumCredentialsExpirationInterval = AWSS3TransferUtilityTimeoutIntervalForResource;
     request.accelerateModeEnabled = self.transferUtilityConfiguration.isAccelerateModeEnabled;
+    [self filterAndAssignHeaders:transferUtilityMultiPartUploadTask.expression.requestHeaders getPresignedURLRequest:request
+                      URLRequest:nil];
     
-    [transferUtilityMultiPartUploadTask.expression assignRequestHeaders:request];
     [transferUtilityMultiPartUploadTask.expression assignRequestParameters:request];
    
-    
     [[self.preSignedURLBuilder getPreSignedURL:request] continueWithSuccessBlock:^id(AWSTask *task) {
         NSURL *presignedURL = task.result;
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
-        request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
-        request.HTTPMethod = @"PUT";
-        [request setValue:[self.configuration.userAgent stringByAppendingString:@" MultiPart"] forHTTPHeaderField:@"User-Agent"];
-        
-        for (NSString *key in transferUtilityMultiPartUploadTask.expression.requestHeaders) {
-            //Do not include custom meta for part files.
-            if ( [ key hasPrefix:@"x-amz-meta"]) {
-                continue;
-            }
-            [request setValue:transferUtilityMultiPartUploadTask.expression.requestHeaders[key] forHTTPHeaderField:key];
-        }
-        
-        
-        NSURLSessionUploadTask *nsURLUploadTask = [self->_session uploadTaskWithRequest:request
+        NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:presignedURL];
+         urlRequest.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+         urlRequest.HTTPMethod = @"PUT";
+        [self filterAndAssignHeaders:transferUtilityMultiPartUploadTask.expression.requestHeaders
+              getPresignedURLRequest:nil URLRequest: urlRequest];
+        [ urlRequest setValue:[self.configuration.userAgent stringByAppendingString:@" MultiPart"] forHTTPHeaderField:@"User-Agent"];
+        NSURLSessionUploadTask *nsURLUploadTask = [self->_session uploadTaskWithRequest:urlRequest
                                                                          fromFile:[NSURL fileURLWithPath:subTask.file]];
         //Create subtask to track this upload
         subTask.sessionTask = nsURLUploadTask;
@@ -1835,7 +1928,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     if (data && [data length] != 0 ) {
         //Get the response into a string
         NSString *response = [NSString stringWithUTF8String:[data bytes]];
-        AWSDDLogDebug(@"Got response from Server: %@", response);
+        AWSDDLogDebug(@"TaskIdentifier[%lu] Got response from Server: %@", (unsigned long)dataTask.taskIdentifier, response);
         if (!response ) {
             //If response is null, no more work to do. Return
             return;
@@ -2488,16 +2581,6 @@ NSString *const AWSS3TransferUtilityWaitingStatus = @"WAITING";
 
 - (void)setValue:(NSString *)value forRequestParameter:(NSString *)requestParameter {
     [self.internalRequestParameters setValue:value forKey:requestParameter];
-}
-
-- (void)assignRequestHeaders:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {
-    for (NSString *key in self.internalRequestHeaders) {
-        if ( [ key hasPrefix:@"x-amz-meta"]) {
-            continue;
-        }
-        [getPreSignedURLRequest setValue:self.internalRequestHeaders[key]
-                        forRequestHeader:key];
-    }
 }
 
 - (void)assignRequestParameters:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest {

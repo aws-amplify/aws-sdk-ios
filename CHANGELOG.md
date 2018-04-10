@@ -1,6 +1,26 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.15
+
+### Enhancements
+
+* **AWS Core**
+  * Removed the deprecated methods `synchronize` and `synchronizeWithError` from `AWSUICKeyChainStore` to reduce warnings. See [issue#863](https://github.com/aws/aws-sdk-ios/issues/863)
+  * Fix recommended Xcode 9.3 warnings. See [pr #868](https://github.com/aws/aws-sdk-ios/pull/868)
+
+* **Amazon S3**
+  * Updated AWSS3 low level clients to conform latest S3 service model.
+  * Fix import for static library build to succeed. See [pr #866](https://github.com/aws/aws-sdk-ios/pull/866)
+
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed header propagation bugs in S3 TransferUtility for Multipart uploads. See [issue#869](https://github.com/aws/aws-sdk-ios/issues/869)
+
+* **Amazon Pinpoint**
+     * Fixed an issue that caused 400 errors when submitting events with a boolean metric.
+
 ## 2.6.14
 
 ### Bug Fixes

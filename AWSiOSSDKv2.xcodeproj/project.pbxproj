@@ -129,7 +129,6 @@
 		184F43281E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43221E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.h */; };
 		184F43291E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F43231E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.m */; };
 		184F432A1E930A34004F3FE2 /* AWSDDMultiFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43241E930A34004F3FE2 /* AWSDDMultiFormatter.h */; };
-		184F432B1E930A34004F3FE2 /* AWSDDMultiFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F43251E930A34004F3FE2 /* AWSDDMultiFormatter.m */; };
 		184F432E1E930E05004F3FE2 /* AWSDDOSLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F432C1E930E05004F3FE2 /* AWSDDOSLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		184F432F1E930E05004F3FE2 /* AWSDDOSLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 184F432D1E930E05004F3FE2 /* AWSDDOSLogger.m */; };
 		184F43311E9336BD004F3FE2 /* AWSDDLegacyMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 184F43301E9336BD004F3FE2 /* AWSDDLegacyMacros.h */; };
@@ -2574,7 +2573,6 @@
 		184F43221E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDDispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		184F43231E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDDispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		184F43241E930A34004F3FE2 /* AWSDDMultiFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDMultiFormatter.h; sourceTree = "<group>"; };
-		184F43251E930A34004F3FE2 /* AWSDDMultiFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDMultiFormatter.m; sourceTree = "<group>"; };
 		184F432C1E930E05004F3FE2 /* AWSDDOSLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDOSLogger.h; sourceTree = "<group>"; };
 		184F432D1E930E05004F3FE2 /* AWSDDOSLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSDDOSLogger.m; sourceTree = "<group>"; };
 		184F43301E9336BD004F3FE2 /* AWSDDLegacyMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSDDLegacyMacros.h; sourceTree = "<group>"; };
@@ -4238,7 +4236,6 @@
 				184F43221E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.h */,
 				184F43231E930A34004F3FE2 /* AWSDDDispatchQueueLogFormatter.m */,
 				184F43241E930A34004F3FE2 /* AWSDDMultiFormatter.h */,
-				184F43251E930A34004F3FE2 /* AWSDDMultiFormatter.m */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -9414,7 +9411,6 @@
 				CE0D42831C6A673E006B91B5 /* AWSURLRequestSerialization.m in Sources */,
 				CE0D42811C6A673E006B91B5 /* AWSURLRequestRetryHandler.m in Sources */,
 				184F43111E930A2D004F3FE2 /* AWSDDAbstractDatabaseLogger.m in Sources */,
-				184F432B1E930A34004F3FE2 /* AWSDDMultiFormatter.m in Sources */,
 				CE0D422A1C6A673E006B91B5 /* AWSBolts.m in Sources */,
 				CE0D42791C6A673E006B91B5 /* AWSURLSessionManager.m in Sources */,
 				CE0D42A61C6A673E006B91B5 /* AWSModel.m in Sources */,

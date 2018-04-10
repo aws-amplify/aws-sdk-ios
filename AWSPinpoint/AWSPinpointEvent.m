@@ -154,6 +154,12 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
 - (void)addMetric:(NSNumber *)theValue forKey:(NSString *)theKey {
     if(!theKey) return;
     
+    if([theValue isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+        theValue = [NSNumber numberWithInteger:1];
+    } else if([theValue isEqualToNumber:[NSNumber numberWithBool:NO]]) {
+        theValue = [NSNumber numberWithInteger:0];
+    }
+    
     @synchronized(self.metrics) {
         if(self.currentNumOfAttributesAndMetrics < MAX_NUM_OF_METRICS_AND_ATTRIBUTES) {
             NSString* trimmedKey = [AWSPinpointEvent trimKey:theKey forType:@"attribute"];

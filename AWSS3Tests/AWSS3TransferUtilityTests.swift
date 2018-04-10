@@ -1657,7 +1657,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         //Create a large temp file;
         let filePath = NSTemporaryDirectory() + "testMultiPartUploadLargeFileWithCustomMetaData.tmp"
         var testData = "Test123456789"
-        for _ in 1...21 {
+        for _ in 1...2 {
             testData = testData + testData;
         }
         let fileURL = URL(fileURLWithPath: filePath)
@@ -1668,6 +1668,14 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let author:(String) = "integration test"
         expression.setValue(author, forRequestHeader: "x-amz-meta-author")
         expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
+        
+        expression.setValue("no-cache", forRequestHeader: "Cache-Control")
+        expression.setValue("REDUCED_REDUNDANCY", forRequestHeader: "x-amz-storage-class")
+        expression.setValue("public-read", forRequestHeader: "x-amz-acl")
+        expression.setValue("Project=blue", forRequestHeader: "x-amz-tagging")
+        expression.setValue("requester", forRequestHeader: "x-amz-request-payer")
+        expression.setValue("AES256", forRequestHeader: "x-amz-server-side-encryption")
+        print(expression.requestHeaders)
         expression.progressBlock = {(task, progress) in
             print("Upload progress: ", progress.fractionCompleted)
         }
@@ -1690,6 +1698,10 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 XCTAssertNotNil(output.metadata)
                 XCTAssertEqual(author, output.metadata!["author"])
                 XCTAssertEqual(uuid, output.metadata!["id"])
+                XCTAssertEqual(output.serverSideEncryption, AWSS3ServerSideEncryption.AES256)
+                XCTAssertEqual("video/quicktime", output.contentType)
+                XCTAssertEqual("no-cache", output.cacheControl)
+                XCTAssertEqual(output.storageClass,AWSS3StorageClass.reducedRedundancy)
                 
                 expectation.fulfill()
                 return nil
@@ -1697,12 +1709,10 @@ class AWSS3TransferUtilityTests: XCTestCase {
             
         }
         
-       
-        
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
         transferUtility.uploadUsingMultiPart(fileURL: fileURL, bucket: "ios-v2-s3.periods",
                                              key: "testMultiPartUploadLargeFileWithCustomMetaData.txt",
-                                             contentType: "text/plain",
+                                             contentType: "video/quicktime" ,
                                              expression: expression,
                                              completionHandler: uploadCompletionHandler)
             .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
@@ -1711,7 +1721,77 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             }.waitUntilFinished()
         
-        waitForExpectations(timeout: 240) { (error) in
+        waitForExpectations(timeout: 10) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+    
+    
+    func testUploadAndDownloadDataWithIfModified() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        
+        let transferUtility = AWSS3TransferUtility.default()
+        let uploadExpression = AWSS3TransferUtilityUploadExpression()
+        
+        uploadExpression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+        
+            XCTAssertNil(error)
+            if let HTTPResponse = task.response {
+                XCTAssertEqual(HTTPResponse.statusCode, 200)
+                
+                let downloadExpression = AWSS3TransferUtilityDownloadExpression()
+                
+                let fmt = DateFormatter()
+                fmt.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
+                //Sleep for 2 seconds to make sure that we can set the current date/time for the ifModifiedSince header.
+                sleep(2)
+                let ifModifiedSince = Date()
+                
+                downloadExpression.setValue(fmt.string(from:ifModifiedSince), forRequestHeader: "If-Modified-Since")
+        
+                downloadExpression.progressBlock = {(task, progress) in
+                    print("Download progress: ", progress.fractionCompleted)
+                }
+                let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
+                    if let HTTPResponse = task.response {
+                        XCTAssertEqual(HTTPResponse.statusCode, 304)
+                    } else {
+                        XCTFail()
+                    }
+                    expectation.fulfill()
+                }
+                
+                transferUtility.downloadData(
+                    fromBucket: "ios-v2-s3.periods",
+                    key: "testDataForIfModifiedSince.txt",
+                    expression: downloadExpression,
+                    completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
+                        XCTAssertNil(task.error)
+                        return nil
+                    })
+            } else {
+                XCTFail()
+            }
+        }
+        
+        transferUtility.uploadData(
+            "1234567890".data(using: String.Encoding.utf8)!,
+            bucket: "ios-v2-s3.periods",
+            key: "testDataForIfModifiedSince.txt",
+            contentType: "text/plain",
+            expression: uploadExpression,
+            completionHandler: uploadCompletionHandler
+            ).continueWith (block: { (task) -> AnyObject? in
+                XCTAssertNil(task.error)
+                
+                return nil
+            })
+        
+        waitForExpectations(timeout: 30) { (error) in
             XCTAssertNil(error)
         }
     }
