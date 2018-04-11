@@ -103,10 +103,11 @@
         AWSJSONDictionary *outputRules = [[AWSJSONDictionary alloc] initWithDictionary:[anActionRules objectForKey:@"output"] JSONDefinitionRule:shapeRules];
         result = [AWSXMLResponseSerializer parseResponse:response rules:outputRules bodyDictionary:[result mutableCopy] error:error];
 
-        if ([[AWSService errorCodeDictionary] objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
+        NSNumber *errorCode = [[AWSService errorCodeDictionary] objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]];
+        if (errorCode != nil) {
             if (error) {
                 *error = [NSError errorWithDomain:AWSServiceErrorDomain
-                                             code:[[[AWSService errorCodeDictionary] objectForKey:[[[result objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
+                                             code:[errorCode integerValue]
                                          userInfo:result];
             }
         }

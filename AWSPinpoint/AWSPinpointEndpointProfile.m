@@ -225,7 +225,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 - (BOOL)hasMetricForKey:(NSString *)theKey {
     if(!theKey) return NO;
     @synchronized(self.metrics) {
-        if ([self.metrics objectForKey:theKey]) {
+        if ([self.metrics objectForKey:theKey] != nil) {
             return YES;
         } else {
             return NO;
@@ -410,8 +410,8 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
             "\"City\" : %@,"
             "\"Region\" : %@,"
             "\"Country\" : %@}",
-            (self.latitude)?self.latitude:@"0",
-            (self.longitude)?self.longitude:@"0",
+            self.latitude?:@0,
+            self.longitude?:@0,
             [self quotedString:self.postalCode],
             [self quotedString:self.city],
             [self quotedString:self.region],
