@@ -338,7 +338,7 @@ static int AWSFMDBDatabaseBusyHandler(void *f, int count) {
 }
 
 
-- (void)setCachedStatement:(AWSFMStatement*)statement forQuery:(NSString*)query {
+- (void)setCachedStatement:(AWSFMStatement*)statement forQuery:(nonnull NSString*)query {
     
     query = [query copy]; // in case we got handed in a mutable string...
     [statement setQuery:query];
@@ -918,6 +918,10 @@ static int AWSFMDBDatabaseBusyHandler(void *f, int count) {
 #pragma mark Execute updates
 
 - (BOOL)executeUpdate:(NSString*)sql error:(NSError**)outErr withArgumentsInArray:(NSArray*)arrayArgs orDictionary:(NSDictionary *)dictionaryArgs orVAList:(va_list)args {
+    
+    if (!sql) {
+        return YES;
+    }
     
     if (![self databaseExists]) {
         return NO;
