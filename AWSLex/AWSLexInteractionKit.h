@@ -101,6 +101,11 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechEncoding) {
 - (void)interactionKit:(AWSLexInteractionKit *)interactionKit onDialogReadyForFulfillmentForIntent:(NSString *)intentName slots:(NSDictionary *)slots;
 
 /*
+ * Sent to delegate when the all the required slots are filled, the intent is fullfiled and the dialog is complete.
+ */
+- (void)interactionKit:(AWSLexInteractionKit *)interactionKit dialogFullfiledForIntent:(NSString *)intentName slots:(NSDictionary *)slots;
+
+/*
  * Sent to delegate incase you want to switch modes between text and voice input.
  */
 - (void)interactionKit:(AWSLexInteractionKit *)interactionKit
