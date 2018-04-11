@@ -24,8 +24,6 @@ const char* const kAWSDDASLKeyAWSDDLog = "AWSDDLog";
 
 const char* const kAWSDDASLAWSDDLogValue = "1";
 
-static AWSDDASLLogger *sharedInstance;
-
 @interface AWSDDASLLogger () {
     aslclient _client;
 }
@@ -34,6 +32,8 @@ static AWSDDASLLogger *sharedInstance;
 
 
 @implementation AWSDDASLLogger
+
+static AWSDDASLLogger *sharedInstance;
 
 + (instancetype)sharedInstance {
     static dispatch_once_t AWSDDASLLoggerOnceToken;
