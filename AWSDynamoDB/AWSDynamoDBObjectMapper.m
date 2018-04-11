@@ -374,7 +374,7 @@ completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandl
         default:
             break;
     }
-    return nil;
+    return [AWSTask taskWithError:[NSError errorWithDomain:AWSDynamoDBErrorDomain code:AWSDynamoDBErrorUnknown userInfo:nil]];
 }
 
 - (void)save:(AWSDynamoDBObjectModel<AWSDynamoDBModeling> *)model
