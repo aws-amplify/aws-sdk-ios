@@ -127,6 +127,21 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
         Input Files: Empty
         Output Files: Empty
 
+1. If using `AWSUserPoolsSignIn` from Carthage add:
+
+    * `AWSCognitoIdentityProvider.framework`
+    * `AWSAuthCore.framework`
+    * `AWSUserPoolsSignIn.framework`
+
+You'll need to add the compiled storyboard files.  Under the **Build Phases** tab in your **Target**, click the **+** button on the top left and then select **New Copy Files Phase**. Then setup the build phase as follows.
+
+![AWSUserPoolsSignIn AuthUI](readme-images/carthage-awsuserpools-authui.png?raw=true)
+
+The images for those storyboards can be copied into your assets. They should be placed into an iOS Assets.xcassets resource as shown below.
+
+![AuthUI Images](readme-images/authui-images.png?raw=true)
+
+
 ### Frameworks
 
 1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.5.0, the filename is `aws-ios-sdk-2.5.0`).
