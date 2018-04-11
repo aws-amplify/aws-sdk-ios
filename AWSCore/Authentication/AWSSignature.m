@@ -171,7 +171,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
 - (NSString *)signS3RequestV4:(NSMutableURLRequest *)urlRequest
                   credentials:(AWSCredentials *)credentials {
-    if ( [urlRequest valueForHTTPHeaderField:@"Content-Type"] == nil) {
+    if ([urlRequest valueForHTTPHeaderField:@"Content-Type"] == nil) {
         [urlRequest addValue:@"binary/octet-stream" forHTTPHeaderField:@"Content-Type"];
     }
 
@@ -197,7 +197,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
     NSString *httpMethod = urlRequest.HTTPMethod;
     // URL.path returns unescaped path
     // For S3,  url-encoded URI need to be decoded before generate  CanonicalURI, otherwise, signature doesn't match occurs. (I.e. CanonicalURI for "/ios-v2-test-445901470/name%3A" will still be  "/ios-v2-test-445901470/name%3A".  "%3A" -> ":" -> "%3A")
-    NSString *cfPath = (NSString*)CFBridgingRelease(CFURLCopyPath((CFURLRef)urlRequest.URL)) ;
+    NSString *cfPath = (NSString*)CFBridgingRelease(CFURLCopyPath((CFURLRef)urlRequest.URL));
     NSString *path = [cfPath aws_stringWithURLEncodingPath];
     
     if (path.length == 0) {
@@ -588,7 +588,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
     NSMutableString *headerString = [NSMutableString new];
     for (NSString *header in sortedHeaders) {
-        if ( [headerString length] > 0) {
+        if ([headerString length] > 0) {
             [headerString appendString:@";"];
         }
         [headerString appendString:[header lowercaseString]];

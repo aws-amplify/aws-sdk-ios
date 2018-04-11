@@ -92,7 +92,7 @@ FOUNDATION_EXPORT double    const AWSValueForceSubmissionWaitTime;
                                                      toURL:[NSURL fileURLWithPath:testAppSupportPath]
                                             backupItemName:@"com.amazonaws.MobileAnalytics.backupItem"
                                                      error:&error];
-    if ( NO == result) {
+    if (NO == result) {
         XCTFail(@"aws_atomicCopyItemAtURL failed. %@",error);
     }
     
@@ -179,7 +179,7 @@ FOUNDATION_EXPORT double    const AWSValueForceSubmissionWaitTime;
                                         options:NSFileManagerItemReplacementUsingNewMetadataOnly
                                resultingItemURL:nil
                                           error:&error];
-    if ( NO == result) {
+    if (NO == result) {
         XCTFail(@" replaceItem failed: %@",error);
     }
     XCTAssertFalse([fileManager fileExistsAtPath:appIDAppSupportPath]);

@@ -302,7 +302,7 @@
             }
 
             // ------------Validate Result------------------------------
-            if ([responseResult isKindOfClass:[NSDictionary class]] && [responseResult objectForKey:@"Stream"] ) {
+            if ([responseResult isKindOfClass:[NSDictionary class]] && [responseResult objectForKey:@"Stream"]) {
                 NSMutableDictionary *tempResult = [responseResult mutableCopy];
                 [tempResult setObject:[[NSString alloc] initWithData:responseResult[@"Stream"] encoding:NSUTF8StringEncoding] forKey:@"Stream"];
                 responseResult = tempResult;
@@ -449,7 +449,7 @@
             }
             
             // ------------Validate Result------------------------------
-            if ([responseResult isKindOfClass:[NSDictionary class]] && [responseResult objectForKey:@"Stream"] ) {
+            if ([responseResult isKindOfClass:[NSDictionary class]] && [responseResult objectForKey:@"Stream"]) {
                 NSMutableDictionary *tempResult = [responseResult mutableCopy];
                 [tempResult setObject:[[NSString alloc] initWithData:responseResult[@"Stream"] encoding:NSUTF8StringEncoding] forKey:@"Stream"];
                 responseResult = tempResult;
@@ -851,7 +851,7 @@
 {
     if ([jsonObject isKindOfClass:[NSArray class]]) {
         
-        for (int i = 0 ; i< [jsonObject count] ; i++ ) {
+        for (int i = 0 ; i < [jsonObject count] ; i++) {
             id object = jsonObject[i];
             
             if ([object isKindOfClass:[NSArray class]] || [object isKindOfClass:[NSDictionary class]]) {
@@ -866,7 +866,7 @@
     
     if ([jsonObject isKindOfClass:[NSDictionary class]]) {
         for (NSString *key in [jsonObject allKeys]) {
-            if ( [jsonObject[key] isKindOfClass:[NSDictionary class]] || [jsonObject[key] isKindOfClass:[NSArray class]]) {
+            if ([jsonObject[key] isKindOfClass:[NSDictionary class]] || [jsonObject[key] isKindOfClass:[NSArray class]]) {
                 [self replaceNSData2NSString:jsonObject[key]];
             }
             

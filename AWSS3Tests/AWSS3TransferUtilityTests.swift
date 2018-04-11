@@ -712,7 +712,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -776,7 +776,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -879,7 +879,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -950,7 +950,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1023,7 +1023,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1082,7 +1082,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1141,7 +1141,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1206,7 +1206,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1271,7 +1271,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1336,7 +1336,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1436,7 +1436,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1508,7 +1508,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)

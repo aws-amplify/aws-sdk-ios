@@ -79,7 +79,7 @@ static NSString* const UNIQUE_ID_KEY = @"UniqueId";
                                                                   absolutePath:absolutePath
                                                                   withRootFile:rootDirectory
                                                              cachesClientIDRef:&cachesClientId];
-        if ( NO == migration_result) {
+        if (NO == migration_result) {
             AWSDDLogError(@"AMA Migration Failed");
         }
         //----------------------End Migration --------------------------------------------
@@ -156,15 +156,14 @@ static NSString* const UNIQUE_ID_KEY = @"UniqueId";
                                                                         toURL:[NSURL fileURLWithPath:appSupportPrefPath]
                                                                backupItemName:@"com.amazonaws.MobileAnalytics.backUpItem"
                                                                         error:&prefError];
-    if ( NO == prefCopySucceeded) {
+    if (NO == prefCopySucceeded) {
         AWSDDLogError(@"[Migration] Failed to copy preferences file. error:%@",prefError);
         
-        if ( NO == [self readClientIDFromCachesDirectoryWithInsightsPrivateKey:insightsPrivateKey
+        if (NO == [self readClientIDFromCachesDirectoryWithInsightsPrivateKey:insightsPrivateKey
                                                              cachesClientIDRef:cachesClientIDRef
                                                    cachesDirectoryAbsolutePath:cachesDirAbsolutePath]) {
             return NO;
         }
-        
         
     }
     
@@ -178,7 +177,7 @@ static NSString* const UNIQUE_ID_KEY = @"UniqueId";
     if (eventsCopySucceeded) {
         //remove events in caches directory
         NSError *removeError = nil;
-        if ( NO == [internalFileManager removeItemAtPath:cachesEventsPath error:&removeError]) {
+        if (NO == [internalFileManager removeItemAtPath:cachesEventsPath error:&removeError]) {
             AWSDDLogWarn(@"[Migration] Failed to remove cachesEventsPath. error:%@", removeError);
         }
         

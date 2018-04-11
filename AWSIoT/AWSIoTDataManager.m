@@ -677,7 +677,7 @@ static NSString * const AWSIoTShadowOperationStatusTypeStrings[] = {
         // update/accepted or delete/accepted, call the user's callback if they've
         // requested foreign state update notifications.
         //
-        if ((shadow.timer == nil) || ![shadowModel.clientToken isEqualToString:shadow.clientToken] ) {
+        if ((shadow.timer == nil) || ![shadowModel.clientToken isEqualToString:shadow.clientToken]) {
             AWSDDLogDebug(@" timer is nil or shadow token mismatch.");
             if (status == AWSIoTShadowOperationStatusTypeAccepted &&
                 operation != AWSIoTShadowOperationTypeGet &&
@@ -763,11 +763,11 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
     // up to 128 bytes in length.  Use only the last 48 bytes of the client ID when
     // creating a new client token.
     //
-    if ([self.mqttClient.clientId length] > 48 ) {
+    if ([self.mqttClient.clientId length] > 48) {
         range = NSMakeRange([self.mqttClient.clientId length] - 48, 48);
     }
     else {
-        range = NSMakeRange( 0, [self.mqttClient.clientId length]);
+        range = NSMakeRange(0, [self.mqttClient.clientId length]);
     }
     return [NSString stringWithFormat:@"%@-%u", [self.mqttClient.clientId substringWithRange:range], (unsigned int)currentToken++];
 }

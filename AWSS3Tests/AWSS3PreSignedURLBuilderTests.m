@@ -180,7 +180,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
             request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
             [request setHTTPMethod:@"PUT"];
 
-            unsigned char *largeData = malloc(AWSS3PreSignedURLTest256KB) ;
+            unsigned char *largeData = malloc(AWSS3PreSignedURLTest256KB);
             memset(largeData, 5, AWSS3PreSignedURLTest256KB);
             NSData *testObjectData = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3PreSignedURLTest256KB];
 
@@ -391,7 +391,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     NSString *testContentType = @"application/x-authorware-bin";
 
 
-    unsigned char *largeData = malloc(AWSS3PreSignedURLTest256KB) ;
+    unsigned char *largeData = malloc(AWSS3PreSignedURLTest256KB);
     memset(largeData, 5, AWSS3PreSignedURLTest256KB);
     NSData *testObjectData = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3PreSignedURLTest256KB];
 
@@ -888,7 +888,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                 [request setHTTPMethod:@"PUT"];
 
 
-                if ( (count == 2 || count == 3) && i == 1) {
+                if ((count == 2 || count == 3) && i == 1) {
                     [request setHTTPBody:testObjectData2];
                 } else {
                     [request setHTTPBody:testObjectData];
@@ -926,7 +926,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                                                              }
 
 
-                                                             if ( versionIDDic[[NSNumber numberWithInt:count]] == nil) {
+                                                             if (versionIDDic[[NSNumber numberWithInt:count]] == nil) {
                                                                  NSMutableArray *array = [NSMutableArray new];
                                                                  versionIDDic[[NSNumber numberWithInt:count]] = array;
                                                              }
@@ -1253,7 +1253,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
         putObjectRequest.bucket = myBucketName;
         putObjectRequest.key = keyName;
 
-        unsigned char *largeData = malloc(AWSS3PreSignedURLTest256KB) ;
+        unsigned char *largeData = malloc(AWSS3PreSignedURLTest256KB);
         memset(largeData, 5, AWSS3PreSignedURLTest256KB);
         NSData *testObjectData = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3PreSignedURLTest256KB];
 

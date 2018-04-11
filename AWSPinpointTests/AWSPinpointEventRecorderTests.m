@@ -1647,7 +1647,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
     __block int successfulBatchSubmissions = 0;
     __block int successfulEventsSubmitted = 0;
 
-    for (int i=0; i< numberOfEvents; i++) {
+    for (int i=0; i < numberOfEvents; i++) {
         [[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
             if (!task.error) {
                 XCTAssertTrue([task.result isKindOfClass:[NSArray class]]);

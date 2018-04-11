@@ -296,7 +296,7 @@
             }
 
             //if it is a map type with headers tag, add to headers
-            if ([value isKindOfClass:[NSDictionary class]] && [rulesType isEqualToString:@"map"] && [memberRules[@"location"] isEqualToString:@"headers"] ) {
+            if ([value isKindOfClass:[NSDictionary class]] && [rulesType isEqualToString:@"map"] && [memberRules[@"location"] isEqualToString:@"headers"]) {
                 for (NSString *key in value) {
                     NSString *keyName = [memberRules[@"locationName"] stringByAppendingString:key];
                     [request addValue:value[key] forHTTPHeaderField:keyName];
@@ -412,7 +412,7 @@
 
         NSRange hasQuestionMark = [rawURI rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"?"]];
         NSRange hasEqualMark = [rawURI rangeOfCharacterFromSet:[NSCharacterSet characterSetWithCharactersInString:@"="]];
-        if ( (hasQuestionMark.location != NSNotFound) && (hasEqualMark.location == NSNotFound) ) {
+        if ((hasQuestionMark.location != NSNotFound) && (hasEqualMark.location == NSNotFound)) {
             rawURI = [rawURI stringByAppendingString:@"="];
         }
 
