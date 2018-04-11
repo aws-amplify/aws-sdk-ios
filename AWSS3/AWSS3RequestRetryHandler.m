@@ -42,7 +42,7 @@
         switch (error.code) {
             case AWSServiceErrorSignatureDoesNotMatch:
                 //may happened right after generating AWS temporary credentials due to the massively distributed nature of Amazon S3, just retry the request
-                retryType = AWSNetworkingRetryTypeShouldRetry;
+                retryType = AWSNetworkingRetryTypeShouldCorrectClockSkewAndRetry;
                 break;
                 
             default:
