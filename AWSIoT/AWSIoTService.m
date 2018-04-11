@@ -82,7 +82,7 @@ static NSDictionary *errorCodeDictionary = nil;
         if ([errorTypeString length] > 0 && errorTypeHeader) {
             if (errorCodeDictionary[errorTypeHeader]) {
                 if (error) {
-                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeString};
+                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[responseObject objectForKey:@"Message"]?[responseObject objectForKey:@"Message"]:errorTypeStr ? errorTypeStr : @"Unknown Error", NSLocalizedFailureReasonErrorKey: errorTypeStr};
                     *error = [NSError errorWithDomain:AWSIoTErrorDomain
                                                  code:[[errorCodeDictionary objectForKey:errorTypeHeader] integerValue]
                                              userInfo:userInfo];
@@ -90,7 +90,7 @@ static NSDictionary *errorCodeDictionary = nil;
                 return responseObject;
             } else if (errorTypeHeader) {
                 if (error) {
-                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]:[NSNull null], NSLocalizedFailureReasonErrorKey: errorTypeString};
+                    NSDictionary *userInfo = @{NSLocalizedDescriptionKey : [responseObject objectForKey:@"message"]?[responseObject objectForKey:@"message"]: [responseObject objectForKey:@"Message"]?[responseObject objectForKey:@"Message"]:errorTypeStr ? errorTypeStr : @"Unknown Error", NSLocalizedFailureReasonErrorKey: errorTypeStr};
                     *error = [NSError errorWithDomain:AWSIoTErrorDomain
                                                  code:AWSIoTErrorUnknown
                                              userInfo:userInfo];
