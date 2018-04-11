@@ -34,9 +34,9 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 
 - (AWSTask *)submitRecordsForStream:(NSString *)streamName
                             records:(NSArray *)temporaryRecords
-                      partitionKeys:(NSArray *)partitionKeys
-                   putPartitionKeys:(NSMutableArray *)putPartitionKeys
-                 retryPartitionKeys:(NSMutableArray *)retryPartitionKeys
+                             rowIds:(NSArray *)rowIds
+                          putRowIds:(NSMutableArray *)putRowIds
+                        retryRowIds:(NSMutableArray *)retryRowIds
                                stop:(BOOL *)stop;
 
 - (NSError *)dataTooLargeError;
@@ -282,9 +282,9 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                     AWSTask *submitTask = \
                         [self.recorderHelper submitRecordsForStream:streamName
                                                             records:temporaryRecords
-                                                      partitionKeys:rowIds
-                                                   putPartitionKeys:putRowIds
-                                                 retryPartitionKeys:retryRowIds
+                                                             rowIds:rowIds
+                                                          putRowIds:putRowIds
+                                                        retryRowIds:retryRowIds
                                                                stop:&stop];
 
                     [submitTask waitUntilFinished];
