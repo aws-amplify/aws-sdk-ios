@@ -43,6 +43,11 @@ AWSJKBigInteger *signedBigIntegerFromNSData(NSData* data) {
     AWSJKBigInteger *twosComplementMinusOneMaybe = nil;
     unsigned long bufferLength = data.length + 1;
     uint8_t *bytes = malloc(sizeof(uint8_t) * bufferLength);
+    if (bytes == NULL) {
+        // this situation is irrecoverable and we don't want to return something corrupted, so we raise an exception (avoiding NSAssert that may be disabled)
+        [NSException raise:@"NSInternalInconsistencyException" format:@"failed malloc" arguments:nil];
+        return nil;
+    }
     
     memcpy(bytes+1, data.bytes, data.length);
     
@@ -71,9 +76,13 @@ AWSJKBigInteger *signedBigIntegerFromNSData(NSData* data) {
 @implementation NSData (NSDataBigInteger)
 + (NSData*) aws_dataWithBigInteger:(AWSJKBigInteger *)bigInteger {
     unsigned int byteCount = [bigInteger countBytes];
-    
+    if (byteCount == 0) {
+        return [NSData data];
+    }
     uint8_t *bytes = malloc(byteCount);
-    if (!bytes) {
+    if (bytes == NULL) {
+        // this situation is irrecoverable and we don't want to return something corrupted, so we raise an exception (avoiding NSAssert that may be disabled)
+        [NSException raise:@"NSInternalInconsistencyException" format:@"failed malloc" arguments:nil];
         return nil;
     }
     
@@ -90,7 +99,9 @@ AWSJKBigInteger *signedBigIntegerFromNSData(NSData* data) {
     
     // +1 for sign byte
     uint8_t *bytes = malloc(byteCount + 1);
-    if (!bytes) {
+    if (bytes == NULL) {
+        // this situation is irrecoverable and we don't want to return something corrupted, so we raise an exception (avoiding NSAssert that may be disabled)
+        [NSException raise:@"NSInternalInconsistencyException" format:@"failed malloc" arguments:nil];
         return nil;
     }
     
@@ -139,7 +150,15 @@ AWSJKBigInteger *signedBigIntegerFromNSData(NSData* data) {
     }
     
     NSUInteger outputLen = len / 2;
+    if (outputLen == 0) {
+        return [NSData data];
+    }
     uint8_t *output = malloc(sizeof(uint8_t) * outputLen);
+    if (output == NULL) {
+        // this situation is irrecoverable and we don't want to return something corrupted, so we raise an exception (avoiding NSAssert that may be disabled)
+        [NSException raise:@"NSInternalInconsistencyException" format:@"failed malloc" arguments:nil];
+        return nil;
+    }
     
     const char *hexBytes = (const char*)[hexStrData bytes];
     for (NSUInteger i = 0, j=0; i < len && j < outputLen; i += 2, j++) {

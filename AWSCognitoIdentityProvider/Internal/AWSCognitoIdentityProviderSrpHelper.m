@@ -70,6 +70,11 @@ static NSString* N_IN_HEX = @"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129
     unsigned int maxNumBytes = [N countBytes] + 1;
 
     uint8_t *bytes = malloc(sizeof(uint8_t) * maxNumBytes);
+    if (bytes == NULL) {
+        // this situation is irrecoverable and we don't want to return something corrupted, so we raise an exception (avoiding NSAssert that may be disabled)
+        [NSException raise:@"NSInternalInconsistencyException" format:@"failed malloc" arguments:nil];
+        return nil;
+    }
 
     CC_SHA256_CTX ctx;
     CC_SHA256_Init(&ctx);
@@ -212,6 +217,11 @@ static NSString* N_IN_HEX = @"FFFFFFFFFFFFFFFFC90FDAA22168C234C4C6628B80DC1CD129
     size_t aBitLength = bitLength;
     size_t aByteLength = aBitLength/8;
     uint8_t *aBytes = malloc(aByteLength);
+    if (aBytes == NULL && aByteLength > 0) {
+        // this situation is irrecoverable and we don't want to return something corrupted, so we raise an exception (avoiding NSAssert that may be disabled)
+        [NSException raise:@"NSInternalInconsistencyException" format:@"failed malloc" arguments:nil];
+        return nil;
+    }
     int functionExitCode = SecRandomCopyBytes(kSecRandomDefault, aByteLength, aBytes);
     if (functionExitCode < 0) {
         AWSDDLogError(@"SecRandomCopyBytes failed with error code %d: %s", errno, strerror(errno));
