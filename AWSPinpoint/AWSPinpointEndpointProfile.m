@@ -36,6 +36,10 @@ static int const MAX_ENDPOINT_ATTRIBUTE_VALUES = 50;
 
 @end
 
+@interface AWSPinpointConfiguration()
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
+@end
+
 #pragma mark - AWSPinpointEndpointProfile -
 @implementation AWSPinpointEndpointProfile
 
@@ -84,8 +88,22 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 
 - (instancetype)initWithContext:(AWSPinpointContext *) context {
     BOOL applicationLevelOptOut = [self isApplicationLevelOptOut:context];
-    
+    if(context.configuration.userDefaults != nil) {
+        return [self initWithApplicationId:context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut debug:context.configuration.debug userDefaults:context.configuration.userDefaults];
+    }
     return [self initWithApplicationId: context.configuration.appId endpointId:context.uniqueId applicationLevelOptOut:applicationLevelOptOut debug:context.configuration.debug];
+}
+
+- (void) updateEndpointProfileWithContext:(AWSPinpointContext *) context {
+    NSUserDefaults *userDefaults = context.configuration.userDefaults;
+    if (userDefaults == nil) {
+        userDefaults = [NSUserDefaults standardUserDefaults];
+    }
+    NSString *deviceTokenString = [[[[userDefaults objectForKey:AWSDeviceTokenKey] description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    _channelType = context.configuration.debug ? DEBUG_CHANNEL_TYPE : CHANNEL_TYPE;
+    _applicationId = context.configuration.appId;
+    _endpointId = context.uniqueId;
+    _address = deviceTokenString;
 }
 
 - (BOOL) isApplicationLevelOptOut:(AWSPinpointContext *) context {

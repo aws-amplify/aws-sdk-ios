@@ -1,6 +1,13 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.16
+
+### Bug Fixes
+
+* **Amazon Pinpoint**
+  * Fixed an issue that prevented EndpointProfile from receiving updates of Device Token. See [issue#886](https://github.com/aws/aws-sdk-ios/issues/886)
+
 ## 2.6.15
 
 ### Enhancements
@@ -19,7 +26,7 @@
   * Fixed header propagation bugs in S3 TransferUtility for Multipart uploads. See [issue#869](https://github.com/aws/aws-sdk-ios/issues/869)
 
 * **Amazon Pinpoint**
-     * Fixed an issue that caused 400 errors when submitting events with a boolean metric.
+  * Fixed an issue that caused 400 errors when submitting events with a boolean metric.
 
 ## 2.6.14
 

@@ -46,6 +46,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (void) removeAllAttributes;
 - (void) removeAllMetrics;
 - (BOOL) isApplicationLevelOptOut:(AWSPinpointContext *) context;
+- (void) updateEndpointProfileWithContext:(AWSPinpointContext *) context;
 @end
 
 @implementation AWSPinpointTargetingClient
@@ -89,6 +90,8 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     }
     [self.endpointProfile removeAllMetrics];
     [self.endpointProfile removeAllAttributes];
+    //This updates endpoint id, address and debug mode and app id
+    [self.endpointProfile updateEndpointProfileWithContext:self.context];
     //update opt outs
     BOOL applicationLevelOptOut = [self.endpointProfile isApplicationLevelOptOut:self.context];
     [self.endpointProfile performSelectorOnMainThread:@selector(setOptOut:) withObject:[NSNumber numberWithBool:applicationLevelOptOut] waitUntilDone:YES];
