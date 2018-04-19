@@ -84,7 +84,12 @@ id<AWSUIConfiguration> config = nil;
 }
 
 - (void)setUpBackground {
-    self.view.backgroundColor = [UIColor whiteColor];
+    if ([AWSUserPoolsUIHelper isBackgroundColorFullScreen:self.config]) {
+        self.view.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
+    } else {
+        self.view.backgroundColor = [UIColor whiteColor];
+    }
+    
     self.title = @"Sign Up";
     UIImageView *backgroundImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.tableFormView.center.y)];
     backgroundImageView.backgroundColor = [AWSUserPoolsUIHelper getBackgroundColor:self.config];
@@ -207,7 +212,7 @@ id<AWSUIConfiguration> config = nil;
 
 - (void)setUp {
     _userNameRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"User Name" staticText:self.user.username];
-    _confirmationCodeRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Confiration Code" type:InputTypeText];
+    _confirmationCodeRow = [[AWSFormTableCell alloc] initWithPlaceHolder:@"Confirmation Code" type:InputTypeText];
     _tableDelegate = [AWSFormTableDelegate new];
     [self.tableDelegate addCell:self.userNameRow];
     [self.tableDelegate addCell:self.confirmationCodeRow];

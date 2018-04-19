@@ -7,7 +7,7 @@
 
 ## Setting Up
 
-To get started with the AWS SDK for iOS, you can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
+To get started with the AWS SDK for iOS, check out the [AWS Mobile Developer Guide for iOS](https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html). You can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
 
 To use the AWS SDK for iOS, you will need the following installed on your development machine:
 
@@ -15,8 +15,6 @@ To use the AWS SDK for iOS, you will need the following installed on your develo
 * iOS 8 or later
 
 At the AWS GitHub repo, you can check out the [SDK source code](https://github.com/aws/aws-sdk-ios).
-
-For more information, see  [AWS Mobile SDK for iOS Developer Guide](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/).
 
 ## Include the SDK for iOS in an Existing Application
 
@@ -40,7 +38,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
         $ sudo gem install cocoapods
         $ pod setup
 
-1. In your project directory (the directory where your `*.xcodeproj` file is), create a plain text file named `Podfile` (without any file extension) and add the lines below. Replace `YourTarget` with your actual target name.
+2. In your project directory (the directory where your `*.xcodeproj` file is), create a plain text file named `Podfile` (without any file extension) and add the lines below. Replace `YourTarget` with your actual target name.
 
         source 'https://github.com/CocoaPods/Specs.git'
         
@@ -69,11 +67,11 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
         
     ![image](readme-images/cocoapods-setup-01.png?raw=true)
         
-1. Then run the following command:
+3. Then run the following command:
     
         $ pod install
 
-1. Open up `*.xcworkspace` with Xcode and start using the SDK.
+4. Open up `*.xcworkspace` with Xcode and start using the SDK.
 
     ![image](readme-images/cocoapods-setup-02.png?raw=true)
 
@@ -86,17 +84,17 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
 
 1. Install the latest version of [Carthage](https://github.com/Carthage/Carthage#installing-carthage).
 
-1. Add the following to your `Cartfile`:
+2. Add the following to your `Cartfile`:
 
         github "aws/aws-sdk-ios"
 
-1. Then run the following command:
+3. Then run the following command:
     
         $ carthage update
 
-1. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
+4. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
 
-1. Click the **Add Other...** button, navigate to the `AWS<#ServiceName#>.framework` files under `Carthage` > `Build` > `iOS` and select them. Do not check the **Destination: Copy items if needed** checkbox when prompted.
+5. Click the **Add Other...** button, navigate to the `AWS<#ServiceName#>.framework` files under `Carthage` > `Build` > `iOS` and select them. Do not check the **Destination: Copy items if needed** checkbox when prompted.
 
     * `AWSCore.framework`
     * `AWSAutoScaling.framework`
@@ -117,7 +115,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
     * `AWSSNS.framework`
     * `AWSSQS.framework`
 
-1. Under the **Build Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
+6. Under the **Build Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
 
         Shell /bin/sh
         
@@ -133,9 +131,9 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
 
 1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.5.0, the filename is `aws-ios-sdk-2.5.0`).
 
-1. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
+2. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
 
-1. Click the **Add Other...** button, navigate to the `AWS<#ServiceName#>.framework` files and select them. Check the **Destination: Copy items if needed** checkbox when prompted.
+3. Click the **Add Other...** button, navigate to the `AWS<#ServiceName#>.framework` files and select them. Check the **Destination: Copy items if needed** checkbox when prompted.
 
     * `AWSCore.framework`
     * `AWSAutoScaling.framework`
@@ -156,7 +154,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
     * `AWSSNS.framework`
     * `AWSSQS.framework`
 
-1. Under the **Buid Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
+4. Under the **Buid Phases** tab in your **Target**, click the **+** button on the top left and then select **New Run Script Phase**. Then setup the build phase as follows. Make sure this phase is below the `Embed Frameworks` phase.
 
         Shell /bin/sh
         
@@ -211,35 +209,37 @@ When we release a new version of the SDK, you can pick up the changes as describ
     * `AWSSNS.framework`
     * `AWSSQS.framework`
 
-1. Follow the installation process above to include the new version of the SDK.
+2. Follow the installation process above to include the new version of the SDK.
 
 ## Preparing your apps for iOS 9
 The release of iOS 9 includes changes that might impact how your apps interact with some AWS services. If you compile your apps with Apple’s iOS 9 SDK (or Xcode 7), Apple’s [App Transport Security (ATS)](https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) feature may affect the ability of apps to connect to certain AWS service endpoints. In order to ensure affected apps continue to successfully connect to AWS endpoints, you’ll need to configure them to interact properly with Apple’s ATS by adding these properties to your `Info.plist` file:
 
-        <key>NSAppTransportSecurity</key>
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+        <key>NSExceptionDomains</key>
         <dict>
-                <key>NSExceptionDomains</key>
-                <dict>
-                <key>amazonaws.com</key>
-                <dict>
-                        <key>NSThirdPartyExceptionMinimumTLSVersion</key>
-                        <string>TLSv1.0</string>
-                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                        <false/>
-                        <key>NSIncludesSubdomains</key>
-                        <true/>
-                </dict>
-                <key>amazonaws.com.cn</key>
-                <dict>
-                        <key>NSThirdPartyExceptionMinimumTLSVersion</key>
-                        <string>TLSv1.0</string>
-                        <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                        <false/>
-                        <key>NSIncludesSubdomains</key>
-                        <true/>
-                </dict>
-                </dict>
+        <key>amazonaws.com</key>
+        <dict>
+                <key>NSThirdPartyExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                <false/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
         </dict>
+        <key>amazonaws.com.cn</key>
+        <dict>
+                <key>NSThirdPartyExceptionMinimumTLSVersion</key>
+                <string>TLSv1.0</string>
+                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+                <false/>
+                <key>NSIncludesSubdomains</key>
+                <true/>
+        </dict>
+        </dict>
+</dict>
+```
 
 For more information, see [Preparing Your Apps for iOS 9](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/ats.html).
 
@@ -247,84 +247,100 @@ For more information, see [Preparing Your Apps for iOS 9](http://docs.aws.amazon
 
 1. Import the AWSCore header in the application delegate.
 
-        import AWSCore
+    ```swift
+    import AWSCore
+    ```
 
-1. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
+2. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
-        let credentialsProvider = AWSCognitoCredentialsProvider(
-            regionType: CognitoRegionType,
-            identityPoolId: CognitoIdentityPoolId)
-        let configuration = AWSServiceConfiguration(
-            region: DefaultServiceRegionType,
-            credentialsProvider: credentialsProvider)
-        AWSServiceManager.default().defaultServiceConfiguration = configuration
+    ```swift
+    let credentialsProvider = AWSCognitoCredentialsProvider(
+        regionType: CognitoRegionType,
+        identityPoolId: CognitoIdentityPoolId)
+    let configuration = AWSServiceConfiguration(
+        region: DefaultServiceRegionType,
+        credentialsProvider: credentialsProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+    ```
 
-1. In Swift file you want to use the SDK, import the appropriate headers for the services you are using. The header file import convention is `import AWSServiceName`, as in the following examples:
+3. In Swift file you want to use the SDK, import the appropriate headers for the services you are using. The header file import convention is `import AWSServiceName`, as in the following examples:
 
-        import AWSS3
-        import AWSDynamoDB
-        import AWSSQS
-        import AWSSNS
-        import AWSCognito
+    ```swift
+    import AWSS3
+    import AWSDynamoDB
+    import AWSSQS
+    import AWSSNS
+    import AWSCognito
+    ```
         
-1. Make a call to the AWS services.
+4. Make a call to the AWS services.
 
-        let dynamoDB = AWSDynamoDB.default()
-        let listTableInput = AWSDynamoDBListTablesInput()
-        dynamoDB.listTables(listTableInput!).continueWith { (task:AWSTask<AWSDynamoDBListTablesOutput>) -> Any? in
-            if let error = task.error as? NSError {
-                print("Error occurred: \(error)")
-                return nil
-            }
-            
-            let listTablesOutput = task.result
-            
-            for tableName in listTablesOutput!.tableNames! {
-                print("\(tableName)")
-            }
-            
+    ```swift
+    let dynamoDB = AWSDynamoDB.default()
+    let listTableInput = AWSDynamoDBListTablesInput()
+    dynamoDB.listTables(listTableInput!).continueWith { (task:AWSTask<AWSDynamoDBListTablesOutput>) -> Any? in
+        if let error = task.error as? NSError {
+        print("Error occurred: \(error)")
             return nil
         }
+    
+        let listTablesOutput = task.result
+    
+        for tableName in listTablesOutput!.tableNames! {
+            print("\(tableName)")
+        }
+    
+        return nil
+    }
+    ```
         
-    **Note**: Most of the service client classes have a singleton method to get a default client. The naming convention is `+ defaultSERVICENAME` (e.g. `+ defaultDynamoDB` in the above code snippet). This singleton method creates a service client with `defaultServiceConfiguration`, which you set up in step 5, and maintains a strong reference to the client.
+**Note**: Most of the service client classes have a singleton method to get a default client. The naming convention is `+ defaultSERVICENAME` (e.g. `+ defaultDynamoDB` in the above code snippet). This singleton method creates a service client with `defaultServiceConfiguration`, which you set up in step 5, and maintains a strong reference to the client.
 
 ## Getting Started with Objective-C
 
 1. Import the AWSCore header in the application delegate.
+        
+    ```objective-c
+    @import AWSCore;
+    ```
 
-        @import AWSCore;
+2. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
 
-1. Create a default service configuration by adding the following code snippet in the `application:didFinishLaunchingWithOptions:` application delegate method.
+    ```objective-c
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
+                                                                                                    identityPoolId:CognitoIdentityPoolId];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:DefaultServiceRegionType
+                                                                         credentialsProvider:credentialsProvider];
+    AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
+    ```
 
-        AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:CognitoRegionType
-                                                                                                        identityPoolId:CognitoIdentityPoolId];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:DefaultServiceRegionType
-                                                                             credentialsProvider:credentialsProvider];
-        AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
+3. Import the appropriate headers for the services you are using. The header file import convention is `@import AWSServiceName;`, as in the following examples:
 
-1. Import the appropriate headers for the services you are using. The header file import convention is `@import AWSServiceName;`, as in the following examples:
+    ```objective-c
+    @import AWSS3;
+    @import AWSDynamoDB;
+    @import AWSSQS;
+    @import AWSSNS;
+    @import AWSCognito;
+    ```
 
-        @import AWSS3;
-        @import AWSDynamoDB;
-        @import AWSSQS;
-        @import AWSSNS;
-        @import AWSCognito;
+4. Make a call to the AWS services.
 
-1. Make a call to the AWS services.
-
-        AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
-        AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
-        uploadRequest.bucket = yourBucket;
-        uploadRequest.key = yourKey;
-        uploadRequest.body = yourDataURL;
-        uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
+    ```objective-c
+    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
+    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
+    uploadRequest.bucket = yourBucket;
+    uploadRequest.key = yourKey;
+    uploadRequest.body = yourDataURL;
+    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
     
-        [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
-            // Do something with the response
-            return nil;
-        }];
+    [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
+        // Do something with the response
+        return nil;
+    }];
+    ```
 
-    **Note**: Most of the service client classes have a singleton method to get a default client. The naming convention is `+ defaultSERVICENAME` (e.g. `+ defaultS3TransferManager` in the above code snippet). This singleton method creates a service client with `defaultServiceConfiguration`, which you set up in step 5, and maintains a strong reference to the client.
+**Note**: Most of the service client classes have a singleton method to get a default client. The naming convention is `+ defaultSERVICENAME` (e.g. `+ defaultS3TransferManager` in the above code snippet). This singleton method creates a service client with `defaultServiceConfiguration`, which you set up in step 5, and maintains a strong reference to the client.
 
 ## AWSTask
 
@@ -340,7 +356,9 @@ CocoaLumberjack logging levels are additive such that when the level is set to v
 
 **Swift**
 
-    AWSDDLog.sharedInstance().logLevel = .verbose
+```swift
+AWSDDLog.sharedInstance().logLevel = .verbose
+```
 
 The following logging level options are available:
 
@@ -353,7 +371,9 @@ The following logging level options are available:
 
 **Objective-C**
 
-    [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelVerbose;
+```objective-c
+[AWSDDLog sharedInstance].logLevel = AWSDDLogLevelVerbose;
+```
 
 The following logging level options are available:
 
@@ -374,27 +394,35 @@ To initialize logging to files, use the following code:
 
 **Swift**
 
-        let fileLogger: AWSDDFileLogger = AWSDDFileLogger() // File Logger
-        fileLogger.rollingFrequency = TimeInterval(60*60*24)  // 24 hours
-        fileLogger.logFileManager.maximumNumberOfLogFiles = 7
-        AWSDDLog.add(fileLogger)
+```swift
+let fileLogger: AWSDDFileLogger = AWSDDFileLogger() // File Logger
+fileLogger.rollingFrequency = TimeInterval(60*60*24)  // 24 hours
+fileLogger.logFileManager.maximumNumberOfLogFiles = 7
+AWSDDLog.add(fileLogger)
+```
 
 **Objective-C**
 
-        AWSDDFileLogger *fileLogger = [[AWSDDFileLogger alloc] init]; // File Logger
-        fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
-        fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
-        [AWSDDLog addLogger:fileLogger];
+```objective-c
+AWSDDFileLogger *fileLogger = [[AWSDDFileLogger alloc] init]; // File Logger
+fileLogger.rollingFrequency = 60 * 60 * 24; // 24 hour rolling
+fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
+[AWSDDLog addLogger:fileLogger];
+```
 
 To initialize logging to your Xcode console, use the following code:
 
 **Swift**
 
-        AWSDDLog.add(AWSDDTTYLogger.sharedInstance()) // TTY = Xcode console
+```swift
+AWSDDLog.add(AWSDDTTYLogger.sharedInstance()) // TTY = Xcode console
+```
 
 **Objective-C**
 
-        [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]]; // TTY = Xcode console
+```objective-c
+[AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]]; // TTY = Xcode console
+```
 
 ## Sample Apps
 
@@ -479,15 +507,15 @@ The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format
 
     **Note**: Remember to replace 2.5.0 in the example above with the actual version number of the AWS SDK for iOS that you downloaded.
 
-1. Create a directory called `~/Library/Developer/Shared/Documentation/DocSets`:
+2. Create a directory called `~/Library/Developer/Shared/Documentation/DocSets`:
 
         $ mkdir -p ~/Library/Developer/Shared/Documentation/DocSets
 
-1. Copy (or move) `Documentation/com.amazon.aws.ios.docset` from the SDK installation files to the directory you created in the previous step:
+3. Copy (or move) `Documentation/com.amazon.aws.ios.docset` from the SDK installation files to the directory you created in the previous step:
 
         $ mv Documentation/com.amazon.aws.ios.docset ~/Library/Developer/Shared/Documentation/DocSets/
 
-1. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.5.0 Documentation** (where '2.5.0' is the appropriate version number).
+4. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.5.0 Documentation** (where '2.5.0' is the appropriate version number).
 
 ## Talk to Us
 

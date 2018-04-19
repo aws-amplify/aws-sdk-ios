@@ -1,4 +1,148 @@
+
 # AWS Mobile SDK for iOS CHANGELOG
+
+## 2.6.16
+
+### Bug Fixes
+
+* **Amazon Pinpoint**
+  * Fixed an issue that prevented EndpointProfile from receiving updates of Device Token. See [issue#886](https://github.com/aws/aws-sdk-ios/issues/886)
+
+## 2.6.15
+
+### Enhancements
+
+* **AWS Core**
+  * Removed the deprecated methods `synchronize` and `synchronizeWithError` from `AWSUICKeyChainStore` to reduce warnings. See [issue#863](https://github.com/aws/aws-sdk-ios/issues/863)
+  * Fix recommended Xcode 9.3 warnings. See [pr #868](https://github.com/aws/aws-sdk-ios/pull/868)
+
+* **Amazon S3**
+  * Updated AWSS3 low level clients to conform latest S3 service model.
+  * Fix import for static library build to succeed. See [pr #866](https://github.com/aws/aws-sdk-ios/pull/866)
+
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed header propagation bugs in S3 TransferUtility for Multipart uploads. See [issue#869](https://github.com/aws/aws-sdk-ios/issues/869)
+
+* **Amazon Pinpoint**
+  * Fixed an issue that caused 400 errors when submitting events with a boolean metric.
+
+## 2.6.14
+
+### Bug Fixes
+
+* **AWS AuthUI**
+  * Fixed a bug which would hide the input fields when keyboard shows. The view now moves towards the top when keyboard appears. See [issue#835](https://github.com/aws/aws-sdk-ios/issues/835)
+
+* **Amazon S3**
+  * Fixed bug to handle custom metadata in multipart uploads. See [issue#858](https://github.com/aws/aws-sdk-ios/issues/858)
+
+* **Amazon Pinpoint**
+  * Prevent Crash in endCurrentSessionTimeoutWithTimer [issue#826](https://github.com/aws/aws-sdk-ios/issues/826)
+  * Fixed an issue in which updating the userId in the AWSPinpointEndpointProfileUser is not reflected when retrieving the currentEndpointProfile from the AWSPinpointTargetingClient.
+
+## 2.6.13
+
+### New Features
+
+* **Amazon S3**
+  * Added support for MultiPart uploads in Transfer Utility
+  * Included error retry logic for Transfer Utility 
+
+## 2.6.12
+
+### New Features
+
+* **Amazon Cognito Identity Provider**
+  * Support for user migration over lambda trigger in Cognito User Pools.
+
+## 2.6.11
+
+### New Features
+
+* **AWS IoT**
+  * Starting from this release, AWS IoT SDK by default sends metrics indicating which language and version of the SDK is being used. However, user may disable this by calling `enableMetricsCollection(false)` before calling `connect` method, if they do not want metrics to be sent.
+
+### Bug Fixes
+
+* **AWS S3**
+  * Assert instead of raising exception when reponse is not of type `NSHTTPURLResponse` in `AWSS3TransferUtility`. See [pr #799](https://github.com/aws/aws-sdk-ios/pull/799).
+
+### Misc. Updates
+
+* **General**
+  * Update README for formatting, code indentation and highlighting. [PR #790](https://github.com/aws/aws-sdk-ios/pull/790)
+  * Update README to point to the new documentation. [PR #804](https://github.com/aws/aws-sdk-ios/pull/804)
+
+## 2.6.10
+
+### New Features
+
+* **AWS Core**
+  * Added support for `eu-west-3`(EU - Paris) region.
+
+## 2.6.9
+
+### New Features
+
+* **AWS Core**
+  * Added support for `cn-northwest-1`(China - Ningxia) region.
+
+### Misc. Updates
+	
+* **Amazon Pinpoint**
+  * Improved the comment in `generateSessionIdWithContext` method in `AWSPinpointSessionClient`. [PR #777](https://github.com/aws/aws-sdk-ios/pull/777)
+
+## 2.6.8
+
+### New Features
+
+* **Amazon Rekognition**
+  * **Breaking API Change** The `AWSRekognitionLandmarkType` enum entries have changed lowercase `b` to capital `B`. For instance `AWSRekognitionLandmarkTypeLeftEyeBrowLeft`.
+  * Update the enum value of LandmarkType and GenderType to be consistent with service response. [Github Issue #650](https://github.com/aws/aws-sdk-ios/issues/650)
+  * Update to add face and text detection. [Github Issue #771](https://github.com/aws/aws-sdk-ios/issues/771)
+  * Update to Amazon Rekognition in general to latest API specifications.
+
+### Bug fixes
+
+* **Amazon Cognito Identity Provider**
+  * Fix broken Cocoapods due to duplicate library being found. [Github Issue #770](https://github.com/aws/aws-sdk-ios/issues/770)
+
+* **Amazon Cognito Auth**
+  * Fix broken Cocoapods due to duplicate library being found. [Github Issue #770](https://github.com/aws/aws-sdk-ios/issues/770)
+
+## 2.6.7
+
+### New Features
+
+* **Amazon Cognito Auth**
+  * Add support for the adaptive authentication feature of Amazon Cognito advanced security features (Beta).
+
+* **Amazon Cognito Identity Provider**
+  * Add support for Time-based One-time Passcode multi-factor authentication.
+  * Add support for the adaptive authentication feature of Amazon Cognito advanced security features (Beta).
+
+## 2.6.6
+
+### Enhancements
+
+* **Amazon Polly**
+    * Added support for new voices - `Aditi` and `Seoyeon`.
+    * Added support for new language code - `ko-KR`.
+
+### New Features
+
+* **AWS MobileClient**
+    * Added `AWSMobileClient` to initialize the SDK and create instances of other SDK clients. Currently support is limited to `AWS Auth SDK`. AWSMobileClient creates the `AWSConfiguration` based on `awsconfiguration.json`, fetches the Cognito Identity and registers the SignIn providers with the permissions based on the `AWSConfiguration`.
+
+### Bug fixes
+
+* **Amazon Pinpoint**
+    * Fixed a bug which didn't allow APNs Sandbox endpoints to be registered.
+
+* **AWS IoT**
+    * Change default keep alive timer to 300 seconds.
 
 ## 2.6.5
 

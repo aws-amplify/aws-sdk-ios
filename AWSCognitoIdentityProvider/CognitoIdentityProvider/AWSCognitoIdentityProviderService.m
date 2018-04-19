@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSCognitoIdentityProviderResources.h"
 
 static NSString *const AWSInfoCognitoIdentityProvider = @"CognitoIdentityProvider";
-static NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.6.5";
+static NSString *const AWSCognitoIdentityProviderSDKVersion = @"2.6.16";
 
 
 @interface AWSCognitoIdentityProviderResponseSerializer : AWSJSONResponseSerializer
@@ -45,6 +45,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"CodeMismatchException" : @(AWSCognitoIdentityProviderErrorCodeMismatch),
                             @"ConcurrentModificationException" : @(AWSCognitoIdentityProviderErrorConcurrentModification),
                             @"DuplicateProviderException" : @(AWSCognitoIdentityProviderErrorDuplicateProvider),
+                            @"EnableSoftwareTokenMFAException" : @(AWSCognitoIdentityProviderErrorEnableSoftwareTokenMFA),
                             @"ExpiredCodeException" : @(AWSCognitoIdentityProviderErrorExpiredCode),
                             @"GroupExistsException" : @(AWSCognitoIdentityProviderErrorGroupExists),
                             @"InternalErrorException" : @(AWSCognitoIdentityProviderErrorInternalError),
@@ -63,6 +64,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"PreconditionNotMetException" : @(AWSCognitoIdentityProviderErrorPreconditionNotMet),
                             @"ResourceNotFoundException" : @(AWSCognitoIdentityProviderErrorResourceNotFound),
                             @"ScopeDoesNotExistException" : @(AWSCognitoIdentityProviderErrorScopeDoesNotExist),
+                            @"SoftwareTokenMFANotFoundException" : @(AWSCognitoIdentityProviderErrorSoftwareTokenMFANotFound),
                             @"TooManyFailedAttemptsException" : @(AWSCognitoIdentityProviderErrorTooManyFailedAttempts),
                             @"TooManyRequestsException" : @(AWSCognitoIdentityProviderErrorTooManyRequests),
                             @"UnexpectedLambdaException" : @(AWSCognitoIdentityProviderErrorUnexpectedLambda),
@@ -72,6 +74,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"UserLambdaValidationException" : @(AWSCognitoIdentityProviderErrorUserLambdaValidation),
                             @"UserNotConfirmedException" : @(AWSCognitoIdentityProviderErrorUserNotConfirmed),
                             @"UserNotFoundException" : @(AWSCognitoIdentityProviderErrorUserNotFound),
+                            @"UserPoolAddOnNotEnabledException" : @(AWSCognitoIdentityProviderErrorUserPoolAddOnNotEnabled),
                             @"UserPoolTaggingException" : @(AWSCognitoIdentityProviderErrorUserPoolTagging),
                             @"UsernameExistsException" : @(AWSCognitoIdentityProviderErrorUsernameExists),
                             };
@@ -673,6 +676,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderAdminListUserAuthEventsResponse *> *)adminListUserAuthEvents:(AWSCognitoIdentityProviderAdminListUserAuthEventsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AdminListUserAuthEvents"
+                   outputClass:[AWSCognitoIdentityProviderAdminListUserAuthEventsResponse class]];
+}
+
+- (void)adminListUserAuthEvents:(AWSCognitoIdentityProviderAdminListUserAuthEventsRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderAdminListUserAuthEventsResponse *response, NSError *error))completionHandler {
+    [[self adminListUserAuthEvents:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminListUserAuthEventsResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderAdminListUserAuthEventsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)adminRemoveUserFromGroup:(AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -741,6 +767,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse *> *)adminSetUserMFAPreference:(AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AdminSetUserMFAPreference"
+                   outputClass:[AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse class]];
+}
+
+- (void)adminSetUserMFAPreference:(AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse *response, NSError *error))completionHandler {
+    [[self adminSetUserMFAPreference:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderAdminSetUserSettingsResponse *> *)adminSetUserSettings:(AWSCognitoIdentityProviderAdminSetUserSettingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -754,6 +803,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderAdminSetUserSettingsResponse *response, NSError *error))completionHandler {
     [[self adminSetUserSettings:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminSetUserSettingsResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderAdminSetUserSettingsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse *> *)adminUpdateAuthEventFeedback:(AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AdminUpdateAuthEventFeedback"
+                   outputClass:[AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse class]];
+}
+
+- (void)adminUpdateAuthEventFeedback:(AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse *response, NSError *error))completionHandler {
+    [[self adminUpdateAuthEventFeedback:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -823,6 +895,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse *response, NSError *error))completionHandler {
     [[self adminUserGlobalSignOut:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderAssociateSoftwareTokenResponse *> *)associateSoftwareToken:(AWSCognitoIdentityProviderAssociateSoftwareTokenRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"AssociateSoftwareToken"
+                   outputClass:[AWSCognitoIdentityProviderAssociateSoftwareTokenResponse class]];
+}
+
+- (void)associateSoftwareToken:(AWSCognitoIdentityProviderAssociateSoftwareTokenRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderAssociateSoftwareTokenResponse *response, NSError *error))completionHandler {
+    [[self associateSoftwareToken:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAssociateSoftwareTokenResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderAssociateSoftwareTokenResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1310,6 +1405,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderDescribeRiskConfigurationResponse *> *)describeRiskConfiguration:(AWSCognitoIdentityProviderDescribeRiskConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"DescribeRiskConfiguration"
+                   outputClass:[AWSCognitoIdentityProviderDescribeRiskConfigurationResponse class]];
+}
+
+- (void)describeRiskConfiguration:(AWSCognitoIdentityProviderDescribeRiskConfigurationRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderDescribeRiskConfigurationResponse *response, NSError *error))completionHandler {
+    [[self describeRiskConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderDescribeRiskConfigurationResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderDescribeRiskConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderDescribeUserImportJobResponse *> *)describeUserImportJob:(AWSCognitoIdentityProviderDescribeUserImportJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1539,6 +1657,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderGetSigningCertificateResponse *> *)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"GetSigningCertificate"
+                   outputClass:[AWSCognitoIdentityProviderGetSigningCertificateResponse class]];
+}
+
+- (void)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderGetSigningCertificateResponse *response, NSError *error))completionHandler {
+    [[self getSigningCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetSigningCertificateResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderGetSigningCertificateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderGetUICustomizationResponse *> *)getUICustomization:(AWSCognitoIdentityProviderGetUICustomizationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1598,6 +1739,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse *response, NSError *error))completionHandler {
     [[self getUserAttributeVerificationCode:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse *> *)getUserPoolMfaConfig:(AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"GetUserPoolMfaConfig"
+                   outputClass:[AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse class]];
+}
+
+- (void)getUserPoolMfaConfig:(AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse *response, NSError *error))completionHandler {
+    [[self getUserPoolMfaConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1907,6 +2071,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCognitoIdentityProviderSetRiskConfigurationResponse *> *)setRiskConfiguration:(AWSCognitoIdentityProviderSetRiskConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"SetRiskConfiguration"
+                   outputClass:[AWSCognitoIdentityProviderSetRiskConfigurationResponse class]];
+}
+
+- (void)setRiskConfiguration:(AWSCognitoIdentityProviderSetRiskConfigurationRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderSetRiskConfigurationResponse *response, NSError *error))completionHandler {
+    [[self setRiskConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSetRiskConfigurationResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderSetRiskConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityProviderSetUICustomizationResponse *> *)setUICustomization:(AWSCognitoIdentityProviderSetUICustomizationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1920,6 +2107,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderSetUICustomizationResponse *response, NSError *error))completionHandler {
     [[self setUICustomization:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSetUICustomizationResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderSetUICustomizationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderSetUserMFAPreferenceResponse *> *)setUserMFAPreference:(AWSCognitoIdentityProviderSetUserMFAPreferenceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"SetUserMFAPreference"
+                   outputClass:[AWSCognitoIdentityProviderSetUserMFAPreferenceResponse class]];
+}
+
+- (void)setUserMFAPreference:(AWSCognitoIdentityProviderSetUserMFAPreferenceRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderSetUserMFAPreferenceResponse *response, NSError *error))completionHandler {
+    [[self setUserMFAPreference:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSetUserMFAPreferenceResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderSetUserMFAPreferenceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse *> *)setUserPoolMfaConfig:(AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"SetUserPoolMfaConfig"
+                   outputClass:[AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse class]];
+}
+
+- (void)setUserPoolMfaConfig:(AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse *response, NSError *error))completionHandler {
+    [[self setUserPoolMfaConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2012,6 +2245,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderStopUserImportJobResponse *response, NSError *error))completionHandler {
     [[self stopUserImportJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderStopUserImportJobResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderStopUserImportJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse *> *)updateAuthEventFeedback:(AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"UpdateAuthEventFeedback"
+                   outputClass:[AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse class]];
+}
+
+- (void)updateAuthEventFeedback:(AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse *response, NSError *error))completionHandler {
+    [[self updateAuthEventFeedback:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2173,6 +2429,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCognitoIdentityProviderUpdateUserPoolClientResponse *response, NSError *error))completionHandler {
     [[self updateUserPoolClient:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderUpdateUserPoolClientResponse *> * _Nonnull task) {
         AWSCognitoIdentityProviderUpdateUserPoolClientResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderVerifySoftwareTokenResponse *> *)verifySoftwareToken:(AWSCognitoIdentityProviderVerifySoftwareTokenRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AWSCognitoIdentityProviderService"
+                 operationName:@"VerifySoftwareToken"
+                   outputClass:[AWSCognitoIdentityProviderVerifySoftwareTokenResponse class]];
+}
+
+- (void)verifySoftwareToken:(AWSCognitoIdentityProviderVerifySoftwareTokenRequest *)request
+     completionHandler:(void (^)(AWSCognitoIdentityProviderVerifySoftwareTokenResponse *response, NSError *error))completionHandler {
+    [[self verifySoftwareToken:request] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderVerifySoftwareTokenResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderVerifySoftwareTokenResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

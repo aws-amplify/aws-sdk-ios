@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -363,6 +363,28 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucketCors:(AWSS3DeleteBucketCorsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ Deletes the server-side encryption configuration from the bucket.
+ 
+ @param request A container for the necessary parameters to execute the DeleteBucketEncryption service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ 
+ @see AWSS3DeleteBucketEncryptionRequest
+ */
+- (AWSTask *)deleteBucketEncryption:(AWSS3DeleteBucketEncryptionRequest *)request;
+
+/**
+ Deletes the server-side encryption configuration from the bucket.
+ 
+ @param request A container for the necessary parameters to execute the DeleteBucketEncryption service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3DeleteBucketEncryptionRequest
+ */
+- (void)deleteBucketEncryption:(AWSS3DeleteBucketEncryptionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  Deletes an inventory configuration (identified by the inventory ID) from the bucket.
  
  @param request A container for the necessary parameters to execute the DeleteBucketInventoryConfiguration service method.
@@ -690,6 +712,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSS3GetBucketCorsOutput
  */
 - (void)getBucketCors:(AWSS3GetBucketCorsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketCorsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ Returns the server-side encryption configuration of a bucket.
+ 
+ @param request A container for the necessary parameters to execute the GetBucketEncryption service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetBucketEncryptionOutput`.
+ 
+ @see AWSS3GetBucketEncryptionRequest
+ @see AWSS3GetBucketEncryptionOutput
+ */
+- (AWSTask<AWSS3GetBucketEncryptionOutput *> *)getBucketEncryption:(AWSS3GetBucketEncryptionRequest *)request;
+
+/**
+ Returns the server-side encryption configuration of a bucket.
+ 
+ @param request A container for the necessary parameters to execute the GetBucketEncryption service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3GetBucketEncryptionRequest
+ @see AWSS3GetBucketEncryptionOutput
+ */
+- (void)getBucketEncryption:(AWSS3GetBucketEncryptionRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketEncryptionOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  Returns an inventory configuration (identified by the inventory ID) from the bucket.
@@ -1502,6 +1549,28 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketCors:(AWSS3PutBucketCorsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ Creates a new server-side encryption configuration (or replaces an existing one, if present).
+ 
+ @param request A container for the necessary parameters to execute the PutBucketEncryption service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ 
+ @see AWSS3PutBucketEncryptionRequest
+ */
+- (AWSTask *)putBucketEncryption:(AWSS3PutBucketEncryptionRequest *)request;
+
+/**
+ Creates a new server-side encryption configuration (or replaces an existing one, if present).
+ 
+ @param request A container for the necessary parameters to execute the PutBucketEncryption service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3PutBucketEncryptionRequest
+ */
+- (void)putBucketEncryption:(AWSS3PutBucketEncryptionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  Adds an inventory configuration (identified by the inventory ID) from the bucket.
  
  @param request A container for the necessary parameters to execute the PutBucketInventoryConfiguration service method.
@@ -1886,6 +1955,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSS3RestoreObjectOutput
  */
 - (void)restoreObject:(AWSS3RestoreObjectRequest *)request completionHandler:(void (^ _Nullable)(AWSS3RestoreObjectOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ This operation filters the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response.
+ 
+ @param request A container for the necessary parameters to execute the SelectObjectContent service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3SelectObjectContentOutput`.
+ 
+ @see AWSS3SelectObjectContentRequest
+ @see AWSS3SelectObjectContentOutput
+ */
+- (AWSTask<AWSS3SelectObjectContentOutput *> *)selectObjectContent:(AWSS3SelectObjectContentRequest *)request;
+
+/**
+ This operation filters the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response.
+ 
+ @param request A container for the necessary parameters to execute the SelectObjectContent service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3SelectObjectContentRequest
+ @see AWSS3SelectObjectContentOutput
+ */
+- (void)selectObjectContent:(AWSS3SelectObjectContentRequest *)request completionHandler:(void (^ _Nullable)(AWSS3SelectObjectContentOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Uploads a part in a multipart upload.</p><p><b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>

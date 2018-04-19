@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -28,7 +28,7 @@
 #import "AWSS3Serializer.h"
 
 static NSString *const AWSInfoS3 = @"S3";
-static NSString *const AWSS3SDKVersion = @"2.6.5";
+static NSString *const AWSS3SDKVersion = @"2.6.16";
 
 
 
@@ -386,6 +386,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteBucketEncryption:(AWSS3DeleteBucketEncryptionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/{Bucket}?encryption"
+                  targetPrefix:@""
+                 operationName:@"DeleteBucketEncryption"
+                   outputClass:nil];
+}
+
+- (void)deleteBucketEncryption:(AWSS3DeleteBucketEncryptionRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteBucketEncryption:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteBucketInventoryConfiguration:(AWSS3DeleteBucketInventoryConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -691,6 +713,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSS3GetBucketCorsOutput *response, NSError *error))completionHandler {
     [[self getBucketCors:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketCorsOutput *> * _Nonnull task) {
         AWSS3GetBucketCorsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketEncryptionOutput *> *)getBucketEncryption:(AWSS3GetBucketEncryptionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/{Bucket}?encryption"
+                  targetPrefix:@""
+                 operationName:@"GetBucketEncryption"
+                   outputClass:[AWSS3GetBucketEncryptionOutput class]];
+}
+
+- (void)getBucketEncryption:(AWSS3GetBucketEncryptionRequest *)request
+     completionHandler:(void (^)(AWSS3GetBucketEncryptionOutput *response, NSError *error))completionHandler {
+    [[self getBucketEncryption:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketEncryptionOutput *> * _Nonnull task) {
+        AWSS3GetBucketEncryptionOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1455,6 +1500,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)putBucketEncryption:(AWSS3PutBucketEncryptionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/{Bucket}?encryption"
+                  targetPrefix:@""
+                 operationName:@"PutBucketEncryption"
+                   outputClass:nil];
+}
+
+- (void)putBucketEncryption:(AWSS3PutBucketEncryptionRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketEncryption:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)putBucketInventoryConfiguration:(AWSS3PutBucketInventoryConfigurationRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -1823,6 +1890,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSS3RestoreObjectOutput *response, NSError *error))completionHandler {
     [[self restoreObject:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3RestoreObjectOutput *> * _Nonnull task) {
         AWSS3RestoreObjectOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3SelectObjectContentOutput *> *)selectObjectContent:(AWSS3SelectObjectContentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/{Bucket}/{Key+}?select&select-type=2"
+                  targetPrefix:@""
+                 operationName:@"SelectObjectContent"
+                   outputClass:[AWSS3SelectObjectContentOutput class]];
+}
+
+- (void)selectObjectContent:(AWSS3SelectObjectContentRequest *)request
+     completionHandler:(void (^)(AWSS3SelectObjectContentOutput *response, NSError *error))completionHandler {
+    [[self selectObjectContent:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3SelectObjectContentOutput *> * _Nonnull task) {
+        AWSS3SelectObjectContentOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.6.5"
+VERSION="2.6.16"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -33,7 +33,6 @@ else
     cp -r AWSCognitoIdentityProvider ./docs_tmp/AWSCognitoIdentityProvider
     cp -r AWSCloudWatch ./docs_tmp/AWSCloudWatch
     cp -r AWSDynamoDB ./docs_tmp/AWSDynamoDB
-    cp -r AWSEC2 ./docs_tmp/AWSEC2
     cp -r AWSElasticLoadBalancing ./docs_tmp/AWSElasticLoadBalancing
     cp -r AWSIoT ./docs_tmp/AWSIoT
     cp -r AWSKinesis ./docs_tmp/AWSKinesis
@@ -58,6 +57,7 @@ else
     cp -r AWSAuthSDK/Sources/AWSGoogleSignIn ./docs_tmp/AWSAuthSDK/
     cp -r AWSAuthSDK/Sources/AWSUserPoolsSignIn ./docs_tmp/AWSAuthSDK/
     cp -r AWSAuthSDK/Sources/AWSAuthUI ./docs_tmp/AWSAuthSDK/
+    cp -r AWSAuthSDK/Sources/AWSMobileClient ./docs_tmp/AWSAuthSDK/
 	
     rm -rf ./docs_tmp/AWSCore/Bolts
     rm -rf ./docs_tmp/AWSCore/Fabric

@@ -60,6 +60,18 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 @property (atomic) BOOL enableUserPoolsUI;
 
+/**
+ @property isBackgroundColorFullScreen
+ @brief Gets the backgorund color of the sign in screen configured by the user for the whole screen.
+ **/
+@property (nonatomic) BOOL isBackgroundColorFullScreen;
+
+/**
+ @property font
+ @brief Font for the text in the SignInView and all its subviews.
+ **/
+@property (nonatomic, nullable) UIFont *font;
+
 
 /**
  Registers the shared instance of sign in provider implementing `AWSSignInProvider`.

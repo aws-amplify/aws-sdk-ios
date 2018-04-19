@@ -110,10 +110,10 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
     config.enableAutoSessionRecording = NO;
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"testEventsWithNoSessionId"];
     config.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"testEventsWithNoSessionId"];
-    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];
     [config.userDefaults removeObjectForKey:AWSPinpointSessionKey];
     [config.userDefaults synchronize];
+    AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     
     AWSPinpointEvent *event1 = [[AWSPinpointEvent alloc] initWithEventType:@"TEST"

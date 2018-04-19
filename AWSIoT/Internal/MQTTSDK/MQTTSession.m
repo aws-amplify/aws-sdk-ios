@@ -515,7 +515,7 @@
                                 }
                                 
                                 [_delegate session:self handleEvent:MQTTSessionEventConnected];
-                                AWSDDLogInfo(@"Adding timer for runLoop, timer interval: %f minute", timer.timeInterval);
+                                AWSDDLogInfo(@"Adding timer for runLoop, timer interval: %d seconds", keepAliveInterval);
 
                                 [runLoop addTimer:timer forMode:runLoopMode];
                             }

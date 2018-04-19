@@ -97,6 +97,9 @@
 		B58F54C01F382441009ED450 /* AWSSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B58F53D71F381A51009ED450 /* AWSSignInViewController.m */; };
 		B58F54C21F382449009ED450 /* SignIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58F53D51F381A51009ED450 /* SignIn.storyboard */; };
 		B58F54C31F382449009ED450 /* AWSSignInViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B58F53D61F381A51009ED450 /* AWSSignInViewController.h */; };
+		B5FC69051FAFA1AA004790CB /* AWSMobileClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FC69031FAFA1AA004790CB /* AWSMobileClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B5FC690A1FAFA1D0004790CB /* AWSMobileClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FC69091FAFA1D0004790CB /* AWSMobileClient.m */; };
+		B5FC690B1FAFA1DF004790CB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5FC69041FAFA1AA004790CB /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -695,6 +698,20 @@
 			remoteGlobalIDString = B5170D971F466CE5008FD811;
 			remoteInfo = AWSAuthCore;
 		};
+		B5FC69F21FB2EEAD004790CB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5170D971F466CE5008FD811;
+			remoteInfo = AWSAuthCore;
+		};
+		E496D9411FDB0632000CF290 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = EFDE85E11FC5DD3D00D281A2;
+			remoteInfo = AWSCognitoIdentityProviderASF;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -793,6 +810,10 @@
 		B5C564941F2B2162004FF3CF /* AWSSignInProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSignInProvider.h; sourceTree = "<group>"; };
 		B5C564951F2B2162004FF3CF /* AWSSignInProviderApplicationIntercept.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSSignInProviderApplicationIntercept.h; sourceTree = "<group>"; };
 		B5C564961F2B2162004FF3CF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5FC69011FAFA1AA004790CB /* AWSMobileClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSMobileClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5FC69031FAFA1AA004790CB /* AWSMobileClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSMobileClient.h; sourceTree = "<group>"; };
+		B5FC69041FAFA1AA004790CB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5FC69091FAFA1D0004790CB /* AWSMobileClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSMobileClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -825,6 +846,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B5345D0B1F366AFA009C1041 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5FC68FD1FAFA1AA004790CB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -888,6 +916,7 @@
 				176375401F328D210086588B /* AWSFacebookSignIn.framework */,
 				B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */,
 				B5170D981F466CE5008FD811 /* AWSAuthCore.framework */,
+				B5FC69011FAFA1AA004790CB /* AWSMobileClient.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -903,6 +932,7 @@
 		176B3BDC1F21704400ED3733 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				B5FC69021FAFA1AA004790CB /* AWSMobileClient */,
 				B5345D101F366AFA009C1041 /* AWSAuthUI */,
 				B5C564B61F2B2302004FF3CF /* AWSAuthCore */,
 				1786CA421F2BED46003421FF /* AWSFacebookSignIn */,
@@ -1036,6 +1066,7 @@
 				B55D57301F44EC3F005A0E56 /* AWSCognitoAuth.framework */,
 				B55D57321F44EC3F005A0E56 /* AWSCognitoAuthTests.xctest */,
 				B55D57341F44EC3F005A0E56 /* AWSCognitoAuthUnitTests.xctest */,
+				E496D9421FDB0632000CF290 /* AWSCognitoIdentityProviderASF.framework */,
 				B55D57361F44EC3F005A0E56 /* AWSCognitoIdentityProvider.framework */,
 				B55D57381F44EC3F005A0E56 /* AWSCognitoIdentityProviderTests.xctest */,
 				B55D573A1F44EC3F005A0E56 /* AWSCognitoIdentityProviderUnitTests.xctest */,
@@ -1116,6 +1147,16 @@
 				1711A4F31F43D701006105D3 /* AWSUIConfiguration.h */,
 			);
 			path = AWSAuthCore;
+			sourceTree = "<group>";
+		};
+		B5FC69021FAFA1AA004790CB /* AWSMobileClient */ = {
+			isa = PBXGroup;
+			children = (
+				B5FC69031FAFA1AA004790CB /* AWSMobileClient.h */,
+				B5FC69041FAFA1AA004790CB /* Info.plist */,
+				B5FC69091FAFA1D0004790CB /* AWSMobileClient.m */,
+			);
+			path = AWSMobileClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1223,6 +1264,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5FC68FE1FAFA1AA004790CB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5FC69051FAFA1AA004790CB /* AWSMobileClient.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -1322,6 +1371,25 @@
 			productReference = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		B5FC69001FAFA1AA004790CB /* AWSMobileClient */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B5FC69061FAFA1AA004790CB /* Build configuration list for PBXNativeTarget "AWSMobileClient" */;
+			buildPhases = (
+				B5FC68FC1FAFA1AA004790CB /* Sources */,
+				B5FC68FD1FAFA1AA004790CB /* Frameworks */,
+				B5FC68FE1FAFA1AA004790CB /* Headers */,
+				B5FC68FF1FAFA1AA004790CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B5FC69F31FB2EEAD004790CB /* PBXTargetDependency */,
+			);
+			name = AWSMobileClient;
+			productName = AWSMobileClient;
+			productReference = B5FC69011FAFA1AA004790CB /* AWSMobileClient.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1351,6 +1419,10 @@
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
 					};
+					B5FC69001FAFA1AA004790CB = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 1758699A1EF8899700F1452C /* Build configuration list for PBXProject "AWSAuthSDK" */;
@@ -1377,6 +1449,7 @@
 				1763753F1F328D210086588B /* AWSFacebookSignIn */,
 				B5345D0E1F366AFA009C1041 /* AWSAuthUI */,
 				B5170D971F466CE5008FD811 /* AWSAuthCore */,
+				B5FC69001FAFA1AA004790CB /* AWSMobileClient */,
 			);
 		};
 /* End PBXProject section */
@@ -1935,6 +2008,13 @@
 			remoteRef = B55D57AD1F44EC3F005A0E56 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		E496D9421FDB0632000CF290 /* AWSCognitoIdentityProviderASF.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSCognitoIdentityProviderASF.framework;
+			remoteRef = E496D9411FDB0632000CF290 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1975,6 +2055,14 @@
 			files = (
 				B5150B1C1F3CE0E500AC8D08 /* Images.xcassets in Resources */,
 				B58F54C21F382449009ED450 /* SignIn.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B5FC68FF1FAFA1AA004790CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5FC690B1FAFA1DF004790CB /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2034,6 +2122,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B5FC68FC1FAFA1AA004790CB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B5FC690A1FAFA1D0004790CB /* AWSMobileClient.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -2066,6 +2162,11 @@
 			isa = PBXTargetDependency;
 			target = B5170D971F466CE5008FD811 /* AWSAuthCore */;
 			targetProxy = B5BAA4911F46768B005A67A5 /* PBXContainerItemProxy */;
+		};
+		B5FC69F31FB2EEAD004790CB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5170D971F466CE5008FD811 /* AWSAuthCore */;
+			targetProxy = B5FC69F21FB2EEAD004790CB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2303,7 +2404,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/AWSAuthCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSAuthCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2322,7 +2423,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/AWSAuthCore/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSAuthCore;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2365,6 +2466,66 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSAuthUI;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		B5FC69071FAFA1AA004790CB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/AWSMobileClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSMobileClient;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B5FC69081FAFA1AA004790CB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = Sources/AWSMobileClient/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSMobileClient;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -2421,6 +2582,15 @@
 			buildConfigurations = (
 				B5345D141F366AFA009C1041 /* Debug */,
 				B5345D151F366AFA009C1041 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B5FC69061FAFA1AA004790CB /* Build configuration list for PBXNativeTarget "AWSMobileClient" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B5FC69071FAFA1AA004790CB /* Debug */,
+				B5FC69081FAFA1AA004790CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

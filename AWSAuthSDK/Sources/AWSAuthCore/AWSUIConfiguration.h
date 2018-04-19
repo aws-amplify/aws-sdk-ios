@@ -27,5 +27,16 @@
  **/
 @property (nonatomic, nullable) UIColor *backgroundColor;
 
+/**
+ @property fullScreenBackgroundColor
+ @brief Gets the backgorund color of the sign in screen configured by the user for the whole screen.
+ **/
+@property (nonatomic) BOOL isBackgroundColorFullScreen;
+
+/**
+ @property font
+ @brief Font for the text in the SignInView and all its subviews.
+ **/
+@property (nonatomic, nullable) UIFont *font;
 
 @end

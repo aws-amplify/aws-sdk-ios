@@ -292,7 +292,7 @@ static NSString *RESOURCES_BUNDLE = @"AWSLex.bundle";
     }
     
     [session requestRecordPermission:^(BOOL granted) {
-        canListen = granted;
+        self->canListen = granted;
         if(granted) {
             [self startListening];
         } else {
@@ -453,8 +453,8 @@ static NSString *RESOURCES_BUNDLE = @"AWSLex.bundle";
 
 - (void)interactionKit:(AWSLexInteractionKit *)interactionKit onError:(NSError *)error{
     dispatch_async(dispatch_get_main_queue(), ^{
-        isAnimating = YES;//fake animation so that next step succeeds
-        isListening = NO;
+        self->isAnimating = YES;//fake animation so that next step succeeds
+        self->isListening = NO;
         [self stopProgress];
         
         NSDictionary *userInfo;
@@ -463,18 +463,18 @@ static NSString *RESOURCES_BUNDLE = @"AWSLex.bundle";
         if ([error.domain isEqualToString:AWSLexInteractionKitErrorDomain]
             && error.code == AWSLexInteractionKitErrorCodeDialogFailed) {
             userInfo = @{
-                ImageButtonTintColorUserInfoKey: imageButton.imageView.tintColor,
+                         ImageButtonTintColorUserInfoKey: self->imageButton.imageView.tintColor,
                 BackgroundLayerStrokeColorUserInfoKey: [UIColor colorWithCGColor:self.backgroundLayer.strokeColor]
             };
         } else {
             userInfo = @{
                 ImageButtonTintColorUserInfoKey: self.microphoneImageColor,
-                BackgroundLayerStrokeColorUserInfoKey: lightGrey
+                BackgroundLayerStrokeColorUserInfoKey: self->lightGrey
             };
         }
         
         self.backgroundLayer.strokeColor = [self.errorColor CGColor];
-        imageButton.imageView.tintColor = self.errorColor;
+        self->imageButton.imageView.tintColor = self.errorColor;
         //start a timer for a few secs to display error code to reset the error mode.
         [NSTimer scheduledTimerWithTimeInterval:1.5f
                                          target:self

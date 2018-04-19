@@ -1074,19 +1074,6 @@ static NSString *_defaultService;
 
 #pragma mark -
 
-- (void)synchronize
-{
-    // Deprecated, calling this method is no longer required
-}
-
-- (BOOL)synchronizeWithError:(NSError *__autoreleasing *)error
-{
-    // Deprecated, calling this method is no longer required
-    return true;
-}
-
-#pragma mark -
-
 - (NSString *)description
 {
     NSArray *items = [self allItems];

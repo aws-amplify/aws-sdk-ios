@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -85,6 +85,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeItIT);
         }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeKoKR);
+        }
         if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeJaJP);
         }
@@ -146,6 +149,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"is-IS";
             case AWSPollyLanguageCodeItIT:
                 return @"it-IT";
+            case AWSPollyLanguageCodeKoKR:
+                return @"ko-KR";
             case AWSPollyLanguageCodeJaJP:
                 return @"ja-JP";
             case AWSPollyLanguageCodeNbNO:
@@ -286,6 +291,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeItIT);
         }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeKoKR);
+        }
         if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeJaJP);
         }
@@ -347,6 +355,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"is-IS";
             case AWSPollyLanguageCodeItIT:
                 return @"it-IT";
+            case AWSPollyLanguageCodeKoKR:
+                return @"ko-KR";
             case AWSPollyLanguageCodeJaJP:
                 return @"ja-JP";
             case AWSPollyLanguageCodeNbNO:
@@ -656,6 +666,12 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Takumi"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdTakumi);
         }
+        if ([value caseInsensitiveCompare:@"Seoyeon"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdSeoyeon);
+        }
+        if ([value caseInsensitiveCompare:@"Aditi"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdAditi);
+        }
         return @(AWSPollyVoiceIdUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -759,6 +775,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Vicki";
             case AWSPollyVoiceIdTakumi:
                 return @"Takumi";
+            case AWSPollyVoiceIdSeoyeon:
+                return @"Seoyeon";
+            case AWSPollyVoiceIdAditi:
+                return @"Aditi";
             default:
                 return nil;
         }
@@ -964,6 +984,12 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"Takumi"] == NSOrderedSame) {
             return @(AWSPollyVoiceIdTakumi);
         }
+        if ([value caseInsensitiveCompare:@"Seoyeon"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdSeoyeon);
+        }
+        if ([value caseInsensitiveCompare:@"Aditi"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdAditi);
+        }
         return @(AWSPollyVoiceIdUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1067,6 +1093,10 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"Vicki";
             case AWSPollyVoiceIdTakumi:
                 return @"Takumi";
+            case AWSPollyVoiceIdSeoyeon:
+                return @"Seoyeon";
+            case AWSPollyVoiceIdAditi:
+                return @"Aditi";
             default:
                 return nil;
         }
@@ -1116,6 +1146,9 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeKoKR);
         }
         if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeJaJP);
@@ -1178,6 +1211,8 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"is-IS";
             case AWSPollyLanguageCodeItIT:
                 return @"it-IT";
+            case AWSPollyLanguageCodeKoKR:
+                return @"ko-KR";
             case AWSPollyLanguageCodeJaJP:
                 return @"ja-JP";
             case AWSPollyLanguageCodeNbNO:

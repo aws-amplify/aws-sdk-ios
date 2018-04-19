@@ -135,7 +135,7 @@ static NSString *const AWSInfoIoTDataManager = @"IoTDataManager";
 @implementation AWSIoTMQTTConfiguration
 
 - (instancetype)init {
-    return [self initWithKeepAliveTimeInterval:60.0
+    return [self initWithKeepAliveTimeInterval:300
                      baseReconnectTimeInterval:1.0
                  minimumConnectionTimeInterval:20.0
                   maximumReconnectTimeInterval:128.0
@@ -293,6 +293,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _mqttClient.associatedObject = self;
     }
     return self;
+}
+
+- (void)enableMetricsCollection:(BOOL)enabled {
+    [self.mqttClient setIsMetricsEnabled:enabled];
 }
 
 - (BOOL)connectWithClientId:(NSString*)clientId

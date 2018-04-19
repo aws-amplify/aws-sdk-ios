@@ -91,6 +91,14 @@ typedef NS_ENUM(NSInteger, AWSRegionType) {
      *  AWS GovCloud (US)
      */
     AWSRegionUSGovWest1 NS_SWIFT_NAME(USGovWest1),
+    /**
+     *  China (Ningxia)
+     */
+    AWSRegionCNNorthWest1 NS_SWIFT_NAME(CNNorthWest1),
+    /**
+     *  EU (Paris)
+     */
+    AWSRegionEUWest3 NS_SWIFT_NAME(EUWest3),
 };
 
 /**

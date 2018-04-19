@@ -21,7 +21,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.6.5";
+NSString *const AWSiOSSDKVersion = @"2.6.16";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -93,7 +93,7 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 - (void)setDefaultServiceConfiguration:(AWSServiceConfiguration *)defaultServiceConfiguration {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultServiceConfiguration = [defaultServiceConfiguration copy];
+        self->_defaultServiceConfiguration = [defaultServiceConfiguration copy];
     });
 }
 
@@ -223,6 +223,7 @@ static NSString *const AWSRegionNameUSWest2 = @"us-west-2";
 static NSString *const AWSRegionNameUSWest1 = @"us-west-1";
 static NSString *const AWSRegionNameEUWest1 = @"eu-west-1";
 static NSString *const AWSRegionNameEUWest2 = @"eu-west-2";
+static NSString *const AWSRegionNameEUWest3 = @"eu-west-3";
 static NSString *const AWSRegionNameEUCentral1 = @"eu-central-1";
 static NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
 static NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
@@ -231,6 +232,7 @@ static NSString *const AWSRegionNameAPSoutheast2 = @"ap-southeast-2";
 static NSString *const AWSRegionNameAPSouth1 = @"ap-south-1";
 static NSString *const AWSRegionNameSAEast1 = @"sa-east-1";
 static NSString *const AWSRegionNameCNNorth1 = @"cn-north-1";
+static NSString *const AWSRegionNameCNNorthWest1 = @"cn-northwest-1";
 static NSString *const AWSRegionNameCACentral1 = @"ca-central-1";
 static NSString *const AWSRegionNameUSGovWest1 = @"us-gov-west-1";
 
@@ -308,6 +310,22 @@ static NSString *const AWSServiceNameSTS = @"sts";
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
+                   serviceName:(NSString *)serviceName
+                           URL:(NSURL *)URL {
+    if (self = [super init]) {
+        _regionType = regionType;
+        _serviceType = AWSServiceUnknown;
+        _useUnsafeURL = [[URL scheme] isEqualToString:@"http"];
+        _regionName = [self regionNameFromType:regionType];
+        _serviceName = serviceName;
+        _URL = URL;
+        _hostName = [_URL host];
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithRegion:(AWSRegionType)regionType
                        service:(AWSServiceType)serviceType
                            URL:(NSURL *)URL {
     if (self = [super init]) {
@@ -381,6 +399,10 @@ static NSString *const AWSServiceNameSTS = @"sts";
             return AWSRegionNameCACentral1;
         case AWSRegionUSGovWest1:
             return AWSRegionNameUSGovWest1;
+        case AWSRegionCNNorthWest1:
+            return AWSRegionNameCNNorthWest1;
+        case AWSRegionEUWest3:
+            return AWSRegionNameEUWest3;
         default:
             return nil;
     }

@@ -22,6 +22,8 @@ static NSTimeInterval const AWSFacebookSignInProviderTokenRefreshBuffer = 10 * 6
 
 typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 
+static NSString* const AWSInfoFacebookSignInIdentifier = @"FacebookSignIn";
+
 @interface AWSSignInManager()
 
 - (void)completeLogin;
@@ -47,8 +49,10 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedInstance = [[AWSFacebookSignInProvider alloc] init];
+        if ([_sharedInstance isConfigurationKeyPresent]) {
+            [_sharedInstance setPermissions:[_sharedInstance getPermissionsFromConfig]];
+        }
     });
-    
     return _sharedInstance;
 }
 
@@ -221,6 +225,31 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
         }
     }
     return NO;
+}
+
+- (BOOL)isConfigurationKeyPresent {
+    
+    AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo].rootInfoDictionary objectForKey:AWSInfoFacebookSignInIdentifier];
+    
+    if (serviceInfo) {
+        AWSDDLogDebug(@"Configuring SignInProvider %@", AWSInfoFacebookSignInIdentifier);
+        return true;
+    } else {
+        return false;
+    }
+}
+
+- (NSArray<NSString *> *)getPermissionsFromConfig {
+
+    NSDictionary *dict = [[AWSInfo defaultAWSInfo] rootInfoDictionary];
+    NSDictionary *providerDict = dict[AWSInfoFacebookSignInIdentifier];
+    NSString *permissions = providerDict[@"Permissions"];
+    
+    if (!permissions) {
+        AWSDDLogError(@"Permissions for `%@` is not set correctly in `awsconfiguration.json`.", AWSInfoFacebookSignInIdentifier);
+    }
+    
+    return [permissions componentsSeparatedByString:@","];
 }
 
 @end

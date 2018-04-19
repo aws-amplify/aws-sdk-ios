@@ -45,4 +45,13 @@
     });
 }
 
+- (void)setAWSTableInputCellFont {
+    UIFont *font = [AWSUserPoolsUIHelper getFont:[AWSUserPoolsUIHelper getAWSUIConfiguration]];
+    if (font != nil) {
+        [self.placeHolderLabel setFont:font];
+        [self.headerLabel setFont:font];
+        [self.inputBox setFont:font];
+    }
+}
+
 @end

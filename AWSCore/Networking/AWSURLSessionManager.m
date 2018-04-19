@@ -539,13 +539,13 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
             
             if ([request.URL.absoluteString containsString:@"cognito-idp."]) {
                 NSError *error = nil;
-                NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"Password\":\".*?\""
+                NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"(Password)\":\".*?\""
                                                                                        options:NSRegularExpressionCaseInsensitive
                                                                                          error:&error];
                 [regex replaceMatchesInString:bodyString
                                       options:0
                                         range:NSMakeRange(0, bodyString.length)
-                                 withTemplate:@"Password\":\"[redacted]\""];
+                                 withTemplate:@"$1\":\"[redacted]\""];
             }
             
             if (bodyString.length <= 100 * 1024) {
