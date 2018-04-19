@@ -69,8 +69,7 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property (strong, nonatomic) NSString *cacheDirectoryPath;
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *taskDictionary;
 @property (copy, nonatomic) void (^backgroundURLSessionCompletionHandler)(void);
-
-@property (strong, nonatomic) NSMutableDictionary *responseData;
+@property (strong, nonatomic) AWSFMDatabaseQueue *databaseQueue;
 @end
 
 @interface AWSS3TransferUtilityTask()
@@ -331,8 +330,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                             delegateQueue:nil];
         
         _taskDictionary = [AWSSynchronizedMutableDictionary new];
-        _responseData = [NSMutableDictionary new];
-        
+      
         // Creates a temporary directory for data uploads in the caches directory
         
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -1585,17 +1583,6 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
 #pragma mark - NSURLSessionTaskDelegate
 
-- (void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data {
-  NSMutableData *responseData = self.responseData[@(dataTask.taskIdentifier)];
-  if (!responseData) {
-    responseData = [NSMutableData dataWithData:data];
-    self.responseData[@(dataTask.taskIdentifier)] = responseData;
-  } else {
-    [responseData appendData:data];
-  }
-}
-
-
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
 didCompleteWithError:(NSError *)error {
@@ -1607,38 +1594,9 @@ didCompleteWithError:(NSError *)error {
         if (![task.response isKindOfClass:[NSHTTPURLResponse class]]) {
             error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain code:AWSS3TransferUtilityErrorUnknown userInfo:nil];
         }
-        
-        NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *)task.response;
-        NSMutableDictionary *userInfo = [NSMutableDictionary dictionaryWithDictionary:[HTTPResponse allHeaderFields]];
-
-        NSData *responseData = self.responseData[@(task.taskIdentifier)];
-        [self.responseData removeObjectForKey:@(task.taskIdentifier)];
-      
-        if (!responseData) {
-          if ([task isKindOfClass:[NSURLSessionDownloadTask class]]) {
-            AWSS3TransferUtilityDownloadTask *downloadTask = [self getDownloadTask:(NSURLSessionDownloadTask *)task];
-            responseData = downloadTask.data;
-          }
-        }
-      
-        NSString *responseString = [[NSString alloc] initWithData: responseData encoding:NSUTF8StringEncoding];
-        if ([responseString rangeOfString:@"<Error>"].location != NSNotFound) {
-          AWSXMLDictionaryParser *xmlParser = [AWSXMLDictionaryParser new];
-          xmlParser.trimWhiteSpace = YES;
-          xmlParser.stripEmptyNodes = NO;
-          xmlParser.wrapRootNode = YES; //wrapRootNode for easy process
-          xmlParser.nodeNameMode = AWSXMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
-          
-          NSDictionary *responseDict = [xmlParser dictionaryWithString:responseString];
-          userInfo[@"Error"] = responseDict[@"Error"];
-          AWSDDLogError(@"Error response received from S3: %@", responseDict);
-        }
-
-        if (HTTPResponse.statusCode / 100 == 3
-            && HTTPResponse.statusCode != 304) { // 304 Not Modified is a valid response.
-            error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
-                                        code:AWSS3TransferUtilityErrorRedirection
-                                    userInfo:userInfo];
+        else {
+            HTTPResponse = (NSHTTPURLResponse *) task.response;
+            userInfo = [NSMutableDictionary dictionaryWithDictionary:[HTTPResponse allHeaderFields]];
         }
     
         if (!error) {
@@ -1670,7 +1628,8 @@ didCompleteWithError:(NSError *)error {
         
         if ([transferUtilityTask isKindOfClass:[AWSS3TransferUtilityUploadTask class]]) {
             AWSS3TransferUtilityUploadTask *uploadTask = [self getUploadTask:(NSURLSessionUploadTask *)task];
-            
+            [self handleS3Errors: uploadTask.responseData userInfo: userInfo];
+
             //Check if the task was cancelled.
             if ( uploadTask.cancelled ) {
                 [self cleanupForUploadTask:uploadTask];
@@ -1699,7 +1658,7 @@ didCompleteWithError:(NSError *)error {
             
             //Get the multipart upload task
             AWSS3TransferUtilityMultiPartUploadTask *transferUtilityMultiPartUploadTask = [self.taskDictionary objectForKey:@(task.taskIdentifier)];
-            
+
             //Check if the task was cancelled.
             if ( transferUtilityMultiPartUploadTask.cancelled ) {
                 //Abort the request, so the server can clean up any partials.
@@ -1714,7 +1673,8 @@ didCompleteWithError:(NSError *)error {
             if (error) {
                 
                 AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.inProgressPartsDictionary objectForKey:@(task.taskIdentifier)];
-                
+                [self handleS3Errors: subTask.responseData userInfo: userInfo];
+
                 //Retrying if a 500, 503 or 400 RequestTimeout error occured.
                 if  ([self isErrorRetriable:HTTPResponse.statusCode responseFromServer:subTask.responseData] )  {
                     AWSDDLogDebug(@"Received a 500, 503 or 400 error. Response Data is [%@]", subTask.responseData );
@@ -1745,6 +1705,8 @@ didCompleteWithError:(NSError *)error {
             
             //Get multipart upload sub task
             AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.inProgressPartsDictionary objectForKey:@(task.taskIdentifier)];
+            [self handleS3Errors: subTask.responseData userInfo: userInfo];
+          
             NSHTTPURLResponse *HTTPResponse = (NSHTTPURLResponse *) task.response;
             subTask.eTag = (NSString *) HTTPResponse.allHeaderFields[@"ETAG"];
             
@@ -1794,7 +1756,8 @@ didCompleteWithError:(NSError *)error {
     
     if ([task isKindOfClass:[NSURLSessionDownloadTask class]]) {
         AWSS3TransferUtilityDownloadTask *downloadTask = [self getDownloadTask:(NSURLSessionDownloadTask *)task];
-        
+        [self handleS3Errors: downloadTask.responseData userInfo: userInfo];
+
         //Check if the task was cancelled.
         if ( downloadTask.cancelled ) {
             [self.taskDictionary removeObjectForKey:@(downloadTask.sessionTask.taskIdentifier)];
@@ -1821,6 +1784,20 @@ didCompleteWithError:(NSError *)error {
         [self.taskDictionary removeObjectForKey:@(downloadTask.sessionTask.taskIdentifier)];
         [self deleteTransferRequestFromDB:downloadTask.transferID databaseQueue:_databaseQueue];
     }
+}
+
+- (void) handleS3Errors: (NSString *)responseString userInfo: (NSMutableDictionary *)userInfo {
+  if ([responseString rangeOfString:@"<Error>"].location != NSNotFound) {
+    AWSXMLDictionaryParser *xmlParser = [AWSXMLDictionaryParser new];
+    xmlParser.trimWhiteSpace = YES;
+    xmlParser.stripEmptyNodes = NO;
+    xmlParser.wrapRootNode = YES; //wrapRootNode for easy process
+    xmlParser.nodeNameMode = AWSXMLDictionaryNodeNameModeNever; //do not need rootName anymore since rootNode is wrapped.
+    
+    NSDictionary *responseDict = [xmlParser dictionaryWithString: responseString];
+    userInfo[@"Error"] = responseDict[@"Error"];
+    AWSDDLogError(@"Error response received from S3: %@", responseDict);
+  }
 }
 
 - (void) cleanupForMultiPartUploadTask: (AWSS3TransferUtilityMultiPartUploadTask *) task  {

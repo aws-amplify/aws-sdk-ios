@@ -255,8 +255,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     SecTrustRef trust = NULL;
     
     // cleanup stuff in a block so we don't need to do this over and over again.
-  static BOOL (^cleanup)(void);
-  static BOOL (^errorCleanup)(void);
+    static BOOL (^cleanup)(void);
+    static BOOL (^errorCleanup)(void);
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         cleanup = ^BOOL {
