@@ -150,7 +150,11 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 - (instancetype)initWithConfiguration:(AWSCognitoAuthConfiguration *)authConfiguration; {
     if (self = [super init]) {
         _signOutQueue = [NSOperationQueue new];
+        _signOutQueue.maxConcurrentOperationCount = 1;
+        
         _getSessionQueue = [NSOperationQueue new];
+        _getSessionQueue.maxConcurrentOperationCount = 1;
+        
         _authConfiguration = [authConfiguration copy];
         _keychain = [AWSCognitoAuthUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, @"AWSCognitoIdentityUserPool"]];  //Consistent with AWSCognitoIdentityUserPool
     }
