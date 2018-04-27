@@ -813,7 +813,7 @@ NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
         if (task.error) {
             AWSDDLogError(@"Error: [%@]", task.error);
             if ([task.error.domain isEqualToString:AWSPinpointAnalyticsErrorDomain]
-                && (task.error.code == AWSPinpointAnalyticsErrorBadRequest || [task.error.userInfo[@"NSLocalizedFailureReason"] isEqualToString:@"ValidationException"]) ) {
+                && (task.error.code == AWSPinpointAnalyticsErrorBadRequest || [task.error.userInfo[@"NSLocalizedFailureReason"] isEqualToString:@"ValidationException"])) {
                 NSInteger responseCode = [task.error.userInfo[@"responseStatusCode"] integerValue];
                 AWSDDLogError(@"Server rejected submission of %lu events. (Events will be marked dirty.) Response code:%ld, Error Message:%@", (unsigned long)[events count], (long)responseCode, task.error);
                 

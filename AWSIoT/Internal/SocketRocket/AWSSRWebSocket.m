@@ -1242,7 +1242,7 @@ static const char CRLFCRLFBytes[] = {'\r', '\n', '\r', '\n'};
         
         size_t size = data.length;
         const unsigned char *buffer = data.bytes;
-        for (size_t i = 0; i < size; i++ ) {
+        for (size_t i = 0; i < size; i++) {
             if (((const unsigned char *)buffer)[i] == ((const unsigned char *)bytes)[match_count]) {
                 match_count += 1;
                 if (match_count == length) {

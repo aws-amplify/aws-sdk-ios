@@ -772,7 +772,7 @@ static NSURL *tempSmallURL = nil;
         BOOL match = NO;
         for (AWSS3Object *s3Object in listObjectsOutput.contents) {
             if ([s3Object.key isEqualToString:keyName1] || [s3Object.key isEqualToString:keyName2]) {
-                if ( [s3Object.size unsignedIntegerValue] == fileSize) {
+                if ([s3Object.size unsignedIntegerValue] == fileSize) {
                     match = YES;
                 } else {
                     XCTFail(@"file size is different on the server. expected:%lu, but got: %lu",(unsigned long)fileSize,(unsigned long)[s3Object.size unsignedIntegerValue]);
@@ -818,7 +818,6 @@ static NSURL *tempSmallURL = nil;
     NSURL *testDataURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:fileName]];
     [[NSFileManager defaultManager] createSymbolicLinkAtURL:testDataURL withDestinationURL:tempLargeURL error:&error];
     XCTAssertNil(error, @"The request failed. error: [%@]", error);
-
 
 
 
@@ -2204,7 +2203,7 @@ static NSURL *tempSmallURL = nil;
         BOOL match = NO;
         for (AWSS3Object *s3Object in listObjectsOutput.contents) {
             if ([s3Object.key isEqualToString:keyName]) {
-                if ( [s3Object.size unsignedIntegerValue] == fileSize) {
+                if ([s3Object.size unsignedIntegerValue] == fileSize) {
                     match = YES;
                 } else {
                     XCTFail(@"file size is different on the server. expected:%lu, but got: %lu",(unsigned long)fileSize,(unsigned long)[s3Object.size unsignedIntegerValue]);
@@ -2347,7 +2346,7 @@ static NSURL *tempSmallURL = nil;
         BOOL match = NO;
         for (AWSS3Object *s3Object in listObjectsOutput.contents) {
             if ([s3Object.key isEqualToString:keyName]) {
-                if ( [s3Object.size unsignedIntegerValue] == fileSize) {
+                if ([s3Object.size unsignedIntegerValue] == fileSize) {
                     match = YES;
                 } else {
                     XCTFail(@"file size is different on the server. expected:%lu, but got: %lu",(unsigned long)fileSize,(unsigned long)[s3Object.size unsignedIntegerValue]);
@@ -2436,8 +2435,8 @@ static NSURL *tempSmallURL = nil;
 
         BOOL match = NO;
         for (AWSS3Object *s3Object in listObjectsOutput.contents) {
-            if ([s3Object.key isEqualToString:keyName] ) {
-                if ( [s3Object.size unsignedIntegerValue] == fileSize) {
+            if ([s3Object.key isEqualToString:keyName]) {
+                if ([s3Object.size unsignedIntegerValue] == fileSize) {
                     match = YES;
                 } else {
                     XCTFail(@"file size is different on the server. expected:%lu, but got: %lu",(unsigned long)fileSize,(unsigned long)[s3Object.size unsignedIntegerValue]);
@@ -2527,8 +2526,8 @@ static NSURL *tempSmallURL = nil;
 
         BOOL match = NO;
         for (AWSS3Object *s3Object in listObjectsOutput.contents) {
-            if ([s3Object.key isEqualToString:keyName] ) {
-                if ( [s3Object.size unsignedIntegerValue] == fileSize) {
+            if ([s3Object.key isEqualToString:keyName]) {
+                if ([s3Object.size unsignedIntegerValue] == fileSize) {
                     match = YES;
                 } else {
                     XCTFail(@"file size is different on the server. expected:%lu, but got: %lu",(unsigned long)fileSize,(unsigned long)[s3Object.size unsignedIntegerValue]);
@@ -2626,8 +2625,8 @@ static NSURL *tempSmallURL = nil;
 
         BOOL match = NO;
         for (AWSS3Object *s3Object in listObjectsOutput.contents) {
-            if ([s3Object.key isEqualToString:keyName] ) {
-                if ( [s3Object.size unsignedIntegerValue] == fileSize) {
+            if ([s3Object.key isEqualToString:keyName]) {
+                if ([s3Object.size unsignedIntegerValue] == fileSize) {
                     match = YES;
                 } else {
                     XCTFail(@"file size is different on the server. expected:%lu, but got: %lu",(unsigned long)fileSize,(unsigned long)[s3Object.size unsignedIntegerValue]);
@@ -2719,7 +2718,7 @@ static NSURL *tempSmallURL = nil;
         BOOL match = NO;
         for (AWSS3Object *s3Object in listObjectsOutput.contents) {
             if ([s3Object.key isEqualToString:keyName]) {
-                if ( [s3Object.size unsignedIntegerValue] == fileSize) {
+                if ([s3Object.size unsignedIntegerValue] == fileSize) {
                     match = YES;
                 } else {
                     XCTFail(@"file size is different on the server. expected:%lu, but got: %lu",(unsigned long)fileSize,(unsigned long)[s3Object.size unsignedIntegerValue]);
@@ -2813,7 +2812,7 @@ static NSURL *tempSmallURL = nil;
         BOOL match = NO;
         for (AWSS3Object *s3Object in listObjectsOutput.contents) {
             if ([s3Object.key isEqualToString:keyName]) {
-                if ( [s3Object.size unsignedIntegerValue] == fileSize) {
+                if ([s3Object.size unsignedIntegerValue] == fileSize) {
                     match = YES;
                 } else {
                     XCTFail(@"file size is different on the server. expected:%lu, but got: %lu",(unsigned long)fileSize,(unsigned long)[s3Object.size unsignedIntegerValue]);
@@ -2914,7 +2913,7 @@ static NSURL *tempSmallURL = nil;
         BOOL match = NO;
         for (AWSS3Object *s3Object in listObjectsOutput.contents) {
             if ([s3Object.key isEqualToString:keyName]) {
-                if ( [s3Object.size unsignedIntegerValue] == fileSize) {
+                if ([s3Object.size unsignedIntegerValue] == fileSize) {
                     match = YES;
                 } else {
                     XCTFail(@"file size is different on the server. expected:%lu, but got: %lu",(unsigned long)fileSize,(unsigned long)[s3Object.size unsignedIntegerValue]);

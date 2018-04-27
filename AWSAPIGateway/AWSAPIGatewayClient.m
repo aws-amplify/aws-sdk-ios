@@ -128,7 +128,7 @@ static int defaultChunkSize = 1024;
                 uint8_t buf[len];
                 
                 while (YES) {
-                    if ( [oStream hasSpaceAvailable] ) {
+                    if ([oStream hasSpaceAvailable]) {
                         NSInteger bytesRead = [iStream read:buf maxLength:len];
                         
                         if ([oStream write:(const uint8_t *)buf maxLength:bytesRead] == -1) {

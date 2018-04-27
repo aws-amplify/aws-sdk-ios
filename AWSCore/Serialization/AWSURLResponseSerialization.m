@@ -194,7 +194,7 @@
         }
 
         //if the location may contain multiple headers if it is a map type
-        if ([memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"location"] isEqualToString:@"headers"] && [memberRules[@"type"] isEqualToString:@"map"] ) {
+        if ([memberRules isKindOfClass:[NSDictionary class]] && [memberRules[@"location"] isEqualToString:@"headers"] && [memberRules[@"type"] isEqualToString:@"map"]) {
             NSString *locationName = memberRules[@"locationName"]?memberRules[@"locationName"]:@""; //if no locationName specified, match all headers.
             if (locationName) {
                 NSPredicate *metaDatapredicate = [NSPredicate predicateWithFormat:@"SELF like[c] %@",[locationName stringByAppendingString:@"*"]]; //[c] means case insensitive

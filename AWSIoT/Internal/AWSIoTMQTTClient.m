@@ -508,7 +508,7 @@ static const NSString *SDK_VERSION = @"2.6.7";
     // up for the minimum connection time.
     //
     self.currentReconnectTime *= 2;
-    if ( self.currentReconnectTime > self.maximumReconnectTime ) {
+    if (self.currentReconnectTime > self.maximumReconnectTime) {
         self.currentReconnectTime = self.maximumReconnectTime;
     }
 }
@@ -516,7 +516,7 @@ static const NSString *SDK_VERSION = @"2.6.7";
 - (void)resubscribeToTopics {
     self.needReconnect = NO;
     self.postConnectTimer = nil;
-    if(self.autoResubscribe){
+    if (self.autoResubscribe){
         AWSDDLogInfo(@"Auto-resubscribe is enabled. Resubscribing to topics.");
         for (AWSIoTMQTTTopicModel *topic in self.topicListeners.allValues) {
             [self.session subscribeToTopic:topic.topic atLevel:topic.qos];
