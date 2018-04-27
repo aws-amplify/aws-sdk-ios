@@ -233,7 +233,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 + (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key {
     [self registerS3TransferUtilityWithConfiguration:configuration
-                        transferUtilityConfiguration:nil
+                        transferUtilityConfiguration:[AWSS3TransferUtilityConfiguration new]
                                               forKey:key];
 }
 
@@ -1513,20 +1513,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
         AWSDDLogError(@"uploadTask is not an instance of NSURLSessionUploadTask.");
         return nil;
     }
-    
-    AWSS3TransferUtilityUploadTask *transferUtilityUploadTask = [self.taskDictionary objectForKey:@(uploadTask.taskIdentifier)];
-    if (!transferUtilityUploadTask) {
-        AWSDDLogDebug(@"Unable to find TransferUtilityUploadTask for key %@ ", @(uploadTask.taskIdentifier));
-        AWSDDLogDebug(@"Creating new object");
-        transferUtilityUploadTask = [AWSS3TransferUtilityUploadTask new];
-        transferUtilityUploadTask.responseData = @"";
-        transferUtilityUploadTask.sessionTask = uploadTask;
-        
-        [self.taskDictionary setObject:transferUtilityUploadTask
-                                forKey:@(uploadTask.taskIdentifier)];
-    }
-    
-    return transferUtilityUploadTask;
+    return [self.taskDictionary objectForKey:@(uploadTask.taskIdentifier)];
 }
 
 - (AWSS3TransferUtilityDownloadTask *)getDownloadTask:(NSURLSessionDownloadTask *)downloadTask {
@@ -1535,16 +1522,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
         return nil;
     }
     
-    AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask = [self.taskDictionary objectForKey:@(downloadTask.taskIdentifier)];
-    if (!transferUtilityDownloadTask) {
-        transferUtilityDownloadTask = [AWSS3TransferUtilityDownloadTask new];
-        transferUtilityDownloadTask.sessionTask = downloadTask;
-        
-        [self.taskDictionary setObject:transferUtilityDownloadTask
-                                forKey:@(downloadTask.taskIdentifier)];
-    }
-    
-    return transferUtilityDownloadTask;
+    return [self.taskDictionary objectForKey:@(downloadTask.taskIdentifier)];
 }
 
 #pragma mark - UIApplicationDelegate interceptor
@@ -1624,9 +1602,12 @@ didCompleteWithError:(NSError *)error {
     if( [task isKindOfClass:[NSURLSessionUploadTask class]]) {
         
         AWSS3TransferUtilityTask *transferUtilityTask = [self.taskDictionary objectForKey:@(task.taskIdentifier)];
-        
+        if (!transferUtilityTask) {
+            AWSDDLogDebug(@"Unable to find information for task %lu in taskDictionary", (unsigned long)task.taskIdentifier);
+            return;
+        }
         if ([transferUtilityTask isKindOfClass:[AWSS3TransferUtilityUploadTask class]]) {
-            AWSS3TransferUtilityUploadTask *uploadTask = [self getUploadTask:(NSURLSessionUploadTask *)task];
+            AWSS3TransferUtilityUploadTask *uploadTask =[self.taskDictionary objectForKey:@(task.taskIdentifier)];
             
             //Check if the task was cancelled.
             if (uploadTask.cancelled) {
@@ -1656,7 +1637,10 @@ didCompleteWithError:(NSError *)error {
             
             //Get the multipart upload task
             AWSS3TransferUtilityMultiPartUploadTask *transferUtilityMultiPartUploadTask = [self.taskDictionary objectForKey:@(task.taskIdentifier)];
-            
+            if (!transferUtilityMultiPartUploadTask) {
+                AWSDDLogDebug(@"Unable to find information for task %lu in taskDictionary", (unsigned long)task.taskIdentifier);
+                return;
+            }
             //Check if the task was cancelled.
             if (transferUtilityMultiPartUploadTask.cancelled) {
                 //Abort the request, so the server can clean up any partials.
@@ -1748,9 +1732,12 @@ didCompleteWithError:(NSError *)error {
             }
         }
     }
-    
-    if ([task isKindOfClass:[NSURLSessionDownloadTask class]]) {
-        AWSS3TransferUtilityDownloadTask *downloadTask = [self getDownloadTask:(NSURLSessionDownloadTask *)task];
+    else if ([task isKindOfClass:[NSURLSessionDownloadTask class]]) {
+        AWSS3TransferUtilityDownloadTask *downloadTask = [self.taskDictionary objectForKey:@(task.taskIdentifier)];
+        if (!downloadTask) {
+            AWSDDLogDebug(@"Unable to find information for task %lu in taskDictionary", (unsigned long)task.taskIdentifier);
+            return;
+        }
         
         //Check if the task was cancelled.
         if (downloadTask.cancelled) {
@@ -1882,7 +1869,11 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
 - (void)URLSession:(NSURLSession *)session
       downloadTask:(NSURLSessionDownloadTask *)downloadTask
 didFinishDownloadingToURL:(NSURL *)location {
-    AWSS3TransferUtilityDownloadTask *transferUtilityTask = [self getDownloadTask:downloadTask];
+    AWSS3TransferUtilityDownloadTask *transferUtilityTask = [self.taskDictionary objectForKey:@(downloadTask.taskIdentifier)];
+    if (!transferUtilityTask) {
+        AWSDDLogDebug(@"Unable to find information for task %lu in taskDictionary", (unsigned long)downloadTask.taskIdentifier);
+        return;
+    }
     if (transferUtilityTask.location) {
         if (![[NSFileManager defaultManager] fileExistsAtPath:[transferUtilityTask.location path]]) {
             NSError *error = nil;
@@ -1907,7 +1898,15 @@ didFinishDownloadingToURL:(NSURL *)location {
       didWriteData:(int64_t)bytesWritten
  totalBytesWritten:(int64_t)totalBytesWritten
 totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
-    AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask = [self getDownloadTask:downloadTask];
+    
+    AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask =
+        [self.taskDictionary objectForKey:@(downloadTask.taskIdentifier)];
+   
+    if (!transferUtilityDownloadTask) {
+        AWSDDLogDebug(@"Unable to find information for task %lu in taskDictionary", (unsigned long)downloadTask.taskIdentifier);
+        return;
+    }
+    
     if (transferUtilityDownloadTask.progress.totalUnitCount != totalBytesExpectedToWrite) {
         transferUtilityDownloadTask.progress.totalUnitCount = totalBytesExpectedToWrite;
     }
