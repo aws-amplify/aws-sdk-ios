@@ -182,7 +182,7 @@ NSString *const AWSDynamoDBObjectMapperUserAgent = @"mapper";
 
 - (id)aws_getAttributeValue {
     //Does not support self.NIL yet.
-    if (self.BOOLEAN) {
+    if (self.BOOLEAN != nil) {
         return self.BOOLEAN;
     } else if (self.S) {
         return self.S;

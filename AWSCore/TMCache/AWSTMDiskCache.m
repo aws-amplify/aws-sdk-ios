@@ -270,7 +270,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
             [_dates setObject:date forKey:key];
 
         NSNumber *fileSize = [dictionary objectForKey:NSURLTotalFileAllocatedSizeKey];
-        if (fileSize) {
+        if (fileSize != nil) {
             [_sizes setObject:fileSize forKey:key];
             byteCount += [fileSize unsignedIntegerValue];
         }
@@ -318,7 +318,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     [AWSTMDiskCache emptyTrash];
 
     NSNumber *byteSize = [_sizes objectForKey:key];
-    if (byteSize)
+    if (byteSize != nil)
         self.byteCount = _byteCount - [byteSize unsignedIntegerValue]; // atomic
 
     [_sizes removeObjectForKey:key];
@@ -489,7 +489,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
             AWSTMDiskCacheError(error);
 
             NSNumber *diskFileSize = [values objectForKey:NSURLTotalFileAllocatedSizeKey];
-            if (diskFileSize) {
+            if (diskFileSize != nil) {
                 NSNumber *oldEntry = [strongSelf->_sizes objectForKey:key];
                 
                 if ([oldEntry isKindOfClass:[NSNumber class]]){
