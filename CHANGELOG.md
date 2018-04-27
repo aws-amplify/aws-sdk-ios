@@ -5,6 +5,9 @@
 
 ### Bug Fixes
 
+* **Amazon CognitoAuth**
+  * Make `getSession` threadsafe. See [pr#903](https://github.com/aws/aws-sdk-ios/pull/903)
+
 * **Amazon S3**
   * Fixed bugs registering customer configuration in S3 TransferUtility for Multipart uploads. See [issue#900](https://github.com/aws/aws-sdk-ios/issues/900)
   * Fixed crash due to incorrect instantiation of Upload and Download tasks during a lookup operation in S3 TransferUtility. See [issue#907](https://github.com/aws/aws-sdk-ios/issues/907)
@@ -28,6 +31,7 @@
   * Fix "Method accepting NSError** should have a non-void return value to indicate whether or not an error occurred ". See [pr#889](https://github.com/aws/aws-sdk-ios/pull/889)
   * Fix "method is expected to return a non-null value". See [pr#890](https://github.com/aws/aws-sdk-ios/pull/890)
   * Fix "finalize isn't supported in ARCs". See [pr#892](https://github.com/aws/aws-sdk-ios/pull/892)
+  * Fix bitcode generation. See [issue#899](https://github.com/aws/aws-sdk-ios/issues/899)
 
 ## 2.6.16
 
