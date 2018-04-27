@@ -813,6 +813,7 @@ static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427a
 
     // return NO if stream read failed
     if (read < 0) {
+        free(chunkBuffer);
         AWSDDLogError(@"stream read failed streamStatus: %lu streamError: %@", (unsigned long)[self.stream streamStatus], [self.stream streamError].description);
         return NO;
     }
