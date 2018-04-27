@@ -61,7 +61,15 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
 + (NSString *)hexEncode:(NSString *)string {
     NSUInteger len = [string length];
+    if (len == 0) {
+        return @"";
+    }
     unichar *chars = malloc(len * sizeof(unichar));
+    if (chars == NULL) {
+        // this situation is irrecoverable and we don't want to return something corrupted, so we raise an exception (avoiding NSAssert that may be disabled)
+        [NSException raise:@"NSInternalInconsistencyException" format:@"failed malloc" arguments:nil];
+        return nil;
+    }
 
     [string getCharacters:chars];
 
