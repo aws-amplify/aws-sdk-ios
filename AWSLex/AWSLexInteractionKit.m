@@ -285,7 +285,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             interactionKitConfig = [AWSLexInteractionKitConfig defaultInteractionKitConfigWithBotName:botName botAlias:botAlias];
         }
         
-        if (!serviceConfiguration && !interactionKitConfig) {
+        if (!serviceConfiguration || !interactionKitConfig) {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                            reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
                                          userInfo:nil];
@@ -315,8 +315,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [_serviceClients removeObjectForKey:key];
 }
 
-- (instancetype)initWithServiceConfiguration:(AWSServiceConfiguration *)serviceConfiguration
-                        interactionKitConfig:(AWSLexInteractionKitConfig *)interactionConfig
+- (instancetype)initWithServiceConfiguration:(nonnull AWSServiceConfiguration *)serviceConfiguration
+                        interactionKitConfig:(nonnull AWSLexInteractionKitConfig *)interactionConfig
 {
     if (self = [super init]) {
         _configuration = [serviceConfiguration copy];
