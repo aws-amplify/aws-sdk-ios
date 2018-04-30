@@ -165,10 +165,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
-            self.handleError(error)
             XCTAssertNotNil(error)
-            XCTAssertEqual(error?._domain, AWSS3TransferUtilityErrorDomain)
-            XCTAssertEqual(error?._code, AWSS3TransferUtilityErrorType.clientError.rawValue)
+            self.handleError(error)
 
             if let HTTPResponse = task.response {
                 XCTAssertEqual(HTTPResponse.statusCode, 200)
@@ -1803,7 +1801,6 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
         }
     }
-<<<<<<< HEAD
   
     func handleError(_ error: Error?) {
       if let error = error as NSError? {
@@ -1816,8 +1813,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
       }
     }
-=======
-    
+  
     
     func testUploadAndDownloadDataMultipleClients() {
         let expectation = self.expectation(description: "The completion handler called.")
@@ -1903,8 +1899,6 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
         }
     }
-    
->>>>>>> e465aa8ed2f9051895c2b5865ec72b202a33d948
 }
 
 

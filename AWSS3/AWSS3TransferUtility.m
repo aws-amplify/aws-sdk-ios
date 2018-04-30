@@ -1608,14 +1608,9 @@ didCompleteWithError:(NSError *)error {
             return;
         }
         if ([transferUtilityTask isKindOfClass:[AWSS3TransferUtilityUploadTask class]]) {
-<<<<<<< HEAD
-            AWSS3TransferUtilityUploadTask *uploadTask = [self getUploadTask:(NSURLSessionUploadTask *)task];
+            AWSS3TransferUtilityUploadTask *uploadTask =[self.taskDictionary objectForKey:@(task.taskIdentifier)];
             [self handleS3Errors: uploadTask.responseData userInfo: userInfo];
 
-=======
-            AWSS3TransferUtilityUploadTask *uploadTask =[self.taskDictionary objectForKey:@(task.taskIdentifier)];
-            
->>>>>>> e465aa8ed2f9051895c2b5865ec72b202a33d948
             //Check if the task was cancelled.
             if (uploadTask.cancelled) {
                 [self cleanupForUploadTask:uploadTask];
@@ -1644,14 +1639,10 @@ didCompleteWithError:(NSError *)error {
             
             //Get the multipart upload task
             AWSS3TransferUtilityMultiPartUploadTask *transferUtilityMultiPartUploadTask = [self.taskDictionary objectForKey:@(task.taskIdentifier)];
-<<<<<<< HEAD
-
-=======
             if (!transferUtilityMultiPartUploadTask) {
                 AWSDDLogDebug(@"Unable to find information for task %lu in taskDictionary", (unsigned long)task.taskIdentifier);
                 return;
             }
->>>>>>> e465aa8ed2f9051895c2b5865ec72b202a33d948
             //Check if the task was cancelled.
             if (transferUtilityMultiPartUploadTask.cancelled) {
                 //Abort the request, so the server can clean up any partials.
@@ -1746,21 +1737,14 @@ didCompleteWithError:(NSError *)error {
             }
         }
     }
-<<<<<<< HEAD
-    
-    if ([task isKindOfClass:[NSURLSessionDownloadTask class]]) {
-        AWSS3TransferUtilityDownloadTask *downloadTask = [self getDownloadTask:(NSURLSessionDownloadTask *)task];
-        [self handleS3Errors: downloadTask.responseData userInfo: userInfo];
-
-=======
     else if ([task isKindOfClass:[NSURLSessionDownloadTask class]]) {
         AWSS3TransferUtilityDownloadTask *downloadTask = [self.taskDictionary objectForKey:@(task.taskIdentifier)];
         if (!downloadTask) {
             AWSDDLogDebug(@"Unable to find information for task %lu in taskDictionary", (unsigned long)task.taskIdentifier);
             return;
         }
-        
->>>>>>> e465aa8ed2f9051895c2b5865ec72b202a33d948
+        [self handleS3Errors: downloadTask.responseData userInfo: userInfo];
+
         //Check if the task was cancelled.
         if (downloadTask.cancelled) {
             [self.taskDictionary removeObjectForKey:@(downloadTask.sessionTask.taskIdentifier)];
