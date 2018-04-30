@@ -271,7 +271,7 @@ unsigned char setTag = 0x31;
         itr++;
     }
     
-    for (int i = 0 ; i < num_bytes; i++) ret = (ret * 0x100) + data[itr + i];
+    for (int i = 0; i < num_bytes; i++) ret = (ret * 0x100) + data[itr + i];
     
     *iterator = itr + num_bytes;
     return ret;

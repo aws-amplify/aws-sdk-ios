@@ -444,7 +444,7 @@ static NSString *tableNameKeyOnly = nil;
         NSMutableArray *tasks = [NSMutableArray new];
         NSArray *gameTitleArray = @[@"Galaxy Invaders",@"Meteor Blasters", @"Starship X", @"Alien Adventure",@"Attack Ships"];
         for (int32_t i = 0; i < 50; i++) {
-            for (int32_t j = 0 ; j < 2; j++) {
+            for (int32_t j = 0; j < 2; j++) {
                 TestObject2 *to2 = [TestObject2 new];
                 to2.UserId = [NSString stringWithFormat:@"%d",i];
                 if (i == 21 && j == 0) {

@@ -1086,12 +1086,11 @@ static NSString *testBucketNameGeneral = nil;
         XCTAssertNil(task.error);
         
         AWSS3DeleteBucketRequest *deleteBucketReq = [AWSS3DeleteBucketRequest new];
-        deleteBucketReq.bucket = testBucketNameGeneral ;
+        deleteBucketReq.bucket = testBucketNameGeneral;
         
         return nil;
         
     }] waitUntilFinished];
-
     
 }
 
@@ -1099,7 +1098,7 @@ static NSString *testBucketNameGeneral = nil;
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
     
-    unsigned char *largeData = malloc(AWSS3Test256KB) ;
+    unsigned char *largeData = malloc(AWSS3Test256KB);
     memset(largeData, 5, AWSS3Test256KB);
     NSData *testObjectData = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3Test256KB];
 
@@ -1163,7 +1162,7 @@ static NSString *testBucketNameGeneral = nil;
     putObjectRequest.bucket = testBucketNameGeneral;
     putObjectRequest.key = keyName;
 
-    unsigned char *largeData = malloc(AWSS3Test256KB) ;
+    unsigned char *largeData = malloc(AWSS3Test256KB);
     memset(largeData, 5, AWSS3Test256KB);
     NSData *testObjectData = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3Test256KB];
 

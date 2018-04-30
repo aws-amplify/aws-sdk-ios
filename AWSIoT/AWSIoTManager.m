@@ -224,6 +224,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
     if (![AWSIoTKeychain addPrivateKeyRef:privateKey tag:privateTag])
     {
+        if (publicKey)
+            CFRelease(publicKey);
         AWSDDLogError(@"Unable to add private key");
         return NO;
     }

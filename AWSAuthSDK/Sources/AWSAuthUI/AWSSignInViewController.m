@@ -105,10 +105,17 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 
 - (void)keyboardDidShow:(NSNotification *)notification {
-    CGSize size = ((NSValue *)[[notification userInfo]
-                               valueForKey:UIKeyboardFrameBeginUserInfoKey]).CGRectValue.size;
+    CGSize keyboardSize = ((NSValue *)[[notification userInfo]
+                                       valueForKey:UIKeyboardFrameBeginUserInfoKey]).CGRectValue.size;
     
-    [self.view setFrame:CGRectMake(0, -NAVIGATION_BAR_HEIGHT - size.height, self.view.frame.size.width, self.view.frame.size.height)];
+    CGPoint buttonOrigin = self.signInButton.frame.origin;
+    CGRect visibleRect = self.view.frame;
+    
+    visibleRect.size.height -= keyboardSize.height;
+    
+    if (visibleRect.size.height < buttonOrigin.y) {
+        [self.view setFrame:CGRectMake(0,visibleRect.size.height - buttonOrigin.y, self.view.frame.size.width, self.view.frame.size.height)];
+    }
 }
 
 - (void)keyboardDidHide:(NSNotification *)notification {

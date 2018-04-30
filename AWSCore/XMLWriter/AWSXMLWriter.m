@@ -714,7 +714,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 
 - (void)writeIndentation {
 	if(indentation) {
-		for (int i = 0; i < level; i++ ) {
+		for (int i = 0; i < level; i++) {
 			[self write:indentation];
 		}
 	}

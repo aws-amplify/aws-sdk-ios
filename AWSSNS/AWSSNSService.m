@@ -26,7 +26,7 @@
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
-static NSString *const AWSSNSSDKVersion = @"2.6.16";
+static NSString *const AWSSNSSDKVersion = @"2.6.17";
 
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer

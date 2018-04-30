@@ -720,7 +720,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -784,7 +784,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -887,7 +887,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -958,7 +958,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1031,7 +1031,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1090,7 +1090,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1149,7 +1149,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1214,7 +1214,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1279,7 +1279,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1344,7 +1344,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1444,7 +1444,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1516,7 +1516,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
                 XCTAssertNotNil(task.result)
-                if ( task.result != nil) {
+                if (task.result != nil) {
                     let output:(AWSS3HeadObjectOutput) = task.result!
                     XCTAssertNotNil(output)
                     XCTAssertNotNil(output.metadata)
@@ -1803,6 +1803,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
         }
     }
+<<<<<<< HEAD
   
     func handleError(_ error: Error?) {
       if let error = error as NSError? {
@@ -1815,6 +1816,95 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
       }
     }
+=======
+    
+    
+    func testUploadAndDownloadDataMultipleClients() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        var count = 0;
+        
+        let transferUtility = AWSS3TransferUtility.default()
+        let uploadExpression = AWSS3TransferUtilityUploadExpression()
+        
+        uploadExpression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            
+            XCTAssertNil(error)
+            if let HTTPResponse = task.response {
+                XCTAssertEqual(HTTPResponse.statusCode, 200)
+                
+                let downloadExpression = AWSS3TransferUtilityDownloadExpression()
+                downloadExpression.progressBlock = {(task, progress) in
+                    print("Download progress: ", progress.fractionCompleted)
+                }
+            
+                let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
+                    if let HTTPResponse = task.response {
+                        XCTAssertEqual(HTTPResponse.statusCode, 200)
+                        count = count+1;
+                    } else {
+                        XCTFail()
+                    }
+                    if count == 25 {
+                    expectation.fulfill()
+                    }
+                }
+                
+                
+                for i in 1...25 {
+                    let serviceConfiguration = AWSServiceManager.default().defaultServiceConfiguration
+                    let transferUtilityConfigurationWithRetry = AWSS3TransferUtilityConfiguration()
+                    transferUtilityConfigurationWithRetry.isAccelerateModeEnabled = false
+                    transferUtilityConfigurationWithRetry.retryLimit = 10
+                    transferUtilityConfigurationWithRetry.multiPartConcurrencyLimit = 6
+                    print("starting download \(i)");
+                    AWSS3TransferUtility.register(
+                        with: serviceConfiguration!,
+                        transferUtilityConfiguration: transferUtilityConfigurationWithRetry,
+                        forKey: "with-retry\(i)"
+                    )
+               
+                    let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("file\(i)")
+                    AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry\(i)").download(to: url!,
+                        bucket: "ios-v2-s3.periods",
+                        key: "testDataForConcurrentDownloads.txt",
+                        expression: downloadExpression,
+                        completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
+                            XCTAssertNil(task.error)
+                            return nil
+                    })
+                }
+                    
+            } else {
+                XCTFail()
+            }
+        }
+        var testData = "Test123456789"
+        for _ in 1...10 {
+            testData = testData + testData;
+        }
+        transferUtility.uploadData(
+            testData.data(using: String.Encoding.utf8)!,
+            bucket: "ios-v2-s3.periods",
+            key: "testDataForConcurrentDownloads.txt",
+            contentType: "text/plain",
+            expression: uploadExpression,
+            completionHandler: uploadCompletionHandler
+            ).continueWith (block: { (task) -> AnyObject? in
+                XCTAssertNil(task.error)
+                
+                return nil
+            })
+        
+        waitForExpectations(timeout: 300) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+    
+>>>>>>> e465aa8ed2f9051895c2b5865ec72b202a33d948
 }
 
 

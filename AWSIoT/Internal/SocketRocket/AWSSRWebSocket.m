@@ -503,8 +503,8 @@ static __strong NSData *CRLFCRLF;
     CFHTTPMessageRef request = CFHTTPMessageCreateRequest(NULL, CFSTR("GET"), (__bridge CFURLRef)_url, kCFHTTPVersion1_1);
     
     // Set host first so it defaults
-    CFHTTPMessageSetHeaderFieldValue(request, CFSTR("Host"), (__bridge CFStringRef)(_url.port ? [NSString stringWithFormat:@"%@:%@", _url.host, _url.port] : _url.host));
-        
+    CFHTTPMessageSetHeaderFieldValue(request, CFSTR("Host"), (__bridge CFStringRef)(_url.port != nil ? [NSString stringWithFormat:@"%@:%@", _url.host, _url.port] : _url.host));
+    
     NSMutableData *keyBytes = [[NSMutableData alloc] initWithLength:16];
     int functionExitCode = SecRandomCopyBytes(kSecRandomDefault, keyBytes.length, keyBytes.mutableBytes);
     if (functionExitCode < 0) {
@@ -1242,7 +1242,7 @@ static const char CRLFCRLFBytes[] = {'\r', '\n', '\r', '\n'};
         
         size_t size = data.length;
         const unsigned char *buffer = data.bytes;
-        for (size_t i = 0; i < size; i++ ) {
+        for (size_t i = 0; i < size; i++) {
             if (((const unsigned char *)buffer)[i] == ((const unsigned char *)bytes)[match_count]) {
                 match_count += 1;
                 if (match_count == length) {
@@ -1707,7 +1707,7 @@ static const size_t SRFrameHeaderOverhead = 32;
         scheme = @"http";
     }
     
-    BOOL portIsDefault = !self.port ||
+    BOOL portIsDefault = self.port == nil ||
                          ([scheme isEqualToString:@"http"] && self.port.integerValue == 80) ||
                          ([scheme isEqualToString:@"https"] && self.port.integerValue == 443);
     

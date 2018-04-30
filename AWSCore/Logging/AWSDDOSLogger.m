@@ -16,9 +16,9 @@
 #import "AWSDDOSLogger.h"
 #import <os/log.h>
 
-static AWSDDOSLogger *sharedInstance;
-
 @implementation AWSDDOSLogger
+
+static AWSDDOSLogger *sharedInstance;
 
 + (instancetype)sharedInstance {
     static dispatch_once_t AWSDDOSLoggerOnceToken;

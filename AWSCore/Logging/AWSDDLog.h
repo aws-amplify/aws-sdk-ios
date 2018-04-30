@@ -178,7 +178,17 @@ NSString * __nullable AWSDDExtractFileNameWithoutExtension(const char *filePath,
  *
  * For example: AWSDDLogWarn(@"%@: Unable to find thingy", THIS_FILE) -> @"MyViewController: Unable to find thingy"
  **/
-#define THIS_FILE         (AWSDDExtractFileNameWithoutExtension(__FILE__, NO))
+#ifndef THIS_FILE
+    #define THIS_FILE         (AWSDDExtractFileNameWithoutExtension(__FILE__, NO))
+#endif
+
+/**
+ * The AWS_THIS_FILE macro gives you an NSString of the file name.
+ * Provided for convenience in case of name conflicts of the THIS_FILE macro with CocoaLumberjack.
+ *
+ * For example: AWSDDLogWarn(@"%@: Unable to find thingy", AWS_THIS_FILE) -> @"MyViewController: Unable to find thingy"
+ **/
+#define AWS_THIS_FILE         (AWSDDExtractFileNameWithoutExtension(__FILE__, NO))
 
 /**
  * The THIS_METHOD macro gives you the name of the current objective-c method.

@@ -414,7 +414,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         
-        if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 ) {
+        if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300) {
             // status is good, we can keep value of shouldWriteToFile
         } else {
             // got error status code, avoid write data to disk

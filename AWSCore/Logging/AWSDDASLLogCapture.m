@@ -109,7 +109,7 @@ static void (*dd_asl_release)(aslresponse obj);
 
 + (void)aslMessageReceived:(aslmsg)msg {
     const char* messageCString = asl_get( msg, ASL_KEY_MSG );
-    if ( messageCString == NULL )
+    if (messageCString == NULL)
         return;
 
     int flag;

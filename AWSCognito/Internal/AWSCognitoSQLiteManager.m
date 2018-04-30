@@ -290,8 +290,8 @@
     return datasets;
 }
 
-- (void)loadDatasetMetadata:(AWSCognitoDatasetMetadata *)metadata error:(NSError * __autoreleasing *)error {
-    
+- (BOOL)loadDatasetMetadata:(AWSCognitoDatasetMetadata *)metadata error:(NSError * __autoreleasing *)error {
+    __block BOOL success = YES;
     dispatch_sync(self.dispatchQueue, ^{
         NSString *query = [NSString stringWithFormat:@"SELECT %@, %@, %@, %@, %@, %@ FROM %@ WHERE %@ = ? and %@ = ?",
                            AWSCognitoLastSyncCount,
@@ -336,11 +336,13 @@
             {
                 *error = [AWSCognitoUtil errorLocalDataStorageFailed:[NSString stringWithFormat:@"%s", sqlite3_errmsg(self.sqlite)]];
             }
+            success = NO;
         }
         
         sqlite3_reset(statement);
         sqlite3_finalize(statement);
     });
+    return success;
 }
 
 

@@ -150,7 +150,7 @@ NSString * const AWSTMMemoryCachePrefix = @"com.tumblr.TMMemoryCache";
     if (_willRemoveObjectBlock)
         _willRemoveObjectBlock(self, key, object);
 
-    if (cost)
+    if (cost != nil)
         _totalCost -= [cost unsignedIntegerValue];
 
     [_dictionary removeObjectForKey:key];
