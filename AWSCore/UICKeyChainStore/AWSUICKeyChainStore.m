@@ -528,7 +528,7 @@ static NSString *_defaultService;
     query[(__bridge __strong id)kSecAttrAccount] = key;
 #if TARGET_OS_IOS
 #pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wunguarded-availability"
     if (floor(NSFoundationVersionNumber) > floor(1144.17)) { // iOS 9+
         query[(__bridge __strong id)kSecUseAuthenticationUI] = (__bridge id)kSecUseAuthenticationUIFail;
     } else if (floor(NSFoundationVersionNumber) > floor(1047.25)) { // iOS 8+
