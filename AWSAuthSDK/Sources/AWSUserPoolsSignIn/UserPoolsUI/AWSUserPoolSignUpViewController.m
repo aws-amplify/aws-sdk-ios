@@ -20,6 +20,9 @@
 #import "AWSFormTableDelegate.h"
 #import "AWSUserPoolsUIHelper.h"
 #import <AWSAuthCore/AWSUIConfiguration.h>
+#import <libPhoneNumber_iOS/NBPhoneNumberUtil.h>
+
+#import <Foundation/Foundation.h>
 
 @interface AWSUserPoolSignUpViewController()
 
@@ -30,6 +33,7 @@
 @property (nonatomic, strong) AWSFormTableCell *phoneNumberRow;
 @property (nonatomic, strong) AWSFormTableCell *emailRow;
 @property (nonatomic, strong) AWSFormTableDelegate *tableDelegate;
+@property (nonatomic, strong) NBPhoneNumberUtil *phoneUtil;
 
 @end
 
@@ -52,6 +56,7 @@ id<AWSUIConfiguration> config = nil;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.pool = [AWSCognitoIdentityUserPool defaultCognitoIdentityUserPool];
+    self.phoneUtil = [[NBPhoneNumberUtil alloc] init];
     [self setUp];
 }
 
@@ -110,16 +115,16 @@ id<AWSUIConfiguration> config = nil;
 - (IBAction)onSignUpClicked:(id)sender {
     
     NSMutableArray * attributes = [NSMutableArray new];
-    AWSCognitoIdentityUserAttributeType * phone = [AWSCognitoIdentityUserAttributeType new];
-    phone.name = @"phone_number";
-    phone.value = [self.tableDelegate getValueForCell:self.phoneNumberRow forTableView:self.tableView];
+//    AWSCognitoIdentityUserAttributeType * phone = [AWSCognitoIdentityUserAttributeType new];
+//    phone.name = @"phone_number";
+//    phone.value = [self.tableDelegate getValueForCell:self.phoneNumberRow forTableView:self.tableView];
     AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
     email.name = @"email";
     email.value = [self.tableDelegate getValueForCell:self.emailRow forTableView:self.tableView];
     
-    if(![@"" isEqualToString:phone.value]){
-        [attributes addObject:phone];
-    }
+//    if(![@"" isEqualToString:phone.value]){
+//        [attributes addObject:phone];
+//    }
     if(![@"" isEqualToString:email.value]){
         [attributes addObject:email];
     }
@@ -138,20 +143,44 @@ id<AWSUIConfiguration> config = nil;
         return;
     }
     
-    NSString *phoneNumber = [self.tableDelegate getValueForCell:self.phoneNumberRow forTableView:self.tableView];
-    if (phoneNumber.length > 0) {
-        if (![phoneNumber hasPrefix:@"+"]) {
-            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid format"
-                                                                                     message:@"Phone number should begin with country code. E.g. +1992.."
-                                                                              preferredStyle:UIAlertControllerStyleAlert];
-            UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
-            [alertController addAction:ok];
-            [self presentViewController:alertController
-                               animated:YES
-                             completion:nil];
-        }
+    NSString *unformattedPhoneNumber = [self.tableDelegate getValueForCell:self.phoneNumberRow forTableView:self.tableView];
+    NSError *phoneUtilError = nil;
+    NSLocale *locale = [NSLocale currentLocale];
+    NSString *countryCode = [locale objectForKey: NSLocaleCountryCode];
+    NBPhoneNumber *nbPhoneNumber = [self.phoneUtil parse:unformattedPhoneNumber defaultRegion:countryCode error:&phoneUtilError];
+
+    if (phoneUtilError != nil) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid format"
+                                                                                 message:@"Phone number should have a standard format - E.g. +19925555555, (992) 555-5555, etc."
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController
+                           animated:YES
+                         completion:nil];
     }
-    
+
+    NSString *phoneNumber = [self.phoneUtil format:nbPhoneNumber numberFormat:NBEPhoneNumberFormatE164 error:&phoneUtilError];
+
+    if (phoneUtilError != nil) {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Invalid format"
+                                                                                 message:@"Phone number should have a standard format - E.g. +19925555555, (992) 555-5555, etc."
+                                                                          preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:ok];
+        [self presentViewController:alertController
+                           animated:YES
+                         completion:nil];
+    }
+
+    AWSCognitoIdentityUserAttributeType * phone = [AWSCognitoIdentityUserAttributeType new];
+    phone.name = @"phone_number";
+    phone.value = phoneNumber;
+
+    if(![@"" isEqualToString:phone.value]){
+        [attributes addObject:phone];
+    }
+
     //sign up the user
     [[self.pool signUp:userName
               password:password

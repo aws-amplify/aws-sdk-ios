@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
    s.requires_arc = true
    s.dependency 'AWSCognitoIdentityProvider', '2.6.17'
    s.dependency 'AWSAuthCore', '2.6.17'
+   s.dependency 'libPhoneNumber-iOS', '~> 0.8'
    s.source_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/**/*.{h,m}'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/*.{h}'
    s.private_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/*.{h}'
