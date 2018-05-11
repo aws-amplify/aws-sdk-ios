@@ -87,6 +87,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            self.handleError(error)
             XCTAssertNil(error)
             if let HTTPResponse = task.response {
                 XCTAssertEqual(HTTPResponse.statusCode, 200)
@@ -99,6 +100,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     print("Download progress: ", progress.fractionCompleted)
                 }
                 let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
+                    self.handleError(error)
                     if let HTTPResponse = task.response {
                         XCTAssertEqual(HTTPResponse.statusCode, 200)
                         XCTAssertEqual(data, testData)
@@ -163,7 +165,9 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
-            XCTAssertNil(error)
+            XCTAssertNotNil(error)
+            self.handleError(error)
+
             if let HTTPResponse = task.response {
                 XCTAssertEqual(HTTPResponse.statusCode, 200)
                 
@@ -238,6 +242,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            self.handleError(error)
             XCTAssertNil(error)
             if let HTTPResponse = task.response {
                 XCTAssertEqual(HTTPResponse.statusCode, 200)
@@ -250,6 +255,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     print("Download progress: ", progress.fractionCompleted)
                 }
                 let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
+                    self.handleError(error)
                     if let HTTPResponse = task.response {
                         XCTAssertEqual(HTTPResponse.statusCode, 200)
                         XCTAssertEqual(data, dataString.data(using: String.Encoding.utf8)!)
@@ -1795,7 +1801,19 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
         }
     }
-    
+  
+    func handleError(_ error: Error?) {
+      if let error = error as NSError? {
+        if let userInfo = error.userInfo["Error"] as? [String: Any] {
+          print("")
+          for element in userInfo {
+            print("> \(element.key): \(element.value)")
+          }
+          print("")
+        }
+      }
+    }
+  
     
     func testUploadAndDownloadDataMultipleClients() {
         let expectation = self.expectation(description: "The completion handler called.")
@@ -1881,7 +1899,6 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNil(error)
         }
     }
-    
 }
 
 
