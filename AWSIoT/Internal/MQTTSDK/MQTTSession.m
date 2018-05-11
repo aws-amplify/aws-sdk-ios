@@ -53,6 +53,7 @@
 - (void)handlePubrec:(MQTTMessage*)msg;
 - (void)handlePubrel:(MQTTMessage*)msg;
 - (void)handlePubcomp:(MQTTMessage*)msg;
+- (void)handleSuback:(MQTTMessage*)msg;
 - (void)send:(MQTTMessage*)msg;
 - (UInt16)nextMsgId;
 
@@ -237,16 +238,16 @@
 }
 
 - (void)connectToHost:(NSString*)ip port:(UInt32)port usingSSL:(BOOL)usingSSL sslCertificated:(NSArray*)sslCertificated {
-
+    
     status = MQTTSessionStatusCreated;
-
+    
     self.sslCertificates = sslCertificated;
     
     CFReadStreamRef readStream;
     CFWriteStreamRef writeStream;
-
+    
     CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)ip, port, &readStream, &writeStream);
-
+    
     if (usingSSL) {
         
         CFDictionaryRef sslSettings;
@@ -260,8 +261,8 @@
                 (__bridge const void *)(self.sslCertificates) };
             
             sslSettings = CFDictionaryCreate(kCFAllocatorDefault, keys, vals, 2,
-                                                             &kCFTypeDictionaryKeyCallBacks,
-                                                             &kCFTypeDictionaryValueCallBacks);
+                                             &kCFTypeDictionaryKeyCallBacks,
+                                             &kCFTypeDictionaryValueCallBacks);
             
         } else {
             const void *keys[] = { kCFStreamSSLLevel,
@@ -271,18 +272,18 @@
                 kCFNull };
             
             sslSettings = CFDictionaryCreate(kCFAllocatorDefault, keys, vals, 2,
-                                                             &kCFTypeDictionaryKeyCallBacks,
-                                                             &kCFTypeDictionaryValueCallBacks);
+                                             &kCFTypeDictionaryKeyCallBacks,
+                                             &kCFTypeDictionaryValueCallBacks);
         }
         
-
-
+        
+        
         CFReadStreamSetProperty(readStream, kCFStreamPropertySSLSettings, sslSettings);
         CFWriteStreamSetProperty(writeStream, kCFStreamPropertySSLSettings, sslSettings);
-
+        
         CFRelease(sslSettings);
     }
-
+    
     
     [self connectToInputStream:(__bridge NSInputStream *)readStream outputStream:(__bridge NSOutputStream *)writeStream];
 }
@@ -303,7 +304,7 @@
               outputStream:(NSOutputStream *)writeStream {
     AWSDDLogInfo(@"Initializing MQTTEncoder and MQTTDecoder streams");
     status = MQTTSessionStatusCreated;
-
+    
     encoder = [[MQTTEncoder alloc] initWithStream:writeStream
                                           runLoop:runLoop
                                       runLoopMode:runLoopMode];
@@ -329,20 +330,26 @@
 
 #pragma mark Subscription Management
 
-- (void)subscribeTopic:(NSString*)theTopic {
-    [self subscribeToTopic:theTopic atLevel:0];
+- (UInt16)subscribeTopic:(NSString*)theTopic {
+    return [self subscribeToTopic:theTopic atLevel:0];
 }
 
-- (void) subscribeToTopic:(NSString*)topic
+- (UInt16) subscribeToTopic:(NSString*)topic
                   atLevel:(UInt8)qosLevel {
-    [self send:[MQTTMessage subscribeMessageWithMessageId:[self nextMsgId]
+    UInt16 nextMsgId = [self nextMsgId];
+    AWSDDLogDebug(@"messageId sending now %d",nextMsgId);
+    [self send:[MQTTMessage subscribeMessageWithMessageId:nextMsgId
                                                     topic:topic
                                                       qos:qosLevel]];
+    return nextMsgId;
 }
 
-- (void)unsubscribeTopic:(NSString*)theTopic {
-    [self send:[MQTTMessage unsubscribeMessageWithMessageId:[self nextMsgId]
+- (UInt16)unsubscribeTopic:(NSString*)theTopic {
+    UInt16 nextMsgId = [self nextMsgId];
+    AWSDDLogDebug(@"messageId sending now %d",nextMsgId);
+    [self send:[MQTTMessage unsubscribeMessageWithMessageId:nextMsgId
                                                       topic:theTopic]];
+    return nextMsgId;
 }
 
 - (void)publishData:(NSData*)data onTopic:(NSString*)topic {
@@ -351,23 +358,23 @@
 
 - (void)publishDataAtMostOnce:(NSData*)data
                       onTopic:(NSString*)topic {
-  [self publishDataAtMostOnce:data onTopic:topic retain:false];
+    [self publishDataAtMostOnce:data onTopic:topic retain:false];
 }
 
 - (void)publishDataAtMostOnce:(NSData*)data
                       onTopic:(NSString*)topic
-                     retain:(BOOL)retainFlag {
+                       retain:(BOOL)retainFlag {
     [self send:[MQTTMessage publishMessageWithData:data
                                            onTopic:topic
                                         retainFlag:retainFlag]];
 }
 
-- (void)publishDataAtLeastOnce:(NSData*)data
+- (UInt16)publishDataAtLeastOnce:(NSData*)data
                        onTopic:(NSString*)topic {
-    [self publishDataAtLeastOnce:data onTopic:topic retain:false];
+    return [self publishDataAtLeastOnce:data onTopic:topic retain:false];
 }
 
-- (void)publishDataAtLeastOnce:(NSData*)data
+- (UInt16)publishDataAtLeastOnce:(NSData*)data
                        onTopic:(NSString*)topic
                         retain:(BOOL)retainFlag {
     UInt16 msgId = [self nextMsgId];
@@ -382,14 +389,15 @@
     [txFlows setObject:flow forKey:[NSNumber numberWithUnsignedInt:msgId]];
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] addObject:[NSNumber numberWithUnsignedInt:msgId]];
     [self send:msg];
+    return msgId;
 }
 
-- (void)publishDataExactlyOnce:(NSData*)data
+- (UInt16)publishDataExactlyOnce:(NSData*)data
                        onTopic:(NSString*)topic {
-    [self publishDataExactlyOnce:data onTopic:topic retain:false];
+    return [self publishDataExactlyOnce:data onTopic:topic retain:false];
 }
 
-- (void)publishDataExactlyOnce:(NSData*)data
+- (UInt16)publishDataExactlyOnce:(NSData*)data
                        onTopic:(NSString*)topic
                         retain:(BOOL)retainFlag {
     UInt16 msgId = [self nextMsgId];
@@ -404,6 +412,7 @@
     [txFlows setObject:flow forKey:[NSNumber numberWithUnsignedInt:msgId]];
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] addObject:[NSNumber numberWithUnsignedInt:msgId]];
     [self send:msg];
+    return msgId;
 }
 
 - (void)publishJson:(id)payload onTopic:(NSString*)theTopic {
@@ -428,7 +437,7 @@
     ticks++;
     NSEnumerator *e = [[self.timerRing objectAtIndex:(ticks % 60)] objectEnumerator];
     id msgId;
-
+    
     while ((msgId = [e nextObject])) {
         MQttTxFlow *flow = [txFlows objectForKey:msgId];
         MQTTMessage *msg = [flow msg];
@@ -490,6 +499,7 @@
 }
 
 - (void)decoder:(MQTTDecoder*)sender newMessage:(MQTTMessage*)msg {
+    
     AWSDDLogVerbose(@"%s [Line %d] messageType=%d, status=%d", __PRETTY_FUNCTION__, __LINE__, [msg type], status);
     MQTTMessageType messageType = [msg type];
     if(sender == decoder){
@@ -516,7 +526,7 @@
                                 
                                 [_delegate session:self handleEvent:MQTTSessionEventConnected];
                                 AWSDDLogInfo(@"Adding timer for runLoop, timer interval: %d seconds", keepAliveInterval);
-
+                                
                                 [runLoop addTimer:timer forMode:runLoopMode];
                             }
                             else {
@@ -542,24 +552,62 @@
 - (void)newMessage:(MQTTMessage*)msg {
     AWSDDLogInfo(@"MQTTSession- newMessage msg type is %d", [msg type]);
     switch ([msg type]) {
-    case MQTTPublish:
-        [self handlePublish:msg];
-        break;
-    case MQTTPuback:
-        [self handlePuback:msg];
-        break;
-    case MQTTPubrec:
-        [self handlePubrec:msg];
-        break;
-    case MQTTPubrel:
-        [self handlePubrel:msg];
-        break;
-    case MQTTPubcomp:
-        [self handlePubcomp:msg];
-        break;
-    default:
+        case MQTTPublish:
+            [self handlePublish:msg];
+            break;
+        case MQTTPuback:
+            [self handlePuback:msg];
+            break;
+        case MQTTPubrec:
+            [self handlePubrec:msg];
+            break;
+        case MQTTPubrel:
+            [self handlePubrel:msg];
+            break;
+        case MQTTPubcomp:
+            [self handlePubcomp:msg];
+            break;
+        case MQTTSuback:
+            [self handleSuback:msg];
+            break;
+        case MQTTUnsuback:
+            [self handleUnsuback:msg];
+        default:
+            AWSDDLogVerbose(@"Received unsupported message type: %d", [msg type]);
+            return;
+    }
+}
+
+- (void)handleSuback:(MQTTMessage*)msg {
+    AWSDDLogVerbose(@"%s [Line %d] ", __PRETTY_FUNCTION__, __LINE__);
+    
+    if ([[msg data] length] < 2) {
         return;
     }
+    UInt8 const *bytes = [[msg data] bytes];
+    NSNumber *msgId = [NSNumber numberWithUnsignedInt:(256 * bytes[0] + bytes[1])];
+    AWSDDLogVerbose(@"Sub Ack messageId %@", msgId);
+    if ([msgId unsignedIntValue] == 0) {
+        return;
+    }
+    
+    [_delegate session:self newAckForMessageId:msgId.unsignedShortValue];
+}
+
+- (void)handleUnsuback:(MQTTMessage*)msg {
+    AWSDDLogVerbose(@"%s [Line %d] ", __PRETTY_FUNCTION__, __LINE__);
+    
+    if ([[msg data] length] < 2) {
+        return;
+    }
+    UInt8 const *bytes = [[msg data] bytes];
+    NSNumber *msgId = [NSNumber numberWithUnsignedInt:(256 * bytes[0] + bytes[1])];
+    AWSDDLogVerbose(@"Unsub Ack messageId %@", msgId);
+    if ([msgId unsignedIntValue] == 0) {
+        return;
+    }
+    
+    [_delegate session:self newAckForMessageId:msgId.unsignedShortValue];
 }
 
 - (void)handlePublish:(MQTTMessage*)msg {
@@ -604,7 +652,7 @@
         }
         else {
             NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:
-                data, @"data", topic, @"topic", nil];
+                                  data, @"data", topic, @"topic", nil];
             [rxFlows setObject:dict forKey:[NSNumber numberWithUnsignedInt:msgId]];
             [self send:[MQTTMessage pubrecMessageWithMessageId:msgId]];
         }
@@ -617,6 +665,7 @@
     }
     UInt8 const *bytes = [[msg data] bytes];
     NSNumber *msgId = [NSNumber numberWithUnsignedInt:(256 * bytes[0] + bytes[1])];
+    AWSDDLogDebug(@"Pub Ack messageId %@", msgId);
     if ([msgId unsignedIntValue] == 0) {
         return;
     }
@@ -624,13 +673,14 @@
     if (flow == nil) {
         return;
     }
-
+    
     if ([[flow msg] type] != MQTTPublish || [[flow msg] qos] != 1) {
         return;
     }
-
+    
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] removeObject:msgId];
     [txFlows removeObjectForKey:msgId];
+    [_delegate session:self newAckForMessageId:msgId.unsignedShortValue];
 }
 
 - (void)handlePubrec:(MQTTMessage*)msg {
@@ -655,7 +705,7 @@
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] removeObject:msgId];
     [flow setDeadline:(ticks + 60)];
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] addObject:msgId];
-
+    
     [self send:msg];
 }
 
@@ -671,8 +721,8 @@
     NSDictionary *dict = [rxFlows objectForKey:msgId];
     if (dict != nil) {
         [_delegate session:self
-               newMessage:[dict valueForKey:@"data"]
-                  onTopic:[dict valueForKey:@"topic"]];
+                newMessage:[dict valueForKey:@"data"]
+                   onTopic:[dict valueForKey:@"topic"]];
         
         if(_messageHandler){
             _messageHandler([dict valueForKey:@"data"], [dict valueForKey:@"topic"]);
@@ -696,7 +746,7 @@
     if (flow == nil || [[flow msg] type] != MQTTPubrel) {
         return;
     }
-
+    
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] removeObject:msgId];
     [txFlows removeObjectForKey:msgId];
 }
@@ -750,3 +800,4 @@
 }
 
 @end
+

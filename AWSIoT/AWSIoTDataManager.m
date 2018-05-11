@@ -374,6 +374,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self.mqttClient.mqttStatus;
 }
 
+- (BOOL)publishString:(NSString *)string
+              onTopic:(NSString *)topic
+                  QoS:(AWSIoTMQTTQoS)qos
+          ackCallback:(nonnull AWSIoTMQTTAckBlock)ackCallback {
+    if (string == nil) {
+        return NO;
+    }
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return NO;
+    }
+    
+    [self.mqttClient publishString:string
+                               qos:(UInt8)qos
+                           onTopic:topic
+                       ackCallback:ackCallback];
+    
+    return YES;
+}
 
 - (BOOL)publishString:(NSString *)string
               onTopic:(NSString *)topic
@@ -393,6 +411,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (BOOL)publishData:(NSData *)data
             onTopic:(NSString *)topic
+                QoS:(AWSIoTMQTTQoS)qos
+        ackCallback:(nonnull AWSIoTMQTTAckBlock)ackCallback {
+    if (data == nil) {
+        return NO;
+    }
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return NO;
+    }
+    
+    [self.mqttClient publishData:data
+                             qos:(UInt8)qos
+                         onTopic:topic
+                     ackCallback:ackCallback];
+    return YES;
+}
+
+- (BOOL)publishData:(NSData *)data
+            onTopic:(NSString *)topic
                 QoS:(AWSIoTMQTTQoS)qos {
     if (data == nil) {
         return NO;
@@ -404,7 +440,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [self.mqttClient publishData:data qos:(UInt8)qos onTopic:topic];
     return YES;
 }
-
 
 - (BOOL)subscribeToTopic:(NSString *)topic
                      QoS:(AWSIoTMQTTQoS)qos
@@ -420,6 +455,21 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (BOOL)subscribeToTopic:(NSString *)topic
                      QoS:(AWSIoTMQTTQoS)qos
+         messageCallback:(AWSIoTMQTTNewMessageBlock)callback
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return NO;
+    }
+    
+    [self.mqttClient subscribeToTopic:topic
+                                  qos:qos
+                      messageCallback:callback
+                          ackCallback:ackCallback];
+    return YES;
+}
+
+- (BOOL)subscribeToTopic:(NSString *)topic
+                     QoS:(AWSIoTMQTTQoS)qos
         extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback
 {
     if (topic == nil || [topic isEqualToString:@""]) {
@@ -430,12 +480,37 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return YES;
 }
 
+// We currently support QoS = 1 for ackCallback; we still allow user to pass QoS parameter (without assuming QoS = 1) for ackCallback since when QoS = 2 is supported, we won't have to do any method signature changes.
+- (BOOL)subscribeToTopic:(NSString *)topic
+                     QoS:(AWSIoTMQTTQoS)qos
+        extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return NO;
+    }
+    
+    [self.mqttClient subscribeToTopic:topic
+                                  qos:qos
+                     extendedCallback:callback
+                          ackCallback:ackCallback];
+    return YES;
+}
+
 - (void)unsubscribeTopic:(NSString *)topic {
     if (topic == nil || [topic isEqualToString:@""]) {
         return;
     }
 
     [self.mqttClient unsubscribeTopic:topic];
+}
+
+- (void)unsubscribeTopic:(NSString *)topic
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return;
+    }
+    
+    [self.mqttClient unsubscribeTopic:topic ackCallback:ackCallback];
 }
 
 

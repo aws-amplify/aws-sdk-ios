@@ -15,6 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AWSCocoaLumberjack.h"
+#import <AWSCore/AWSCore.h>
 
 FOUNDATION_EXPORT NSString *const AWSTestUtilitySTSKey;
 FOUNDATION_EXPORT NSString *const AWSTestUtilityCognitoIdentityServiceKey;
@@ -31,5 +32,5 @@ FOUNDATION_EXPORT NSString *const AWSTestUtilityCognitoIdentityServiceKey;
 + (void)setMockDate:(NSDate *)aMockDate;
 + (void)setupSwizzling;
 + (void)revertSwizzling;
-
++ (AWSEndpoint *)getIoTEndPoint;
 @end
