@@ -38,6 +38,9 @@ typedef enum {
 - (void)session:(MQTTSession*)session handleEvent:(MQTTSessionEvent)eventCode;
 - (void)session:(MQTTSession*)session newMessage:(NSData*)data onTopic:(NSString*)topic;
 
+@optional
+- (void)session:(MQTTSession*)session newAckForMessageId:(UInt16)msgId;
+
 @end
 
 @interface MQTTSession : NSObject 
@@ -97,6 +100,7 @@ typedef enum {
 @property (weak) id<MQTTSessionDelegate> delegate;
 @property (strong) void (^connectionHandler)(MQTTSessionEvent event);
 @property (strong) void (^messageHandler)(NSData* message, NSString* topic);
+@property (strong) void (^subsAckHandler)(UInt16 msgId);
 
 #pragma mark Connection Management
 - (void)connectToHost:(NSString*)ip port:(UInt32)port;
@@ -110,18 +114,18 @@ typedef enum {
 - (void)close;
 
 #pragma mark Subscription Management
-- (void)subscribeTopic:(NSString*)theTopic;
-- (void)subscribeToTopic:(NSString*)topic atLevel:(UInt8)qosLevel;
-- (void)unsubscribeTopic:(NSString*)theTopic;
+- (UInt16)subscribeTopic:(NSString*)theTopic;
+- (UInt16)subscribeToTopic:(NSString*)topic atLevel:(UInt8)qosLevel;
+- (UInt16)unsubscribeTopic:(NSString*)theTopic;
 
 #pragma mark Message Publishing
 - (void)publishData:(NSData*)theData onTopic:(NSString*)theTopic;
-- (void)publishDataAtLeastOnce:(NSData*)theData onTopic:(NSString*)theTopic;
-- (void)publishDataAtLeastOnce:(NSData*)theData onTopic:(NSString*)theTopic retain:(BOOL)retainFlag;
+- (UInt16)publishDataAtLeastOnce:(NSData*)theData onTopic:(NSString*)theTopic;
+- (UInt16)publishDataAtLeastOnce:(NSData*)theData onTopic:(NSString*)theTopic retain:(BOOL)retainFlag;
 - (void)publishDataAtMostOnce:(NSData*)theData onTopic:(NSString*)theTopic;
 - (void)publishDataAtMostOnce:(NSData*)theData onTopic:(NSString*)theTopic retain:(BOOL)retainFlag;
-- (void)publishDataExactlyOnce:(NSData*)theData onTopic:(NSString*)theTopic;
-- (void)publishDataExactlyOnce:(NSData*)theData onTopic:(NSString*)theTopic retain:(BOOL)retainFlag;
+- (UInt16)publishDataExactlyOnce:(NSData*)theData onTopic:(NSString*)theTopic;
+- (UInt16)publishDataExactlyOnce:(NSData*)theData onTopic:(NSString*)theTopic retain:(BOOL)retainFlag;
 - (void)publishJson:(id)payload onTopic:(NSString*)theTopic;
 
 - (BOOL)isReadyToPublish;

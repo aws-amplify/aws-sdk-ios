@@ -68,15 +68,6 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
 
 @implementation AWSNetworking
 
-- (void)dealloc
-{
-    //networkManager will never be dealloc'ed if session had not been invalidated.
-    NSURLSession * session = [_networkManager valueForKey:@"session"];
-    if ([session isKindOfClass:[NSURLSession class]]) {
-        [session finishTasksAndInvalidate];
-    }
-}
-
 - (instancetype)init {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:@"`- init` is not a valid initializer. Use `- initWithConfiguration` instead."

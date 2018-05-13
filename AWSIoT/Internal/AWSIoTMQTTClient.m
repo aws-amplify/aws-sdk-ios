@@ -59,6 +59,8 @@
 @property(nonatomic, strong)NSTimer *emptyQueueTimer;
 @property(atomic, assign) NSTimeInterval postConnectTime;
 
+@property(nonatomic, strong) NSMutableDictionary<NSNumber *, AWSIoTMQTTAckBlock> *ackCallbackDictionary;
+
 //
 // Two bound pairs of streams are used to connect the MQTT
 // client to the WebSocket: one for the encoder, and one for
@@ -122,6 +124,7 @@ static const NSString *SDK_VERSION = @"2.6.7";
         _runloopSemaphore = dispatch_semaphore_create(0);
         _autoResubscribe = YES;
         _isMetricsEnabled = YES;
+        _ackCallbackDictionary = [NSMutableDictionary new];
     }
     return self;
 }
@@ -529,15 +532,37 @@ static const NSString *SDK_VERSION = @"2.6.7";
     self.currentReconnectTime = self.baseReconnectTime;
 }
 
+- (void)publishString:(NSString*)str
+              onTopic:(NSString*)topic
+          ackCallback:(AWSIoTMQTTAckBlock)ackCallBack {
+    [self publishData:[str dataUsingEncoding:NSUTF8StringEncoding] onTopic:topic];
+    
+}
+
 - (void)publishString:(NSString*)str onTopic:(NSString*)topic {
     [self publishData:[str dataUsingEncoding:NSUTF8StringEncoding] onTopic:topic];
+}
+
+- (void)publishString:(NSString*)str
+                  qos:(UInt8)qos
+              onTopic:(NSString*)topic
+          ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    if (qos == 0 && ackCallback != nil) {
+        [NSException raise:NSInvalidArgumentException
+                    format:@"Cannot specify `ackCallback` block for QoS = 0."];
+    }
+    [self publishData:[str dataUsingEncoding:NSUTF8StringEncoding]
+                  qos:qos
+              onTopic:topic
+          ackCallback:ackCallback];
 }
 
 - (void)publishString:(NSString*)str qos:(UInt8)qos onTopic:(NSString*)topic {
     [self publishData:[str dataUsingEncoding:NSUTF8StringEncoding] qos:qos onTopic:topic];
 }
 
-- (void)publishData:(NSData*)data onTopic:(NSString*)topic {
+- (void)publishData:(NSData*)data
+            onTopic:(NSString*)topic {
 
     AWSDDLogVerbose(@"isReadyToPublish: %i",[self.session isReadyToPublish]);
 
@@ -552,7 +577,24 @@ static const NSString *SDK_VERSION = @"2.6.7";
     }
 }
 
-- (void)publishData:(NSData*)data qos:(UInt8)qos onTopic:(NSString*)topic {
+- (void)publishData:(NSData *)data
+                qos:(UInt8)qos
+            onTopic:(NSString *)topic {
+    [self publishData:data
+                  qos:qos
+              onTopic:topic
+          ackCallback:nil];
+}
+
+- (void)publishData:(NSData*)data
+                qos:(UInt8)qos
+            onTopic:(NSString*)topic
+        ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    
+    if (qos == 0 && ackCallback != nil) {
+        [NSException raise:NSInvalidArgumentException
+                    format:@"Cannot specify `ackCallback` block for QoS = 0."];
+    }
 
     AWSDDLogVerbose(@"isReadyToPublish: %i",[self.session isReadyToPublish]);
 
@@ -562,13 +604,20 @@ static const NSString *SDK_VERSION = @"2.6.7";
                 [self.session publishData:data onTopic:topic];
             }
             else {
-                [self.session publishDataAtLeastOnce:data onTopic:topic];
+                UInt16 messageId = [self.session publishDataAtLeastOnce:data onTopic:topic];
+                if (ackCallback) {
+                    [self.ackCallbackDictionary setObject:ackCallback
+                                                   forKey:[NSNumber numberWithInt:messageId]];
+                }
             }
         } else {
             AWSIoTMQTTQueueMessage *message = [AWSIoTMQTTQueueMessage new];
             message.topic = topic;
             message.message = data;
             message.qos = qos;
+            if (ackCallback) {
+                message.ackCallback = ackCallback;
+            }
             [self.queueMessages addObject:message];
         }
     }
@@ -578,16 +627,44 @@ static const NSString *SDK_VERSION = @"2.6.7";
 }
 
 - (void)subscribeToTopic:(NSString*)topic qos:(UInt8)qos messageCallback:(AWSIoTMQTTNewMessageBlock)callback {
+    [self subscribeToTopic:topic
+                       qos:qos
+           messageCallback:callback
+               ackCallback:nil];
+    
+}
+
+- (void)subscribeToTopic:(NSString*)topic qos:(UInt8)qos
+         messageCallback:(AWSIoTMQTTNewMessageBlock)callback
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallBack {
     AWSDDLogInfo(@"Subscribing to topic %@ with messageCallback", topic);
     AWSIoTMQTTTopicModel *topicModel = [AWSIoTMQTTTopicModel new];
     topicModel.topic = topic;
     topicModel.qos = qos;
     topicModel.callback = callback;
     [self.topicListeners setObject:topicModel forKey:topic];
-    [self.session subscribeToTopic:topicModel.topic atLevel:topicModel.qos];
+    
+    UInt16 messageId = [self.session subscribeToTopic:topicModel.topic atLevel:topicModel.qos];
+    AWSDDLogVerbose(@"Now subscribing w/ messageId: %d", messageId);
+    if (ackCallBack) {
+        [self.ackCallbackDictionary setObject:ackCallBack
+                                           forKey:[NSNumber numberWithInt:messageId]];
+    }
 }
 
-- (void)subscribeToTopic:(NSString*)topic qos:(UInt8)qos extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback {
+- (void)subscribeToTopic:(NSString*)topic
+                     qos:(UInt8)qos
+        extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback {
+    [self subscribeToTopic:topic
+                       qos:qos
+          extendedCallback:callback
+               ackCallback:nil];
+}
+
+- (void)subscribeToTopic:(NSString*)topic
+                     qos:(UInt8)qos
+        extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback{
     AWSDDLogInfo(@"Subscribing to topic %@ with ExtendedmessageCallback", topic);
     AWSIoTMQTTTopicModel *topicModel = [AWSIoTMQTTTopicModel new];
     topicModel.topic = topic;
@@ -595,13 +672,27 @@ static const NSString *SDK_VERSION = @"2.6.7";
     topicModel.callback = nil;
     topicModel.extendedCallback = callback;
     [self.topicListeners setObject:topicModel forKey:topic];
-    [self.session subscribeToTopic:topicModel.topic atLevel:topicModel.qos];
+    UInt16 messageId = [self.session subscribeToTopic:topicModel.topic atLevel:topicModel.qos];
+    AWSDDLogVerbose(@"Now subscribing w/ messageId: %d", messageId);
+    if (ackCallback) {
+        [self.ackCallbackDictionary setObject:ackCallback
+                                           forKey:[NSNumber numberWithInt:messageId]];
+    }
+}
+
+- (void)unsubscribeTopic:(NSString*)topic
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    AWSDDLogInfo(@"Unsubscribing from topic %@", topic);
+    UInt16 messageId = [self.session unsubscribeTopic:topic];
+    [self.topicListeners removeObjectForKey:topic];
+    if (ackCallback) {
+        [self.ackCallbackDictionary setObject:ackCallback
+                                       forKey:[NSNumber numberWithInt:messageId]];
+    }
 }
 
 - (void)unsubscribeTopic:(NSString*)topic {
-    AWSDDLogInfo(@"Unsubscribing from topic %@", topic);
-    [self.session unsubscribeTopic:topic];
-    [self.topicListeners removeObjectForKey:topic];
+    [self unsubscribeTopic:topic ackCallback:nil];
 }
 
 - (void)publishMessagesFromQueue {
@@ -614,7 +705,11 @@ static const NSString *SDK_VERSION = @"2.6.7";
             [self.session publishData:message.message onTopic:message.topic];
         }
         else {
-            [self.session publishDataAtLeastOnce:message.message onTopic:message.topic];
+            UInt16 messageId = [self.session publishDataAtLeastOnce:message.message onTopic:message.topic];
+            if (message.ackCallback != nil) {
+                [self.ackCallbackDictionary setObject:message.ackCallback
+                                               forKey:[NSNumber numberWithInt:messageId]];
+            }
         }
         [self.queueMessages removeObjectAtIndex:0];
     }
@@ -742,6 +837,20 @@ static const NSString *SDK_VERSION = @"2.6.7";
                 }
             }
         }
+    }
+}
+
+- (void)session:(MQTTSession*)session
+newAckForMessageId:(UInt16)msgId {
+    NSLog(@"MQTTSessionDelegate new ack for msgId: %d", msgId);
+    AWSIoTMQTTAckBlock callback = [[self ackCallbackDictionary] objectForKey:[NSNumber numberWithInt:msgId]];
+    
+    if(callback) {
+        // Give callback to the client on a background thread
+        dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+            callback();
+        });
+        [[self ackCallbackDictionary] removeObjectForKey:[NSNumber numberWithInt:msgId]];
     }
 }
 

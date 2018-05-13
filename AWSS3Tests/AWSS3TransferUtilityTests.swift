@@ -1796,6 +1796,153 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
     }
     
+    func testInvalidCredentialsUpload() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        
+        let invalidStaticCredentialProvider = AWSStaticCredentialsProvider(accessKey: "Invalid", secretKey: "AlsoInvalid")
+        let invalidServiceConfig = AWSServiceConfiguration(region: .USEast1, credentialsProvider: invalidStaticCredentialProvider)
+        AWSS3TransferUtility.register(with: invalidServiceConfig!, forKey: "invalid")
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "invalid")
+        
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            XCTAssertTrue(self.isServiceErrorPresent(error), "Service error should have been present but is not.")
+            XCTAssertNotNil(error)
+            expectation.fulfill()
+        }
+        
+        transferUtility.uploadData(
+            "1234567890".data(using: String.Encoding.utf8)!,
+            bucket: "some-random-bucket",
+            key: "any-file-which-gets-rejected.txt",
+            contentType: "text/plain",
+            expression: nil,
+            completionHandler: uploadCompletionHandler
+            ).continueWith (block: { (task) -> AnyObject? in
+                XCTAssertNil(task.error)
+                return nil
+            })
+        
+        waitForExpectations(timeout: 30) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testInvalidCredentialsMultiPartUpload() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        
+        let invalidStaticCredentialProvider = AWSStaticCredentialsProvider(accessKey: "Invalid", secretKey: "AlsoInvalid")
+        let invalidServiceConfig = AWSServiceConfiguration(region: .USEast1, credentialsProvider: invalidStaticCredentialProvider)
+        AWSS3TransferUtility.register(with: invalidServiceConfig!, forKey: "invalid")
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "invalid")
+        
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
+            XCTAssertTrue(self.isServiceErrorPresent(error), "Service error should have been present but is not.")
+            XCTAssertNotNil(error)
+            expectation.fulfill()
+        }
+        
+        transferUtility.uploadUsingMultiPart(
+            data: "1234567890".data(using: String.Encoding.utf8)!,
+            bucket: "ios-v2-s3.periods",
+            key: "any-file-which-gets-rejected.txt",
+            contentType: "text/plain",
+            expression: nil,
+            completionHandler: uploadCompletionHandler
+            ).continueWith (block: { (task) -> AnyObject? in
+                XCTAssertNotNil(task.error)
+                expectation.fulfill()
+                return nil
+            })
+        
+        waitForExpectations(timeout: 30) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testDownloadInvalidKeyAndCredentials() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        
+        let invalidStaticCredentialProvider = AWSStaticCredentialsProvider(accessKey: "Invalid", secretKey: "AlsoInvalid")
+        let invalidServiceConfig = AWSServiceConfiguration(region: .USEast1, credentialsProvider: invalidStaticCredentialProvider)
+        AWSS3TransferUtility.register(with: invalidServiceConfig!, forKey: "invalid")
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "invalid")
+        
+        let downloadExpression = AWSS3TransferUtilityDownloadExpression()
+        
+        downloadExpression.progressBlock = {(task, progress) in
+            print("Download progress: ", progress.fractionCompleted)
+        }
+        
+        let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
+            guard error == nil else {
+                expectation.fulfill()
+                XCTAssertTrue(self.isServiceErrorPresent(error), "Service error should have been present but is not.")
+                return
+            }
+        }
+        
+        transferUtility.downloadData(
+            fromBucket: "ios-v2-s3.periods",
+            key: "some-non-existent-key-" + UUID().uuidString,
+            expression: downloadExpression,
+            completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
+                XCTAssertNil(task.error)
+                return nil
+            })
+        
+        waitForExpectations(timeout: 30) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+    
+    func testDownloadInvalidKey() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
+        let downloadExpression = AWSS3TransferUtilityDownloadExpression()
+        
+        downloadExpression.progressBlock = {(task, progress) in
+            print("Download progress: ", progress.fractionCompleted)
+        }
+        
+        let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
+            guard error == nil else {
+                expectation.fulfill()
+                XCTAssertTrue(self.isServiceErrorPresent(error), "Service error should have been present but is not.")
+                return
+            }
+        }
+        
+        transferUtility.downloadData(
+            fromBucket: "ios-v2-s3.periods",
+            key: "some-non-existent-key-" + UUID().uuidString,
+            expression: downloadExpression,
+            completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
+                XCTAssertNil(task.error)
+                return nil
+            })
+        
+        waitForExpectations(timeout: 30) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+
+    func isServiceErrorPresent(_ error: Error?) -> Bool {
+        guard let err = error as NSError? else {
+            return false
+        }
+        
+        let errorInfo = err.userInfo["Error"] as? [String: Any]
+        if errorInfo != nil {
+            print("Found error in response. Details are:")
+            for element in errorInfo! {
+                print(">> \(element.key): \(element.value)")
+            }
+            return true
+        } else {
+            return false
+        }
+    }
     
     func testUploadAndDownloadDataMultipleClients() {
         let expectation = self.expectation(description: "The completion handler called.")

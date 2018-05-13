@@ -35,6 +35,7 @@ typedef NS_ENUM(NSInteger, AWSIoTMQTTQoS) {
 
 typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
 typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString *topic, NSData *data);
+typedef void(^AWSIoTMQTTAckBlock)(void);
 
 
 #pragma mark - AWSIoTMQTTLastWillAndTestament
@@ -454,6 +455,25 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
 
 /**
  Send MQTT message to specified topic
+ 
+ @param string The message (As NSString object) to be sent.
+ 
+ @param qos The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).
+ 
+ @param topic The topic for publish to.
+ 
+ @param the callback for ack if QoS > 0.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) publishString:(NSString *)string
+               onTopic:(NSString *)topic
+                   QoS:(AWSIoTMQTTQoS)qos
+           ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
+
+/**
+ Send MQTT message to specified topic
 
  @param data The message (As NSData) to be sent.
 
@@ -467,6 +487,25 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
 - (BOOL) publishData:(NSData *)data
              onTopic:(NSString *)topic
                  QoS:(AWSIoTMQTTQoS)qos;
+
+/**
+ Send MQTT message to specified topic
+ 
+ @param data The message (As NSData) to be sent.
+ 
+ @param qos The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).
+ 
+ @param topic The topic for publish to.
+ 
+ @param the callback for ack if QoS > 0.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) publishData:(NSData *)data
+             onTopic:(NSString *)topic
+                 QoS:(AWSIoTMQTTQoS)qos
+         ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
 
 /**
  Subscribes to a topic at a specific QoS level
@@ -491,6 +530,23 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
  
  @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
  
+ @param callback Reference to AWSIOTMQTTNewMessageBlock. When new message is received the callback will be invoked.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) subscribeToTopic:(NSString *)topic
+                      QoS:(AWSIoTMQTTQoS)qos
+          messageCallback:(AWSIoTMQTTNewMessageBlock)callback
+              ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
+
+/**
+ Subscribes to a topic at a specific QoS level
+ 
+ @param topic The Topic to subscribe to.
+ 
+ @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
+ 
  @param callback Reference to AWSIOTMQTTExtendedNewMessageBlock. When new message is received the callback will be invoked.
  
  @return Boolean value indicating success or failure.
@@ -499,6 +555,25 @@ typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString 
 - (BOOL) subscribeToTopic:(NSString *)topic
                       QoS:(AWSIoTMQTTQoS)qos
           extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback;
+
+/**
+ Subscribes to a topic at a specific QoS level
+ 
+ @param topic The Topic to subscribe to.
+ 
+ @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
+ 
+ @param callback Reference to AWSIOTMQTTExtendedNewMessageBlock. When new message is received the callback will be invoked.
+ 
+ @param the callback for ack if QoS > 0.
+ 
+ @return Boolean value indicating success or failure.
+ 
+ */
+- (BOOL) subscribeToTopic:(NSString *)topic
+                      QoS:(AWSIoTMQTTQoS)qos
+         extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback
+              ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
 
 
 /**

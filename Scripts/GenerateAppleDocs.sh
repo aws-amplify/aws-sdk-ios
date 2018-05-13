@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.6.17"
+VERSION="2.6.18"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -50,6 +50,7 @@ else
     cp -r AWSSimpleDB ./docs_tmp/AWSSimpleDB
     cp -r AWSSNS ./docs_tmp/AWSSNS
     cp -r AWSSQS ./docs_tmp/AWSSQS
+    cp -r AWSTranscribe ./docs_tmp/AWSTranscribe
     cp -r AWSCognitoAuth ./docs_tmp/AWSCognitoAuth
     cp -r AWSAuthSDK/Sources/AWSAuthCore ./docs_tmp/AWSAuthSDK/
     cp -r AWSAuthSDK/Sources/AWSAuthUI ./docs_tmp/AWSAuthSDK/

@@ -32,6 +32,8 @@
 
 @implementation AWSCoreTests
 
+static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
+
 - (void)setUp {
     [super setUp];
     
@@ -875,8 +877,58 @@
             }
         }
     }
-   
+}
+
+- (void)testValidAwsConfigurationJson {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"awsconfiguration"
+                                                         ofType:@"json"];
+    if (!filePath) {
+        XCTFail(@"Test Failed: Please add %@ file under AWSCoreTests/Resources folder.", awsConfigurationJsonFileName);
+        return;
+    }
     
+    NSDictionary *awsConfigurationJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                         options:NSJSONReadingMutableContainers
+                                                                           error:nil];
+    @try {
+        NSString *cognitoIdentityPoolId = awsConfigurationJson[@"CredentialsProvider"][@"CognitoIdentity"][@"Default"][@"PoolId"];
+        XCTAssertNotNil(cognitoIdentityPoolId);
+    } @catch (NSException *exception) {
+        XCTFail(@"Cannot read the Cognito Identity Pool Id from the %@.", awsConfigurationJsonFileName);
+    }
+}
+
+- (void)testAwsInfoInit {
+    @try {
+        AWSInfo *defaultInfo = [AWSInfo defaultAWSInfo];
+        XCTAssertNotNil(defaultInfo);
+    } @catch (NSException *exception) {
+        XCTFail(@"AWSInfo initilization failed.");
+    }
+}
+
+- (void)testEmptyAwsConfigurationJson {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"awsconfiguration"
+                                                         ofType:@"json"];
+    if (!filePath) {
+        XCTFail(@"Test Failed: Please add %@ file under AWSCoreTests/Resources folder.", awsConfigurationJsonFileName);
+        return;
+    }
+    NSData *validData = [NSData dataWithContentsOfFile:filePath];
+    
+    // Clear contents of file
+    [[NSFileManager defaultManager] createFileAtPath:filePath contents:[NSData data] attributes:nil];
+    
+    NSData *invalidData = [NSData dataWithContentsOfFile:filePath];
+    
+    @try {
+        AWSInfo *defaultInfo = [AWSInfo defaultAWSInfo];
+    } @catch (NSException *exception) {
+        XCTFail(@"AWSInfo initilization failed and exception thrown.");
+    }
+    
+    // Write the data back to the file
+    [[NSFileManager defaultManager] createFileAtPath:filePath contents:validData attributes:nil];
 }
 
 @end
