@@ -107,6 +107,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityUserSession *> *)getSession;
 
 /**
+ Get a session with id, access and refresh tokens. Force the refreshing of authentication tokens by passing in the `forceRefresh` flag.
+ */
+-(AWSTask<AWSCognitoIdentityUserSession*> *) getSessionAndForceTokenRefresh: (BOOL)forceRefresh;
+
+/**
  Get a session with the following username and password
  */
 - (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(NSString *)username
