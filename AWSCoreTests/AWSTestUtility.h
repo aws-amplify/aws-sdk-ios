@@ -32,5 +32,6 @@ FOUNDATION_EXPORT NSString *const AWSTestUtilityCognitoIdentityServiceKey;
 + (void)setMockDate:(NSDate *)aMockDate;
 + (void)setupSwizzling;
 + (void)revertSwizzling;
-+ (AWSEndpoint *)getIoTEndPoint;
++ (AWSEndpoint *)getIoTEndPoint:(NSString *) endpointName;
+
 @end

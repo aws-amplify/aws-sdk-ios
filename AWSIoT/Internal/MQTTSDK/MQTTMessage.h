@@ -52,6 +52,8 @@ typedef enum {
                       willRetain:(BOOL)willRetainFlag;
 
 + (id)pingreqMessage;
++ (id)disconnectMessage;
+
 + (id)subscribeMessageWithMessageId:(UInt16)msgId
                               topic:(NSString*)topic
                                 qos:(UInt8)qos;

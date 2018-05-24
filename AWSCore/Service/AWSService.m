@@ -21,7 +21,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.6.18";
+NSString *const AWSiOSSDKVersion = @"2.6.19";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -265,6 +265,8 @@ static NSString *const AWSServiceNameSNS = @"sns";
 static NSString *const AWSServiceNameSQS = @"sqs";
 static NSString *const AWSServiceNameSTS = @"sts";
 static NSString *const AWSServiceNameTranscribe = @"transcribe";
+static NSString *const AWSServiceNameTranslate = @"translate";
+static NSString *const AWSServiceNameComprehend = @"comprehend";
 
 @interface AWSEndpoint()
 
@@ -469,6 +471,10 @@ static NSString *const AWSServiceNameTranscribe = @"transcribe";
             return AWSServiceNameSTS;
         case AWSServiceTranscribe:
             return AWSServiceNameTranscribe;
+        case AWSServiceTranslate:
+            return AWSServiceNameTranslate;
+        case AWSServiceComprehend:
+            return AWSServiceNameComprehend;
         default:
             return nil;
     }

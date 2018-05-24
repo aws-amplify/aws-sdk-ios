@@ -71,6 +71,7 @@
 @property(atomic, assign) NSTimeInterval maximumReconnectTime;
 
 @property(atomic, assign) BOOL isMetricsEnabled;
+@property(atomic, assign) NSUInteger publishRetryThrottle;
 
 /**
  The client ID for the current connection; can be nil if not connected.
@@ -82,12 +83,6 @@
  */
 @property(nonatomic, strong) NSObject *associatedObject;
 
-/**
- Returns a default singleton object. You should use this singleton method instead of creating an instance of the mqtt client.
- @return The default mqtt client. This is a singleton object.
- */
-+ (instancetype)sharedInstance;
-
 - (BOOL)connectWithClientId:(NSString *)clientId
                      toHost:(NSString *)host
                        port:(UInt32)port
@@ -98,8 +93,6 @@
                     willMsg:(NSData*)willMsg
                     willQoS:(UInt8)willQoS
              willRetainFlag:(BOOL)willRetainFlag
-                    runLoop:(NSRunLoop*)theRunLoop
-                    forMode:(NSString*)theRunLoopMode
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 - (BOOL)connectWithClientId:(NSString *)clientId
@@ -110,8 +103,6 @@
                     willMsg:(NSData*)willMsg
                     willQoS:(UInt8)willQoS
              willRetainFlag:(BOOL)willRetainFlag
-                    runLoop:(NSRunLoop*)theRunLoop
-                    forMode:(NSString*)theRunLoopMode
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 - (void)disconnect;

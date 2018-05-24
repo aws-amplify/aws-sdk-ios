@@ -18,8 +18,6 @@
 
 @interface MQTTEncoder () {
     NSOutputStream* stream;
-    NSRunLoop*      runLoop;
-    NSString*       runLoopMode;
     NSMutableData*  buffer;
     NSInteger       byteIndex;
 }
@@ -31,13 +29,10 @@
 @implementation MQTTEncoder
 
 - (id)initWithStream:(NSOutputStream*)aStream
-             runLoop:(NSRunLoop*)aRunLoop
-         runLoopMode:(NSString*)aMode {
+ {
     _status = MQTTEncoderStatusInitializing;
     stream = aStream;
     [stream setDelegate:self];
-    runLoop = aRunLoop;
-    runLoopMode = aMode;
     _encodeSemaphore = dispatch_semaphore_create(1);
     return self;
 }
@@ -45,7 +40,7 @@
 - (void)open {
     AWSDDLogDebug(@"opening encoder stream.");
     [stream setDelegate:self];
-    [stream scheduleInRunLoop:runLoop forMode:runLoopMode];
+    [stream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [stream open];
 }
 
@@ -53,27 +48,20 @@
     AWSDDLogDebug(@"closing encoder stream.");
     [stream close];
     [stream setDelegate:nil];
-    [stream removeFromRunLoop:runLoop forMode:runLoopMode];
-    stream = nil;
+    stream = nil; 
 }
 
+//This is executed in the runLoop.
 - (void)stream:(NSStream*)sender handleEvent:(NSStreamEvent)eventCode {
     if(stream == nil)
         return;
-//
-// This assertion no longer applies when WebSockets are used as the event
-// can come from the NSOutputStream inside of AWSIoTWebSocketOutputStream
-// rather than the AWSIoTWebSocketOutputStream instance used for output.
-// It is left here for reference purposes only.
-//
-//   assert(sender == stream);
-//
+
     AWSDDLogVerbose(@"%s [Line %d] EventCode:%lu, Thread: %@", __PRETTY_FUNCTION__, __LINE__, (unsigned long)eventCode, [NSThread currentThread]);
     switch (eventCode) {
         case NSStreamEventOpenCompleted:
             break;
         case NSStreamEventHasSpaceAvailable:
-            AWSDDLogDebug(@"MQTTEncoderStatus = %d", _status);
+            AWSDDLogVerbose(@"MQTTEncoderStatus = %d", _status);
             if (_status == MQTTEncoderStatusInitializing) {
                 _status = MQTTEncoderStatusReady;
                 [_delegate encoder:self handleEvent:MQTTEncoderEventReady];
@@ -117,8 +105,6 @@
 }
 
 - (void)encodeMessage:(MQTTMessage*)msg {
-    AWSDDLogVerbose(@"%s [Line %d], Thread:%@", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
-
     //Adding a mutex to prevent buffer from being modified by multiple threads
     AWSDDLogVerbose(@"***** waiting on encodeSemaphore *****");
     dispatch_semaphore_wait(self.encodeSemaphore, DISPATCH_TIME_FOREVER);
@@ -128,6 +114,7 @@
     
     if (_status != MQTTEncoderStatusReady) {
         AWSDDLogInfo(@"Encoder not ready");
+        dispatch_semaphore_signal(self.encodeSemaphore);
         return;
     }
     
@@ -179,6 +166,7 @@
     }
     AWSDDLogVerbose(@"***** signaling encodeSemaphore *****");
     dispatch_semaphore_signal(self.encodeSemaphore);
+    AWSDDLogVerbose(@"<<%@>>: Encoder finished writing message", [NSThread currentThread]);
 }
 
 @end

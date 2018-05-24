@@ -506,8 +506,8 @@ NSString *publishMessageTestString=@"this-is-test-message-data";
                 //
                 // Check that the reconnection interval is correct +/- 4 seconds
                 //
-                XCTAssertEqualWithAccuracy(deltaTime, currentExpected, 2.0);
-                NSLog(@"%f seconds elapsed since last connect...",deltaTime);
+                XCTAssertEqualWithAccuracy(deltaTime, currentExpected, 4.0);
+                NSLog(@"Expected Time: [%f] seconds, Delta Time [%f]",currentExpected, deltaTime);
                 currentExpected *= 2;
                 
                 if (currentExpected > maxExpected) {
