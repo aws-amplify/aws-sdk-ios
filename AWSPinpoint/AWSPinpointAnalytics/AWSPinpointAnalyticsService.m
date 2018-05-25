@@ -26,7 +26,7 @@
 #import "AWSPinpointAnalyticsResources.h"
 
 static NSString *const AWSInfoPinpointAnalytics = @"PinpointAnalytics";
-static NSString *const AWSPinpointAnalyticsSDKVersion = @"2.6.18";
+static NSString *const AWSPinpointAnalyticsSDKVersion = @"2.6.19";
 
 
 @interface AWSPinpointAnalyticsResponseSerializer : AWSJSONResponseSerializer

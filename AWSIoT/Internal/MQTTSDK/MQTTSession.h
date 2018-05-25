@@ -47,38 +47,6 @@ typedef enum {
 
 #pragma mark Constructors
 
-- (id)initWithClientId:(NSString*)theClientId;
-- (id)initWithClientId:(NSString*)theClientId runLoop:(NSRunLoop*)theRunLoop
-               forMode:(NSString*)theRunLoopMode;
-- (id)initWithClientId:(NSString*)theClientId
-              userName:(NSString*)theUsername
-              password:(NSString*)thePassword;
-- (id)initWithClientId:(NSString*)theClientId
-              userName:(NSString*)theUserName
-              password:(NSString*)thePassword
-               runLoop:(NSRunLoop*)theRunLoop
-               forMode:(NSString*)theRunLoopMode;
-- (id)initWithClientId:(NSString*)theClientId
-              userName:(NSString*)theUsername
-              password:(NSString*)thePassword
-             keepAlive:(UInt16)theKeepAliveInterval
-          cleanSession:(BOOL)cleanSessionFlag;
-- (id)initWithClientId:(NSString*)theClientId
-              userName:(NSString*)theUsername
-              password:(NSString*)thePassword
-             keepAlive:(UInt16)theKeepAlive
-          cleanSession:(BOOL)theCleanSessionFlag
-               runLoop:(NSRunLoop*)theRunLoop
-               forMode:(NSString*)theMode;
-- (id)initWithClientId:(NSString*)theClientId
-              userName:(NSString*)theUserName
-              password:(NSString*)thePassword
-             keepAlive:(UInt16)theKeepAliveInterval
-          cleanSession:(BOOL)theCleanSessionFlag
-             willTopic:(NSString*)willTopic
-               willMsg:(NSData*)willMsg
-               willQoS:(UInt8)willQoS
-        willRetainFlag:(BOOL)willRetainFlag;
 - (id)initWithClientId:(NSString*)theClientId
               userName:(NSString*)theUserName
               password:(NSString*)thePassword
@@ -88,13 +56,7 @@ typedef enum {
                willMsg:(NSData*)willMsg
                willQoS:(UInt8)willQoS
         willRetainFlag:(BOOL)willRetainFlag
-               runLoop:(NSRunLoop*)theRunLoop
-               forMode:(NSString*)theRunLoopMode;
-- (id)initWithClientId:(NSString*)theClientId
-             keepAlive:(UInt16)theKeepAliveInterval
-        connectMessage:(MQTTMessage*)theConnectMessage
-               runLoop:(NSRunLoop*)theRunLoop
-               forMode:(NSString*)theRunLoopMode;
+  publishRetryThrottle: (NSUInteger)publishRetryThrottle;
 
 #pragma mark Delegates and Callback blocks
 @property (weak) id<MQTTSessionDelegate> delegate;
@@ -103,14 +65,8 @@ typedef enum {
 @property (strong) void (^subsAckHandler)(UInt16 msgId);
 
 #pragma mark Connection Management
-- (void)connectToHost:(NSString*)ip port:(UInt32)port;
-- (void)connectToHost:(NSString*)ip port:(UInt32)port usingSSL:(BOOL)usingSSL sslCertificated:(NSArray*)sslCertificated;
-- (void)connectToHost:(NSString*)ip port:(UInt32)port withConnectionHandler:(void (^)(MQTTSessionEvent event))connHandler messageHandler:(void (^)(NSData* data, NSString* topic))messHandler;
-- (void)connectToHost:(NSString*)ip port:(UInt32)port usingSSL:(BOOL)usingSSL sslCertificated:(NSArray*)sslCertificated withConnectionHandler:(void (^)(MQTTSessionEvent event))connHandler messageHandler:(void (^)(NSData* data, NSString* topic))messHandler;
 - (id)connectToInputStream:(NSInputStream *)readStream
               outputStream:(NSOutputStream *)writeStream;
-- (void)setRunLoop:(NSRunLoop *)loop
-           forMode:(NSString *)mode;
 - (void)close;
 
 #pragma mark Subscription Management
@@ -119,6 +75,8 @@ typedef enum {
 - (UInt16)unsubscribeTopic:(NSString*)theTopic;
 
 #pragma mark Message Publishing
+@property NSUInteger publishRetryThrottle; //The max number of publish messages to retry per second if the pub-ack is not received within 60 seconds
+
 - (void)publishData:(NSData*)theData onTopic:(NSString*)theTopic;
 - (UInt16)publishDataAtLeastOnce:(NSData*)theData onTopic:(NSString*)theTopic;
 - (UInt16)publishDataAtLeastOnce:(NSData*)theData onTopic:(NSString*)theTopic retain:(BOOL)retainFlag;
@@ -129,6 +87,7 @@ typedef enum {
 - (void)publishJson:(id)payload onTopic:(NSString*)theTopic;
 
 - (BOOL)isReadyToPublish;
+- (void)send:(MQTTMessage*)msg;
 
 @end
 

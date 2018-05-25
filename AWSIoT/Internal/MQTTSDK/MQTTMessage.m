@@ -112,6 +112,10 @@
     return [[MQTTMessage alloc] initWithType:MQTTPingreq];
 }
 
++ (id)disconnectMessage {
+    return [[MQTTMessage alloc] initWithType:MQTTDisconnect];
+}
+
 + (id)subscribeMessageWithMessageId:(UInt16)msgId
                               topic:(NSString*)topic
                                 qos:(UInt8)qos {

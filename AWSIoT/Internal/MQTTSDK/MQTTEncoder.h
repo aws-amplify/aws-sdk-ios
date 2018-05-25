@@ -43,9 +43,7 @@ typedef enum {
 @property (weak) id<MQTTEncoderDelegate> delegate;
 @property (assign) MQTTEncoderStatus status;
 
-- (id)initWithStream:(NSOutputStream*)aStream
-             runLoop:(NSRunLoop*)aRunLoop
-         runLoopMode:(NSString*)aMode;
+- (id)initWithStream:(NSOutputStream*)aStream;
 
 - (void)encodeMessage:(MQTTMessage*)msg;
 - (void)open;

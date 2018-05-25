@@ -20,23 +20,25 @@
 #import "MQttTxFlow.h"
 
 @interface MQTTSession () <MQTTDecoderDelegate,MQTTEncoderDelegate>  {
-    MQTTSessionStatus    status;
-    NSString*            clientId;
-    //NSString*            userName;
-    //NSString*            password;
-    UInt16               keepAliveInterval;
-    BOOL                 cleanSessionFlag;
-    MQTTMessage*         connectMessage;
-    NSRunLoop*           runLoop;
-    NSString*            runLoopMode;
-    NSTimer*             timer;
-    NSInteger            idleTimer;
-    MQTTEncoder*         encoder;
-    MQTTDecoder*         decoder;
-    UInt16               txMsgId;
-    NSMutableDictionary* txFlows;
-    NSMutableDictionary* rxFlows;
-    unsigned int         ticks;
+    MQTTSessionStatus    status;  //Current status of the session. Can be one of the values specified in the MQTTSessionStatus enum
+    NSString*            clientId; //Unique Client ID passed in by the MQTTClient.
+    UInt16               txMsgId; //unique ID for the message. Counter that starts from 1
+    
+    UInt16               keepAliveInterval;  //client will send a PINGREQ once every keepAliveInterval to the server.
+    NSInteger            idleTimer; // counter used to know when to send the PINGREQ
+    BOOL                 cleanSessionFlag; //used to clear the queue
+    MQTTMessage*         connectMessage; //Connect message that is passed in by MQTTClient. Used to send connect message.
+    
+
+    NSTimer*             timer; //Timer that fires every second. Used to orchestrate pings and retries.
+    unsigned int         ticks;  //Number of seconds ( or clock ticks )
+    
+    MQTTEncoder*         encoder; //Low level protocol handler that converts a message into out bound network data
+    MQTTDecoder*         decoder; //Low level protocol handler that converts in bound network data into a Message
+    
+    NSMutableDictionary* txFlows; //Required for QOS1. Outbound publishes will be stored in txFlows until a PubAck is received
+    NSMutableDictionary* rxFlows; //Required for handling QOS 2. Not in use currently
+    unsigned int         retryThreshold; //used to throtttle retries. Overloading the publishes beyond service limit will result in message loss.
 }
 
 // private methods & properties
@@ -57,103 +59,13 @@
 - (void)send:(MQTTMessage*)msg;
 - (UInt16)nextMsgId;
 
-@property (strong,atomic) NSMutableArray* queue;
-@property (strong,atomic) NSMutableArray* timerRing;
-@property (strong, nonatomic) NSArray *sslCertificates;
-
+@property (strong,atomic) NSMutableArray* queue; //Queue to temporarily hold messages if encoder is busy sending another message
+@property (strong,atomic) NSMutableArray* timerRing; // circular array of 60. Each element is a set that contains the messages that need to be retried.
 @end
 
 @implementation MQTTSession
 
-- (id)initWithClientId:(NSString*)theClientId {
-    return [self initWithClientId:theClientId userName:@"" password:@""];
-}
-
-- (id)initWithClientId:(NSString*)theClientId
-              userName:(NSString*)theUserName
-              password:(NSString*)thePassword {
-    return [self initWithClientId:theClientId
-                         userName:theUserName
-                         password:thePassword
-                        keepAlive:60
-                     cleanSession:YES];
-}
-
-- (id)initWithClientId:(NSString*)theClientId runLoop:(NSRunLoop*)theRunLoop
-               forMode:(NSString*)theRunLoopMode {
-    return [self initWithClientId:theClientId userName:@"" password:@"" runLoop:theRunLoop forMode:theRunLoopMode];
-}
-
-- (id)initWithClientId:(NSString*)theClientId
-              userName:(NSString*)theUserName
-              password:(NSString*)thePassword
-               runLoop:(NSRunLoop*)theRunLoop
-               forMode:(NSString*)theRunLoopMode {
-    return [self initWithClientId:theClientId
-                         userName:theUserName
-                         password:thePassword
-                        keepAlive:60
-                     cleanSession:YES
-                          runLoop:theRunLoop
-                          forMode:theRunLoopMode];
-}
-
-
-- (id)initWithClientId:(NSString*)theClientId
-              userName:(NSString*)theUserName
-              password:(NSString*)thePassword
-             keepAlive:(UInt16)theKeepAliveInterval
-          cleanSession:(BOOL)theCleanSessionFlag {
-    return [self initWithClientId:theClientId
-                         userName:theUserName
-                         password:thePassword
-                        keepAlive:theKeepAliveInterval
-                     cleanSession:theCleanSessionFlag
-                          runLoop:[NSRunLoop currentRunLoop]
-                          forMode:NSDefaultRunLoopMode];
-}
-
-- (id)initWithClientId:(NSString*)theClientId
-              userName:(NSString*)theUserName
-              password:(NSString*)thePassword
-             keepAlive:(UInt16)theKeepAliveInterval
-          cleanSession:(BOOL)theCleanSessionFlag
-               runLoop:(NSRunLoop*)theRunLoop
-               forMode:(NSString*)theRunLoopMode {
-    MQTTMessage *msg = [MQTTMessage connectMessageWithClientId:theClientId
-                                                      userName:theUserName
-                                                      password:thePassword
-                                                     keepAlive:theKeepAliveInterval
-                                                  cleanSession:theCleanSessionFlag];
-    return [self initWithClientId:theClientId
-                        keepAlive:theKeepAliveInterval
-                   connectMessage:msg
-                          runLoop:theRunLoop
-                          forMode:theRunLoopMode];
-}
-
-- (id)initWithClientId:(NSString*)theClientId
-              userName:(NSString*)theUserName
-              password:(NSString*)thePassword
-             keepAlive:(UInt16)theKeepAliveInterval
-          cleanSession:(BOOL)theCleanSessionFlag
-             willTopic:(NSString*)willTopic
-               willMsg:(NSData*)willMsg
-               willQoS:(UInt8)willQoS
-        willRetainFlag:(BOOL)willRetainFlag {
-    return [self initWithClientId:theClientId
-                         userName:theUserName
-                         password:thePassword
-                        keepAlive:theKeepAliveInterval
-                     cleanSession:theCleanSessionFlag
-                        willTopic:willTopic
-                          willMsg:willMsg
-                          willQoS:willQoS
-                   willRetainFlag:willRetainFlag
-                          runLoop:[NSRunLoop currentRunLoop]
-                          forMode:NSDefaultRunLoopMode];
-}
-
+#pragma mark Initializer method
 - (id)initWithClientId:(NSString*)theClientId
               userName:(NSString*)theUserName
               password:(NSString*)thePassword
@@ -163,9 +75,11 @@
                willMsg:(NSData*)willMsg
                willQoS:(UInt8)willQoS
         willRetainFlag:(BOOL)willRetainFlag
-               runLoop:(NSRunLoop*)theRunLoop
-               forMode:(NSString*)theRunLoopMode {
+  publishRetryThrottle: (NSUInteger)publishRetryThrottle
+{
     AWSDDLogInfo(@"%s [Line %d], Thread:%@ ", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
+    
+    //Prepare the connect message.
     MQTTMessage *msg = [MQTTMessage connectMessageWithClientId:theClientId
                                                       userName:theUserName
                                                       password:thePassword
@@ -175,25 +89,12 @@
                                                        willMsg:willMsg
                                                        willQoS:willQoS
                                                     willRetain:willRetainFlag];
-    return [self initWithClientId:theClientId
-                        keepAlive:theKeepAliveInterval
-                   connectMessage:msg
-                          runLoop:theRunLoop
-                          forMode:theRunLoopMode];
-}
-
-- (id)initWithClientId:(NSString*)theClientId
-             keepAlive:(UInt16)theKeepAliveInterval
-        connectMessage:(MQTTMessage*)theConnectMessage
-               runLoop:(NSRunLoop*)theRunLoop
-               forMode:(NSString*)theRunLoopMode {
+    
     if (self = [super init]) {
         clientId = theClientId;
         keepAliveInterval = theKeepAliveInterval;
-        connectMessage = theConnectMessage;
-        runLoop = theRunLoop;
-        runLoopMode = theRunLoopMode;
-        
+        connectMessage = msg;
+        _publishRetryThrottle = publishRetryThrottle;
         self.queue = [NSMutableArray array];
         txMsgId = 1;
         txFlows = [[NSMutableDictionary alloc] init];
@@ -201,132 +102,48 @@
         self.timerRing = [[NSMutableArray alloc] initWithCapacity:60];
         int i;
         for (i = 0; i < 60; i++) {
-            [self.timerRing addObject:[NSMutableSet set]];
+            [self.timerRing addObject:[NSMutableSet new]];
         }
         ticks = 0;
+        status = MQTTSessionStatusCreated;
     }
     return self;
-}
-
-- (void)dealloc {
-    [encoder close];
-    encoder = nil;
-    [decoder close];
-    decoder = nil;
-    if (timer != nil) {
-        [timer invalidate];
-        timer = nil;
-    }
-}
-
-- (void)close {
-    [encoder close];
-    [decoder close];
-    encoder = nil;
-    decoder = nil;
-    if (timer != nil) {
-        [timer invalidate];
-        timer = nil;
-    }
-    [self error:MQTTSessionEventConnectionClosed];
 }
 
 #pragma mark Connection Management
 
-- (void)connectToHost:(NSString*)ip port:(UInt32)port {
-    [self connectToHost:ip port:port usingSSL:false sslCertificated:nil];
-}
-
-- (void)connectToHost:(NSString*)ip port:(UInt32)port usingSSL:(BOOL)usingSSL sslCertificated:(NSArray*)sslCertificated {
-    
-    status = MQTTSessionStatusCreated;
-    
-    self.sslCertificates = sslCertificated;
-    
-    CFReadStreamRef readStream;
-    CFWriteStreamRef writeStream;
-    
-    CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)ip, port, &readStream, &writeStream);
-    
-    if (usingSSL) {
-        
-        CFDictionaryRef sslSettings;
-        
-        if (self.sslCertificates.count) {
-            
-            const void *keys[] = { kCFStreamSSLLevel,
-                kCFStreamSSLCertificates };
-            
-            const void *vals[] = { kCFStreamSocketSecurityLevelNegotiatedSSL,
-                (__bridge const void *)(self.sslCertificates) };
-            
-            sslSettings = CFDictionaryCreate(kCFAllocatorDefault, keys, vals, 2,
-                                             &kCFTypeDictionaryKeyCallBacks,
-                                             &kCFTypeDictionaryValueCallBacks);
-            
-        } else {
-            const void *keys[] = { kCFStreamSSLLevel,
-                kCFStreamSSLPeerName };
-            
-            const void *vals[] = { kCFStreamSocketSecurityLevelNegotiatedSSL,
-                kCFNull };
-            
-            sslSettings = CFDictionaryCreate(kCFAllocatorDefault, keys, vals, 2,
-                                             &kCFTypeDictionaryKeyCallBacks,
-                                             &kCFTypeDictionaryValueCallBacks);
-        }
-        
-        
-        
-        CFReadStreamSetProperty(readStream, kCFStreamPropertySSLSettings, sslSettings);
-        CFWriteStreamSetProperty(writeStream, kCFStreamPropertySSLSettings, sslSettings);
-        
-        CFRelease(sslSettings);
-    }
-    
-    
-    [self connectToInputStream:(__bridge NSInputStream *)readStream outputStream:(__bridge NSOutputStream *)writeStream];
-}
-
-
-- (void)connectToHost:(NSString*)ip port:(UInt32)port withConnectionHandler:(void (^)(MQTTSessionEvent event))connHandler messageHandler:(void (^)(NSData* data, NSString* topic))messHandler{
-    [self connectToHost:ip port:port usingSSL:false sslCertificated:nil withConnectionHandler:(void (^)(MQTTSessionEvent event))connHandler messageHandler:(void (^)(NSData* data, NSString* topic))messHandler];
-}
-
-- (void)connectToHost:(NSString*)ip port:(UInt32)port usingSSL:(BOOL)usingSSL sslCertificated:(NSArray*)sslCertificated withConnectionHandler:(void (^)(MQTTSessionEvent event))connHandler messageHandler:(void (^)(NSData* data, NSString* topic))messHandler{
-    _connectionHandler = [connHandler copy];
-    _messageHandler = [messHandler copy];
-    
-    [self connectToHost:ip port:port usingSSL:usingSSL sslCertificated:nil];
-}
-
 - (id)connectToInputStream:(NSInputStream *)readStream
               outputStream:(NSOutputStream *)writeStream {
-    AWSDDLogInfo(@"Initializing MQTTEncoder and MQTTDecoder streams");
+    AWSDDLogInfo(@"<<%@>> Initializing MQTTEncoder and MQTTDecoder streams", [NSThread currentThread]);
     status = MQTTSessionStatusCreated;
     
-    encoder = [[MQTTEncoder alloc] initWithStream:writeStream
-                                          runLoop:runLoop
-                                      runLoopMode:runLoopMode];
-    
-    decoder = [[MQTTDecoder alloc] initWithStream:readStream
-                                          runLoop:runLoop
-                                      runLoopMode:runLoopMode];
-    
+    //Setup encoder
+    encoder = [[MQTTEncoder alloc] initWithStream:writeStream];
+
+    //Setup decoder
+    decoder = [[MQTTDecoder alloc] initWithStream:readStream];
+
+    //setup the session as the delegate to the encoder and decoder.
     [encoder setDelegate:self];
     [decoder setDelegate:self];
     
+    //Open the encoder, which will associate it with the runLoop of the current thread and start the encoding process.
     [encoder open];
+    //Open the decoder, which will associate it with the runLoop of the current thread and start the decoding process.
     [decoder open];
-    
     return self;
 }
 
-- (void)setRunLoop:(NSRunLoop *)loop
-           forMode:(NSString *)mode {
-    runLoop = loop;
-    runLoopMode = mode;
+
+- (void)close {
+    [encoder close];
+    [decoder close];
+    if (timer != nil) {
+        [timer invalidate];
+        timer = nil;
+    }
 }
+
 
 #pragma mark Subscription Management
 
@@ -351,6 +168,8 @@
                                                       topic:theTopic]];
     return nextMsgId;
 }
+
+#pragma mark Publish Methods
 
 - (void)publishData:(NSData*)data onTopic:(NSString*)topic {
     [self publishDataAtMostOnce:data onTopic:topic];
@@ -388,6 +207,7 @@
                                       deadline:(ticks + 60)];
     [txFlows setObject:flow forKey:[NSNumber numberWithUnsignedInt:msgId]];
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] addObject:[NSNumber numberWithUnsignedInt:msgId]];
+    AWSDDLogDebug(@"Published message %hu for QOS 1", msgId);
     [self send:msg];
     return msgId;
 }
@@ -425,34 +245,61 @@
     [self publishData:data onTopic:theTopic];
 }
 
+# pragma mark Timer and Thread Handlers
+
 - (void)timerHandler:(NSTimer*)theTimer {
     idleTimer++;
+    
+    //Send a pingreq if idleTimer is > keepAliveInterval. The idleTimer is increment per iteration of the timer, i.e., every second
     if (idleTimer >= keepAliveInterval) {
         if ([encoder status] == MQTTEncoderStatusReady) {
-            AWSDDLogVerbose(@"sending PINGREQ");
+            AWSDDLogVerbose(@"<<%@>> sending PINGREQ", [NSThread currentThread]);
             [encoder encodeMessage:[MQTTMessage pingreqMessage]];
             idleTimer = 0;
         }
     }
+    
     ticks++;
-    NSEnumerator *e = [[self.timerRing objectAtIndex:(ticks % 60)] objectEnumerator];
+    NSEnumerator *e = [[[self.timerRing objectAtIndex:(ticks % 60)] allObjects] objectEnumerator];
     id msgId;
     
+    //Stay under the throttle here and move the work to the next tick if throttle is breached.
+    int count = 0;
     while ((msgId = [e nextObject])) {
         MQttTxFlow *flow = [txFlows objectForKey:msgId];
         MQTTMessage *msg = [flow msg];
         [flow setDeadline:(ticks + 60)];
         [msg setDupFlag];
         [self send:msg];
+        count++;
+        if ( count >= _publishRetryThrottle ) {
+            break;
+        }
+    }
+    
+    //The threshold has been breached, move the overflow to the next tick.
+    while ((msgId = [e nextObject])) {
+        MQttTxFlow *flow = [txFlows objectForKey:msgId];
+        [flow setDeadline:((ticks +1) %  60)];
+        [[self.timerRing objectAtIndex:((ticks + 1) % 60)] addObject:msgId];
+        [[self.timerRing objectAtIndex:(ticks % 60)] removeObject:msgId];
+    }
+    
+    if (count > 0 ) {
+        AWSDDLogDebug(@"ClockTick: %d: republished %d messages from timerHandler", ticks,count);
+    }
+    else {
+        AWSDDLogDebug(@"ClockTick:%d: nothing to republish", ticks);
     }
 }
 
+# pragma mark Protocol Handlers
 - (void)encoder:(MQTTEncoder*)sender handleEvent:(MQTTEncoderEvent) eventCode {
     AWSDDLogVerbose(@"%s [Line %d], eventCode: %d", __PRETTY_FUNCTION__, __LINE__, eventCode);
     if(sender == encoder) {
         switch (eventCode) {
             case MQTTEncoderEventReady:
-                AWSDDLogDebug(@"MQTTSessionStatus = %d", status);
+                AWSDDLogVerbose(@"MQTTSessionStatus = %d", status);
                 switch (status) {
                     case MQTTSessionStatusCreated:
                         //AWSDDLogInfo(@"Encoder has been created. Sending Auth Message");
@@ -463,6 +310,7 @@
                         break;
                     case MQTTSessionStatusConnected:
                         if ([self.queue count] > 0) {
+                            AWSDDLogDebug(@"Sending message from session queue" );
                             MQTTMessage *msg = [self.queue objectAtIndex:0];
                             [self.queue removeObjectAtIndex:0];
                             [encoder encodeMessage:msg];
@@ -525,9 +373,7 @@
                                 }
                                 
                                 [_delegate session:self handleEvent:MQTTSessionEventConnected];
-                                AWSDDLogInfo(@"Adding timer for runLoop, timer interval: %d seconds", keepAliveInterval);
-                                
-                                [runLoop addTimer:timer forMode:runLoopMode];
+                                [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
                             }
                             else {
                                 [self error:MQTTSessionEventConnectionRefused];
@@ -549,8 +395,9 @@
     }
 }
 
+# pragma mark Main ingress point for messages from protocol handlers (decoder - low level transport combo)
 - (void)newMessage:(MQTTMessage*)msg {
-    AWSDDLogInfo(@"MQTTSession- newMessage msg type is %d", [msg type]);
+    AWSDDLogVerbose(@"MQTTSession- newMessage msg type is %d", [msg type]);
     switch ([msg type]) {
         case MQTTPublish:
             [self handlePublish:msg];
@@ -578,6 +425,8 @@
     }
 }
 
+#pragma mark Acknowledgement Handlers
+
 - (void)handleSuback:(MQTTMessage*)msg {
     AWSDDLogVerbose(@"%s [Line %d] ", __PRETTY_FUNCTION__, __LINE__);
     
@@ -590,7 +439,6 @@
     if ([msgId unsignedIntValue] == 0) {
         return;
     }
-    
     [_delegate session:self newAckForMessageId:msgId.unsignedShortValue];
 }
 
@@ -665,7 +513,7 @@
     }
     UInt8 const *bytes = [[msg data] bytes];
     NSNumber *msgId = [NSNumber numberWithUnsignedInt:(256 * bytes[0] + bytes[1])];
-    AWSDDLogDebug(@"Pub Ack messageId %@", msgId);
+    AWSDDLogVerbose(@"Pub Ack messageId %@", msgId);
     if ([msgId unsignedIntValue] == 0) {
         return;
     }
@@ -680,9 +528,11 @@
     
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] removeObject:msgId];
     [txFlows removeObjectForKey:msgId];
+    AWSDDLogDebug(@"Removing msgID %@ from internal store for QOS1 gaurantee", msgId);
     [_delegate session:self newAckForMessageId:msgId.unsignedShortValue];
 }
 
+#pragma mark Acknowlegement Handlers for QOS 2 - not used currently as AWSIoT doesn't support QOS 2
 - (void)handlePubrec:(MQTTMessage*)msg {
     if ([[msg data] length] != 2) {
         return;
@@ -751,13 +601,13 @@
     [txFlows removeObjectForKey:msgId];
 }
 
+# pragma mark error handler
+
 - (void)error:(MQTTSessionEvent)eventCode {
     AWSDDLogError(@"MQTT session error, code: %d", eventCode);
     [encoder close];
-    encoder = nil;
     
     [decoder close];
-    decoder = nil;
     
     if (timer != nil) {
         [timer invalidate];
@@ -776,12 +626,14 @@
     
 }
 
+# pragma mark Message Send methods
 - (void)send:(MQTTMessage*)msg {
-    AWSDDLogVerbose(@"%s [Line %d] ", __PRETTY_FUNCTION__, __LINE__);
     if ([encoder status] == MQTTEncoderStatusReady) {
+        AWSDDLogVerbose(@"<<%@>>: MQTTSession.send msg to server", [NSThread currentThread]);
         [encoder encodeMessage:msg];
     }
     else {
+        AWSDDLogDebug(@"<<%@>>: MQTTSession.send added msg to queue to send later", [NSThread currentThread]);
         [self.queue addObject:msg];
     }
 }
@@ -795,7 +647,7 @@
 }
 
 - (BOOL)isReadyToPublish {
-    AWSDDLogDebug(@"encoder is %@, MQTTEncoderStatus = %d", (encoder == nil) ? @"nil": encoder, [encoder status]);
+    AWSDDLogVerbose(@"<<%@>> MQTTEncoderStatus = %d", [NSThread currentThread],[encoder status]);
     return encoder && [encoder status] == MQTTEncoderStatusReady;
 }
 

@@ -1,6 +1,30 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.19
+
+### New Features
+
+* **Amazon Translate**
+  * Amazon Translate is a neural machine translation service that delivers fast, high-quality, and affordable language translation.
+
+* **Amazon Comprehend**
+  * Amazon Comprehend is a natural language processing (NLP) service that uses machine learning to find insights and relationships in text
+
+### Misc. Updates
+
+* **Amazon CloudWatch Logs**
+  * Update Amazon CloudWatch Logs client to the latest service model.
+
+* **Amazon Cognito Identity**
+  * Update Amazon Cognito Identity client to the latest service model.
+
+### Bug Fixes
+
+* **AWS IoT**
+  * Fixed crashes in AWS IoT during disconnect. See [issue#904](https://github.com/aws/aws-sdk-ios/issues/904) and [issue#752](https://github.com/aws/aws-sdk-ios/issues/752)
+  * Fixed connection retry logic. See [issue#856](https://github.com/aws/aws-sdk-ios/issues/856) and [issue#901](https://github.com/aws/aws-sdk-ios/issues/901)
+
 ## 2.6.18
 
 ### New Features

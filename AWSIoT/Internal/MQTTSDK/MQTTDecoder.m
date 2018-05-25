@@ -18,8 +18,6 @@
 
 @interface MQTTDecoder() {
         NSInputStream*  stream;
-        NSRunLoop*      runLoop;
-        NSString*       runLoopMode;
         UInt8           header;
         UInt32          length;
         UInt32          lengthMultiplier;
@@ -32,21 +30,17 @@
 @implementation MQTTDecoder
 
 - (id)initWithStream:(NSInputStream*)aStream
-             runLoop:(NSRunLoop*)aRunLoop
-         runLoopMode:(NSString*)aMode {
+{
     _status = MQTTDecoderStatusInitializing;
     stream = aStream;
     [stream setDelegate:self];
-    runLoop = aRunLoop;
-    runLoopMode = aMode;
     return self;
 }
 
 - (void)open {
     AWSDDLogDebug(@"opening decoder stream.");
     [stream setDelegate:self];
-    runLoop = [NSRunLoop currentRunLoop];
-    [stream scheduleInRunLoop:runLoop forMode:NSDefaultRunLoopMode];
+    [stream scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [stream open];
 }
 
@@ -54,7 +48,6 @@
     AWSDDLogDebug(@"closing decoder stream.");
     [stream setDelegate:nil];
     [stream close];
-    [stream removeFromRunLoop:runLoop forMode:NSDefaultRunLoopMode];
     stream = nil;
 }
 

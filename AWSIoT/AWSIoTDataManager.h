@@ -119,6 +119,11 @@ typedef void(^AWSIoTMQTTAckBlock)(void);
 @property(nonatomic, assign, readonly) BOOL autoResubscribe;
 
 /**
+ The max number of publish messages to retry per second if the pub-ack is not received within 60 seconds
+ **/
+@property(nonatomic, assign, readonly) NSUInteger publishRetryThrottle;
+
+/**
  Create an AWSIoTMQTTConfiguration object and initialize its parameters.
  The AWSIoTMQTTConfiguration object is then passed to AWSIoTDataManager to initialize it.
  Note, clients need to either specify all parameters explicitly or not customize any
@@ -156,6 +161,47 @@ typedef void(^AWSIoTMQTTAckBlock)(void);
                               autoResubscribe:(BOOL)ars
                          lastWillAndTestament:(AWSIoTMQTTLastWillAndTestament*)lwt;
 
+/**
+ Create an AWSIoTMQTTConfiguration object and initialize its parameters.
+ The AWSIoTMQTTConfiguration object is then passed to AWSIoTDataManager to initialize it.
+ Note, clients need to either specify all parameters explicitly or not customize any
+ parameter in which case default parameter values will be used to initialize
+ AWSIoTMqttConfiguration.
+ 
+ @param kat     keepAliveTimeInterval, Mqtt Keep Alive time in seconds
+ 
+ @param brt     baseReconnectTimeInterval, The time in seconds to wait before attempting
+ the first reconnect
+ 
+ @param mct     minimumConnectionTimeInterval, The time in seconds that a connection
+ must be active before resetting the current reconnection time to the
+ base reconnection time.
+ 
+ @param mrt     maximumReconnectTimeInterval, The maximum time in seconds to wait prior
+ to attempting to reconnect
+ 
+ @param rlp     The run loop to execute the MQTT client in
+ 
+ @param rlm     The run loop mode to use when executing the MQTT client
+ 
+ @param ars     autoResubscribe, Boolean flag to indicate whether auto-resubscribe
+ feature is enabled
+ 
+ @param lwt     lastWillAndTestament, The last will and testament (LWT) to be used
+ when connecting to AWS IoT
+ 
+ @param prt     publishRetryThrottle, the max number of publish messages to retry per second
+ if the pub-ack is not received within 60 seconds
+ */
+- (instancetype)initWithKeepAliveTimeInterval:(NSTimeInterval)kat
+                    baseReconnectTimeInterval:(NSTimeInterval)brt
+                minimumConnectionTimeInterval:(NSTimeInterval)mct
+                 maximumReconnectTimeInterval:(NSTimeInterval)mrt
+                                      runLoop:(NSRunLoop*)rlp
+                                  runLoopMode:(NSString*)rlm
+                              autoResubscribe:(BOOL)ars
+                         lastWillAndTestament:(AWSIoTMQTTLastWillAndTestament*)lwt
+                         publishRetryThrottle:(NSUInteger)prt;
 @end
 
 #pragma mark - AWSIoTDataManager
