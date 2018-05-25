@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSS3TransferUtility Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.19 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/configuration">configuration</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/S3TransferUtilityForKey:">+ S3TransferUtilityForKey:</option>
+		
+		<option value="//api/name/defaultS3TransferUtility">+ defaultS3TransferUtility</option>
+		
+		<option value="//api/name/interceptApplication:handleEventsForBackgroundURLSession:completionHandler:">+ interceptApplication:handleEventsForBackgroundURLSession:completionHandler:</option>
+		
+		<option value="//api/name/registerS3TransferUtilityWithConfiguration:forKey:">+ registerS3TransferUtilityWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:">+ registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeS3TransferUtilityForKey:">+ removeS3TransferUtilityForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/downloadDataForKey:expression:completionHandler:">- downloadDataForKey:expression:completionHandler:</option>
+		
+		<option value="//api/name/downloadDataFromBucket:key:expression:completionHandler:">- downloadDataFromBucket:key:expression:completionHandler:</option>
+		
+		<option value="//api/name/downloadToURL:bucket:key:expression:completionHandler:">- downloadToURL:bucket:key:expression:completionHandler:</option>
+		
+		<option value="//api/name/downloadToURL:key:expression:completionHandler:">- downloadToURL:key:expression:completionHandler:</option>
+		
+		<option value="//api/name/enumerateToAssignBlocksForUploadTask:downloadTask:">- enumerateToAssignBlocksForUploadTask:downloadTask:</option>
+		
+		<option value="//api/name/enumerateToAssignBlocksForUploadTask:multiPartUploadBlocksAssigner:downloadBlocksAssigner:">- enumerateToAssignBlocksForUploadTask:multiPartUploadBlocksAssigner:downloadBlocksAssigner:</option>
+		
+		<option value="//api/name/getAllTasks">- getAllTasks</option>
+		
+		<option value="//api/name/getDownloadTasks">- getDownloadTasks</option>
+		
+		<option value="//api/name/getMultiPartUploadTasks">- getMultiPartUploadTasks</option>
+		
+		<option value="//api/name/getUploadTasks">- getUploadTasks</option>
+		
+		<option value="//api/name/uploadData:bucket:key:contentType:expression:completionHandler:">- uploadData:bucket:key:contentType:expression:completionHandler:</option>
+		
+		<option value="//api/name/uploadData:key:contentType:expression:completionHandler:">- uploadData:key:contentType:expression:completionHandler:</option>
+		
+		<option value="//api/name/uploadDataUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:">- uploadDataUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:</option>
+		
+		<option value="//api/name/uploadDataUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:">- uploadDataUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:</option>
+		
+		<option value="//api/name/uploadFile:bucket:key:contentType:expression:completionHandler:">- uploadFile:bucket:key:contentType:expression:completionHandler:</option>
+		
+		<option value="//api/name/uploadFile:key:contentType:expression:completionHandler:">- uploadFile:key:contentType:expression:completionHandler:</option>
+		
+		<option value="//api/name/uploadFileUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:">- uploadFileUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:</option>
+		
+		<option value="//api/name/uploadFileUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:">- uploadFileUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSS3TransferUtility Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSS3TransferUtility.h<br />AWSS3TransferUtility.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>A high-level utility for managing background uploads and downloads. The transfers continue even when the app is suspended. You must call <code>+ application:handleEventsForBackgroundURLSession:completionHandler:</code> in the <code>- application:handleEventsForBackgroundURLSession:completionHandler:</code> application delegate in order for the background transfer callback to work.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultS3TransferUtility" title="defaultS3TransferUtility"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultS3TransferUtility">+&nbsp;defaultS3TransferUtility</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultS3TransferUtility</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+     AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let S3TransferUtility = AWSS3TransferUtility.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility defaultS3TransferUtility];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerS3TransferUtilityWithConfiguration:forKey:" title="registerS3TransferUtilityWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerS3TransferUtilityWithConfiguration:forKey:">+&nbsp;registerS3TransferUtilityWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+     AWSS3TransferUtility.register(with: configuration!, forKey: "USWest2S3TransferUtility")
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@"USWest2S3TransferUtility"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let S3TransferUtility = AWSS3TransferUtility(forKey: "USWest2S3TransferUtility")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@"USWest2S3TransferUtility"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:" title="registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:">+&nbsp;registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> transferUtilityConfiguration:(nullable AWSS3TransferUtilityConfiguration *)<em>transferUtilityConfiguration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>transferUtilityConfiguration</code></th>
+						<td><p>An S3 transfer utility configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+     AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: "USWest2S3TransferUtility")
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration transferUtilityConfiguration:nil forKey:@"USWest2S3TransferUtility"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let S3TransferUtility = AWSS3TransferUtility(forKey: "USWest2S3TransferUtility")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@"USWest2S3TransferUtility"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/S3TransferUtilityForKey:" title="S3TransferUtilityForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/S3TransferUtilityForKey:">+&nbsp;S3TransferUtilityForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerS3TransferUtilityWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)S3TransferUtilityForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [AWSCognitoCredentialsProvider credentialsWithRegionType:AWSRegionUSEast1 identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:credentialsProvider];
+
+     [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@"USWest2S3TransferUtility"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<pre><code> AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3ForKey:@"USWest2S3TransferUtility"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeS3TransferUtilityForKey:" title="removeS3TransferUtilityForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeS3TransferUtilityForKey:">+&nbsp;removeS3TransferUtilityForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeS3TransferUtilityForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>The underlying NSURLSession is invalidated, and after the invalidation has completed the transfer is utility removed.</p>
+
+<p>Observe the AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification to be informed when this has occurred.</p><div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/interceptApplication:handleEventsForBackgroundURLSession:completionHandler:" title="interceptApplication:handleEventsForBackgroundURLSession:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/interceptApplication:handleEventsForBackgroundURLSession:completionHandler:">+&nbsp;interceptApplication:handleEventsForBackgroundURLSession:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Tells <code>AWSS3TransferUtility</code> that events related to a URL session are waiting to be processed. This method needs to be called in the <code>- application:handleEventsForBackgroundURLSession:completionHandler:</code> application delegate for <code>AWSS3TransferUtility</code> to work.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)interceptApplication:(UIApplication *)<em>application</em> handleEventsForBackgroundURLSession:(NSString *)<em>identifier</em> completionHandler:(void ( ^ ) ( void ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>application</code></th>
+						<td><p>The singleton app object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>identifier</code></th>
+						<td><p>The identifier of the URL session requiring attention.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when you finish processing the events.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadData:key:contentType:expression:completionHandler:" title="uploadData:key:contentType:expression:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadData:key:contentType:expression:completionHandler:">&ndash;&nbsp;uploadData:key:contentType:expression:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Saves the <code>NSData</code> to a temporary directory and uploads it to the configured Amazon S3 bucket in <code>AWSS3TransferUtilityConfiguration</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityUploadTask*&gt; *)uploadData:(NSData *)<em>data</em> key:(NSString *)<em>key</em> contentType:(NSString *)<em>contentType</em> expression:(nullable AWSS3TransferUtilityUploadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The data to upload.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentType</code></th>
+						<td><p><code>Content-Type</code> of the data.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the upload request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the upload completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityUploadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadData:bucket:key:contentType:expression:completionHandler:" title="uploadData:bucket:key:contentType:expression:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadData:bucket:key:contentType:expression:completionHandler:">&ndash;&nbsp;uploadData:bucket:key:contentType:expression:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Saves the <code>NSData</code> to a temporary directory and uploads it to the specified Amazon S3 bucket.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityUploadTask*&gt; *)uploadData:(NSData *)<em>data</em> bucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em> contentType:(NSString *)<em>contentType</em> expression:(nullable AWSS3TransferUtilityUploadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The data to upload.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bucket</code></th>
+						<td><p>The Amazon S3 bucket name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentType</code></th>
+						<td><p><code>Content-Type</code> of the data.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the upload request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the upload completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityUploadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadFile:key:contentType:expression:completionHandler:" title="uploadFile:key:contentType:expression:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadFile:key:contentType:expression:completionHandler:">&ndash;&nbsp;uploadFile:key:contentType:expression:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Uploads the file to the configured Amazon S3 bucket in <code>AWSS3TransferUtilityConfiguration</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityUploadTask*&gt; *)uploadFile:(NSURL *)<em>fileURL</em> key:(NSString *)<em>key</em> contentType:(NSString *)<em>contentType</em> expression:(nullable AWSS3TransferUtilityUploadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>fileURL</code></th>
+						<td><p>The file URL of the file to upload.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentType</code></th>
+						<td><p><code>Content-Type</code> of the file.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the upload request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the upload completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityUploadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadFile:bucket:key:contentType:expression:completionHandler:" title="uploadFile:bucket:key:contentType:expression:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadFile:bucket:key:contentType:expression:completionHandler:">&ndash;&nbsp;uploadFile:bucket:key:contentType:expression:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Uploads the file to the specified Amazon S3 bucket.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityUploadTask*&gt; *)uploadFile:(NSURL *)<em>fileURL</em> bucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em> contentType:(NSString *)<em>contentType</em> expression:(nullable AWSS3TransferUtilityUploadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityUploadCompletionHandlerBlock)<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>fileURL</code></th>
+						<td><p>The file URL of the file to upload.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bucket</code></th>
+						<td><p>The Amazon S3 bucket name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentType</code></th>
+						<td><p><code>Content-Type</code> of the file.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the upload request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the upload completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityUploadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadDataUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:" title="uploadDataUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadDataUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:">&ndash;&nbsp;uploadDataUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Saves the <code>NSData</code> to a temporary directory and uploads it to the configured Amazon S3 bucket in <code>AWSS3TransferUtilityConfiguration</code> using Multipart.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityMultiPartUploadTask*&gt; *)uploadDataUsingMultiPart:(NSData *)<em>data</em> key:(NSString *)<em>key</em> contentType:(NSString *)<em>contentType</em> expression:(nullable AWSS3TransferUtilityMultiPartUploadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)<em>completionHandler</em> NS_SWIFT_NAME</code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The data to upload.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentType</code></th>
+						<td><p><code>Content-Type</code> of the data.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the upload request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the upload completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityMultiPartUploadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadDataUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:" title="uploadDataUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadDataUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:">&ndash;&nbsp;uploadDataUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Saves the <code>NSData</code> to a temporary directory and uploads it to the specified Amazon S3 bucket using Multipart.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityMultiPartUploadTask*&gt; *)uploadDataUsingMultiPart:(NSData *)<em>data</em> bucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em> contentType:(NSString *)<em>contentType</em> expression:(nullable AWSS3TransferUtilityMultiPartUploadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)<em>completionHandler</em> NS_SWIFT_NAME</code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>data</code></th>
+						<td><p>The data to upload.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bucket</code></th>
+						<td><p>The Amazon S3 bucket name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentType</code></th>
+						<td><p><code>Content-Type</code> of the data.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the upload request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the upload completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityMultiPartUploadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadFileUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:" title="uploadFileUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadFileUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:">&ndash;&nbsp;uploadFileUsingMultiPart:key:contentType:expression:completionHandler:NS_SWIFT_NAME:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Uploads the file to the configured Amazon S3 bucket in <code>AWSS3TransferUtilityConfiguration</code> using MultiPart.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityMultiPartUploadTask*&gt; *)uploadFileUsingMultiPart:(NSURL *)<em>fileURL</em> key:(NSString *)<em>key</em> contentType:(NSString *)<em>contentType</em> expression:(nullable AWSS3TransferUtilityMultiPartUploadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)<em>completionHandler</em> NS_SWIFT_NAME</code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>fileURL</code></th>
+						<td><p>The file URL of the file to upload.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentType</code></th>
+						<td><p><code>Content-Type</code> of the file.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the upload request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the upload completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityMultiPartUploadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/uploadFileUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:" title="uploadFileUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/uploadFileUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:">&ndash;&nbsp;uploadFileUsingMultiPart:bucket:key:contentType:expression:completionHandler:NS_SWIFT_NAME:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Uploads the file to the specified Amazon S3 bucket using MultiPart.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityMultiPartUploadTask*&gt; *)uploadFileUsingMultiPart:(NSURL *)<em>fileURL</em> bucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em> contentType:(NSString *)<em>contentType</em> expression:(nullable AWSS3TransferUtilityMultiPartUploadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)<em>completionHandler</em> NS_SWIFT_NAME</code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>fileURL</code></th>
+						<td><p>The file URL of the file to upload.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bucket</code></th>
+						<td><p>The Amazon S3 bucket name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>contentType</code></th>
+						<td><p><code>Content-Type</code> of the file.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the upload request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the upload completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityMultiPartUploadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/downloadDataForKey:expression:completionHandler:" title="downloadDataForKey:expression:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/downloadDataForKey:expression:completionHandler:">&ndash;&nbsp;downloadDataForKey:expression:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Downloads the specified Amazon S3 object as <code>NSData</code> from the bucket configured in <code>AWSS3TransferUtilityConfiguration</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityDownloadTask*&gt; *)downloadDataForKey:(NSString *)<em>key</em> expression:(nullable AWSS3TransferUtilityDownloadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the download request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the download completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityDownloadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/downloadDataFromBucket:key:expression:completionHandler:" title="downloadDataFromBucket:key:expression:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/downloadDataFromBucket:key:expression:completionHandler:">&ndash;&nbsp;downloadDataFromBucket:key:expression:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Downloads the specified Amazon S3 object as <code>NSData</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityDownloadTask*&gt; *)downloadDataFromBucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em> expression:(nullable AWSS3TransferUtilityDownloadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bucket</code></th>
+						<td><p>The Amazon S3 bucket name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the download request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the download completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityDownloadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/downloadToURL:key:expression:completionHandler:" title="downloadToURL:key:expression:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/downloadToURL:key:expression:completionHandler:">&ndash;&nbsp;downloadToURL:key:expression:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Downloads the specified Amazon S3 object to a file URL from the bucket configured in <code>AWSS3TransferUtilityConfiguration</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityDownloadTask*&gt; *)downloadToURL:(NSURL *)<em>fileURL</em> key:(NSString *)<em>key</em> expression:(nullable AWSS3TransferUtilityDownloadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>fileURL</code></th>
+						<td><p>The file URL to download the object to.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the download request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the download completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityDownloadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/downloadToURL:bucket:key:expression:completionHandler:" title="downloadToURL:bucket:key:expression:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/downloadToURL:bucket:key:expression:completionHandler:">&ndash;&nbsp;downloadToURL:bucket:key:expression:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Downloads the specified Amazon S3 object to a file URL.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3TransferUtilityDownloadTask*&gt; *)downloadToURL:(NSURL *)<em>fileURL</em> bucket:(NSString *)<em>bucket</em> key:(NSString *)<em>key</em> expression:(nullable AWSS3TransferUtilityDownloadExpression *)<em>expression</em> completionHandler:(nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock)<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>fileURL</code></th>
+						<td><p>The file URL to download the object to.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>bucket</code></th>
+						<td><p>The Amazon S3 bucket name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>The Amazon S3 object key name.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>expression</code></th>
+						<td><p>The container object to configure the download request.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler when the download completes.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>Returns an instance of <code>AWSTask</code>. On successful initialization, <code>task.result</code> contains an instance of <code>AWSS3TransferUtilityDownloadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/enumerateToAssignBlocksForUploadTask:downloadTask:" title="enumerateToAssignBlocksForUploadTask:downloadTask:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enumerateToAssignBlocksForUploadTask:downloadTask:">&ndash;&nbsp;enumerateToAssignBlocksForUploadTask:downloadTask:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Assigns progress feedback and completion handler blocks. This method should be called when the app was suspended while the transfer is still happening.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)enumerateToAssignBlocksForUploadTask:(nullable void ( ^ ) ( AWSS3TransferUtilityUploadTask *uploadTask , _Nullable AWSS3TransferUtilityProgressBlock *_Nullable uploadProgressBlockReference , _Nullable AWSS3TransferUtilityUploadCompletionHandlerBlock *_Nullable completionHandlerReference ))<em>uploadBlocksAssigner</em> downloadTask:(nullable void ( ^ ) ( AWSS3TransferUtilityDownloadTask *downloadTask , _Nullable AWSS3TransferUtilityProgressBlock *_Nullable downloadProgressBlockReference , _Nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock *_Nullable completionHandlerReference ))<em>downloadBlocksAssigner</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uploadBlocksAssigner</code></th>
+						<td><p>The block for assigning the upload progress feedback and completion handler blocks.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>downloadBlocksAssigner</code></th>
+						<td><p>The block for assigning the download progress feedback and completion handler blocks.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/enumerateToAssignBlocksForUploadTask:multiPartUploadBlocksAssigner:downloadBlocksAssigner:" title="enumerateToAssignBlocksForUploadTask:multiPartUploadBlocksAssigner:downloadBlocksAssigner:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enumerateToAssignBlocksForUploadTask:multiPartUploadBlocksAssigner:downloadBlocksAssigner:">&ndash;&nbsp;enumerateToAssignBlocksForUploadTask:multiPartUploadBlocksAssigner:downloadBlocksAssigner:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Assigns progress feedback and completion handler blocks. This method should be called when the app was suspended while the transfer is still happening.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)enumerateToAssignBlocksForUploadTask:(void ( ^ ) ( AWSS3TransferUtilityUploadTask *uploadTask , AWSS3TransferUtilityProgressBlock _Nullable *_Nullable uploadProgressBlockReference , AWSS3TransferUtilityUploadCompletionHandlerBlock _Nullable *_Nullable completionHandlerReference ))<em>uploadBlocksAssigner</em> multiPartUploadBlocksAssigner:(void ( ^ ) ( AWSS3TransferUtilityMultiPartUploadTask *multiPartUploadTask , AWSS3TransferUtilityMultiPartProgressBlock _Nullable *_Nullable multiPartUploadProgressBlockReference , AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock _Nullable *_Nullable completionHandlerReference ))<em>multiPartUploadBlocksAssigner</em> downloadBlocksAssigner:(void ( ^ ) ( AWSS3TransferUtilityDownloadTask *downloadTask , AWSS3TransferUtilityProgressBlock _Nullable *_Nullable downloadProgressBlockReference , AWSS3TransferUtilityDownloadCompletionHandlerBlock _Nullable *_Nullable completionHandlerReference ))<em>downloadBlocksAssigner</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>uploadBlocksAssigner</code></th>
+						<td><p>The block for assigning the upload progress feedback and completion handler blocks.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>multiPartUploadBlocksAssigner</code></th>
+						<td><p>The block for assigning the multipart upload progress feedback and completion handler blocks.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>downloadBlocksAssigner</code></th>
+						<td><p>The block for assigning the download progress feedback and completion handler blocks.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getAllTasks" title="getAllTasks"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getAllTasks">&ndash;&nbsp;getAllTasks</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves all running tasks. (<b class="deprecated">Deprecated:</b><span class="deprecated"> Use <code>getUploadTasks:, getMultiPartUploadTasks: and getDownloadTasks:</code> methods instead.</span>)</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;NSArray&lt;__kindofAWSS3TransferUtilityTask*&gt; *&gt; *)getAllTasks</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An array of containing <code>AWSS3TransferUtilityUploadTask</code> and <code>AWSS3TransferUtilityDownloadTask</code> objects.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getUploadTasks" title="getUploadTasks"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getUploadTasks">&ndash;&nbsp;getUploadTasks</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves all running upload tasks.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;NSArray&lt;AWSS3TransferUtilityUploadTask*&gt; *&gt; *)getUploadTasks</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An array of <code>AWSS3TransferUtilityUploadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getMultiPartUploadTasks" title="getMultiPartUploadTasks"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getMultiPartUploadTasks">&ndash;&nbsp;getMultiPartUploadTasks</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves all running MultiPart upload tasks.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;NSArray&lt;AWSS3TransferUtilityMultiPartUploadTask*&gt; *&gt; *)getMultiPartUploadTasks</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An array of <code>AWSS3TransferUtilityMultiPartUploadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getDownloadTasks" title="getDownloadTasks"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getDownloadTasks">&ndash;&nbsp;getDownloadTasks</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves all running download tasks.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;NSArray&lt;AWSS3TransferUtilityDownloadTask*&gt; *&gt; *)getDownloadTasks</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An array of <code>AWSS3TransferUtilityDownloadTask</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-05-24</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

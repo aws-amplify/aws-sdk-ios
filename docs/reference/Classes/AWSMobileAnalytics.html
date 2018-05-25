@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSMobileAnalytics Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.19 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/eventClient">eventClient</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/defaultMobileAnalytics">+ defaultMobileAnalytics</option>
+		
+		<option value="//api/name/mobileAnalyticsForAppId:">+ mobileAnalyticsForAppId:</option>
+		
+		<option value="//api/name/mobileAnalyticsForAppId:configuration:">+ mobileAnalyticsForAppId:configuration:</option>
+		
+		<option value="//api/name/mobileAnalyticsForAppId:configuration:completionBlock:">+ mobileAnalyticsForAppId:configuration:completionBlock:</option>
+		
+		<option value="//api/name/mobileAnalyticsForAppId:identityPoolId:">+ mobileAnalyticsForAppId:identityPoolId:</option>
+		
+		<option value="//api/name/mobileAnalyticsForAppId:identityPoolId:completionBlock:">+ mobileAnalyticsForAppId:identityPoolId:completionBlock:</option>
+		
+		<option value="//api/name/mobileAnalyticsForAppId:insightsPrivateKey:">+ mobileAnalyticsForAppId:insightsPrivateKey:</option>
+		
+		<option value="//api/name/mobileAnalyticsForAppId:insightsPrivateKey:configuration:completionBlock:">+ mobileAnalyticsForAppId:insightsPrivateKey:configuration:completionBlock:</option>
+		
+	</optgroup>
+	
+
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSMobileAnalytics Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSMobileAnalyticsService.h<br />AWSMobileAnalyticsService.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Amazon Mobile Analytics client.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/eventClient" title="eventClient"></a>
+	<h3 class="method-title"><code><a href="#//api/name/eventClient">&nbsp;&nbsp;eventClient</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the <code>AWSMobileAnalyticsEventClient</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) id&lt;AWSMobileAnalyticsEventClient&gt; eventClient</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>the <code>AWSMobileAnalyticsEventClient</code> to create, record, and submit events.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultMobileAnalytics" title="defaultMobileAnalytics"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultMobileAnalytics">+&nbsp;defaultMobileAnalytics</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>AWSMobileAnalytics</code> instance with the specified <code>appId</code> in the <code>Info.plist</code> if the instance does not already exists for the <code>appId</code>. If an instance exists for the given <code>appId</code>, returns the existing instance. The strong reference to the instance is maintained by <code>AWSMobileAnalytics</code>, and the developer does not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultMobileAnalytics</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mobileAnalyticsForAppId:" title="mobileAnalyticsForAppId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mobileAnalyticsForAppId:">+&nbsp;mobileAnalyticsForAppId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>AWSMobileAnalytics</code> instance with the specified <code>appId</code> using the default <code>configuration</code> if the instance does not already exists for the <code>appId</code>. If an instance exists for the given <code>appId</code>, returns the existing instance. The strong reference to the instance is maintained by <code>AWSMobileAnalytics</code>, and the developer does not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)mobileAnalyticsForAppId:(NSString *)<em>appId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appId</code></th>
+						<td><p>AppId from Amazon Mobile Analytics Management Console.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mobileAnalyticsForAppId:identityPoolId:" title="mobileAnalyticsForAppId:identityPoolId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mobileAnalyticsForAppId:identityPoolId:">+&nbsp;mobileAnalyticsForAppId:identityPoolId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>AWSMobileAnalytics</code> instance with the specified <code>appId</code> if the instance does not already exists for the <code>appId</code>. If an instance exists for the given <code>appId</code>, returns the existing instance. <code>identityPoolId</code> is ignored if an instance exists for the given <code>appId</code>. The strong reference to the instance is maintained by <code>AWSMobileAnalytics</code>, and the developer does not need to retain it manually. This method defaults to initialize both mobile analytics and cognito in the AWSUSEast1 region.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)mobileAnalyticsForAppId:(NSString *)<em>appId</em> identityPoolId:(NSString *)<em>identityPoolId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appId</code></th>
+						<td><p>AppId from Amazon Mobile Analytics Management Console.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>identityPoolId</code></th>
+						<td><p>The identity pool id for this provider. Value is used to communicate with Amazon Cognito as well as namespace values stored in the keychain.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mobileAnalyticsForAppId:identityPoolId:completionBlock:" title="mobileAnalyticsForAppId:identityPoolId:completionBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mobileAnalyticsForAppId:identityPoolId:completionBlock:">+&nbsp;mobileAnalyticsForAppId:identityPoolId:completionBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>AWSMobileAnalytics</code> instance with the specified <code>appId</code> if the instance does not already exists for the <code>appId</code>. If an instance exists for the given <code>appId</code>, returns the existing instance. <code>identityPoolId</code> and <code>completionBlock</code> are ignored if an instance exists for the given <code>appId</code>. The strong reference to the instance is maintained by <code>AWSMobileAnalytics</code>, and the developer does not need to retain it manually. This method defaults to initialize both mobile analytics and cognito in the AWSUSEast1 region.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)mobileAnalyticsForAppId:(NSString *)<em>appId</em> identityPoolId:(NSString *)<em>identityPoolId</em> completionBlock:(AWSInitializationCompletionBlock)<em>completionBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appId</code></th>
+						<td><p>AppId from Amazon Mobile Analytics Management Console.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>identityPoolId</code></th>
+						<td><p>The identity pool id for this provider. Value is used to communicate with Amazon Cognito as well as namespace values stored in the keychain.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionBlock</code></th>
+						<td><p>A AWSInitializationCompletionBlock that allows developers to handle custom logic after initialization but before the session begins.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mobileAnalyticsForAppId:configuration:" title="mobileAnalyticsForAppId:configuration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mobileAnalyticsForAppId:configuration:">+&nbsp;mobileAnalyticsForAppId:configuration:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>AWSMobileAnalytics</code> instance with the specified <code>appId</code> using provided <code>configuration</code> if the instance does not already exists for the <code>appId</code>. If an instance exists for the given <code>appId</code>, returns the existing instance. <code>configuration</code> are ignored if an instance exists for the given <code>appId</code>. The strong reference to the instance is maintained by <code>AWSMobileAnalytics</code>, and the developer does not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)mobileAnalyticsForAppId:(NSString *)<em>appId</em> configuration:(AWSMobileAnalyticsConfiguration *)<em>configuration</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appId</code></th>
+						<td><p>AppId from Amazon Mobile Analytics Management Console.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A configuraiton object. By default, it uses [AWSServiceManager defaultServiceManager].defaultServiceConfiguration to access the service.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mobileAnalyticsForAppId:configuration:completionBlock:" title="mobileAnalyticsForAppId:configuration:completionBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mobileAnalyticsForAppId:configuration:completionBlock:">+&nbsp;mobileAnalyticsForAppId:configuration:completionBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>AWSMobileAnalytics</code> instance with the specified <code>appId</code> using provided <code>configuration</code> if the instance does not already exists for the <code>appId</code>. If an instance exists for the given <code>appId</code>, returns the existing instance. <code>configuration</code> and <code>completionBlock</code> are ignored if an instance exists for the given <code>appId</code>. The strong reference to the instance is maintained by <code>AWSMobileAnalytics</code>, and the developer does not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)mobileAnalyticsForAppId:(NSString *)<em>appId</em> configuration:(AWSMobileAnalyticsConfiguration *)<em>configuration</em> completionBlock:(AWSInitializationCompletionBlock)<em>completionBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appId</code></th>
+						<td><p>AppId from Amazon Mobile Analytics Management Console.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A configuraiton object. By default, it uses [AWSServiceManager defaultServiceManager].defaultServiceConfiguration to access the service.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionBlock</code></th>
+						<td><p>A AWSInitializationCompletionBlock that allows developers to handle custom logic after initialization but before the session begins.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mobileAnalyticsForAppId:insightsPrivateKey:" title="mobileAnalyticsForAppId:insightsPrivateKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mobileAnalyticsForAppId:insightsPrivateKey:">+&nbsp;mobileAnalyticsForAppId:insightsPrivateKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>AWSMobileAnalytics</code> instance with the specified <code>appId</code> using the default <code>configuration</code> if the instance does not already exists for the <code>appId</code>. If an instance exists for the given <code>appId</code>, returns the existing instance. <code>configuration</code> and <code>completionBlock</code> are ignored if an instance exists for the given <code>appId</code>. The strong reference to the instance is maintained by <code>AWSMobileAnalytics</code>, and the developer does not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)mobileAnalyticsForAppId:(NSString *)<em>appId</em> insightsPrivateKey:(NSString *)<em>insightsPrivateKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appId</code></th>
+						<td><p>AppId from Amazon Mobile Analytics Management Console.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>insightsPrivateKey</code></th>
+						<td><p>Private Key from the Amazon Insights SDK. Pass Private Key to migrate from the Insights SDK.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/mobileAnalyticsForAppId:insightsPrivateKey:configuration:completionBlock:" title="mobileAnalyticsForAppId:insightsPrivateKey:configuration:completionBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mobileAnalyticsForAppId:insightsPrivateKey:configuration:completionBlock:">+&nbsp;mobileAnalyticsForAppId:insightsPrivateKey:configuration:completionBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an <code>AWSMobileAnalytics</code> instance with the specified <code>appId</code> using provided <code>configuration</code> if the instance does not already exists for the <code>appId</code>. If an instance exists for the given <code>appId</code>, returns the existing instance. <code>configuration</code> and <code>completionBlock</code> are ignored if an instance exists for the given <code>appId</code>. The strong reference to the instance is maintained by <code>AWSMobileAnalytics</code>, and the developer does not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)mobileAnalyticsForAppId:(NSString *)<em>appId</em> insightsPrivateKey:(NSString *)<em>insightsPrivateKey</em> configuration:(AWSMobileAnalyticsConfiguration *)<em>configuration</em> completionBlock:(AWSInitializationCompletionBlock)<em>completionBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appId</code></th>
+						<td><p>AppId from Amazon Mobile Analytics Management Console.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>insightsPrivateKey</code></th>
+						<td><p>Private Key from the Amazon Insights SDK. Pass Private Key to migrate from the Insights SDK.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A configuraiton object. By default, it uses [AWSServiceManager defaultServiceManager].defaultServiceConfiguration to access the service.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionBlock</code></th>
+						<td><p>A AWSInitializationCompletionBlock that allows developers to handle custom logic after initialization but before the session begins.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-05-24</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
