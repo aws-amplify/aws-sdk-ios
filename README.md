@@ -5,6 +5,11 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Twitter Follow](https://img.shields.io/twitter/follow/AWSforMobile.svg?style=social&label=Follow)](https://twitter.com/AWSforMobile)
 
+## Quick Links
+
+* [API Reference](http://aws.github.io/aws-sdk-ios/docs/reference)
+* [AWS Mobile Developer Guide for iOS](https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html)
+
 ## Setting Up
 
 To get started with the AWS SDK for iOS, check out the [AWS Mobile Developer Guide for iOS](https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html). You can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
