@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSDynamoDBObjectMapperSaveBehavior Constants Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.19 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSDynamoDBObjectMapperSaveBehavior Constants Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Declared in</th>
+	<td>AWSDynamoDBObjectMapper.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+
+                    
+                    <h3 class="subsubtitle method-title">AWSDynamoDBObjectMapperSaveBehavior</h3>
+                    
+					
+					<div class="section section-overview">
+                        <p>Enumeration of behaviors for the save operation.</p>
+					</div>
+					
+					
+                    <div class="section">
+                        <!-- display enum values -->
+                        
+                        <h4 class="method-subtitle">Definition</h4>
+                        <code>typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior ) {<br>
+                            
+                            &nbsp;&nbsp; <a href="">AWSDynamoDBObjectMapperSaveBehaviorUnknown</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">AWSDynamoDBObjectMapperSaveBehaviorUpdate</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">AWSDynamoDBObjectMapperSaveBehaviorAppendSet</a>,<br>
+                            
+                            &nbsp;&nbsp; <a href="">AWSDynamoDBObjectMapperSaveBehaviorClobber</a>,<br>
+                            
+                            };</code>
+                    
+                    </div>
+                    
+                    <div class="section section-methods">
+                        <h4 class="method-subtitle">Constants</h4>
+                        <dl class="termdef">
+                            
+                            <dt><a name="" title="AWSDynamoDBObjectMapperSaveBehaviorUnknown"></a><code>AWSDynamoDBObjectMapperSaveBehaviorUnknown</code></dt>
+<dd>
+
+
+<pre><code> Unknown SaveBehavior.
+</code></pre>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">AWSDynamoDBObjectMapper.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="AWSDynamoDBObjectMapperSaveBehaviorUpdate"></a><code>AWSDynamoDBObjectMapperSaveBehaviorUpdate</code></dt>
+<dd>
+
+
+<pre><code> `AWSDynamoDBObjectMapperSaveBehaviorUpdate` will not affect unmodeled
+ attributes on a save operation and a nil value for the modeled attribute
+ will remove it from that item in DynamoDB.
+ By default, the mapper uses `AWSDynamoDBObjectMapperSaveBehaviorUpdate`.
+</code></pre>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">AWSDynamoDBObjectMapper.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes"></a><code>AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes</code></dt>
+<dd>
+
+
+<pre><code> `AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes` is similar
+ to `AWSDynamoDBObjectMapperSaveBehaviorUpdate`, except that it
+ ignores any null value attribute(s) and will NOT remove them from
+ that item in DynamoDB. It also guarantees to send only one single
+ updateItem request, no matter the object is key-only or not.
+</code></pre>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">AWSDynamoDBObjectMapper.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="AWSDynamoDBObjectMapperSaveBehaviorAppendSet"></a><code>AWSDynamoDBObjectMapperSaveBehaviorAppendSet</code></dt>
+<dd>
+
+
+<pre><code> `AWSDynamoDBObjectMapperSaveBehaviorAppendSet` treats scalar attributes
+ (String, Number, Binary) the same as
+ `AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes` does.
+ However, for set attributes, it will append to the existing attribute
+ value, instead of overriding it. Caller needs to make sure that the
+ modeled attribute type matches the existing set type, otherwise it would
+ result in a service exception.
+</code></pre>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">AWSDynamoDBObjectMapper.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="AWSDynamoDBObjectMapperSaveBehaviorClobber"></a><code>AWSDynamoDBObjectMapperSaveBehaviorClobber</code></dt>
+<dd>
+
+
+<pre><code> `AWSDynamoDBObjectMapperSaveBehaviorClobber` will clear and replace all
+ attributes, included unmodeled ones, (delete and recreate) on save.
+ Versioned field constraints will also be disregarded.
+</code></pre>
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">AWSDynamoDBObjectMapper.h</code>.
+	</p>
+	
+</dd>
+                            
+                        </dl>
+                    </div>
+                    
+
+                    
+                    
+
+                    
+
+                    
+                    <div class="method-subsection declared-in-section">
+                        <h4 class="method-subtitle">Declared In</h4>
+                        <p><code class="declared-in-ref">AWSDynamoDBObjectMapper.h</code></p>
+                    </div>
+                    
+                    
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-05-24</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

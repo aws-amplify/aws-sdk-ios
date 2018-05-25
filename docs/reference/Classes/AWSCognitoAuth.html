@@ -1,0 +1,2132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSCognitoAuth Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.19 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/authConfiguration">authConfiguration</option>
+		
+		<option value="//api/name/delegate">delegate</option>
+		
+		<option value="//api/name/signedIn">signedIn</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/CognitoAuthForKey:">+ CognitoAuthForKey:</option>
+		
+		<option value="//api/name/defaultCognitoAuth">+ defaultCognitoAuth</option>
+		
+		<option value="//api/name/objectForKey:">+ objectForKey:</option>
+		
+		<option value="//api/name/registerCognitoAuthWithAuthConfiguration:forKey:">+ registerCognitoAuthWithAuthConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeCognitoAuthForKey:">+ removeCognitoAuthForKey:</option>
+		
+		<option value="//api/name/removeObjectForKey:">+ removeObjectForKey:</option>
+		
+		<option value="//api/name/setObject:forKey:">+ setObject:forKey:</option>
+		
+		<option value="//api/name/userAgent">+ userAgent</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addHeaders:">- addHeaders:</option>
+		
+		<option value="//api/name/application:openURL:options:">- application:openURL:options:</option>
+		
+		<option value="//api/name/asfDeviceId">- asfDeviceId</option>
+		
+		<option value="//api/name/calculateSHA256Hash:">- calculateSHA256Hash:</option>
+		
+		<option value="//api/name/cleanupSignIn">- cleanupSignIn</option>
+		
+		<option value="//api/name/clearAll">- clearAll</option>
+		
+		<option value="//api/name/completeGetSession:error:">- completeGetSession:error:</option>
+		
+		<option value="//api/name/completeSignOut:">- completeSignOut:</option>
+		
+		<option value="//api/name/dateFromString:">- dateFromString:</option>
+		
+		<option value="//api/name/dismissSafariVC">- dismissSafariVC</option>
+		
+		<option value="//api/name/enqueueGetSession:completion:">- enqueueGetSession:completion:</option>
+		
+		<option value="//api/name/generateRandom:">- generateRandom:</option>
+		
+		<option value="//api/name/getDateFormatter">- getDateFormatter</option>
+		
+		<option value="//api/name/getError:code:">- getError:code:</option>
+		
+		<option value="//api/name/getSession:">- getSession:</option>
+		
+		<option value="//api/name/getSession:completion:">- getSession:completion:</option>
+		
+		<option value="//api/name/getSessionInternal:completion:">- getSessionInternal:completion:</option>
+		
+		<option value="//api/name/keyChainKey:key:">- keyChainKey:key:</option>
+		
+		<option value="//api/name/launchSignInVC:">- launchSignInVC:</option>
+		
+		<option value="//api/name/normalizeScopes">- normalizeScopes</option>
+		
+		<option value="//api/name/safariViewController:didCompleteInitialLoad:">- safariViewController:didCompleteInitialLoad:</option>
+		
+		<option value="//api/name/safariViewControllerDidFinish:">- safariViewControllerDidFinish:</option>
+		
+		<option value="//api/name/setPopoverSource:source:">- setPopoverSource:source:</option>
+		
+		<option value="//api/name/signOut:">- signOut:</option>
+		
+		<option value="//api/name/signOut:completion:">- signOut:completion:</option>
+		
+		<option value="//api/name/signOutInternal:completion:">- signOutInternal:completion:</option>
+		
+		<option value="//api/name/signOutLocally">- signOutLocally</option>
+		
+		<option value="//api/name/signOutLocallyAndClearLastKnownUser">- signOutLocallyAndClearLastKnownUser</option>
+		
+		<option value="//api/name/stringValue:">- stringValue:</option>
+		
+		<option value="//api/name/updateUsernameAndPersistTokens:">- updateUsernameAndPersistTokens:</option>
+		
+		<option value="//api/name/urlEncode:">- urlEncode:</option>
+		
+		<option value="//api/name/urlSafeBase64:">- urlSafeBase64:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSCognitoAuth Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSCognitoAuth.h<br />AWSCognitoAuth.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>A lightweight web-based ui to manage signup/signin of your end users</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set this delegate to obtain the current view controller to interact with the end user</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) id&lt;AWSCognitoAuthDelegate&gt; delegate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/authConfiguration" title="authConfiguration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/authConfiguration">&nbsp;&nbsp;authConfiguration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The auth configuration</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) AWSCognitoAuthConfiguration *authConfiguration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signedIn" title="signedIn"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signedIn">&nbsp;&nbsp;signedIn</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Determines whether there is an active session or not. If the refresh token is expired
+the end user will be prompted to authenticate when you call getSession.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, getter=isSignedIn) BOOL signedIn</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultCognitoAuth" title="defaultCognitoAuth"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultCognitoAuth">+&nbsp;defaultCognitoAuth</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Fetches the Cognito User Pool instance configured in the <code>info.plist</code> under <code>AWS-&gt;CognitoUserPool-&gt;Default</code></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultCognitoAuth</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>the default instance for Cognito Auth</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerCognitoAuthWithAuthConfiguration:forKey:" title="registerCognitoAuthWithAuthConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerCognitoAuthWithAuthConfiguration:forKey:">+&nbsp;registerCognitoAuthWithAuthConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Register a managed instance with name forKey and configuration authConfiguration.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerCognitoAuthWithAuthConfiguration:(AWSCognitoAuthConfiguration *)<em>authConfiguration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>authConfiguration</code></th>
+						<td><p>the auth configuration</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>the key to register under</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/CognitoAuthForKey:" title="CognitoAuthForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/CognitoAuthForKey:">+&nbsp;CognitoAuthForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Fetch a managed instance with a particular AuthConfiguration.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)CognitoAuthForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>the key to fetch</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>the CognitoAuth object</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeCognitoAuthForKey:" title="removeCognitoAuthForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeCognitoAuthForKey:">+&nbsp;removeCognitoAuthForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Unregister a managed instance.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeCognitoAuthForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>key to remove the object for</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSession:completion:" title="getSession:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSession:completion:">&ndash;&nbsp;getSession:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get a session with id, access and refresh tokens.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getSession:(UIViewController *)<em>vc</em> completion:(nullable AWSCognitoAuthGetSessionBlock)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>vc</code></th>
+						<td><p>viewController to display the UI on if needed during sign in.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>completion block to invoke on completion</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSession:" title="getSession:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSession:">&ndash;&nbsp;getSession:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get a session with id, access and refresh tokens, use delegate to get view controller.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getSession:(nullable AWSCognitoAuthGetSessionBlock)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>completion block to invoke on completion</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signOut:completion:" title="signOut:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signOut:completion:">&ndash;&nbsp;signOut:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sign out locally and from the server.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)signOut:(UIViewController *)<em>vc</em> completion:(nullable AWSCognitoAuthSignOutBlock)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>vc</code></th>
+						<td><p>viewController to display the UI on during sign out.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>completion block to invoke on completion</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signOut:" title="signOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signOut:">&ndash;&nbsp;signOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sign out locally and from the server, use delegate to get view controller.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)signOut:(nullable AWSCognitoAuthSignOutBlock)<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>completion block to invoke on completion</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/application:openURL:options:" title="application:openURL:options:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/application:openURL:options:">&ndash;&nbsp;application:openURL:options:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Method to handle app redirect.  Call from AppDelegate application:openURL:options</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)application:(UIApplication *)<em>app</em> openURL:(NSURL *)<em>url</em> options:(NSDictionary&lt;UIApplicationOpenURLOptionsKey,id&gt; *)<em>options</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/enqueueGetSession:completion:" title="enqueueGetSession:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/enqueueGetSession:completion:">&ndash;&nbsp;enqueueGetSession:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds another getSession operation to the serialized queue of getSession requests</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)enqueueGetSession:(nullable UIViewController *)<em>vc</em> completion:(AWSCognitoAuthGetSessionBlock)<em>completion</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/cleanupSignIn" title="cleanupSignIn"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cleanupSignIn">&ndash;&nbsp;cleanupSignIn</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Cleanup resources from the sign in attempt</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)cleanupSignIn</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/launchSignInVC:" title="launchSignInVC:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/launchSignInVC:">&ndash;&nbsp;launchSignInVC:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Launch the sign in ui on the provided viewcontroller</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)launchSignInVC:(UIViewController *)<em>vc</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setPopoverSource:source:" title="setPopoverSource:source:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setPopoverSource:source:">&ndash;&nbsp;setPopoverSource:source:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Configure source view for a modal popup view controller</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (UIViewController *)setPopoverSource:(UIViewController *)<em>popover</em> source:(UIViewController *)<em>source</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSessionInternal:completion:" title="getSessionInternal:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSessionInternal:completion:">&ndash;&nbsp;getSessionInternal:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Check keychain for valid session, if expired or not available, prompt end user via ui</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getSessionInternal:(nullable UIViewController *)<em>vc</em> completion:(AWSCognitoAuthGetSessionBlock)<em>completion</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/completeGetSession:error:" title="completeGetSession:error:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/completeGetSession:error:">&ndash;&nbsp;completeGetSession:error:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Dismiss ui, invoke completion and cleanup a getSession call.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)completeGetSession:(nullable AWSCognitoAuthUserSession *)<em>userSession</em> error:(nullable NSError *)<em>error</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/completeSignOut:" title="completeSignOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/completeSignOut:">&ndash;&nbsp;completeSignOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Dismiss ui, invoke completion and cleanup a signOut call.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)completeSignOut:(nullable NSError *)<em>error</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signOutInternal:completion:" title="signOutInternal:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signOutInternal:completion:">&ndash;&nbsp;signOutInternal:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Display ui for signout</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)signOutInternal:(UIViewController *)<em>vc</em> completion:(AWSCognitoAuthSignOutBlock)<em>completion</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signOutLocally" title="signOutLocally"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signOutLocally">&ndash;&nbsp;signOutLocally</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove user session from keychain</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)signOutLocally</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signOutLocallyAndClearLastKnownUser" title="signOutLocallyAndClearLastKnownUser"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signOutLocallyAndClearLastKnownUser">&ndash;&nbsp;signOutLocallyAndClearLastKnownUser</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove user session from keychain and clear last known username.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)signOutLocallyAndClearLastKnownUser</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getDateFormatter" title="getDateFormatter"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getDateFormatter">&ndash;&nbsp;getDateFormatter</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Obtain a date formatter for this format: yyyy-MM-dd&rsquo;T'HH:mm:ss'Z'</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSDateFormatter *)getDateFormatter</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/dateFromString:" title="dateFromString:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dateFromString:">&ndash;&nbsp;dateFromString:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Convert a string to date</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSDate *)dateFromString:(NSString *)<em>string</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stringValue:" title="stringValue:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stringValue:">&ndash;&nbsp;stringValue:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Convert a string to date</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)stringValue:(NSDate *)<em>date</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/safariViewControllerDidFinish:" title="safariViewControllerDidFinish:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/safariViewControllerDidFinish:">&ndash;&nbsp;safariViewControllerDidFinish:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Delegate callback called when the user taps the Done button. Upon this call, the view controller is dismissed modally.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)safariViewControllerDidFinish:(SFSafariViewController *)<em>controller</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/safariViewController:didCompleteInitialLoad:" title="safariViewController:didCompleteInitialLoad:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/safariViewController:didCompleteInitialLoad:">&ndash;&nbsp;safariViewController:didCompleteInitialLoad:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invoked when the initial URL load is complete.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)safariViewController:(SFSafariViewController *)<em>controller</em> didCompleteInitialLoad:(BOOL)<em>didLoadSuccessfully</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>didLoadSuccessfully</code></th>
+						<td><p>YES if loading completed successfully, NO if loading failed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This method is invoked when SFSafariViewController completes the loading of the URL that you pass
+to its initializer. It is not invoked for any subsequent page loads in the same SFSafariViewController instance.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/generateRandom:" title="generateRandom:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/generateRandom:">&ndash;&nbsp;generateRandom:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Generate a random number of size bytes and base64 encode it with a url safe encoding.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)generateRandom:(int)<em>size</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/calculateSHA256Hash:" title="calculateSHA256Hash:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/calculateSHA256Hash:">&ndash;&nbsp;calculateSHA256Hash:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Calculate a SHA256 Hash of a string and base64 encode it with a url safe encoding.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)calculateSHA256Hash:(NSString *)<em>string</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/urlSafeBase64:" title="urlSafeBase64:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/urlSafeBase64:">&ndash;&nbsp;urlSafeBase64:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Make a base64 encoded string url safe</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)urlSafeBase64:(NSString *)<em>string</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/urlEncode:" title="urlEncode:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/urlEncode:">&ndash;&nbsp;urlEncode:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Make a string url safe
+*</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)urlEncode:(NSString *)<em>stringToEncode</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addHeaders:" title="addHeaders:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addHeaders:">&ndash;&nbsp;addHeaders:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Add authorization and User-Agent header as appropriate.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addHeaders:(NSMutableURLRequest *)<em>request</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/dismissSafariVC" title="dismissSafariVC"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dismissSafariVC">&ndash;&nbsp;dismissSafariVC</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Dismiss and reap the safari view controller</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)dismissSafariVC</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clearAll" title="clearAll"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clearAll">&ndash;&nbsp;clearAll</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes everything from the keychain under this appClientId</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)clearAll</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/keyChainKey:key:" title="keyChainKey:key:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/keyChainKey:key:">&ndash;&nbsp;keyChainKey:key:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get a namespaced keychain key given a namespace and key</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)keyChainKey:(NSString *)<em>namespace</em> key:(const NSString *)<em>key</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateUsernameAndPersistTokens:" title="updateUsernameAndPersistTokens:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateUsernameAndPersistTokens:">&ndash;&nbsp;updateUsernameAndPersistTokens:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Update the username and persist session tokens in the keychain</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateUsernameAndPersistTokens:(AWSCognitoAuthUserSession *)<em>session</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/asfDeviceId" title="asfDeviceId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/asfDeviceId">&ndash;&nbsp;asfDeviceId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get the device id if Advanced Security Feature is turned on</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)asfDeviceId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getError:code:" title="getError:code:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getError:code:">&ndash;&nbsp;getError:code:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Helper for getting errors</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSError *)getError:(NSString *)<em>error</em> code:(AWSCognitoAuthClientErrorType)<em>code</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/normalizeScopes" title="normalizeScopes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/normalizeScopes">&ndash;&nbsp;normalizeScopes</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sort scopes in lexigraphical order and join them with a space character.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)normalizeScopes</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/objectForKey:" title="objectForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/objectForKey:">+&nbsp;objectForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Get an object from the instanceDictionary</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (id)objectForKey:(id)<em>aKey</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeObjectForKey:" title="removeObjectForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeObjectForKey:">+&nbsp;removeObjectForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Remove an object from the instanceDictionary</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeObjectForKey:(id)<em>aKey</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setObject:forKey:" title="setObject:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setObject:forKey:">+&nbsp;setObject:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Set an object in the instanceDictionary</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)setObject:(id)<em>anObject</em> forKey:(id&lt;NSCopying&gt;)<em>aKey</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/userAgent" title="userAgent"></a>
+	<h3 class="method-title"><code><a href="#//api/name/userAgent">+&nbsp;userAgent</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Generate the user agent string</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (NSString *)userAgent</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.m</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-05-24</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
