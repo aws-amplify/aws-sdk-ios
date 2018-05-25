@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1611" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -95,11 +95,11 @@
                                                 <rect key="frame" x="0.0" y="28" width="271" height="75"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rbi-NZ-Uh5" id="HkR-c7-hhs">
-                                                    <rect key="frame" x="0.0" y="0.0" width="271" height="75"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="271" height="74.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xVu-TI-i2u">
-                                                            <rect key="frame" x="0.0" y="0.0" width="271" height="39"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="271" height="37"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1j-jz-tSY">
                                                                     <rect key="frame" x="8" y="14" width="255" height="17"/>
@@ -116,7 +116,7 @@
                                                             </constraints>
                                                         </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unJ-u8-DYw">
-                                                            <rect key="frame" x="0.0" y="37" width="271" height="38"/>
+                                                            <rect key="frame" x="0.0" y="40" width="271" height="33"/>
                                                             <subviews>
                                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="r7a-4e-Qv0">
                                                                     <rect key="frame" x="8" y="3" width="255" height="20"/>
@@ -245,6 +245,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="bl8-r9-Ysa" firstAttribute="top" secondItem="IkO-GD-xvp" secondAttribute="bottom" constant="5" id="1lE-sc-u2L"/>
                             <constraint firstItem="cMG-il-Rxs" firstAttribute="width" secondItem="bl8-r9-Ysa" secondAttribute="width" id="2Cc-uu-9Oz"/>
                             <constraint firstItem="C4Q-l4-qCO" firstAttribute="top" secondItem="iDn-EW-gbn" secondAttribute="bottom" constant="10" id="4OM-G4-lBy"/>
                             <constraint firstItem="oXD-JT-iR2" firstAttribute="centerX" secondItem="n6k-Ut-fuw" secondAttribute="centerX" id="4v3-Qw-RCT"/>
