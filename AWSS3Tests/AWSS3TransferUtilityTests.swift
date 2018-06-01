@@ -48,6 +48,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         transferUtilityConfigurationWithRetry.isAccelerateModeEnabled = false
         transferUtilityConfigurationWithRetry.retryLimit = 10
         transferUtilityConfigurationWithRetry.multiPartConcurrencyLimit = 6
+        transferUtilityConfigurationWithRetry.timeoutIntervalForResource = 15*60 //15 minutes
         
         AWSS3TransferUtility.register(
             with: serviceConfiguration2!,
@@ -55,6 +56,25 @@ class AWSS3TransferUtilityTests: XCTestCase {
             forKey: "with-retry"
         )
       
+        let serviceConfiguration3 = AWSServiceManager.default().defaultServiceConfiguration
+        let transferUtilityConfigurationShortExpiry = AWSS3TransferUtilityConfiguration()
+        transferUtilityConfigurationShortExpiry.isAccelerateModeEnabled = false
+        transferUtilityConfigurationShortExpiry.retryLimit = 5
+        transferUtilityConfigurationShortExpiry.multiPartConcurrencyLimit = 6
+        transferUtilityConfigurationShortExpiry.timeoutIntervalForResource = 2 //2 seconds
+        
+        AWSS3TransferUtility.register(
+            with: serviceConfiguration3!,
+            transferUtilityConfiguration: transferUtilityConfigurationShortExpiry,
+            forKey: "short-expiry"
+        )
+        
+        
+        let invalidStaticCredentialProvider = AWSStaticCredentialsProvider(accessKey: "Invalid", secretKey: "AlsoInvalid")
+        let invalidServiceConfig = AWSServiceConfiguration(region: .USEast1, credentialsProvider: invalidStaticCredentialProvider)
+        AWSS3TransferUtility.register(with: invalidServiceConfig!, forKey: "invalid")
+        
+        
         var dataString = "1234567890"
         for _ in 1...5 {
             dataString += dataString
@@ -136,7 +156,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
         })
 
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -212,7 +232,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             })
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -499,7 +519,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
             XCTAssertNotNil(error)
             XCTAssertEqual(error?._domain, AWSS3TransferUtilityErrorDomain)
             XCTAssertEqual(error?._code, AWSS3TransferUtilityErrorType.clientError.rawValue)
-
+            
             if let HTTPResponse = task.response {
                 XCTAssertEqual(HTTPResponse.statusCode, 400)
             } else {
@@ -522,7 +542,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
         })
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -577,7 +597,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
         })
 
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -605,7 +625,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
         })
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -632,7 +652,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
         })
 
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -657,7 +677,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
         })
 
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -801,7 +821,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             }.waitUntilFinished()
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -911,7 +931,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         sleep(5)
         refUploadTask?.resume()
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -1106,7 +1126,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             }.waitUntilFinished()
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -1167,7 +1187,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                                                     return nil
             }.waitUntilFinished()
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -1672,7 +1692,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         expression.setValue("no-cache", forRequestHeader: "Cache-Control")
         expression.setValue("REDUCED_REDUNDANCY", forRequestHeader: "x-amz-storage-class")
         expression.setValue("public-read", forRequestHeader: "x-amz-acl")
-        expression.setValue("Project=blue", forRequestHeader: "x-amz-tagging")
+        expression.setValue("Project=blue&Classification=confidential", forRequestHeader: "x-amz-tagging")
         expression.setValue("requester", forRequestHeader: "x-amz-request-payer")
         expression.setValue("AES256", forRequestHeader: "x-amz-server-side-encryption")
         print(expression.requestHeaders)
@@ -1791,7 +1811,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             })
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -1799,13 +1819,9 @@ class AWSS3TransferUtilityTests: XCTestCase {
     func testInvalidCredentialsUpload() {
         let expectation = self.expectation(description: "The completion handler called.")
         
-        let invalidStaticCredentialProvider = AWSStaticCredentialsProvider(accessKey: "Invalid", secretKey: "AlsoInvalid")
-        let invalidServiceConfig = AWSServiceConfiguration(region: .USEast1, credentialsProvider: invalidStaticCredentialProvider)
-        AWSS3TransferUtility.register(with: invalidServiceConfig!, forKey: "invalid")
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "invalid")
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
-            XCTAssertTrue(self.isServiceErrorPresent(error), "Service error should have been present but is not.")
             XCTAssertNotNil(error)
             expectation.fulfill()
         }
@@ -1822,17 +1838,13 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             })
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
     
     func testInvalidCredentialsMultiPartUpload() {
         let expectation = self.expectation(description: "The completion handler called.")
-        
-        let invalidStaticCredentialProvider = AWSStaticCredentialsProvider(accessKey: "Invalid", secretKey: "AlsoInvalid")
-        let invalidServiceConfig = AWSServiceConfiguration(region: .USEast1, credentialsProvider: invalidStaticCredentialProvider)
-        AWSS3TransferUtility.register(with: invalidServiceConfig!, forKey: "invalid")
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "invalid")
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
@@ -1854,7 +1866,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             })
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -1862,9 +1874,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
     func testDownloadInvalidKeyAndCredentials() {
         let expectation = self.expectation(description: "The completion handler called.")
         
-        let invalidStaticCredentialProvider = AWSStaticCredentialsProvider(accessKey: "Invalid", secretKey: "AlsoInvalid")
-        let invalidServiceConfig = AWSServiceConfiguration(region: .USEast1, credentialsProvider: invalidStaticCredentialProvider)
-        AWSS3TransferUtility.register(with: invalidServiceConfig!, forKey: "invalid")
+        
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "invalid")
         
         let downloadExpression = AWSS3TransferUtilityDownloadExpression()
@@ -1890,7 +1900,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             })
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -1922,7 +1932,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             })
         
-        waitForExpectations(timeout: 30) { (error) in
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }
@@ -2025,6 +2035,57 @@ class AWSS3TransferUtilityTests: XCTestCase {
             })
         
         waitForExpectations(timeout: 300) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+ 
+    func testLargeFileUploadCredentialsExpired() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "short-expiry")
+        //Create a large temp file;
+        let filePath = NSTemporaryDirectory() + "testShortExpiryLargeFileUpload.tmp"
+        var testData = "Test1234"
+        for _ in 1...24 {
+            testData = testData + testData;
+        }
+        let fileURL = URL(fileURLWithPath: filePath)
+        FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
+        
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        let expression = AWSS3TransferUtilityUploadExpression()
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author");
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id");
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
+        //Create Completion Handler
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+            XCTAssertNotNil(error)
+            expectation.fulfill()
+        }
+        
+        var refUploadTask: AWSS3TransferUtilityUploadTask?
+        transferUtility.uploadFile(fileURL,
+                                   bucket: "ios-v2-s3.periods",
+                                   key: "testShortExpiryLargeFileUpload.txt",
+                                   contentType: "text/plain",
+                                   expression: expression,
+                                   completionHandler: uploadCompletionHandler)
+            .continueWith { (task: AWSTask<AWSS3TransferUtilityUploadTask>) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                refUploadTask = task.result
+                return nil
+            }.waitUntilFinished()
+        
+        refUploadTask?.suspend()
+        
+        //Sleep for 3 seconds to make sure that the URL has expired.
+        sleep(3)
+        refUploadTask?.resume()
+        waitForExpectations(timeout: 90) { (error) in
             XCTAssertNil(error)
         }
     }

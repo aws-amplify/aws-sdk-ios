@@ -201,7 +201,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         AWSServiceConfiguration *serviceConfiguration = nil;
-        AWSS3TransferUtilityConfiguration *transferUtilityConfiguration = nil;
+        AWSS3TransferUtilityConfiguration *transferUtilityConfiguration = [AWSS3TransferUtilityConfiguration new];
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoS3TransferUtility];
        
         if (serviceInfo) {
@@ -315,11 +315,8 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:_sessionIdentifier];
         configuration.allowsCellularAccess = serviceConfiguration.allowsCellularAccess;
-        if(serviceConfiguration.timeoutIntervalForResource > 0){
-            configuration.timeoutIntervalForResource = serviceConfiguration.timeoutIntervalForResource;
-        }else{
-            configuration.timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;
-        }
+        configuration.timeoutIntervalForResource = _transferUtilityConfiguration.timeoutIntervalForResource;
+        
         if(serviceConfiguration.timeoutIntervalForRequest > 0){
             configuration.timeoutIntervalForRequest = serviceConfiguration.timeoutIntervalForRequest;
         }
@@ -759,8 +756,9 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
     getPreSignedURLRequest.bucket = transferUtilityUploadTask.bucket;
     getPreSignedURLRequest.key = transferUtilityUploadTask.key;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
-    getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:AWSS3TransferUtilityTimeoutIntervalForResource];
-    getPreSignedURLRequest.minimumCredentialsExpirationInterval = AWSS3TransferUtilityTimeoutIntervalForResource;
+    getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:_transferUtilityConfiguration.timeoutIntervalForResource];
+    AWSDDLogDebug(@"Value of timeoutIntervalForResource is %ld", (long)_transferUtilityConfiguration.timeoutIntervalForResource);
+    getPreSignedURLRequest.minimumCredentialsExpirationInterval = _transferUtilityConfiguration.timeoutIntervalForResource;
     getPreSignedURLRequest.accelerateModeEnabled = self.transferUtilityConfiguration.isAccelerateModeEnabled;
     
     [transferUtilityUploadTask.expression assignRequestHeaders:getPreSignedURLRequest];
@@ -1135,8 +1133,8 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
     request.uploadID = transferUtilityMultiPartUploadTask.uploadID;
     request.HTTPMethod = AWSHTTPMethodPUT;
     
-    request.expires = [NSDate dateWithTimeIntervalSinceNow:AWSS3TransferUtilityTimeoutIntervalForResource];
-    request.minimumCredentialsExpirationInterval = AWSS3TransferUtilityTimeoutIntervalForResource;
+    request.expires = [NSDate dateWithTimeIntervalSinceNow:_transferUtilityConfiguration.timeoutIntervalForResource];
+    request.minimumCredentialsExpirationInterval = _transferUtilityConfiguration.timeoutIntervalForResource;
     request.accelerateModeEnabled = self.transferUtilityConfiguration.isAccelerateModeEnabled;
     [self filterAndAssignHeaders:transferUtilityMultiPartUploadTask.expression.requestHeaders getPresignedURLRequest:request
                       URLRequest:nil];
@@ -1276,8 +1274,8 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
     getPreSignedURLRequest.bucket = transferUtilityDownloadTask.bucket;
     getPreSignedURLRequest.key = transferUtilityDownloadTask.key;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
-    getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:AWSS3TransferUtilityTimeoutIntervalForResource];
-    getPreSignedURLRequest.minimumCredentialsExpirationInterval = AWSS3TransferUtilityTimeoutIntervalForResource; //Was  there in upload but not in download
+    getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:_transferUtilityConfiguration.timeoutIntervalForResource];
+    getPreSignedURLRequest.minimumCredentialsExpirationInterval = _transferUtilityConfiguration.timeoutIntervalForResource;
     getPreSignedURLRequest.accelerateModeEnabled = self.transferUtilityConfiguration.isAccelerateModeEnabled;
     
     [transferUtilityDownloadTask.expression assignRequestHeaders:getPreSignedURLRequest];
@@ -1285,7 +1283,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
     
     return [[self.preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithSuccessBlock:^id(AWSTask *task) {
         NSURL *presignedURL = task.result;
-        
+       
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
         request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
         request.HTTPMethod = @"GET";
@@ -1300,7 +1298,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
         
         NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithRequest:request];
         transferUtilityDownloadTask.sessionTask = downloadTask;
-        
+
         AWSDDLogDebug(@"Setting taskIdentifier to %@", @(transferUtilityDownloadTask.sessionTask.taskIdentifier));
         
         //Add to taskDictionary
@@ -1617,6 +1615,7 @@ didCompleteWithError:(NSError *)error {
                 return;
             }
             
+            uploadTask.error = error;
             if (error && HTTPResponse) {
                 if ([self isErrorRetriable:HTTPResponse.statusCode responseFromServer:uploadTask.responseData] )  {
                     AWSDDLogDebug(@"Received a 500, 503 or 400 error. Response Data is [%@]", uploadTask.responseData );
@@ -1764,6 +1763,7 @@ didCompleteWithError:(NSError *)error {
             return;
         }
         
+        downloadTask.error = error;
         if (error && HTTPResponse) {
             if ([self isErrorRetriable:HTTPResponse.statusCode responseFromServer:downloadTask.responseData])  {
                 if (downloadTask.retryCount < self.transferUtilityConfiguration.retryLimit) {
@@ -1968,7 +1968,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
     
     if (data && [data length] != 0) {
         //Get the response into a string
-        NSString *response = [NSString stringWithUTF8String:[data bytes]];
+        NSString *response =  [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         AWSDDLogDebug(@"TaskIdentifier[%lu] Got response from Server: %@", (unsigned long)dataTask.taskIdentifier, response);
         if (!response) {
             //If response is null, no more work to do. Return
@@ -2365,6 +2365,7 @@ NSString *const AWSS3TransferUtilityWaitingStatus = @"WAITING";
         _accelerateModeEnabled = NO;
         _retryLimit = 0;
         _multiPartConcurrencyLimit = @(AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit);
+        _timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;
     }
     return self;
 }
@@ -2375,7 +2376,7 @@ NSString *const AWSS3TransferUtilityWaitingStatus = @"WAITING";
     configuration.bucket = self.bucket;
     configuration.retryLimit = self.retryLimit;
     configuration.multiPartConcurrencyLimit = self.multiPartConcurrencyLimit;
-    
+    configuration.timeoutIntervalForResource = self.timeoutIntervalForResource;
     return configuration;
 }
 

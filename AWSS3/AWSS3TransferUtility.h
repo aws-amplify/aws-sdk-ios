@@ -575,6 +575,9 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 @property NSInteger retryLimit;
 
 @property (nonatomic, nullable) NSNumber *multiPartConcurrencyLimit;
+
+@property NSInteger timeoutIntervalForResource;
+
 @end
 
 

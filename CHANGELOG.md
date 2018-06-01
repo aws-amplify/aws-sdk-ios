@@ -1,6 +1,27 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.20
+
+### New Features
+
+* **Amazon S3**
+  * Enabled AWSS3TransferUtilityTimeoutIntervalForResource to be customizable using AWSS3TransferUtilityConfiguration. See [issue#910](https://github.com/aws/aws-sdk-ios/issues/910)
+
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed bug in TransferUtility error handling logic. See [issue#932](https://github.com/aws/aws-sdk-ios/issues/932)
+  * Fixed heap overflow crash related to non-null terminated string handling in TransferUtility. See [issue#941](https://github.com/aws/aws-sdk-ios/issues/941)
+
+* **Amazon Pinpoint**
+  * Fixed bug where Pinpoint endpoint profile update would improperly set optOut status to ALL when opted into notifications with non-visible notification type. See [issue#927](https://github.com/aws/aws-sdk-ios/issues/927)
+
+### Misc. Updates
+
+* **Amazon EC2**
+  * Update Amazon EC2 client to the latest service model.
+
 ## 2.6.19
 
 ### New Features
@@ -11,6 +32,12 @@
 * **Amazon Comprehend**
   * Amazon Comprehend is a natural language processing (NLP) service that uses machine learning to find insights and relationships in text
 
+### Bug Fixes
+
+* **AWS IoT**
+  * Fixed crashes in AWS IoT during disconnect. See [issue#904](https://github.com/aws/aws-sdk-ios/issues/904) and [issue#752](https://github.com/aws/aws-sdk-ios/issues/752)
+  * Fixed connection retry logic. See [issue#856](https://github.com/aws/aws-sdk-ios/issues/856) and [issue#901](https://github.com/aws/aws-sdk-ios/issues/901)
+
 ### Misc. Updates
 
 * **Amazon CloudWatch Logs**
@@ -18,12 +45,6 @@
 
 * **Amazon Cognito Identity**
   * Update Amazon Cognito Identity client to the latest service model.
-
-### Bug Fixes
-
-* **AWS IoT**
-  * Fixed crashes in AWS IoT during disconnect. See [issue#904](https://github.com/aws/aws-sdk-ios/issues/904) and [issue#752](https://github.com/aws/aws-sdk-ios/issues/752)
-  * Fixed connection retry logic. See [issue#856](https://github.com/aws/aws-sdk-ios/issues/856) and [issue#901](https://github.com/aws/aws-sdk-ios/issues/901)
 
 ## 2.6.18
 

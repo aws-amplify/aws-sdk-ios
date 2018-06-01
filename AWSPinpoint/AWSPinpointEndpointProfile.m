@@ -116,10 +116,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 
 - (void) setOptOut:(NSNumber *) applicationLevelOptOut {
     BOOL isOptedOutForRemoteNotifications = ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
-    if ([[UIApplication sharedApplication] currentUserNotificationSettings].types == UIUserNotificationTypeNone) {
-        isOptedOutForRemoteNotifications = YES;
-    }
-    
+ 
     _optOut = ([applicationLevelOptOut boolValue] || isOptedOutForRemoteNotifications)? @"ALL": @"NONE";
 }
 
