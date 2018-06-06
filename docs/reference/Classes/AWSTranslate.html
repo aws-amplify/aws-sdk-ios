@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSTranslate Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -43,9 +43,47 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-
+	<option value="overview">Overview</option>
 	
 
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/configuration">configuration</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/TranslateForKey:">+ TranslateForKey:</option>
+		
+		<option value="//api/name/defaultTranslate">+ defaultTranslate</option>
+		
+		<option value="//api/name/registerTranslateWithConfiguration:forKey:">+ registerTranslateWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeTranslateForKey:">+ removeTranslateForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/translateText:">- translateText:</option>
+		
+		<option value="//api/name/translateText:completionHandler:">- translateText:completionHandler:</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +97,599 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSTranslate Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSTranslateService.h<br />AWSTranslateService.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Provides translation between English and one of six languages, or between one of the six languages and English.</p>
 
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/defaultTranslate" title="defaultTranslate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultTranslate">+&nbsp;defaultTranslate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultTranslate</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let Translate = AWSTranslate.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSTranslate *Translate = [AWSTranslate defaultTranslate];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranslateService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerTranslateWithConfiguration:forKey:" title="registerTranslateWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerTranslateWithConfiguration:forKey:">+&nbsp;registerTranslateWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerTranslateWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSTranslate.register(with: configuration!, forKey: "USWest2Translate")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSTranslate registerTranslateWithConfiguration:configuration forKey:@"USWest2Translate"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let Translate = AWSTranslate(forKey: "USWest2Translate")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSTranslate *Translate = [AWSTranslate TranslateForKey:@"USWest2Translate"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranslateService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/TranslateForKey:" title="TranslateForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/TranslateForKey:">+&nbsp;TranslateForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerTranslateWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)TranslateForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSTranslate.register(with: configuration!, forKey: "USWest2Translate")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSTranslate registerTranslateWithConfiguration:configuration forKey:@"USWest2Translate"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let Translate = AWSTranslate(forKey: "USWest2Translate")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSTranslate *Translate = [AWSTranslate TranslateForKey:@"USWest2Translate"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranslateService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeTranslateForKey:" title="removeTranslateForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeTranslateForKey:">+&nbsp;removeTranslateForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeTranslateForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranslateService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/translateText:" title="translateText:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/translateText:">&ndash;&nbsp;translateText:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Translates input text from the source language to the target language. You can translate between English (en) and one of the following languages, or between one of the following languages and English.</p>
+
+
+<ul><li><p>Arabic (ar)</p></li><li><p>Chinese (Simplified) (zh)</p></li><li><p>French (fr)</p></li><li><p>German (de)</p></li><li><p>Portuguese (pt)</p></li><li><p>Spanish (es)</p></li></ul>
+
+
+<p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call Amazon Comprehend to determine the source language.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSTranslateTranslateTextResponse*&gt; *)translateText:(AWSTranslateTranslateTextRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TranslateText service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSTranslateTranslateTextResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranslateErrorDomain</code> domain and the following error code: <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorTextSizeLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorUnsupportedLanguagePair</code>, <code>AWSTranslateErrorDetectedLanguageLowConfidence</code>, <code>AWSTranslateErrorInternalServer</code>, <code>AWSTranslateErrorServiceUnavailable</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranslateTranslateTextRequest.html">AWSTranslateTranslateTextRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranslateTranslateTextResponse.html">AWSTranslateTranslateTextResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranslateService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/translateText:completionHandler:" title="translateText:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/translateText:completionHandler:">&ndash;&nbsp;translateText:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Translates input text from the source language to the target language. You can translate between English (en) and one of the following languages, or between one of the following languages and English.</p>
+
+
+<ul><li><p>Arabic (ar)</p></li><li><p>Chinese (Simplified) (zh)</p></li><li><p>French (fr)</p></li><li><p>German (de)</p></li><li><p>Portuguese (pt)</p></li><li><p>Spanish (es)</p></li></ul>
+
+
+<p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call Amazon Comprehend to determine the source language.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)translateText:(AWSTranslateTranslateTextRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranslateTranslateTextResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TranslateText service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranslateErrorDomain</code> domain and the following error code: <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorTextSizeLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorUnsupportedLanguagePair</code>, <code>AWSTranslateErrorDetectedLanguageLowConfidence</code>, <code>AWSTranslateErrorInternalServer</code>, <code>AWSTranslateErrorServiceUnavailable</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranslateTranslateTextRequest.html">AWSTranslateTranslateTextRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranslateTranslateTextResponse.html">AWSTranslateTranslateTextResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranslateService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranslateService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +700,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

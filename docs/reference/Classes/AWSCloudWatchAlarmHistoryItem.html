@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSCloudWatchAlarmHistoryItem Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -43,9 +43,35 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/alarmName">alarmName</option>
+		
+		<option value="//api/name/historyData">historyData</option>
+		
+		<option value="//api/name/historyItemType">historyItemType</option>
+		
+		<option value="//api/name/historySummary">historySummary</option>
+		
+		<option value="//api/name/timestamp">timestamp</option>
+		
+	</optgroup>
+	
 
 	
 
+	
 	
 </select>
 						</label>
@@ -59,12 +85,256 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSCloudWatchAlarmHistoryItem Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>AWSModel : AWSMTLModel</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSCloudWatchModel.h<br />AWSCloudWatchModel.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p> The <code>AlarmHistoryItem</code> data type contains descriptive information about the history of a specific alarm. If you call <a>DescribeAlarmHistory</a>, Amazon CloudWatch returns this data type as part of the DescribeAlarmHistoryResult data type. </p>
 
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/alarmName" title="alarmName"></a>
+	<h3 class="method-title"><code><a href="#//api/name/alarmName">&nbsp;&nbsp;alarmName</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The descriptive name for the alarm.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *alarmName</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/historyData" title="historyData"></a>
+	<h3 class="method-title"><code><a href="#//api/name/historyData">&nbsp;&nbsp;historyData</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Machine-readable data about the alarm in JSON format.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *historyData</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/historyItemType" title="historyItemType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/historyItemType">&nbsp;&nbsp;historyItemType</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The type of alarm history item.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSCloudWatchHistoryItemType historyItemType</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/historySummary" title="historySummary"></a>
+	<h3 class="method-title"><code><a href="#//api/name/historySummary">&nbsp;&nbsp;historySummary</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A human-readable summary of the alarm history.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *historySummary</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/timestamp" title="timestamp"></a>
+	<h3 class="method-title"><code><a href="#//api/name/timestamp">&nbsp;&nbsp;timestamp</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The time stamp for the alarm history item.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDate *timestamp</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +345,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

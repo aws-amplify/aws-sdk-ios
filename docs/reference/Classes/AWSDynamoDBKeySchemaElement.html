@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSDynamoDBKeySchemaElement Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -43,9 +43,29 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/attributeName">attributeName</option>
+		
+		<option value="//api/name/keyType">keyType</option>
+		
+	</optgroup>
+	
 
 	
 
+	
 	
 </select>
 						</label>
@@ -59,12 +79,143 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSDynamoDBKeySchemaElement Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>AWSModel : AWSMTLModel</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSDynamoDBModel.h<br />AWSDynamoDBModel.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Represents <i>a single element</i> of a key schema. A key schema specifies the attributes that make up the primary key of a table, or the key attributes of an index.</p>
 
+
+<p>A <i>KeySchemaElement</i> represents exactly one attribute of the primary key. For example, a simple primary key would be represented by one <i>KeySchemaElement</i> (for the partition key). A composite primary key would require one <i>KeySchemaElement</i> for the partition key, and another <i>KeySchemaElement</i> for the sort key.</p>
+
+
+<p>A <i>KeySchemaElement</i> must be a scalar, top-level attribute (not a nested attribute). The data type must be one of String, Number, or Binary. The attribute cannot be nested within a List or a Map.</p>
+
+
+<p>Required parameters: [AttributeName, KeyType]</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/attributeName" title="attributeName"></a>
+	<h3 class="method-title"><code><a href="#//api/name/attributeName">&nbsp;&nbsp;attributeName</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The name of a key attribute.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *attributeName</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/keyType" title="keyType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/keyType">&nbsp;&nbsp;keyType</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The role that this key attribute will assume:</p>
+
+
+<ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul>
+
+
+<p><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term &ldquo;hash attribute&rdquo; derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term &ldquo;range attribute&rdquo; derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSDynamoDBKeyType keyType</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +226,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

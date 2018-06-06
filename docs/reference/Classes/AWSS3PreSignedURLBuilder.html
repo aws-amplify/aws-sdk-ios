@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSS3PreSignedURLBuilder Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -45,7 +45,35 @@
 	
 
 	
+	
+	<option value="tasks">Tasks</option>
+	
+	
 
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/S3PreSignedURLBuilderForKey:">+ S3PreSignedURLBuilderForKey:</option>
+		
+		<option value="//api/name/defaultS3PreSignedURLBuilder">+ defaultS3PreSignedURLBuilder</option>
+		
+		<option value="//api/name/registerS3PreSignedURLBuilderWithConfiguration:forKey:">+ registerS3PreSignedURLBuilderWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeS3PreSignedURLBuilderForKey:">+ removeS3PreSignedURLBuilderForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/getPreSignedURL:">- getPreSignedURL:</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +87,449 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSS3PreSignedURLBuilder Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSS3PreSignedURL.h<br />AWSS3PreSignedURL.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
 
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/defaultS3PreSignedURLBuilder" title="defaultS3PreSignedURLBuilder"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultS3PreSignedURLBuilder">+&nbsp;defaultS3PreSignedURLBuilder</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultS3PreSignedURLBuilder</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+     AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let S3PreSignedURLBuilder = AWSS3PreSignedURLBuilder.defaultS3PreSignedURLBuilder()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSS3PreSignedURLBuilder *S3PreSignedURLBuilder = [AWSS3PreSignedURLBuilder defaultS3PreSignedURLBuilder];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3PreSignedURL.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerS3PreSignedURLBuilderWithConfiguration:forKey:" title="registerS3PreSignedURLBuilderWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerS3PreSignedURLBuilderWithConfiguration:forKey:">+&nbsp;registerS3PreSignedURLBuilderWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerS3PreSignedURLBuilderWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+     AWSS3PreSignedURLBuilder.registerS3PreSignedURLBuilderWithConfiguration(configuration, forKey: "USWest2S3PreSignedURLBuilder")
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:configuration forKey:@"USWest2S3PreSignedURLBuilder"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let S3PreSignedURLBuilder = AWSS3PreSignedURLBuilder(forKey: "USWest2S3PreSignedURLBuilder")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSS3PreSignedURLBuilder *S3PreSignedURLBuilder = [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:@"USWest2S3PreSignedURLBuilder"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3PreSignedURL.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/S3PreSignedURLBuilderForKey:" title="S3PreSignedURLBuilderForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/S3PreSignedURLBuilderForKey:">+&nbsp;S3PreSignedURLBuilderForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerS3PreSignedURLBuilderWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)S3PreSignedURLBuilderForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+     AWSS3PreSignedURLBuilder.registerS3PreSignedURLBuilderWithConfiguration(configuration, forKey: "USWest2S3PreSignedURLBuilder")
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:configuration forKey:@"USWest2S3PreSignedURLBuilder"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let S3PreSignedURLBuilder = AWSS3PreSignedURLBuilder(forKey: "USWest2S3PreSignedURLBuilder")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSS3PreSignedURLBuilder *S3PreSignedURLBuilder = [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:@"USWest2S3PreSignedURLBuilder"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3PreSignedURL.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeS3PreSignedURLBuilderForKey:" title="removeS3PreSignedURLBuilderForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeS3PreSignedURLBuilderForKey:">+&nbsp;removeS3PreSignedURLBuilderForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeS3PreSignedURLBuilderForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3PreSignedURL.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getPreSignedURL:" title="getPreSignedURL:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getPreSignedURL:">&ndash;&nbsp;getPreSignedURL:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Build a time-limited pre-signed URL to get object from S3, return nil if build process failed.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;NSURL*&gt; *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)<em>getPreSignedURLRequest</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>getPreSignedURLRequest</code></th>
+						<td><p>The AWSS3PreSignedURLRequest that defines the parameters of the operation.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A pre-signed NSURL for the resource. return nil if any errors occured.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetPreSignedURLRequest.html">AWSS3GetPreSignedURLRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3PreSignedURL.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +540,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSLambdaInvoker Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -45,7 +45,41 @@
 	
 
 	
+	
+	<option value="tasks">Tasks</option>
+	
+	
 
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/LambdaInvokerForKey:">+ LambdaInvokerForKey:</option>
+		
+		<option value="//api/name/defaultLambdaInvoker">+ defaultLambdaInvoker</option>
+		
+		<option value="//api/name/registerLambdaInvokerWithConfiguration:forKey:">+ registerLambdaInvokerWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeLambdaInvokerForKey:">+ removeLambdaInvokerForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/invoke:">- invoke:</option>
+		
+		<option value="//api/name/invoke:completionHandler:">- invoke:completionHandler:</option>
+		
+		<option value="//api/name/invokeFunction:JSONObject:">- invokeFunction:JSONObject:</option>
+		
+		<option value="//api/name/invokeFunction:JSONObject:completionHandler:">- invokeFunction:JSONObject:completionHandler:</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +93,650 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSLambdaInvoker Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSLambdaInvoker.h<br />AWSLambdaInvoker.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
 
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/defaultLambdaInvoker" title="defaultLambdaInvoker"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultLambdaInvoker">+&nbsp;defaultLambdaInvoker</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a shared instance of this service client using <code>[AWSServiceManager defaultServiceManager].defaultServiceConfiguration</code>. When <code>defaultServiceConfiguration</code> is not set, this method returns nil.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultLambdaInvoker</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>A shared instance of this service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+     AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let LambdaInvoker = AWSLambdaInvoker.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSLambdaInvoker *LambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaInvoker.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerLambdaInvokerWithConfiguration:forKey:" title="registerLambdaInvokerWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerLambdaInvokerWithConfiguration:forKey:">+&nbsp;registerLambdaInvokerWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerLambdaInvokerWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+     AWSLambdaInvoker.register(with: configuration!, forKey: "USWest2LambdaInvoker")
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSLambdaInvoker registerLambdaInvokerWithConfiguration:configuration forKey:@"USWest2LambdaInvoker"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let LambdaInvoker = AWSLambdaInvoker(forKey: "USWest2LambdaInvoker")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSLambdaInvoker *LambdaInvoker = [AWSLambdaInvoker LambdaInvokerForKey:@"USWest2LambdaInvoker"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaInvoker.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/LambdaInvokerForKey:" title="LambdaInvokerForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/LambdaInvokerForKey:">+&nbsp;LambdaInvokerForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerKinesisWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)LambdaInvokerForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+     AWSLambdaInvoker.register(with: configuration!, forKey: "USWest2LambdaInvoker")
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSLambdaInvoker registerLambdaInvokerWithConfiguration:configuration forKey:@"USWest2LambdaInvoker"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let LambdaInvoker = AWSLambdaInvoker(forKey: "USWest2LambdaInvoker")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSLambdaInvoker *LambdaInvoker = [AWSLambdaInvoker LambdaInvokerForKey:@"USWest2LambdaInvoker"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaInvoker.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeLambdaInvokerForKey:" title="removeLambdaInvokerForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeLambdaInvokerForKey:">+&nbsp;removeLambdaInvokerForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeLambdaInvokerForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaInvoker.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/invoke:" title="invoke:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/invoke:">&ndash;&nbsp;invoke:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invokes an AWS Lambda function with a given request object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLambdaInvokerInvocationResponse*&gt; *)invoke:(AWSLambdaInvokerInvocationRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>The request object.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaInvokerInvocationResponse</code>. On failed service execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>. On failed function execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaInvokerErrorDomain</code> domain and the following error code: <code>AWSLambdaInvokerErrorTypeFunctionError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaInvokerInvocationRequest.html">AWSLambdaInvokerInvocationRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLambdaInvokerInvocationResponse.html">AWSLambdaInvokerInvocationResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaInvoker.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/invoke:completionHandler:" title="invoke:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/invoke:completionHandler:">&ndash;&nbsp;invoke:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invokes an AWS Lambda function with a given request object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)invoke:(AWSLambdaInvokerInvocationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLambdaInvokerInvocationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>The request object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the invoke request is complete.
+                          <code>response</code> - An <code>AWSLambdaInvokerInvocationResponse</code> object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed service execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>. On failed function execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaInvokerErrorDomain</code> domain and the following error code: <code>AWSLambdaInvokerErrorTypeFunctionError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaInvokerInvocationRequest.html">AWSLambdaInvokerInvocationRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLambdaInvokerInvocationResponse.html">AWSLambdaInvokerInvocationResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaInvoker.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/invokeFunction:JSONObject:" title="invokeFunction:JSONObject:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/invokeFunction:JSONObject:">&ndash;&nbsp;invokeFunction:JSONObject:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invokes a synchronous AWS Lambda function with given parameters.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)invokeFunction:(NSString *)<em>functionName</em> JSONObject:(nullable id)<em>JSONObject</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>functionName</code></th>
+						<td><p>The name of a function.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>JSONObject</code></th>
+						<td><p>The object from which to generate JSON request data. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain a JSON object. On failed service execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>. On failed function execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaInvokerErrorDomain</code> domain and the following error code: <code>AWSLambdaInvokerErrorTypeFunctionError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaInvoker.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/invokeFunction:JSONObject:completionHandler:" title="invokeFunction:JSONObject:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/invokeFunction:JSONObject:completionHandler:">&ndash;&nbsp;invokeFunction:JSONObject:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Invokes a synchronous AWS Lambda function with given parameters.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)invokeFunction:(NSString *)<em>functionName</em> JSONObject:(nullable id)<em>JSONObject</em> completionHandler:(void ( ^ _Nullable ) ( id _Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>functionName</code></th>
+						<td><p>The name of a function.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>JSONObject</code></th>
+						<td><p>The object from which to generate JSON request data. Can be <code>nil</code>.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the invoke request is complete.
+                          <code>response</code> - A JSON object., or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed service execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>. On failed function execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaInvokerErrorDomain</code> domain and the following error code: <code>AWSLambdaInvokerErrorTypeFunctionError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaInvoker.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +747,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

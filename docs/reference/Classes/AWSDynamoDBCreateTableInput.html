@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSDynamoDBCreateTableInput Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -43,9 +43,39 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/attributeDefinitions">attributeDefinitions</option>
+		
+		<option value="//api/name/globalSecondaryIndexes">globalSecondaryIndexes</option>
+		
+		<option value="//api/name/keySchema">keySchema</option>
+		
+		<option value="//api/name/localSecondaryIndexes">localSecondaryIndexes</option>
+		
+		<option value="//api/name/provisionedThroughput">provisionedThroughput</option>
+		
+		<option value="//api/name/streamSpecification">streamSpecification</option>
+		
+		<option value="//api/name/tableName">tableName</option>
+		
+	</optgroup>
+	
 
 	
 
+	
 	
 </select>
 						</label>
@@ -59,12 +89,365 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSDynamoDBCreateTableInput Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>AWSRequest : AWSModel : AWSMTLModel</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSDynamoDBModel.h<br />AWSDynamoDBModel.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Represents the input of a <i>CreateTable</i> operation.</p>
 
+
+<p>Required parameters: [AttributeDefinitions, TableName, KeySchema, ProvisionedThroughput]</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/attributeDefinitions" title="attributeDefinitions"></a>
+	<h3 class="method-title"><code><a href="#//api/name/attributeDefinitions">&nbsp;&nbsp;attributeDefinitions</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>An array of attributes that describe the key schema for the table and indexes.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBAttributeDefinition*&gt; *attributeDefinitions</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/globalSecondaryIndexes" title="globalSecondaryIndexes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/globalSecondaryIndexes">&nbsp;&nbsp;globalSecondaryIndexes</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:</p>
+
+
+<ul><li><p><i>IndexName</i> - The name of the global secondary index. Must be unique only for this table.</p><p/></li><li><p><i>KeySchema</i> - Specifies the key schema for the global secondary index.</p></li><li><p><i>Projection</i> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><i>ProjectionType</i> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <i>NonKeyAttributes</i>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><i>NonKeyAttributes</i> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <i>NonKeyAttributes</i>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><i>ProvisionedThroughput</i> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBGlobalSecondaryIndex*&gt; *globalSecondaryIndexes</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/keySchema" title="keySchema"></a>
+	<h3 class="method-title"><code><a href="#//api/name/keySchema">&nbsp;&nbsp;keySchema</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Specifies the attributes that make up the primary key for a table or an index. The attributes in <i>KeySchema</i> must also be defined in the <i>AttributeDefinitions</i> array. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+
+
+<p>Each <i>KeySchemaElement</i> in the array is composed of:</p>
+
+
+<ul><li><p><i>AttributeName</i> - The name of this key attribute.</p></li><li><p><i>KeyType</i> - The role that the key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul></li></ul>
+
+
+<p><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term &ldquo;hash attribute&rdquo; derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term &ldquo;range attribute&rdquo; derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note><p>For a simple primary key (partition key), you must provide exactly one element with a <i>KeyType</i> of <code>HASH</code>.</p><p>For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a <i>KeyType</i> of <code>HASH</code>, and the second element must have a <i>KeyType</i> of <code>RANGE</code>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Specifying the Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBKeySchemaElement*&gt; *keySchema</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/localSecondaryIndexes" title="localSecondaryIndexes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/localSecondaryIndexes">&nbsp;&nbsp;localSecondaryIndexes</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.</p>
+
+
+<p>Each local secondary index in the array includes the following:</p>
+
+
+<ul><li><p><i>IndexName</i> - The name of the local secondary index. Must be unique only for this table.</p><p/></li><li><p><i>KeySchema</i> - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.</p></li><li><p><i>Projection</i> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><i>ProjectionType</i> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <i>NonKeyAttributes</i>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><i>NonKeyAttributes</i> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <i>NonKeyAttributes</i>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBLocalSecondaryIndex*&gt; *localSecondaryIndexes</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/provisionedThroughput" title="provisionedThroughput"></a>
+	<h3 class="method-title"><code><a href="#//api/name/provisionedThroughput">&nbsp;&nbsp;provisionedThroughput</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <i>UpdateTable</i> operation.</p>
+
+
+<p>For current minimum and maximum provisioned throughput values, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput *provisionedThroughput</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/streamSpecification" title="streamSpecification"></a>
+	<h3 class="method-title"><code><a href="#//api/name/streamSpecification">&nbsp;&nbsp;streamSpecification</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The settings for DynamoDB Streams on the table. These settings consist of:</p>
+
+
+<ul><li><p><i>StreamEnabled</i> - Indicates whether Streams is to be enabled (true) or disabled (false).</p></li><li><p><i>StreamViewType</i> - When an item in the table is modified, <i>StreamViewType</i> determines what information is written to the table's stream. Valid values for <i>StreamViewType</i> are:</p><ul><li><p><i>KEYS_ONLY</i> - Only the key attributes of the modified item are written to the stream.</p></li><li><p><i>NEW_IMAGE</i> - The entire item, as it appears after it was modified, is written to the stream.</p></li><li><p><i>OLD_IMAGE</i> - The entire item, as it appeared before it was modified, is written to the stream.</p></li><li><p><i>NEW_AND_OLD_IMAGES</i> - Both the new and the old item images of the item are written to the stream.</p></li></ul></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSDynamoDBStreamSpecification *streamSpecification</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tableName" title="tableName"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tableName">&nbsp;&nbsp;tableName</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The name of the table to create.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *tableName</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +458,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSPinpointAnalyticsClient Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -45,7 +45,55 @@
 	
 
 	
+	
+	<option value="tasks">Tasks</option>
+	
+	
 
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/eventRecorder">eventRecorder</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addGlobalAttribute:forKey:">- addGlobalAttribute:forKey:</option>
+		
+		<option value="//api/name/addGlobalAttribute:forKey:forEventType:">- addGlobalAttribute:forKey:forEventType:</option>
+		
+		<option value="//api/name/addGlobalMetric:forKey:">- addGlobalMetric:forKey:</option>
+		
+		<option value="//api/name/addGlobalMetric:forKey:forEventType:">- addGlobalMetric:forKey:forEventType:</option>
+		
+		<option value="//api/name/createAppleMonetizationEventWithTransaction:withProduct:">- createAppleMonetizationEventWithTransaction:withProduct:</option>
+		
+		<option value="//api/name/createEventWithEventType:">- createEventWithEventType:</option>
+		
+		<option value="//api/name/createVirtualMonetizationEventWithProductId:withItemPrice:withQuantity:withCurrency:">- createVirtualMonetizationEventWithProductId:withItemPrice:withQuantity:withCurrency:</option>
+		
+		<option value="//api/name/recordEvent:">- recordEvent:</option>
+		
+		<option value="//api/name/removeGlobalAttributeForKey:">- removeGlobalAttributeForKey:</option>
+		
+		<option value="//api/name/removeGlobalAttributeForKey:forEventType:">- removeGlobalAttributeForKey:forEventType:</option>
+		
+		<option value="//api/name/removeGlobalMetricForKey:">- removeGlobalMetricForKey:</option>
+		
+		<option value="//api/name/removeGlobalMetricForKey:forEventType:">- removeGlobalMetricForKey:forEventType:</option>
+		
+		<option value="//api/name/submitEvents">- submitEvents</option>
+		
+		<option value="//api/name/submitEventsWithCompletionBlock:">- submitEventsWithCompletionBlock:</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +107,918 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSPinpointAnalyticsClient Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSPinpointAnalyticsClient.h<br />AWSPinpointAnalyticsClient.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
 
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/createEventWithEventType:" title="createEventWithEventType:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createEventWithEventType:">&ndash;&nbsp;createEventWithEventType:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create an AWSPinpointEvent with the specified theEventType</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSPinpointEvent *)createEventWithEventType:(NSString *)<em>theEventType</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theEventType</code></th>
+						<td><p>the type of event to create</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an AWSPinpointEvent with the specified event type</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createAppleMonetizationEventWithTransaction:withProduct:" title="createAppleMonetizationEventWithTransaction:withProduct:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createAppleMonetizationEventWithTransaction:withProduct:">&ndash;&nbsp;createAppleMonetizationEventWithTransaction:withProduct:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create an Apple monetization AWSPinpointEvent of type &ldquo;_monetization.purchase&rdquo; with the specified parameters.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSPinpointEvent *)createAppleMonetizationEventWithTransaction:(SKPaymentTransaction *)<em>transaction</em> withProduct:(SKProduct *)<em>product</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>transaction</code></th>
+						<td><p>A SKPaymentTransaction object returned from an IAP</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>product</code></th>
+						<td><p>A SKProduct object of the an IAP</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an AWSPinpointEvent with the specified event type</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createVirtualMonetizationEventWithProductId:withItemPrice:withQuantity:withCurrency:" title="createVirtualMonetizationEventWithProductId:withItemPrice:withQuantity:withCurrency:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createVirtualMonetizationEventWithProductId:withItemPrice:withQuantity:withCurrency:">&ndash;&nbsp;createVirtualMonetizationEventWithProductId:withItemPrice:withQuantity:withCurrency:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a Virtual monetization AWSPinpointEvent of type &ldquo;_monetization.purchase&rdquo; with the specified parameters.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSPinpointEvent *)createVirtualMonetizationEventWithProductId:(NSString *)<em>theProductId</em> withItemPrice:(double)<em>theItemPrice</em> withQuantity:(NSInteger)<em>theQuantity</em> withCurrency:(NSString *)<em>theCurrency</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theProductId</code></th>
+						<td><p>A product identifier for your virtual monitization event</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theItemPrice</code></th>
+						<td><p>An item price for your virtual monitization event</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theQuantity</code></th>
+						<td><p>A quantity of how many products sold for your virtual monitization event</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theCurrency</code></th>
+						<td><p>The currency for your virtual monitization event</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an AWSPinpointEvent with the specified event type</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/submitEvents" title="submitEvents"></a>
+	<h3 class="method-title"><code><a href="#//api/name/submitEvents">&ndash;&nbsp;submitEvents</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Submits all recorded events to Pinpoint.
+Events are automatically submitted when the application goes into the background.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)submitEvents</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>AWSTask - task.result contains successful submitted events.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/submitEventsWithCompletionBlock:" title="submitEventsWithCompletionBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/submitEventsWithCompletionBlock:">&ndash;&nbsp;submitEventsWithCompletionBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Submits all recorded events to Pinpoint.
+Events are automatically submitted when the application goes into the background.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (nonnull AWSTask *)submitEventsWithCompletionBlock:(AWSPinpointCompletionBlock)<em>completionBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionBlock</code></th>
+						<td><p>The block to be executed after submission has completed.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>AWSTask - task.result is always nil.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/recordEvent:" title="recordEvent:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/recordEvent:">&ndash;&nbsp;recordEvent:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Records the specified AWSPinpointEvent to the local filestore.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)recordEvent:(AWSPinpointEvent *)<em>theEvent</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theEvent</code></th>
+						<td><p>The AWSPinpointEvent to persist</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>AWSTask - task.result is always nil.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addGlobalAttribute:forKey:" title="addGlobalAttribute:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addGlobalAttribute:forKey:">&ndash;&nbsp;addGlobalAttribute:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds the specified attribute to all subsequent recorded events.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addGlobalAttribute:(NSString *)<em>theValue</em> forKey:(NSString *)<em>theKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theValue</code></th>
+						<td><p>the value of the attribute.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>the name of the attribute to add.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addGlobalAttribute:forKey:forEventType:" title="addGlobalAttribute:forKey:forEventType:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addGlobalAttribute:forKey:forEventType:">&ndash;&nbsp;addGlobalAttribute:forKey:forEventType:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds the specified attribute to all subsequent recorded events with the specified event type.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addGlobalAttribute:(NSString *)<em>theValue</em> forKey:(NSString *)<em>theKey</em> forEventType:(NSString *)<em>theEventType</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theValue</code></th>
+						<td><p>the value of the attribute.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>the name of the attribute to add.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theEventType</code></th>
+						<td><p>the type of events to add the attribute to.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addGlobalMetric:forKey:" title="addGlobalMetric:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addGlobalMetric:forKey:">&ndash;&nbsp;addGlobalMetric:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds the specified metric to all subsequent recorded events.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addGlobalMetric:(NSNumber *)<em>theValue</em> forKey:(NSString *)<em>theKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theValue</code></th>
+						<td><p>the value of the metric</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>the name of the metric to add</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addGlobalMetric:forKey:forEventType:" title="addGlobalMetric:forKey:forEventType:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addGlobalMetric:forKey:forEventType:">&ndash;&nbsp;addGlobalMetric:forKey:forEventType:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds the specified metric to all subsequent recorded events with the specified event type.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addGlobalMetric:(NSNumber *)<em>theValue</em> forKey:(NSString *)<em>theKey</em> forEventType:(NSString *)<em>theEventType</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theValue</code></th>
+						<td><p>the value of the metric</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>the name of the metric to add</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theEventType</code></th>
+						<td><p>the type of events to add the metric to</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeGlobalAttributeForKey:" title="removeGlobalAttributeForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeGlobalAttributeForKey:">&ndash;&nbsp;removeGlobalAttributeForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the specified attribute. All subsequent recorded events will no longer have this global attribute.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeGlobalAttributeForKey:(NSString *)<em>theKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>the key of the attribute to remove</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeGlobalAttributeForKey:forEventType:" title="removeGlobalAttributeForKey:forEventType:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeGlobalAttributeForKey:forEventType:">&ndash;&nbsp;removeGlobalAttributeForKey:forEventType:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the specified attribute. All subsequent recorded events with the specified event type will no longer have this global attribute.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeGlobalAttributeForKey:(NSString *)<em>theKey</em> forEventType:(NSString *)<em>theEventType</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>the key of the attribute to remove</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theEventType</code></th>
+						<td><p>the type of events to remove the attribute from</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeGlobalMetricForKey:" title="removeGlobalMetricForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeGlobalMetricForKey:">&ndash;&nbsp;removeGlobalMetricForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the specified metric. All subsequent recorded events will no longer have this global metric.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeGlobalMetricForKey:(NSString *)<em>theKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>the key of the metric to remove</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeGlobalMetricForKey:forEventType:" title="removeGlobalMetricForKey:forEventType:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeGlobalMetricForKey:forEventType:">&ndash;&nbsp;removeGlobalMetricForKey:forEventType:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the specified metric. All subsequent recorded events with the specified event type will no longer have this global metric.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removeGlobalMetricForKey:(NSString *)<em>theKey</em> forEventType:(NSString *)<em>theEventType</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>the key of the metric to remove</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theEventType</code></th>
+						<td><p>the type of events to remove the metric from</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/eventRecorder" title="eventRecorder"></a>
+	<h3 class="method-title"><code><a href="#//api/name/eventRecorder">&nbsp;&nbsp;eventRecorder</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the <code>AWSPinpointEventRecorder</code> which is the low level client used to record events to local storage.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) AWSPinpointEventRecorder *eventRecorder</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>the <code>AWSPinpointEventRecorder</code> used for storing events.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>You can use it for more advanced fine grained control over the events recorded.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointAnalyticsClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +1029,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

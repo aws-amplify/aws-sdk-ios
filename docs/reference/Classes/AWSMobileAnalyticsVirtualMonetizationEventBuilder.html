@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSMobileAnalyticsVirtualMonetizationEventBuilder Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -43,9 +43,45 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-
+	<option value="overview">Overview</option>
 	
 
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/builderWithEventClient:">+ builderWithEventClient:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/build">- build</option>
+		
+		<option value="//api/name/initWithEventClient:">- initWithEventClient:</option>
+		
+		<option value="//api/name/isValid">- isValid</option>
+		
+		<option value="//api/name/withCurrency:">- withCurrency:</option>
+		
+		<option value="//api/name/withItemPrice:">- withItemPrice:</option>
+		
+		<option value="//api/name/withProductId:">- withProductId:</option>
+		
+		<option value="//api/name/withQuantity:">- withQuantity:</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +95,475 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSMobileAnalyticsVirtualMonetizationEventBuilder Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSMobileAnalyticsMonetizationEventBuilder.html">AWSMobileAnalyticsMonetizationEventBuilder</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSMobileAnalyticsVirtualMonetizationEventBuilder.h<br />AWSMobileAnalyticsVirtualMonetizationEventBuilder.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>AWSMobileAnalyticsVirtualMonetizationEventBuilder builds monetization events to track virtual purchases from your In-Game store.
+In order to build a Virtual monetization event, you must call all of the setters on this builder.</p>
 
+<p>The example below shows how to record a monetization event for the purchase of 1 sword that costs 500 Gold.</p>
+
+<pre><code> idAWSMobileAnalyticsEventClient eventClient = insights.eventClient;
+
+ // create a builder that can record purchase events from your In-Game Store
+ AWSMobileAnalyticsVirtualMonetizationEventBuilder* builder = [AWSMobileAnalyticsVirtualMonetizationEventBuilder builderWithEventClient:eventClient];
+
+ // set the product id of the purchased item
+ [builder withProductId:@"com.yourgame.sword"];
+
+ // set the item price
+ [builder withItemPrice:500];
+
+ // set the currency of the item price
+ [builder withCurrency:@"Gold"];
+
+ // set the quantity of item(s) purchased
+ [builder withQuantity:1];
+
+ // build/record the monetization event
+ idAWSMobileAnalyticsEvent virtualPurchaseEvent = [builder build];
+ [eventClient recordEvent:virtualPurchaseEvent];
+</code></pre>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/builderWithEventClient:" title="builderWithEventClient:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/builderWithEventClient:">+&nbsp;builderWithEventClient:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create a monetization builder that can record purchase events from your In-Game Store</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (AWSMobileAnalyticsVirtualMonetizationEventBuilder *)builderWithEventClient:(id&lt;AWSMobileAnalyticsEventClient&gt;)<em>theEventClient</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theEventClient</code></th>
+						<td><p>The event client used to create the event</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>a monetization event builder for In-Game store purchases</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithEventClient:" title="initWithEventClient:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithEventClient:">&ndash;&nbsp;initWithEventClient:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initializes the AWSMobileAnalyticsMonetizationEventBuilder. This class is not meant to be initialized directly. This method should
+only be called/overridden by derived builders.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSMobileAnalyticsVirtualMonetizationEventBuilder *)initWithEventClient:(id&lt;AWSMobileAnalyticsEventClient&gt;)<em>theEventClient</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsMonetizationEventBuilder.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/withProductId:" title="withProductId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/withProductId:">&ndash;&nbsp;withProductId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the product id for the item(s) being purchased</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)withProductId:(NSString *)<em>theProductId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theProductId</code></th>
+						<td><p>The product id of the item(s) being purchased</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/withItemPrice:" title="withItemPrice:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/withItemPrice:">&ndash;&nbsp;withItemPrice:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the item price of the item being purchased</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)withItemPrice:(double)<em>theItemPrice</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theItemPrice</code></th>
+						<td><p>The numerical item price</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/withQuantity:" title="withQuantity:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/withQuantity:">&ndash;&nbsp;withQuantity:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the quantity of item(s) being purchased.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)withQuantity:(NSInteger)<em>theQuantity</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theQuantity</code></th>
+						<td><p>The quantity of items purchased</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/withCurrency:" title="withCurrency:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/withCurrency:">&ndash;&nbsp;withCurrency:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the currency of the item price</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)withCurrency:(NSString *)<em>theCurrency</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theCurrency</code></th>
+						<td><p>The currency of the item price</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isValid" title="isValid"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isValid">&ndash;&nbsp;isValid</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Determines if this builder is in a valid state. This method must be overridden in derived classes.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)isValid</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>YES if the Builder is valid, NO otherwise.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsMonetizationEventBuilder.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/build" title="build"></a>
+	<h3 class="method-title"><code><a href="#//api/name/build">&ndash;&nbsp;build</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Builds the monetization event using the parameters set on the builder. You must
+still record the event.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (id&lt;AWSMobileAnalyticsEvent&gt;)build</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an AWSMobileAnalyticsEvent to record</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +574,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

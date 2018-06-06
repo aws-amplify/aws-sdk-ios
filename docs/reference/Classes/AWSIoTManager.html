@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSIoTManager Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -45,7 +45,47 @@
 	
 
 	
+	
+	<option value="tasks">Tasks</option>
+	
+	
 
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/configuration">configuration</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/IoTManagerForKey:">+ IoTManagerForKey:</option>
+		
+		<option value="//api/name/defaultIoTManager">+ defaultIoTManager</option>
+		
+		<option value="//api/name/deleteCertificate">+ deleteCertificate</option>
+		
+		<option value="//api/name/importIdentityFromPKCS12Data:passPhrase:certificateId:">+ importIdentityFromPKCS12Data:passPhrase:certificateId:</option>
+		
+		<option value="//api/name/isValidCertificate:">+ isValidCertificate:</option>
+		
+		<option value="//api/name/registerIoTManagerWithConfiguration:forKey:">+ registerIoTManagerWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeIoTManagerForKey:">+ removeIoTManagerForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createKeysAndCertificateFromCsr:callback:">- createKeysAndCertificateFromCsr:callback:</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +99,662 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSIoTManager Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSIoTManager.h<br />AWSIoTManager.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
 
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultIoTManager" title="defaultIoTManager"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultIoTManager">+&nbsp;defaultIoTManager</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultIoTManager</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+     AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let IoTManager = AWSIoTManager.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSIoTManager *IoTManager = [AWSIoTManager defaultIoTManager];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerIoTManagerWithConfiguration:forKey:" title="registerIoTManagerWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerIoTManagerWithConfiguration:forKey:">+&nbsp;registerIoTManagerWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerIoTManagerWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+     AWSIoTManager.register(with: configuration!, forKey: "USWest2IoTManager")
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSIoTManager registerIoTManagerWithConfiguration:configuration forKey:@"USWest2IoTManager"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let IoTManager = AWSIoTManager(forKey: "USWest2IoTManager")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSIoTManager *IoTManager = [AWSIoTManager IoTManagerForKey:@"USWest2IoTManager"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/IoTManagerForKey:" title="IoTManagerForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/IoTManagerForKey:">+&nbsp;IoTManagerForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerIoTManagerWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)IoTManagerForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+     let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+     let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+     AWSIoTManager.register(with: configuration!, forKey: "USWest2IoTManager")
+
+     return true
+ }
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSIoTManager registerIoTManagerWithConfiguration:configuration forKey:@"USWest2IoTManager"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let IoTManager = AWSIoTManager(forKey: "USWest2IoTManager")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSIoTManager *IoTManager = [AWSIoTManager IoTManagerForKey:@"USWest2IoTManager"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeIoTManagerForKey:" title="removeIoTManagerForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeIoTManagerForKey:">+&nbsp;removeIoTManagerForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeIoTManagerForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createKeysAndCertificateFromCsr:callback:" title="createKeysAndCertificateFromCsr:callback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createKeysAndCertificateFromCsr:callback:">&ndash;&nbsp;createKeysAndCertificateFromCsr:callback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates keys and certificate from a CSR created using the specified dictionary</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)createKeysAndCertificateFromCsr:(NSDictionary&lt;NSString*,NSString*&gt; *)<em>csrDictionary</em> callback:(void ( ^ ) ( AWSIoTCreateCertificateResponse *mainResponse ))<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>csrDictionary</code></th>
+						<td><p>contains values used to generate the CSR.  Requires values for
+keys: commonName, countryName, organizationName, organizationalUnitName</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>When new certificate is created the function of block will be called with an instance of <code>AWSIOTDescribeCertificateResponse</code></p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/importIdentityFromPKCS12Data:passPhrase:certificateId:" title="importIdentityFromPKCS12Data:passPhrase:certificateId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/importIdentityFromPKCS12Data:passPhrase:certificateId:">+&nbsp;importIdentityFromPKCS12Data:passPhrase:certificateId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Import PKCS12 identity into keychain.  This method allows you to import an
+identity created using the AWS console or CLI into the keychain.  The identity is
+contained in PKCS12 data; you can create PKCS12 files (suffix .p12) using openssl
+as follows:</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BOOL)importIdentityFromPKCS12Data:(NSData *)<em>pkcs12Data</em> passPhrase:(NSString *)<em>passPhrase</em> certificateId:(NSString *)<em>certificateId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>pkcs12Data</code></th>
+						<td><p>pkcs12 raw data. Will only import the first item.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>passPhrase</code></th>
+						<td><p>Pass phrase used to decrypt the pkcs12 data.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>certificateId</code></th>
+						<td><p>Unique identifier used to find the key/certificate for use.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>openssl pkcs12 -export -in cert.pem -inkey key.pem -CAfile root-ca.crt -out awsiot-identity.p12</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/isValidCertificate:" title="isValidCertificate:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/isValidCertificate:">+&nbsp;isValidCertificate:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Validates the certificate with the given identifier of certificate.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BOOL)isValidCertificate:(NSString *)<em>certificateId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>certificateId</code></th>
+						<td><p>The certificate identifier</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>TRUE if certificate is valid, else FALSE</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteCertificate" title="deleteCertificate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteCertificate">+&nbsp;deleteCertificate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes keys and certificate</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (BOOL)deleteCertificate</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>TRUE if certificate is deleted, else FALSE</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +765,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

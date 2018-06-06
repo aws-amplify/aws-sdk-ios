@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSSignInManager Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -45,7 +45,41 @@
 	
 
 	
+	
+	<option value="tasks">Tasks</option>
+	
+	
 
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/delegate">delegate</option>
+		
+		<option value="//api/name/loggedIn">loggedIn</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/interceptApplication:didFinishLaunchingWithOptions:">- interceptApplication:didFinishLaunchingWithOptions:</option>
+		
+		<option value="//api/name/interceptApplication:openURL:sourceApplication:annotation:">- interceptApplication:openURL:sourceApplication:annotation:</option>
+		
+		<option value="//api/name/loginWithSignInProviderKey:completionHandler:NS_SWIFT_NAME:">- loginWithSignInProviderKey:completionHandler:NS_SWIFT_NAME:</option>
+		
+		<option value="//api/name/logoutWithCompletionHandler:">- logoutWithCompletionHandler:</option>
+		
+		<option value="//api/name/registerAWSSignInProvider:NS_SWIFT_NAME:">- registerAWSSignInProvider:NS_SWIFT_NAME:</option>
+		
+		<option value="//api/name/resumeSessionWithCompletionHandler:">- resumeSessionWithCompletionHandler:</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +93,493 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSSignInManager Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSSignInManager.h<br />AWSSignInManager.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
 
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/logoutWithCompletionHandler:" title="logoutWithCompletionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/logoutWithCompletionHandler:">&ndash;&nbsp;logoutWithCompletionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Signs the user out of whatever third party identity provider they used to sign in.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)logoutWithCompletionHandler:(void ( ^ ) ( id result , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>used to callback application with async operation results</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSignInManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/resumeSessionWithCompletionHandler:" title="resumeSessionWithCompletionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resumeSessionWithCompletionHandler:">&ndash;&nbsp;resumeSessionWithCompletionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Attempts to resume session with the previous sign-in provider.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)resumeSessionWithCompletionHandler:(void ( ^ ) ( id result , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>used to callback application with async operation results</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSignInManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/interceptApplication:didFinishLaunchingWithOptions:" title="interceptApplication:didFinishLaunchingWithOptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/interceptApplication:didFinishLaunchingWithOptions:">&ndash;&nbsp;interceptApplication:didFinishLaunchingWithOptions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Passes parameters used to launch the application to the current identity provider. For some
+third party providers, this completes the User Sign-in call flow, which used a browser to
+get information from the user, directly. The current sign-in provider will be set to nil if
+the sign-in provider is not registered using <code>registerAWSSignInProvider:forKey</code> method  of
+<code>AWSSignInProviderFactory</code> class.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)interceptApplication:(UIApplication *)<em>application</em> didFinishLaunchingWithOptions:(NSDictionary *)<em>launchOptions</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>application</code></th>
+						<td><p>application</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>launchOptions</code></th>
+						<td><p>options used to launch the application</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>true if this call handled the operation</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSignInManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/interceptApplication:openURL:sourceApplication:annotation:" title="interceptApplication:openURL:sourceApplication:annotation:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/interceptApplication:openURL:sourceApplication:annotation:">&ndash;&nbsp;interceptApplication:openURL:sourceApplication:annotation:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Passes parameters used to launch the application to the current identity provider. For some
+third party providers, this completes the User Sign-in call flow, which used a browser to
+get information from the user, directly.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)interceptApplication:(UIApplication *)<em>application</em> openURL:(NSURL *)<em>url</em> sourceApplication:(NSString *)<em>sourceApplication</em> annotation:(id)<em>annotation</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>application</code></th>
+						<td><p>application</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>url</code></th>
+						<td><p>url used to open the application</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>sourceApplication</code></th>
+						<td><p>source application</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>annotation</code></th>
+						<td><p>annotation</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>true if this call handled the operation</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSignInManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/loggedIn" title="loggedIn"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loggedIn">&nbsp;&nbsp;loggedIn</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Indicates whether the user is signed-in or not.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, getter=isLoggedIn) BOOL loggedIn</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>true if user is signed-in</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSignInManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The delegate class to be called when a user attempts to login with a registered sign in provider.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;AWSSignInDelegate&gt; delegate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSignInManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerAWSSignInProvider:NS_SWIFT_NAME:" title="registerAWSSignInProvider:NS_SWIFT_NAME:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerAWSSignInProvider:NS_SWIFT_NAME:">&ndash;&nbsp;registerAWSSignInProvider:NS_SWIFT_NAME:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Registers the shared instance of sign in provider implementing <code>AWSSignInProvider</code>.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)registerAWSSignInProvider:(id&lt;AWSSignInProvider&gt;)<em>signInProvider</em> NS_SWIFT_NAME</code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>signInProvider</code></th>
+						<td><p>The shared instance of sign in provider implementing <code>AWSSignInProvider</code> protocol.
+*</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSignInManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/loginWithSignInProviderKey:completionHandler:NS_SWIFT_NAME:" title="loginWithSignInProviderKey:completionHandler:NS_SWIFT_NAME:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/loginWithSignInProviderKey:completionHandler:NS_SWIFT_NAME:">&ndash;&nbsp;loginWithSignInProviderKey:completionHandler:NS_SWIFT_NAME:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Signs the user in with an identity provider. Note that even if User Sign-in is not
+enabled in the project, the user is still signed-in with the Guest type provider.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)loginWithSignInProviderKey:(NSString *)<em>signInProviderKey</em> completionHandler:(void ( ^ ) ( id _Nullable result , NSError *_Nullable error ))<em>completionHandler</em> NS_SWIFT_NAME</code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>signInProviderKey</code></th>
+						<td><p>the identifier key of sign in provider</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>used to callback application with async operation results</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSignInManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +590,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

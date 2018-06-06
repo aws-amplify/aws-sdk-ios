@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSPinpointSessionClient Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -43,9 +43,35 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
 
 	
 
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/pauseSessionWithTimeoutEnabled:timeoutCompletionBlock:">- pauseSessionWithTimeoutEnabled:timeoutCompletionBlock:</option>
+		
+		<option value="//api/name/resumeSession">- resumeSession</option>
+		
+		<option value="//api/name/session">- session</option>
+		
+		<option value="//api/name/startSession">- startSession</option>
+		
+		<option value="//api/name/stopSession">- stopSession</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +85,292 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSPinpointSessionClient Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSPinpointSessionClient.h<br />AWSPinpointSessionClient.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>The session client records analytics session events.</p>
 
+<p>You should only use this class to manually control session events if you have enableAutoSessionRecording set to false. See AWSPinpointConfiguration.</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/session" title="session"></a>
+	<h3 class="method-title"><code><a href="#//api/name/session">&ndash;&nbsp;session</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The current session object.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSPinpointSession *)session</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointSessionClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startSession" title="startSession"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startSession">&ndash;&nbsp;startSession</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Starts the session by recording an event of type &ldquo;_session.start&rdquo;
+If a session is currently active then that session is stopped and a new session started.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)startSession</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>AWSTask - task.result contains the start event.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointSessionClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopSession" title="stopSession"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopSession">&ndash;&nbsp;stopSession</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Stops the session by recording an event of type &ldquo;_session.stop&rdquo;</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)stopSession</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>AWSTask - task.result contains the stop event.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointSessionClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/pauseSessionWithTimeoutEnabled:timeoutCompletionBlock:" title="pauseSessionWithTimeoutEnabled:timeoutCompletionBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/pauseSessionWithTimeoutEnabled:timeoutCompletionBlock:">&ndash;&nbsp;pauseSessionWithTimeoutEnabled:timeoutCompletionBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Pauses the session by recording an event of type &ldquo;_session.pause&rdquo;</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)pauseSessionWithTimeoutEnabled:(BOOL)<em>timeoutEnabled</em> timeoutCompletionBlock:(AWSPinpointTimeoutBlock)<em>timeoutCompletionBlock</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>timeoutEnabled</code></th>
+						<td><p>If this is enabled then the session will timeout after 5 seconds and a session stop will be recorded. (Session timeout if configurable in AWSPinpointConfiguration)</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>timeoutCompletionBlock</code></th>
+						<td><p>The block that will be executed after timeout has completed and submission of events has occurred, task.result will contain events that were submitted.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>AWSTask - task.result contains the pause event.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointSessionClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/resumeSession" title="resumeSession"></a>
+	<h3 class="method-title"><code><a href="#//api/name/resumeSession">&ndash;&nbsp;resumeSession</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Resumes the session by recording an event of type &ldquo;_session.resume&rdquo;
+If no session is active then a new session is started.
+If the timeout of 5 seconds has passed, then the current session is stopped and a new session started. (Session timeout if configurable in AWSPinpointConfiguration)</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)resumeSession</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>AWSTask - task.result contains the resume event.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointSessionClient.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +381,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

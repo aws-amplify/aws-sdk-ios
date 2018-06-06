@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSCognitoAuthConfiguration Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -43,9 +43,53 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/appClientId">appClientId</option>
+		
+		<option value="//api/name/appClientSecret">appClientSecret</option>
+		
+		<option value="//api/name/asfEnabled">asfEnabled</option>
+		
+		<option value="//api/name/identityProvider">identityProvider</option>
+		
+		<option value="//api/name/idpIdentifier">idpIdentifier</option>
+		
+		<option value="//api/name/scopes">scopes</option>
+		
+		<option value="//api/name/signInRedirectUri">signInRedirectUri</option>
+		
+		<option value="//api/name/signOutRedirectUri">signOutRedirectUri</option>
+		
+		<option value="//api/name/userPoolId">userPoolId</option>
+		
+		<option value="//api/name/webDomain">webDomain</option>
+		
+	</optgroup>
+	
 
 	
 
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:">- initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:</option>
+		
+		<option value="//api/name/initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:identityProvider:idpIdentifier:userPoolIdForEnablingASF:">- initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:identityProvider:idpIdentifier:userPoolIdForEnablingASF:</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +103,626 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSCognitoAuthConfiguration Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSCognitoAuth.h<br />AWSCognitoAuth.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Houses all configuration for AWSCognitoAuth</p>
+					</div>
+					
+					
 
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/appClientId" title="appClientId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/appClientId">&nbsp;&nbsp;appClientId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The app client id</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *appClientId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/appClientSecret" title="appClientSecret"></a>
+	<h3 class="method-title"><code><a href="#//api/name/appClientSecret">&nbsp;&nbsp;appClientSecret</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The optional app client secret</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) NSString *appClientSecret</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/scopes" title="scopes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/scopes">&nbsp;&nbsp;scopes</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The scopes</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSSet&lt;NSString*&gt; *scopes</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signInRedirectUri" title="signInRedirectUri"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signInRedirectUri">&nbsp;&nbsp;signInRedirectUri</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>uri to redirect on sign in.  Must be configured as a uri scheme in your info.plist</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *signInRedirectUri</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/signOutRedirectUri" title="signOutRedirectUri"></a>
+	<h3 class="method-title"><code><a href="#//api/name/signOutRedirectUri">&nbsp;&nbsp;signOutRedirectUri</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>uri to redirect on sign out.  Must be configured as a uri scheme in your info.plist</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *signOutRedirectUri</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/webDomain" title="webDomain"></a>
+	<h3 class="method-title"><code><a href="#//api/name/webDomain">&nbsp;&nbsp;webDomain</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The FQDN of your Cognito endpoint, something like https://mydomain.region.auth.amazoncognito.com</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *webDomain</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/identityProvider" title="identityProvider"></a>
+	<h3 class="method-title"><code><a href="#//api/name/identityProvider">&nbsp;&nbsp;identityProvider</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The optional provider name to authenticate with directly instead of presenting the end user with a list of configured providers</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) NSString *identityProvider</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/idpIdentifier" title="idpIdentifier"></a>
+	<h3 class="method-title"><code><a href="#//api/name/idpIdentifier">&nbsp;&nbsp;idpIdentifier</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The optional provider identifier to authenticate with directly instead of presenting the end user with a list of configured providers.  Use this if you want to hide the provider name from the end user.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) NSString *idpIdentifier</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/userPoolId" title="userPoolId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/userPoolId">&nbsp;&nbsp;userPoolId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The optional user pool id, required if you have enabled advanced security features on your pool.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) NSString *userPoolId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/asfEnabled" title="asfEnabled"></a>
+	<h3 class="method-title"><code><a href="#//api/name/asfEnabled">&nbsp;&nbsp;asfEnabled</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Whether user context information to drive the advanced security feature is emitted.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly, getter=isASFEnabled) BOOL asfEnabled</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:" title="initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:">&ndash;&nbsp;initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Configuration object for CognitoAuth</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithAppClientId:(NSString *)<em>appClientId</em> appClientSecret:(nullable NSString *)<em>appClientSecret</em> scopes:(NSSet&lt;NSString*&gt; *)<em>scopes</em> signInRedirectUri:(NSString *)<em>signInRedirectUri</em> signOutRedirectUri:(NSString *)<em>signOutRedirectUri</em> webDomain:(NSString *)<em>webDomain</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appClientId</code></th>
+						<td><p>The app client id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appClientSecret</code></th>
+						<td><p>The optional app client secret</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>scopes</code></th>
+						<td><p>Set of scopes to obtain</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>signInRedirectUri</code></th>
+						<td><p>uri to redirect on sign in.  Must be configured as a uri scheme in your info.plist</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>signOutRedirectUri</code></th>
+						<td><p>uri to redirect on sign out.  Must be configured as a uri scheme in your info.plist</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>webDomain</code></th>
+						<td><p>The FQDN of your Cognito endpoint, something like https://mydomain.region.auth.amazoncognito.com</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:identityProvider:idpIdentifier:userPoolIdForEnablingASF:" title="initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:identityProvider:idpIdentifier:userPoolIdForEnablingASF:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:identityProvider:idpIdentifier:userPoolIdForEnablingASF:">&ndash;&nbsp;initWithAppClientId:appClientSecret:scopes:signInRedirectUri:signOutRedirectUri:webDomain:identityProvider:idpIdentifier:userPoolIdForEnablingASF:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Configuration object for CognitoAuth</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithAppClientId:(NSString *)<em>appClientId</em> appClientSecret:(nullable NSString *)<em>appClientSecret</em> scopes:(NSSet&lt;NSString*&gt; *)<em>scopes</em> signInRedirectUri:(NSString *)<em>signInRedirectUri</em> signOutRedirectUri:(NSString *)<em>signOutRedirectUri</em> webDomain:(NSString *)<em>webDomain</em> identityProvider:(nullable NSString *)<em>identityProvider</em> idpIdentifier:(nullable NSString *)<em>idpIdentifier</em> userPoolIdForEnablingASF:(nullable NSString *)<em>userPoolIdForEnablingASF</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appClientId</code></th>
+						<td><p>The app client id</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>appClientSecret</code></th>
+						<td><p>The optional app client secret</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>scopes</code></th>
+						<td><p>Set of scopes to obtain</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>signInRedirectUri</code></th>
+						<td><p>uri to redirect on sign in.  Must be configured as a uri scheme in your info.plist</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>signOutRedirectUri</code></th>
+						<td><p>uri to redirect on sign out.  Must be configured as a uri scheme in your info.plist</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>webDomain</code></th>
+						<td><p>The FQDN of your Cognito endpoint, something like https://mydomain.region.auth.amazoncognito.com</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>identityProvider</code></th>
+						<td><p>Optional provider name to authenticate with directly</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>idpIdentifier</code></th>
+						<td><p>Optional provider identifier to authenticate with directly</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>userPoolIdForEnablingASF</code></th>
+						<td><p>Optional user pool id for enabling advanced security features</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoAuth.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +733,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

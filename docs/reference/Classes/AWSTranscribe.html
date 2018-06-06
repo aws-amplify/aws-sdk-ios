@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSTranscribe Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -43,9 +43,75 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-
+	<option value="overview">Overview</option>
 	
 
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/configuration">configuration</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/TranscribeForKey:">+ TranscribeForKey:</option>
+		
+		<option value="//api/name/defaultTranscribe">+ defaultTranscribe</option>
+		
+		<option value="//api/name/registerTranscribeWithConfiguration:forKey:">+ registerTranscribeWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeTranscribeForKey:">+ removeTranscribeForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/createVocabulary:">- createVocabulary:</option>
+		
+		<option value="//api/name/createVocabulary:completionHandler:">- createVocabulary:completionHandler:</option>
+		
+		<option value="//api/name/deleteVocabulary:">- deleteVocabulary:</option>
+		
+		<option value="//api/name/deleteVocabulary:completionHandler:">- deleteVocabulary:completionHandler:</option>
+		
+		<option value="//api/name/getTranscriptionJob:">- getTranscriptionJob:</option>
+		
+		<option value="//api/name/getTranscriptionJob:completionHandler:">- getTranscriptionJob:completionHandler:</option>
+		
+		<option value="//api/name/getVocabulary:">- getVocabulary:</option>
+		
+		<option value="//api/name/getVocabulary:completionHandler:">- getVocabulary:completionHandler:</option>
+		
+		<option value="//api/name/listTranscriptionJobs:">- listTranscriptionJobs:</option>
+		
+		<option value="//api/name/listTranscriptionJobs:completionHandler:">- listTranscriptionJobs:completionHandler:</option>
+		
+		<option value="//api/name/listVocabularies:">- listVocabularies:</option>
+		
+		<option value="//api/name/listVocabularies:completionHandler:">- listVocabularies:completionHandler:</option>
+		
+		<option value="//api/name/startTranscriptionJob:">- startTranscriptionJob:</option>
+		
+		<option value="//api/name/startTranscriptionJob:completionHandler:">- startTranscriptionJob:completionHandler:</option>
+		
+		<option value="//api/name/updateVocabulary:">- updateVocabulary:</option>
+		
+		<option value="//api/name/updateVocabulary:completionHandler:">- updateVocabulary:completionHandler:</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +125,1576 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSTranscribe Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSTranscribeService.h<br />AWSTranscribeService.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Operations and objects for transcribing speech to text.</p>
 
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/defaultTranscribe" title="defaultTranscribe"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultTranscribe">+&nbsp;defaultTranscribe</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultTranscribe</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let Transcribe = AWSTranscribe.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSTranscribe *Transcribe = [AWSTranscribe defaultTranscribe];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerTranscribeWithConfiguration:forKey:" title="registerTranscribeWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerTranscribeWithConfiguration:forKey:">+&nbsp;registerTranscribeWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerTranscribeWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSTranscribe.register(with: configuration!, forKey: "USWest2Transcribe")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:@"USWest2Transcribe"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let Transcribe = AWSTranscribe(forKey: "USWest2Transcribe")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSTranscribe *Transcribe = [AWSTranscribe TranscribeForKey:@"USWest2Transcribe"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/TranscribeForKey:" title="TranscribeForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/TranscribeForKey:">+&nbsp;TranscribeForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerTranscribeWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)TranscribeForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSTranscribe.register(with: configuration!, forKey: "USWest2Transcribe")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:@"USWest2Transcribe"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let Transcribe = AWSTranscribe(forKey: "USWest2Transcribe")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSTranscribe *Transcribe = [AWSTranscribe TranscribeForKey:@"USWest2Transcribe"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeTranscribeForKey:" title="removeTranscribeForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeTranscribeForKey:">+&nbsp;removeTranscribeForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeTranscribeForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createVocabulary:" title="createVocabulary:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createVocabulary:">&ndash;&nbsp;createVocabulary:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSTranscribeCreateVocabularyResponse*&gt; *)createVocabulary:(AWSTranscribeCreateVocabularyRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreateVocabulary service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSTranscribeCreateVocabularyResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorConflict</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeCreateVocabularyRequest.html">AWSTranscribeCreateVocabularyRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeCreateVocabularyResponse.html">AWSTranscribeCreateVocabularyResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createVocabulary:completionHandler:" title="createVocabulary:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createVocabulary:completionHandler:">&ndash;&nbsp;createVocabulary:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)createVocabulary:(AWSTranscribeCreateVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeCreateVocabularyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreateVocabulary service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorConflict</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeCreateVocabularyRequest.html">AWSTranscribeCreateVocabularyRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeCreateVocabularyResponse.html">AWSTranscribeCreateVocabularyResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteVocabulary:" title="deleteVocabulary:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteVocabulary:">&ndash;&nbsp;deleteVocabulary:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes a vocabulary from Amazon Transcribe. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)deleteVocabulary:(AWSTranscribeDeleteVocabularyRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteVocabulary service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeDeleteVocabularyRequest.html">AWSTranscribeDeleteVocabularyRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteVocabulary:completionHandler:" title="deleteVocabulary:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteVocabulary:completionHandler:">&ndash;&nbsp;deleteVocabulary:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes a vocabulary from Amazon Transcribe. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteVocabulary:(AWSTranscribeDeleteVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteVocabulary service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeDeleteVocabularyRequest.html">AWSTranscribeDeleteVocabularyRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getTranscriptionJob:" title="getTranscriptionJob:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getTranscriptionJob:">&ndash;&nbsp;getTranscriptionJob:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns information about a transcription job. To see the status of the job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in the <code>TranscriptionFileUri</code> field.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSTranscribeGetTranscriptionJobResponse*&gt; *)getTranscriptionJob:(AWSTranscribeGetTranscriptionJobRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetTranscriptionJob service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSTranscribeGetTranscriptionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeGetTranscriptionJobRequest.html">AWSTranscribeGetTranscriptionJobRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeGetTranscriptionJobResponse.html">AWSTranscribeGetTranscriptionJobResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getTranscriptionJob:completionHandler:" title="getTranscriptionJob:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getTranscriptionJob:completionHandler:">&ndash;&nbsp;getTranscriptionJob:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns information about a transcription job. To see the status of the job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in the <code>TranscriptionFileUri</code> field.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getTranscriptionJob:(AWSTranscribeGetTranscriptionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeGetTranscriptionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetTranscriptionJob service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeGetTranscriptionJobRequest.html">AWSTranscribeGetTranscriptionJobRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeGetTranscriptionJobResponse.html">AWSTranscribeGetTranscriptionJobResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getVocabulary:" title="getVocabulary:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getVocabulary:">&ndash;&nbsp;getVocabulary:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets information about a vocabulary.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSTranscribeGetVocabularyResponse*&gt; *)getVocabulary:(AWSTranscribeGetVocabularyRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetVocabulary service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSTranscribeGetVocabularyResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorBadRequest</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeGetVocabularyRequest.html">AWSTranscribeGetVocabularyRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeGetVocabularyResponse.html">AWSTranscribeGetVocabularyResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getVocabulary:completionHandler:" title="getVocabulary:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getVocabulary:completionHandler:">&ndash;&nbsp;getVocabulary:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets information about a vocabulary.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getVocabulary:(AWSTranscribeGetVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeGetVocabularyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetVocabulary service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorBadRequest</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeGetVocabularyRequest.html">AWSTranscribeGetVocabularyRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeGetVocabularyResponse.html">AWSTranscribeGetVocabularyResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTranscriptionJobs:" title="listTranscriptionJobs:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTranscriptionJobs:">&ndash;&nbsp;listTranscriptionJobs:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists transcription jobs with the specified status.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSTranscribeListTranscriptionJobsResponse*&gt; *)listTranscriptionJobs:(AWSTranscribeListTranscriptionJobsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTranscriptionJobs service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSTranscribeListTranscriptionJobsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeListTranscriptionJobsResponse.html">AWSTranscribeListTranscriptionJobsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTranscriptionJobs:completionHandler:" title="listTranscriptionJobs:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTranscriptionJobs:completionHandler:">&ndash;&nbsp;listTranscriptionJobs:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists transcription jobs with the specified status.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listTranscriptionJobs:(AWSTranscribeListTranscriptionJobsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeListTranscriptionJobsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTranscriptionJobs service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeListTranscriptionJobsResponse.html">AWSTranscribeListTranscriptionJobsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listVocabularies:" title="listVocabularies:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listVocabularies:">&ndash;&nbsp;listVocabularies:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of vocabularies that match the specified criteria. If no criteria are specified, returns the entire list of vocabularies.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSTranscribeListVocabulariesResponse*&gt; *)listVocabularies:(AWSTranscribeListVocabulariesRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListVocabularies service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSTranscribeListVocabulariesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeListVocabulariesRequest.html">AWSTranscribeListVocabulariesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeListVocabulariesResponse.html">AWSTranscribeListVocabulariesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listVocabularies:completionHandler:" title="listVocabularies:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listVocabularies:completionHandler:">&ndash;&nbsp;listVocabularies:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of vocabularies that match the specified criteria. If no criteria are specified, returns the entire list of vocabularies.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listVocabularies:(AWSTranscribeListVocabulariesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeListVocabulariesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListVocabularies service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeListVocabulariesRequest.html">AWSTranscribeListVocabulariesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeListVocabulariesResponse.html">AWSTranscribeListVocabulariesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startTranscriptionJob:" title="startTranscriptionJob:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startTranscriptionJob:">&ndash;&nbsp;startTranscriptionJob:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Starts an asynchronous job to transcribe speech to text.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSTranscribeStartTranscriptionJobResponse*&gt; *)startTranscriptionJob:(AWSTranscribeStartTranscriptionJobRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StartTranscriptionJob service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSTranscribeStartTranscriptionJobResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorConflict</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeStartTranscriptionJobRequest.html">AWSTranscribeStartTranscriptionJobRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeStartTranscriptionJobResponse.html">AWSTranscribeStartTranscriptionJobResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startTranscriptionJob:completionHandler:" title="startTranscriptionJob:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startTranscriptionJob:completionHandler:">&ndash;&nbsp;startTranscriptionJob:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Starts an asynchronous job to transcribe speech to text.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)startTranscriptionJob:(AWSTranscribeStartTranscriptionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeStartTranscriptionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StartTranscriptionJob service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorConflict</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeStartTranscriptionJobRequest.html">AWSTranscribeStartTranscriptionJobRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeStartTranscriptionJobResponse.html">AWSTranscribeStartTranscriptionJobResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateVocabulary:" title="updateVocabulary:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateVocabulary:">&ndash;&nbsp;updateVocabulary:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates an existing vocabulary with new values.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSTranscribeUpdateVocabularyResponse*&gt; *)updateVocabulary:(AWSTranscribeUpdateVocabularyRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateVocabulary service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSTranscribeUpdateVocabularyResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeUpdateVocabularyRequest.html">AWSTranscribeUpdateVocabularyRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeUpdateVocabularyResponse.html">AWSTranscribeUpdateVocabularyResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateVocabulary:completionHandler:" title="updateVocabulary:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateVocabulary:completionHandler:">&ndash;&nbsp;updateVocabulary:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates an existing vocabulary with new values.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateVocabulary:(AWSTranscribeUpdateVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeUpdateVocabularyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateVocabulary service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeUpdateVocabularyRequest.html">AWSTranscribeUpdateVocabularyRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSTranscribeUpdateVocabularyResponse.html">AWSTranscribeUpdateVocabularyResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +1705,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

@@ -3,11 +3,11 @@
 <head>
 	<meta charset="utf-8">
 
-	<title></title>
+	<title>AWSIoTData Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	
+	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
 </head>
 <body class="appledoc">
 	<header>
@@ -43,9 +43,59 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-
+	<option value="overview">Overview</option>
 	
 
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/configuration">configuration</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/IoTDataForKey:">+ IoTDataForKey:</option>
+		
+		<option value="//api/name/defaultIoTData">+ defaultIoTData</option>
+		
+		<option value="//api/name/registerIoTDataWithConfiguration:forKey:">+ registerIoTDataWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeIoTDataForKey:">+ removeIoTDataForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/deleteThingShadow:">- deleteThingShadow:</option>
+		
+		<option value="//api/name/deleteThingShadow:completionHandler:">- deleteThingShadow:completionHandler:</option>
+		
+		<option value="//api/name/getThingShadow:">- getThingShadow:</option>
+		
+		<option value="//api/name/getThingShadow:completionHandler:">- getThingShadow:completionHandler:</option>
+		
+		<option value="//api/name/publish:">- publish:</option>
+		
+		<option value="//api/name/publish:completionHandler:">- publish:completionHandler:</option>
+		
+		<option value="//api/name/updateThingShadow:">- updateThingShadow:</option>
+		
+		<option value="//api/name/updateThingShadow:completionHandler:">- updateThingShadow:completionHandler:</option>
+		
+	</optgroup>
+	
 	
 </select>
 						</label>
@@ -59,12 +109,1023 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title"></h1>
+					<h1 class="title">AWSIoTData Class Reference</h1>
 
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSIoTDataService.h<br />AWSIoTDataService.m</td>
+</tr>
+						</tbody></table></div>
 					
 
                     
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><fullname>AWS IoT</fullname><p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a persistent representation of your things and their state in the AWS cloud.</p></p>
+					</div>
+					
+					
 
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultIoTData" title="defaultIoTData"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultIoTData">+&nbsp;defaultIoTData</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultIoTData</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let IoTData = AWSIoTData.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSIoTData *IoTData = [AWSIoTData defaultIoTData];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerIoTDataWithConfiguration:forKey:" title="registerIoTDataWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerIoTDataWithConfiguration:forKey:">+&nbsp;registerIoTDataWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerIoTDataWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSIoTData.register(with: configuration!, forKey: "USWest2IoTData")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSIoTData registerIoTDataWithConfiguration:configuration forKey:@"USWest2IoTData"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let IoTData = AWSIoTData(forKey: "USWest2IoTData")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSIoTData *IoTData = [AWSIoTData IoTDataForKey:@"USWest2IoTData"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/IoTDataForKey:" title="IoTDataForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/IoTDataForKey:">+&nbsp;IoTDataForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerIoTDataWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)IoTDataForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSIoTData.register(with: configuration!, forKey: "USWest2IoTData")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSIoTData registerIoTDataWithConfiguration:configuration forKey:@"USWest2IoTData"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let IoTData = AWSIoTData(forKey: "USWest2IoTData")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSIoTData *IoTData = [AWSIoTData IoTDataForKey:@"USWest2IoTData"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeIoTDataForKey:" title="removeIoTDataForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeIoTDataForKey:">+&nbsp;removeIoTDataForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeIoTDataForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteThingShadow:" title="deleteThingShadow:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteThingShadow:">&ndash;&nbsp;deleteThingShadow:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes the thing shadow for the specified thing.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSIoTDataDeleteThingShadowResponse*&gt; *)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteThingShadow service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSIoTDataDeleteThingShadowResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSIoTDataErrorDomain</code> domain and the following error code: <code>AWSIoTDataErrorResourceNotFound</code>, <code>AWSIoTDataErrorInvalidRequest</code>, <code>AWSIoTDataErrorThrottling</code>, <code>AWSIoTDataErrorUnauthorized</code>, <code>AWSIoTDataErrorServiceUnavailable</code>, <code>AWSIoTDataErrorInternalFailure</code>, <code>AWSIoTDataErrorMethodNotAllowed</code>, <code>AWSIoTDataErrorUnsupportedDocumentEncoding</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataDeleteThingShadowRequest.html">AWSIoTDataDeleteThingShadowRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataDeleteThingShadowResponse.html">AWSIoTDataDeleteThingShadowResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteThingShadow:completionHandler:" title="deleteThingShadow:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteThingShadow:completionHandler:">&ndash;&nbsp;deleteThingShadow:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes the thing shadow for the specified thing.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSIoTDataDeleteThingShadowResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteThingShadow service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSIoTDataErrorDomain</code> domain and the following error code: <code>AWSIoTDataErrorResourceNotFound</code>, <code>AWSIoTDataErrorInvalidRequest</code>, <code>AWSIoTDataErrorThrottling</code>, <code>AWSIoTDataErrorUnauthorized</code>, <code>AWSIoTDataErrorServiceUnavailable</code>, <code>AWSIoTDataErrorInternalFailure</code>, <code>AWSIoTDataErrorMethodNotAllowed</code>, <code>AWSIoTDataErrorUnsupportedDocumentEncoding</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataDeleteThingShadowRequest.html">AWSIoTDataDeleteThingShadowRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataDeleteThingShadowResponse.html">AWSIoTDataDeleteThingShadowResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getThingShadow:" title="getThingShadow:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getThingShadow:">&ndash;&nbsp;getThingShadow:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the thing shadow for the specified thing.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSIoTDataGetThingShadowResponse*&gt; *)getThingShadow:(AWSIoTDataGetThingShadowRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetThingShadow service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSIoTDataGetThingShadowResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSIoTDataErrorDomain</code> domain and the following error code: <code>AWSIoTDataErrorInvalidRequest</code>, <code>AWSIoTDataErrorResourceNotFound</code>, <code>AWSIoTDataErrorThrottling</code>, <code>AWSIoTDataErrorUnauthorized</code>, <code>AWSIoTDataErrorServiceUnavailable</code>, <code>AWSIoTDataErrorInternalFailure</code>, <code>AWSIoTDataErrorMethodNotAllowed</code>, <code>AWSIoTDataErrorUnsupportedDocumentEncoding</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataGetThingShadowRequest.html">AWSIoTDataGetThingShadowRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataGetThingShadowResponse.html">AWSIoTDataGetThingShadowResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getThingShadow:completionHandler:" title="getThingShadow:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getThingShadow:completionHandler:">&ndash;&nbsp;getThingShadow:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the thing shadow for the specified thing.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getThingShadow:(AWSIoTDataGetThingShadowRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSIoTDataGetThingShadowResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetThingShadow service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSIoTDataErrorDomain</code> domain and the following error code: <code>AWSIoTDataErrorInvalidRequest</code>, <code>AWSIoTDataErrorResourceNotFound</code>, <code>AWSIoTDataErrorThrottling</code>, <code>AWSIoTDataErrorUnauthorized</code>, <code>AWSIoTDataErrorServiceUnavailable</code>, <code>AWSIoTDataErrorInternalFailure</code>, <code>AWSIoTDataErrorMethodNotAllowed</code>, <code>AWSIoTDataErrorUnsupportedDocumentEncoding</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataGetThingShadowRequest.html">AWSIoTDataGetThingShadowRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataGetThingShadowResponse.html">AWSIoTDataGetThingShadowResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/publish:" title="publish:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/publish:">&ndash;&nbsp;publish:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Publishes state information.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the <i>AWS IoT Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)publish:(AWSIoTDataPublishRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the Publish service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSIoTDataErrorDomain</code> domain and the following error code: <code>AWSIoTDataErrorInternalFailure</code>, <code>AWSIoTDataErrorInvalidRequest</code>, <code>AWSIoTDataErrorUnauthorized</code>, <code>AWSIoTDataErrorMethodNotAllowed</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataPublishRequest.html">AWSIoTDataPublishRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/publish:completionHandler:" title="publish:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/publish:completionHandler:">&ndash;&nbsp;publish:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Publishes state information.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the <i>AWS IoT Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)publish:(AWSIoTDataPublishRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the Publish service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSIoTDataErrorDomain</code> domain and the following error code: <code>AWSIoTDataErrorInternalFailure</code>, <code>AWSIoTDataErrorInvalidRequest</code>, <code>AWSIoTDataErrorUnauthorized</code>, <code>AWSIoTDataErrorMethodNotAllowed</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataPublishRequest.html">AWSIoTDataPublishRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateThingShadow:" title="updateThingShadow:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateThingShadow:">&ndash;&nbsp;updateThingShadow:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates the thing shadow for the specified thing.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSIoTDataUpdateThingShadowResponse*&gt; *)updateThingShadow:(AWSIoTDataUpdateThingShadowRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateThingShadow service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSIoTDataUpdateThingShadowResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSIoTDataErrorDomain</code> domain and the following error code: <code>AWSIoTDataErrorConflict</code>, <code>AWSIoTDataErrorRequestEntityTooLarge</code>, <code>AWSIoTDataErrorInvalidRequest</code>, <code>AWSIoTDataErrorThrottling</code>, <code>AWSIoTDataErrorUnauthorized</code>, <code>AWSIoTDataErrorServiceUnavailable</code>, <code>AWSIoTDataErrorInternalFailure</code>, <code>AWSIoTDataErrorMethodNotAllowed</code>, <code>AWSIoTDataErrorUnsupportedDocumentEncoding</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataUpdateThingShadowRequest.html">AWSIoTDataUpdateThingShadowRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataUpdateThingShadowResponse.html">AWSIoTDataUpdateThingShadowResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/updateThingShadow:completionHandler:" title="updateThingShadow:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/updateThingShadow:completionHandler:">&ndash;&nbsp;updateThingShadow:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Updates the thing shadow for the specified thing.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)updateThingShadow:(AWSIoTDataUpdateThingShadowRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSIoTDataUpdateThingShadowResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UpdateThingShadow service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSIoTDataErrorDomain</code> domain and the following error code: <code>AWSIoTDataErrorConflict</code>, <code>AWSIoTDataErrorRequestEntityTooLarge</code>, <code>AWSIoTDataErrorInvalidRequest</code>, <code>AWSIoTDataErrorThrottling</code>, <code>AWSIoTDataErrorUnauthorized</code>, <code>AWSIoTDataErrorServiceUnavailable</code>, <code>AWSIoTDataErrorInternalFailure</code>, <code>AWSIoTDataErrorMethodNotAllowed</code>, <code>AWSIoTDataErrorUnsupportedDocumentEncoding</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataUpdateThingShadowRequest.html">AWSIoTDataUpdateThingShadowRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSIoTDataUpdateThingShadowResponse.html">AWSIoTDataUpdateThingShadowResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
 					
 
                     
@@ -75,6 +1136,8 @@
 						
 						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>
