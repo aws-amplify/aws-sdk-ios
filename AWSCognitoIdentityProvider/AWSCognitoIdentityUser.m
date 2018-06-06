@@ -159,7 +159,13 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
  Get a session
  */
 -(AWSTask<AWSCognitoIdentityUserSession*> *) getSession {
-    
+    return [self getSessionAndForceTokenRefresh:false];
+}
+
+/**
+ Get a session, force the refreshing of authentication tokens by passing in the `forceRefresh` flag.
+ */
+-(AWSTask<AWSCognitoIdentityUserSession*> *) getSessionAndForceTokenRefresh: (BOOL)forceRefresh {
     //check to see if we have valid tokens
     __block NSString * keyChainNamespace = [self keyChainNamespaceClientId];
     NSString * expirationTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserTokenExpiration];
@@ -174,7 +180,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         self.confirmedStatus = AWSCognitoIdentityUserStatusConfirmed;
 
         //if the session expires > 5 minutes return it.
-        if(expiration && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:5 * 60]] == NSOrderedDescending){
+        if(expiration && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:5 * 60]] == NSOrderedDescending && !forceRefresh){
             NSString * idTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserIdToken];
             NSString * accessTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserAccessToken];
             AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken:self.pool.keychain[idTokenKey] accessToken:self.pool.keychain[accessTokenKey] refreshToken:refreshToken expirationTime:expiration];
