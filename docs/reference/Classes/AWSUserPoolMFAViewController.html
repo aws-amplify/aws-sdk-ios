@@ -3,18 +3,18 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>AWSUserPoolMFAViewController Class Reference</title>
+	<title></title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	
 </head>
 <body class="appledoc">
 	<header>
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.20 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -45,25 +45,7 @@
 	
 
 	
-	
-	<option value="tasks">Tasks</option>
-	
-	
 
-	
-	
-
-	
-
-	
-	<optgroup label="Instance Methods">
-		
-		<option value="//api/name/didCompleteMultifactorAuthenticationStepWithError:">- didCompleteMultifactorAuthenticationStepWithError:</option>
-		
-		<option value="//api/name/getMultiFactorAuthenticationCode:mfaCodeCompletionSource:">- getMultiFactorAuthenticationCode:mfaCodeCompletionSource:</option>
-		
-	</optgroup>
-	
 	
 </select>
 						</label>
@@ -77,151 +59,12 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">AWSUserPoolMFAViewController Class Reference</h1>
+					<h1 class="title"></h1>
 
-					
-					<div class="section section-specification"><table cellspacing="0"><tbody>
-						<tr>
-	<th>Inherits from</th>
-	<td>UIViewController</td>
-</tr><tr>
-	<th>Conforms to</th>
-	<td><a href="../Protocols/AWSCognitoIdentityMultiFactorAuthentication.html">AWSCognitoIdentityMultiFactorAuthentication</a></td>
-</tr><tr>
-	<th>Declared in</th>
-	<td>AWSUserPoolMFAViewController.h<br />AWSUserPoolMFAViewController.m</td>
-</tr>
-						</tbody></table></div>
 					
 
                     
 
-					
-					
-					<div class="section section-tasks">
-						<a title="Tasks" name="tasks"></a>
-						
-
-						
-						
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/getMultiFactorAuthenticationCode:mfaCodeCompletionSource:" title="getMultiFactorAuthenticationCode:mfaCodeCompletionSource:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/getMultiFactorAuthenticationCode:mfaCodeCompletionSource:">&ndash;&nbsp;getMultiFactorAuthenticationCode:mfaCodeCompletionSource:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Obtain mfa code from the end user</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)getMultiFactorAuthenticationCode:(AWSCognitoIdentityMultifactorAuthenticationInput *)<em>authenticationInput</em> mfaCodeCompletionSource:(AWSTaskCompletionSource&lt;NSString*&gt; *)<em>mfaCodeCompletionSource</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>authenticationInput</code></th>
-						<td><p>details about the deliveryMedium and masked destination for where the code was sent</p></td>
-					</tr>
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>mfaCodeCompletionSource</code></th>
-						<td><p>set mfaCodeCompletionSource.result with the mfa code from end user</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUserPool.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/didCompleteMultifactorAuthenticationStepWithError:" title="didCompleteMultifactorAuthenticationStepWithError:"></a>
-	<h3 class="method-title"><code><a href="#//api/name/didCompleteMultifactorAuthenticationStepWithError:">&ndash;&nbsp;didCompleteMultifactorAuthenticationStepWithError:</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>This step completed, usually either display an error to the end user or dismiss ui</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (void)didCompleteMultifactorAuthenticationStepWithError:(NSError *)<em>error</em></code></div>
-
-		    
-			
-			<div class="method-subsection arguments-section parameters">
-				<h4 class="method-subtitle parameter-title">Parameters</h4>
-				<table class="argument-def parameter-def">
-				
-					<tr>
-						<th scope="row" class="argument-name"><code>error</code></th>
-						<td><p>the error if any that occured</p></td>
-					</tr>
-				
-				</table>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityUserPool.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
-					</div>
-					
 					
 
                     
@@ -230,10 +73,8 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-01</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
-						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

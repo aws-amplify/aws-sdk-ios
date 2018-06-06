@@ -3,18 +3,18 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>AWSSQSReceiveMessageRequest Class Reference</title>
+	<title></title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	
 </head>
 <body class="appledoc">
 	<header>
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.20 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -43,39 +43,9 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-	<option value="overview">Overview</option>
-	
-
-	
-	
-	<option value="tasks">Tasks</option>
-	
-	
-
-	
-	
-	<optgroup label="Properties">
-		
-		<option value="//api/name/attributeNames">attributeNames</option>
-		
-		<option value="//api/name/maxNumberOfMessages">maxNumberOfMessages</option>
-		
-		<option value="//api/name/messageAttributeNames">messageAttributeNames</option>
-		
-		<option value="//api/name/queueUrl">queueUrl</option>
-		
-		<option value="//api/name/receiveRequestAttemptId">receiveRequestAttemptId</option>
-		
-		<option value="//api/name/visibilityTimeout">visibilityTimeout</option>
-		
-		<option value="//api/name/waitTimeSeconds">waitTimeSeconds</option>
-		
-	</optgroup>
-	
 
 	
 
-	
 	
 </select>
 						</label>
@@ -89,370 +59,12 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">AWSSQSReceiveMessageRequest Class Reference</h1>
+					<h1 class="title"></h1>
 
-					
-					<div class="section section-specification"><table cellspacing="0"><tbody>
-						<tr>
-	<th>Inherits from</th>
-	<td>AWSRequest : AWSModel : AWSMTLModel</td>
-</tr><tr>
-	<th>Declared in</th>
-	<td>AWSSQSModel.h<br />AWSSQSModel.m</td>
-</tr>
-						</tbody></table></div>
 					
 
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><p/>
-Required parameters: [QueueUrl]</p>
-					</div>
-					
-					
 
-					
-					
-					<div class="section section-tasks">
-						<a title="Tasks" name="tasks"></a>
-						
-
-						
-						
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/attributeNames" title="attributeNames"></a>
-	<h3 class="method-title"><code><a href="#//api/name/attributeNames">&nbsp;&nbsp;attributeNames</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>A list of attributes that need to be returned along with each message. These attributes include:</p>
-
-
-<ul><li><p><code>All</code> - Returns all values.</p></li><li><p><code>ApproximateFirstReceiveTimestamp</code> - Returns the time the message was first received from the queue (epoch time in milliseconds).</p></li><li><p><code>ApproximateReceiveCount</code> - Returns the number of times a message has been received from the queue but not deleted.</p></li><li><p><code>SenderId</code></p><ul><li><p>For an IAM user, returns the IAM user ID, for example <code>ABCDEFGHI1JKLMNOPQ23R</code>.</p></li><li><p>For an IAM role, returns the IAM role ID, for example <code>ABCDE1F2GH3I4JK5LMNOP:i-a123b456</code>.</p></li></ul></li><li><p><code>SentTimestamp</code> - Returns the time the message was sent to the queue (epoch time in milliseconds).</p></li><li><p><code>MessageDeduplicationId</code> - Returns the value provided by the sender that calls the <code><a>SendMessage</a></code> action.</p></li><li><p><code>MessageGroupId</code> - Returns the value provided by the sender that calls the <code><a>SendMessage</a></code> action. Messages with the same <code>MessageGroupId</code> are returned in sequence.</p></li><li><p><code>SequenceNumber</code> - Returns the value provided by Amazon SQS.</p></li></ul>
-
-
-<p>Any other valid special request parameters (such as the following) that are specified are ignored:</p>
-
-
-<ul><li><p><code>ApproximateNumberOfMessages</code></p></li><li><p><code>ApproximateNumberOfMessagesDelayed</code></p></li><li><p><code>ApproximateNumberOfMessagesNotVisible</code></p></li><li><p><code>CreatedTimestamp</code></p></li><li><p><code>ContentBasedDeduplication</code></p></li><li><p><code>DelaySeconds</code></p></li><li><p><code>LastModifiedTimestamp</code></p></li><li><p><code>MaximumMessageSize</code></p></li><li><p><code>MessageRetentionPeriod</code></p></li><li><p><code>Policy</code></p></li><li><p><code>QueueArn</code>, </p></li><li><p><code>ReceiveMessageWaitTimeSeconds</code></p></li><li><p><code>RedrivePolicy</code></p></li><li><p><code>FifoQueue</code></p></li><li><p><code>VisibilityTimeout</code></p></li></ul>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *attributeNames</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSQSModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/maxNumberOfMessages" title="maxNumberOfMessages"></a>
-	<h3 class="method-title"><code><a href="#//api/name/maxNumberOfMessages">&nbsp;&nbsp;maxNumberOfMessages</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The maximum number of messages to return. Amazon SQS never returns more messages than this value but might return fewer. Values can be from 1 to 10. Default is 1.</p>
-
-
-<p>All of the messages are not necessarily returned.</p>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *maxNumberOfMessages</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSQSModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/messageAttributeNames" title="messageAttributeNames"></a>
-	<h3 class="method-title"><code><a href="#//api/name/messageAttributeNames">&nbsp;&nbsp;messageAttributeNames</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The name of the message attribute, where <i>N</i> is the index. The message attribute name can contain the following characters: A-Z, a-z, 0-9, underscore (_), hyphen (-), and period (.). The name must not start or end with a period, and it should not have successive periods. The name is case sensitive and must be unique among all attribute names for the message. The name can be up to 256 characters long. The name can't start with "AWS." or "Amazon." (or any variations in casing), because these prefixes are reserved for use by Amazon Web Services.</p>
-
-
-<p>When using <code>ReceiveMessage</code>, you can send a list of attribute names to receive, or you can return all of the attributes by specifying "All" or ".*" in your request. You can also use "bar.*" to return all message attributes starting with the "bar" prefix.</p>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *messageAttributeNames</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSQSModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/queueUrl" title="queueUrl"></a>
-	<h3 class="method-title"><code><a href="#//api/name/queueUrl">&nbsp;&nbsp;queueUrl</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The URL of the Amazon SQS queue to take action on.</p>
-
-
-<p>Queue URLs are case-sensitive.</p>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *queueUrl</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSQSModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/receiveRequestAttemptId" title="receiveRequestAttemptId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/receiveRequestAttemptId">&nbsp;&nbsp;receiveRequestAttemptId</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>This parameter applies only to FIFO (first-in-first-out) queues.</p>
-
-
-<p>The token used for deduplication of <code>ReceiveMessage</code> calls. If a networking issue occurs after a <code>ReceiveMessage</code> action, and instead of a response you receive a generic error, you can retry the same action with an identical <code>ReceiveRequestAttemptId</code> to retrieve the same set of messages, even if their visibility timeout has not yet expired.</p>
-
-
-<ul><li><p>You can use <code>ReceiveRequestAttemptId</code> only for 5 minutes after a <code>ReceiveMessage</code> action.</p></li><li><p>When you set <code>FifoQueue</code>, a caller of the <code>ReceiveMessage</code> action can provide a <code>ReceiveRequestAttemptId</code> explicitly.</p></li><li><p>If a caller of the <code>ReceiveMessage</code> action doesn't provide a <code>ReceiveRequestAttemptId</code>, Amazon SQS generates a <code>ReceiveRequestAttemptId</code>.</p></li><li><p>You can retry the <code>ReceiveMessage</code> action with the same <code>ReceiveRequestAttemptId</code> if none of the messages have been modified (deleted or had their visibility changes).</p></li><li><p>During a visibility timeout, subsequent calls with the same <code>ReceiveRequestAttemptId</code> return the same messages and receipt handles. If a retry occurs within the deduplication interval, it resets the visibility timeout. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html">Visibility Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p><important><p>If a caller of the <code>ReceiveMessage</code> action is still processing messages when the visibility timeout expires and messages become visible, another worker reading from the same queue can receive the same messages and therefore process duplicates. Also, if a reader whose message processing time is longer than the visibility timeout tries to delete the processed messages, the action fails with an error.</p><p>To mitigate this effect, ensure that your application observes a safe threshold before the visibility timeout expires and extend the visibility timeout as necessary.</p></important></li><li><p>While messages with a particular <code>MessageGroupId</code> are invisible, no more messages belonging to the same <code>MessageGroupId</code> are returned until the visibility timeout expires. You can still receive messages with another <code>MessageGroupId</code> as long as it is also visible.</p></li><li><p>If a caller of <code>ReceiveMessage</code> can't track the <code>ReceiveRequestAttemptId</code>, no retries will work until the original visibility timeout expires. As a result, delays might occur but the messages in the queue will remain in a strict order.</p></li></ul>
-
-
-<p>The length of <code>ReceiveRequestAttemptId</code> is 128 characters. <code>ReceiveRequestAttemptId</code> can contain alphanumeric characters (<code>a-z</code>, <code>A-Z</code>, <code>0-9</code>) and punctuation (<code>!"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_`{|}~</code>).</p>
-
-
-<p>For best practices of using <code>ReceiveRequestAttemptId</code>, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queue-recommendations.html#using-receiverequestattemptid-request-parameter">Using the ReceiveRequestAttemptId Request Parameter</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *receiveRequestAttemptId</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSQSModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/visibilityTimeout" title="visibilityTimeout"></a>
-	<h3 class="method-title"><code><a href="#//api/name/visibilityTimeout">&nbsp;&nbsp;visibilityTimeout</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a <code>ReceiveMessage</code> request.</p>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *visibilityTimeout</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSQSModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/waitTimeSeconds" title="waitTimeSeconds"></a>
-	<h3 class="method-title"><code><a href="#//api/name/waitTimeSeconds">&nbsp;&nbsp;waitTimeSeconds</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The duration (in seconds) for which the call will wait for a message to arrive in the queue before returning. If a message is available, the call will return sooner than WaitTimeSeconds.</p>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *waitTimeSeconds</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSQSModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
-					</div>
-					
 					
 
                     
@@ -461,10 +73,8 @@ Required parameters: [QueueUrl]</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-01</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
-						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

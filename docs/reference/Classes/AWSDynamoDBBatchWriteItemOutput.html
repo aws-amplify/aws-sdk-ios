@@ -3,18 +3,18 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>AWSDynamoDBBatchWriteItemOutput Class Reference</title>
+	<title></title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	
 </head>
 <body class="appledoc">
 	<header>
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.20 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -43,31 +43,9 @@
 							<select id="jump-to">
 	<option value="top">Jump To&#133;</option>
 	
-	<option value="overview">Overview</option>
-	
-
-	
-	
-	<option value="tasks">Tasks</option>
-	
-	
-
-	
-	
-	<optgroup label="Properties">
-		
-		<option value="//api/name/consumedCapacity">consumedCapacity</option>
-		
-		<option value="//api/name/itemCollectionMetrics">itemCollectionMetrics</option>
-		
-		<option value="//api/name/unprocessedItems">unprocessedItems</option>
-		
-	</optgroup>
-	
 
 	
 
-	
 	
 </select>
 						</label>
@@ -81,193 +59,12 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">AWSDynamoDBBatchWriteItemOutput Class Reference</h1>
+					<h1 class="title"></h1>
 
-					
-					<div class="section section-specification"><table cellspacing="0"><tbody>
-						<tr>
-	<th>Inherits from</th>
-	<td>AWSModel : AWSMTLModel</td>
-</tr><tr>
-	<th>Declared in</th>
-	<td>AWSDynamoDBModel.h<br />AWSDynamoDBModel.m</td>
-</tr>
-						</tbody></table></div>
 					
 
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Represents the output of a <i>BatchWriteItem</i> operation.</p>
 
-					</div>
-					
-					
-
-					
-					
-					<div class="section section-tasks">
-						<a title="Tasks" name="tasks"></a>
-						
-
-						
-						
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/consumedCapacity" title="consumedCapacity"></a>
-	<h3 class="method-title"><code><a href="#//api/name/consumedCapacity">&nbsp;&nbsp;consumedCapacity</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The capacity units consumed by the operation.</p>
-
-
-<p>Each element consists of:</p>
-
-
-<ul><li><p><i>TableName</i> - The table that consumed the provisioned throughput.</p></li><li><p><i>CapacityUnits</i> - The total number of capacity units consumed.</p></li></ul>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBConsumedCapacity*&gt; *consumedCapacity</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/itemCollectionMetrics" title="itemCollectionMetrics"></a>
-	<h3 class="method-title"><code><a href="#//api/name/itemCollectionMetrics">&nbsp;&nbsp;itemCollectionMetrics</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>A list of tables that were processed by <i>BatchWriteItem</i> and, for each table, information about any item collections that were affected by individual <i>DeleteItem</i> or <i>PutItem</i> operations.</p>
-
-
-<p>Each entry consists of the following subelements:</p>
-
-
-<ul><li><p><i>ItemCollectionKey</i> - The partition key value of the item collection. This is the same as the partition key value of the item.</p></li><li><p><i>SizeEstimateRange</i> - An estimate of item collection size, expressed in GB. This is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on the table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p><p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p></li></ul>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;AWSDynamoDBItemCollectionMetrics*&gt; *&gt; *itemCollectionMetrics</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/unprocessedItems" title="unprocessedItems"></a>
-	<h3 class="method-title"><code><a href="#//api/name/unprocessedItems">&nbsp;&nbsp;unprocessedItems</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>A map of tables and requests against those tables that were not processed. The <i>UnprocessedItems</i> value is in the same form as <i>RequestItems</i>, so you can provide this value directly to a subsequent <i>BatchGetItem</i> operation. For more information, see <i>RequestItems</i> in the Request Parameters section.</p>
-
-
-<p>Each <i>UnprocessedItems</i> entry consists of a table name and, for that table, a list of operations to perform (<i>DeleteRequest</i> or <i>PutRequest</i>).</p>
-
-
-<ul><li><p><i>DeleteRequest</i> - Perform a <i>DeleteItem</i> operation on the specified item. The item to be deleted is identified by a <i>Key</i> subelement:</p><ul><li><p><i>Key</i> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value.</p></li></ul></li><li><p><i>PutRequest</i> - Perform a <i>PutItem</i> operation on the specified item. The item to be put is identified by an <i>Item</i> subelement:</p><ul><li><p><i>Item</i> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <i>ValidationException</i> exception.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul>
-
-
-<p>If there are no unprocessed items remaining, the response contains an empty <i>UnprocessedItems</i> map.</p>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;AWSDynamoDBWriteRequest*&gt; *&gt; *unprocessedItems</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
-					</div>
-					
 					
 
                     
@@ -276,10 +73,8 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-01</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
-						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>

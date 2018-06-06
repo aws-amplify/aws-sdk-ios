@@ -3,18 +3,18 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>AWSIdentityManager Class Reference</title>
+	<title></title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	
 </head>
 <body class="appledoc">
 	<header>
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.20 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -45,37 +45,7 @@
 	
 
 	
-	
-	<option value="tasks">Tasks</option>
-	
-	
 
-	
-	
-	<optgroup label="Properties">
-		
-		<option value="//api/name/credentialsProvider">credentialsProvider</option>
-		
-		<option value="//api/name/identityId">identityId</option>
-		
-	</optgroup>
-	
-
-	
-	<optgroup label="Class Methods">
-		
-		<option value="//api/name/defaultIdentityManager">+ defaultIdentityManager</option>
-		
-	</optgroup>
-	
-
-	
-	<optgroup label="Instance Methods">
-		
-		<option value="//api/name/logins">- logins</option>
-		
-	</optgroup>
-	
 	
 </select>
 						</label>
@@ -89,234 +59,12 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">AWSIdentityManager Class Reference</h1>
+					<h1 class="title"></h1>
 
-					
-					<div class="section section-specification"><table cellspacing="0"><tbody>
-						<tr>
-	<th>Inherits from</th>
-	<td>NSObject</td>
-</tr><tr>
-	<th>Conforms to</th>
-	<td><a href="../Protocols/AWSIdentityProviderManager.html">AWSIdentityProviderManager</a></td>
-</tr><tr>
-	<th>Declared in</th>
-	<td>AWSIdentityManager.h<br />AWSIdentityManager.m</td>
-</tr>
-						</tbody></table></div>
 					
 
                     
 
-					
-					
-					<div class="section section-tasks">
-						<a title="Tasks" name="tasks"></a>
-						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/identityId" title="identityId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/identityId">&nbsp;&nbsp;identityId</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Amazon Cognito User Identity ID. This uniquely identifies the user, regardless of
-whether or not the user is signed-in, if User Sign-in is enabled in the project.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, nullable) NSString *identityId</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>unique user identifier</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSIdentityManager.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/credentialsProvider" title="credentialsProvider"></a>
-	<h3 class="method-title"><code><a href="#//api/name/credentialsProvider">&nbsp;&nbsp;credentialsProvider</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Amazon Cognito Credentials Provider. This is the credential provider used by the Identity Manager.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly, strong) AWSCognitoCredentialsProvider *credentialsProvider</code></div>
-
-		    
-			
-
-			
-			<div class="method-subsection return">
-				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>the cognito credentials provider</p>
-			</div>
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSIdentityManager.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/defaultIdentityManager" title="defaultIdentityManager"></a>
-	<h3 class="method-title"><code><a href="#//api/name/defaultIdentityManager">+&nbsp;defaultIdentityManager</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Returns the Identity Manager singleton instance configured using the information provided in <code>awsconfiguration.json</code> or <code>Info.plist</code> file.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultIdentityManager</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<p><em>Swift</em></p>
-
-<p>let identityManager = AWSIdentityManager.default()</p>
-
-<p><em>Objective-C</em></p>
-
-<p>AWSIdentityManager *identityManager = [AWSIdentityManager defaultIdentityManager];</p>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSIdentityManager.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/logins" title="logins"></a>
-	<h3 class="method-title"><code><a href="#//api/name/logins">&ndash;&nbsp;logins</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>Each entry in logins represents a single login with an identity provider. The key is the domain of the login provider (e.g. &lsquo;graph.facebook.com&rsquo;) and the value is the OAuth/OpenId Connect token that results from an authentication with that login provider.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;NSDictionary&lt;NSString*,NSString*&gt; *&gt; *)logins</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSIdentityProvider.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
-					</div>
-					
 					
 
                     
@@ -325,10 +73,8 @@ whether or not the user is signed-in, if User Sign-in is enabled in the project.
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-01</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
 						
-						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
 						
 					</div>
 				</footer>
