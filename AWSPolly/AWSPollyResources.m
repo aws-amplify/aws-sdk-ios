@@ -687,6 +687,7 @@
         \"Penelope\",\
         \"Chantal\",\
         \"Celine\",\
+        \"Lea\",\
         \"Mathieu\",\
         \"Dora\",\
         \"Karl\",\

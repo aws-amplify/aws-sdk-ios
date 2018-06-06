@@ -1,6 +1,18 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.21
+
+### Bug Fixes
+
+* **AWS IoT**
+  * Fixed crash in AWS IoT due to use of API is not backward compatible with iOS 8.0. See [issue#949](https://github.com/aws/aws-sdk-ios/issues/949)
+
+### Enhancements
+
+* **Amazon Polly**
+  * Added support for new voice - `Lea`
+
 ## 2.6.20
 
 ### New Features

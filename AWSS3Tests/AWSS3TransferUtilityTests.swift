@@ -69,6 +69,12 @@ class AWSS3TransferUtilityTests: XCTestCase {
             forKey: "short-expiry"
         )
         
+        let serviceConfiguration4 = AWSServiceManager.default().defaultServiceConfiguration
+        AWSS3TransferUtility.register(
+            with: serviceConfiguration4!,
+            transferUtilityConfiguration: nil,
+            forKey: "nil-configuration"
+        )
         
         let invalidStaticCredentialProvider = AWSStaticCredentialsProvider(accessKey: "Invalid", secretKey: "AlsoInvalid")
         let invalidServiceConfig = AWSServiceConfiguration(region: .USEast1, credentialsProvider: invalidStaticCredentialProvider)
@@ -1133,8 +1139,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
     
     func testMultiPartUploadSmallFile() {
         let expectation = self.expectation(description: "The completion handler called.")
-        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
-        
+        let transferUtility = AWSS3TransferUtility.default()
         let filePath = NSTemporaryDirectory() + "testMultiPartUploadSmallFile.tmp"
         let fileURL = URL(fileURLWithPath: filePath)
         FileManager.default.createFile(atPath: filePath, contents: "This is a test".data(using: .utf8), attributes: nil)
@@ -1192,6 +1197,66 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
     }
     
+    func testMultiPartUploadSmallFileNilTransferUtilityConfiguration() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "nil-configuration")
+        let filePath = NSTemporaryDirectory() + "testMultiPartUploadSmallFileNilTransferUtilityConfiguration.tmp"
+        let fileURL = URL(fileURLWithPath: filePath)
+        FileManager.default.createFile(atPath: filePath, contents: "This is a test".data(using: .utf8), attributes: nil)
+
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        let uuid:(String) = UUID().uuidString
+        let author:(String) = "integration test"
+        expression.setValue(author, forRequestHeader: "x-amz-meta-author")
+        expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
+        expression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+
+        //Create Completion Handler
+        let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
+            XCTAssertNil(error)
+
+            //Get Meta Data and verify that it has been updated. This will indicate that the upload has succeeded.
+            let s3 = AWSS3.default()
+            let headObjectRequest = AWSS3HeadObjectRequest()
+            headObjectRequest?.bucket = "ios-v2-s3.periods"
+            headObjectRequest?.key = "testMultiPartUploadSmallFileNilTransferUtilityConfiguration.txt"
+
+            s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                if (task.result != nil) {
+                    let output:(AWSS3HeadObjectOutput) = task.result!
+                    XCTAssertNotNil(output)
+                    XCTAssertNotNil(output.metadata)
+                    XCTAssertEqual(author, output.metadata?["author"])
+                    XCTAssertEqual(uuid, output.metadata?["id"])
+                }
+
+                expectation.fulfill()
+                return nil
+            })
+
+        }
+
+        transferUtility.uploadUsingMultiPart(fileURL:fileURL,
+                                             bucket: "ios-v2-s3.periods",
+                                             key: "testMultiPartUploadSmallFileNilTransferUtilityConfiguration.txt",
+                                             contentType: "text/plain",
+                                             expression: expression,
+                                             completionHandler: uploadCompletionHandler)
+            .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
+                XCTAssertNil(task.error)
+                XCTAssertNotNil(task.result)
+                return nil
+            }.waitUntilFinished()
+
+        waitForExpectations(timeout: 90) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+
     func testMultiPartUploadLargeFile() {
         //Create a large temp file;
         let filePath = NSTemporaryDirectory() + "testMultiPartUploadLargeFile.tmp"
@@ -1823,6 +1888,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
             XCTAssertNotNil(error)
+            self.processServiceError(error)
             expectation.fulfill()
         }
         
@@ -1848,8 +1914,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "invalid")
         
         let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
-            XCTAssertTrue(self.isServiceErrorPresent(error), "Service error should have been present but is not.")
             XCTAssertNotNil(error)
+            self.processServiceError(error)
             expectation.fulfill()
         }
         
@@ -1884,11 +1950,9 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
-            guard error == nil else {
-                expectation.fulfill()
-                XCTAssertTrue(self.isServiceErrorPresent(error), "Service error should have been present but is not.")
-                return
-            }
+            XCTAssertNotNil(error)
+            self.processServiceError(error)
+            expectation.fulfill()
         }
         
         transferUtility.downloadData(
@@ -1916,11 +1980,9 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         
         let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
-            guard error == nil else {
-                expectation.fulfill()
-                XCTAssertTrue(self.isServiceErrorPresent(error), "Service error should have been present but is not.")
-                return
-            }
+            XCTAssertNotNil(error)
+            self.processServiceError(error)
+            expectation.fulfill()
         }
         
         transferUtility.downloadData(
@@ -1937,9 +1999,9 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
     }
 
-    func isServiceErrorPresent(_ error: Error?) -> Bool {
+    func processServiceError(_ error: Error?) {
         guard let err = error as NSError? else {
-            return false
+            return
         }
         
         let errorInfo = err.userInfo["Error"] as? [String: Any]
@@ -1948,10 +2010,9 @@ class AWSS3TransferUtilityTests: XCTestCase {
             for element in errorInfo! {
                 print(">> \(element.key): \(element.value)")
             }
-            return true
-        } else {
-            return false
-        }
+            XCTAssertNotNil(errorInfo!["Code"])
+            XCTAssertNotNil(errorInfo!["Message"])
+          }
     }
     
     func testUploadAndDownloadDataMultipleClients() {

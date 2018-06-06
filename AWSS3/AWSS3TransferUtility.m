@@ -208,7 +208,6 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             NSNumber *accelerateModeEnabled = [serviceInfo.infoDictionary valueForKey:@"AccelerateModeEnabled"];
-            transferUtilityConfiguration = [AWSS3TransferUtilityConfiguration new];
             NSString *bucketName = [serviceInfo.infoDictionary valueForKey:@"Bucket"];
             transferUtilityConfiguration.bucket = bucketName;
             transferUtilityConfiguration.accelerateModeEnabled = [accelerateModeEnabled boolValue];
@@ -299,8 +298,13 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     if (self = [super init]) {
         _configuration = [serviceConfiguration copy];
         [_configuration addUserAgentProductToken:AWSS3TransferUtilityUserAgent];
-        
-        _transferUtilityConfiguration = [transferUtilityConfiguration copy];
+       
+        if (transferUtilityConfiguration  ) {
+            _transferUtilityConfiguration = [transferUtilityConfiguration copy];
+        }
+        else {
+            _transferUtilityConfiguration = [AWSS3TransferUtilityConfiguration new];
+        }
         
         _preSignedURLBuilder = [[AWSS3PreSignedURLBuilder alloc] initWithConfiguration:_configuration];
         _s3 = [[AWSS3 alloc] initWithConfiguration:_configuration];

@@ -749,6 +749,14 @@ static const NSString *SDK_VERSION = @"2.6.19";
 
 #pragma-mark MQTTSessionDelegate
 
+- (void)connectionAgeTimerHandler:(NSTimer*)theTimer {
+    self.connectionAgeInSeconds++;
+    if (self.connectionAgeInSeconds > self.minimumConnectionTime) {
+        self.currentReconnectTime = self.baseReconnectTime;
+        [theTimer invalidate];
+    }
+}
+
 - (void)session:(MQTTSession*)session handleEvent:(MQTTSessionEvent)eventCode {
     AWSDDLogVerbose(@"MQTTSessionDelegate handleEvent: %i",eventCode);
 
@@ -759,13 +767,12 @@ static const NSString *SDK_VERSION = @"2.6.19";
             [self notifyConnectionStatus];
           
             if (self.connectionAgeTimer == nil) {
-                self.connectionAgeTimer = [NSTimer scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer * _Nonnull timer) {
-                    self.connectionAgeInSeconds++;
-                    if (self.connectionAgeInSeconds > self.minimumConnectionTime) {
-                        self.currentReconnectTime = self.baseReconnectTime;
-                        [timer invalidate];
-                    }
-                }];
+                self.connectionAgeTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:1.0]
+                                         interval:1.0
+                                           target:self
+                                         selector:@selector(connectionAgeTimerHandler:)
+                                         userInfo:nil
+                                          repeats:YES];
             }
             
             //Subscribe to prior topics

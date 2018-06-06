@@ -879,11 +879,10 @@ static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
     }
 }
 
-- (void)testValidAwsConfigurationJson {
+- (void)testValidAwsConfigurationJsonIfPresent {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"awsconfiguration"
                                                          ofType:@"json"];
     if (!filePath) {
-        XCTFail(@"Test Failed: Please add %@ file under AWSCoreTests/Resources folder.", awsConfigurationJsonFileName);
         return;
     }
     
@@ -907,11 +906,10 @@ static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
     }
 }
 
-- (void)testEmptyAwsConfigurationJson {
+- (void)testEmptyAwsConfigurationJsonIfPresent {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"awsconfiguration"
                                                          ofType:@"json"];
     if (!filePath) {
-        XCTFail(@"Test Failed: Please add %@ file under AWSCoreTests/Resources folder.", awsConfigurationJsonFileName);
         return;
     }
     NSData *validData = [NSData dataWithContentsOfFile:filePath];
