@@ -386,7 +386,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
             AWSS3TransferUtilityUploadTask *transferUtilityUploadTask = [AWSS3TransferUtilityUploadTask new];
             transferUtilityUploadTask.nsURLSessionID = self.sessionIdentifier;
             transferUtilityUploadTask.databaseQueue = self.databaseQueue;
-            transferUtilityUploadTask.bucket = [task objectForKey:@"bucket"];
+            transferUtilityUploadTask.bucket = [task objectForKey:@"bucket_name"];
             transferUtilityUploadTask.key = [task objectForKey:@"key"];
             transferUtilityUploadTask.expression = [AWSS3TransferUtilityUploadExpression new];
             transferUtilityUploadTask.expression.internalRequestHeaders = [[self getDictionaryFromJson:[task objectForKey:@"request_headers"]] mutableCopy];
@@ -420,7 +420,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
             AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask = [AWSS3TransferUtilityDownloadTask new];
             transferUtilityDownloadTask.nsURLSessionID = self.sessionIdentifier;
             transferUtilityDownloadTask.databaseQueue = self.databaseQueue;
-            transferUtilityDownloadTask.bucket = [task objectForKey:@"bucket"];
+            transferUtilityDownloadTask.bucket = [task objectForKey:@"bucket_name"];
             transferUtilityDownloadTask.key = [task objectForKey:@"key"];
             transferUtilityDownloadTask.expression = [AWSS3TransferUtilityDownloadExpression new];
             transferUtilityDownloadTask.expression.internalRequestHeaders = [[self getDictionaryFromJson:[task objectForKey:@"request_headers"]] mutableCopy];
@@ -456,7 +456,7 @@ downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
             AWSS3TransferUtilityMultiPartUploadTask *transferUtilityMultiPartUploadTask = [AWSS3TransferUtilityMultiPartUploadTask new];
             transferUtilityMultiPartUploadTask.nsURLSessionID = self.sessionIdentifier;
             transferUtilityMultiPartUploadTask.databaseQueue = self.databaseQueue;
-            transferUtilityMultiPartUploadTask.bucket = [task objectForKey:@"bucket"];
+            transferUtilityMultiPartUploadTask.bucket = [task objectForKey:@"bucket_name"];
             transferUtilityMultiPartUploadTask.key = [task objectForKey:@"key"];
             transferUtilityMultiPartUploadTask.expression = [AWSS3TransferUtilityMultiPartUploadExpression new];
             transferUtilityMultiPartUploadTask.expression.internalRequestHeaders = [[self getDictionaryFromJson:[task objectForKey:@"request_headers"]] mutableCopy];
