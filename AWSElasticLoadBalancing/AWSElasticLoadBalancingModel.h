@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
     AWSElasticLoadBalancingErrorInvalidSubnet,
     AWSElasticLoadBalancingErrorListenerNotFound,
     AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound,
+    AWSElasticLoadBalancingErrorOperationNotPermitted,
     AWSElasticLoadBalancingErrorPolicyNotFound,
     AWSElasticLoadBalancingErrorPolicyTypeNotFound,
     AWSElasticLoadBalancingErrorSubnetNotFound,
@@ -83,6 +84,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @class AWSElasticLoadBalancingDeregisterEndPointsOutput;
 @class AWSElasticLoadBalancingDescribeAccessPointsInput;
 @class AWSElasticLoadBalancingDescribeAccessPointsOutput;
+@class AWSElasticLoadBalancingDescribeAccountLimitsInput;
+@class AWSElasticLoadBalancingDescribeAccountLimitsOutput;
 @class AWSElasticLoadBalancingDescribeEndPointStateInput;
 @class AWSElasticLoadBalancingDescribeEndPointStateOutput;
 @class AWSElasticLoadBalancingDescribeLoadBalancerAttributesInput;
@@ -99,6 +102,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @class AWSElasticLoadBalancingInstance;
 @class AWSElasticLoadBalancingInstanceState;
 @class AWSElasticLoadBalancingLBCookieStickinessPolicy;
+@class AWSElasticLoadBalancingLimit;
 @class AWSElasticLoadBalancingListener;
 @class AWSElasticLoadBalancingListenerDescription;
 @class AWSElasticLoadBalancingLoadBalancerAttributes;
@@ -412,7 +416,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable availabilityZones;
 
 /**
- <p>The listeners.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>The listeners.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a> in the <i>Classic Load Balancer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingListener *> * _Nullable listeners;
 
@@ -437,7 +441,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnets;
 
 /**
- <p>A list of tags to assign to the load balancer.</p><p>For more information about tagging your load balancer, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>A list of tags to assign to the load balancer.</p><p>For more information about tagging your load balancer, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/add-remove-tags.html">Tag Your Classic Load Balancer</a> in the <i>Classic Load Balancer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingTag *> * _Nullable tags;
 
@@ -748,6 +752,42 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @end
 
 /**
+ 
+ */
+@interface AWSElasticLoadBalancingDescribeAccountLimitsInput : AWSRequest
+
+
+/**
+ <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+/**
+ <p>The maximum number of results to return with this call.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable pageSize;
+
+@end
+
+/**
+ 
+ */
+@interface AWSElasticLoadBalancingDescribeAccountLimitsOutput : AWSModel
+
+
+/**
+ <p>Information about the limits.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSElasticLoadBalancingLimit *> * _Nullable limits;
+
+/**
+ <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+@end
+
+/**
  <p>Contains the parameters for DescribeInstanceHealth.</p>
  Required parameters: [LoadBalancerName]
  */
@@ -1016,7 +1056,25 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @end
 
 /**
- <p>Information about a listener.</p><p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>Information about an Elastic Load Balancing resource limit for your AWS account.</p>
+ */
+@interface AWSElasticLoadBalancingLimit : AWSModel
+
+
+/**
+ <p>The maximum value of the limit.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable max;
+
+/**
+ <p>The name of the limit. The possible values are:</p><ul><li><p>classic-listeners</p></li><li><p>classic-load-balancers</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>Information about a listener.</p><p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a> in the <i>Classic Load Balancer Guide</i>.</p>
  Required parameters: [Protocol, LoadBalancerPort, InstancePort]
  */
 @interface AWSElasticLoadBalancingListener : AWSModel
@@ -1056,7 +1114,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 
 
 /**
- <p>Information about a listener.</p><p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>The listener.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingListener * _Nullable listener;
 
@@ -1074,7 +1132,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 
 
 /**
- <p>If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html">Enable Access Logs</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-access-logs.html">Enable Access Logs</a> in the <i>Classic Load Balancer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingAccessLog * _Nullable accessLog;
 
@@ -1084,17 +1142,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingAdditionalAttribute *> * _Nullable additionalAttributes;
 
 /**
- <p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Configure Connection Draining</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-conn-drain.html">Configure Connection Draining</a> in the <i>Classic Load Balancer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingConnectionDraining * _Nullable connectionDraining;
 
 /**
- <p>If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.</p><p>By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Configure Idle Connection Timeout</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.</p><p>By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/config-idle-timeout.html">Configure Idle Connection Timeout</a> in the <i>Classic Load Balancer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingConnectionSettings * _Nullable connectionSettings;
 
 /**
- <p>If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Configure Cross-Zone Load Balancing</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-crosszone-lb.html">Configure Cross-Zone Load Balancing</a> in the <i>Classic Load Balancer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingCrossZoneLoadBalancing * _Nullable crossZoneLoadBalancing;
 
@@ -1117,7 +1175,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingBackendServerDescription *> * _Nullable backendServerDescriptions;
 
 /**
- <p>The DNS name of the load balancer.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html">Configure a Custom Domain Name</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>The DNS name of the load balancer.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/using-domain-names-with-elb.html">Configure a Custom Domain Name</a> in the <i>Classic Load Balancer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable canonicalHostedZoneName;
 
@@ -1196,7 +1254,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 
 
 /**
- <p>The attributes of the load balancer.</p>
+ <p>The attributes for the load balancer.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes * _Nullable loadBalancerAttributes;
 
@@ -1214,7 +1272,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 
 
 /**
- <p>The attributes for a load balancer.</p>
+ <p>Information about the load balancer attributes.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes * _Nullable loadBalancerAttributes;
 

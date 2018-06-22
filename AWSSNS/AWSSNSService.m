@@ -26,7 +26,7 @@
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
-static NSString *const AWSSNSSDKVersion = @"2.6.21";
+static NSString *const AWSSNSSDKVersion = @"2.6.22";
 
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer
@@ -42,6 +42,7 @@ static NSDictionary *errorCodeDictionary = nil;
     errorCodeDictionary = @{
                             @"AuthorizationError" : @(AWSSNSErrorAuthorizationError),
                             @"EndpointDisabled" : @(AWSSNSErrorEndpointDisabled),
+                            @"FilterPolicyLimitExceeded" : @(AWSSNSErrorFilterPolicyLimitExceeded),
                             @"InternalError" : @(AWSSNSErrorInternalError),
                             @"InvalidParameter" : @(AWSSNSErrorInvalidParameter),
                             @"ParameterValueInvalid" : @(AWSSNSErrorInvalidParameterValue),

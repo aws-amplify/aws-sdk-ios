@@ -26,7 +26,7 @@
 #import "AWSFirehoseResources.h"
 
 static NSString *const AWSInfoFirehose = @"Firehose";
-static NSString *const AWSFirehoseSDKVersion = @"2.6.21";
+static NSString *const AWSFirehoseSDKVersion = @"2.6.22";
 
 
 @interface AWSFirehoseResponseSerializer : AWSJSONResponseSerializer
@@ -372,6 +372,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSFirehoseListTagsForDeliveryStreamOutput *> *)listTagsForDeliveryStream:(AWSFirehoseListTagsForDeliveryStreamInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Firehose_20150804"
+                 operationName:@"ListTagsForDeliveryStream"
+                   outputClass:[AWSFirehoseListTagsForDeliveryStreamOutput class]];
+}
+
+- (void)listTagsForDeliveryStream:(AWSFirehoseListTagsForDeliveryStreamInput *)request
+     completionHandler:(void (^)(AWSFirehoseListTagsForDeliveryStreamOutput *response, NSError *error))completionHandler {
+    [[self listTagsForDeliveryStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseListTagsForDeliveryStreamOutput *> * _Nonnull task) {
+        AWSFirehoseListTagsForDeliveryStreamOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSFirehosePutRecordOutput *> *)putRecord:(AWSFirehosePutRecordInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -408,6 +431,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSFirehosePutRecordBatchOutput *response, NSError *error))completionHandler {
     [[self putRecordBatch:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehosePutRecordBatchOutput *> * _Nonnull task) {
         AWSFirehosePutRecordBatchOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehoseTagDeliveryStreamOutput *> *)tagDeliveryStream:(AWSFirehoseTagDeliveryStreamInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Firehose_20150804"
+                 operationName:@"TagDeliveryStream"
+                   outputClass:[AWSFirehoseTagDeliveryStreamOutput class]];
+}
+
+- (void)tagDeliveryStream:(AWSFirehoseTagDeliveryStreamInput *)request
+     completionHandler:(void (^)(AWSFirehoseTagDeliveryStreamOutput *response, NSError *error))completionHandler {
+    [[self tagDeliveryStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseTagDeliveryStreamOutput *> * _Nonnull task) {
+        AWSFirehoseTagDeliveryStreamOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehoseUntagDeliveryStreamOutput *> *)untagDeliveryStream:(AWSFirehoseUntagDeliveryStreamInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Firehose_20150804"
+                 operationName:@"UntagDeliveryStream"
+                   outputClass:[AWSFirehoseUntagDeliveryStreamOutput class]];
+}
+
+- (void)untagDeliveryStream:(AWSFirehoseUntagDeliveryStreamInput *)request
+     completionHandler:(void (^)(AWSFirehoseUntagDeliveryStreamOutput *response, NSError *error))completionHandler {
+    [[self untagDeliveryStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseUntagDeliveryStreamOutput *> * _Nonnull task) {
+        AWSFirehoseUntagDeliveryStreamOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

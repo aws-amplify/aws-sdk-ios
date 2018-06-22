@@ -197,7 +197,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Remove all sessions from the keychain for this user and clear last known user.
  */
-- (void)signOutAndClearLastKnownUser;
+- (void) signOutAndClearLastKnownUser;
+
+/**
+ Remove the id and access token from the keychain, but keep the refresh token.
+ Use this when you have updated user attributes and want to refresh the id and access tokens.
+ */
+- (void) clearSession;
 
 
 /**
@@ -258,7 +264,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface AWSCognitoIdentityUserSessionToken : NSObject
 
+/**
+ The raw JWT token as a string.
+ **/
 @property (nonatomic, readonly) NSString *  tokenString;
+
+/**
+ A NSDictionary of claims in this token.
+ */
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString*> * claims;
 
 @end
 

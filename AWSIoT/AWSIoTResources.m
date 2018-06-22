@@ -59,15 +59,15 @@
     return @"{\
   \"version\":\"2.0\",\
   \"metadata\":{\
-    \"uid\":\"iot-2015-05-28\",\
     \"apiVersion\":\"2015-05-28\",\
     \"endpointPrefix\":\"iot\",\
+    \"protocol\":\"rest-json\",\
     \"serviceFullName\":\"AWS IoT\",\
+    \"serviceId\":\"IoT\",\
     \"signatureVersion\":\"v4\",\
     \"signingName\":\"execute-api\",\
-    \"protocol\":\"rest-json\"\
+    \"uid\":\"iot-2015-05-28\"\
   },\
-  \"documentation\":\"<fullname>AWS IoT</fullname> <p>AWS IoT provides secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each thing (Thing Registry), configure logging, and create and manage policies and credentials to authenticate things.</p> <p>For more information about how AWS IoT works, see the <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\\\">Developer Guide</a>.</p>\",\
   \"operations\":{\
     \"AcceptCertificateTransfer\":{\
       \"name\":\"AcceptCertificateTransfer\",\
@@ -75,57 +75,68 @@
         \"method\":\"PATCH\",\
         \"requestUri\":\"/accept-certificate-transfer/{certificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"AcceptCertificateTransferRequest\",\
-        \"documentation\":\"<p>The input for the AcceptCertificateTransfer operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"AcceptCertificateTransferRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"TransferAlreadyCompletedException\",\
-          \"error\":{\"httpStatusCode\":410},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You can't revert the certificate transfer because the transfer is already complete.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TransferAlreadyCompletedException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Accepts a pending certificate transfer. The default state of the certificate is INACTIVE.</p> <p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p>\"\
+    },\
+    \"AddThingToThingGroup\":{\
+      \"name\":\"AddThingToThingGroup\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/thing-groups/addThingToThingGroup\"\
+      },\
+      \"input\":{\"shape\":\"AddThingToThingGroupRequest\"},\
+      \"output\":{\"shape\":\"AddThingToThingGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Adds a thing to a thing group.</p>\"\
+    },\
+    \"AssociateTargetsWithJob\":{\
+      \"name\":\"AssociateTargetsWithJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/jobs/{jobId}/targets\"\
+      },\
+      \"input\":{\"shape\":\"AssociateTargetsWithJobRequest\"},\
+      \"output\":{\"shape\":\"AssociateTargetsWithJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Associates a group with a continuous job. The following criteria must be met: </p> <ul> <li> <p>The job must have been created with the <code>targetSelection</code> field set to \\\"CONTINUOUS\\\".</p> </li> <li> <p>The job status must currently be \\\"IN_PROGRESS\\\".</p> </li> <li> <p>The total number of targets associated with a job must not exceed 100.</p> </li> </ul>\"\
+    },\
+    \"AttachPolicy\":{\
+      \"name\":\"AttachPolicy\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/target-policies/{policyName}\"\
+      },\
+      \"input\":{\"shape\":\"AttachPolicyRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"LimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p>Attaches a policy to the specified target.</p>\"\
     },\
     \"AttachPrincipalPolicy\":{\
       \"name\":\"AttachPrincipalPolicy\",\
@@ -133,57 +144,18 @@
         \"method\":\"PUT\",\
         \"requestUri\":\"/principal-policies/{policyName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"AttachPrincipalPolicyRequest\",\
-        \"documentation\":\"<p>The input for the AttachPrincipalPolicy operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"AttachPrincipalPolicyRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"LimitExceededException\",\
-          \"error\":{\"httpStatusCode\":410},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The number of attached entities exceeds the limit.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"LimitExceededException\"}\
       ],\
-      \"documentation\":\"<p>Attaches the specified policy to the specified principal (certificate or other credential).</p>\"\
+      \"documentation\":\"<p>Attaches the specified policy to the specified principal (certificate or other credential).</p> <p> <b>Note:</b> This API is deprecated. Please use <a>AttachPolicy</a> instead.</p>\",\
+      \"deprecated\":true\
     },\
     \"AttachThingPrincipal\":{\
       \"name\":\"AttachThingPrincipal\",\
@@ -191,53 +163,15 @@
         \"method\":\"PUT\",\
         \"requestUri\":\"/things/{thingName}/principals\"\
       },\
-      \"input\":{\
-        \"shape\":\"AttachThingPrincipalRequest\",\
-        \"documentation\":\"<p>The input for the AttachThingPrincipal operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"AttachThingPrincipalResponse\",\
-        \"documentation\":\"<p>The output from the AttachThingPrincipal operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"AttachThingPrincipalRequest\"},\
+      \"output\":{\"shape\":\"AttachThingPrincipalResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Attaches the specified principal to the specified thing.</p>\"\
     },\
@@ -247,57 +181,87 @@
         \"method\":\"PATCH\",\
         \"requestUri\":\"/cancel-certificate-transfer/{certificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"CancelCertificateTransferRequest\",\
-        \"documentation\":\"<p>The input for the CancelCertificateTransfer operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"CancelCertificateTransferRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"TransferAlreadyCompletedException\",\
-          \"error\":{\"httpStatusCode\":410},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You can't revert the certificate transfer because the transfer is already complete.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TransferAlreadyCompletedException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Cancels a pending transfer for the specified certificate.</p> <p><b>Note</b> Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.</p> <p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p>\"\
+      \"documentation\":\"<p>Cancels a pending transfer for the specified certificate.</p> <p> <b>Note</b> Only the transfer source account can use this operation to cancel a transfer. (Transfer destinations can use <a>RejectCertificateTransfer</a> instead.) After transfer, AWS IoT returns the certificate to the source account in the INACTIVE state. After the destination account has accepted the transfer, the transfer cannot be cancelled.</p> <p>After a certificate transfer is cancelled, the status of the certificate changes from PENDING_TRANSFER to INACTIVE.</p>\"\
+    },\
+    \"CancelJob\":{\
+      \"name\":\"CancelJob\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/jobs/{jobId}/cancel\"\
+      },\
+      \"input\":{\"shape\":\"CancelJobRequest\"},\
+      \"output\":{\"shape\":\"CancelJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Cancels a job.</p>\"\
+    },\
+    \"CancelJobExecution\":{\
+      \"name\":\"CancelJobExecution\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/things/{thingName}/jobs/{jobId}/cancel\"\
+      },\
+      \"input\":{\"shape\":\"CancelJobExecutionRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidStateTransitionException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"VersionConflictException\"}\
+      ],\
+      \"documentation\":\"<p>Cancels the execution of a job for a given thing.</p>\"\
+    },\
+    \"ClearDefaultAuthorizer\":{\
+      \"name\":\"ClearDefaultAuthorizer\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/default-authorizer\"\
+      },\
+      \"input\":{\"shape\":\"ClearDefaultAuthorizerRequest\"},\
+      \"output\":{\"shape\":\"ClearDefaultAuthorizerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Clears the default authorizer.</p>\"\
+    },\
+    \"CreateAuthorizer\":{\
+      \"name\":\"CreateAuthorizer\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/authorizer/{authorizerName}\"\
+      },\
+      \"input\":{\"shape\":\"CreateAuthorizerRequest\"},\
+      \"output\":{\"shape\":\"CreateAuthorizerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Creates an authorizer.</p>\"\
     },\
     \"CreateCertificateFromCsr\":{\
       \"name\":\"CreateCertificateFromCsr\",\
@@ -305,49 +269,34 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/certificates\"\
       },\
-      \"input\":{\
-        \"shape\":\"CreateCertificateFromCsrRequest\",\
-        \"documentation\":\"<p>The input for the CreateCertificateFromCsr operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"CreateCertificateFromCsrResponse\",\
-        \"documentation\":\"<p>The output from the CreateCertificateFromCsr operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"CreateCertificateFromCsrRequest\"},\
+      \"output\":{\"shape\":\"CreateCertificateFromCsrResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Creates an X.509 certificate using the specified certificate signing request.</p> <p><b>Note</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p> <p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs. </p> <p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p> <p>On Linux and OS X, the command is:</p> <p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p> <p> This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR. </p> <p> The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process: </p> <p> $ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{} </p> <p> On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is: </p> <p> &gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_} </p> <p> On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is: </p> <p> &gt; forfiles /p my-csr-directory /c \\\"cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path\\\"</p>\"\
+      \"documentation\":\"<p>Creates an X.509 certificate using the specified certificate signing request.</p> <p> <b>Note:</b> The CSR must include a public key that is either an RSA key with a length of at least 2048 bits or an ECC key from NIST P-256 or NIST P-384 curves. </p> <p> <b>Note:</b> Reusing the same certificate signing request (CSR) results in a distinct certificate.</p> <p>You can create multiple certificates in a batch by creating a directory, copying multiple .csr files into that directory, and then specifying that directory on the command line. The following commands show how to create a batch of certificates given a batch of CSRs.</p> <p>Assuming a set of CSRs are located inside of the directory my-csr-directory:</p> <p>On Linux and OS X, the command is:</p> <p>$ ls my-csr-directory/ | xargs -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p> <p>This command lists all of the CSRs in my-csr-directory and pipes each CSR file name to the aws iot create-certificate-from-csr AWS CLI command to create a certificate for the corresponding CSR.</p> <p>The aws iot create-certificate-from-csr part of the command can also be run in parallel to speed up the certificate creation process:</p> <p>$ ls my-csr-directory/ | xargs -P 10 -I {} aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/{}</p> <p>On Windows PowerShell, the command to create certificates for all CSRs in my-csr-directory is:</p> <p>&gt; ls -Name my-csr-directory | %{aws iot create-certificate-from-csr --certificate-signing-request file://my-csr-directory/$_}</p> <p>On a Windows command prompt, the command to create certificates for all CSRs in my-csr-directory is:</p> <p>&gt; forfiles /p my-csr-directory /c \\\"cmd /c aws iot create-certificate-from-csr --certificate-signing-request file://@path\\\"</p>\"\
+    },\
+    \"CreateJob\":{\
+      \"name\":\"CreateJob\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/jobs/{jobId}\"\
+      },\
+      \"input\":{\"shape\":\"CreateJobRequest\"},\
+      \"output\":{\"shape\":\"CreateJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a job.</p>\"\
     },\
     \"CreateKeysAndCertificate\":{\
       \"name\":\"CreateKeysAndCertificate\",\
@@ -355,49 +304,35 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/keys-and-certificate\"\
       },\
-      \"input\":{\
-        \"shape\":\"CreateKeysAndCertificateRequest\",\
-        \"documentation\":\"<p>The input for the CreateKeysAndCertificate operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"CreateKeysAndCertificateResponse\",\
-        \"documentation\":\"<p>The output of the CreateKeysAndCertificate operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"CreateKeysAndCertificateRequest\"},\
+      \"output\":{\"shape\":\"CreateKeysAndCertificateResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.</p> <p><b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>\"\
+      \"documentation\":\"<p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key.</p> <p> <b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>\"\
+    },\
+    \"CreateOTAUpdate\":{\
+      \"name\":\"CreateOTAUpdate\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/otaUpdates/{otaUpdateId}\"\
+      },\
+      \"input\":{\"shape\":\"CreateOTAUpdateRequest\"},\
+      \"output\":{\"shape\":\"CreateOTAUpdateResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Creates an AWS IoT OTAUpdate on a target group of things or groups.</p>\"\
     },\
     \"CreatePolicy\":{\
       \"name\":\"CreatePolicy\",\
@@ -405,59 +340,16 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/policies/{policyName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"CreatePolicyRequest\",\
-        \"documentation\":\"<p>The input for the CreatePolicy operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"CreatePolicyResponse\",\
-        \"documentation\":\"<p>The output from the CreatePolicy operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"CreatePolicyRequest\"},\
+      \"output\":{\"shape\":\"CreatePolicyResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceAlreadyExistsException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The resource already exists.</p>\"\
-        },\
-        {\
-          \"shape\":\"MalformedPolicyException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The policy documentation is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"MalformedPolicyException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Creates an AWS IoT policy.</p> <p>The created policy is the default version for the policy. This operation creates a policy version with a version identifier of <b>1</b> and sets <b>1</b> as the policy's default version.</p>\"\
     },\
@@ -467,67 +359,57 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/policies/{policyName}/version\"\
       },\
-      \"input\":{\
-        \"shape\":\"CreatePolicyVersionRequest\",\
-        \"documentation\":\"<p>The input for the CreatePolicyVersion operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"CreatePolicyVersionResponse\",\
-        \"documentation\":\"<p>The output of the CreatePolicyVersion operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"CreatePolicyVersionRequest\"},\
+      \"output\":{\"shape\":\"CreatePolicyVersionResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"MalformedPolicyException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The policy documentation is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"VersionsLimitExceededException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The number of policy versions exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"MalformedPolicyException\"},\
+        {\"shape\":\"VersionsLimitExceededException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Creates a new version of the specified AWS IoT policy. To update a policy, create a new policy version. A managed policy can have up to five versions. If the policy has five versions, you must use <a>DeletePolicyVersion</a> to delete an existing version before you create a new one.</p> <p>Optionally, you can set the new version as the policy's default version. The default version is the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p>\"\
+    },\
+    \"CreateRoleAlias\":{\
+      \"name\":\"CreateRoleAlias\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/role-aliases/{roleAlias}\"\
+      },\
+      \"input\":{\"shape\":\"CreateRoleAliasRequest\"},\
+      \"output\":{\"shape\":\"CreateRoleAliasResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a role alias.</p>\"\
+    },\
+    \"CreateStream\":{\
+      \"name\":\"CreateStream\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/streams/{streamId}\"\
+      },\
+      \"input\":{\"shape\":\"CreateStreamRequest\"},\
+      \"output\":{\"shape\":\"CreateStreamResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a stream for delivering one or more large files in chunks over MQTT. A stream transports data bytes in chunks or blocks packaged as MQTT messages from a source like S3. You can have one or more files associated with a stream. The total size of a file associated with the stream cannot exceed more than 2 MB. The stream will be created with version 0. If a stream is created with the same streamID as a stream that existed and was deleted within last 90 days, we will resurrect that old stream by incrementing the version by 1.</p>\"\
     },\
     \"CreateThing\":{\
       \"name\":\"CreateThing\",\
@@ -535,61 +417,34 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/things/{thingName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"CreateThingRequest\",\
-        \"documentation\":\"<p>The input for the CreateThing operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"CreateThingResponse\",\
-        \"documentation\":\"<p>The output of the CreateThing operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"CreateThingRequest\"},\
+      \"output\":{\"shape\":\"CreateThingResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceAlreadyExistsException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The resource already exists.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Creates a thing record in the thing registry.</p>\"\
+      \"documentation\":\"<p>Creates a thing record in the registry.</p>\"\
+    },\
+    \"CreateThingGroup\":{\
+      \"name\":\"CreateThingGroup\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/thing-groups/{thingGroupName}\"\
+      },\
+      \"input\":{\"shape\":\"CreateThingGroupRequest\"},\
+      \"output\":{\"shape\":\"CreateThingGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Create a thing group.</p>\"\
     },\
     \"CreateThingType\":{\
       \"name\":\"CreateThingType\",\
@@ -597,53 +452,15 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/thing-types/{thingTypeName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"CreateThingTypeRequest\",\
-        \"documentation\":\"<p>The input for the CreateThingType operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"CreateThingTypeResponse\",\
-        \"documentation\":\"<p>The output of the CreateThingType operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"CreateThingTypeRequest\"},\
+      \"output\":{\"shape\":\"CreateThingTypeResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceAlreadyExistsException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The resource already exists.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"}\
       ],\
       \"documentation\":\"<p>Creates a new thing type.</p>\"\
     },\
@@ -653,45 +470,34 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/rules/{ruleName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"CreateTopicRuleRequest\",\
-        \"documentation\":\"<p>The input for the CreateTopicRule operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"CreateTopicRuleRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"SqlParseException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The Rule-SQL expression can't be parsed correctly.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceAlreadyExistsException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The resource already exists.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        }\
+        {\"shape\":\"SqlParseException\"},\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
       ],\
       \"documentation\":\"<p>Creates a rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>\"\
+    },\
+    \"DeleteAuthorizer\":{\
+      \"name\":\"DeleteAuthorizer\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/authorizer/{authorizerName}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteAuthorizerRequest\"},\
+      \"output\":{\"shape\":\"DeleteAuthorizerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"DeleteConflictException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes an authorizer.</p>\"\
     },\
     \"DeleteCACertificate\":{\
       \"name\":\"DeleteCACertificate\",\
@@ -699,59 +505,16 @@
         \"method\":\"DELETE\",\
         \"requestUri\":\"/cacertificate/{caCertificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DeleteCACertificateRequest\",\
-        \"documentation\":\"<p>Input for the DeleteCACertificate operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DeleteCACertificateResponse\",\
-        \"documentation\":\"<p>The output for the DeleteCACertificate operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DeleteCACertificateRequest\"},\
+      \"output\":{\"shape\":\"DeleteCACertificateResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"CertificateStateException\",\
-          \"error\":{\"httpStatusCode\":406},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The certificate operation is not allowed.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"CertificateStateException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Deletes a registered CA certificate.</p>\"\
     },\
@@ -761,63 +524,69 @@
         \"method\":\"DELETE\",\
         \"requestUri\":\"/certificates/{certificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DeleteCertificateRequest\",\
-        \"documentation\":\"<p>The input for the DeleteCertificate operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DeleteCertificateRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"CertificateStateException\",\
-          \"error\":{\"httpStatusCode\":406},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The certificate operation is not allowed.</p>\"\
-        },\
-        {\
-          \"shape\":\"DeleteConflictException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You can't delete the resource because it is attached to one or more resources.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        }\
+        {\"shape\":\"CertificateStateException\"},\
+        {\"shape\":\"DeleteConflictException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Deletes the specified certificate.</p> <p>A certificate cannot be deleted if it has a policy attached to it or if its status is set to ACTIVE. To delete a certificate, first use the <a>DetachPrincipalPolicy</a> API to detach all policies. Next, use the <a>UpdateCertificate</a> API to set the certificate to the INACTIVE status.</p>\"\
+    },\
+    \"DeleteJob\":{\
+      \"name\":\"DeleteJob\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/jobs/{jobId}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteJobRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidStateTransitionException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a job and its related job executions.</p> <p>Deleting a job may take time, depending on the number of job executions created for the job and various other factors. While the job is being deleted, the status of the job will be shown as \\\"DELETION_IN_PROGRESS\\\". Attempting to delete or cancel a job whose status is already \\\"DELETION_IN_PROGRESS\\\" will result in an error.</p> <p>Only 10 jobs may have status \\\"DELETION_IN_PROGRESS\\\" at the same time, or a LimitExceededException will occur.</p>\"\
+    },\
+    \"DeleteJobExecution\":{\
+      \"name\":\"DeleteJobExecution\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/things/{thingName}/jobs/{jobId}/executionNumber/{executionNumber}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteJobExecutionRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidStateTransitionException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a job execution.</p>\"\
+    },\
+    \"DeleteOTAUpdate\":{\
+      \"name\":\"DeleteOTAUpdate\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/otaUpdates/{otaUpdateId}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteOTAUpdateRequest\"},\
+      \"output\":{\"shape\":\"DeleteOTAUpdateResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Delete an OTA update.</p>\"\
     },\
     \"DeletePolicy\":{\
       \"name\":\"DeletePolicy\",\
@@ -825,55 +594,15 @@
         \"method\":\"DELETE\",\
         \"requestUri\":\"/policies/{policyName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DeletePolicyRequest\",\
-        \"documentation\":\"<p>The input for the DeletePolicy operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DeletePolicyRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"DeleteConflictException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You can't delete the resource because it is attached to one or more resources.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"DeleteConflictException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Deletes the specified policy.</p> <p>A policy cannot be deleted if it has non-default versions or it is attached to any certificate.</p> <p>To delete a policy, use the DeletePolicyVersion API to delete all non-default versions of the policy; use the DetachPrincipalPolicy API to detach the policy from any certificate; and then use the DeletePolicy API to delete the policy.</p> <p>When a policy is deleted using DeletePolicy, its default version is deleted with it.</p>\"\
     },\
@@ -883,55 +612,15 @@
         \"method\":\"DELETE\",\
         \"requestUri\":\"/policies/{policyName}/version/{policyVersionId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DeletePolicyVersionRequest\",\
-        \"documentation\":\"<p>The input for the DeletePolicyVersion operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DeletePolicyVersionRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"DeleteConflictException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You can't delete the resource because it is attached to one or more resources.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"DeleteConflictException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Deletes the specified version of the specified policy. You cannot delete the default version of a policy using this API. To delete the default version of a policy, use <a>DeletePolicy</a>. To find out which version of a policy is marked as the default version, use ListPolicyVersions.</p>\"\
     },\
@@ -941,49 +630,54 @@
         \"method\":\"DELETE\",\
         \"requestUri\":\"/registrationcode\"\
       },\
-      \"input\":{\
-        \"shape\":\"DeleteRegistrationCodeRequest\",\
-        \"documentation\":\"<p>The input for the DeleteRegistrationCode operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DeleteRegistrationCodeResponse\",\
-        \"documentation\":\"<p>The output for the DeleteRegistrationCode operation. </p>\"\
-      },\
+      \"input\":{\"shape\":\"DeleteRegistrationCodeRequest\"},\
+      \"output\":{\"shape\":\"DeleteRegistrationCodeResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Deletes a CA certificate registration code.</p>\"\
+    },\
+    \"DeleteRoleAlias\":{\
+      \"name\":\"DeleteRoleAlias\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/role-aliases/{roleAlias}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteRoleAliasRequest\"},\
+      \"output\":{\"shape\":\"DeleteRoleAliasResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"DeleteConflictException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a role alias</p>\"\
+    },\
+    \"DeleteStream\":{\
+      \"name\":\"DeleteStream\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/streams/{streamId}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteStreamRequest\"},\
+      \"output\":{\"shape\":\"DeleteStreamResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"DeleteConflictException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a stream.</p>\"\
     },\
     \"DeleteThing\":{\
       \"name\":\"DeleteThing\",\
@@ -991,61 +685,34 @@
         \"method\":\"DELETE\",\
         \"requestUri\":\"/things/{thingName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DeleteThingRequest\",\
-        \"documentation\":\"<p>The input for the DeleteThing operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DeleteThingResponse\",\
-        \"documentation\":\"<p>The output of the DeleteThing operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DeleteThingRequest\"},\
+      \"output\":{\"shape\":\"DeleteThingResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"VersionConflictException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter. </p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"VersionConflictException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Deletes the specified thing.</p>\"\
+    },\
+    \"DeleteThingGroup\":{\
+      \"name\":\"DeleteThingGroup\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/thing-groups/{thingGroupName}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteThingGroupRequest\"},\
+      \"output\":{\"shape\":\"DeleteThingGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"VersionConflictException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a thing group.</p>\"\
     },\
     \"DeleteThingType\":{\
       \"name\":\"DeleteThingType\",\
@@ -1053,53 +720,15 @@
         \"method\":\"DELETE\",\
         \"requestUri\":\"/thing-types/{thingTypeName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DeleteThingTypeRequest\",\
-        \"documentation\":\"<p>The input for the DeleteThingType operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DeleteThingTypeResponse\",\
-        \"documentation\":\"<p>The output for the DeleteThingType operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DeleteThingTypeRequest\"},\
+      \"output\":{\"shape\":\"DeleteThingTypeResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Deletes the specified thing type . You cannot delete a thing type if it has things associated with it. To delete a thing type, first mark it as deprecated by calling <a>DeprecateThingType</a>, then remove any associated things by calling <a>UpdateThing</a> to change the thing type on any associated thing, and finally use <a>DeleteThingType</a> to delete the thing type.</p>\"\
     },\
@@ -1109,39 +738,28 @@
         \"method\":\"DELETE\",\
         \"requestUri\":\"/rules/{ruleName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DeleteTopicRuleRequest\",\
-        \"documentation\":\"<p>The input for the DeleteTopicRule operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DeleteTopicRuleRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InternalException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        }\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Deletes the specified rule.</p>\"\
+      \"documentation\":\"<p>Deletes the rule.</p>\"\
+    },\
+    \"DeleteV2LoggingLevel\":{\
+      \"name\":\"DeleteV2LoggingLevel\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/v2LoggingLevel\"\
+      },\
+      \"input\":{\"shape\":\"DeleteV2LoggingLevelRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a logging level.</p>\"\
     },\
     \"DeprecateThingType\":{\
       \"name\":\"DeprecateThingType\",\
@@ -1149,55 +767,35 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/thing-types/{thingTypeName}/deprecate\"\
       },\
-      \"input\":{\
-        \"shape\":\"DeprecateThingTypeRequest\",\
-        \"documentation\":\"<p>The input for the DeprecateThingType operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DeprecateThingTypeResponse\",\
-        \"documentation\":\"<p>The output for the DeprecateThingType operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DeprecateThingTypeRequest\"},\
+      \"output\":{\"shape\":\"DeprecateThingTypeResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Deprecates a thing type. You can not associate new things with deprecated thing type.</p>\"\
+    },\
+    \"DescribeAuthorizer\":{\
+      \"name\":\"DescribeAuthorizer\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/authorizer/{authorizerName}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeAuthorizerRequest\"},\
+      \"output\":{\"shape\":\"DescribeAuthorizerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Describes an authorizer.</p>\"\
     },\
     \"DescribeCACertificate\":{\
       \"name\":\"DescribeCACertificate\",\
@@ -1205,53 +803,15 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/cacertificate/{caCertificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DescribeCACertificateRequest\",\
-        \"documentation\":\"<p>The input for the DescribeCACertificate operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DescribeCACertificateResponse\",\
-        \"documentation\":\"<p>The output from the DescribeCACertificate operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DescribeCACertificateRequest\"},\
+      \"output\":{\"shape\":\"DescribeCACertificateResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Describes a registered CA certificate.</p>\"\
     },\
@@ -1261,55 +821,35 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/certificates/{certificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DescribeCertificateRequest\",\
-        \"documentation\":\"<p>The input for the DescribeCertificate operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DescribeCertificateResponse\",\
-        \"documentation\":\"<p>The output of the DescribeCertificate operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DescribeCertificateRequest\"},\
+      \"output\":{\"shape\":\"DescribeCertificateResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Gets information about the specified certificate.</p>\"\
+    },\
+    \"DescribeDefaultAuthorizer\":{\
+      \"name\":\"DescribeDefaultAuthorizer\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/default-authorizer\"\
+      },\
+      \"input\":{\"shape\":\"DescribeDefaultAuthorizerRequest\"},\
+      \"output\":{\"shape\":\"DescribeDefaultAuthorizerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Describes the default authorizer.</p>\"\
     },\
     \"DescribeEndpoint\":{\
       \"name\":\"DescribeEndpoint\",\
@@ -1317,36 +857,115 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/endpoint\"\
       },\
-      \"input\":{\
-        \"shape\":\"DescribeEndpointRequest\",\
-        \"documentation\":\"<p>The input for the DescribeEndpoint operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DescribeEndpointResponse\",\
-        \"documentation\":\"<p>The output from the DescribeEndpoint operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DescribeEndpointRequest\"},\
+      \"output\":{\"shape\":\"DescribeEndpointResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        }\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Returns a unique endpoint specific to the AWS account making the call.</p>\"\
+    },\
+    \"DescribeEventConfigurations\":{\
+      \"name\":\"DescribeEventConfigurations\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/event-configurations\"\
+      },\
+      \"input\":{\"shape\":\"DescribeEventConfigurationsRequest\"},\
+      \"output\":{\"shape\":\"DescribeEventConfigurationsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Describes event configurations.</p>\"\
+    },\
+    \"DescribeIndex\":{\
+      \"name\":\"DescribeIndex\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/indices/{indexName}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeIndexRequest\"},\
+      \"output\":{\"shape\":\"DescribeIndexResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Describes a search index.</p>\"\
+    },\
+    \"DescribeJob\":{\
+      \"name\":\"DescribeJob\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/jobs/{jobId}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeJobRequest\"},\
+      \"output\":{\"shape\":\"DescribeJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Describes a job.</p>\"\
+    },\
+    \"DescribeJobExecution\":{\
+      \"name\":\"DescribeJobExecution\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/things/{thingName}/jobs/{jobId}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeJobExecutionRequest\"},\
+      \"output\":{\"shape\":\"DescribeJobExecutionResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Describes a job execution.</p>\"\
+    },\
+    \"DescribeRoleAlias\":{\
+      \"name\":\"DescribeRoleAlias\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/role-aliases/{roleAlias}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeRoleAliasRequest\"},\
+      \"output\":{\"shape\":\"DescribeRoleAliasResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Describes a role alias.</p>\"\
+    },\
+    \"DescribeStream\":{\
+      \"name\":\"DescribeStream\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/streams/{streamId}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeStreamRequest\"},\
+      \"output\":{\"shape\":\"DescribeStreamResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Gets information about a stream.</p>\"\
     },\
     \"DescribeThing\":{\
       \"name\":\"DescribeThing\",\
@@ -1354,55 +973,50 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/things/{thingName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DescribeThingRequest\",\
-        \"documentation\":\"<p>The input for the DescribeThing operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DescribeThingResponse\",\
-        \"documentation\":\"<p>The output from the DescribeThing operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DescribeThingRequest\"},\
+      \"output\":{\"shape\":\"DescribeThingResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Gets information about the specified thing.</p>\"\
+    },\
+    \"DescribeThingGroup\":{\
+      \"name\":\"DescribeThingGroup\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/thing-groups/{thingGroupName}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeThingGroupRequest\"},\
+      \"output\":{\"shape\":\"DescribeThingGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Describe a thing group.</p>\"\
+    },\
+    \"DescribeThingRegistrationTask\":{\
+      \"name\":\"DescribeThingRegistrationTask\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/thing-registration-tasks/{taskId}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeThingRegistrationTaskRequest\"},\
+      \"output\":{\"shape\":\"DescribeThingRegistrationTaskResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Describes a bulk thing provisioning task.</p>\"\
     },\
     \"DescribeThingType\":{\
       \"name\":\"DescribeThingType\",\
@@ -1410,55 +1024,34 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/thing-types/{thingTypeName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DescribeThingTypeRequest\",\
-        \"documentation\":\"<p>The input for the DescribeThingType operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DescribeThingTypeResponse\",\
-        \"documentation\":\"<p>The output for the DescribeThingType operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DescribeThingTypeRequest\"},\
+      \"output\":{\"shape\":\"DescribeThingTypeResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Gets information about the specified thing type.</p>\"\
+    },\
+    \"DetachPolicy\":{\
+      \"name\":\"DetachPolicy\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/target-policies/{policyName}\"\
+      },\
+      \"input\":{\"shape\":\"DetachPolicyRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"LimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p>Detaches a policy from the specified target.</p>\"\
     },\
     \"DetachPrincipalPolicy\":{\
       \"name\":\"DetachPrincipalPolicy\",\
@@ -1466,51 +1059,17 @@
         \"method\":\"DELETE\",\
         \"requestUri\":\"/principal-policies/{policyName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"DetachPrincipalPolicyRequest\",\
-        \"documentation\":\"<p>The input for the DetachPrincipalPolicy operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DetachPrincipalPolicyRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Removes the specified policy from the specified certificate.</p>\"\
+      \"documentation\":\"<p>Removes the specified policy from the specified certificate.</p> <p> <b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.</p>\",\
+      \"deprecated\":true\
     },\
     \"DetachThingPrincipal\":{\
       \"name\":\"DetachThingPrincipal\",\
@@ -1518,53 +1077,15 @@
         \"method\":\"DELETE\",\
         \"requestUri\":\"/things/{thingName}/principals\"\
       },\
-      \"input\":{\
-        \"shape\":\"DetachThingPrincipalRequest\",\
-        \"documentation\":\"<p>The input for the DetachThingPrincipal operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"DetachThingPrincipalResponse\",\
-        \"documentation\":\"<p>The output from the DetachThingPrincipal operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DetachThingPrincipalRequest\"},\
+      \"output\":{\"shape\":\"DetachThingPrincipalResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Detaches the specified principal from the specified thing.</p>\"\
     },\
@@ -1574,39 +1095,14 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/rules/{ruleName}/disable\"\
       },\
-      \"input\":{\
-        \"shape\":\"DisableTopicRuleRequest\",\
-        \"documentation\":\"<p>The input for the DisableTopicRuleRequest operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"DisableTopicRuleRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InternalException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        }\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Disables the specified rule.</p>\"\
+      \"documentation\":\"<p>Disables the rule.</p>\"\
     },\
     \"EnableTopicRule\":{\
       \"name\":\"EnableTopicRule\",\
@@ -1614,39 +1110,66 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/rules/{ruleName}/enable\"\
       },\
-      \"input\":{\
-        \"shape\":\"EnableTopicRuleRequest\",\
-        \"documentation\":\"<p>The input for the EnableTopicRuleRequest operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"EnableTopicRuleRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InternalException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        }\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Enables the specified rule.</p>\"\
+      \"documentation\":\"<p>Enables the rule.</p>\"\
+    },\
+    \"GetEffectivePolicies\":{\
+      \"name\":\"GetEffectivePolicies\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/effective-policies\"\
+      },\
+      \"input\":{\"shape\":\"GetEffectivePoliciesRequest\"},\
+      \"output\":{\"shape\":\"GetEffectivePoliciesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"LimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p>Gets a list of the policies that have an effect on the authorization behavior of the specified device when it connects to the AWS IoT device gateway.</p>\"\
+    },\
+    \"GetIndexingConfiguration\":{\
+      \"name\":\"GetIndexingConfiguration\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/indexing/config\"\
+      },\
+      \"input\":{\"shape\":\"GetIndexingConfigurationRequest\"},\
+      \"output\":{\"shape\":\"GetIndexingConfigurationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Gets the search configuration.</p>\"\
+    },\
+    \"GetJobDocument\":{\
+      \"name\":\"GetJobDocument\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/jobs/{jobId}/job-document\"\
+      },\
+      \"input\":{\"shape\":\"GetJobDocumentRequest\"},\
+      \"output\":{\"shape\":\"GetJobDocumentResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Gets a job document.</p>\"\
     },\
     \"GetLoggingOptions\":{\
       \"name\":\"GetLoggingOptions\",\
@@ -1654,37 +1177,32 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/loggingOptions\"\
       },\
-      \"input\":{\
-        \"shape\":\"GetLoggingOptionsRequest\",\
-        \"documentation\":\"<p>The input for the GetLoggingOptions operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"GetLoggingOptionsResponse\",\
-        \"documentation\":\"<p>The output from the GetLoggingOptions operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"GetLoggingOptionsRequest\"},\
+      \"output\":{\"shape\":\"GetLoggingOptionsResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InternalException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        }\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
       ],\
       \"documentation\":\"<p>Gets the logging options.</p>\"\
+    },\
+    \"GetOTAUpdate\":{\
+      \"name\":\"GetOTAUpdate\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/otaUpdates/{otaUpdateId}\"\
+      },\
+      \"input\":{\"shape\":\"GetOTAUpdateRequest\"},\
+      \"output\":{\"shape\":\"GetOTAUpdateResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Gets an OTA update.</p>\"\
     },\
     \"GetPolicy\":{\
       \"name\":\"GetPolicy\",\
@@ -1692,53 +1210,15 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/policies/{policyName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"GetPolicyRequest\",\
-        \"documentation\":\"<p>The input for the GetPolicy operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"GetPolicyResponse\",\
-        \"documentation\":\"<p>The output from the GetPolicy operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"GetPolicyRequest\"},\
+      \"output\":{\"shape\":\"GetPolicyResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Gets information about the specified policy with the policy document of the default version.</p>\"\
     },\
@@ -1748,53 +1228,15 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/policies/{policyName}/version/{policyVersionId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"GetPolicyVersionRequest\",\
-        \"documentation\":\"<p>The input for the GetPolicyVersion operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"GetPolicyVersionResponse\",\
-        \"documentation\":\"<p>The output from the GetPolicyVersion operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"GetPolicyVersionRequest\"},\
+      \"output\":{\"shape\":\"GetPolicyVersionResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Gets information about the specified policy version.</p>\"\
     },\
@@ -1804,47 +1246,14 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/registrationcode\"\
       },\
-      \"input\":{\
-        \"shape\":\"GetRegistrationCodeRequest\",\
-        \"documentation\":\"<p>The input to the GetRegistrationCode operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"GetRegistrationCodeResponse\",\
-        \"documentation\":\"<p>The output from the GetRegistrationCode operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"GetRegistrationCodeRequest\"},\
+      \"output\":{\"shape\":\"GetRegistrationCodeResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        }\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidRequestException\"}\
       ],\
       \"documentation\":\"<p>Gets a registration code used to register a CA certificate with AWS IoT.</p>\"\
     },\
@@ -1854,43 +1263,66 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/rules/{ruleName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"GetTopicRuleRequest\",\
-        \"documentation\":\"<p>The input for the GetTopicRule operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"GetTopicRuleResponse\",\
-        \"documentation\":\"<p>The output from the GetTopicRule operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"GetTopicRuleRequest\"},\
+      \"output\":{\"shape\":\"GetTopicRuleResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InternalException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        }\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Gets information about the specified rule.</p>\"\
+      \"documentation\":\"<p>Gets information about the rule.</p>\"\
+    },\
+    \"GetV2LoggingOptions\":{\
+      \"name\":\"GetV2LoggingOptions\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/v2LoggingOptions\"\
+      },\
+      \"input\":{\"shape\":\"GetV2LoggingOptionsRequest\"},\
+      \"output\":{\"shape\":\"GetV2LoggingOptionsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Gets the fine grained logging options.</p>\"\
+    },\
+    \"ListAttachedPolicies\":{\
+      \"name\":\"ListAttachedPolicies\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/attached-policies/{target}\"\
+      },\
+      \"input\":{\"shape\":\"ListAttachedPoliciesRequest\"},\
+      \"output\":{\"shape\":\"ListAttachedPoliciesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"LimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the policies attached to the specified thing group.</p>\"\
+    },\
+    \"ListAuthorizers\":{\
+      \"name\":\"ListAuthorizers\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/authorizers/\"\
+      },\
+      \"input\":{\"shape\":\"ListAuthorizersRequest\"},\
+      \"output\":{\"shape\":\"ListAuthorizersResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the authorizers registered in your account.</p>\"\
     },\
     \"ListCACertificates\":{\
       \"name\":\"ListCACertificates\",\
@@ -1898,47 +1330,14 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/cacertificates\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListCACertificatesRequest\",\
-        \"documentation\":\"<p>Input for the ListCACertificates operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListCACertificatesResponse\",\
-        \"documentation\":\"<p>The output from the ListCACertificates operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListCACertificatesRequest\"},\
+      \"output\":{\"shape\":\"ListCACertificatesResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Lists the CA certificates registered for your AWS account.</p> <p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p>\"\
     },\
@@ -1948,47 +1347,14 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/certificates\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListCertificatesRequest\",\
-        \"documentation\":\"<p>The input for the ListCertificates operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListCertificatesResponse\",\
-        \"documentation\":\"<p>The output of the ListCertificates operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListCertificatesRequest\"},\
+      \"output\":{\"shape\":\"ListCertificatesResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Lists the certificates registered in your AWS account.</p> <p>The results are paginated with a default page size of 25. You can use the returned marker to retrieve additional results.</p>\"\
     },\
@@ -1998,49 +1364,98 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/certificates-by-ca/{caCertificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListCertificatesByCARequest\",\
-        \"documentation\":\"<p>The input to the ListCertificatesByCA operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListCertificatesByCAResponse\",\
-        \"documentation\":\"<p>The output of the ListCertificatesByCA operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListCertificatesByCARequest\"},\
+      \"output\":{\"shape\":\"ListCertificatesByCAResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>List the device certificates signed by the specified CA certificate.</p>\"\
+    },\
+    \"ListIndices\":{\
+      \"name\":\"ListIndices\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/indices\"\
+      },\
+      \"input\":{\"shape\":\"ListIndicesRequest\"},\
+      \"output\":{\"shape\":\"ListIndicesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the search indices.</p>\"\
+    },\
+    \"ListJobExecutionsForJob\":{\
+      \"name\":\"ListJobExecutionsForJob\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/jobs/{jobId}/things\"\
+      },\
+      \"input\":{\"shape\":\"ListJobExecutionsForJobRequest\"},\
+      \"output\":{\"shape\":\"ListJobExecutionsForJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the job executions for a job.</p>\"\
+    },\
+    \"ListJobExecutionsForThing\":{\
+      \"name\":\"ListJobExecutionsForThing\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/things/{thingName}/jobs\"\
+      },\
+      \"input\":{\"shape\":\"ListJobExecutionsForThingRequest\"},\
+      \"output\":{\"shape\":\"ListJobExecutionsForThingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the job executions for the specified thing.</p>\"\
+    },\
+    \"ListJobs\":{\
+      \"name\":\"ListJobs\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/jobs\"\
+      },\
+      \"input\":{\"shape\":\"ListJobsRequest\"},\
+      \"output\":{\"shape\":\"ListJobsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Lists jobs.</p>\"\
+    },\
+    \"ListOTAUpdates\":{\
+      \"name\":\"ListOTAUpdates\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/otaUpdates\"\
+      },\
+      \"input\":{\"shape\":\"ListOTAUpdatesRequest\"},\
+      \"output\":{\"shape\":\"ListOTAUpdatesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Lists OTA updates.</p>\"\
     },\
     \"ListOutgoingCertificates\":{\
       \"name\":\"ListOutgoingCertificates\",\
@@ -2048,49 +1463,16 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/certificates-out-going\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListOutgoingCertificatesRequest\",\
-        \"documentation\":\"<p>The input to the ListOutgoingCertificates operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListOutgoingCertificatesResponse\",\
-        \"documentation\":\"<p>The output from the ListOutgoingCertificates operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListOutgoingCertificatesRequest\"},\
+      \"output\":{\"shape\":\"ListOutgoingCertificatesResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Lists certificates that are being transfered but not yet accepted.</p>\"\
+      \"documentation\":\"<p>Lists certificates that are being transferred but not yet accepted.</p>\"\
     },\
     \"ListPolicies\":{\
       \"name\":\"ListPolicies\",\
@@ -2098,47 +1480,14 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/policies\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListPoliciesRequest\",\
-        \"documentation\":\"<p>The input for the ListPolicies operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListPoliciesResponse\",\
-        \"documentation\":\"<p>The output from the ListPolicies operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListPoliciesRequest\"},\
+      \"output\":{\"shape\":\"ListPoliciesResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Lists your policies.</p>\"\
     },\
@@ -2148,55 +1497,18 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/policy-principals\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListPolicyPrincipalsRequest\",\
-        \"documentation\":\"<p>The input for the ListPolicyPrincipals operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListPolicyPrincipalsResponse\",\
-        \"documentation\":\"<p>The output from the ListPolicyPrincipals operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListPolicyPrincipalsRequest\"},\
+      \"output\":{\"shape\":\"ListPolicyPrincipalsResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Lists the principals associated with the specified policy.</p>\"\
+      \"documentation\":\"<p>Lists the principals associated with the specified policy.</p> <p> <b>Note:</b> This API is deprecated. Please use <a>ListTargetsForPolicy</a> instead.</p>\",\
+      \"deprecated\":true\
     },\
     \"ListPolicyVersions\":{\
       \"name\":\"ListPolicyVersions\",\
@@ -2204,53 +1516,15 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/policies/{policyName}/version\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListPolicyVersionsRequest\",\
-        \"documentation\":\"<p>The input for the ListPolicyVersions operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListPolicyVersionsResponse\",\
-        \"documentation\":\"<p>The output from the ListPolicyVersions operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListPolicyVersionsRequest\"},\
+      \"output\":{\"shape\":\"ListPolicyVersionsResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Lists the versions of the specified policy and identifies the default version.</p>\"\
     },\
@@ -2260,55 +1534,18 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/principal-policies\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListPrincipalPoliciesRequest\",\
-        \"documentation\":\"<p>The input for the ListPrincipalPolicies operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListPrincipalPoliciesResponse\",\
-        \"documentation\":\"<p>The output from the ListPrincipalPolicies operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListPrincipalPoliciesRequest\"},\
+      \"output\":{\"shape\":\"ListPrincipalPoliciesResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href=\\\"http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax\\\">AmazonCognito Identity format</a>.</p>\"\
+      \"documentation\":\"<p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href=\\\"http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax\\\">AmazonCognito Identity format</a>.</p> <p> <b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>\",\
+      \"deprecated\":true\
     },\
     \"ListPrincipalThings\":{\
       \"name\":\"ListPrincipalThings\",\
@@ -2316,55 +1553,100 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/principals/things\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListPrincipalThingsRequest\",\
-        \"documentation\":\"<p>The input for the ListPrincipalThings operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListPrincipalThingsResponse\",\
-        \"documentation\":\"<p>The output from the ListPrincipalThings operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListPrincipalThingsRequest\"},\
+      \"output\":{\"shape\":\"ListPrincipalThingsResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Lists the things associated with the specified principal.</p>\"\
+    },\
+    \"ListRoleAliases\":{\
+      \"name\":\"ListRoleAliases\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/role-aliases\"\
+      },\
+      \"input\":{\"shape\":\"ListRoleAliasesRequest\"},\
+      \"output\":{\"shape\":\"ListRoleAliasesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the role aliases registered in your account.</p>\"\
+    },\
+    \"ListStreams\":{\
+      \"name\":\"ListStreams\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/streams\"\
+      },\
+      \"input\":{\"shape\":\"ListStreamsRequest\"},\
+      \"output\":{\"shape\":\"ListStreamsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Lists all of the streams in your AWS account.</p>\"\
+    },\
+    \"ListTargetsForPolicy\":{\
+      \"name\":\"ListTargetsForPolicy\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/policy-targets/{policyName}\"\
+      },\
+      \"input\":{\"shape\":\"ListTargetsForPolicyRequest\"},\
+      \"output\":{\"shape\":\"ListTargetsForPolicyResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"LimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p>List targets for the specified policy.</p>\"\
+    },\
+    \"ListThingGroups\":{\
+      \"name\":\"ListThingGroups\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/thing-groups\"\
+      },\
+      \"input\":{\"shape\":\"ListThingGroupsRequest\"},\
+      \"output\":{\"shape\":\"ListThingGroupsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>List the thing groups in your account.</p>\"\
+    },\
+    \"ListThingGroupsForThing\":{\
+      \"name\":\"ListThingGroupsForThing\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/things/{thingName}/thing-groups\"\
+      },\
+      \"input\":{\"shape\":\"ListThingGroupsForThingRequest\"},\
+      \"output\":{\"shape\":\"ListThingGroupsForThingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>List the thing groups to which the specified thing belongs.</p>\"\
     },\
     \"ListThingPrincipals\":{\
       \"name\":\"ListThingPrincipals\",\
@@ -2372,55 +1654,49 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/things/{thingName}/principals\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListThingPrincipalsRequest\",\
-        \"documentation\":\"<p>The input for the ListThingPrincipal operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListThingPrincipalsResponse\",\
-        \"documentation\":\"<p>The output from the ListThingPrincipals operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListThingPrincipalsRequest\"},\
+      \"output\":{\"shape\":\"ListThingPrincipalsResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Lists the principals associated with the specified thing.</p>\"\
+    },\
+    \"ListThingRegistrationTaskReports\":{\
+      \"name\":\"ListThingRegistrationTaskReports\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/thing-registration-tasks/{taskId}/reports\"\
+      },\
+      \"input\":{\"shape\":\"ListThingRegistrationTaskReportsRequest\"},\
+      \"output\":{\"shape\":\"ListThingRegistrationTaskReportsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Information about the thing registration tasks.</p>\"\
+    },\
+    \"ListThingRegistrationTasks\":{\
+      \"name\":\"ListThingRegistrationTasks\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/thing-registration-tasks\"\
+      },\
+      \"input\":{\"shape\":\"ListThingRegistrationTasksRequest\"},\
+      \"output\":{\"shape\":\"ListThingRegistrationTasksResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>List bulk thing provisioning tasks.</p>\"\
     },\
     \"ListThingTypes\":{\
       \"name\":\"ListThingTypes\",\
@@ -2428,47 +1704,14 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/thing-types\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListThingTypesRequest\",\
-        \"documentation\":\"<p>The input for the ListThingTypes operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListThingTypesResponse\",\
-        \"documentation\":\"<p>The output for the ListThingTypes operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListThingTypesRequest\"},\
+      \"output\":{\"shape\":\"ListThingTypesResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Lists the existing thing types.</p>\"\
     },\
@@ -2478,49 +1721,31 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/things\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListThingsRequest\",\
-        \"documentation\":\"<p>The input for the ListThings operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListThingsResponse\",\
-        \"documentation\":\"<p>The output from the ListThings operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListThingsRequest\"},\
+      \"output\":{\"shape\":\"ListThingsResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example, calling <code>ListThings</code> with attributeName=Color and attributeValue=Red retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. </p>\"\
+    },\
+    \"ListThingsInThingGroup\":{\
+      \"name\":\"ListThingsInThingGroup\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/thing-groups/{thingGroupName}/things\"\
+      },\
+      \"input\":{\"shape\":\"ListThingsInThingGroupRequest\"},\
+      \"output\":{\"shape\":\"ListThingsInThingGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Lists the things in the specified group.</p>\"\
     },\
     \"ListTopicRules\":{\
       \"name\":\"ListTopicRules\",\
@@ -2528,37 +1753,30 @@
         \"method\":\"GET\",\
         \"requestUri\":\"/rules\"\
       },\
-      \"input\":{\
-        \"shape\":\"ListTopicRulesRequest\",\
-        \"documentation\":\"<p>The input for the ListTopicRules operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"ListTopicRulesResponse\",\
-        \"documentation\":\"<p>The output from the ListTopicRules operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ListTopicRulesRequest\"},\
+      \"output\":{\"shape\":\"ListTopicRulesResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InternalException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        }\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
       ],\
       \"documentation\":\"<p>Lists the rules for the specific topic.</p>\"\
+    },\
+    \"ListV2LoggingLevels\":{\
+      \"name\":\"ListV2LoggingLevels\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/v2LoggingLevel\"\
+      },\
+      \"input\":{\"shape\":\"ListV2LoggingLevelsRequest\"},\
+      \"output\":{\"shape\":\"ListV2LoggingLevelsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"NotConfiguredException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Lists logging levels.</p>\"\
     },\
     \"RegisterCACertificate\":{\
       \"name\":\"RegisterCACertificate\",\
@@ -2566,73 +1784,20 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/cacertificate\"\
       },\
-      \"input\":{\
-        \"shape\":\"RegisterCACertificateRequest\",\
-        \"documentation\":\"<p>The input to the RegisterCACertificate operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"RegisterCACertificateResponse\",\
-        \"documentation\":\"<p>The output from the RegisterCACertificateResponse operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"RegisterCACertificateRequest\"},\
+      \"output\":{\"shape\":\"RegisterCACertificateResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceAlreadyExistsException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The resource already exists.</p>\"\
-        },\
-        {\
-          \"shape\":\"RegistrationCodeValidationException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The registration code is invalid.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"CertificateValidationException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The certificate is invalid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"LimitExceededException\",\
-          \"error\":{\"httpStatusCode\":410},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The number of attached entities exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"RegistrationCodeValidationException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"CertificateValidationException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign device certificates, which can be then registered with AWS IoT. You can register up to 10 CA certificates per AWS account that have the same subject field and public key. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the RegisterCertificate API.</p>\"\
+      \"documentation\":\"<p>Registers a CA certificate with AWS IoT. This CA certificate can then be used to sign device certificates, which can be then registered with AWS IoT. You can register up to 10 CA certificates per AWS account that have the same subject field. This enables you to have up to 10 certificate authorities sign your device certificates. If you have more than one CA certificate registered, make sure you pass the CA certificate when you register your device certificates with the RegisterCertificate API.</p>\"\
     },\
     \"RegisterCertificate\":{\
       \"name\":\"RegisterCertificate\",\
@@ -2640,73 +1805,39 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/certificate/register\"\
       },\
-      \"input\":{\
-        \"shape\":\"RegisterCertificateRequest\",\
-        \"documentation\":\"<p>The input to the RegisterCertificate operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"RegisterCertificateResponse\",\
-        \"documentation\":\"<p>The output from the RegisterCertificate operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"RegisterCertificateRequest\"},\
+      \"output\":{\"shape\":\"RegisterCertificateResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceAlreadyExistsException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The resource already exists.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"CertificateValidationException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The certificate is invalid.</p>\"\
-        },\
-        {\
-          \"shape\":\"CertificateStateException\",\
-          \"error\":{\"httpStatusCode\":406},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The certificate operation is not allowed.</p>\"\
-        },\
-        {\
-          \"shape\":\"CertificateConflictException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>Unable to verify the CA certificate used to sign the device certificate you are attempting to register. This is happens when you have registered more than one CA certificate that has the same subject field and public key.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceAlreadyExistsException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"CertificateValidationException\"},\
+        {\"shape\":\"CertificateStateException\"},\
+        {\"shape\":\"CertificateConflictException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Registers a device certificate with AWS IoT. If you have more than one CA certificate that has the same subject field, you must specify the CA certificate that was used to sign the device certificate being registered.</p>\"\
+    },\
+    \"RegisterThing\":{\
+      \"name\":\"RegisterThing\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/things\"\
+      },\
+      \"input\":{\"shape\":\"RegisterThingRequest\"},\
+      \"output\":{\"shape\":\"RegisterThingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ConflictingResourceUpdateException\"},\
+        {\"shape\":\"ResourceRegistrationFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Provisions a thing.</p>\"\
     },\
     \"RejectCertificateTransfer\":{\
       \"name\":\"RejectCertificateTransfer\",\
@@ -2714,57 +1845,33 @@
         \"method\":\"PATCH\",\
         \"requestUri\":\"/reject-certificate-transfer/{certificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"RejectCertificateTransferRequest\",\
-        \"documentation\":\"<p>The input for the RejectCertificateTransfer operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"RejectCertificateTransferRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"TransferAlreadyCompletedException\",\
-          \"error\":{\"httpStatusCode\":410},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You can't revert the certificate transfer because the transfer is already complete.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"TransferAlreadyCompletedException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Rejects a pending certificate transfer. After AWS IoT rejects a certificate transfer, the certificate status changes from <b>PENDING_TRANSFER</b> to <b>INACTIVE</b>.</p> <p>To check for pending certificate transfers, call <a>ListCertificates</a> to enumerate your certificates.</p> <p>This operation can only be called by the transfer destination. After it is called, the certificate will be returned to the source's account in the INACTIVE state.</p>\"\
+    },\
+    \"RemoveThingFromThingGroup\":{\
+      \"name\":\"RemoveThingFromThingGroup\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/thing-groups/removeThingFromThingGroup\"\
+      },\
+      \"input\":{\"shape\":\"RemoveThingFromThingGroupRequest\"},\
+      \"output\":{\"shape\":\"RemoveThingFromThingGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Remove the specified thing from the specified group.</p>\"\
     },\
     \"ReplaceTopicRule\":{\
       \"name\":\"ReplaceTopicRule\",\
@@ -2772,45 +1879,54 @@
         \"method\":\"PATCH\",\
         \"requestUri\":\"/rules/{ruleName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"ReplaceTopicRuleRequest\",\
-        \"documentation\":\"<p>The input for the ReplaceTopicRule operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"ReplaceTopicRuleRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"SqlParseException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The Rule-SQL expression can't be parsed correctly.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        }\
+        {\"shape\":\"SqlParseException\"},\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"UnauthorizedException\"}\
       ],\
-      \"documentation\":\"<p>Replaces the specified rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>\"\
+      \"documentation\":\"<p>Replaces the rule. You must specify all parameters for the new rule. Creating rules is an administrator-level action. Any user who has permission to create rules will be able to access data processed by the rule.</p>\"\
+    },\
+    \"SearchIndex\":{\
+      \"name\":\"SearchIndex\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/indices/search\"\
+      },\
+      \"input\":{\"shape\":\"SearchIndexRequest\"},\
+      \"output\":{\"shape\":\"SearchIndexResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidQueryException\"},\
+        {\"shape\":\"IndexNotReadyException\"}\
+      ],\
+      \"documentation\":\"<p>The query search index.</p>\"\
+    },\
+    \"SetDefaultAuthorizer\":{\
+      \"name\":\"SetDefaultAuthorizer\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/default-authorizer\"\
+      },\
+      \"input\":{\"shape\":\"SetDefaultAuthorizerRequest\"},\
+      \"output\":{\"shape\":\"SetDefaultAuthorizerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceAlreadyExistsException\"}\
+      ],\
+      \"documentation\":\"<p>Sets the default authorizer. This will be used if a websocket connection is made without specifying an authorizer.</p>\"\
     },\
     \"SetDefaultPolicyVersion\":{\
       \"name\":\"SetDefaultPolicyVersion\",\
@@ -2818,49 +1934,14 @@
         \"method\":\"PATCH\",\
         \"requestUri\":\"/policies/{policyName}/version/{policyVersionId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"SetDefaultPolicyVersionRequest\",\
-        \"documentation\":\"<p>The input for the SetDefaultPolicyVersion operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"SetDefaultPolicyVersionRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Sets the specified version of the specified policy as the policy's default (operative) version. This action affects all certificates to which the policy is attached. To list the principals the policy is attached to, use the ListPrincipalPolicy API.</p>\"\
     },\
@@ -2870,33 +1951,113 @@
         \"method\":\"POST\",\
         \"requestUri\":\"/loggingOptions\"\
       },\
-      \"input\":{\
-        \"shape\":\"SetLoggingOptionsRequest\",\
-        \"documentation\":\"<p>The input for the SetLoggingOptions operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"SetLoggingOptionsRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InternalException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        }\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
       ],\
       \"documentation\":\"<p>Sets the logging options.</p>\"\
+    },\
+    \"SetV2LoggingLevel\":{\
+      \"name\":\"SetV2LoggingLevel\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/v2LoggingLevel\"\
+      },\
+      \"input\":{\"shape\":\"SetV2LoggingLevelRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"NotConfiguredException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Sets the logging level.</p>\"\
+    },\
+    \"SetV2LoggingOptions\":{\
+      \"name\":\"SetV2LoggingOptions\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/v2LoggingOptions\"\
+      },\
+      \"input\":{\"shape\":\"SetV2LoggingOptionsRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InternalException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ServiceUnavailableException\"}\
+      ],\
+      \"documentation\":\"<p>Sets the logging options for the V2 logging service.</p>\"\
+    },\
+    \"StartThingRegistrationTask\":{\
+      \"name\":\"StartThingRegistrationTask\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/thing-registration-tasks\"\
+      },\
+      \"input\":{\"shape\":\"StartThingRegistrationTaskRequest\"},\
+      \"output\":{\"shape\":\"StartThingRegistrationTaskResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a bulk thing provisioning task.</p>\"\
+    },\
+    \"StopThingRegistrationTask\":{\
+      \"name\":\"StopThingRegistrationTask\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/thing-registration-tasks/{taskId}/cancel\"\
+      },\
+      \"input\":{\"shape\":\"StopThingRegistrationTaskRequest\"},\
+      \"output\":{\"shape\":\"StopThingRegistrationTaskResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Cancels a bulk thing provisioning task.</p>\"\
+    },\
+    \"TestAuthorization\":{\
+      \"name\":\"TestAuthorization\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/test-authorization\"\
+      },\
+      \"input\":{\"shape\":\"TestAuthorizationRequest\"},\
+      \"output\":{\"shape\":\"TestAuthorizationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"LimitExceededException\"}\
+      ],\
+      \"documentation\":\"<p>Tests if a specified principal is authorized to perform an AWS IoT action on a specified resource. Use this to test and debug the authorization behavior of devices that connect to the AWS IoT device gateway.</p>\"\
+    },\
+    \"TestInvokeAuthorizer\":{\
+      \"name\":\"TestInvokeAuthorizer\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/authorizer/{authorizerName}/test\"\
+      },\
+      \"input\":{\"shape\":\"TestInvokeAuthorizerRequest\"},\
+      \"output\":{\"shape\":\"TestInvokeAuthorizerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"InvalidResponseException\"}\
+      ],\
+      \"documentation\":\"<p>Tests a custom authorization behavior by invoking a specified custom authorizer. Use this to test and debug the custom authorization behavior of devices that connect to the AWS IoT device gateway.</p>\"\
     },\
     \"TransferCertificate\":{\
       \"name\":\"TransferCertificate\",\
@@ -2904,67 +2065,38 @@
         \"method\":\"PATCH\",\
         \"requestUri\":\"/transfer-certificate/{certificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"TransferCertificateRequest\",\
-        \"documentation\":\"<p>The input for the TransferCertificate operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"TransferCertificateResponse\",\
-        \"documentation\":\"<p>The output from the TransferCertificate operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"TransferCertificateRequest\"},\
+      \"output\":{\"shape\":\"TransferCertificateResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"CertificateStateException\",\
-          \"error\":{\"httpStatusCode\":406},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The certificate operation is not allowed.</p>\"\
-        },\
-        {\
-          \"shape\":\"TransferConflictException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You can't transfer the certificate because authorization policies are still attached.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"CertificateStateException\"},\
+        {\"shape\":\"TransferConflictException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Transfers the specified certificate to the specified AWS account.</p> <p>You can cancel the transfer until it is acknowledged by the recipient.</p> <p>No notification is sent to the transfer destination's account. It is up to the caller to notify the transfer target.</p> <p>The certificate being transferred must not be in the ACTIVE state. You can use the UpdateCertificate API to deactivate it.</p> <p>The certificate must not have any policies attached to it. You can use the DetachPrincipalPolicy API to detach them.</p>\"\
+    },\
+    \"UpdateAuthorizer\":{\
+      \"name\":\"UpdateAuthorizer\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/authorizer/{authorizerName}\"\
+      },\
+      \"input\":{\"shape\":\"UpdateAuthorizerRequest\"},\
+      \"output\":{\"shape\":\"UpdateAuthorizerResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Updates an authorizer.</p>\"\
     },\
     \"UpdateCACertificate\":{\
       \"name\":\"UpdateCACertificate\",\
@@ -2972,49 +2104,14 @@
         \"method\":\"PUT\",\
         \"requestUri\":\"/cacertificate/{caCertificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"UpdateCACertificateRequest\",\
-        \"documentation\":\"<p>The input to the UpdateCACertificate operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"UpdateCACertificateRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Updates a registered CA certificate.</p>\"\
     },\
@@ -3024,57 +2121,85 @@
         \"method\":\"PUT\",\
         \"requestUri\":\"/certificates/{certificateId}\"\
       },\
-      \"input\":{\
-        \"shape\":\"UpdateCertificateRequest\",\
-        \"documentation\":\"<p>The input for the UpdateCertificate operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"UpdateCertificateRequest\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        },\
-        {\
-          \"shape\":\"CertificateStateException\",\
-          \"error\":{\"httpStatusCode\":406},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The certificate operation is not allowed.</p>\"\
-        },\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        }\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"CertificateStateException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
       ],\
       \"documentation\":\"<p>Updates the status of the specified certificate. This operation is idempotent.</p> <p>Moving a certificate from the ACTIVE state (including REVOKED) will not disconnect currently connected devices, but these devices will be unable to reconnect.</p> <p>The ACTIVE state is required to authenticate devices connecting to AWS IoT using a certificate.</p>\"\
+    },\
+    \"UpdateEventConfigurations\":{\
+      \"name\":\"UpdateEventConfigurations\",\
+      \"http\":{\
+        \"method\":\"PATCH\",\
+        \"requestUri\":\"/event-configurations\"\
+      },\
+      \"input\":{\"shape\":\"UpdateEventConfigurationsRequest\"},\
+      \"output\":{\"shape\":\"UpdateEventConfigurationsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the event configurations.</p>\"\
+    },\
+    \"UpdateIndexingConfiguration\":{\
+      \"name\":\"UpdateIndexingConfiguration\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/indexing/config\"\
+      },\
+      \"input\":{\"shape\":\"UpdateIndexingConfigurationRequest\"},\
+      \"output\":{\"shape\":\"UpdateIndexingConfigurationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the search configuration.</p>\"\
+    },\
+    \"UpdateRoleAlias\":{\
+      \"name\":\"UpdateRoleAlias\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/role-aliases/{roleAlias}\"\
+      },\
+      \"input\":{\"shape\":\"UpdateRoleAliasRequest\"},\
+      \"output\":{\"shape\":\"UpdateRoleAliasResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Updates a role alias.</p>\"\
+    },\
+    \"UpdateStream\":{\
+      \"name\":\"UpdateStream\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/streams/{streamId}\"\
+      },\
+      \"input\":{\"shape\":\"UpdateStreamRequest\"},\
+      \"output\":{\"shape\":\"UpdateStreamResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Updates an existing stream. The stream version will be incremented by one.</p>\"\
     },\
     \"UpdateThing\":{\
       \"name\":\"UpdateThing\",\
@@ -3082,61 +2207,51 @@
         \"method\":\"PATCH\",\
         \"requestUri\":\"/things/{thingName}\"\
       },\
-      \"input\":{\
-        \"shape\":\"UpdateThingRequest\",\
-        \"documentation\":\"<p>The input for the UpdateThing operation.</p>\"\
-      },\
-      \"output\":{\
-        \"shape\":\"UpdateThingResponse\",\
-        \"documentation\":\"<p>The output from the UpdateThing operation.</p>\"\
-      },\
+      \"input\":{\"shape\":\"UpdateThingRequest\"},\
+      \"output\":{\"shape\":\"UpdateThingResponse\"},\
       \"errors\":[\
-        {\
-          \"shape\":\"InvalidRequestException\",\
-          \"error\":{\"httpStatusCode\":400},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The request is not valid.</p>\"\
-        },\
-        {\
-          \"shape\":\"VersionConflictException\",\
-          \"error\":{\"httpStatusCode\":409},\
-          \"exception\":true,\
-          \"documentation\":\"<p>An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter. </p>\"\
-        },\
-        {\
-          \"shape\":\"ThrottlingException\",\
-          \"error\":{\"httpStatusCode\":429},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
-        },\
-        {\
-          \"shape\":\"UnauthorizedException\",\
-          \"error\":{\"httpStatusCode\":401},\
-          \"exception\":true,\
-          \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
-        },\
-        {\
-          \"shape\":\"ServiceUnavailableException\",\
-          \"error\":{\"httpStatusCode\":503},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
-        },\
-        {\
-          \"shape\":\"InternalFailureException\",\
-          \"error\":{\"httpStatusCode\":500},\
-          \"exception\":true,\
-          \"fault\":true,\
-          \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
-        },\
-        {\
-          \"shape\":\"ResourceNotFoundException\",\
-          \"error\":{\"httpStatusCode\":404},\
-          \"exception\":true,\
-          \"documentation\":\"<p>The specified resource does not exist.</p>\"\
-        }\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"VersionConflictException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"UnauthorizedException\"},\
+        {\"shape\":\"ServiceUnavailableException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
       ],\
       \"documentation\":\"<p>Updates the data for a thing.</p>\"\
+    },\
+    \"UpdateThingGroup\":{\
+      \"name\":\"UpdateThingGroup\",\
+      \"http\":{\
+        \"method\":\"PATCH\",\
+        \"requestUri\":\"/thing-groups/{thingGroupName}\"\
+      },\
+      \"input\":{\"shape\":\"UpdateThingGroupRequest\"},\
+      \"output\":{\"shape\":\"UpdateThingGroupResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"VersionConflictException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Update a thing group.</p>\"\
+    },\
+    \"UpdateThingGroupsForThing\":{\
+      \"name\":\"UpdateThingGroupsForThing\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/thing-groups/updateThingGroupsForThing\"\
+      },\
+      \"input\":{\"shape\":\"UpdateThingGroupsForThingRequest\"},\
+      \"output\":{\"shape\":\"UpdateThingGroupsForThingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalFailureException\"},\
+        {\"shape\":\"ResourceNotFoundException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the groups to which the thing belongs.</p>\"\
     }\
   },\
   \"shapes\":{\
@@ -3146,15 +2261,15 @@
       \"members\":{\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"certificateId\",\
-          \"documentation\":\"<p>The ID of the certificate.</p>\"\
+          \"locationName\":\"certificateId\"\
         },\
         \"setAsActive\":{\
           \"shape\":\"SetAsActive\",\
+          \"documentation\":\"<p>Specifies whether the certificate is active.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"setAsActive\",\
-          \"documentation\":\"<p>Specifies whether the certificate is active.</p>\"\
+          \"locationName\":\"setAsActive\"\
         }\
       },\
       \"documentation\":\"<p>The input for the AcceptCertificateTransfer operation.</p>\"\
@@ -3209,6 +2324,14 @@
         \"elasticsearch\":{\
           \"shape\":\"ElasticsearchAction\",\
           \"documentation\":\"<p>Write data to an Amazon Elasticsearch Service domain.</p>\"\
+        },\
+        \"salesforce\":{\
+          \"shape\":\"SalesforceAction\",\
+          \"documentation\":\"<p>Send a message to a Salesforce IoT Cloud Input Stream.</p>\"\
+        },\
+        \"iotAnalytics\":{\
+          \"shape\":\"IotAnalyticsAction\",\
+          \"documentation\":\"<p>Sends message data to an AWS IoT Analytics channel.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the actions associated with a rule.</p>\"\
@@ -3216,12 +2339,121 @@
     \"ActionList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Action\"},\
-      \"min\":0,\
-      \"max\":10\
+      \"max\":10,\
+      \"min\":0\
+    },\
+    \"ActionType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"PUBLISH\",\
+        \"SUBSCRIBE\",\
+        \"RECEIVE\",\
+        \"CONNECT\"\
+      ]\
+    },\
+    \"AddThingToThingGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The name of the group to which you are adding a thing.</p>\"\
+        },\
+        \"thingGroupArn\":{\
+          \"shape\":\"ThingGroupArn\",\
+          \"documentation\":\"<p>The ARN of the group to which you are adding a thing.</p>\"\
+        },\
+        \"thingName\":{\
+          \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing to add to a group.</p>\"\
+        },\
+        \"thingArn\":{\
+          \"shape\":\"ThingArn\",\
+          \"documentation\":\"<p>The ARN of the thing to add to a group.</p>\"\
+        }\
+      }\
+    },\
+    \"AddThingToThingGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"AdditionalParameterMap\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"Key\"},\
+      \"value\":{\"shape\":\"Value\"}\
     },\
     \"AlarmName\":{\"type\":\"string\"},\
     \"AllowAutoRegistration\":{\"type\":\"boolean\"},\
+    \"Allowed\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"policies\":{\
+          \"shape\":\"Policies\",\
+          \"documentation\":\"<p>A list of policies that allowed the authentication.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information that allowed the authorization.</p>\"\
+    },\
     \"AscendingOrder\":{\"type\":\"boolean\"},\
+    \"AssociateTargetsWithJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"targets\",\
+        \"jobId\"\
+      ],\
+      \"members\":{\
+        \"targets\":{\
+          \"shape\":\"JobTargets\",\
+          \"documentation\":\"<p>A list of thing group ARNs that define the targets of the job.</p>\"\
+        },\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"jobId\"\
+        },\
+        \"comment\":{\
+          \"shape\":\"Comment\",\
+          \"documentation\":\"<p>An optional comment string describing why the job was associated with the targets.</p>\"\
+        }\
+      }\
+    },\
+    \"AssociateTargetsWithJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"jobArn\":{\
+          \"shape\":\"JobArn\",\
+          \"documentation\":\"<p>An ARN identifying the job.</p>\"\
+        },\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"JobDescription\",\
+          \"documentation\":\"<p>A short text description of the job.</p>\"\
+        }\
+      }\
+    },\
+    \"AttachPolicyRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"policyName\",\
+        \"target\"\
+      ],\
+      \"members\":{\
+        \"policyName\":{\
+          \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The name of the policy to attach.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"policyName\"\
+        },\
+        \"target\":{\
+          \"shape\":\"PolicyTarget\",\
+          \"documentation\":\"<p>The identity to which the policy is attached.</p>\"\
+        }\
+      }\
+    },\
     \"AttachPrincipalPolicyRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -3231,15 +2463,15 @@
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The policy name.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyName\",\
-          \"documentation\":\"<p>The policy name.</p>\"\
+          \"locationName\":\"policyName\"\
         },\
         \"principal\":{\
           \"shape\":\"Principal\",\
+          \"documentation\":\"<p>The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.</p>\",\
           \"location\":\"header\",\
-          \"locationName\":\"x-amzn-iot-principal\",\
-          \"documentation\":\"<p>The principal, which can be a certificate ARN (as returned from the CreateCertificate operation) or an Amazon Cognito ID.</p>\"\
+          \"locationName\":\"x-amzn-iot-principal\"\
         }\
       },\
       \"documentation\":\"<p>The input for the AttachPrincipalPolicy operation.</p>\"\
@@ -3253,15 +2485,15 @@
       \"members\":{\
         \"thingName\":{\
           \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingName\",\
-          \"documentation\":\"<p>The name of the thing.</p>\"\
+          \"locationName\":\"thingName\"\
         },\
         \"principal\":{\
           \"shape\":\"Principal\",\
+          \"documentation\":\"<p>The principal, such as a certificate or other credential.</p>\",\
           \"location\":\"header\",\
-          \"locationName\":\"x-amzn-principal\",\
-          \"documentation\":\"<p>The principal, such as a certificate or other credential.</p>\"\
+          \"locationName\":\"x-amzn-principal\"\
         }\
       },\
       \"documentation\":\"<p>The input for the AttachThingPrincipal operation.</p>\"\
@@ -3282,7 +2514,7 @@
       \"members\":{\
         \"attributes\":{\
           \"shape\":\"Attributes\",\
-          \"documentation\":\"<p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p><code>{\\\\\\\"attributes\\\\\\\":{\\\\\\\"string1\\\\\\\":\\\\\\\"string2\\\\\\\"}})</code></p>\"\
+          \"documentation\":\"<p>A JSON string containing up to three key-value pair in JSON format. For example:</p> <p> <code>{\\\\\\\"attributes\\\\\\\":{\\\\\\\"string1\\\\\\\":\\\\\\\"string2\\\\\\\"}}</code> </p>\"\
         },\
         \"merge\":{\
           \"shape\":\"Flag\",\
@@ -3294,13 +2526,146 @@
     \"AttributeValue\":{\
       \"type\":\"string\",\
       \"max\":800,\
-      \"pattern\":\"[a-zA-Z0-9_.,@/:#-]*\",\
-      \"documentation\":\"An attribute value for an Thing. An empty or null value in Update means that existing value for that attribute should be deleted. Empty and null values in create are ignored.\"\
+      \"pattern\":\"[a-zA-Z0-9_.,@/:#-]*\"\
     },\
     \"Attributes\":{\
       \"type\":\"map\",\
       \"key\":{\"shape\":\"AttributeName\"},\
       \"value\":{\"shape\":\"AttributeValue\"}\
+    },\
+    \"AttributesMap\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"Key\"},\
+      \"value\":{\"shape\":\"Value\"}\
+    },\
+    \"AuthDecision\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ALLOWED\",\
+        \"EXPLICIT_DENY\",\
+        \"IMPLICIT_DENY\"\
+      ]\
+    },\
+    \"AuthInfo\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"actionType\":{\
+          \"shape\":\"ActionType\",\
+          \"documentation\":\"<p>The type of action for which the principal is being authorized.</p>\"\
+        },\
+        \"resources\":{\
+          \"shape\":\"Resources\",\
+          \"documentation\":\"<p>The resources for which the principal is being authorized to perform the specified action.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A collection of authorization information.</p>\"\
+    },\
+    \"AuthInfos\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AuthInfo\"},\
+      \"max\":10,\
+      \"min\":1\
+    },\
+    \"AuthResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"authInfo\":{\
+          \"shape\":\"AuthInfo\",\
+          \"documentation\":\"<p>Authorization information.</p>\"\
+        },\
+        \"allowed\":{\
+          \"shape\":\"Allowed\",\
+          \"documentation\":\"<p>The policies and statements that allowed the specified action.</p>\"\
+        },\
+        \"denied\":{\
+          \"shape\":\"Denied\",\
+          \"documentation\":\"<p>The policies and statements that denied the specified action.</p>\"\
+        },\
+        \"authDecision\":{\
+          \"shape\":\"AuthDecision\",\
+          \"documentation\":\"<p>The final authorization decision of this scenario. Multiple statements are taken into account when determining the authorization decision. An explicit deny statement can override multiple allow statements.</p>\"\
+        },\
+        \"missingContextValues\":{\
+          \"shape\":\"MissingContextValues\",\
+          \"documentation\":\"<p>Contains any missing context values found while evaluating policy.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The authorizer result.</p>\"\
+    },\
+    \"AuthResults\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AuthResult\"}\
+    },\
+    \"AuthorizerArn\":{\"type\":\"string\"},\
+    \"AuthorizerDescription\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The authorizer name.</p>\"\
+        },\
+        \"authorizerArn\":{\
+          \"shape\":\"AuthorizerArn\",\
+          \"documentation\":\"<p>The authorizer ARN.</p>\"\
+        },\
+        \"authorizerFunctionArn\":{\
+          \"shape\":\"AuthorizerFunctionArn\",\
+          \"documentation\":\"<p>The authorizer's Lambda function ARN.</p>\"\
+        },\
+        \"tokenKeyName\":{\
+          \"shape\":\"TokenKeyName\",\
+          \"documentation\":\"<p>The key used to extract the token from the HTTP headers.</p>\"\
+        },\
+        \"tokenSigningPublicKeys\":{\
+          \"shape\":\"PublicKeyMap\",\
+          \"documentation\":\"<p>The public keys used to validate the token signature returned by your custom authentication service.</p>\"\
+        },\
+        \"status\":{\
+          \"shape\":\"AuthorizerStatus\",\
+          \"documentation\":\"<p>The status of the authorizer.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The UNIX timestamp of when the authorizer was created.</p>\"\
+        },\
+        \"lastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The UNIX timestamp of when the authorizer was last updated.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The authorizer description.</p>\"\
+    },\
+    \"AuthorizerFunctionArn\":{\"type\":\"string\"},\
+    \"AuthorizerName\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\w=,@-]+\"\
+    },\
+    \"AuthorizerStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ACTIVE\",\
+        \"INACTIVE\"\
+      ]\
+    },\
+    \"AuthorizerSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The authorizer name.</p>\"\
+        },\
+        \"authorizerArn\":{\
+          \"shape\":\"AuthorizerArn\",\
+          \"documentation\":\"<p>The authorizer ARN.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The authorizer summary.</p>\"\
+    },\
+    \"Authorizers\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AuthorizerSummary\"}\
     },\
     \"AutoRegistrationStatus\":{\
       \"type\":\"string\",\
@@ -3314,6 +2679,8 @@
       \"pattern\":\"[0-9]{12}\"\
     },\
     \"AwsArn\":{\"type\":\"string\"},\
+    \"AwsIotJobArn\":{\"type\":\"string\"},\
+    \"AwsIotJobId\":{\"type\":\"string\"},\
     \"AwsIotSqlVersion\":{\"type\":\"string\"},\
     \"Boolean\":{\"type\":\"boolean\"},\
     \"BucketName\":{\"type\":\"string\"},\
@@ -3330,7 +2697,7 @@
         },\
         \"status\":{\
           \"shape\":\"CACertificateStatus\",\
-          \"documentation\":\"<p>The status of the CA certificate. </p> <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>\"\
+          \"documentation\":\"<p>The status of the CA certificate.</p> <p>The status value REGISTER_INACTIVE is deprecated and should not be used.</p>\"\
         },\
         \"creationDate\":{\
           \"shape\":\"DateType\",\
@@ -3369,6 +2736,18 @@
         \"autoRegistrationStatus\":{\
           \"shape\":\"AutoRegistrationStatus\",\
           \"documentation\":\"<p>Whether the CA certificate configured for auto registration of device certificates. Valid values are \\\"ENABLE\\\" and \\\"DISABLE\\\"</p>\"\
+        },\
+        \"lastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the CA certificate was last modified.</p>\"\
+        },\
+        \"customerVersion\":{\
+          \"shape\":\"CustomerVersion\",\
+          \"documentation\":\"<p>The customer version of the CA certificate.</p>\"\
+        },\
+        \"generationId\":{\
+          \"shape\":\"GenerationId\",\
+          \"documentation\":\"<p>The generation ID of the CA certificate.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes a CA certificate.</p>\"\
@@ -3390,13 +2769,88 @@
       \"members\":{\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"certificateId\",\
-          \"documentation\":\"<p>The ID of the certificate.</p>\"\
+          \"locationName\":\"certificateId\"\
         }\
       },\
       \"documentation\":\"<p>The input for the CancelCertificateTransfer operation.</p>\"\
     },\
+    \"CancelJobExecutionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"jobId\",\
+        \"thingName\"\
+      ],\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The ID of the job to be canceled.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"jobId\"\
+        },\
+        \"thingName\":{\
+          \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing whose execution of the job will be canceled.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"thingName\"\
+        },\
+        \"force\":{\
+          \"shape\":\"ForceFlag\",\
+          \"documentation\":\"<p>(Optional) If <code>true</code> the job execution will be canceled if it has status IN_PROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status QUEUED. If you attempt to cancel a job execution that is IN_PROGRESS, and you do not set <code>force</code> to <code>true</code>, then an <code>InvalidStateTransitionException</code> will be thrown. The default is <code>false</code>.</p> <p>Canceling a job execution which is \\\"IN_PROGRESS\\\", will cause the device to be unable to update the job execution status. Use caution and ensure that the device is able to recover to a valid state.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"force\"\
+        },\
+        \"expectedVersion\":{\
+          \"shape\":\"ExpectedVersion\",\
+          \"documentation\":\"<p>(Optional) The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)</p>\"\
+        },\
+        \"statusDetails\":{\
+          \"shape\":\"DetailsMap\",\
+          \"documentation\":\"<p>A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.</p>\"\
+        }\
+      }\
+    },\
+    \"CancelJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"jobId\"],\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"jobId\"\
+        },\
+        \"comment\":{\
+          \"shape\":\"Comment\",\
+          \"documentation\":\"<p>An optional comment string describing why the job was canceled.</p>\"\
+        },\
+        \"force\":{\
+          \"shape\":\"ForceFlag\",\
+          \"documentation\":\"<p>(Optional) If <code>true</code> job executions with status \\\"IN_PROGRESS\\\" and \\\"QUEUED\\\" are canceled, otherwise only job executions with status \\\"QUEUED\\\" are canceled. The default is <code>false</code>.</p> <p>Canceling a job which is \\\"IN_PROGRESS\\\", will cause a device which is executing the job to be unable to update the job execution status. Use caution and ensure that each device executing a job which is canceled is able to recover to a valid state.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"force\"\
+        }\
+      }\
+    },\
+    \"CancelJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"jobArn\":{\
+          \"shape\":\"JobArn\",\
+          \"documentation\":\"<p>The job ARN.</p>\"\
+        },\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"JobDescription\",\
+          \"documentation\":\"<p>A short text description of the job.</p>\"\
+        }\
+      }\
+    },\
+    \"CanceledThings\":{\"type\":\"integer\"},\
     \"CannedAccessControlList\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -3419,7 +2873,7 @@
         },\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
-          \"documentation\":\"<p>The ID of the certificate.</p>\"\
+          \"documentation\":\"<p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>\"\
         },\
         \"status\":{\
           \"shape\":\"CertificateStatus\",\
@@ -3441,9 +2895,9 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>Unable to verify the CA certificate used to sign the device certificate you are attempting to register. This is happens when you have registered more than one CA certificate that has the same subject field and public key.</p>\",\
       \"error\":{\"httpStatusCode\":409},\
-      \"exception\":true,\
-      \"documentation\":\"<p>Unable to verify the CA certificate used to sign the device certificate you are attempting to register. This is happens when you have registered more than one CA certificate that has the same subject field and public key.</p>\"\
+      \"exception\":true\
     },\
     \"CertificateDescription\":{\
       \"type\":\"structure\",\
@@ -3484,23 +2938,33 @@
           \"shape\":\"DateType\",\
           \"documentation\":\"<p>The date and time the certificate was last modified.</p>\"\
         },\
+        \"customerVersion\":{\
+          \"shape\":\"CustomerVersion\",\
+          \"documentation\":\"<p>The customer version of the certificate.</p>\"\
+        },\
         \"transferData\":{\
           \"shape\":\"TransferData\",\
           \"documentation\":\"<p>The transfer data.</p>\"\
+        },\
+        \"generationId\":{\
+          \"shape\":\"GenerationId\",\
+          \"documentation\":\"<p>The generation ID of the certificate.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes a certificate.</p>\"\
     },\
     \"CertificateId\":{\
       \"type\":\"string\",\
-      \"min\":64,\
       \"max\":64,\
+      \"min\":64,\
       \"pattern\":\"(0x)?[a-fA-F0-9]+\"\
     },\
+    \"CertificateName\":{\"type\":\"string\"},\
     \"CertificatePem\":{\
       \"type\":\"string\",\
-      \"min\":1,\
-      \"max\":65536\
+      \"documentation\":\"<p>The PEM of a certificate.</p>\",\
+      \"max\":65536,\
+      \"min\":1\
     },\
     \"CertificateSigningRequest\":{\
       \"type\":\"string\",\
@@ -3514,9 +2978,9 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The certificate operation is not allowed.</p>\",\
       \"error\":{\"httpStatusCode\":406},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The certificate operation is not allowed.</p>\"\
+      \"exception\":true\
     },\
     \"CertificateStatus\":{\
       \"type\":\"string\",\
@@ -3537,13 +3001,24 @@
           \"documentation\":\"<p>Additional information about the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The certificate is invalid.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The certificate is invalid.</p>\"\
+      \"exception\":true\
     },\
     \"Certificates\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Certificate\"}\
+    },\
+    \"ChannelName\":{\"type\":\"string\"},\
+    \"ClearDefaultAuthorizerRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"ClearDefaultAuthorizerResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"ClientId\":{\"type\":\"string\"},\
     \"CloudwatchAlarmAction\":{\
@@ -3611,6 +3086,125 @@
       },\
       \"documentation\":\"<p>Describes an action that captures a CloudWatch metric.</p>\"\
     },\
+    \"Code\":{\"type\":\"string\"},\
+    \"CodeSigning\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"awsSignerJobId\":{\
+          \"shape\":\"SigningJobId\",\
+          \"documentation\":\"<p>The ID of the AWSSignerJob which was created to sign the file.</p>\"\
+        },\
+        \"customCodeSigning\":{\
+          \"shape\":\"CustomCodeSigning\",\
+          \"documentation\":\"<p>A custom method for code signing a file.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the method to use when code signing a file.</p>\"\
+    },\
+    \"CodeSigningCertificateChain\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"stream\":{\
+          \"shape\":\"Stream\",\
+          \"documentation\":\"<p>A stream of the certificate chain files.</p>\"\
+        },\
+        \"certificateName\":{\
+          \"shape\":\"CertificateName\",\
+          \"documentation\":\"<p>The name of the certificate.</p>\"\
+        },\
+        \"inlineDocument\":{\
+          \"shape\":\"InlineDocument\",\
+          \"documentation\":\"<p>A base64 encoded binary representation of the code signing certificate chain.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the certificate chain being used when code signing a file.</p>\"\
+    },\
+    \"CodeSigningSignature\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"stream\":{\
+          \"shape\":\"Stream\",\
+          \"documentation\":\"<p>A stream of the code signing signature.</p>\"\
+        },\
+        \"inlineDocument\":{\
+          \"shape\":\"Signature\",\
+          \"documentation\":\"<p>A base64 encoded binary representation of the code signing signature.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the signature for a file.</p>\"\
+    },\
+    \"CognitoIdentityPoolId\":{\"type\":\"string\"},\
+    \"Comment\":{\
+      \"type\":\"string\",\
+      \"max\":2028,\
+      \"pattern\":\"[^\\\\p{C}]+\"\
+    },\
+    \"Configuration\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Enabled\":{\
+          \"shape\":\"Enabled\",\
+          \"documentation\":\"<p>True to enable the configuration.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration.</p>\"\
+    },\
+    \"ConflictingResourceUpdateException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"errorMessage\"}\
+      },\
+      \"documentation\":\"<p>A conflicting resource update exception. This exception is thrown when two pending updates cause a conflict.</p>\",\
+      \"error\":{\"httpStatusCode\":409},\
+      \"exception\":true\
+    },\
+    \"Count\":{\"type\":\"integer\"},\
+    \"CreateAuthorizerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"authorizerName\",\
+        \"authorizerFunctionArn\",\
+        \"tokenKeyName\",\
+        \"tokenSigningPublicKeys\"\
+      ],\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The authorizer name.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"authorizerName\"\
+        },\
+        \"authorizerFunctionArn\":{\
+          \"shape\":\"AuthorizerFunctionArn\",\
+          \"documentation\":\"<p>The ARN of the authorizer's Lambda function.</p>\"\
+        },\
+        \"tokenKeyName\":{\
+          \"shape\":\"TokenKeyName\",\
+          \"documentation\":\"<p>The name of the token key used to extract the token from the HTTP headers.</p>\"\
+        },\
+        \"tokenSigningPublicKeys\":{\
+          \"shape\":\"PublicKeyMap\",\
+          \"documentation\":\"<p>The public keys used to verify the digital signature returned by your custom authentication service.</p>\"\
+        },\
+        \"status\":{\
+          \"shape\":\"AuthorizerStatus\",\
+          \"documentation\":\"<p>The status of the create authorizer request.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateAuthorizerResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The authorizer's name.</p>\"\
+        },\
+        \"authorizerArn\":{\
+          \"shape\":\"AuthorizerArn\",\
+          \"documentation\":\"<p>The authorizer ARN.</p>\"\
+        }\
+      }\
+    },\
     \"CreateCertificateFromCsrRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"certificateSigningRequest\"],\
@@ -3621,9 +3215,9 @@
         },\
         \"setAsActive\":{\
           \"shape\":\"SetAsActive\",\
+          \"documentation\":\"<p>Specifies whether the certificate is active.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"setAsActive\",\
-          \"documentation\":\"<p>Specifies whether the certificate is active.</p>\"\
+          \"locationName\":\"setAsActive\"\
         }\
       },\
       \"documentation\":\"<p>The input for the CreateCertificateFromCsr operation.</p>\"\
@@ -3646,14 +3240,78 @@
       },\
       \"documentation\":\"<p>The output from the CreateCertificateFromCsr operation.</p>\"\
     },\
+    \"CreateJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"jobId\",\
+        \"targets\"\
+      ],\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, \\\"-\\\" and \\\"_\\\" are valid for use here.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"jobId\"\
+        },\
+        \"targets\":{\
+          \"shape\":\"JobTargets\",\
+          \"documentation\":\"<p>A list of things and thing groups to which the job should be sent.</p>\"\
+        },\
+        \"documentSource\":{\
+          \"shape\":\"JobDocumentSource\",\
+          \"documentation\":\"<p>An S3 link to the job document.</p>\"\
+        },\
+        \"document\":{\
+          \"shape\":\"JobDocument\",\
+          \"documentation\":\"<p>The job document.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"JobDescription\",\
+          \"documentation\":\"<p>A short text description of the job.</p>\"\
+        },\
+        \"presignedUrlConfig\":{\
+          \"shape\":\"PresignedUrlConfig\",\
+          \"documentation\":\"<p>Configuration information for pre-signed S3 URLs.</p>\"\
+        },\
+        \"targetSelection\":{\
+          \"shape\":\"TargetSelection\",\
+          \"documentation\":\"<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.</p>\"\
+        },\
+        \"jobExecutionsRolloutConfig\":{\
+          \"shape\":\"JobExecutionsRolloutConfig\",\
+          \"documentation\":\"<p>Allows you to create a staged rollout of the job.</p>\"\
+        },\
+        \"documentParameters\":{\
+          \"shape\":\"JobDocumentParameters\",\
+          \"documentation\":\"<p>Parameters for the job document.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"jobArn\":{\
+          \"shape\":\"JobArn\",\
+          \"documentation\":\"<p>The job ARN.</p>\"\
+        },\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"JobDescription\",\
+          \"documentation\":\"<p>The job description.</p>\"\
+        }\
+      }\
+    },\
     \"CreateKeysAndCertificateRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"setAsActive\":{\
           \"shape\":\"SetAsActive\",\
+          \"documentation\":\"<p>Specifies whether the certificate is active.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"setAsActive\",\
-          \"documentation\":\"<p>Specifies whether the certificate is active.</p>\"\
+          \"locationName\":\"setAsActive\"\
         }\
       },\
       \"documentation\":\"<p>The input for the CreateKeysAndCertificate operation.</p>\"\
@@ -3680,6 +3338,72 @@
       },\
       \"documentation\":\"<p>The output of the CreateKeysAndCertificate operation.</p>\"\
     },\
+    \"CreateOTAUpdateRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"otaUpdateId\",\
+        \"targets\",\
+        \"files\",\
+        \"roleArn\"\
+      ],\
+      \"members\":{\
+        \"otaUpdateId\":{\
+          \"shape\":\"OTAUpdateId\",\
+          \"documentation\":\"<p>The ID of the OTA update to be created.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"otaUpdateId\"\
+        },\
+        \"description\":{\
+          \"shape\":\"OTAUpdateDescription\",\
+          \"documentation\":\"<p>The description of the OTA update.</p>\"\
+        },\
+        \"targets\":{\
+          \"shape\":\"Targets\",\
+          \"documentation\":\"<p>The targeted devices to receive OTA updates.</p>\"\
+        },\
+        \"targetSelection\":{\
+          \"shape\":\"TargetSelection\",\
+          \"documentation\":\"<p>Specifies whether the update will continue to run (CONTINUOUS), or will be complete after all the things specified as targets have completed the update (SNAPSHOT). If continuous, the update may also be run on a thing when a change is detected in a target. For example, an update will run on a thing when the thing is added to a target group, even after the update was completed by all things originally in the group. Valid values: CONTINUOUS | SNAPSHOT.</p>\"\
+        },\
+        \"files\":{\
+          \"shape\":\"OTAUpdateFiles\",\
+          \"documentation\":\"<p>The files to be streamed by the OTA update.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The IAM role that allows access to the AWS IoT Jobs service.</p>\"\
+        },\
+        \"additionalParameters\":{\
+          \"shape\":\"AdditionalParameterMap\",\
+          \"documentation\":\"<p>A list of additional OTA update parameters which are name-value pairs.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateOTAUpdateResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"otaUpdateId\":{\
+          \"shape\":\"OTAUpdateId\",\
+          \"documentation\":\"<p>The OTA update ID.</p>\"\
+        },\
+        \"awsIotJobId\":{\
+          \"shape\":\"AwsIotJobId\",\
+          \"documentation\":\"<p>The AWS IoT job ID associated with the OTA update.</p>\"\
+        },\
+        \"otaUpdateArn\":{\
+          \"shape\":\"OTAUpdateArn\",\
+          \"documentation\":\"<p>The OTA update ARN.</p>\"\
+        },\
+        \"awsIotJobArn\":{\
+          \"shape\":\"AwsIotJobArn\",\
+          \"documentation\":\"<p>The AWS IoT job ARN associated with the OTA update.</p>\"\
+        },\
+        \"otaUpdateStatus\":{\
+          \"shape\":\"OTAUpdateStatus\",\
+          \"documentation\":\"<p>The OTA update status.</p>\"\
+        }\
+      }\
+    },\
     \"CreatePolicyRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -3689,9 +3413,9 @@
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The policy name.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyName\",\
-          \"documentation\":\"<p>The policy name.</p>\"\
+          \"locationName\":\"policyName\"\
         },\
         \"policyDocument\":{\
           \"shape\":\"PolicyDocument\",\
@@ -3731,19 +3455,19 @@
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The policy name.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyName\",\
-          \"documentation\":\"<p>The policy name.</p>\"\
+          \"locationName\":\"policyName\"\
         },\
         \"policyDocument\":{\
           \"shape\":\"PolicyDocument\",\
-          \"documentation\":\"<p>The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespaces</p>\"\
+          \"documentation\":\"<p>The JSON document that describes the policy. Minimum length of 1. Maximum length of 2048, excluding whitespace.</p>\"\
         },\
         \"setAsDefault\":{\
           \"shape\":\"SetAsDefault\",\
+          \"documentation\":\"<p>Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"setAsDefault\",\
-          \"documentation\":\"<p>Specifies whether the policy version is set as the default. When this parameter is true, the new policy version becomes the operative version (that is, the version that is in effect for the certificates to which the policy is attached).</p>\"\
+          \"locationName\":\"setAsDefault\"\
         }\
       },\
       \"documentation\":\"<p>The input for the CreatePolicyVersion operation.</p>\"\
@@ -3770,15 +3494,137 @@
       },\
       \"documentation\":\"<p>The output of the CreatePolicyVersion operation.</p>\"\
     },\
+    \"CreateRoleAliasRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"roleAlias\",\
+        \"roleArn\"\
+      ],\
+      \"members\":{\
+        \"roleAlias\":{\
+          \"shape\":\"RoleAlias\",\
+          \"documentation\":\"<p>The role alias that points to a role ARN. This allows you to change the role without having to update the device.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"roleAlias\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The role ARN.</p>\"\
+        },\
+        \"credentialDurationSeconds\":{\
+          \"shape\":\"CredentialDurationSeconds\",\
+          \"documentation\":\"<p>How long (in seconds) the credentials will be valid.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateRoleAliasResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"roleAlias\":{\
+          \"shape\":\"RoleAlias\",\
+          \"documentation\":\"<p>The role alias.</p>\"\
+        },\
+        \"roleAliasArn\":{\
+          \"shape\":\"RoleAliasArn\",\
+          \"documentation\":\"<p>The role alias ARN.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateStreamRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"streamId\",\
+        \"files\",\
+        \"roleArn\"\
+      ],\
+      \"members\":{\
+        \"streamId\":{\
+          \"shape\":\"StreamId\",\
+          \"documentation\":\"<p>The stream ID.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"streamId\"\
+        },\
+        \"description\":{\
+          \"shape\":\"StreamDescription\",\
+          \"documentation\":\"<p>A description of the stream.</p>\"\
+        },\
+        \"files\":{\
+          \"shape\":\"StreamFiles\",\
+          \"documentation\":\"<p>The files to stream.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateStreamResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"streamId\":{\
+          \"shape\":\"StreamId\",\
+          \"documentation\":\"<p>The stream ID.</p>\"\
+        },\
+        \"streamArn\":{\
+          \"shape\":\"StreamArn\",\
+          \"documentation\":\"<p>The stream ARN.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"StreamDescription\",\
+          \"documentation\":\"<p>A description of the stream.</p>\"\
+        },\
+        \"streamVersion\":{\
+          \"shape\":\"StreamVersion\",\
+          \"documentation\":\"<p>The version of the stream.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateThingGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"thingGroupName\"],\
+      \"members\":{\
+        \"thingGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The thing group name to create.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"thingGroupName\"\
+        },\
+        \"parentGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The name of the parent thing group.</p>\"\
+        },\
+        \"thingGroupProperties\":{\
+          \"shape\":\"ThingGroupProperties\",\
+          \"documentation\":\"<p>The thing group properties.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateThingGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The thing group name.</p>\"\
+        },\
+        \"thingGroupArn\":{\
+          \"shape\":\"ThingGroupArn\",\
+          \"documentation\":\"<p>The thing group ARN.</p>\"\
+        },\
+        \"thingGroupId\":{\
+          \"shape\":\"ThingGroupId\",\
+          \"documentation\":\"<p>The thing group ID.</p>\"\
+        }\
+      }\
+    },\
     \"CreateThingRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"thingName\"],\
       \"members\":{\
         \"thingName\":{\
           \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing to create.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingName\",\
-          \"documentation\":\"<p>The name of the thing to create.</p>\"\
+          \"locationName\":\"thingName\"\
         },\
         \"thingTypeName\":{\
           \"shape\":\"ThingTypeName\",\
@@ -3786,7 +3632,7 @@
         },\
         \"attributePayload\":{\
           \"shape\":\"AttributePayload\",\
-          \"documentation\":\"<p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p><code>{\\\\\\\"attributes\\\\\\\":{\\\\\\\"string1\\\\\\\":\\\\\\\"string2\\\\\\\"}})</code></p>\"\
+          \"documentation\":\"<p>The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:</p> <p> <code>{\\\\\\\"attributes\\\\\\\":{\\\\\\\"string1\\\\\\\":\\\\\\\"string2\\\\\\\"}}</code> </p>\"\
         }\
       },\
       \"documentation\":\"<p>The input for the CreateThing operation.</p>\"\
@@ -3801,6 +3647,10 @@
         \"thingArn\":{\
           \"shape\":\"ThingArn\",\
           \"documentation\":\"<p>The ARN of the new thing.</p>\"\
+        },\
+        \"thingId\":{\
+          \"shape\":\"ThingId\",\
+          \"documentation\":\"<p>The thing ID.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output of the CreateThing operation.</p>\"\
@@ -3811,9 +3661,9 @@
       \"members\":{\
         \"thingTypeName\":{\
           \"shape\":\"ThingTypeName\",\
+          \"documentation\":\"<p>The name of the thing type.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingTypeName\",\
-          \"documentation\":\"<p>The name of the thing type.</p>\"\
+          \"locationName\":\"thingTypeName\"\
         },\
         \"thingTypeProperties\":{\
           \"shape\":\"ThingTypeProperties\",\
@@ -3832,6 +3682,10 @@
         \"thingTypeArn\":{\
           \"shape\":\"ThingTypeArn\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the thing type.</p>\"\
+        },\
+        \"thingTypeId\":{\
+          \"shape\":\"ThingTypeId\",\
+          \"documentation\":\"<p>The thing type ID.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output of the CreateThingType operation.</p>\"\
@@ -3845,9 +3699,9 @@
       \"members\":{\
         \"ruleName\":{\
           \"shape\":\"RuleName\",\
+          \"documentation\":\"<p>The name of the rule.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"ruleName\",\
-          \"documentation\":\"<p>The name of the rule.</p>\"\
+          \"locationName\":\"ruleName\"\
         },\
         \"topicRulePayload\":{\
           \"shape\":\"TopicRulePayload\",\
@@ -3859,16 +3713,64 @@
     },\
     \"CreatedAtDate\":{\"type\":\"timestamp\"},\
     \"CreationDate\":{\"type\":\"timestamp\"},\
+    \"CredentialDurationSeconds\":{\
+      \"type\":\"integer\",\
+      \"max\":3600,\
+      \"min\":900\
+    },\
+    \"CustomCodeSigning\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"signature\":{\
+          \"shape\":\"CodeSigningSignature\",\
+          \"documentation\":\"<p>The signature for the file.</p>\"\
+        },\
+        \"certificateChain\":{\
+          \"shape\":\"CodeSigningCertificateChain\",\
+          \"documentation\":\"<p>The certificate chain.</p>\"\
+        },\
+        \"hashAlgorithm\":{\
+          \"shape\":\"HashAlgorithm\",\
+          \"documentation\":\"<p>The hash algorithm used to code sign the file.</p>\"\
+        },\
+        \"signatureAlgorithm\":{\
+          \"shape\":\"SignatureAlgorithm\",\
+          \"documentation\":\"<p>The signature algorithm used to code sign the file.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a custom method used to code sign a file.</p>\"\
+    },\
+    \"CustomerVersion\":{\
+      \"type\":\"integer\",\
+      \"min\":1\
+    },\
     \"DateType\":{\"type\":\"timestamp\"},\
+    \"DeleteAuthorizerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"authorizerName\"],\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The name of the authorizer to delete.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"authorizerName\"\
+        }\
+      }\
+    },\
+    \"DeleteAuthorizerResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"DeleteCACertificateRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"certificateId\"],\
       \"members\":{\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The ID of the certificate to delete. (The last part of the certificate ARN contains the certificate ID.)</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"caCertificateId\",\
-          \"documentation\":\"<p>The ID of the certificate to delete.</p>\"\
+          \"locationName\":\"caCertificateId\"\
         }\
       },\
       \"documentation\":\"<p>Input for the DeleteCACertificate operation.</p>\"\
@@ -3885,9 +3787,15 @@
       \"members\":{\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"certificateId\",\
-          \"documentation\":\"<p>The ID of the certificate.</p>\"\
+          \"locationName\":\"certificateId\"\
+        },\
+        \"forceDelete\":{\
+          \"shape\":\"ForceDelete\",\
+          \"documentation\":\"<p>Forces a certificate request to be deleted.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"forceDelete\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DeleteCertificate operation.</p>\"\
@@ -3900,9 +3808,78 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>You can't delete the resource because it is attached to one or more resources.</p>\",\
       \"error\":{\"httpStatusCode\":409},\
-      \"exception\":true,\
-      \"documentation\":\"<p>You can't delete the resource because it is attached to one or more resources.</p>\"\
+      \"exception\":true\
+    },\
+    \"DeleteJobExecutionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"jobId\",\
+        \"thingName\",\
+        \"executionNumber\"\
+      ],\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The ID of the job whose execution on a particular device will be deleted.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"jobId\"\
+        },\
+        \"thingName\":{\
+          \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing whose job execution will be deleted.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"thingName\"\
+        },\
+        \"executionNumber\":{\
+          \"shape\":\"ExecutionNumber\",\
+          \"documentation\":\"<p>The ID of the job execution to be deleted. The <code>executionNumber</code> refers to the execution of a particular job on a particular device.</p> <p>Note that once a job execution is deleted, the <code>executionNumber</code> may be reused by IoT, so be sure you get and use the correct value here.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"executionNumber\"\
+        },\
+        \"force\":{\
+          \"shape\":\"ForceFlag\",\
+          \"documentation\":\"<p>(Optional) When true, you can delete a job execution which is \\\"IN_PROGRESS\\\". Otherwise, you can only delete a job execution which is in a terminal state (\\\"SUCCEEDED\\\", \\\"FAILED\\\", \\\"REJECTED\\\", \\\"REMOVED\\\" or \\\"CANCELED\\\") or an exception will occur. The default is false.</p> <note> <p>Deleting a job execution which is \\\"IN_PROGRESS\\\", will cause the device to be unable to access job information or update the job execution status. Use caution and ensure that the device is able to recover to a valid state.</p> </note>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"force\"\
+        }\
+      }\
+    },\
+    \"DeleteJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"jobId\"],\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The ID of the job to be deleted.</p> <p>After a job deletion is completed, you may reuse this jobId when you create a new job. However, this is not recommended, and you must ensure that your devices are not using the jobId to refer to the deleted job.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"jobId\"\
+        },\
+        \"force\":{\
+          \"shape\":\"ForceFlag\",\
+          \"documentation\":\"<p>(Optional) When true, you can delete a job which is \\\"IN_PROGRESS\\\". Otherwise, you can only delete a job which is in a terminal state (\\\"COMPLETED\\\" or \\\"CANCELED\\\") or an exception will occur. The default is false.</p> <note> <p>Deleting a job which is \\\"IN_PROGRESS\\\", will cause a device which is executing the job to be unable to access job information or update the job execution status. Use caution and ensure that each device executing a job which is deleted is able to recover to a valid state.</p> </note>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"force\"\
+        }\
+      }\
+    },\
+    \"DeleteOTAUpdateRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"otaUpdateId\"],\
+      \"members\":{\
+        \"otaUpdateId\":{\
+          \"shape\":\"OTAUpdateId\",\
+          \"documentation\":\"<p>The OTA update ID to delete.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"otaUpdateId\"\
+        }\
+      }\
+    },\
+    \"DeleteOTAUpdateResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"DeletePolicyRequest\":{\
       \"type\":\"structure\",\
@@ -3910,9 +3887,9 @@
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The name of the policy to delete.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyName\",\
-          \"documentation\":\"<p>The name of the policy to delete.</p>\"\
+          \"locationName\":\"policyName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DeletePolicy operation.</p>\"\
@@ -3926,15 +3903,15 @@
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The name of the policy.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyName\",\
-          \"documentation\":\"<p>The name of the policy.</p>\"\
+          \"locationName\":\"policyName\"\
         },\
         \"policyVersionId\":{\
           \"shape\":\"PolicyVersionId\",\
+          \"documentation\":\"<p>The policy version ID.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyVersionId\",\
-          \"documentation\":\"<p>The policy version ID.</p>\"\
+          \"locationName\":\"policyVersionId\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DeletePolicyVersion operation.</p>\"\
@@ -3949,7 +3926,64 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"<p>The output for the DeleteRegistrationCode operation. </p>\"\
+      \"documentation\":\"<p>The output for the DeleteRegistrationCode operation.</p>\"\
+    },\
+    \"DeleteRoleAliasRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"roleAlias\"],\
+      \"members\":{\
+        \"roleAlias\":{\
+          \"shape\":\"RoleAlias\",\
+          \"documentation\":\"<p>The role alias to delete.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"roleAlias\"\
+        }\
+      }\
+    },\
+    \"DeleteRoleAliasResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"DeleteStreamRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"streamId\"],\
+      \"members\":{\
+        \"streamId\":{\
+          \"shape\":\"StreamId\",\
+          \"documentation\":\"<p>The stream ID.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"streamId\"\
+        }\
+      }\
+    },\
+    \"DeleteStreamResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"DeleteThingGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"thingGroupName\"],\
+      \"members\":{\
+        \"thingGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The name of the thing group to delete.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"thingGroupName\"\
+        },\
+        \"expectedVersion\":{\
+          \"shape\":\"OptionalVersion\",\
+          \"documentation\":\"<p>The expected version of the thing group to delete.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"expectedVersion\"\
+        }\
+      }\
+    },\
+    \"DeleteThingGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"DeleteThingRequest\":{\
       \"type\":\"structure\",\
@@ -3957,15 +3991,15 @@
       \"members\":{\
         \"thingName\":{\
           \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing to delete.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingName\",\
-          \"documentation\":\"<p>The name of the thing to delete.</p>\"\
+          \"locationName\":\"thingName\"\
         },\
         \"expectedVersion\":{\
           \"shape\":\"OptionalVersion\",\
+          \"documentation\":\"<p>The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the <code>DeleteThing</code> request is rejected with a <code>VersionConflictException</code>.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"expectedVersion\",\
-          \"documentation\":\"<p>The expected version of the thing record in the registry. If the version of the record in the registry does not match the expected version specified in the request, the <code>DeleteThing</code> request is rejected with a <code>VersionConflictException</code>.</p>\"\
+          \"locationName\":\"expectedVersion\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DeleteThing operation.</p>\"\
@@ -3982,9 +4016,9 @@
       \"members\":{\
         \"thingTypeName\":{\
           \"shape\":\"ThingTypeName\",\
+          \"documentation\":\"<p>The name of the thing type.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingTypeName\",\
-          \"documentation\":\"<p>The name of the thing type.</p>\"\
+          \"locationName\":\"thingTypeName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DeleteThingType operation.</p>\"\
@@ -3997,27 +4031,62 @@
     },\
     \"DeleteTopicRuleRequest\":{\
       \"type\":\"structure\",\
+      \"required\":[\"ruleName\"],\
       \"members\":{\
         \"ruleName\":{\
           \"shape\":\"RuleName\",\
+          \"documentation\":\"<p>The name of the rule.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"ruleName\",\
-          \"documentation\":\"<p>The name of the rule.</p>\"\
+          \"locationName\":\"ruleName\"\
         }\
       },\
-      \"documentation\":\"<p>The input for the DeleteTopicRule operation.</p>\",\
-      \"required\":[\"ruleName\"]\
+      \"documentation\":\"<p>The input for the DeleteTopicRule operation.</p>\"\
+    },\
+    \"DeleteV2LoggingLevelRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"targetType\",\
+        \"targetName\"\
+      ],\
+      \"members\":{\
+        \"targetType\":{\
+          \"shape\":\"LogTargetType\",\
+          \"documentation\":\"<p>The type of resource for which you are configuring logging. Must be <code>THING_Group</code>.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"targetType\"\
+        },\
+        \"targetName\":{\
+          \"shape\":\"LogTargetName\",\
+          \"documentation\":\"<p>The name of the resource for which you are configuring logging.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"targetName\"\
+        }\
+      }\
     },\
     \"DeliveryStreamName\":{\"type\":\"string\"},\
+    \"Denied\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"implicitDeny\":{\
+          \"shape\":\"ImplicitDeny\",\
+          \"documentation\":\"<p>Information that implicitly denies the authorization. When a policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.</p>\"\
+        },\
+        \"explicitDeny\":{\
+          \"shape\":\"ExplicitDeny\",\
+          \"documentation\":\"<p>Information that explicitly denies the authorization. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information that denied the authorization.</p>\"\
+    },\
     \"DeprecateThingTypeRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"thingTypeName\"],\
       \"members\":{\
         \"thingTypeName\":{\
           \"shape\":\"ThingTypeName\",\
+          \"documentation\":\"<p>The name of the thing type to deprecate.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingTypeName\",\
-          \"documentation\":\"<p>The name of the thing type to deprecate.</p>\"\
+          \"locationName\":\"thingTypeName\"\
         },\
         \"undoDeprecate\":{\
           \"shape\":\"UndoDeprecate\",\
@@ -4033,15 +4102,36 @@
       \"documentation\":\"<p>The output for the DeprecateThingType operation.</p>\"\
     },\
     \"DeprecationDate\":{\"type\":\"timestamp\"},\
+    \"DescribeAuthorizerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"authorizerName\"],\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The name of the authorizer to describe.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"authorizerName\"\
+        }\
+      }\
+    },\
+    \"DescribeAuthorizerResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"authorizerDescription\":{\
+          \"shape\":\"AuthorizerDescription\",\
+          \"documentation\":\"<p>The authorizer description.</p>\"\
+        }\
+      }\
+    },\
     \"DescribeCACertificateRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"certificateId\"],\
       \"members\":{\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The CA certificate identifier.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"caCertificateId\",\
-          \"documentation\":\"<p>The CA certificate identifier.</p>\"\
+          \"locationName\":\"caCertificateId\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DescribeCACertificate operation.</p>\"\
@@ -4052,6 +4142,10 @@
         \"certificateDescription\":{\
           \"shape\":\"CACertificateDescription\",\
           \"documentation\":\"<p>The CA certificate description.</p>\"\
+        },\
+        \"registrationConfig\":{\
+          \"shape\":\"RegistrationConfig\",\
+          \"documentation\":\"<p>Information about the registration configuration.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output from the DescribeCACertificate operation.</p>\"\
@@ -4062,9 +4156,9 @@
       \"members\":{\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"certificateId\",\
-          \"documentation\":\"<p>The ID of the certificate.</p>\"\
+          \"locationName\":\"certificateId\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DescribeCertificate operation.</p>\"\
@@ -4079,9 +4173,29 @@
       },\
       \"documentation\":\"<p>The output of the DescribeCertificate operation.</p>\"\
     },\
+    \"DescribeDefaultAuthorizerRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"DescribeDefaultAuthorizerResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"authorizerDescription\":{\
+          \"shape\":\"AuthorizerDescription\",\
+          \"documentation\":\"<p>The default authorizer's description.</p>\"\
+        }\
+      }\
+    },\
     \"DescribeEndpointRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"endpointType\":{\
+          \"shape\":\"EndpointType\",\
+          \"documentation\":\"<p>The endpoint type.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"endpointType\"\
+        }\
       },\
       \"documentation\":\"<p>The input for the DescribeEndpoint operation.</p>\"\
     },\
@@ -4095,15 +4209,275 @@
       },\
       \"documentation\":\"<p>The output from the DescribeEndpoint operation.</p>\"\
     },\
+    \"DescribeEventConfigurationsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"DescribeEventConfigurationsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"eventConfigurations\":{\
+          \"shape\":\"EventConfigurations\",\
+          \"documentation\":\"<p>The event configurations.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"CreationDate\",\
+          \"documentation\":\"<p>The creation date of the event configuration.</p>\"\
+        },\
+        \"lastModifiedDate\":{\
+          \"shape\":\"LastModifiedDate\",\
+          \"documentation\":\"<p>The date the event configurations were last modified.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeIndexRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"indexName\"],\
+      \"members\":{\
+        \"indexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The index name.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"indexName\"\
+        }\
+      }\
+    },\
+    \"DescribeIndexResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"indexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The index name.</p>\"\
+        },\
+        \"indexStatus\":{\
+          \"shape\":\"IndexStatus\",\
+          \"documentation\":\"<p>The index status.</p>\"\
+        },\
+        \"schema\":{\
+          \"shape\":\"IndexSchema\",\
+          \"documentation\":\"<p>Contains a value that specifies the type of indexing performed. Valid values are:</p> <ol> <li> <p>REGISTRY â Your thing index will contain only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index will contain registry and shadow data.</p> </li> </ol>\"\
+        }\
+      }\
+    },\
+    \"DescribeJobExecutionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"jobId\",\
+        \"thingName\"\
+      ],\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"jobId\"\
+        },\
+        \"thingName\":{\
+          \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing on which the job execution is running.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"thingName\"\
+        },\
+        \"executionNumber\":{\
+          \"shape\":\"ExecutionNumber\",\
+          \"documentation\":\"<p>A string (consisting of the digits \\\"0\\\" through \\\"9\\\" which is used to specify a particular job execution on a particular device.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"executionNumber\"\
+        }\
+      }\
+    },\
+    \"DescribeJobExecutionResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"execution\":{\
+          \"shape\":\"JobExecution\",\
+          \"documentation\":\"<p>Information about the job execution.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"jobId\"],\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"jobId\"\
+        }\
+      }\
+    },\
+    \"DescribeJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"documentSource\":{\
+          \"shape\":\"JobDocumentSource\",\
+          \"documentation\":\"<p>An S3 link to the job document.</p>\"\
+        },\
+        \"job\":{\
+          \"shape\":\"Job\",\
+          \"documentation\":\"<p>Information about the job.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeRoleAliasRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"roleAlias\"],\
+      \"members\":{\
+        \"roleAlias\":{\
+          \"shape\":\"RoleAlias\",\
+          \"documentation\":\"<p>The role alias to describe.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"roleAlias\"\
+        }\
+      }\
+    },\
+    \"DescribeRoleAliasResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"roleAliasDescription\":{\
+          \"shape\":\"RoleAliasDescription\",\
+          \"documentation\":\"<p>The role alias description.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeStreamRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"streamId\"],\
+      \"members\":{\
+        \"streamId\":{\
+          \"shape\":\"StreamId\",\
+          \"documentation\":\"<p>The stream ID.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"streamId\"\
+        }\
+      }\
+    },\
+    \"DescribeStreamResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"streamInfo\":{\
+          \"shape\":\"StreamInfo\",\
+          \"documentation\":\"<p>Information about the stream.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeThingGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"thingGroupName\"],\
+      \"members\":{\
+        \"thingGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The name of the thing group.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"thingGroupName\"\
+        }\
+      }\
+    },\
+    \"DescribeThingGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The name of the thing group.</p>\"\
+        },\
+        \"thingGroupId\":{\
+          \"shape\":\"ThingGroupId\",\
+          \"documentation\":\"<p>The thing group ID.</p>\"\
+        },\
+        \"thingGroupArn\":{\
+          \"shape\":\"ThingGroupArn\",\
+          \"documentation\":\"<p>The thing group ARN.</p>\"\
+        },\
+        \"version\":{\
+          \"shape\":\"Version\",\
+          \"documentation\":\"<p>The version of the thing group.</p>\"\
+        },\
+        \"thingGroupProperties\":{\
+          \"shape\":\"ThingGroupProperties\",\
+          \"documentation\":\"<p>The thing group properties.</p>\"\
+        },\
+        \"thingGroupMetadata\":{\
+          \"shape\":\"ThingGroupMetadata\",\
+          \"documentation\":\"<p>Thing group metadata.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeThingRegistrationTaskRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"taskId\"],\
+      \"members\":{\
+        \"taskId\":{\
+          \"shape\":\"TaskId\",\
+          \"documentation\":\"<p>The task ID.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"taskId\"\
+        }\
+      }\
+    },\
+    \"DescribeThingRegistrationTaskResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"taskId\":{\
+          \"shape\":\"TaskId\",\
+          \"documentation\":\"<p>The task ID.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"CreationDate\",\
+          \"documentation\":\"<p>The task creation date.</p>\"\
+        },\
+        \"lastModifiedDate\":{\
+          \"shape\":\"LastModifiedDate\",\
+          \"documentation\":\"<p>The date when the task was last modified.</p>\"\
+        },\
+        \"templateBody\":{\
+          \"shape\":\"TemplateBody\",\
+          \"documentation\":\"<p>The task's template.</p>\"\
+        },\
+        \"inputFileBucket\":{\
+          \"shape\":\"RegistryS3BucketName\",\
+          \"documentation\":\"<p>The S3 bucket that contains the input file.</p>\"\
+        },\
+        \"inputFileKey\":{\
+          \"shape\":\"RegistryS3KeyName\",\
+          \"documentation\":\"<p>The input file key.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The role ARN that grants access to the input file bucket.</p>\"\
+        },\
+        \"status\":{\
+          \"shape\":\"Status\",\
+          \"documentation\":\"<p>The status of the bulk thing provisioning task.</p>\"\
+        },\
+        \"message\":{\
+          \"shape\":\"ErrorMessage\",\
+          \"documentation\":\"<p>The message.</p>\"\
+        },\
+        \"successCount\":{\
+          \"shape\":\"Count\",\
+          \"documentation\":\"<p>The number of things successfully provisioned.</p>\"\
+        },\
+        \"failureCount\":{\
+          \"shape\":\"Count\",\
+          \"documentation\":\"<p>The number of things that failed to be provisioned.</p>\"\
+        },\
+        \"percentageProgress\":{\
+          \"shape\":\"Percentage\",\
+          \"documentation\":\"<p>The progress of the bulk provisioning task expressed as a percentage.</p>\"\
+        }\
+      }\
+    },\
     \"DescribeThingRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"thingName\"],\
       \"members\":{\
         \"thingName\":{\
           \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingName\",\
-          \"documentation\":\"<p>The name of the thing.</p>\"\
+          \"locationName\":\"thingName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DescribeThing operation.</p>\"\
@@ -4118,6 +4492,14 @@
         \"thingName\":{\
           \"shape\":\"ThingName\",\
           \"documentation\":\"<p>The name of the thing.</p>\"\
+        },\
+        \"thingId\":{\
+          \"shape\":\"ThingId\",\
+          \"documentation\":\"<p>The ID of the thing to describe.</p>\"\
+        },\
+        \"thingArn\":{\
+          \"shape\":\"ThingArn\",\
+          \"documentation\":\"<p>The ARN of the thing to describe.</p>\"\
         },\
         \"thingTypeName\":{\
           \"shape\":\"ThingTypeName\",\
@@ -4140,9 +4522,9 @@
       \"members\":{\
         \"thingTypeName\":{\
           \"shape\":\"ThingTypeName\",\
+          \"documentation\":\"<p>The name of the thing type.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingTypeName\",\
-          \"documentation\":\"<p>The name of the thing type.</p>\"\
+          \"locationName\":\"thingTypeName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DescribeThingType operation.</p>\"\
@@ -4154,15 +4536,45 @@
           \"shape\":\"ThingTypeName\",\
           \"documentation\":\"<p>The name of the thing type.</p>\"\
         },\
+        \"thingTypeId\":{\
+          \"shape\":\"ThingTypeId\",\
+          \"documentation\":\"<p>The thing type ID.</p>\"\
+        },\
+        \"thingTypeArn\":{\
+          \"shape\":\"ThingTypeArn\",\
+          \"documentation\":\"<p>The thing type ARN.</p>\"\
+        },\
         \"thingTypeProperties\":{\
           \"shape\":\"ThingTypeProperties\",\
           \"documentation\":\"<p>The ThingTypeProperties contains information about the thing type including description, and a list of searchable thing attribute names.</p>\"\
         },\
-        \"thingTypeMetadata\":{\"shape\":\"ThingTypeMetadata\"}\
+        \"thingTypeMetadata\":{\
+          \"shape\":\"ThingTypeMetadata\",\
+          \"documentation\":\"<p>The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>The output for the DescribeThingType operation.</p>\"\
     },\
     \"Description\":{\"type\":\"string\"},\
+    \"DetachPolicyRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"policyName\",\
+        \"target\"\
+      ],\
+      \"members\":{\
+        \"policyName\":{\
+          \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The policy to detach.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"policyName\"\
+        },\
+        \"target\":{\
+          \"shape\":\"PolicyTarget\",\
+          \"documentation\":\"<p>The target from which the policy will be detached.</p>\"\
+        }\
+      }\
+    },\
     \"DetachPrincipalPolicyRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -4172,15 +4584,15 @@
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The name of the policy to detach.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyName\",\
-          \"documentation\":\"<p>The name of the policy to detach.</p>\"\
+          \"locationName\":\"policyName\"\
         },\
         \"principal\":{\
           \"shape\":\"Principal\",\
+          \"documentation\":\"<p>The principal.</p> <p>If the principal is a certificate, specify the certificate ARN. If the principal is an Amazon Cognito identity, specify the identity ID.</p>\",\
           \"location\":\"header\",\
-          \"locationName\":\"x-amzn-iot-principal\",\
-          \"documentation\":\"<p>The principal.</p> <p>If the principal is a certificate, specify the certificate ARN. If the principal is an Amazon Cognito identity, specify the identity ID.</p>\"\
+          \"locationName\":\"x-amzn-iot-principal\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DetachPrincipalPolicy operation.</p>\"\
@@ -4194,15 +4606,15 @@
       \"members\":{\
         \"thingName\":{\
           \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingName\",\
-          \"documentation\":\"<p>The name of the thing.</p>\"\
+          \"locationName\":\"thingName\"\
         },\
         \"principal\":{\
           \"shape\":\"Principal\",\
+          \"documentation\":\"<p>If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.</p>\",\
           \"location\":\"header\",\
-          \"locationName\":\"x-amzn-principal\",\
-          \"documentation\":\"<p>If the principal is a certificate, this value must be ARN of the certificate. If the principal is an Amazon Cognito identity, this value must be the ID of the Amazon Cognito identity.</p>\"\
+          \"locationName\":\"x-amzn-principal\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DetachThingPrincipal operation.</p>\"\
@@ -4213,15 +4625,33 @@
       },\
       \"documentation\":\"<p>The output from the DetachThingPrincipal operation.</p>\"\
     },\
+    \"DetailsKey\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9:_-]+\"\
+    },\
+    \"DetailsMap\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"DetailsKey\"},\
+      \"value\":{\"shape\":\"DetailsValue\"}\
+    },\
+    \"DetailsValue\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":1,\
+      \"pattern\":\"[^\\\\p{C}]*+\"\
+    },\
+    \"DisableAllLogs\":{\"type\":\"boolean\"},\
     \"DisableTopicRuleRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"ruleName\"],\
       \"members\":{\
         \"ruleName\":{\
           \"shape\":\"RuleName\",\
+          \"documentation\":\"<p>The name of the rule to disable.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"ruleName\",\
-          \"documentation\":\"<p>The name of the rule to disable.</p>\"\
+          \"locationName\":\"ruleName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the DisableTopicRuleRequest operation.</p>\"\
@@ -4276,7 +4706,7 @@
           \"documentation\":\"<p>The action payload. This name can be customized.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Describes an action to write to a DynamoDB table.</p> <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code> values must match the values used when you created the table.</p> <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${<i>sql-expression</i>}.</p> <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:</p> <p><code>\\\"hashKeyValue\\\": \\\"${topic(3)}\\\"</code></p> <p>The following field uses the timestamp:</p> <p><code>\\\"rangeKeyValue\\\": \\\"${timestamp()}\\\"</code></p>\"\
+      \"documentation\":\"<p>Describes an action to write to a DynamoDB table.</p> <p>The <code>tableName</code>, <code>hashKeyField</code>, and <code>rangeKeyField</code> values must match the values used when you created the table.</p> <p>The <code>hashKeyValue</code> and <code>rangeKeyvalue</code> fields use a substitution template syntax. These templates provide data at runtime. The syntax is as follows: ${<i>sql-expression</i>}.</p> <p>You can specify any valid expression in a WHERE or SELECT clause, including JSON properties, comparisons, calculations, and functions. For example, the following field uses the third level of the topic:</p> <p> <code>\\\"hashKeyValue\\\": \\\"${topic(3)}\\\"</code> </p> <p>The following field uses the timestamp:</p> <p> <code>\\\"rangeKeyValue\\\": \\\"${timestamp()}\\\"</code> </p>\"\
     },\
     \"DynamoDBv2Action\":{\
       \"type\":\"structure\",\
@@ -4287,7 +4717,7 @@
         },\
         \"putItem\":{\
           \"shape\":\"PutItemInput\",\
-          \"documentation\":\"<p>Specifies the DynamoDB table to which the message data will be written. For example:</p> <p><code>{ \\\"dynamoDBv2\\\": { \\\"roleArn\\\": \\\"aws:iam:12341251:my-role\\\" \\\"putItem\\\": { \\\"tableName\\\": \\\"my-table\\\" } } }</code></p> <p>Each attribute in the message payload will be written to a separate column in the DynamoDB database.</p>\"\
+          \"documentation\":\"<p>Specifies the DynamoDB table to which the message data will be written. For example:</p> <p> <code>{ \\\"dynamoDBv2\\\": { \\\"roleArn\\\": \\\"aws:iam:12341251:my-role\\\" \\\"putItem\\\": { \\\"tableName\\\": \\\"my-table\\\" } } }</code> </p> <p>Each attribute in the message payload will be written to a separate column in the DynamoDB database.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes an action to write to a DynamoDB table.</p> <p>This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.</p>\"\
@@ -4300,6 +4730,28 @@
       ]\
     },\
     \"DynamoOperation\":{\"type\":\"string\"},\
+    \"EffectivePolicies\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"EffectivePolicy\"}\
+    },\
+    \"EffectivePolicy\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"policyName\":{\
+          \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The policy name.</p>\"\
+        },\
+        \"policyArn\":{\
+          \"shape\":\"PolicyArn\",\
+          \"documentation\":\"<p>The policy ARN.</p>\"\
+        },\
+        \"policyDocument\":{\
+          \"shape\":\"PolicyDocument\",\
+          \"documentation\":\"<p>The IAM policy document.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The policy that has the effect on the authorization results.</p>\"\
+    },\
     \"ElasticsearchAction\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -4346,14 +4798,76 @@
       \"members\":{\
         \"ruleName\":{\
           \"shape\":\"RuleName\",\
+          \"documentation\":\"<p>The name of the topic rule to enable.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"ruleName\",\
-          \"documentation\":\"<p>The name of the topic rule to enable.</p>\"\
+          \"locationName\":\"ruleName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the EnableTopicRuleRequest operation.</p>\"\
     },\
+    \"Enabled\":{\"type\":\"boolean\"},\
     \"EndpointAddress\":{\"type\":\"string\"},\
+    \"EndpointType\":{\"type\":\"string\"},\
+    \"ErrorInfo\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"code\":{\
+          \"shape\":\"Code\",\
+          \"documentation\":\"<p>The error code.</p>\"\
+        },\
+        \"message\":{\
+          \"shape\":\"OTAUpdateErrorMessage\",\
+          \"documentation\":\"<p>The error message.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Error information.</p>\"\
+    },\
+    \"ErrorMessage\":{\
+      \"type\":\"string\",\
+      \"max\":2048\
+    },\
+    \"EventConfigurations\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"EventType\"},\
+      \"value\":{\"shape\":\"Configuration\"}\
+    },\
+    \"EventType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"THING\",\
+        \"THING_GROUP\",\
+        \"THING_TYPE\",\
+        \"THING_GROUP_MEMBERSHIP\",\
+        \"THING_GROUP_HIERARCHY\",\
+        \"THING_TYPE_ASSOCIATION\",\
+        \"JOB\",\
+        \"JOB_EXECUTION\"\
+      ]\
+    },\
+    \"ExecutionNumber\":{\"type\":\"long\"},\
+    \"ExpectedVersion\":{\"type\":\"long\"},\
+    \"ExpiresInSec\":{\
+      \"type\":\"long\",\
+      \"max\":3600,\
+      \"min\":60\
+    },\
+    \"ExplicitDeny\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"policies\":{\
+          \"shape\":\"Policies\",\
+          \"documentation\":\"<p>The policies that denied the authorization.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information that explicitly denies authorization.</p>\"\
+    },\
+    \"FailedThings\":{\"type\":\"integer\"},\
+    \"FileId\":{\
+      \"type\":\"integer\",\
+      \"max\":255,\
+      \"min\":0\
+    },\
+    \"FileName\":{\"type\":\"string\"},\
     \"FirehoseAction\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -4363,7 +4877,7 @@
       \"members\":{\
         \"roleArn\":{\
           \"shape\":\"AwsArn\",\
-          \"documentation\":\"<p>The IAM role that grants access to the Amazon Kinesis Firehost stream.</p>\"\
+          \"documentation\":\"<p>The IAM role that grants access to the Amazon Kinesis Firehose stream.</p>\"\
         },\
         \"deliveryStreamName\":{\
           \"shape\":\"DeliveryStreamName\",\
@@ -4381,7 +4895,79 @@
       \"pattern\":\"([\\\\n\\\\t])|(\\\\r\\\\n)|(,)\"\
     },\
     \"Flag\":{\"type\":\"boolean\"},\
+    \"ForceDelete\":{\"type\":\"boolean\"},\
+    \"ForceFlag\":{\"type\":\"boolean\"},\
+    \"Forced\":{\"type\":\"boolean\"},\
     \"FunctionArn\":{\"type\":\"string\"},\
+    \"GEMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":10000,\
+      \"min\":1\
+    },\
+    \"GenerationId\":{\"type\":\"string\"},\
+    \"GetEffectivePoliciesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"principal\":{\
+          \"shape\":\"Principal\",\
+          \"documentation\":\"<p>The principal.</p>\"\
+        },\
+        \"cognitoIdentityPoolId\":{\
+          \"shape\":\"CognitoIdentityPoolId\",\
+          \"documentation\":\"<p>The Cognito identity pool ID.</p>\"\
+        },\
+        \"thingName\":{\
+          \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The thing name.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"thingName\"\
+        }\
+      }\
+    },\
+    \"GetEffectivePoliciesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"effectivePolicies\":{\
+          \"shape\":\"EffectivePolicies\",\
+          \"documentation\":\"<p>The effective policies.</p>\"\
+        }\
+      }\
+    },\
+    \"GetIndexingConfigurationRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"GetIndexingConfigurationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingIndexingConfiguration\":{\
+          \"shape\":\"ThingIndexingConfiguration\",\
+          \"documentation\":\"<p>Thing indexing configuration.</p>\"\
+        }\
+      }\
+    },\
+    \"GetJobDocumentRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"jobId\"],\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"jobId\"\
+        }\
+      }\
+    },\
+    \"GetJobDocumentResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"document\":{\
+          \"shape\":\"JobDocument\",\
+          \"documentation\":\"<p>The job document content.</p>\"\
+        }\
+      }\
+    },\
     \"GetLoggingOptionsRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4402,15 +4988,36 @@
       },\
       \"documentation\":\"<p>The output from the GetLoggingOptions operation.</p>\"\
     },\
+    \"GetOTAUpdateRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"otaUpdateId\"],\
+      \"members\":{\
+        \"otaUpdateId\":{\
+          \"shape\":\"OTAUpdateId\",\
+          \"documentation\":\"<p>The OTA update ID.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"otaUpdateId\"\
+        }\
+      }\
+    },\
+    \"GetOTAUpdateResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"otaUpdateInfo\":{\
+          \"shape\":\"OTAUpdateInfo\",\
+          \"documentation\":\"<p>The OTA update info.</p>\"\
+        }\
+      }\
+    },\
     \"GetPolicyRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"policyName\"],\
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The name of the policy.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyName\",\
-          \"documentation\":\"<p>The name of the policy.</p>\"\
+          \"locationName\":\"policyName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the GetPolicy operation.</p>\"\
@@ -4433,6 +5040,18 @@
         \"defaultVersionId\":{\
           \"shape\":\"PolicyVersionId\",\
           \"documentation\":\"<p>The default policy version ID.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the policy was created.</p>\"\
+        },\
+        \"lastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the policy was last modified.</p>\"\
+        },\
+        \"generationId\":{\
+          \"shape\":\"GenerationId\",\
+          \"documentation\":\"<p>The generation ID of the policy.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output from the GetPolicy operation.</p>\"\
@@ -4446,15 +5065,15 @@
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The name of the policy.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyName\",\
-          \"documentation\":\"<p>The name of the policy.</p>\"\
+          \"locationName\":\"policyName\"\
         },\
         \"policyVersionId\":{\
           \"shape\":\"PolicyVersionId\",\
+          \"documentation\":\"<p>The policy version ID.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyVersionId\",\
-          \"documentation\":\"<p>The policy version ID.</p>\"\
+          \"locationName\":\"policyVersionId\"\
         }\
       },\
       \"documentation\":\"<p>The input for the GetPolicyVersion operation.</p>\"\
@@ -4481,6 +5100,18 @@
         \"isDefaultVersion\":{\
           \"shape\":\"IsDefaultVersion\",\
           \"documentation\":\"<p>Specifies whether the policy version is the default.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the policy version was created.</p>\"\
+        },\
+        \"lastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date the policy version was last modified.</p>\"\
+        },\
+        \"generationId\":{\
+          \"shape\":\"GenerationId\",\
+          \"documentation\":\"<p>The generation ID of the policy version.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output from the GetPolicyVersion operation.</p>\"\
@@ -4507,9 +5138,9 @@
       \"members\":{\
         \"ruleName\":{\
           \"shape\":\"RuleName\",\
+          \"documentation\":\"<p>The name of the rule.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"ruleName\",\
-          \"documentation\":\"<p>The name of the rule.</p>\"\
+          \"locationName\":\"ruleName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the GetTopicRule operation.</p>\"\
@@ -4528,8 +5159,85 @@
       },\
       \"documentation\":\"<p>The output from the GetTopicRule operation.</p>\"\
     },\
+    \"GetV2LoggingOptionsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"GetV2LoggingOptionsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"roleArn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>The IAM role ARN AWS IoT uses to write to your CloudWatch logs.</p>\"\
+        },\
+        \"defaultLogLevel\":{\
+          \"shape\":\"LogLevel\",\
+          \"documentation\":\"<p>The default log level.</p>\"\
+        },\
+        \"disableAllLogs\":{\
+          \"shape\":\"DisableAllLogs\",\
+          \"documentation\":\"<p>Disables all logs.</p>\"\
+        }\
+      }\
+    },\
+    \"GroupNameAndArn\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"groupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The group name.</p>\"\
+        },\
+        \"groupArn\":{\
+          \"shape\":\"ThingGroupArn\",\
+          \"documentation\":\"<p>The group ARN.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The name and ARN of a group.</p>\"\
+    },\
+    \"HashAlgorithm\":{\"type\":\"string\"},\
     \"HashKeyField\":{\"type\":\"string\"},\
     \"HashKeyValue\":{\"type\":\"string\"},\
+    \"ImplicitDeny\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"policies\":{\
+          \"shape\":\"Policies\",\
+          \"documentation\":\"<p>Policies that don't contain a matching allow or deny statement for the specified action on the specified resource. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information that implicitly denies authorization. When policy doesn't explicitly deny or allow an action on a resource it is considered an implicit deny.</p>\"\
+    },\
+    \"InProgressThings\":{\"type\":\"integer\"},\
+    \"IndexName\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9:_-]+\"\
+    },\
+    \"IndexNamesList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"IndexName\"}\
+    },\
+    \"IndexNotReadyException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"errorMessage\"}\
+      },\
+      \"documentation\":\"<p>The index is not ready.</p>\",\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
+    \"IndexSchema\":{\"type\":\"string\"},\
+    \"IndexStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ACTIVE\",\
+        \"BUILDING\",\
+        \"REBUILDING\"\
+      ]\
+    },\
+    \"InlineDocument\":{\"type\":\"string\"},\
     \"InternalException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4538,10 +5246,10 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>An unexpected error has occurred.</p>\",\
       \"error\":{\"httpStatusCode\":500},\
       \"exception\":true,\
-      \"fault\":true,\
-      \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
+      \"fault\":true\
     },\
     \"InternalFailureException\":{\
       \"type\":\"structure\",\
@@ -4551,10 +5259,19 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>An unexpected error has occurred.</p>\",\
       \"error\":{\"httpStatusCode\":500},\
       \"exception\":true,\
-      \"fault\":true,\
-      \"documentation\":\"<p>An unexpected error has occurred.</p>\"\
+      \"fault\":true\
+    },\
+    \"InvalidQueryException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"errorMessage\"}\
+      },\
+      \"documentation\":\"<p>The query is invalid.</p>\",\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
     },\
     \"InvalidRequestException\":{\
       \"type\":\"structure\",\
@@ -4564,13 +5281,384 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The request is not valid.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The request is not valid.</p>\"\
+      \"exception\":true\
     },\
+    \"InvalidResponseException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"errorMessage\"}\
+      },\
+      \"documentation\":\"<p>The response is invalid.</p>\",\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
+    \"InvalidStateTransitionException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"errorMessage\"}\
+      },\
+      \"documentation\":\"<p>An attempt was made to change to an invalid state, for example by deleting a job or a job execution which is \\\"IN_PROGRESS\\\" without setting the <code>force</code> parameter.</p>\",\
+      \"error\":{\"httpStatusCode\":409},\
+      \"exception\":true\
+    },\
+    \"IotAnalyticsAction\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"channelArn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>(deprecated) The ARN of the IoT Analytics channel to which message data will be sent.</p>\"\
+        },\
+        \"channelName\":{\
+          \"shape\":\"ChannelName\",\
+          \"documentation\":\"<p>The name of the IoT Analytics channel to which message data will be sent.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Sends messge data to an AWS IoT Analytics channel.</p>\"\
+    },\
+    \"IsAuthenticated\":{\"type\":\"boolean\"},\
     \"IsDefaultVersion\":{\"type\":\"boolean\"},\
     \"IsDisabled\":{\"type\":\"boolean\"},\
+    \"Job\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"jobArn\":{\
+          \"shape\":\"JobArn\",\
+          \"documentation\":\"<p>An ARN identifying the job with format \\\"arn:aws:iot:region:account:job/jobId\\\".</p>\"\
+        },\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\"\
+        },\
+        \"targetSelection\":{\
+          \"shape\":\"TargetSelection\",\
+          \"documentation\":\"<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a device when the thing representing the device is added to a target group, even after the job was completed by all things originally in the group. </p>\"\
+        },\
+        \"status\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>. </p>\"\
+        },\
+        \"forceCanceled\":{\
+          \"shape\":\"Forced\",\
+          \"documentation\":\"<p>Will be <code>true</code> if the job was canceled with the optional <code>force</code> parameter set to <code>true</code>.</p>\"\
+        },\
+        \"comment\":{\
+          \"shape\":\"Comment\",\
+          \"documentation\":\"<p>If the job was updated, describes the reason for the update.</p>\"\
+        },\
+        \"targets\":{\
+          \"shape\":\"JobTargets\",\
+          \"documentation\":\"<p>A list of IoT things and thing groups to which the job should be sent.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"JobDescription\",\
+          \"documentation\":\"<p>A short text description of the job.</p>\"\
+        },\
+        \"presignedUrlConfig\":{\
+          \"shape\":\"PresignedUrlConfig\",\
+          \"documentation\":\"<p>Configuration for pre-signed S3 URLs.</p>\"\
+        },\
+        \"jobExecutionsRolloutConfig\":{\
+          \"shape\":\"JobExecutionsRolloutConfig\",\
+          \"documentation\":\"<p>Allows you to create a staged rollout of a job.</p>\"\
+        },\
+        \"createdAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job was created.</p>\"\
+        },\
+        \"lastUpdatedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job was last updated.</p>\"\
+        },\
+        \"completedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job was completed.</p>\"\
+        },\
+        \"jobProcessDetails\":{\
+          \"shape\":\"JobProcessDetails\",\
+          \"documentation\":\"<p>Details about the job process.</p>\"\
+        },\
+        \"documentParameters\":{\
+          \"shape\":\"JobDocumentParameters\",\
+          \"documentation\":\"<p>The parameters specified for the job document.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The <code>Job</code> object contains details about a job.</p>\"\
+    },\
+    \"JobArn\":{\"type\":\"string\"},\
+    \"JobDescription\":{\
+      \"type\":\"string\",\
+      \"max\":2028,\
+      \"pattern\":\"[^\\\\p{C}]+\"\
+    },\
+    \"JobDocument\":{\
+      \"type\":\"string\",\
+      \"max\":32768\
+    },\
+    \"JobDocumentParameters\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"ParameterKey\"},\
+      \"value\":{\"shape\":\"ParameterValue\"},\
+      \"max\":10\
+    },\
+    \"JobDocumentSource\":{\
+      \"type\":\"string\",\
+      \"max\":1350,\
+      \"min\":1\
+    },\
+    \"JobExecution\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to the job when it was created.</p>\"\
+        },\
+        \"status\":{\
+          \"shape\":\"JobExecutionStatus\",\
+          \"documentation\":\"<p>The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).</p>\"\
+        },\
+        \"forceCanceled\":{\
+          \"shape\":\"Forced\",\
+          \"documentation\":\"<p>Will be <code>true</code> if the job execution was canceled with the optional <code>force</code> parameter set to <code>true</code>.</p>\"\
+        },\
+        \"statusDetails\":{\
+          \"shape\":\"JobExecutionStatusDetails\",\
+          \"documentation\":\"<p>A collection of name/value pairs that describe the status of the job execution.</p>\"\
+        },\
+        \"thingArn\":{\
+          \"shape\":\"ThingArn\",\
+          \"documentation\":\"<p>The ARN of the thing on which the job execution is running.</p>\"\
+        },\
+        \"queuedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution was queued.</p>\"\
+        },\
+        \"startedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution started.</p>\"\
+        },\
+        \"lastUpdatedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>\"\
+        },\
+        \"executionNumber\":{\
+          \"shape\":\"ExecutionNumber\",\
+          \"documentation\":\"<p>A string (consisting of the digits \\\"0\\\" through \\\"9\\\") which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information. </p>\"\
+        },\
+        \"versionNumber\":{\
+          \"shape\":\"VersionNumber\",\
+          \"documentation\":\"<p>The version of the job execution. Job execution versions are incremented each time they are updated by a device.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The job execution object represents the execution of a job on a particular device.</p>\"\
+    },\
+    \"JobExecutionStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"QUEUED\",\
+        \"IN_PROGRESS\",\
+        \"SUCCEEDED\",\
+        \"FAILED\",\
+        \"REJECTED\",\
+        \"REMOVED\",\
+        \"CANCELED\"\
+      ]\
+    },\
+    \"JobExecutionStatusDetails\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"detailsMap\":{\
+          \"shape\":\"DetailsMap\",\
+          \"documentation\":\"<p>The job execution status.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Details of the job execution status.</p>\"\
+    },\
+    \"JobExecutionSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"status\":{\
+          \"shape\":\"JobExecutionStatus\",\
+          \"documentation\":\"<p>The status of the job execution.</p>\"\
+        },\
+        \"queuedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution was queued.</p>\"\
+        },\
+        \"startedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution started.</p>\"\
+        },\
+        \"lastUpdatedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>\"\
+        },\
+        \"executionNumber\":{\
+          \"shape\":\"ExecutionNumber\",\
+          \"documentation\":\"<p>A string (consisting of the digits \\\"0\\\" through \\\"9\\\") which identifies this particular job execution on this particular device. It can be used later in commands which return or update job execution information.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The job execution summary.</p>\"\
+    },\
+    \"JobExecutionSummaryForJob\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingArn\":{\
+          \"shape\":\"ThingArn\",\
+          \"documentation\":\"<p>The ARN of the thing on which the job execution is running.</p>\"\
+        },\
+        \"jobExecutionSummary\":{\
+          \"shape\":\"JobExecutionSummary\",\
+          \"documentation\":\"<p>Contains a subset of information about a job execution.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains a summary of information about job executions for a specific job.</p>\"\
+    },\
+    \"JobExecutionSummaryForJobList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"JobExecutionSummaryForJob\"}\
+    },\
+    \"JobExecutionSummaryForThing\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\"\
+        },\
+        \"jobExecutionSummary\":{\
+          \"shape\":\"JobExecutionSummary\",\
+          \"documentation\":\"<p>Contains a subset of information about a job execution.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The job execution summary for a thing.</p>\"\
+    },\
+    \"JobExecutionSummaryForThingList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"JobExecutionSummaryForThing\"}\
+    },\
+    \"JobExecutionsRolloutConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"maximumPerMinute\":{\
+          \"shape\":\"MaxJobExecutionsPerMin\",\
+          \"documentation\":\"<p>The maximum number of things that will be notified of a pending job, per minute. This parameter allows you to create a staged rollout.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Allows you to create a staged rollout of a job.</p>\"\
+    },\
+    \"JobId\":{\
+      \"type\":\"string\",\
+      \"max\":64,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9_-]+\"\
+    },\
+    \"JobProcessDetails\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"processingTargets\":{\
+          \"shape\":\"ProcessingTargetNameList\",\
+          \"documentation\":\"<p>The target devices to which the job execution is being rolled out. This value will be null after the job execution has finished rolling out to all the target devices.</p>\"\
+        },\
+        \"numberOfCanceledThings\":{\
+          \"shape\":\"CanceledThings\",\
+          \"documentation\":\"<p>The number of things that cancelled the job.</p>\"\
+        },\
+        \"numberOfSucceededThings\":{\
+          \"shape\":\"SucceededThings\",\
+          \"documentation\":\"<p>The number of things which successfully completed the job.</p>\"\
+        },\
+        \"numberOfFailedThings\":{\
+          \"shape\":\"FailedThings\",\
+          \"documentation\":\"<p>The number of things that failed executing the job.</p>\"\
+        },\
+        \"numberOfRejectedThings\":{\
+          \"shape\":\"RejectedThings\",\
+          \"documentation\":\"<p>The number of things that rejected the job.</p>\"\
+        },\
+        \"numberOfQueuedThings\":{\
+          \"shape\":\"QueuedThings\",\
+          \"documentation\":\"<p>The number of things that are awaiting execution of the job.</p>\"\
+        },\
+        \"numberOfInProgressThings\":{\
+          \"shape\":\"InProgressThings\",\
+          \"documentation\":\"<p>The number of things currently executing the job.</p>\"\
+        },\
+        \"numberOfRemovedThings\":{\
+          \"shape\":\"RemovedThings\",\
+          \"documentation\":\"<p>The number of things that are no longer scheduled to execute the job because they have been deleted or have been removed from the group that was a target of the job.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The job process details.</p>\"\
+    },\
+    \"JobStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"IN_PROGRESS\",\
+        \"CANCELED\",\
+        \"COMPLETED\",\
+        \"DELETION_IN_PROGRESS\"\
+      ]\
+    },\
+    \"JobSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"jobArn\":{\
+          \"shape\":\"JobArn\",\
+          \"documentation\":\"<p>The job ARN.</p>\"\
+        },\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\"\
+        },\
+        \"thingGroupId\":{\
+          \"shape\":\"ThingGroupId\",\
+          \"documentation\":\"<p>The ID of the thing group.</p>\"\
+        },\
+        \"targetSelection\":{\
+          \"shape\":\"TargetSelection\",\
+          \"documentation\":\"<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.</p>\"\
+        },\
+        \"status\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>The job summary status.</p>\"\
+        },\
+        \"createdAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job was created.</p>\"\
+        },\
+        \"lastUpdatedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job was last updated.</p>\"\
+        },\
+        \"completedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The time, in milliseconds since the epoch, when the job completed.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The job summary.</p>\"\
+    },\
+    \"JobSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"JobSummary\"}\
+    },\
+    \"JobTargets\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TargetArn\"},\
+      \"min\":1\
+    },\
+    \"JsonDocument\":{\"type\":\"string\"},\
     \"Key\":{\"type\":\"string\"},\
+    \"KeyName\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9:_-]+\"\
+    },\
     \"KeyPair\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4584,6 +5672,10 @@
         }\
       },\
       \"documentation\":\"<p>Describes a key pair.</p>\"\
+    },\
+    \"KeyValue\":{\
+      \"type\":\"string\",\
+      \"max\":5120\
     },\
     \"KinesisAction\":{\
       \"type\":\"structure\",\
@@ -4618,6 +5710,12 @@
       },\
       \"documentation\":\"<p>Describes an action to invoke a Lambda function.</p>\"\
     },\
+    \"LaserMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":250,\
+      \"min\":1\
+    },\
+    \"LastModifiedDate\":{\"type\":\"timestamp\"},\
     \"LimitExceededException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4626,30 +5724,115 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>A limit has been exceeded.</p>\",\
       \"error\":{\"httpStatusCode\":410},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The number of attached entities exceeds the limit.</p>\"\
+      \"exception\":true\
+    },\
+    \"ListAttachedPoliciesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"target\"],\
+      \"members\":{\
+        \"target\":{\
+          \"shape\":\"PolicyTarget\",\
+          \"documentation\":\"<p>The group for which the policies will be listed.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"target\"\
+        },\
+        \"recursive\":{\
+          \"shape\":\"Recursive\",\
+          \"documentation\":\"<p>When true, recursively list attached policies.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"recursive\"\
+        },\
+        \"marker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"marker\"\
+        },\
+        \"pageSize\":{\
+          \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The maximum number of results to be returned per request.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"pageSize\"\
+        }\
+      }\
+    },\
+    \"ListAttachedPoliciesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"policies\":{\
+          \"shape\":\"Policies\",\
+          \"documentation\":\"<p>The policies.</p>\"\
+        },\
+        \"nextMarker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The token to retrieve the next set of results, or ``null`` if there are no more results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListAuthorizersRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"pageSize\":{\
+          \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"pageSize\"\
+        },\
+        \"marker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>A marker used to get the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"marker\"\
+        },\
+        \"ascendingOrder\":{\
+          \"shape\":\"AscendingOrder\",\
+          \"documentation\":\"<p>Return the list of authorizers in ascending alphabetical order.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"isAscendingOrder\"\
+        },\
+        \"status\":{\
+          \"shape\":\"AuthorizerStatus\",\
+          \"documentation\":\"<p>The status of the list authorizers request.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"status\"\
+        }\
+      }\
+    },\
+    \"ListAuthorizersResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"authorizers\":{\
+          \"shape\":\"Authorizers\",\
+          \"documentation\":\"<p>The authorizers.</p>\"\
+        },\
+        \"nextMarker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>A marker used to get the next set of results.</p>\"\
+        }\
+      }\
     },\
     \"ListCACertificatesRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"pageSize\":{\
           \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The result page size.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"pageSize\",\
-          \"documentation\":\"<p>The result page size.</p>\"\
+          \"locationName\":\"pageSize\"\
         },\
         \"marker\":{\
           \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker for the next set of results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"marker\",\
-          \"documentation\":\"<p>The marker for the next set of results.</p>\"\
+          \"locationName\":\"marker\"\
         },\
         \"ascendingOrder\":{\
           \"shape\":\"AscendingOrder\",\
+          \"documentation\":\"<p>Determines the order of the results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"isAscendingOrder\",\
-          \"documentation\":\"<p>Determines the order of the results.</p>\"\
+          \"locationName\":\"isAscendingOrder\"\
         }\
       },\
       \"documentation\":\"<p>Input for the ListCACertificates operation.</p>\"\
@@ -4674,27 +5857,27 @@
       \"members\":{\
         \"caCertificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"caCertificateId\",\
-          \"documentation\":\"<p>The ID of the CA certificate. This operation will list all registered device certificate that were signed by this CA certificate. </p>\"\
+          \"locationName\":\"caCertificateId\"\
         },\
         \"pageSize\":{\
           \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The result page size.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"pageSize\",\
-          \"documentation\":\"<p>The result page size.</p>\"\
+          \"locationName\":\"pageSize\"\
         },\
         \"marker\":{\
           \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker for the next set of results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"marker\",\
-          \"documentation\":\"<p>The marker for the next set of results.</p>\"\
+          \"locationName\":\"marker\"\
         },\
         \"ascendingOrder\":{\
           \"shape\":\"AscendingOrder\",\
+          \"documentation\":\"<p>Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"isAscendingOrder\",\
-          \"documentation\":\"<p>Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.</p>\"\
+          \"locationName\":\"isAscendingOrder\"\
         }\
       },\
       \"documentation\":\"<p>The input to the ListCertificatesByCA operation.</p>\"\
@@ -4718,21 +5901,21 @@
       \"members\":{\
         \"pageSize\":{\
           \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The result page size.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"pageSize\",\
-          \"documentation\":\"<p>The result page size.</p>\"\
+          \"locationName\":\"pageSize\"\
         },\
         \"marker\":{\
           \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker for the next set of results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"marker\",\
-          \"documentation\":\"<p>The marker for the next set of results.</p>\"\
+          \"locationName\":\"marker\"\
         },\
         \"ascendingOrder\":{\
           \"shape\":\"AscendingOrder\",\
+          \"documentation\":\"<p>Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"isAscendingOrder\",\
-          \"documentation\":\"<p>Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.</p>\"\
+          \"locationName\":\"isAscendingOrder\"\
         }\
       },\
       \"documentation\":\"<p>The input for the ListCertificates operation.</p>\"\
@@ -4751,26 +5934,232 @@
       },\
       \"documentation\":\"<p>The output of the ListCertificates operation.</p>\"\
     },\
+    \"ListIndicesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"QueryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListIndicesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"indexNames\":{\
+          \"shape\":\"IndexNamesList\",\
+          \"documentation\":\"<p>The index names.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListJobExecutionsForJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"jobId\"],\
+      \"members\":{\
+        \"jobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The unique identifier you assigned to this job when it was created.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"jobId\"\
+        },\
+        \"status\":{\
+          \"shape\":\"JobExecutionStatus\",\
+          \"documentation\":\"<p>The status of the job.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"status\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"LaserMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to be returned per request.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"ListJobExecutionsForJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"executionSummaries\":{\
+          \"shape\":\"JobExecutionSummaryForJobList\",\
+          \"documentation\":\"<p>A list of job execution summaries.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListJobExecutionsForThingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"thingName\"],\
+      \"members\":{\
+        \"thingName\":{\
+          \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The thing name.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"thingName\"\
+        },\
+        \"status\":{\
+          \"shape\":\"JobExecutionStatus\",\
+          \"documentation\":\"<p>An optional filter that lets you search for jobs that have the specified status.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"status\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"LaserMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to be returned per request.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        }\
+      }\
+    },\
+    \"ListJobExecutionsForThingResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"executionSummaries\":{\
+          \"shape\":\"JobExecutionSummaryForThingList\",\
+          \"documentation\":\"<p>A list of job execution summaries.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListJobsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"status\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>An optional filter that lets you search for jobs that have the specified status.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"status\"\
+        },\
+        \"targetSelection\":{\
+          \"shape\":\"TargetSelection\",\
+          \"documentation\":\"<p>Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group. </p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"targetSelection\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"LaserMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return per request.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"thingGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>A filter that limits the returned jobs to those for the specified group.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"thingGroupName\"\
+        },\
+        \"thingGroupId\":{\
+          \"shape\":\"ThingGroupId\",\
+          \"documentation\":\"<p>A filter that limits the returned jobs to those for the specified group.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"thingGroupId\"\
+        }\
+      }\
+    },\
+    \"ListJobsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"jobs\":{\
+          \"shape\":\"JobSummaryList\",\
+          \"documentation\":\"<p>A list of jobs.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListOTAUpdatesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"maxResults\":{\
+          \"shape\":\"MaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>A token used to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"otaUpdateStatus\":{\
+          \"shape\":\"OTAUpdateStatus\",\
+          \"documentation\":\"<p>The OTA update job status.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"otaUpdateStatus\"\
+        }\
+      }\
+    },\
+    \"ListOTAUpdatesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"otaUpdates\":{\
+          \"shape\":\"OTAUpdatesSummary\",\
+          \"documentation\":\"<p>A list of OTA update jobs.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>A token to use to get the next set of results.</p>\"\
+        }\
+      }\
+    },\
     \"ListOutgoingCertificatesRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"pageSize\":{\
           \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The result page size.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"pageSize\",\
-          \"documentation\":\"<p>The result page size.</p>\"\
+          \"locationName\":\"pageSize\"\
         },\
         \"marker\":{\
           \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker for the next set of results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"marker\",\
-          \"documentation\":\"<p>The marker for the next set of results.</p>\"\
+          \"locationName\":\"marker\"\
         },\
         \"ascendingOrder\":{\
           \"shape\":\"AscendingOrder\",\
+          \"documentation\":\"<p>Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"isAscendingOrder\",\
-          \"documentation\":\"<p>Specifies the order for results. If True, the results are returned in ascending order, based on the creation date.</p>\"\
+          \"locationName\":\"isAscendingOrder\"\
         }\
       },\
       \"documentation\":\"<p>The input to the ListOutgoingCertificates operation.</p>\"\
@@ -4780,7 +6169,7 @@
       \"members\":{\
         \"outgoingCertificates\":{\
           \"shape\":\"OutgoingCertificates\",\
-          \"documentation\":\"<p>The certificates that are being transfered but not yet accepted.</p>\"\
+          \"documentation\":\"<p>The certificates that are being transferred but not yet accepted.</p>\"\
         },\
         \"nextMarker\":{\
           \"shape\":\"Marker\",\
@@ -4794,21 +6183,21 @@
       \"members\":{\
         \"marker\":{\
           \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker for the next set of results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"marker\",\
-          \"documentation\":\"<p>The marker for the next set of results.</p>\"\
+          \"locationName\":\"marker\"\
         },\
         \"pageSize\":{\
           \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The result page size.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"pageSize\",\
-          \"documentation\":\"<p>The result page size.</p>\"\
+          \"locationName\":\"pageSize\"\
         },\
         \"ascendingOrder\":{\
           \"shape\":\"AscendingOrder\",\
+          \"documentation\":\"<p>Specifies the order for results. If true, the results are returned in ascending creation order.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"isAscendingOrder\",\
-          \"documentation\":\"<p>Specifies the order for results. If true, the results are returned in ascending creation order.</p>\"\
+          \"locationName\":\"isAscendingOrder\"\
         }\
       },\
       \"documentation\":\"<p>The input for the ListPolicies operation.</p>\"\
@@ -4833,27 +6222,27 @@
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The policy name.</p>\",\
           \"location\":\"header\",\
-          \"locationName\":\"x-amzn-iot-policy\",\
-          \"documentation\":\"<p>The policy name.</p>\"\
+          \"locationName\":\"x-amzn-iot-policy\"\
         },\
         \"marker\":{\
           \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker for the next set of results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"marker\",\
-          \"documentation\":\"<p>The marker for the next set of results.</p>\"\
+          \"locationName\":\"marker\"\
         },\
         \"pageSize\":{\
           \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The result page size.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"pageSize\",\
-          \"documentation\":\"<p>The result page size.</p>\"\
+          \"locationName\":\"pageSize\"\
         },\
         \"ascendingOrder\":{\
           \"shape\":\"AscendingOrder\",\
+          \"documentation\":\"<p>Specifies the order for results. If true, the results are returned in ascending creation order.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"isAscendingOrder\",\
-          \"documentation\":\"<p>Specifies the order for results. If true, the results are returned in ascending creation order.</p>\"\
+          \"locationName\":\"isAscendingOrder\"\
         }\
       },\
       \"documentation\":\"<p>The input for the ListPolicyPrincipals operation.</p>\"\
@@ -4878,9 +6267,9 @@
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The policy name.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyName\",\
-          \"documentation\":\"<p>The policy name.</p>\"\
+          \"locationName\":\"policyName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the ListPolicyVersions operation.</p>\"\
@@ -4901,27 +6290,27 @@
       \"members\":{\
         \"principal\":{\
           \"shape\":\"Principal\",\
+          \"documentation\":\"<p>The principal.</p>\",\
           \"location\":\"header\",\
-          \"locationName\":\"x-amzn-iot-principal\",\
-          \"documentation\":\"<p>The principal.</p>\"\
+          \"locationName\":\"x-amzn-iot-principal\"\
         },\
         \"marker\":{\
           \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker for the next set of results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"marker\",\
-          \"documentation\":\"<p>The marker for the next set of results.</p>\"\
+          \"locationName\":\"marker\"\
         },\
         \"pageSize\":{\
           \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The result page size.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"pageSize\",\
-          \"documentation\":\"<p>The result page size.</p>\"\
+          \"locationName\":\"pageSize\"\
         },\
         \"ascendingOrder\":{\
           \"shape\":\"AscendingOrder\",\
+          \"documentation\":\"<p>Specifies the order for results. If true, results are returned in ascending creation order.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"isAscendingOrder\",\
-          \"documentation\":\"<p>Specifies the order for results. If true, results are returned in ascending creation order.</p>\"\
+          \"locationName\":\"isAscendingOrder\"\
         }\
       },\
       \"documentation\":\"<p>The input for the ListPrincipalPolicies operation.</p>\"\
@@ -4946,21 +6335,21 @@
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"nextToken\",\
-          \"documentation\":\"<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"locationName\":\"nextToken\"\
         },\
         \"maxResults\":{\
-          \"shape\":\"MaxResults\",\
+          \"shape\":\"RegistryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return in this operation.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"maxResults\",\
-          \"documentation\":\"<p>The maximum number of results to return in this operation.</p>\"\
+          \"locationName\":\"maxResults\"\
         },\
         \"principal\":{\
           \"shape\":\"Principal\",\
+          \"documentation\":\"<p>The principal.</p>\",\
           \"location\":\"header\",\
-          \"locationName\":\"x-amzn-principal\",\
-          \"documentation\":\"<p>The principal.</p>\"\
+          \"locationName\":\"x-amzn-principal\"\
         }\
       },\
       \"documentation\":\"<p>The input for the ListPrincipalThings operation.</p>\"\
@@ -4974,10 +6363,204 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output from the ListPrincipalThings operation.</p>\"\
+    },\
+    \"ListRoleAliasesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"pageSize\":{\
+          \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"pageSize\"\
+        },\
+        \"marker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>A marker used to get the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"marker\"\
+        },\
+        \"ascendingOrder\":{\
+          \"shape\":\"AscendingOrder\",\
+          \"documentation\":\"<p>Return the list of role aliases in ascending alphabetical order.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"isAscendingOrder\"\
+        }\
+      }\
+    },\
+    \"ListRoleAliasesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"roleAliases\":{\
+          \"shape\":\"RoleAliases\",\
+          \"documentation\":\"<p>The role aliases.</p>\"\
+        },\
+        \"nextMarker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>A marker used to get the next set of results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListStreamsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"maxResults\":{\
+          \"shape\":\"MaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at a time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>A token used to get the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"ascendingOrder\":{\
+          \"shape\":\"AscendingOrder\",\
+          \"documentation\":\"<p>Set to true to return the list of streams in ascending order.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"isAscendingOrder\"\
+        }\
+      }\
+    },\
+    \"ListStreamsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"streams\":{\
+          \"shape\":\"StreamsSummary\",\
+          \"documentation\":\"<p>A list of streams.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>A token used to get the next set of results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListTargetsForPolicyRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"policyName\"],\
+      \"members\":{\
+        \"policyName\":{\
+          \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The policy name.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"policyName\"\
+        },\
+        \"marker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>A marker used to get the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"marker\"\
+        },\
+        \"pageSize\":{\
+          \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"pageSize\"\
+        }\
+      }\
+    },\
+    \"ListTargetsForPolicyResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"targets\":{\
+          \"shape\":\"PolicyTargets\",\
+          \"documentation\":\"<p>The policy targets.</p>\"\
+        },\
+        \"nextMarker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>A marker used to get the next set of results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListThingGroupsForThingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"thingName\"],\
+      \"members\":{\
+        \"thingName\":{\
+          \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The thing name.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"thingName\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"RegistryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListThingGroupsForThingResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingGroups\":{\
+          \"shape\":\"ThingGroupNameAndArnList\",\
+          \"documentation\":\"<p>The thing groups.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListThingGroupsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"RegistryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"parentGroup\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>A filter that limits the results to those with the specified parent group.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"parentGroup\"\
+        },\
+        \"namePrefixFilter\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>A filter that limits the results to those with the specified name prefix.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"namePrefixFilter\"\
+        },\
+        \"recursive\":{\
+          \"shape\":\"RecursiveWithoutDefault\",\
+          \"documentation\":\"<p>If true, return child groups as well.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"recursive\"\
+        }\
+      }\
+    },\
+    \"ListThingGroupsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingGroups\":{\
+          \"shape\":\"ThingGroupNameAndArnList\",\
+          \"documentation\":\"<p>The thing groups.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        }\
+      }\
     },\
     \"ListThingPrincipalsRequest\":{\
       \"type\":\"structure\",\
@@ -4985,9 +6568,9 @@
       \"members\":{\
         \"thingName\":{\
           \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingName\",\
-          \"documentation\":\"<p>The name of the thing.</p>\"\
+          \"locationName\":\"thingName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the ListThingPrincipal operation.</p>\"\
@@ -5002,26 +6585,112 @@
       },\
       \"documentation\":\"<p>The output from the ListThingPrincipals operation.</p>\"\
     },\
+    \"ListThingRegistrationTaskReportsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"taskId\",\
+        \"reportType\"\
+      ],\
+      \"members\":{\
+        \"taskId\":{\
+          \"shape\":\"TaskId\",\
+          \"documentation\":\"<p>The id of the task.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"taskId\"\
+        },\
+        \"reportType\":{\
+          \"shape\":\"ReportType\",\
+          \"documentation\":\"<p>The type of task report.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"reportType\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"RegistryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return per request.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListThingRegistrationTaskReportsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"resourceLinks\":{\
+          \"shape\":\"S3FileUrlList\",\
+          \"documentation\":\"<p>Links to the task resources.</p>\"\
+        },\
+        \"reportType\":{\
+          \"shape\":\"ReportType\",\
+          \"documentation\":\"<p>The type of task report.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListThingRegistrationTasksRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"RegistryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"status\":{\
+          \"shape\":\"Status\",\
+          \"documentation\":\"<p>The status of the bulk thing provisioning task.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"status\"\
+        }\
+      }\
+    },\
+    \"ListThingRegistrationTasksResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"taskIds\":{\
+          \"shape\":\"TaskIdList\",\
+          \"documentation\":\"<p>A list of bulk thing provisioning task IDs.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        }\
+      }\
+    },\
     \"ListThingTypesRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"nextToken\",\
-          \"documentation\":\"<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"locationName\":\"nextToken\"\
         },\
         \"maxResults\":{\
-          \"shape\":\"MaxResults\",\
+          \"shape\":\"RegistryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return in this operation.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"maxResults\",\
-          \"documentation\":\"<p>The maximum number of results to return in this operation.</p>\"\
+          \"locationName\":\"maxResults\"\
         },\
         \"thingTypeName\":{\
           \"shape\":\"ThingTypeName\",\
+          \"documentation\":\"<p>The name of the thing type.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"thingTypeName\",\
-          \"documentation\":\"<p>The name of the thing type.</p>\"\
+          \"locationName\":\"thingTypeName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the ListThingTypes operation.</p>\"\
@@ -5040,38 +6709,81 @@
       },\
       \"documentation\":\"<p>The output for the ListThingTypes operation.</p>\"\
     },\
+    \"ListThingsInThingGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"thingGroupName\"],\
+      \"members\":{\
+        \"thingGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The thing group name.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"thingGroupName\"\
+        },\
+        \"recursive\":{\
+          \"shape\":\"Recursive\",\
+          \"documentation\":\"<p>When true, list things in this thing group and in all child groups as well.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"recursive\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"RegistryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListThingsInThingGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"things\":{\
+          \"shape\":\"ThingNameList\",\
+          \"documentation\":\"<p>The things in the specified thing group.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        }\
+      }\
+    },\
     \"ListThingsRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"nextToken\",\
-          \"documentation\":\"<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"locationName\":\"nextToken\"\
         },\
         \"maxResults\":{\
-          \"shape\":\"MaxResults\",\
+          \"shape\":\"RegistryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return in this operation.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"maxResults\",\
-          \"documentation\":\"<p>The maximum number of results to return in this operation.</p>\"\
+          \"locationName\":\"maxResults\"\
         },\
         \"attributeName\":{\
           \"shape\":\"AttributeName\",\
+          \"documentation\":\"<p>The attribute name used to search for things.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"attributeName\",\
-          \"documentation\":\"<p>The attribute name used to search for things.</p>\"\
+          \"locationName\":\"attributeName\"\
         },\
         \"attributeValue\":{\
           \"shape\":\"AttributeValue\",\
+          \"documentation\":\"<p>The attribute value used to search for things.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"attributeValue\",\
-          \"documentation\":\"<p>The attribute value used to search for things.</p>\"\
+          \"locationName\":\"attributeValue\"\
         },\
         \"thingTypeName\":{\
           \"shape\":\"ThingTypeName\",\
+          \"documentation\":\"<p>The name of the thing type used to search for things.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"thingTypeName\",\
-          \"documentation\":\"<p>The name of the thing type used to search for things.</p>\"\
+          \"locationName\":\"thingTypeName\"\
         }\
       },\
       \"documentation\":\"<p>The input for the ListThings operation.</p>\"\
@@ -5085,7 +6797,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output from the ListThings operation.</p>\"\
@@ -5095,27 +6807,27 @@
       \"members\":{\
         \"topic\":{\
           \"shape\":\"Topic\",\
+          \"documentation\":\"<p>The topic.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"topic\",\
-          \"documentation\":\"<p>The topic.</p>\"\
+          \"locationName\":\"topic\"\
         },\
         \"maxResults\":{\
-          \"shape\":\"MaxResults\",\
+          \"shape\":\"GEMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"maxResults\",\
-          \"documentation\":\"<p>The maximum number of results to return.</p>\"\
+          \"locationName\":\"maxResults\"\
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>A token used to retrieve the next value.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"nextToken\",\
-          \"documentation\":\"<p>A token used to retrieve the next value.</p>\"\
+          \"locationName\":\"nextToken\"\
         },\
         \"ruleDisabled\":{\
           \"shape\":\"IsDisabled\",\
+          \"documentation\":\"<p>Specifies whether the rule is disabled.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"ruleDisabled\",\
-          \"documentation\":\"<p>Specifies whether the rule is disabled.</p>\"\
+          \"locationName\":\"ruleDisabled\"\
         }\
       },\
       \"documentation\":\"<p>The input for the ListTopicRules operation.</p>\"\
@@ -5134,6 +6846,42 @@
       },\
       \"documentation\":\"<p>The output from the ListTopicRules operation.</p>\"\
     },\
+    \"ListV2LoggingLevelsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"targetType\":{\
+          \"shape\":\"LogTargetType\",\
+          \"documentation\":\"<p>The type of resource for which you are configuring logging. Must be <code>THING_Group</code>.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"targetType\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"SkyfallMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListV2LoggingLevelsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"logTargetConfigurations\":{\
+          \"shape\":\"LogTargetConfigurations\",\
+          \"documentation\":\"<p>The logging configuration for a target.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        }\
+      }\
+    },\
     \"LogLevel\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -5142,6 +6890,47 @@
         \"ERROR\",\
         \"WARN\",\
         \"DISABLED\"\
+      ]\
+    },\
+    \"LogTarget\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"targetType\"],\
+      \"members\":{\
+        \"targetType\":{\
+          \"shape\":\"LogTargetType\",\
+          \"documentation\":\"<p>The target type.</p>\"\
+        },\
+        \"targetName\":{\
+          \"shape\":\"LogTargetName\",\
+          \"documentation\":\"<p>The target name.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A log target.</p>\"\
+    },\
+    \"LogTargetConfiguration\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"logTarget\":{\
+          \"shape\":\"LogTarget\",\
+          \"documentation\":\"<p>A log target</p>\"\
+        },\
+        \"logLevel\":{\
+          \"shape\":\"LogLevel\",\
+          \"documentation\":\"<p>The logging level.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The target configuration.</p>\"\
+    },\
+    \"LogTargetConfigurations\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"LogTargetConfiguration\"}\
+    },\
+    \"LogTargetName\":{\"type\":\"string\"},\
+    \"LogTargetType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"DEFAULT\",\
+        \"THING_GROUP\"\
       ]\
     },\
     \"LoggingOptionsPayload\":{\
@@ -5154,7 +6943,7 @@
         },\
         \"logLevel\":{\
           \"shape\":\"LogLevel\",\
-          \"documentation\":\"<p>The logging level.</p>\"\
+          \"documentation\":\"<p>The log level.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the logging options payload.</p>\"\
@@ -5167,15 +6956,23 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The policy documentation is not valid.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The policy documentation is not valid.</p>\"\
+      \"exception\":true\
     },\
-    \"Marker\":{\"type\":\"string\"},\
+    \"Marker\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"[A-Za-z0-9+/]+={0,2}\"\
+    },\
+    \"MaxJobExecutionsPerMin\":{\
+      \"type\":\"integer\",\
+      \"max\":1000,\
+      \"min\":1\
+    },\
     \"MaxResults\":{\
       \"type\":\"integer\",\
-      \"min\":1,\
-      \"max\":10000\
+      \"max\":250,\
+      \"min\":1\
     },\
     \"Message\":{\
       \"type\":\"string\",\
@@ -5193,7 +6990,156 @@
     \"MetricTimestamp\":{\"type\":\"string\"},\
     \"MetricUnit\":{\"type\":\"string\"},\
     \"MetricValue\":{\"type\":\"string\"},\
+    \"MissingContextValue\":{\"type\":\"string\"},\
+    \"MissingContextValues\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"MissingContextValue\"}\
+    },\
     \"NextToken\":{\"type\":\"string\"},\
+    \"NotConfiguredException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"errorMessage\"}\
+      },\
+      \"documentation\":\"<p>The resource is not configured.</p>\",\
+      \"error\":{\"httpStatusCode\":404},\
+      \"exception\":true\
+    },\
+    \"OTAUpdateArn\":{\"type\":\"string\"},\
+    \"OTAUpdateDescription\":{\
+      \"type\":\"string\",\
+      \"max\":2028,\
+      \"pattern\":\"[^\\\\p{C}]+\"\
+    },\
+    \"OTAUpdateErrorMessage\":{\"type\":\"string\"},\
+    \"OTAUpdateFile\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"fileName\":{\
+          \"shape\":\"FileName\",\
+          \"documentation\":\"<p>The name of the file.</p>\"\
+        },\
+        \"fileVersion\":{\
+          \"shape\":\"OTAUpdateFileVersion\",\
+          \"documentation\":\"<p>The file version.</p>\"\
+        },\
+        \"fileSource\":{\
+          \"shape\":\"Stream\",\
+          \"documentation\":\"<p>The source of the file.</p>\"\
+        },\
+        \"codeSigning\":{\
+          \"shape\":\"CodeSigning\",\
+          \"documentation\":\"<p>The code signing method of the file.</p>\"\
+        },\
+        \"attributes\":{\
+          \"shape\":\"AttributesMap\",\
+          \"documentation\":\"<p>A list of name/attribute pairs.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a file to be associated with an OTA update.</p>\"\
+    },\
+    \"OTAUpdateFileVersion\":{\"type\":\"string\"},\
+    \"OTAUpdateFiles\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"OTAUpdateFile\"},\
+      \"max\":10,\
+      \"min\":1\
+    },\
+    \"OTAUpdateId\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9_-]+\"\
+    },\
+    \"OTAUpdateInfo\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"otaUpdateId\":{\
+          \"shape\":\"OTAUpdateId\",\
+          \"documentation\":\"<p>The OTA update ID.</p>\"\
+        },\
+        \"otaUpdateArn\":{\
+          \"shape\":\"OTAUpdateArn\",\
+          \"documentation\":\"<p>The OTA update ARN.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the OTA update was created.</p>\"\
+        },\
+        \"lastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the OTA update was last updated.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"OTAUpdateDescription\",\
+          \"documentation\":\"<p>A description of the OTA update.</p>\"\
+        },\
+        \"targets\":{\
+          \"shape\":\"Targets\",\
+          \"documentation\":\"<p>The targets of the OTA update.</p>\"\
+        },\
+        \"targetSelection\":{\
+          \"shape\":\"TargetSelection\",\
+          \"documentation\":\"<p>Specifies whether the OTA update will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the OTA update (SNAPSHOT). If continuous, the OTA update may also be run on a thing when a change is detected in a target. For example, an OTA update will run on a thing when the thing is added to a target group, even after the OTA update was completed by all things originally in the group. </p>\"\
+        },\
+        \"otaUpdateFiles\":{\
+          \"shape\":\"OTAUpdateFiles\",\
+          \"documentation\":\"<p>A list of files associated with the OTA update.</p>\"\
+        },\
+        \"otaUpdateStatus\":{\
+          \"shape\":\"OTAUpdateStatus\",\
+          \"documentation\":\"<p>The status of the OTA update.</p>\"\
+        },\
+        \"awsIotJobId\":{\
+          \"shape\":\"AwsIotJobId\",\
+          \"documentation\":\"<p>The AWS IoT job ID associated with the OTA update.</p>\"\
+        },\
+        \"awsIotJobArn\":{\
+          \"shape\":\"AwsIotJobArn\",\
+          \"documentation\":\"<p>The AWS IoT job ARN associated with the OTA update.</p>\"\
+        },\
+        \"errorInfo\":{\
+          \"shape\":\"ErrorInfo\",\
+          \"documentation\":\"<p>Error information associated with the OTA update.</p>\"\
+        },\
+        \"additionalParameters\":{\
+          \"shape\":\"AdditionalParameterMap\",\
+          \"documentation\":\"<p>A collection of name/value pairs</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about an OTA update.</p>\"\
+    },\
+    \"OTAUpdateStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"CREATE_PENDING\",\
+        \"CREATE_IN_PROGRESS\",\
+        \"CREATE_COMPLETE\",\
+        \"CREATE_FAILED\"\
+      ]\
+    },\
+    \"OTAUpdateSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"otaUpdateId\":{\
+          \"shape\":\"OTAUpdateId\",\
+          \"documentation\":\"<p>The OTA update ID.</p>\"\
+        },\
+        \"otaUpdateArn\":{\
+          \"shape\":\"OTAUpdateArn\",\
+          \"documentation\":\"<p>The OTA update ARN.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the OTA update was created.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>An OTA update summary.</p>\"\
+    },\
+    \"OTAUpdatesSummary\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"OTAUpdateSummary\"}\
+    },\
     \"OptionalVersion\":{\"type\":\"long\"},\
     \"OutgoingCertificate\":{\
       \"type\":\"structure\",\
@@ -5223,7 +7169,7 @@
           \"documentation\":\"<p>The certificate creation date.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>A certificate that has been transfered but not yet accepted.</p>\"\
+      \"documentation\":\"<p>A certificate that has been transferred but not yet accepted.</p>\"\
     },\
     \"OutgoingCertificates\":{\
       \"type\":\"list\",\
@@ -5231,11 +7177,34 @@
     },\
     \"PageSize\":{\
       \"type\":\"integer\",\
+      \"max\":250,\
+      \"min\":1\
+    },\
+    \"Parameter\":{\"type\":\"string\"},\
+    \"ParameterKey\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
       \"min\":1,\
-      \"max\":250\
+      \"pattern\":\"[a-zA-Z0-9:_-]+\"\
+    },\
+    \"ParameterValue\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":1,\
+      \"pattern\":\"[^\\\\p{C}]+\"\
+    },\
+    \"Parameters\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"Parameter\"},\
+      \"value\":{\"shape\":\"Value\"}\
     },\
     \"PartitionKey\":{\"type\":\"string\"},\
     \"PayloadField\":{\"type\":\"string\"},\
+    \"Percentage\":{\
+      \"type\":\"integer\",\
+      \"max\":100,\
+      \"min\":0\
+    },\
     \"Policies\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Policy\"}\
@@ -5256,11 +7225,24 @@
     },\
     \"PolicyArn\":{\"type\":\"string\"},\
     \"PolicyDocument\":{\"type\":\"string\"},\
+    \"PolicyDocuments\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PolicyDocument\"}\
+    },\
     \"PolicyName\":{\
       \"type\":\"string\",\
-      \"min\":1,\
       \"max\":128,\
+      \"min\":1,\
       \"pattern\":\"[\\\\w+=,.@-]+\"\
+    },\
+    \"PolicyNames\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PolicyName\"}\
+    },\
+    \"PolicyTarget\":{\"type\":\"string\"},\
+    \"PolicyTargets\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PolicyTarget\"}\
     },\
     \"PolicyVersion\":{\
       \"type\":\"structure\",\
@@ -5288,8 +7270,28 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"PolicyVersion\"}\
     },\
+    \"PresignedUrlConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The ARN of an IAM role that grants grants permission to download files from the S3 bucket where the job data/updates are stored. The role must also grant permission for IoT to download the files.</p>\"\
+        },\
+        \"expiresInSec\":{\
+          \"shape\":\"ExpiresInSec\",\
+          \"documentation\":\"<p>How long (in seconds) pre-signed URLs are valid. Valid values are 60 - 3600, the default value is 3600 seconds. Pre-signed URLs are generated when Jobs receives an MQTT request for the job document.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration for pre-signed S3 URLs.</p>\"\
+    },\
     \"Principal\":{\"type\":\"string\"},\
     \"PrincipalArn\":{\"type\":\"string\"},\
+    \"PrincipalId\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9]+\"\
+    },\
     \"Principals\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"PrincipalArn\"}\
@@ -5299,9 +7301,19 @@
       \"min\":1,\
       \"sensitive\":true\
     },\
+    \"ProcessingTargetName\":{\"type\":\"string\"},\
+    \"ProcessingTargetNameList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ProcessingTargetName\"}\
+    },\
     \"PublicKey\":{\
       \"type\":\"string\",\
       \"min\":1\
+    },\
+    \"PublicKeyMap\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"KeyName\"},\
+      \"value\":{\"shape\":\"KeyValue\"}\
     },\
     \"PutItemInput\":{\
       \"type\":\"structure\",\
@@ -5314,9 +7326,23 @@
       },\
       \"documentation\":\"<p>The input for the DynamoActionVS action that specifies the DynamoDB table to which the message data will be written.</p>\"\
     },\
+    \"QueryMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":500,\
+      \"min\":1\
+    },\
+    \"QueryString\":{\
+      \"type\":\"string\",\
+      \"max\":1000,\
+      \"min\":1\
+    },\
+    \"QueryVersion\":{\"type\":\"string\"},\
     \"QueueUrl\":{\"type\":\"string\"},\
+    \"QueuedThings\":{\"type\":\"integer\"},\
     \"RangeKeyField\":{\"type\":\"string\"},\
     \"RangeKeyValue\":{\"type\":\"string\"},\
+    \"Recursive\":{\"type\":\"boolean\"},\
+    \"RecursiveWithoutDefault\":{\"type\":\"boolean\"},\
     \"RegisterCACertificateRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -5334,15 +7360,19 @@
         },\
         \"setAsActive\":{\
           \"shape\":\"SetAsActive\",\
+          \"documentation\":\"<p>A boolean value that specifies if the CA certificate is set to active.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"setAsActive\",\
-          \"documentation\":\"<p>A boolean value that specifies if the CA certificate is set to active.</p>\"\
+          \"locationName\":\"setAsActive\"\
         },\
         \"allowAutoRegistration\":{\
           \"shape\":\"AllowAutoRegistration\",\
+          \"documentation\":\"<p>Allows this CA certificate to be used for auto registration of device certificates.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"allowAutoRegistration\",\
-          \"documentation\":\"<p>Allows this CA certificate to be used for auto registration of device certificates.</p>\"\
+          \"locationName\":\"allowAutoRegistration\"\
+        },\
+        \"registrationConfig\":{\
+          \"shape\":\"RegistrationConfig\",\
+          \"documentation\":\"<p>Information about the registration configuration.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The input to the RegisterCACertificate operation.</p>\"\
@@ -5375,12 +7405,15 @@
         },\
         \"setAsActive\":{\
           \"shape\":\"SetAsActiveFlag\",\
+          \"documentation\":\"<p>A boolean value that specifies if the CA certificate is set to active.</p>\",\
           \"deprecated\":true,\
           \"location\":\"querystring\",\
-          \"locationName\":\"setAsActive\",\
-          \"documentation\":\"<p>A boolean value that specifies if the CA certificate is set to active.</p>\"\
+          \"locationName\":\"setAsActive\"\
         },\
-        \"status\":{\"shape\":\"CertificateStatus\"}\
+        \"status\":{\
+          \"shape\":\"CertificateStatus\",\
+          \"documentation\":\"<p>The status of the register certificate request.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>The input to the RegisterCertificate operation.</p>\"\
     },\
@@ -5398,10 +7431,34 @@
       },\
       \"documentation\":\"<p>The output from the RegisterCertificate operation.</p>\"\
     },\
+    \"RegisterThingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"templateBody\"],\
+      \"members\":{\
+        \"templateBody\":{\
+          \"shape\":\"TemplateBody\",\
+          \"documentation\":\"<p>The provisioning template. See <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\\\">Programmatic Provisioning</a> for more information.</p>\"\
+        },\
+        \"parameters\":{\
+          \"shape\":\"Parameters\",\
+          \"documentation\":\"<p>The parameters for provisioning a thing. See <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html\\\">Programmatic Provisioning</a> for more information.</p>\"\
+        }\
+      }\
+    },\
+    \"RegisterThingResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"certificatePem\":{\"shape\":\"CertificatePem\"},\
+        \"resourceArns\":{\
+          \"shape\":\"ResourceArns\",\
+          \"documentation\":\"<p>ARNs for the generated resources.</p>\"\
+        }\
+      }\
+    },\
     \"RegistrationCode\":{\
       \"type\":\"string\",\
-      \"min\":64,\
       \"max\":64,\
+      \"min\":64,\
       \"pattern\":\"(0x)?[a-fA-F0-9]+\"\
     },\
     \"RegistrationCodeValidationException\":{\
@@ -5412,9 +7469,40 @@
           \"documentation\":\"<p>Additional information about the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The registration code is invalid.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The registration code is invalid.</p>\"\
+      \"exception\":true\
+    },\
+    \"RegistrationConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"templateBody\":{\
+          \"shape\":\"TemplateBody\",\
+          \"documentation\":\"<p>The template body.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The ARN of the role.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The registration configuration.</p>\"\
+    },\
+    \"RegistryMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":250,\
+      \"min\":1\
+    },\
+    \"RegistryS3BucketName\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":3,\
+      \"pattern\":\"[a-zA-Z0-9._-]+\"\
+    },\
+    \"RegistryS3KeyName\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9!_.*'()-\\\\/]+\"\
     },\
     \"RejectCertificateTransferRequest\":{\
       \"type\":\"structure\",\
@@ -5422,9 +7510,9 @@
       \"members\":{\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"certificateId\",\
-          \"documentation\":\"<p>The ID of the certificate.</p>\"\
+          \"locationName\":\"certificateId\"\
         },\
         \"rejectReason\":{\
           \"shape\":\"Message\",\
@@ -5433,7 +7521,36 @@
       },\
       \"documentation\":\"<p>The input for the RejectCertificateTransfer operation.</p>\"\
     },\
+    \"RejectedThings\":{\"type\":\"integer\"},\
+    \"RemoveAutoRegistration\":{\"type\":\"boolean\"},\
+    \"RemoveThingFromThingGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The group name.</p>\"\
+        },\
+        \"thingGroupArn\":{\
+          \"shape\":\"ThingGroupArn\",\
+          \"documentation\":\"<p>The group ARN.</p>\"\
+        },\
+        \"thingName\":{\
+          \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing to remove from the group.</p>\"\
+        },\
+        \"thingArn\":{\
+          \"shape\":\"ThingArn\",\
+          \"documentation\":\"<p>The ARN of the thing to remove from the group.</p>\"\
+        }\
+      }\
+    },\
+    \"RemoveThingFromThingGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"RemoveThingType\":{\"type\":\"boolean\"},\
+    \"RemovedThings\":{\"type\":\"integer\"},\
     \"ReplaceTopicRuleRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -5443,9 +7560,9 @@
       \"members\":{\
         \"ruleName\":{\
           \"shape\":\"RuleName\",\
+          \"documentation\":\"<p>The name of the rule.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"ruleName\",\
-          \"documentation\":\"<p>The name of the rule.</p>\"\
+          \"locationName\":\"ruleName\"\
         },\
         \"topicRulePayload\":{\
           \"shape\":\"TopicRulePayload\",\
@@ -5454,6 +7571,13 @@
       },\
       \"documentation\":\"<p>The input for the ReplaceTopicRule operation.</p>\",\
       \"payload\":\"topicRulePayload\"\
+    },\
+    \"ReportType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ERRORS\",\
+        \"RESULTS\"\
+      ]\
     },\
     \"RepublishAction\":{\
       \"type\":\"structure\",\
@@ -5473,6 +7597,7 @@
       },\
       \"documentation\":\"<p>Describes an action to republish to another topic.</p>\"\
     },\
+    \"Resource\":{\"type\":\"string\"},\
     \"ResourceAlreadyExistsException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -5489,10 +7614,17 @@
           \"documentation\":\"<p>The ARN of the resource that caused the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The resource already exists.</p>\",\
       \"error\":{\"httpStatusCode\":409},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The resource already exists.</p>\"\
+      \"exception\":true\
     },\
+    \"ResourceArn\":{\"type\":\"string\"},\
+    \"ResourceArns\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"ResourceLogicalId\"},\
+      \"value\":{\"shape\":\"ResourceArn\"}\
+    },\
+    \"ResourceLogicalId\":{\"type\":\"string\"},\
     \"ResourceNotFoundException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -5501,15 +7633,78 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The specified resource does not exist.</p>\",\
       \"error\":{\"httpStatusCode\":404},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The specified resource does not exist.</p>\"\
+      \"exception\":true\
+    },\
+    \"ResourceRegistrationFailureException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"errorMessage\"}\
+      },\
+      \"documentation\":\"<p>The resource registration failed.</p>\",\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
+    \"Resources\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Resource\"}\
+    },\
+    \"RoleAlias\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[\\\\w=,@-]+\"\
+    },\
+    \"RoleAliasArn\":{\"type\":\"string\"},\
+    \"RoleAliasDescription\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"roleAlias\":{\
+          \"shape\":\"RoleAlias\",\
+          \"documentation\":\"<p>The role alias.</p>\"\
+        },\
+        \"roleAliasArn\":{\
+          \"shape\":\"RoleAliasArn\",\
+          \"documentation\":\"<p>The ARN of the role alias.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The role ARN.</p>\"\
+        },\
+        \"owner\":{\
+          \"shape\":\"AwsAccountId\",\
+          \"documentation\":\"<p>The role alias owner.</p>\"\
+        },\
+        \"credentialDurationSeconds\":{\
+          \"shape\":\"CredentialDurationSeconds\",\
+          \"documentation\":\"<p>The number of seconds for which the credential is valid.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The UNIX timestamp of when the role alias was created.</p>\"\
+        },\
+        \"lastModifiedDate\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The UNIX timestamp of when the role alias was last modified.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Role alias description.</p>\"\
+    },\
+    \"RoleAliases\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RoleAlias\"}\
+    },\
+    \"RoleArn\":{\
+      \"type\":\"string\",\
+      \"max\":2048,\
+      \"min\":20\
     },\
     \"RuleArn\":{\"type\":\"string\"},\
     \"RuleName\":{\
       \"type\":\"string\",\
-      \"min\":1,\
       \"max\":128,\
+      \"min\":1,\
       \"pattern\":\"^[a-zA-Z0-9_]+$\"\
     },\
     \"S3Action\":{\
@@ -5539,11 +7734,117 @@
       },\
       \"documentation\":\"<p>Describes an action to write data to an Amazon S3 bucket.</p>\"\
     },\
+    \"S3Bucket\":{\
+      \"type\":\"string\",\
+      \"min\":1\
+    },\
+    \"S3FileUrl\":{\
+      \"type\":\"string\",\
+      \"max\":65535\
+    },\
+    \"S3FileUrlList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"S3FileUrl\"}\
+    },\
+    \"S3Key\":{\
+      \"type\":\"string\",\
+      \"min\":1\
+    },\
+    \"S3Location\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"bucket\",\
+        \"key\"\
+      ],\
+      \"members\":{\
+        \"bucket\":{\
+          \"shape\":\"S3Bucket\",\
+          \"documentation\":\"<p>The S3 bucket that contains the file to stream.</p>\"\
+        },\
+        \"key\":{\
+          \"shape\":\"S3Key\",\
+          \"documentation\":\"<p>The name of the file within the S3 bucket to stream.</p>\"\
+        },\
+        \"version\":{\
+          \"shape\":\"S3Version\",\
+          \"documentation\":\"<p>The file version.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The location in S3 the contains the files to stream.</p>\"\
+    },\
+    \"S3Version\":{\"type\":\"string\"},\
     \"SQL\":{\"type\":\"string\"},\
+    \"SalesforceAction\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"token\",\
+        \"url\"\
+      ],\
+      \"members\":{\
+        \"token\":{\
+          \"shape\":\"SalesforceToken\",\
+          \"documentation\":\"<p>The token used to authenticate access to the Salesforce IoT Cloud Input Stream. The token is available from the Salesforce IoT Cloud platform after creation of the Input Stream.</p>\"\
+        },\
+        \"url\":{\
+          \"shape\":\"SalesforceEndpoint\",\
+          \"documentation\":\"<p>The URL exposed by the Salesforce IoT Cloud Input Stream. The URL is available from the Salesforce IoT Cloud platform after creation of the Input Stream.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes an action to write a message to a Salesforce IoT Cloud Input Stream.</p>\"\
+    },\
+    \"SalesforceEndpoint\":{\
+      \"type\":\"string\",\
+      \"max\":2000,\
+      \"pattern\":\"https://ingestion-[a-zA-Z0-9]{1,12}\\\\.[a-zA-Z0-9]+\\\\.((sfdc-matrix\\\\.net)|(sfdcnow\\\\.com))/streams/\\\\w{1,20}/\\\\w{1,20}/event\"\
+    },\
+    \"SalesforceToken\":{\
+      \"type\":\"string\",\
+      \"min\":40\
+    },\
+    \"SearchIndexRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"queryString\"],\
+      \"members\":{\
+        \"indexName\":{\
+          \"shape\":\"IndexName\",\
+          \"documentation\":\"<p>The search index name.</p>\"\
+        },\
+        \"queryString\":{\
+          \"shape\":\"QueryString\",\
+          \"documentation\":\"<p>The search query string.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"QueryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return at one time.</p>\"\
+        },\
+        \"queryVersion\":{\
+          \"shape\":\"QueryVersion\",\
+          \"documentation\":\"<p>The query version.</p>\"\
+        }\
+      }\
+    },\
+    \"SearchIndexResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+        },\
+        \"things\":{\
+          \"shape\":\"ThingDocumentList\",\
+          \"documentation\":\"<p>The things that match the search query.</p>\"\
+        }\
+      }\
+    },\
     \"SearchableAttributes\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"AttributeName\"}\
     },\
+    \"Seconds\":{\"type\":\"integer\"},\
     \"ServiceUnavailableException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -5552,14 +7853,37 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The service is temporarily unavailable.</p>\",\
       \"error\":{\"httpStatusCode\":503},\
       \"exception\":true,\
-      \"fault\":true,\
-      \"documentation\":\"<p>The service is temporarily unavailable.</p>\"\
+      \"fault\":true\
     },\
     \"SetAsActive\":{\"type\":\"boolean\"},\
     \"SetAsActiveFlag\":{\"type\":\"boolean\"},\
     \"SetAsDefault\":{\"type\":\"boolean\"},\
+    \"SetDefaultAuthorizerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"authorizerName\"],\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The authorizer name.</p>\"\
+        }\
+      }\
+    },\
+    \"SetDefaultAuthorizerResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The authorizer name.</p>\"\
+        },\
+        \"authorizerArn\":{\
+          \"shape\":\"AuthorizerArn\",\
+          \"documentation\":\"<p>The authorizer ARN.</p>\"\
+        }\
+      }\
+    },\
     \"SetDefaultPolicyVersionRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -5569,15 +7893,15 @@
       \"members\":{\
         \"policyName\":{\
           \"shape\":\"PolicyName\",\
+          \"documentation\":\"<p>The policy name.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyName\",\
-          \"documentation\":\"<p>The policy name.</p>\"\
+          \"locationName\":\"policyName\"\
         },\
         \"policyVersionId\":{\
           \"shape\":\"PolicyVersionId\",\
+          \"documentation\":\"<p>The policy version ID.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"policyVersionId\",\
-          \"documentation\":\"<p>The policy version ID.</p>\"\
+          \"locationName\":\"policyVersionId\"\
         }\
       },\
       \"documentation\":\"<p>The input for the SetDefaultPolicyVersion operation.</p>\"\
@@ -5593,6 +7917,48 @@
       },\
       \"documentation\":\"<p>The input for the SetLoggingOptions operation.</p>\",\
       \"payload\":\"loggingOptionsPayload\"\
+    },\
+    \"SetV2LoggingLevelRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"logTarget\",\
+        \"logLevel\"\
+      ],\
+      \"members\":{\
+        \"logTarget\":{\
+          \"shape\":\"LogTarget\",\
+          \"documentation\":\"<p>The log target.</p>\"\
+        },\
+        \"logLevel\":{\
+          \"shape\":\"LogLevel\",\
+          \"documentation\":\"<p>The log level.</p>\"\
+        }\
+      }\
+    },\
+    \"SetV2LoggingOptionsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"roleArn\":{\
+          \"shape\":\"AwsArn\",\
+          \"documentation\":\"<p>The role ARN that allows IoT to write to Cloudwatch logs.</p>\"\
+        },\
+        \"defaultLogLevel\":{\
+          \"shape\":\"LogLevel\",\
+          \"documentation\":\"<p>The default logging level.</p>\"\
+        },\
+        \"disableAllLogs\":{\
+          \"shape\":\"DisableAllLogs\",\
+          \"documentation\":\"<p>Set to true to disable all logs, otherwise set to false.</p>\"\
+        }\
+      }\
+    },\
+    \"Signature\":{\"type\":\"blob\"},\
+    \"SignatureAlgorithm\":{\"type\":\"string\"},\
+    \"SigningJobId\":{\"type\":\"string\"},\
+    \"SkyfallMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":250,\
+      \"min\":1\
     },\
     \"SnsAction\":{\
       \"type\":\"structure\",\
@@ -5611,7 +7977,7 @@
         },\
         \"messageFormat\":{\
           \"shape\":\"MessageFormat\",\
-          \"documentation\":\"<p>The message format of the message to publish. Optional. Accepted values are \\\"JSON\\\" and \\\"RAW\\\". The default value of the attribute is \\\"RAW\\\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\\\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\\\"></a> refer to their official documentation.</p>\"\
+          \"documentation\":\"<p>(Optional) The message format of the message to publish. Accepted values are \\\"JSON\\\" and \\\"RAW\\\". The default value of the attribute is \\\"RAW\\\". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href=\\\"http://docs.aws.amazon.com/sns/latest/dg/json-formats.html\\\">http://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes an action to publish to an Amazon SNS topic.</p>\"\
@@ -5624,9 +7990,9 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The Rule-SQL expression can't be parsed correctly.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The Rule-SQL expression can't be parsed correctly.</p>\"\
+      \"exception\":true\
     },\
     \"SqsAction\":{\
       \"type\":\"structure\",\
@@ -5650,10 +8016,302 @@
       },\
       \"documentation\":\"<p>Describes an action to publish data to an Amazon SQS queue.</p>\"\
     },\
+    \"StartThingRegistrationTaskRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"templateBody\",\
+        \"inputFileBucket\",\
+        \"inputFileKey\",\
+        \"roleArn\"\
+      ],\
+      \"members\":{\
+        \"templateBody\":{\
+          \"shape\":\"TemplateBody\",\
+          \"documentation\":\"<p>The provisioning template.</p>\"\
+        },\
+        \"inputFileBucket\":{\
+          \"shape\":\"RegistryS3BucketName\",\
+          \"documentation\":\"<p>The S3 bucket that contains the input file.</p>\"\
+        },\
+        \"inputFileKey\":{\
+          \"shape\":\"RegistryS3KeyName\",\
+          \"documentation\":\"<p>The name of input file within the S3 bucket. This file contains a newline delimited JSON file. Each line contains the parameter values to provision one device (thing).</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The IAM role ARN that grants permission the input file.</p>\"\
+        }\
+      }\
+    },\
+    \"StartThingRegistrationTaskResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"taskId\":{\
+          \"shape\":\"TaskId\",\
+          \"documentation\":\"<p>The bulk thing provisioning task ID.</p>\"\
+        }\
+      }\
+    },\
     \"StateReason\":{\"type\":\"string\"},\
     \"StateValue\":{\"type\":\"string\"},\
+    \"Status\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"InProgress\",\
+        \"Completed\",\
+        \"Failed\",\
+        \"Cancelled\",\
+        \"Cancelling\"\
+      ]\
+    },\
+    \"StopThingRegistrationTaskRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"taskId\"],\
+      \"members\":{\
+        \"taskId\":{\
+          \"shape\":\"TaskId\",\
+          \"documentation\":\"<p>The bulk thing provisioning task ID.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"taskId\"\
+        }\
+      }\
+    },\
+    \"StopThingRegistrationTaskResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"Stream\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"streamId\":{\
+          \"shape\":\"StreamId\",\
+          \"documentation\":\"<p>The stream ID.</p>\"\
+        },\
+        \"fileId\":{\
+          \"shape\":\"FileId\",\
+          \"documentation\":\"<p>The ID of a file associated with a stream.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a group of files that can be streamed.</p>\"\
+    },\
+    \"StreamArn\":{\"type\":\"string\"},\
+    \"StreamDescription\":{\
+      \"type\":\"string\",\
+      \"max\":2028,\
+      \"pattern\":\"[^\\\\p{C}]+\"\
+    },\
+    \"StreamFile\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"fileId\":{\
+          \"shape\":\"FileId\",\
+          \"documentation\":\"<p>The file ID.</p>\"\
+        },\
+        \"s3Location\":{\
+          \"shape\":\"S3Location\",\
+          \"documentation\":\"<p>The location of the file in S3.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Represents a file to stream.</p>\"\
+    },\
+    \"StreamFiles\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"StreamFile\"},\
+      \"max\":10,\
+      \"min\":1\
+    },\
+    \"StreamId\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9_-]+\"\
+    },\
+    \"StreamInfo\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"streamId\":{\
+          \"shape\":\"StreamId\",\
+          \"documentation\":\"<p>The stream ID.</p>\"\
+        },\
+        \"streamArn\":{\
+          \"shape\":\"StreamArn\",\
+          \"documentation\":\"<p>The stream ARN.</p>\"\
+        },\
+        \"streamVersion\":{\
+          \"shape\":\"StreamVersion\",\
+          \"documentation\":\"<p>The stream version.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"StreamDescription\",\
+          \"documentation\":\"<p>The description of the stream.</p>\"\
+        },\
+        \"files\":{\
+          \"shape\":\"StreamFiles\",\
+          \"documentation\":\"<p>The files to stream.</p>\"\
+        },\
+        \"createdAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the stream was created.</p>\"\
+        },\
+        \"lastUpdatedAt\":{\
+          \"shape\":\"DateType\",\
+          \"documentation\":\"<p>The date when the stream was last updated.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>An IAM role AWS IoT assumes to access your S3 files.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about a stream.</p>\"\
+    },\
     \"StreamName\":{\"type\":\"string\"},\
+    \"StreamSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"streamId\":{\
+          \"shape\":\"StreamId\",\
+          \"documentation\":\"<p>The stream ID.</p>\"\
+        },\
+        \"streamArn\":{\
+          \"shape\":\"StreamArn\",\
+          \"documentation\":\"<p>The stream ARN.</p>\"\
+        },\
+        \"streamVersion\":{\
+          \"shape\":\"StreamVersion\",\
+          \"documentation\":\"<p>The stream version.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"StreamDescription\",\
+          \"documentation\":\"<p>A description of the stream.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A summary of a stream.</p>\"\
+    },\
+    \"StreamVersion\":{\
+      \"type\":\"integer\",\
+      \"max\":65535,\
+      \"min\":0\
+    },\
+    \"StreamsSummary\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"StreamSummary\"}\
+    },\
+    \"SucceededThings\":{\"type\":\"integer\"},\
     \"TableName\":{\"type\":\"string\"},\
+    \"Target\":{\"type\":\"string\"},\
+    \"TargetArn\":{\"type\":\"string\"},\
+    \"TargetSelection\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"CONTINUOUS\",\
+        \"SNAPSHOT\"\
+      ]\
+    },\
+    \"Targets\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Target\"},\
+      \"min\":1\
+    },\
+    \"TaskId\":{\
+      \"type\":\"string\",\
+      \"max\":40\
+    },\
+    \"TaskIdList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"TaskId\"}\
+    },\
+    \"TemplateBody\":{\"type\":\"string\"},\
+    \"TestAuthorizationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"authInfos\"],\
+      \"members\":{\
+        \"principal\":{\
+          \"shape\":\"Principal\",\
+          \"documentation\":\"<p>The principal.</p>\"\
+        },\
+        \"cognitoIdentityPoolId\":{\
+          \"shape\":\"CognitoIdentityPoolId\",\
+          \"documentation\":\"<p>The Cognito identity pool ID.</p>\"\
+        },\
+        \"authInfos\":{\
+          \"shape\":\"AuthInfos\",\
+          \"documentation\":\"<p>A list of authorization info objects. Simulating authorization will create a response for each <code>authInfo</code> object in the list.</p>\"\
+        },\
+        \"clientId\":{\
+          \"shape\":\"ClientId\",\
+          \"documentation\":\"<p>The MQTT client ID.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"clientId\"\
+        },\
+        \"policyNamesToAdd\":{\
+          \"shape\":\"PolicyNames\",\
+          \"documentation\":\"<p>When testing custom authorization, the policies specified here are treated as if they are attached to the principal being authorized.</p>\"\
+        },\
+        \"policyNamesToSkip\":{\
+          \"shape\":\"PolicyNames\",\
+          \"documentation\":\"<p>When testing custom authorization, the policies specified here are treated as if they are not attached to the principal being authorized.</p>\"\
+        }\
+      }\
+    },\
+    \"TestAuthorizationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"authResults\":{\
+          \"shape\":\"AuthResults\",\
+          \"documentation\":\"<p>The authentication results.</p>\"\
+        }\
+      }\
+    },\
+    \"TestInvokeAuthorizerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"authorizerName\",\
+        \"token\",\
+        \"tokenSignature\"\
+      ],\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The custom authorizer name.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"authorizerName\"\
+        },\
+        \"token\":{\
+          \"shape\":\"Token\",\
+          \"documentation\":\"<p>The token returned by your custom authentication service.</p>\"\
+        },\
+        \"tokenSignature\":{\
+          \"shape\":\"TokenSignature\",\
+          \"documentation\":\"<p>The signature made with the token and your custom authentication service's private key.</p>\"\
+        }\
+      }\
+    },\
+    \"TestInvokeAuthorizerResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"isAuthenticated\":{\
+          \"shape\":\"IsAuthenticated\",\
+          \"documentation\":\"<p>True if the token is authenticated, otherwise false.</p>\"\
+        },\
+        \"principalId\":{\
+          \"shape\":\"PrincipalId\",\
+          \"documentation\":\"<p>The principal ID.</p>\"\
+        },\
+        \"policyDocuments\":{\
+          \"shape\":\"PolicyDocuments\",\
+          \"documentation\":\"<p>IAM policy documents.</p>\"\
+        },\
+        \"refreshAfterInSeconds\":{\
+          \"shape\":\"Seconds\",\
+          \"documentation\":\"<p>The number of seconds after which the temporary credentials are refreshed.</p>\"\
+        },\
+        \"disconnectAfterInSeconds\":{\
+          \"shape\":\"Seconds\",\
+          \"documentation\":\"<p>The number of seconds after which the connection is terminated.</p>\"\
+        }\
+      }\
+    },\
     \"ThingArn\":{\"type\":\"string\"},\
     \"ThingAttribute\":{\
       \"type\":\"structure\",\
@@ -5665,6 +8323,10 @@
         \"thingTypeName\":{\
           \"shape\":\"ThingTypeName\",\
           \"documentation\":\"<p>The name of the thing type, if the thing has been associated with a type.</p>\"\
+        },\
+        \"thingArn\":{\
+          \"shape\":\"ThingArn\",\
+          \"documentation\":\"<p>The thing ARN.</p>\"\
         },\
         \"attributes\":{\
           \"shape\":\"Attributes\",\
@@ -5681,10 +8343,125 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ThingAttribute\"}\
     },\
+    \"ThingDocument\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingName\":{\
+          \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The thing name.</p>\"\
+        },\
+        \"thingId\":{\
+          \"shape\":\"ThingId\",\
+          \"documentation\":\"<p>The thing ID.</p>\"\
+        },\
+        \"thingTypeName\":{\
+          \"shape\":\"ThingTypeName\",\
+          \"documentation\":\"<p>The thing type name.</p>\"\
+        },\
+        \"thingGroupNames\":{\
+          \"shape\":\"ThingGroupNameList\",\
+          \"documentation\":\"<p>Thing group names.</p>\"\
+        },\
+        \"attributes\":{\
+          \"shape\":\"Attributes\",\
+          \"documentation\":\"<p>The attributes.</p>\"\
+        },\
+        \"shadow\":{\
+          \"shape\":\"JsonDocument\",\
+          \"documentation\":\"<p>The shadow.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The thing search index document.</p>\"\
+    },\
+    \"ThingDocumentList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ThingDocument\"}\
+    },\
+    \"ThingGroupArn\":{\"type\":\"string\"},\
+    \"ThingGroupDescription\":{\
+      \"type\":\"string\",\
+      \"max\":2028,\
+      \"pattern\":\"[\\\\p{Graph}\\\\x20]*\"\
+    },\
+    \"ThingGroupId\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9\\\\-]+\"\
+    },\
+    \"ThingGroupList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ThingGroupName\"}\
+    },\
+    \"ThingGroupMetadata\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"parentGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The parent thing group name.</p>\"\
+        },\
+        \"rootToParentThingGroups\":{\
+          \"shape\":\"ThingGroupNameAndArnList\",\
+          \"documentation\":\"<p>The root parent thing group.</p>\"\
+        },\
+        \"creationDate\":{\
+          \"shape\":\"CreationDate\",\
+          \"documentation\":\"<p>The UNIX timestamp of when the thing group was created.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Thing group metadata.</p>\"\
+    },\
+    \"ThingGroupName\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9:_-]+\"\
+    },\
+    \"ThingGroupNameAndArnList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"GroupNameAndArn\"}\
+    },\
+    \"ThingGroupNameList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ThingGroupName\"}\
+    },\
+    \"ThingGroupProperties\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingGroupDescription\":{\
+          \"shape\":\"ThingGroupDescription\",\
+          \"documentation\":\"<p>The thing group description.</p>\"\
+        },\
+        \"attributePayload\":{\
+          \"shape\":\"AttributePayload\",\
+          \"documentation\":\"<p>The thing group attributes in JSON format.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Thing group properties.</p>\"\
+    },\
+    \"ThingId\":{\"type\":\"string\"},\
+    \"ThingIndexingConfiguration\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingIndexingMode\":{\
+          \"shape\":\"ThingIndexingMode\",\
+          \"documentation\":\"<p>Thing indexing mode. Valid values are: </p> <ul> <li> <p>REGISTRY â Your thing index will contain only registry data.</p> </li> <li> <p>REGISTRY_AND_SHADOW - Your thing index will contain registry and shadow data.</p> </li> <li> <p>OFF - Thing indexing is disabled.</p> </li> </ul>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Thing indexing configuration.</p>\"\
+    },\
+    \"ThingIndexingMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"OFF\",\
+        \"REGISTRY\",\
+        \"REGISTRY_AND_SHADOW\"\
+      ]\
+    },\
     \"ThingName\":{\
       \"type\":\"string\",\
-      \"min\":1,\
       \"max\":128,\
+      \"min\":1,\
       \"pattern\":\"[a-zA-Z0-9:_-]+\"\
     },\
     \"ThingNameList\":{\
@@ -5699,11 +8476,18 @@
           \"shape\":\"ThingTypeName\",\
           \"documentation\":\"<p>The name of the thing type.</p>\"\
         },\
+        \"thingTypeArn\":{\
+          \"shape\":\"ThingTypeArn\",\
+          \"documentation\":\"<p>The thing type ARN.</p>\"\
+        },\
         \"thingTypeProperties\":{\
           \"shape\":\"ThingTypeProperties\",\
           \"documentation\":\"<p>The ThingTypeProperties for the thing type.</p>\"\
         },\
-        \"thingTypeMetadata\":{\"shape\":\"ThingTypeMetadata\"}\
+        \"thingTypeMetadata\":{\
+          \"shape\":\"ThingTypeMetadata\",\
+          \"documentation\":\"<p>The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>The definition of the thing type, including thing type name and description.</p>\"\
     },\
@@ -5712,6 +8496,7 @@
       \"max\":2028,\
       \"pattern\":\"[\\\\p{Graph}\\\\x20]*\"\
     },\
+    \"ThingTypeId\":{\"type\":\"string\"},\
     \"ThingTypeList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"ThingTypeDefinition\"}\
@@ -5736,8 +8521,8 @@
     },\
     \"ThingTypeName\":{\
       \"type\":\"string\",\
-      \"min\":1,\
       \"max\":128,\
+      \"min\":1,\
       \"pattern\":\"[a-zA-Z0-9:_-]+\"\
     },\
     \"ThingTypeProperties\":{\
@@ -5762,9 +8547,26 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The rate exceeds the limit.</p>\",\
       \"error\":{\"httpStatusCode\":429},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The rate exceeds the limit.</p>\"\
+      \"exception\":true\
+    },\
+    \"Token\":{\
+      \"type\":\"string\",\
+      \"max\":1024,\
+      \"min\":1\
+    },\
+    \"TokenKeyName\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1,\
+      \"pattern\":\"[a-zA-Z0-9_-]+\"\
+    },\
+    \"TokenSignature\":{\
+      \"type\":\"string\",\
+      \"max\":2560,\
+      \"min\":1,\
+      \"pattern\":\"[A-Za-z0-9+/]+={0,2}\"\
     },\
     \"Topic\":{\"type\":\"string\"},\
     \"TopicPattern\":{\"type\":\"string\"},\
@@ -5798,6 +8600,10 @@
         \"awsIotSqlVersion\":{\
           \"shape\":\"AwsIotSqlVersion\",\
           \"documentation\":\"<p>The version of the SQL rules engine to use when evaluating the rule.</p>\"\
+        },\
+        \"errorAction\":{\
+          \"shape\":\"Action\",\
+          \"documentation\":\"<p>The action to perform when an error occurs.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes a rule.</p>\"\
@@ -5858,6 +8664,10 @@
         \"awsIotSqlVersion\":{\
           \"shape\":\"AwsIotSqlVersion\",\
           \"documentation\":\"<p>The version of the SQL rules engine to use when evaluating the rule.</p>\"\
+        },\
+        \"errorAction\":{\
+          \"shape\":\"Action\",\
+          \"documentation\":\"<p>The action to take when an error occurs.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes a rule.</p>\"\
@@ -5870,9 +8680,9 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>You can't revert the certificate transfer because the transfer is already complete.</p>\",\
       \"error\":{\"httpStatusCode\":410},\
-      \"exception\":true,\
-      \"documentation\":\"<p>You can't revert the certificate transfer because the transfer is already complete.</p>\"\
+      \"exception\":true\
     },\
     \"TransferCertificateRequest\":{\
       \"type\":\"structure\",\
@@ -5883,15 +8693,15 @@
       \"members\":{\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"certificateId\",\
-          \"documentation\":\"<p>The ID of the certificate.</p>\"\
+          \"locationName\":\"certificateId\"\
         },\
         \"targetAwsAccount\":{\
           \"shape\":\"AwsAccountId\",\
+          \"documentation\":\"<p>The AWS account.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"targetAwsAccount\",\
-          \"documentation\":\"<p>The AWS account.</p>\"\
+          \"locationName\":\"targetAwsAccount\"\
         },\
         \"transferMessage\":{\
           \"shape\":\"Message\",\
@@ -5918,9 +8728,9 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>You can't transfer the certificate because authorization policies are still attached.</p>\",\
       \"error\":{\"httpStatusCode\":409},\
-      \"exception\":true,\
-      \"documentation\":\"<p>You can't transfer the certificate because authorization policies are still attached.</p>\"\
+      \"exception\":true\
     },\
     \"TransferData\":{\
       \"type\":\"structure\",\
@@ -5956,32 +8766,81 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>You are not authorized to perform this operation.</p>\",\
       \"error\":{\"httpStatusCode\":401},\
-      \"exception\":true,\
-      \"documentation\":\"<p>You are not authorized to perform this operation.</p>\"\
+      \"exception\":true\
     },\
     \"UndoDeprecate\":{\"type\":\"boolean\"},\
+    \"UpdateAuthorizerRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"authorizerName\"],\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The authorizer name.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"authorizerName\"\
+        },\
+        \"authorizerFunctionArn\":{\
+          \"shape\":\"AuthorizerFunctionArn\",\
+          \"documentation\":\"<p>The ARN of the authorizer's Lambda function.</p>\"\
+        },\
+        \"tokenKeyName\":{\
+          \"shape\":\"TokenKeyName\",\
+          \"documentation\":\"<p>The key used to extract the token from the HTTP headers. </p>\"\
+        },\
+        \"tokenSigningPublicKeys\":{\
+          \"shape\":\"PublicKeyMap\",\
+          \"documentation\":\"<p>The public keys used to verify the token signature.</p>\"\
+        },\
+        \"status\":{\
+          \"shape\":\"AuthorizerStatus\",\
+          \"documentation\":\"<p>The status of the update authorizer request.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateAuthorizerResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"authorizerName\":{\
+          \"shape\":\"AuthorizerName\",\
+          \"documentation\":\"<p>The authorizer name.</p>\"\
+        },\
+        \"authorizerArn\":{\
+          \"shape\":\"AuthorizerArn\",\
+          \"documentation\":\"<p>The authorizer ARN.</p>\"\
+        }\
+      }\
+    },\
     \"UpdateCACertificateRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"certificateId\"],\
       \"members\":{\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The CA certificate identifier.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"caCertificateId\",\
-          \"documentation\":\"<p>The CA certificate identifier.</p>\"\
+          \"locationName\":\"caCertificateId\"\
         },\
         \"newStatus\":{\
           \"shape\":\"CACertificateStatus\",\
+          \"documentation\":\"<p>The updated status of the CA certificate.</p> <p> <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"newStatus\",\
-          \"documentation\":\"<p>The updated status of the CA certificate.</p> <p><b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</p>\"\
+          \"locationName\":\"newStatus\"\
         },\
         \"newAutoRegistrationStatus\":{\
           \"shape\":\"AutoRegistrationStatus\",\
+          \"documentation\":\"<p>The new value for the auto registration status. Valid values are: \\\"ENABLE\\\" or \\\"DISABLE\\\".</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"newAutoRegistrationStatus\",\
-          \"documentation\":\"<p>The new value for the auto registration status. Valid values are: \\\"ENABLE\\\" or \\\"DISABLE\\\".</p>\"\
+          \"locationName\":\"newAutoRegistrationStatus\"\
+        },\
+        \"registrationConfig\":{\
+          \"shape\":\"RegistrationConfig\",\
+          \"documentation\":\"<p>Information about the registration configuration.</p>\"\
+        },\
+        \"removeAutoRegistration\":{\
+          \"shape\":\"RemoveAutoRegistration\",\
+          \"documentation\":\"<p>If true, remove auto registration.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The input to the UpdateCACertificate operation.</p>\"\
@@ -5995,18 +8854,178 @@
       \"members\":{\
         \"certificateId\":{\
           \"shape\":\"CertificateId\",\
+          \"documentation\":\"<p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"certificateId\",\
-          \"documentation\":\"<p>The ID of the certificate.</p>\"\
+          \"locationName\":\"certificateId\"\
         },\
         \"newStatus\":{\
           \"shape\":\"CertificateStatus\",\
+          \"documentation\":\"<p>The new status.</p> <p> <b>Note:</b> Setting the status to PENDING_TRANSFER will result in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended for developer use.</p> <p> <b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</p>\",\
           \"location\":\"querystring\",\
-          \"locationName\":\"newStatus\",\
-          \"documentation\":\"<p>The new status.</p> <p><b>Note:</b> Setting the status to PENDING_TRANSFER will result in an exception being thrown. PENDING_TRANSFER is a status used internally by AWS IoT. It is not intended for developer use.</p> <p><b>Note:</b> The status value REGISTER_INACTIVE is deprecated and should not be used.</p>\"\
+          \"locationName\":\"newStatus\"\
         }\
       },\
       \"documentation\":\"<p>The input for the UpdateCertificate operation.</p>\"\
+    },\
+    \"UpdateEventConfigurationsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"eventConfigurations\":{\
+          \"shape\":\"EventConfigurations\",\
+          \"documentation\":\"<p>The new event configuration values.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateEventConfigurationsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"UpdateIndexingConfigurationRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingIndexingConfiguration\":{\
+          \"shape\":\"ThingIndexingConfiguration\",\
+          \"documentation\":\"<p>Thing indexing configuration.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateIndexingConfigurationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"UpdateRoleAliasRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"roleAlias\"],\
+      \"members\":{\
+        \"roleAlias\":{\
+          \"shape\":\"RoleAlias\",\
+          \"documentation\":\"<p>The role alias to update.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"roleAlias\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>The role ARN.</p>\"\
+        },\
+        \"credentialDurationSeconds\":{\
+          \"shape\":\"CredentialDurationSeconds\",\
+          \"documentation\":\"<p>The number of seconds the credential will be valid.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateRoleAliasResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"roleAlias\":{\
+          \"shape\":\"RoleAlias\",\
+          \"documentation\":\"<p>The role alias.</p>\"\
+        },\
+        \"roleAliasArn\":{\
+          \"shape\":\"RoleAliasArn\",\
+          \"documentation\":\"<p>The role alias ARN.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateStreamRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"streamId\"],\
+      \"members\":{\
+        \"streamId\":{\
+          \"shape\":\"StreamId\",\
+          \"documentation\":\"<p>The stream ID.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"streamId\"\
+        },\
+        \"description\":{\
+          \"shape\":\"StreamDescription\",\
+          \"documentation\":\"<p>The description of the stream.</p>\"\
+        },\
+        \"files\":{\
+          \"shape\":\"StreamFiles\",\
+          \"documentation\":\"<p>The files associated with the stream.</p>\"\
+        },\
+        \"roleArn\":{\
+          \"shape\":\"RoleArn\",\
+          \"documentation\":\"<p>An IAM role that allows the IoT service principal assumes to access your S3 files.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateStreamResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"streamId\":{\
+          \"shape\":\"StreamId\",\
+          \"documentation\":\"<p>The stream ID.</p>\"\
+        },\
+        \"streamArn\":{\
+          \"shape\":\"StreamArn\",\
+          \"documentation\":\"<p>The stream ARN.</p>\"\
+        },\
+        \"description\":{\
+          \"shape\":\"StreamDescription\",\
+          \"documentation\":\"<p>A description of the stream.</p>\"\
+        },\
+        \"streamVersion\":{\
+          \"shape\":\"StreamVersion\",\
+          \"documentation\":\"<p>The stream version.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateThingGroupRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"thingGroupName\",\
+        \"thingGroupProperties\"\
+      ],\
+      \"members\":{\
+        \"thingGroupName\":{\
+          \"shape\":\"ThingGroupName\",\
+          \"documentation\":\"<p>The thing group to update.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"thingGroupName\"\
+        },\
+        \"thingGroupProperties\":{\
+          \"shape\":\"ThingGroupProperties\",\
+          \"documentation\":\"<p>The thing group properties.</p>\"\
+        },\
+        \"expectedVersion\":{\
+          \"shape\":\"OptionalVersion\",\
+          \"documentation\":\"<p>The expected version of the thing group. If this does not match the version of the thing group being updated, the update will fail.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateThingGroupResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"version\":{\
+          \"shape\":\"Version\",\
+          \"documentation\":\"<p>The version of the updated thing group.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateThingGroupsForThingRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"thingName\":{\
+          \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The thing whose group memberships will be updated.</p>\"\
+        },\
+        \"thingGroupsToAdd\":{\
+          \"shape\":\"ThingGroupList\",\
+          \"documentation\":\"<p>The groups to which the thing will be added.</p>\"\
+        },\
+        \"thingGroupsToRemove\":{\
+          \"shape\":\"ThingGroupList\",\
+          \"documentation\":\"<p>The groups from which the thing will be removed.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateThingGroupsForThingResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
     },\
     \"UpdateThingRequest\":{\
       \"type\":\"structure\",\
@@ -6014,9 +9033,9 @@
       \"members\":{\
         \"thingName\":{\
           \"shape\":\"ThingName\",\
+          \"documentation\":\"<p>The name of the thing to update.</p>\",\
           \"location\":\"uri\",\
-          \"locationName\":\"thingName\",\
-          \"documentation\":\"<p>The name of the thing to update.</p>\"\
+          \"locationName\":\"thingName\"\
         },\
         \"thingTypeName\":{\
           \"shape\":\"ThingTypeName\",\
@@ -6024,7 +9043,7 @@
         },\
         \"attributePayload\":{\
           \"shape\":\"AttributePayload\",\
-          \"documentation\":\"<p>A list of thing attributes, a JSON string containing name-value pairs. For example:</p> <p><code>{\\\\\\\"attributes\\\\\\\":{\\\\\\\"name1\\\\\\\":\\\\\\\"value2\\\\\\\"}})</code></p> <p>This data is used to add new attributes or update existing attributes.</p>\"\
+          \"documentation\":\"<p>A list of thing attributes, a JSON string containing name-value pairs. For example:</p> <p> <code>{\\\\\\\"attributes\\\\\\\":{\\\\\\\"name1\\\\\\\":\\\\\\\"value2\\\\\\\"}}</code> </p> <p>This data is used to add new attributes or update existing attributes.</p>\"\
         },\
         \"expectedVersion\":{\
           \"shape\":\"OptionalVersion\",\
@@ -6032,7 +9051,7 @@
         },\
         \"removeThingType\":{\
           \"shape\":\"RemoveThingType\",\
-          \"documentation\":\"<p>Remove a thing type association. If <b>true</b>, the assocation is removed.</p>\"\
+          \"documentation\":\"<p>Remove a thing type association. If <b>true</b>, the association is removed.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The input for the UpdateThing operation.</p>\"\
@@ -6044,6 +9063,7 @@
       \"documentation\":\"<p>The output from the UpdateThing operation.</p>\"\
     },\
     \"UseBase64\":{\"type\":\"boolean\"},\
+    \"Value\":{\"type\":\"string\"},\
     \"Version\":{\"type\":\"long\"},\
     \"VersionConflictException\":{\
       \"type\":\"structure\",\
@@ -6053,10 +9073,11 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>An exception thrown when the version of an entity specified with the <code>expectedVersion</code> parameter does not match the latest version in the system.</p>\",\
       \"error\":{\"httpStatusCode\":409},\
-      \"exception\":true,\
-      \"documentation\":\"<p>An exception thrown when the version of a thing passed to a command is different than the version specified with the --version parameter. </p>\"\
+      \"exception\":true\
     },\
+    \"VersionNumber\":{\"type\":\"long\"},\
     \"VersionsLimitExceededException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -6065,17 +9086,17 @@
           \"documentation\":\"<p>The message for the exception.</p>\"\
         }\
       },\
+      \"documentation\":\"<p>The number of policy versions exceeds the limit.</p>\",\
       \"error\":{\"httpStatusCode\":409},\
-      \"exception\":true,\
-      \"documentation\":\"<p>The number of policy versions exceeds the limit.</p>\"\
+      \"exception\":true\
     },\
     \"errorMessage\":{\"type\":\"string\"},\
     \"resourceArn\":{\"type\":\"string\"},\
     \"resourceId\":{\"type\":\"string\"}\
   },\
-  \"examples\":{\
-  }\
-}";
+  \"documentation\":\"<fullname>AWS IoT</fullname> <p>AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p> <p>For more information about how AWS IoT works, see the <a href=\\\"http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html\\\">Developer Guide</a>.</p>\"\
+}\
+";
 }
 
 @end

@@ -173,11 +173,12 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         // Token exists, the user is confirmed
         self.confirmedStatus = AWSCognitoIdentityUserStatusConfirmed;
 
-        //if the session expires > 5 minutes return it.
-        if(expiration && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:5 * 60]] == NSOrderedDescending){
+        NSString * accessTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserAccessToken];
+        NSString * accessToken = self.pool.keychain[accessTokenKey];
+        //if the session expires > 5 minutes return it and there is at least an accessToken.
+        if(expiration && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:5 * 60]] == NSOrderedDescending && accessToken){
             NSString * idTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserIdToken];
-            NSString * accessTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserAccessToken];
-            AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken:self.pool.keychain[idTokenKey] accessToken:self.pool.keychain[accessTokenKey] refreshToken:refreshToken expirationTime:expiration];
+            AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken:self.pool.keychain[idTokenKey] accessToken:accessToken refreshToken:refreshToken expirationTime:expiration];
         
             session.expirationTime = expiration;
             return [AWSTask taskWithResult:session];
@@ -1039,6 +1040,8 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         return [[self.pool.client updateUserAttributes:request] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderUpdateUserAttributesResponse *> * _Nonnull task) {
             AWSCognitoIdentityUserUpdateAttributesResponse * response = [AWSCognitoIdentityUserUpdateAttributesResponse new];
             [response aws_copyPropertiesFromObject:task.result];
+            // drop id and access token to force a refresh
+            [self clearSession];
             return [AWSTask taskWithResult:response];
         }];
     }];
@@ -1207,6 +1210,16 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 -(void) signOutAndClearLastKnownUser{
     [self signOut];
     [self.pool clearLastKnownUser];
+}
+
+-(void) clearSession{
+    if(self.username){
+        NSString * keyChainNamespace = [self keyChainNamespaceClientId];
+        NSString * idTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserIdToken];
+        NSString * accessTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserAccessToken];
+        [self.pool.keychain removeItemForKey:idTokenKey];
+        [self.pool.keychain removeItemForKey:accessTokenKey];
+    }
 }
 
 -(BOOL) isSignedIn {
@@ -1449,6 +1462,29 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         self.tokenString = token;
     }
     return self;
+}
+
+-(NSDictionary<NSString *, NSString*> *) claims {
+    NSDictionary * result = nil;
+    NSArray *pieces = [self.tokenString componentsSeparatedByString:@"."];
+    if(pieces.count > 2){
+        NSString * claims = pieces[1];
+        //JWT is not padded with =, pad it if necessary
+        NSUInteger paddedLength = claims.length + (4 - (claims.length % 4)) % 4;;
+        claims = [claims stringByPaddingToLength:paddedLength withString:@"=" startingAtIndex:0];
+        
+        NSData * claimsData = [[NSData alloc] initWithBase64EncodedString:claims options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        NSError *error = nil;
+        if(claimsData != nil){
+            result = [NSJSONSerialization JSONObjectWithData:claimsData options:kNilOptions error:&error];
+            if(error) {
+                AWSDDLogError(@"Unable to deserialize token claims: %@", error);
+            }
+        } else {
+            AWSDDLogError(@"Token is not valid base64");
+        }
+    }
+    return result;
 }
 @end
 

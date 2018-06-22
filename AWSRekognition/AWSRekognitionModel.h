@@ -1021,7 +1021,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Structure containing attributes of the face that the algorithm detected.</p>
+ <p>Structure containing attributes of the face that the algorithm detected.</p><p>A <code>FaceDetail</code> object contains either the default facial attributes or all facial attributes. The default attributes are <code>BoundingBox</code>, <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>.</p><p> is the only Rekognition Video stored video operation that can return a <code>FaceDetail</code> object with all attributes. To specify which attributes to return, use the <code>FaceAttributes</code> input parameter for . The following Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input parameter.</p><ul><li><p>GetCelebrityRecognition</p></li><li><p>GetPersonTracking</p></li><li><p>GetFaceSearch</p></li></ul><p>The Rekognition Image and operations can return all facial attributes. To specify which attributes to return, use the <code>Attributes</code> input parameter for <code>DetectFaces</code>. For <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
  */
 @interface AWSRekognitionFaceDetail : AWSModel
 
@@ -1037,12 +1037,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionBeard * _Nullable beard;
 
 /**
- <p>Bounding box of the face.</p>
+ <p>Bounding box of the face. Default attribute.</p>
  */
 @property (nonatomic, strong) AWSRekognitionBoundingBox * _Nullable boundingBox;
 
 /**
- <p>Confidence level that the bounding box contains a face (and not a different object such as a tree).</p>
+ <p>Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable confidence;
 
@@ -1067,7 +1067,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionGender * _Nullable gender;
 
 /**
- <p>Indicates the location of landmarks on the face.</p>
+ <p>Indicates the location of landmarks on the face. Default attribute.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionLandmark *> * _Nullable landmarks;
 
@@ -1082,12 +1082,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionMustache * _Nullable mustache;
 
 /**
- <p>Indicates the pose of the face as determined by its pitch, roll, and yaw.</p>
+ <p>Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.</p>
  */
 @property (nonatomic, strong) AWSRekognitionPose * _Nullable pose;
 
 /**
- <p>Identifies image brightness and sharpness.</p>
+ <p>Identifies image brightness and sharpness. Default attribute.</p>
  */
 @property (nonatomic, strong) AWSRekognitionImageQuality * _Nullable quality;
 
@@ -1254,7 +1254,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
- <p>Maximum number of celebrities you want Rekognition Video to return in the response. The default is 1000.</p>
+ <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1315,7 +1315,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
- <p>Maximum number of content moderation labels to return. The default is 1000.</p>
+ <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1376,7 +1376,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
- <p>Maximum number of detected faces to return. The default is 1000.</p>
+ <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1432,7 +1432,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
- <p>Maximum number of search results you want Rekognition Video to return in the response. The default is 1000.</p>
+ <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1493,7 +1493,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
- <p>Maximum number of labels you want Amazon Rekognition to return in the response. The default is 1000.</p>
+ <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -1554,7 +1554,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
- <p>Maximum number of tracked persons to return. The default is 1000. </p>
+ <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -2018,7 +2018,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Information about a person whose face matches a face(s) in a Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection (,information about the person (<a>PersonDetail</a>) and the timestamp for when the person was detected in a video. An array of <code>PersonMatch</code> objects is returned by . </p>
+ <p>Information about a person whose face matches a face(s) in a Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection (, information about the person (<a>PersonDetail</a>) and the timestamp for when the person was detected in a video. An array of <code>PersonMatch</code> objects is returned by . </p>
  */
 @interface AWSRekognitionPersonMatch : AWSModel
 

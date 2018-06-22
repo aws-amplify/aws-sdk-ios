@@ -94,7 +94,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     [self.endpointProfile updateEndpointProfileWithContext:self.context];
     //update opt outs
     BOOL applicationLevelOptOut = [self.endpointProfile isApplicationLevelOptOut:self.context];
-    [self.endpointProfile performSelectorOnMainThread:@selector(setOptOut:) withObject:[NSNumber numberWithBool:applicationLevelOptOut] waitUntilDone:YES];
+    [self.endpointProfile performSelectorOnMainThread:@selector(setEndpointOptOut:) withObject:[NSNumber numberWithBool:applicationLevelOptOut] waitUntilDone:YES];
     
     
     

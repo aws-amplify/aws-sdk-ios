@@ -73,7 +73,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
         _location = [AWSPinpointEndpointProfileLocation new];
         _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
         _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
-        [self performSelectorOnMainThread:@selector(setOptOut:) withObject:[NSNumber numberWithBool:applicationLevelOptOut] waitUntilDone:YES];
+        [self performSelectorOnMainThread:@selector(setEndpointOptOut:) withObject:[NSNumber numberWithBool:applicationLevelOptOut] waitUntilDone:YES];
         _attributes = [NSMutableDictionary dictionary];
         _metrics = [NSMutableDictionary dictionary];
         _user = [AWSPinpointEndpointProfileUser new];
@@ -114,7 +114,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     return NO;
 }
 
-- (void) setOptOut:(NSNumber *) applicationLevelOptOut {
+- (void) setEndpointOptOut:(NSNumber *) applicationLevelOptOut {
     BOOL isOptedOutForRemoteNotifications = ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
  
     _optOut = ([applicationLevelOptOut boolValue] || isOptedOutForRemoteNotifications)? @"ALL": @"NONE";

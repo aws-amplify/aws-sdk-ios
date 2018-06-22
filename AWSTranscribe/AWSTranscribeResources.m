@@ -746,7 +746,8 @@
     }\
   },\
   \"documentation\":\"<p>Operations and objects for transcribing speech to text.</p>\"\
-}";
+}\
+";
 }
 
 @end
