@@ -357,7 +357,7 @@ CocoaLumberjack logging levels are additive such that when the level is set to v
 **Swift**
 
 ```swift
-AWSDDLog.sharedInstance().logLevel = .verbose
+AWSDDLog.sharedInstance.logLevel = .verbose
 ```
 
 The following logging level options are available:
