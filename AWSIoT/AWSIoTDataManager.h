@@ -508,7 +508,7 @@ typedef void(^AWSIoTMQTTAckBlock)(void);
  
  @param topic The topic for publish to.
  
- @param the callback for ack if QoS > 0.
+ @param ackCallback the callback for ack if QoS > 0.
  
  @return Boolean value indicating success or failure.
  
@@ -543,7 +543,7 @@ typedef void(^AWSIoTMQTTAckBlock)(void);
  
  @param topic The topic for publish to.
  
- @param the callback for ack if QoS > 0.
+ @param ackCallback the callback for ack if QoS > 0.
  
  @return Boolean value indicating success or failure.
  
@@ -611,7 +611,7 @@ typedef void(^AWSIoTMQTTAckBlock)(void);
  
  @param callback Reference to AWSIOTMQTTExtendedNewMessageBlock. When new message is received the callback will be invoked.
  
- @param the callback for ack if QoS > 0.
+ @param ackCallback the callback for ack if QoS > 0.
  
  @return Boolean value indicating success or failure.
  
