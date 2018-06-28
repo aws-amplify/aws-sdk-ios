@@ -111,10 +111,6 @@
  Send MQTT message to specified topic
 
  @param str The message to be sent.
- 
- @param data The data to be sent.
-
- @param qos The qos to use when sending (optional, default 0).
 
  @param topic The topic for publish to.
 
@@ -122,22 +118,74 @@
 - (void)publishString:(NSString *)str
               onTopic:(NSString *)topic;
 
+/**
+ Send MQTT message to specified topic
+
+ @param str The message to be sent.
+
+ @param qos The qos to use when sending (optional, default 0).
+
+ @param topic The topic for publish to.
+
+ */
 - (void)publishString:(NSString *)str
                   qos:(UInt8)qos
               onTopic:(NSString *)topic;
 
+/**
+ Send MQTT message to specified topic
+
+ @param str The message to be sent.
+
+ @param qos The qos to use when sending (optional, default 0).
+
+ @param topic The topic for publish to.
+
+ @param ackCallback the callback for ack if QoS > 0.
+
+ */
 - (void)publishString:(NSString *)str
                   qos:(UInt8)qos
               onTopic:(NSString *)topic
           ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
 
+/**
+ Send MQTT message to specified topic
+
+ @param data The data to be sent.
+
+ @param topic The topic for publish to.
+
+ */
 - (void)publishData:(NSData *)data
             onTopic:(NSString *)topic;
 
+/**
+ Send MQTT message to specified topic
+
+ @param data The data to be sent.
+
+ @param qos The qos to use when sending (optional, default 0).
+
+ @param topic The topic for publish to.
+
+ */
 - (void)publishData:(NSData *)data
                 qos:(UInt8)qos
             onTopic:(NSString *)topic;
 
+/**
+ Send MQTT message to specified topic
+
+ @param data The data to be sent.
+
+ @param qos The qos to use when sending (optional, default 0).
+
+ @param topic The topic for publish to.
+
+ @param ackCallback the callback for ack if QoS > 0.
+
+ */
 - (void)publishData:(NSData *)data
                 qos:(UInt8)qos
             onTopic:(NSString *)topic
@@ -211,7 +259,7 @@
  Unsubscribes from a topic
  
  @param topic The Topic to unsubscribe from.
- @param ack callback for unsubscribe message.
+ @param ackCallback callback for unsubscribe message.
  
  */
 - (void)unsubscribeTopic:(NSString *)topic
