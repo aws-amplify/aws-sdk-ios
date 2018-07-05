@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
  </ul>
  */
 FOUNDATION_EXPORT NSString *const AWSCognitoAuthErrorDomain;
+FOUNDATION_EXPORT NSString *const AWSCognitoAuthSessionDidSaveNotification;
 
 typedef NS_ENUM(NSInteger, AWSCognitoAuthClientErrorType) {
     AWSCognitoAuthClientErrorUnknown = 0,
