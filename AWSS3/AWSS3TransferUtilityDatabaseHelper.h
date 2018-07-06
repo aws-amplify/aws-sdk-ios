@@ -13,8 +13,7 @@
 // permissions and limitations under the License.
 //
 
-#import <AWSS3/AWSS3.h>
 
-@interface AWSS3TransferUtility (Validation)
+@interface AWSS3TransferUtilityDatabaseHelper:NSObject
 
 @end

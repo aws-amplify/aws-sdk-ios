@@ -110,7 +110,7 @@
     
     [[[cloudWatch getMetricStatistics:statisticsInput] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"Expected InvalidParameterCombination error not found.");
-        XCTAssertEqual(task.error.code, 4);
+        XCTAssertEqual(task.error.code, AWSCloudWatchErrorInvalidParameterCombination);
         XCTAssertTrue([@"InvalidParameterCombination" isEqualToString:task.error.userInfo[@"Code"]]);
         XCTAssertTrue([@"At least one of the parameters Statistics and ExtendedStatistics must be specified." isEqualToString:task.error.userInfo[@"Message"]]);
         return nil;

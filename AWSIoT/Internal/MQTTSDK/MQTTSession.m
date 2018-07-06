@@ -61,6 +61,7 @@
 
 @property (strong,atomic) NSMutableArray* queue; //Queue to temporarily hold messages if encoder is busy sending another message
 @property (strong,atomic) NSMutableArray* timerRing; // circular array of 60. Each element is a set that contains the messages that need to be retried.
+
 @end
 
 @implementation MQTTSession
@@ -134,6 +135,14 @@
     return self;
 }
 
+-(void)disconnect {
+    if (timer != nil) {
+        [timer invalidate];
+        timer = nil;
+    }
+    [self send:MQTTMessage.disconnectMessage];
+
+}
 
 - (void)close {
     [encoder close];
@@ -264,7 +273,8 @@
     id msgId;
     
     //Stay under the throttle here and move the work to the next tick if throttle is breached.
-    int count = 0;
+    int count = [self.queue count];
+    [self drainSenderQueue];
     while ((msgId = [e nextObject])) {
         MQttTxFlow *flow = [txFlows objectForKey:msgId];
         MQTTMessage *msg = [flow msg];
@@ -362,6 +372,9 @@
                             const UInt8 *bytes = [[msg data] bytes];
                             if (bytes[1] == 0) {
                                 status = MQTTSessionStatusConnected;
+                                if (timer != nil ) {
+                                    [timer invalidate];
+                                }
                                 timer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:1.0]
                                                                  interval:1.0
                                                                    target:self
@@ -629,6 +642,7 @@
 # pragma mark Message Send methods
 - (void)send:(MQTTMessage*)msg {
     if ([encoder status] == MQTTEncoderStatusReady) {
+        [self drainSenderQueue];
         AWSDDLogVerbose(@"<<%@>>: MQTTSession.send msg to server", [NSThread currentThread]);
         [encoder encodeMessage:msg];
     }
@@ -651,5 +665,15 @@
     return encoder && [encoder status] == MQTTEncoderStatusReady;
 }
 
+-(void) drainSenderQueue {
+    int count = 0;
+    while ([self.queue count] > 0 && count < _publishRetryThrottle && [self isReadyToPublish]) {
+        AWSDDLogDebug(@"Sending message from session queue" );
+        MQTTMessage *msg = [self.queue objectAtIndex:0];
+        [self.queue removeObjectAtIndex:0];
+        [encoder encodeMessage:msg];
+        count = count + 1;
+    }
+}
 @end
 

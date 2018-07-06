@@ -28,12 +28,20 @@ class AWSIoTDataManagerTests: XCTestCase {
         let PolicyName = "AWSiOSSDKv2Test"
         
         //Setup Log level
-        AWSDDLog.sharedInstance.logLevel = .debug
+        AWSDDLog.sharedInstance.logLevel = .verbose
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
         
         //Setup creds
         AWSTestUtility.setupCognitoCredentialsProvider()
         
+        //Create MQTT Config
+        let lwt = AWSIoTMQTTLastWillAndTestament()
+        lwt.topic = "will-topic";
+        lwt.qos = AWSIoTMQTTQoS.messageDeliveryAttemptedAtLeastOnce
+
+        let mqttConfig = AWSIoTMQTTConfiguration.init(keepAliveTimeInterval: 30.0,
+                                                      baseReconnectTimeInterval: 1.0, minimumConnectionTimeInterval: 20, maximumReconnectTimeInterval: 8, runLoop: RunLoop.current , runLoopMode: RunLoopMode.defaultRunLoopMode.rawValue, autoResubscribe: true, lastWillAndTestament: lwt)
+
         //Setup iOT Manager for Broker 1
         let iotConfigurationBroker1 = AWSServiceConfiguration(region: .USEast1 ,
                 credentialsProvider:AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
@@ -53,15 +61,15 @@ class AWSIoTDataManagerTests: XCTestCase {
         let iotDataManagerConfigurationBroker1 = AWSServiceConfiguration(region: .USEast1,
                 endpoint: AWSTestUtility.getIoTEndPoint("iot-us-east1-endpoint"),
                 credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
-        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, forKey:"iot-data-manager-broker1")
-        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, forKey:"iot-data-manager-broker")
+        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with: mqttConfig, forKey:"iot-data-manager-broker1")
+        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with:mqttConfig, forKey:"iot-data-manager-broker")
         
         
         //Setup iOT Data Manager for Broker 2
         let iotDataManagerConfigurationBroker2 = AWSServiceConfiguration(region: .USEast2,
                 endpoint:  AWSTestUtility.getIoTEndPoint("iot-us-east2-endpoint"),
                 credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
-        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker2!, forKey:"iot-data-manager-broker2")
+        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker2!, with: mqttConfig, forKey:"iot-data-manager-broker2")
         
         func createCertAndAttachPolicy(certName: String, iotManager:AWSIoTManager, iot:AWSIoT)
         {
@@ -702,34 +710,33 @@ class AWSIoTDataManagerTests: XCTestCase {
         
         func mqttEventCallback( _ status: AWSIoTMQTTStatus )
         {
-            print("connection status = \(status.rawValue)")
             switch(status)
             {
             case .connecting:
-                print ("Connecting...")
+                print ("Event Received: Connecting...")
                 
             case .connected:
-                print("Connected")
+                print("Event Received: Connected")
                 connected = true
                 (hasConnected[iteration] as! XCTestExpectation).fulfill()
                 
             case .disconnected:
+                print("Event Received: Disconnected")
                 if (disconnectIssued ) {
-                    print("Disconnected")
                     connected = false
                     (hasDisconnected[iteration]  as! XCTestExpectation).fulfill()
                 }
             case .connectionRefused:
-                print("Connection Refused")
+                print("Event Received: Connection Refused")
                 
             case .connectionError:
-                print("Connection Error")
+                print("Event Received: Connection Error")
                 
             case .protocolError:
-                print("Protocol Error")
+                print("Event Received: Protocol Error")
                 
             default:
-                print("Unknown state: \(status.rawValue)")
+                print("Event Received: Unknown state: \(status.rawValue)")
             }
         }
         
@@ -788,7 +795,7 @@ class AWSIoTDataManagerTests: XCTestCase {
             disconnectIssued = true
             wait(for:[hasDisconnected[iteration] as! XCTestExpectation], timeout:90)
             XCTAssertFalse(connected)
-            
+            sleep(1)
             iteration = iteration + 1
         }
         
@@ -810,6 +817,7 @@ class AWSIoTDataManagerTests: XCTestCase {
     func publishSubscribeMultipleConsecutiveConnectionsWithManualDisconnect(useWebSocket: Bool) {
         var messageCount = 0
         var connected = false
+        var disconnected = false
         let numberOfAttempts = 50
         var iteration = 0;
         let hasConnected:(NSMutableArray) = NSMutableArray()
@@ -827,37 +835,37 @@ class AWSIoTDataManagerTests: XCTestCase {
         
         func mqttEventCallback( _ status: AWSIoTMQTTStatus )
         {
-            print("connection status = \(status.rawValue)")
             switch(status)
             {
             case .connecting:
-                print ("Connecting...")
+                print ("Event Received: Connecting...")
                 
             case .connected:
-                print("Connected")
+                print("Event Received: Connected")
                 if ( !connected) {
                     connected = true
                     (hasConnected[iteration] as! XCTestExpectation).fulfill()
                 }
                 
             case .disconnected:
-                if (disconnectIssued && connected) {
-                    print("Disconnected")
+                 print("Event Received: Disconnected")
+                if (disconnectIssued && !disconnected) {
                     connected = false
+                    disconnected = true
                     (hasDisconnected[iteration]  as! XCTestExpectation).fulfill()
                 }
                 
             case .connectionRefused:
-                print("Connection Refused")
+                print("Event Received: Connection Refused")
                 
             case .connectionError:
-                print("Connection Error")
+                print("Event Received: Connection Error")
                 
             case .protocolError:
-                print("Protocol Error")
+                print("Event Received: Protocol Error")
                 
             default:
-                print("Unknown state: \(status.rawValue)")
+                print("Event Received: Unknown state: \(status.rawValue)")
             }
         }
         
@@ -867,22 +875,27 @@ class AWSIoTDataManagerTests: XCTestCase {
         let certificateID:String? = defaults.string(forKey: "TestCertBroker1")
         
         while (iteration < numberOfAttempts ) {
+            //Set state
+            connected = false
+            disconnected = false
             disconnectIssued = false
+
             messageCount = 0
             var subscriptionVerified = false
             connected = false
+            print ("Test: Issued connect")
             if (useWebSocket) {
                 iotDataManager.connectUsingWebSocket(withClientId: UUID().uuidString, cleanSession: true, statusCallback: mqttEventCallback)
             }
             else {
                 iotDataManager.connect( withClientId: UUID().uuidString, cleanSession:true, certificateId:certificateID!, statusCallback: mqttEventCallback)
             }
-            print("Connect call completed")
             
             wait(for:[hasConnected[iteration] as! XCTestExpectation], timeout: 120)
             if (!connected) {
                 return
             }
+            print("Test: Connected Successfully")
             XCTAssertTrue(connected, "Successfully established MQTT Connection")
             
             let testMessage = "Test Message\(iteration)"
@@ -916,11 +929,12 @@ class AWSIoTDataManagerTests: XCTestCase {
             wait(for:[gotMessages[iteration] as! XCTestExpectation], timeout:120)
             
             //Disconnect
-            iotDataManager.disconnect()
             disconnectIssued = true
+            iotDataManager.disconnect()
+            print("Test: Issued Disconnect")
             wait(for:[hasDisconnected[iteration] as! XCTestExpectation], timeout:120)
-            XCTAssertFalse(connected)
-            
+            XCTAssertTrue(disconnected)
+            print("Test: Disconnected successfully" )
             iteration = iteration + 1
         }
         
@@ -939,7 +953,6 @@ class AWSIoTDataManagerTests: XCTestCase {
         
         func mqttEventCallback( _ status: AWSIoTMQTTStatus )
         {
-            print("connection status = \(status.rawValue)")
             switch(status)
             {
             case .connecting:
@@ -1024,9 +1037,9 @@ class AWSIoTDataManagerTests: XCTestCase {
         disconnectIssued = true
         wait(for:[hasDisconnected], timeout: 30)
         XCTAssertFalse(connected)
+
     }
-    
-    
+
 }
 
 

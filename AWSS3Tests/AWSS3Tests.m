@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -31,12 +31,14 @@ static NSURL *tempLargeURL = nil;
 static NSURL *tempSmallURL = nil;
 
 static NSString *testBucketNameGeneral = nil;
+static NSMutableArray<NSString *> *testBucketsCreated;
 
 + (void)setUp {
     [super setUp];
     [AWSTestUtility setupCognitoCredentialsProvider];
     //[AWSTestUtility setupCrdentialsViaFile];
     
+    testBucketsCreated = [NSMutableArray new];
     
     
     //Create bucketName
@@ -44,7 +46,7 @@ static NSString *testBucketNameGeneral = nil;
     testBucketNameGeneral = [NSString stringWithFormat:@"%@%lld", AWSS3TestBucketNamePrefix, (int64_t)timeIntervalSinceReferenceDate];
 
     [AWSS3Tests createBucketWithName:testBucketNameGeneral];
-    
+    [testBucketsCreated addObject:testBucketNameGeneral];
     
     //Create a large temporary file for uploading & downloading test
     tempLargeURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-s3tmTestTempLarge",testBucketNameGeneral]]];
@@ -114,8 +116,10 @@ static NSString *testBucketNameGeneral = nil;
     // Delete all contents of the bucket
     [AWSS3Tests deleteAllObjectsFromBucket:testBucketNameGeneral];
     
-    //Delete Bucket
-    [AWSS3Tests deleteBucketWithName:testBucketNameGeneral];
+    //Delete Buckets
+    for ( NSString *bucketName in testBucketsCreated) {
+        [AWSS3Tests deleteBucketWithName:bucketName];
+    }
     
     //Delete Temp files
     if (tempLargeURL) {
@@ -304,7 +308,8 @@ static NSString *testBucketNameGeneral = nil;
 
 - (void)testCreateDeleteBucket {
     NSString *bucketNameTest2 = [testBucketNameGeneral stringByAppendingString:@"-testcreatedeletebucket"];
-
+    [testBucketsCreated addObject:bucketNameTest2];
+    
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
 
@@ -342,6 +347,68 @@ static NSString *testBucketNameGeneral = nil;
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         XCTAssertTrue([task.result isKindOfClass:[AWSS3ListBucketsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListBucketsOutput class]));
 
+        AWSS3ListBucketsOutput *listBucketOutput = task.result;
+        XCTAssertFalse([self isContainBucketName:bucketNameTest2 inBucketArray:listBucketOutput.buckets], @"%@ should NOT befound in S3 Bucket List",bucketNameTest2);
+        return nil;
+    }] waitUntilFinished];
+}
+
+- (void)testCreateDeleteBucketWithDefaultEncryption {
+    NSString *bucketNameTest2 = [testBucketNameGeneral stringByAppendingString:@"-testbucket"];
+    [testBucketsCreated addObject:bucketNameTest2];
+    
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+    
+    AWSS3CreateBucketRequest *createBucketReq = [AWSS3CreateBucketRequest new];
+    createBucketReq.ACL = AWSS3BucketCannedACLAuthenticatedRead;
+    createBucketReq.bucket = bucketNameTest2;
+    
+#if AWS_TEST_BJS_INSTEAD
+    AWSS3CreateBucketConfiguration *createBucketConfiguration = [AWSS3CreateBucketConfiguration new];
+    createBucketConfiguration.locationConstraint = AWSS3BucketLocationConstraintCNNorth1;
+    createBucketReq.createBucketConfiguration = createBucketConfiguration;
+#endif
+    
+    [[[[[[[s3 createBucket:createBucketReq] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        
+        //Setup Default encryption here
+        AWSS3ServerSideEncryptionRule *rule= [AWSS3ServerSideEncryptionRule new];
+        AWSS3ServerSideEncryptionByDefault *applyServerSideEncryptionByDefault =[AWSS3ServerSideEncryptionByDefault new];applyServerSideEncryptionByDefault.SSEAlgorithm=AWSS3ServerSideEncryptionAwsKms;
+        rule.applyServerSideEncryptionByDefault = applyServerSideEncryptionByDefault;
+        
+        AWSS3ServerSideEncryptionConfiguration *configuration = [AWSS3ServerSideEncryptionConfiguration new];
+        configuration.rules = @[rule];
+        
+        AWSS3PutBucketEncryptionRequest *request =
+        [AWSS3PutBucketEncryptionRequest new];
+        request.bucket = bucketNameTest2;
+        request.serverSideEncryptionConfiguration=configuration;
+        return [s3 putBucketEncryption:request];
+    }] continueWithBlock:^id (AWSTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        return [s3 listBuckets:[AWSRequest new]];
+    }] continueWithBlock:^id(AWSTask *task) {
+        //Check if bucket is there.
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3ListBucketsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListBucketsOutput class]));
+        
+        AWSS3ListBucketsOutput *listBucketOutput = task.result;
+        XCTAssertTrue([self isContainBucketName:bucketNameTest2 inBucketArray:listBucketOutput.buckets], @"%@ can not be found in S3 Bucket List",bucketNameTest2);
+        
+        AWSS3DeleteBucketRequest *deleteBucketReq = [AWSS3DeleteBucketRequest new];
+        deleteBucketReq.bucket = bucketNameTest2;
+        return [s3 deleteBucket:deleteBucketReq];
+    }] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        return [s3 listBuckets:[AWSRequest new]];
+    }] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
+        XCTAssertTrue([task.result isKindOfClass:[AWSS3ListBucketsOutput class]],@"The response object is not a class of [%@]", NSStringFromClass([AWSS3ListBucketsOutput class]));
+        
         AWSS3ListBucketsOutput *listBucketOutput = task.result;
         XCTAssertFalse([self isContainBucketName:bucketNameTest2 inBucketArray:listBucketOutput.buckets], @"%@ should NOT befound in S3 Bucket List",bucketNameTest2);
         return nil;
@@ -428,6 +495,7 @@ static NSString *testBucketNameGeneral = nil;
 
 - (void)testPutBucketWithGrants {
     NSString *grantBucketName = [testBucketNameGeneral stringByAppendingString:@"-grant"];
+    [testBucketsCreated addObject:grantBucketName];
     XCTAssertTrue([AWSS3Tests createBucketWithName:grantBucketName]);
 
     AWSS3 *s3 = [AWSS3 defaultS3];

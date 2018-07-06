@@ -68,6 +68,7 @@ typedef enum {
 - (id)connectToInputStream:(NSInputStream *)readStream
               outputStream:(NSOutputStream *)writeStream;
 - (void)close;
+- (void)disconnect;
 
 #pragma mark Subscription Management
 - (UInt16)subscribeTopic:(NSString*)theTopic;

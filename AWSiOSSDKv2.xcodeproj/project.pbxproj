@@ -301,6 +301,10 @@
 		18F938D21DE5148E00034221 /* AWSLexVoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938C11DE5148E00034221 /* AWSLexVoiceButton.m */; };
 		18F938D41DE5193F00034221 /* AWSGeneralLexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938D31DE5193F00034221 /* AWSGeneralLexTests.m */; };
 		18F938D71DE520C500034221 /* AWSLexClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938D61DE520C500034221 /* AWSLexClientTests.m */; };
+		9A2562EC20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A2562EA20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.h */; };
+		9A2562ED20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2562EB20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.m */; };
+		9A2562F320E2E4D400D2451E /* AWSS3TransferUtilityTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2562F220E2E4D400D2451E /* AWSS3TransferUtilityTasks.m */; };
+		9A2562F520E31B7A00D2451E /* AWSS3TransferUtilityTasks.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A2562F420E2E50A00D2451E /* AWSS3TransferUtilityTasks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9A293CF0203885A300A12241 /* AWSS3TransferUtility+Validation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A293CEE203885A300A12241 /* AWSS3TransferUtility+Validation.h */; };
 		9A293CF1203885A300A12241 /* AWSS3TransferUtility+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A293CEF203885A300A12241 /* AWSS3TransferUtility+Validation.m */; };
 		9A7ACC3520B0E85100DDBEC1 /* AWSTranslate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7ACC2020B0E85000DDBEC1 /* AWSTranslate.framework */; };
@@ -341,6 +345,8 @@
 		9A7ACD0920B1CF3900DDBEC1 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		9A7ACD0A20B1CF5C00DDBEC1 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		9A7ACD0B20B1CF7C00DDBEC1 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
+		9A82CE5620E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A82CE5420E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.h */; };
+		9A82CE5720E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A82CE5520E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.m */; };
 		9AA55EF7209F7EB300FF2AC4 /* AWSIoTDataManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AA55EF6209F7EB300FF2AC4 /* AWSIoTDataManagerTests.swift */; };
 		B52FBE921F17414A000F0C00 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B52FBE911F17414A000F0C00 /* Media.xcassets */; };
 		CE0D41701C6A66E5006B91B5 /* AWSCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0D416F1C6A66E5006B91B5 /* AWSCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -3082,6 +3088,10 @@
 		18F938C11DE5148E00034221 /* AWSLexVoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLexVoiceButton.m; sourceTree = "<group>"; };
 		18F938D31DE5193F00034221 /* AWSGeneralLexTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralLexTests.m; sourceTree = "<group>"; };
 		18F938D61DE520C500034221 /* AWSLexClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLexClientTests.m; sourceTree = "<group>"; };
+		9A2562EA20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSS3TransferUtility+HeaderHelper.h"; sourceTree = "<group>"; };
+		9A2562EB20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSS3TransferUtility+HeaderHelper.m"; sourceTree = "<group>"; };
+		9A2562F220E2E4D400D2451E /* AWSS3TransferUtilityTasks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtilityTasks.m; sourceTree = "<group>"; };
+		9A2562F420E2E50A00D2451E /* AWSS3TransferUtilityTasks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSS3TransferUtilityTasks.h; sourceTree = "<group>"; };
 		9A293CEE203885A300A12241 /* AWSS3TransferUtility+Validation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSS3TransferUtility+Validation.h"; sourceTree = "<group>"; };
 		9A293CEF203885A300A12241 /* AWSS3TransferUtility+Validation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSS3TransferUtility+Validation.m"; sourceTree = "<group>"; };
 		9A7ACC2020B0E85000DDBEC1 /* AWSTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3116,6 +3126,8 @@
 		9A7ACCF920B11CDD00DDBEC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A7ACD0520B12F3400DDBEC1 /* AWSTranslateTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSTranslateTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		9A7ACD0620B1CE0B00DDBEC1 /* AWSComprehendTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSComprehendTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		9A82CE5420E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSS3TransferUtilityDatabaseHelper.h; sourceTree = "<group>"; };
+		9A82CE5520E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtilityDatabaseHelper.m; sourceTree = "<group>"; };
 		9AA55EF5209F7EB200FF2AC4 /* AWSIoTTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSIoTTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		9AA55EF6209F7EB300FF2AC4 /* AWSIoTDataManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSIoTDataManagerTests.swift; sourceTree = "<group>"; };
 		B52FBE911F17414A000F0C00 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
@@ -6185,6 +6197,12 @@
 				CE9DE9C11C6A7C2E0060793F /* Info.plist */,
 				9A293CEE203885A300A12241 /* AWSS3TransferUtility+Validation.h */,
 				9A293CEF203885A300A12241 /* AWSS3TransferUtility+Validation.m */,
+				9A82CE5420E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.h */,
+				9A82CE5520E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.m */,
+				9A2562EA20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.h */,
+				9A2562EB20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.m */,
+				9A2562F220E2E4D400D2451E /* AWSS3TransferUtilityTasks.m */,
+				9A2562F420E2E50A00D2451E /* AWSS3TransferUtilityTasks.h */,
 			);
 			path = AWSS3;
 			sourceTree = "<group>";
@@ -7167,11 +7185,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9DE9E31C6A7C5E0060793F /* AWSS3PreSignedURL.h in Headers */,
+				9A2562EC20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.h in Headers */,
 				9A293CF0203885A300A12241 /* AWSS3TransferUtility+Validation.h in Headers */,
 				CE9DE9E91C6A7C5E0060793F /* AWSS3TransferManager.h in Headers */,
 				18CDFB281D66561F0021B1DE /* AWSS3Serializer.h in Headers */,
 				CE9DE9E11C6A7C5E0060793F /* AWSS3Model.h in Headers */,
+				9A2562F520E31B7A00D2451E /* AWSS3TransferUtilityTasks.h in Headers */,
 				CE9DE9EB1C6A7C5E0060793F /* AWSS3TransferUtility.h in Headers */,
+				9A82CE5620E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.h in Headers */,
 				CE9DE9E51C6A7C5E0060793F /* AWSS3Resources.h in Headers */,
 				CE9DE9E71C6A7C5E0060793F /* AWSS3Service.h in Headers */,
 				CE9DE9D41C6A7C360060793F /* AWSS3.h in Headers */,
@@ -10923,8 +10944,11 @@
 			files = (
 				CE9DE9E61C6A7C5E0060793F /* AWSS3Resources.m in Sources */,
 				CE9DE9EA1C6A7C5E0060793F /* AWSS3TransferManager.m in Sources */,
+				9A2562ED20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.m in Sources */,
 				CE9DE9E21C6A7C5E0060793F /* AWSS3Model.m in Sources */,
 				CE9DE9E41C6A7C5E0060793F /* AWSS3PreSignedURL.m in Sources */,
+				9A82CE5720E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.m in Sources */,
+				9A2562F320E2E4D400D2451E /* AWSS3TransferUtilityTasks.m in Sources */,
 				18DF08E61D349137004C7D19 /* AWSS3RequestRetryHandler.m in Sources */,
 				CE9DE9E81C6A7C5E0060793F /* AWSS3Service.m in Sources */,
 				CE9DE9EC1C6A7C5E0060793F /* AWSS3TransferUtility.m in Sources */,

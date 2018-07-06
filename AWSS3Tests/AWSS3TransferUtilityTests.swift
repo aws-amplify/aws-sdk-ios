@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1832,8 +1832,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 
                 let fmt = DateFormatter()
                 fmt.dateFormat = "EEE, dd MMM yyyy HH:mm:ss zzz"
-                //Sleep for 2 seconds to make sure that we can set the current date/time for the ifModifiedSince header.
-                sleep(2)
+                //Sleep for 5 seconds to make sure that we can set the current date/time for the ifModifiedSince header.
+                sleep(5)
                 let ifModifiedSince = Date()
                 
                 downloadExpression.setValue(fmt.string(from:ifModifiedSince), forRequestHeader: "If-Modified-Since")
@@ -2044,7 +2044,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     } else {
                         XCTFail()
                     }
-                    if count == 25 {
+                    if count >= 25 {
                     expectation.fulfill()
                     }
                 }
@@ -2072,6 +2072,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                             XCTAssertNil(task.error)
                             return nil
                     })
+                    sleep(1)
                 }
                     
             } else {
@@ -2095,11 +2096,91 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 return nil
             })
         
-        waitForExpectations(timeout: 300) { (error) in
+        waitForExpectations(timeout: 450) { (error) in
             XCTAssertNil(error)
         }
     }
  
+    func testUploadAndDownloadDataSingleClientMultipleFiles() {
+        let expectation = self.expectation(description: "The completion handler called.")
+        var completedTransfers = 0;
+        
+        let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry")
+        let uploadExpression = AWSS3TransferUtilityUploadExpression()
+        
+        uploadExpression.progressBlock = {(task, progress) in
+            print("Upload progress: ", progress.fractionCompleted)
+        }
+        
+        
+        var testData = "Test123456789"
+        for _ in 1...10 {
+            testData = testData + testData;
+        }
+        
+        for i in 1...25 {
+            let uploadCompletionHandler = { (task: AWSS3TransferUtilityUploadTask, error: Error?) -> Void in
+                XCTAssertNil(error)
+                if ( error != nil ) {
+                    completedTransfers = completedTransfers + 1
+                    if ( completedTransfers >= 25 ) {
+                        expectation.fulfill()
+                    }
+                    return
+                }
+                
+                if let HTTPResponse = task.response {
+                    XCTAssertEqual(HTTPResponse.statusCode, 200)
+                    
+                    let downloadExpression = AWSS3TransferUtilityDownloadExpression()
+                    downloadExpression.progressBlock = {(task, progress) in
+                        print("Download progress: ", progress.fractionCompleted)
+                    }
+                    
+                    let downloadCompletionHandler = { (task: AWSS3TransferUtilityDownloadTask, URL: Foundation.URL?, data: Data?, error: Error?) in
+                        if let HTTPResponse = task.response {
+                            XCTAssertEqual(HTTPResponse.statusCode, 200)
+                            completedTransfers = completedTransfers+1;
+                        } else {
+                            XCTFail()
+                        }
+                        if completedTransfers >= 25 {
+                            expectation.fulfill()
+                        }
+                    }
+                    
+                    let url = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("file\(i)")
+                    AWSS3TransferUtility.s3TransferUtility(forKey: "with-retry").download(to: url!,
+                                            bucket: "ios-v2-s3.periods",
+                                            key: "testDataForConcurrentDownloads\(i).txt",
+                                     expression: downloadExpression,
+                              completionHandler: downloadCompletionHandler).continueWith(block: { (task) -> Any? in
+                                        XCTAssertNil(task.error)
+                                        return nil
+                                      })
+                    }
+                }
+            
+                transferUtility.uploadData(
+                    testData.data(using: String.Encoding.utf8)!,
+                    bucket: "ios-v2-s3.periods",
+                    key: "testDataForConcurrentDownloads\(i).txt",
+                    contentType: "text/plain",
+                    expression: uploadExpression,
+                    completionHandler: uploadCompletionHandler
+                    ).continueWith (block: { (task) -> AnyObject? in
+                        XCTAssertNil(task.error)
+                        
+                        return nil
+                    })
+        }
+        
+        waitForExpectations(timeout: 300) { (error) in
+            XCTAssertNil(error)
+        }
+    }
+    
+    
     func testLargeFileUploadCredentialsExpired() {
         let expectation = self.expectation(description: "The completion handler called.")
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "short-expiry")
