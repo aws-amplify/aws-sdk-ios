@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,9 +56,13 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/dryRun">dryRun</option>
+		
 		<option value="//api/name/functionName">functionName</option>
 		
 		<option value="//api/name/publish">publish</option>
+		
+		<option value="//api/name/revisionId">revisionId</option>
 		
 		<option value="//api/name/s3Bucket">s3Bucket</option>
 		
@@ -123,6 +127,48 @@ Required parameters: [FunctionName]</p>
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/dryRun" title="dryRun"></a>
+	<h3 class="method-title"><code><a href="#//api/name/dryRun">&nbsp;&nbsp;dryRun</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This boolean parameter can be used to test your request to AWS Lambda to update the Lambda function and publish a version as an atomic operation. It will do all necessary computation and validation of your code but will not upload it or a publish a version. Each time this operation is invoked, the <code>CodeSha256</code> hash value of the provided code will also be computed and returned in the response.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *dryRun</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/functionName" title="functionName"></a>
 	<h3 class="method-title"><code><a href="#//api/name/functionName">&nbsp;&nbsp;functionName</a></code>
 </h3>
@@ -137,7 +183,7 @@ Required parameters: [FunctionName]</p>
 				<p>The existing Lambda function name whose code you want to replace.</p>
 
 
-<p> You can specify a function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 character in length. </p>
+<p> You can specify a function name (for example, <code>Thumbnail</code>) or you can specify Amazon Resource Name (ARN) of the function (for example, <code>arn:aws:lambda:us-west-2:account-id:function:ThumbNail</code>). AWS Lambda also allows you to specify a partial ARN (for example, <code>account-id:Thumbnail</code>). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. </p>
 
 			</div>
 			
@@ -210,6 +256,48 @@ Required parameters: [FunctionName]</p>
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/revisionId" title="revisionId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/revisionId">&nbsp;&nbsp;revisionId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>An optional value you can use to ensure you are updating the latest update of the function version or alias. If the <code>RevisionID</code> you pass doesn't match the latest <code>RevisionId</code> of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias <code>RevisionID</code> using either or .</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *revisionId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/s3Bucket" title="s3Bucket"></a>
 	<h3 class="method-title"><code><a href="#//api/name/s3Bucket">&nbsp;&nbsp;s3Bucket</a></code>
 </h3>
@@ -221,7 +309,7 @@ Required parameters: [FunctionName]</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS region where you are creating the Lambda function.</p>
+				<p>Amazon S3 bucket name where the .zip file containing your deployment package is stored. This bucket must reside in the same AWS Region where you are creating the Lambda function.</p>
 
 			</div>
 			
@@ -347,7 +435,7 @@ Required parameters: [FunctionName]</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html">Execution Permissions</a> in the <i>AWS Lambda Developer Guide</i>. </p>
+				<p>The contents of your zip file containing your deployment package. If you are using the web API directly, the contents of the zip file must be base64-encoded. If you are using the AWS SDKs or the AWS CLI, the SDKs or CLI will do the encoding for you. For more information about creating a .zip file, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html">Execution Permissions</a>. </p>
 
 			</div>
 			
@@ -390,7 +478,7 @@ Required parameters: [FunctionName]</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

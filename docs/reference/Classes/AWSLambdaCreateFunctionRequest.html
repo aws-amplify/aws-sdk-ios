@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,9 +56,15 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/KMSKeyArn">KMSKeyArn</option>
+		
 		<option value="//api/name/code">code</option>
 		
+		<option value="//api/name/deadLetterConfig">deadLetterConfig</option>
+		
 		<option value="//api/name/detail">detail</option>
+		
+		<option value="//api/name/environment">environment</option>
 		
 		<option value="//api/name/functionName">functionName</option>
 		
@@ -72,7 +78,11 @@
 		
 		<option value="//api/name/runtime">runtime</option>
 		
+		<option value="//api/name/tags">tags</option>
+		
 		<option value="//api/name/timeout">timeout</option>
+		
+		<option value="//api/name/tracingConfig">tracingConfig</option>
 		
 		<option value="//api/name/vpcConfig">vpcConfig</option>
 		
@@ -173,6 +183,48 @@ Required parameters: [FunctionName, Runtime, Role, Handler, Code]</p>
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/deadLetterConfig" title="deadLetterConfig"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deadLetterConfig">&nbsp;&nbsp;deadLetterConfig</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see <a>dlq</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSLambdaDeadLetterConfig *deadLetterConfig</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/detail" title="detail"></a>
 	<h3 class="method-title"><code><a href="#//api/name/detail">&nbsp;&nbsp;detail</a></code>
 </h3>
@@ -215,6 +267,48 @@ Required parameters: [FunctionName, Runtime, Role, Handler, Code]</p>
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/environment" title="environment"></a>
+	<h3 class="method-title"><code><a href="#//api/name/environment">&nbsp;&nbsp;environment</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The parent object that contains your environment's configuration settings.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSLambdaEnvironment *environment</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/functionName" title="functionName"></a>
 	<h3 class="method-title"><code><a href="#//api/name/functionName">&nbsp;&nbsp;functionName</a></code>
 </h3>
@@ -226,7 +320,7 @@ Required parameters: [FunctionName, Runtime, Role, Handler, Code]</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the <a>ListFunctions</a> API. Function names are used to specify functions to other AWS Lambda APIs, such as <a>Invoke</a>. </p>
+				<p>The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the <a>ListFunctions</a> API. Function names are used to specify functions to other AWS Lambda API operations, such as <a>Invoke</a>. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. </p>
 
 			</div>
 			
@@ -275,6 +369,48 @@ Required parameters: [FunctionName, Runtime, Role, Handler, Code]</p>
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *handler</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/KMSKeyArn" title="KMSKeyArn"></a>
+	<h3 class="method-title"><code><a href="#//api/name/KMSKeyArn">&nbsp;&nbsp;KMSKeyArn</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If not provided, AWS Lambda will use a default service key.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *KMSKeyArn</code></div>
 
 		    
 			
@@ -439,13 +575,57 @@ Required parameters: [FunctionName, Runtime, Role, Handler, Code]</p>
 				<p>The runtime environment for the Lambda function you are uploading.</p>
 
 
-<p>To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".</p>
+<p>To use the Python runtime v3.6, set the value to "python3.6". To use the Python runtime v2.7, set the value to "python2.7". To use the Node.js runtime v6.10, set the value to "nodejs6.10". To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use the .NET Core runtime v1.0, set the value to "dotnetcore1.0". To use the .NET Core runtime v2.0, set the value to "dotnetcore2.0".</p>
 
+
+<p><note><p>Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.</p></note></p>
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSLambdaRuntime runtime</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tags" title="tags"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tags">&nbsp;&nbsp;tags</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The list of tags (key-value pairs) assigned to the new function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *tags</code></div>
 
 		    
 			
@@ -488,6 +668,48 @@ Required parameters: [FunctionName, Runtime, Role, Handler, Code]</p>
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *timeout</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tracingConfig" title="tracingConfig"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tracingConfig">&nbsp;&nbsp;tracingConfig</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The parent object that contains your function's tracing settings.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSLambdaTracingConfig *tracingConfig</code></div>
 
 		    
 			
@@ -566,7 +788,7 @@ Required parameters: [FunctionName, Runtime, Role, Handler, Code]</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

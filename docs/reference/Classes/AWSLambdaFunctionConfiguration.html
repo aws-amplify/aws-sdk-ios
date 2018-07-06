@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,11 +56,17 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/KMSKeyArn">KMSKeyArn</option>
+		
 		<option value="//api/name/codeSha256">codeSha256</option>
 		
 		<option value="//api/name/codeSize">codeSize</option>
 		
+		<option value="//api/name/deadLetterConfig">deadLetterConfig</option>
+		
 		<option value="//api/name/detail">detail</option>
+		
+		<option value="//api/name/environment">environment</option>
 		
 		<option value="//api/name/functionArn">functionArn</option>
 		
@@ -70,13 +76,19 @@
 		
 		<option value="//api/name/lastModified">lastModified</option>
 		
+		<option value="//api/name/masterArn">masterArn</option>
+		
 		<option value="//api/name/memorySize">memorySize</option>
+		
+		<option value="//api/name/revisionId">revisionId</option>
 		
 		<option value="//api/name/role">role</option>
 		
 		<option value="//api/name/runtime">runtime</option>
 		
 		<option value="//api/name/timeout">timeout</option>
+		
+		<option value="//api/name/tracingConfig">tracingConfig</option>
 		
 		<option value="//api/name/version">version</option>
 		
@@ -221,6 +233,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/deadLetterConfig" title="deadLetterConfig"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deadLetterConfig">&nbsp;&nbsp;deadLetterConfig</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see <a>dlq</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSLambdaDeadLetterConfig *deadLetterConfig</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/detail" title="detail"></a>
 	<h3 class="method-title"><code><a href="#//api/name/detail">&nbsp;&nbsp;detail</a></code>
 </h3>
@@ -239,6 +293,48 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *detail</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/environment" title="environment"></a>
+	<h3 class="method-title"><code><a href="#//api/name/environment">&nbsp;&nbsp;environment</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The parent object that contains your environment's configuration settings.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSLambdaEnvironmentResponse *environment</code></div>
 
 		    
 			
@@ -316,7 +412,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the function.</p>
+				<p>The name of the function. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
 
 			</div>
 			
@@ -389,6 +485,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/KMSKeyArn" title="KMSKeyArn"></a>
+	<h3 class="method-title"><code><a href="#//api/name/KMSKeyArn">&nbsp;&nbsp;KMSKeyArn</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The Amazon Resource Name (ARN) of the KMS key used to encrypt your function's environment variables. If empty, it means you are using the AWS Lambda default service key.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *KMSKeyArn</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/lastModified" title="lastModified"></a>
 	<h3 class="method-title"><code><a href="#//api/name/lastModified">&nbsp;&nbsp;lastModified</a></code>
 </h3>
@@ -400,13 +538,55 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The time stamp of the last time you updated the function.</p>
+				<p>The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see <a href="https://www.w3.org/TR/NOTE-datetime">Date and Time Formats</a>.</p>
 
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *lastModified</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/masterArn" title="masterArn"></a>
+	<h3 class="method-title"><code><a href="#//api/name/masterArn">&nbsp;&nbsp;masterArn</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the ARN (Amazon Resource Name) of the master function.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *masterArn</code></div>
 
 		    
 			
@@ -449,6 +629,48 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *memorySize</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/revisionId" title="revisionId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/revisionId">&nbsp;&nbsp;revisionId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Represents the latest updated revision of the function or alias.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *revisionId</code></div>
 
 		    
 			
@@ -528,9 +750,6 @@
 			<div class="method-subsection brief-description">
 				<p>The runtime environment for the Lambda function.</p>
 
-
-<p>To use the Node.js runtime v4.3, set the value to "nodejs4.3". To use earlier runtime (v0.10.42), set the value to "nodejs".</p>
-
 			</div>
 			
 		    
@@ -578,6 +797,48 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *timeout</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tracingConfig" title="tracingConfig"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tracingConfig">&nbsp;&nbsp;tracingConfig</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The parent object that contains your function's tracing settings.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSLambdaTracingConfigResponse *tracingConfig</code></div>
 
 		    
 			
@@ -698,7 +959,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

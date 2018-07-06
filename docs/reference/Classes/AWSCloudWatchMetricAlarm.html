@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -72,9 +72,15 @@
 		
 		<option value="//api/name/comparisonOperator">comparisonOperator</option>
 		
+		<option value="//api/name/datapointsToAlarm">datapointsToAlarm</option>
+		
 		<option value="//api/name/dimensions">dimensions</option>
 		
+		<option value="//api/name/evaluateLowSampleCountPercentile">evaluateLowSampleCountPercentile</option>
+		
 		<option value="//api/name/evaluationPeriods">evaluationPeriods</option>
+		
+		<option value="//api/name/extendedStatistic">extendedStatistic</option>
 		
 		<option value="//api/name/insufficientDataActions">insufficientDataActions</option>
 		
@@ -95,6 +101,8 @@
 		<option value="//api/name/statistic">statistic</option>
 		
 		<option value="//api/name/threshold">threshold</option>
+		
+		<option value="//api/name/treatMissingData">treatMissingData</option>
 		
 		<option value="//api/name/unit">unit</option>
 		
@@ -136,7 +144,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p> The <a>MetricAlarm</a> data type represents an alarm. You can use <a>PutMetricAlarm</a> to create or update an alarm. </p>
+						<p>Represents an alarm.</p>
 
 					</div>
 					
@@ -164,7 +172,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Indicates whether actions should be executed during any changes to the alarm's state.</p>
+				<p>Indicates whether actions should be executed during any changes to the alarm state.</p>
 
 			</div>
 			
@@ -206,7 +214,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p> The list of actions to execute when this alarm transitions into an <code>ALARM</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p>
+				<p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
 
 			</div>
 			
@@ -332,7 +340,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The description for the alarm.</p>
+				<p>The description of the alarm.</p>
 
 			</div>
 			
@@ -416,13 +424,55 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p> The arithmetic operation to use when comparing the specified <code>Statistic</code> and <code>Threshold</code>. The specified <code>Statistic</code> value is used as the first operand. </p>
+				<p>The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.</p>
 
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSCloudWatchComparisonOperator comparisonOperator</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/datapointsToAlarm" title="datapointsToAlarm"></a>
+	<h3 class="method-title"><code><a href="#//api/name/datapointsToAlarm">&nbsp;&nbsp;datapointsToAlarm</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The number of datapoints that must be breaching to trigger the alarm.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *datapointsToAlarm</code></div>
 
 		    
 			
@@ -458,13 +508,55 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The list of dimensions associated with the alarm's associated metric.</p>
+				<p>The dimensions for the metric associated with the alarm.</p>
 
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;AWSCloudWatchDimension*&gt; *dimensions</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/evaluateLowSampleCountPercentile" title="evaluateLowSampleCountPercentile"></a>
+	<h3 class="method-title"><code><a href="#//api/name/evaluateLowSampleCountPercentile">&nbsp;&nbsp;evaluateLowSampleCountPercentile</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Used only for alarms based on percentiles. If <code>ignore</code>, the alarm state does not change during periods with too few data points to be statistically significant. If <code>evaluate</code> or this parameter is not used, the alarm is always evaluated and possibly changes state no matter how many data points are available.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *evaluateLowSampleCountPercentile</code></div>
 
 		    
 			
@@ -531,6 +623,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/extendedStatistic" title="extendedStatistic"></a>
+	<h3 class="method-title"><code><a href="#//api/name/extendedStatistic">&nbsp;&nbsp;extendedStatistic</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *extendedStatistic</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/insufficientDataActions" title="insufficientDataActions"></a>
 	<h3 class="method-title"><code><a href="#//api/name/insufficientDataActions">&nbsp;&nbsp;insufficientDataActions</a></code>
 </h3>
@@ -542,10 +676,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p> The list of actions to execute when this alarm transitions into an <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p>
+				<p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
 
-
-<p><important><p>The current WSDL lists this attribute as <code>UnknownActions</code>.</p></important></p>
 			</div>
 			
 		    
@@ -586,7 +718,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the alarm's metric.</p>
+				<p>The name of the metric associated with the alarm.</p>
 
 			</div>
 			
@@ -628,7 +760,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The namespace of alarm's associated metric.</p>
+				<p>The namespace of the metric associated with the alarm.</p>
 
 			</div>
 			
@@ -670,7 +802,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p> The list of actions to execute when this alarm transitions into an <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN). </p>
+				<p>The actions to execute when this alarm transitions to the <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p>
 
 			</div>
 			
@@ -712,7 +844,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The period in seconds over which the statistic is applied.</p>
+				<p>The period, in seconds, over which the statistic is applied.</p>
 
 			</div>
 			
@@ -754,7 +886,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>A human-readable explanation for the alarm's state.</p>
+				<p>An explanation for the alarm state, in text format.</p>
 
 			</div>
 			
@@ -796,7 +928,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>An explanation for the alarm's state in machine-readable JSON format</p>
+				<p>An explanation for the alarm state, in JSON format.</p>
 
 			</div>
 			
@@ -838,7 +970,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The time stamp of the last update to the alarm's state.</p>
+				<p>The time stamp of the last update to the alarm state.</p>
 
 			</div>
 			
@@ -922,7 +1054,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The statistic to apply to the alarm's associated metric.</p>
+				<p>The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use <code>ExtendedStatistic</code>.</p>
 
 			</div>
 			
@@ -964,13 +1096,55 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The value against which the specified statistic is compared.</p>
+				<p>The value to compare with the specified statistic.</p>
 
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *threshold</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/treatMissingData" title="treatMissingData"></a>
+	<h3 class="method-title"><code><a href="#//api/name/treatMissingData">&nbsp;&nbsp;treatMissingData</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets how this alarm is to handle missing data points. If this parameter is omitted, the default behavior of <code>missing</code> is used.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *treatMissingData</code></div>
 
 		    
 			
@@ -1006,7 +1180,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The unit of the alarm's associated metric.</p>
+				<p>The unit of the metric associated with the alarm.</p>
 
 			</div>
 			
@@ -1049,7 +1223,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

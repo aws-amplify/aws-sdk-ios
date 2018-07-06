@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -78,6 +78,8 @@
 		
 		<option value="//api/name/stepAdjustments">stepAdjustments</option>
 		
+		<option value="//api/name/targetTrackingConfiguration">targetTrackingConfiguration</option>
+		
 	</optgroup>
 	
 
@@ -113,15 +115,6 @@
 
                     
 					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Contains the parameters for PutScalingPolicy.</p>
-
-
-<p>Required parameters: [AutoScalingGroupName, PolicyName, AdjustmentType]</p>
-					</div>
-					
 					
 
 					
@@ -146,10 +139,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The adjustment type. Valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>
+				<p>The adjustment type. The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>
 
 
-<p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html">Dynamic Scaling</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>This parameter is supported if the policy type is <code>SimpleScaling</code> or <code>StepScaling</code>.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-scale-based-on-demand.html">Dynamic Scaling</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -191,7 +187,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name or ARN of the group.</p>
+				<p>The name of the Auto Scaling group.</p>
 
 			</div>
 			
@@ -236,10 +232,10 @@
 				<p>The amount of time, in seconds, after a scaling activity completes and before the next scaling activity can start. If this parameter is not specified, the default cooldown period for the group applies.</p>
 
 
-<p>This parameter is not supported unless the policy type is <code>SimpleScaling</code>.</p>
+<p>This parameter is supported if the policy type is <code>SimpleScaling</code>.</p>
 
 
-<p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Auto Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -284,7 +280,7 @@
 				<p>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. The default is to use the value specified for the default cooldown period for the group.</p>
 
 
-<p>This parameter is not supported if the policy type is <code>SimpleScaling</code>.</p>
+<p>This parameter is supported if the policy type is <code>StepScaling</code> or <code>TargetTrackingScaling</code>.</p>
 
 			</div>
 			
@@ -326,10 +322,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The aggregation type for the CloudWatch metrics. Valid values are <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the value is treated as <code>Average</code>.</p>
+				<p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>, <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the value is treated as <code>Average</code>.</p>
 
 
-<p>This parameter is not supported if the policy type is <code>SimpleScaling</code>.</p>
+<p>This parameter is supported if the policy type is <code>StepScaling</code>.</p>
 
 			</div>
 			
@@ -372,6 +368,9 @@
 			
 			<div class="method-subsection brief-description">
 				<p>The minimum number of instances to scale. If the value of <code>AdjustmentType</code> is <code>PercentChangeInCapacity</code>, the scaling policy changes the <code>DesiredCapacity</code> of the Auto Scaling group by at least this many instances. Otherwise, the error is <code>ValidationError</code>.</p>
+
+
+<p>This parameter is supported if the policy type is <code>SimpleScaling</code> or <code>StepScaling</code>.</p>
 
 			</div>
 			
@@ -497,7 +496,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The policy type. Valid values are <code>SimpleScaling</code> and <code>StepScaling</code>. If the policy type is null, the value is treated as <code>SimpleScaling</code>.</p>
+				<p>The policy type. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, and <code>TargetTrackingScaling</code>. If the policy type is null, the value is treated as <code>SimpleScaling</code>.</p>
 
 			</div>
 			
@@ -617,6 +616,51 @@
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/targetTrackingConfiguration" title="targetTrackingConfiguration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/targetTrackingConfiguration">&nbsp;&nbsp;targetTrackingConfiguration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A target tracking policy.</p>
+
+
+<p>This parameter is required if the policy type is <code>TargetTrackingScaling</code> and not supported otherwise.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSAutoScalingTargetTrackingConfiguration *targetTrackingConfiguration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSAutoScalingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -630,7 +674,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

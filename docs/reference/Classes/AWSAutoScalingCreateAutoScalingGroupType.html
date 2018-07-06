@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -76,6 +76,10 @@
 		
 		<option value="//api/name/launchConfigurationName">launchConfigurationName</option>
 		
+		<option value="//api/name/launchTemplate">launchTemplate</option>
+		
+		<option value="//api/name/lifecycleHookSpecificationList">lifecycleHookSpecificationList</option>
+		
 		<option value="//api/name/loadBalancerNames">loadBalancerNames</option>
 		
 		<option value="//api/name/maxSize">maxSize</option>
@@ -83,6 +87,8 @@
 		<option value="//api/name/minSize">minSize</option>
 		
 		<option value="//api/name/placementGroup">placementGroup</option>
+		
+		<option value="//api/name/serviceLinkedRoleARN">serviceLinkedRoleARN</option>
 		
 		<option value="//api/name/tags">tags</option>
 		
@@ -125,15 +131,6 @@
 
                     
 					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Contains the parameters for CreateAutoScalingGroup.</p>
-
-
-<p>Required parameters: [AutoScalingGroupName, MinSize, MaxSize]</p>
-					</div>
-					
 					
 
 					
@@ -158,7 +155,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the group. This name must be unique within the scope of your AWS account.</p>
+				<p>The name of the Auto Scaling group. This name must be unique within the scope of your AWS account.</p>
 
 			</div>
 			
@@ -245,7 +242,7 @@
 				<p>The amount of time, in seconds, after a scaling activity completes before another scaling activity can start. The default is 300.</p>
 
 
-<p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html">Auto Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -287,7 +284,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The number of EC2 instances that should be running in the group. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group.</p>
+				<p>The number of EC2 instances that should be running in the group. This number must be greater than or equal to the minimum size of the group and less than or equal to the maximum size of the group. If you do not specify a desired capacity, the default is the minimum size of the group.</p>
 
 			</div>
 			
@@ -335,7 +332,7 @@
 <p>This parameter is required if you are adding an <code>ELB</code> health check.</p>
 
 
-<p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health Checks</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health Checks</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -380,7 +377,7 @@
 				<p>The service to use for the health checks. The valid values are <code>EC2</code> and <code>ELB</code>.</p>
 
 
-<p>By default, health checks use Amazon EC2 instance status checks to determine the health of an instance. For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html">Health Checks</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>By default, health checks use Amazon EC2 instance status checks to determine the health of an instance. For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/healthcheck.html">Health Checks</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -422,13 +419,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ID of the instance used to create a launch configuration for the group. Alternatively, specify a launch configuration instead of an EC2 instance.</p>
+				<p>The ID of the instance used to create a launch configuration for the group. You must specify one of the following: an EC2 instance, a launch configuration, or a launch template.</p>
 
 
 <p>When you specify an ID of an instance, Auto Scaling creates a new launch configuration and associates it with the group. This launch configuration derives its attributes from the specified instance, with the exception of the block device mapping.</p>
 
 
-<p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html">Create an Auto Scaling Group Using an EC2 Instance</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html">Create an Auto Scaling Group Using an EC2 Instance</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -470,13 +467,97 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the launch configuration. Alternatively, specify an EC2 instance instead of a launch configuration.</p>
+				<p>The name of the launch configuration. You must specify one of the following: a launch configuration, a launch template, or an EC2 instance.</p>
 
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *launchConfigurationName</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSAutoScalingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/launchTemplate" title="launchTemplate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/launchTemplate">&nbsp;&nbsp;launchTemplate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The launch template to use to launch instances. You must specify one of the following: a launch template, a launch configuration, or an EC2 instance.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSAutoScalingLaunchTemplateSpecification *launchTemplate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSAutoScalingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/lifecycleHookSpecificationList" title="lifecycleHookSpecificationList"></a>
+	<h3 class="method-title"><code><a href="#//api/name/lifecycleHookSpecificationList">&nbsp;&nbsp;lifecycleHookSpecificationList</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>One or more lifecycle hooks.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingLifecycleHookSpecification*&gt; *lifecycleHookSpecificationList</code></div>
 
 		    
 			
@@ -512,10 +593,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>One or more Classic load balancers. To specify an Application load balancer, use <code>TargetGroupARNs</code> instead.</p>
+				<p>One or more Classic Load Balancers. To specify an Application Load Balancer, use <code>TargetGroupARNs</code> instead.</p>
 
 
-<p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html">Using a Load Balancer With an Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html">Using a Load Balancer With an Auto Scaling Group</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -714,6 +795,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/serviceLinkedRoleARN" title="serviceLinkedRoleARN"></a>
+	<h3 class="method-title"><code><a href="#//api/name/serviceLinkedRoleARN">&nbsp;&nbsp;serviceLinkedRoleARN</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. By default, Auto Scaling uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if it does not exist.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *serviceLinkedRoleARN</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSAutoScalingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/tags" title="tags"></a>
 	<h3 class="method-title"><code><a href="#//api/name/tags">&nbsp;&nbsp;tags</a></code>
 </h3>
@@ -728,7 +851,7 @@
 				<p>One or more tags.</p>
 
 
-<p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html">Tagging Auto Scaling Groups and Instances</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/autoscaling-tagging.html">Tagging Auto Scaling Groups and Instances</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -815,7 +938,7 @@
 				<p>One or more termination policies used to select the instance to terminate. These policies are executed in the order that they are listed.</p>
 
 
-<p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingBehavior.InstanceTermination.html">Controlling Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-instance-termination.html">Controlling Which Instances Auto Scaling Terminates During Scale In</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -863,7 +986,7 @@
 <p>If you specify subnets and Availability Zones with this call, ensure that the subnets' Availability Zones match the Availability Zones specified.</p>
 
 
-<p>For more information, see <a href="http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/asg-in-vpc.html">Launching Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/asg-in-vpc.html">Launching Auto Scaling Instances in a VPC</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -906,7 +1029,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

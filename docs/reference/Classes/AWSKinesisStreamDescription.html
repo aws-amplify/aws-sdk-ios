@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,15 +56,21 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/encryptionType">encryptionType</option>
+		
 		<option value="//api/name/enhancedMonitoring">enhancedMonitoring</option>
 		
 		<option value="//api/name/hasMoreShards">hasMoreShards</option>
+		
+		<option value="//api/name/keyId">keyId</option>
 		
 		<option value="//api/name/retentionPeriodHours">retentionPeriodHours</option>
 		
 		<option value="//api/name/shards">shards</option>
 		
 		<option value="//api/name/streamARN">streamARN</option>
+		
+		<option value="//api/name/streamCreationTimestamp">streamCreationTimestamp</option>
 		
 		<option value="//api/name/streamName">streamName</option>
 		
@@ -111,7 +117,7 @@
 						<p>Represents the output for <a>DescribeStream</a>.</p>
 
 
-<p>Required parameters: [StreamName, StreamARN, StreamStatus, Shards, HasMoreShards, RetentionPeriodHours, EnhancedMonitoring]</p>
+<p>Required parameters: [StreamName, StreamARN, StreamStatus, Shards, HasMoreShards, RetentionPeriodHours, StreamCreationTimestamp, EnhancedMonitoring]</p>
 					</div>
 					
 					
@@ -127,6 +133,51 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/encryptionType" title="encryptionType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/encryptionType">&nbsp;&nbsp;encryptionType</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The server-side encryption type used on the stream. This parameter can be one of the following values:</p>
+
+
+<ul><li><p><code>NONE</code>: Do not encrypt the records in the stream.</p></li><li><p><code>KMS</code>: Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.</p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSKinesisEncryptionType encryptionType</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/enhancedMonitoring" title="enhancedMonitoring"></a>
 	<h3 class="method-title"><code><a href="#//api/name/enhancedMonitoring">&nbsp;&nbsp;enhancedMonitoring</a></code>
 </h3>
@@ -187,6 +238,51 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *hasMoreShards</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/keyId" title="keyId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/keyId">&nbsp;&nbsp;keyId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The GUID for the customer-managed AWS KMS key to use for encryption. This value can be a globally unique identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed by "alias/".You can also use a master key owned by Kinesis Data Streams by specifying the alias <code>aws/kinesis</code>.</p>
+
+
+<ul><li><p>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code></p></li><li><p>Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code></p></li><li><p>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code></p></li><li><p>Alias name example: <code>alias/MyAliasName</code></p></li><li><p>Master key owned by Kinesis Data Streams: <code>alias/aws/kinesis</code></p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *keyId</code></div>
 
 		    
 			
@@ -337,6 +433,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/streamCreationTimestamp" title="streamCreationTimestamp"></a>
+	<h3 class="method-title"><code><a href="#//api/name/streamCreationTimestamp">&nbsp;&nbsp;streamCreationTimestamp</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The approximate time that the stream was created.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDate *streamCreationTimestamp</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/streamName" title="streamName"></a>
 	<h3 class="method-title"><code><a href="#//api/name/streamName">&nbsp;&nbsp;streamName</a></code>
 </h3>
@@ -393,7 +531,7 @@
 				<p>The current status of the stream being described. The stream status is one of the following states:</p>
 
 
-<ul><li><code>CREATING</code> - The stream is being created. Amazon Kinesis immediately returns and sets <code>StreamStatus</code> to <code>CREATING</code>.</li><li><code>DELETING</code> - The stream is being deleted. The specified stream is in the <code>DELETING</code> state until Amazon Kinesis completes the deletion.</li><li><code>ACTIVE</code> - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an <code>ACTIVE</code> stream.</li><li><code>UPDATING</code> - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the <code>UPDATING</code> state.</li></ul>
+<ul><li><p><code>CREATING</code> - The stream is being created. Kinesis Data Streams immediately returns and sets <code>StreamStatus</code> to <code>CREATING</code>.</p></li><li><p><code>DELETING</code> - The stream is being deleted. The specified stream is in the <code>DELETING</code> state until Kinesis Data Streams completes the deletion.</p></li><li><p><code>ACTIVE</code> - The stream exists and is ready for read and write operations or deletion. You should perform read and write operations only on an <code>ACTIVE</code> stream.</p></li><li><p><code>UPDATING</code> - Shards in the stream are being merged or split. Read and write operations continue to work while the stream is in the <code>UPDATING</code> state.</p></li></ul>
 
 			</div>
 			
@@ -436,7 +574,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

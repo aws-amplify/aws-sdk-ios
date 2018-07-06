@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>AWSSimpleDBDeletableAttribute Class Reference</title>
+	<title>AWSIoTGetEffectivePoliciesRequest Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,9 +56,11 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/name">name</option>
+		<option value="//api/name/cognitoIdentityPoolId">cognitoIdentityPoolId</option>
 		
-		<option value="//api/name/value">value</option>
+		<option value="//api/name/principal">principal</option>
+		
+		<option value="//api/name/thingName">thingName</option>
 		
 	</optgroup>
 	
@@ -79,28 +81,21 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">AWSSimpleDBDeletableAttribute Class Reference</h1>
+					<h1 class="title">AWSIoTGetEffectivePoliciesRequest Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
 						<tr>
 	<th>Inherits from</th>
-	<td>AWSModel : AWSMTLModel</td>
+	<td>AWSRequest : AWSModel : AWSMTLModel</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>AWSSimpleDBModel.h<br />AWSSimpleDBModel.m</td>
+	<td>AWSIoTModel.h<br />AWSIoTModel.m</td>
 </tr>
 						</tbody></table></div>
 					
 
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><p/>
-Required parameters: [Name]</p>
-					</div>
 					
 					
 
@@ -115,8 +110,8 @@ Required parameters: [Name]</p>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/name" title="name"></a>
-	<h3 class="method-title"><code><a href="#//api/name/name">&nbsp;&nbsp;name</a></code>
+	<a name="//api/name/cognitoIdentityPoolId" title="cognitoIdentityPoolId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cognitoIdentityPoolId">&nbsp;&nbsp;cognitoIdentityPoolId</a></code>
 </h3>
 
 	<div class="method-info">
@@ -126,12 +121,13 @@ Required parameters: [Name]</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the attribute.</p>
+				<p>The Cognito identity pool ID.</p>
+
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *name</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *cognitoIdentityPoolId</code></div>
 
 		    
 			
@@ -149,15 +145,15 @@ Required parameters: [Name]</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSimpleDBModel.h</code></p>
+				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/value" title="value"></a>
-	<h3 class="method-title"><code><a href="#//api/name/value">&nbsp;&nbsp;value</a></code>
+	<a name="//api/name/principal" title="principal"></a>
+	<h3 class="method-title"><code><a href="#//api/name/principal">&nbsp;&nbsp;principal</a></code>
 </h3>
 
 	<div class="method-info">
@@ -167,12 +163,13 @@ Required parameters: [Name]</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The value of the attribute.</p>
+				<p>The principal.</p>
+
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *value</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *principal</code></div>
 
 		    
 			
@@ -190,7 +187,49 @@ Required parameters: [Name]</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSSimpleDBModel.h</code></p>
+				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/thingName" title="thingName"></a>
+	<h3 class="method-title"><code><a href="#//api/name/thingName">&nbsp;&nbsp;thingName</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The thing name.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *thingName</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
 			</div>
 			
 			
@@ -209,7 +248,7 @@ Required parameters: [Name]</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -64,11 +64,15 @@
 		
 		<option value="//api/name/deliveryStreamStatus">deliveryStreamStatus</option>
 		
+		<option value="//api/name/deliveryStreamType">deliveryStreamType</option>
+		
 		<option value="//api/name/destinations">destinations</option>
 		
 		<option value="//api/name/hasMoreDestinations">hasMoreDestinations</option>
 		
 		<option value="//api/name/lastUpdateTimestamp">lastUpdateTimestamp</option>
+		
+		<option value="//api/name/source">source</option>
 		
 		<option value="//api/name/versionId">versionId</option>
 		
@@ -113,7 +117,7 @@
 						<p>Contains information about a delivery stream.</p>
 
 
-<p>Required parameters: [DeliveryStreamName, DeliveryStreamARN, DeliveryStreamStatus, VersionId, Destinations, HasMoreDestinations]</p>
+<p>Required parameters: [DeliveryStreamName, DeliveryStreamARN, DeliveryStreamStatus, DeliveryStreamType, VersionId, Destinations, HasMoreDestinations]</p>
 					</div>
 					
 					
@@ -182,7 +186,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The Amazon Resource Name (ARN) of the delivery stream.</p>
+				<p>The Amazon Resource Name (ARN) of the delivery stream. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
 
 			</div>
 			
@@ -273,6 +277,51 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSFirehoseDeliveryStreamStatus deliveryStreamStatus</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deliveryStreamType" title="deliveryStreamType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deliveryStreamType">&nbsp;&nbsp;deliveryStreamType</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The delivery stream type. This can be one of the following values:</p>
+
+
+<ul><li><p><code>DirectPut</code>: Provider applications access the delivery stream directly.</p></li><li><p><code>KinesisStreamAsSource</code>: The delivery stream uses a Kinesis data stream as a source.</p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSFirehoseDeliveryStreamType deliveryStreamType</code></div>
 
 		    
 			
@@ -423,6 +472,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/source" title="source"></a>
+	<h3 class="method-title"><code><a href="#//api/name/source">&nbsp;&nbsp;source</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>If the <code>DeliveryStreamType</code> parameter is <code>KinesisStreamAsSource</code>, a <a>SourceDescription</a> object describing the source Kinesis data stream.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSFirehoseSourceDescription *source</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/versionId" title="versionId"></a>
 	<h3 class="method-title"><code><a href="#//api/name/versionId">&nbsp;&nbsp;versionId</a></code>
 </h3>
@@ -434,7 +525,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Used when calling the <a>UpdateDestination</a> operation. Each time the destination is updated for the delivery stream, the VersionId is changed, and the current VersionId is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.</p>
+				<p>Each time the destination is updated for a delivery stream, the version ID is changed, and the current version ID is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.</p>
 
 			</div>
 			
@@ -477,7 +568,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

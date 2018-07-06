@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -64,9 +64,13 @@
 		
 		<option value="//api/name/elasticsearchDestinationUpdate">elasticsearchDestinationUpdate</option>
 		
+		<option value="//api/name/extendedS3DestinationUpdate">extendedS3DestinationUpdate</option>
+		
 		<option value="//api/name/redshiftDestinationUpdate">redshiftDestinationUpdate</option>
 		
 		<option value="//api/name/s3DestinationUpdate">s3DestinationUpdate</option>
+		
+		<option value="//api/name/splunkDestinationUpdate">splunkDestinationUpdate</option>
 		
 	</optgroup>
 	
@@ -103,15 +107,6 @@
 
                     
 					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Contains the parameters for <a>UpdateDestination</a>.</p>
-
-
-<p>Required parameters: [DeliveryStreamName, CurrentDeliveryStreamVersionId, DestinationId]</p>
-					</div>
-					
 					
 
 					
@@ -136,7 +131,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Obtain this value from the <b>VersionId</b> result of the <a>DeliveryStreamDescription</a> operation. This value is required, and helps the service to perform conditional operations. For example, if there is a interleaving update and this value is null, then the update destination fails. After the update is successful, the <b>VersionId</b> value is updated. The service then performs a merge of the old configuration with the new configuration.</p>
+				<p>Obtain this value from the <b>VersionId</b> result of <a>DeliveryStreamDescription</a>. This value is required, and helps the service perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the <code>VersionId</code> value is updated. The service then performs a merge of the old configuration with the new configuration.</p>
 
 			</div>
 			
@@ -293,6 +288,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/extendedS3DestinationUpdate" title="extendedS3DestinationUpdate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/extendedS3DestinationUpdate">&nbsp;&nbsp;extendedS3DestinationUpdate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Describes an update for a destination in Amazon S3.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSFirehoseExtendedS3DestinationUpdate *extendedS3DestinationUpdate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/redshiftDestinationUpdate" title="redshiftDestinationUpdate"></a>
 	<h3 class="method-title"><code><a href="#//api/name/redshiftDestinationUpdate">&nbsp;&nbsp;redshiftDestinationUpdate</a></code>
 </h3>
@@ -346,13 +383,55 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Describes an update for a destination in Amazon S3.</p>
+				<p>[Deprecated] Describes an update for a destination in Amazon S3.</p>
 
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSFirehoseS3DestinationUpdate *s3DestinationUpdate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/splunkDestinationUpdate" title="splunkDestinationUpdate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/splunkDestinationUpdate">&nbsp;&nbsp;splunkDestinationUpdate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Describes an update for a destination in Splunk.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSFirehoseSplunkDestinationUpdate *splunkDestinationUpdate</code></div>
 
 		    
 			
@@ -389,7 +468,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

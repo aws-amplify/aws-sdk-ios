@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -62,6 +62,8 @@
 		
 		<option value="//api/name/progress">progress</option>
 		
+		<option value="//api/name/status">status</option>
+		
 		<option value="//api/name/transferID">transferID</option>
 		
 	</optgroup>
@@ -75,6 +77,8 @@
 		<option value="//api/name/cancel">- cancel</option>
 		
 		<option value="//api/name/resume">- resume</option>
+		
+		<option value="//api/name/setCompletionHandler:">- setCompletionHandler:</option>
 		
 		<option value="//api/name/suspend">- suspend</option>
 		
@@ -102,7 +106,7 @@
 	<td>NSObject</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>AWSS3TransferUtility.h<br />AWSS3TransferUtility.m</td>
+	<td>AWSS3TransferUtilityTasks.h<br />AWSS3TransferUtilityTasks.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -162,7 +166,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+				<p><code class="declared-in-ref">AWSS3TransferUtilityTasks.h</code></p>
 			</div>
 			
 			
@@ -203,7 +207,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+				<p><code class="declared-in-ref">AWSS3TransferUtilityTasks.h</code></p>
 			</div>
 			
 			
@@ -244,7 +248,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+				<p><code class="declared-in-ref">AWSS3TransferUtilityTasks.h</code></p>
 			</div>
 			
 			
@@ -285,7 +289,48 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+				<p><code class="declared-in-ref">AWSS3TransferUtilityTasks.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/status" title="status"></a>
+	<h3 class="method-title"><code><a href="#//api/name/status">&nbsp;&nbsp;status</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>the status of the Transfer.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (readonly) AWSS3TransferUtilityTransferStatusType status</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtilityTasks.h</code></p>
 			</div>
 			
 			
@@ -326,7 +371,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+				<p><code class="declared-in-ref">AWSS3TransferUtilityTasks.h</code></p>
 			</div>
 			
 			
@@ -367,7 +412,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+				<p><code class="declared-in-ref">AWSS3TransferUtilityTasks.h</code></p>
 			</div>
 			
 			
@@ -408,7 +453,49 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+				<p><code class="declared-in-ref">AWSS3TransferUtilityTasks.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setCompletionHandler:" title="setCompletionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setCompletionHandler:">&ndash;&nbsp;setCompletionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>set completion handler for task
+*</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setCompletionHandler:(AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock)<em>completionHandler</em></code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtilityTasks.h</code></p>
 			</div>
 			
 			
@@ -427,7 +514,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

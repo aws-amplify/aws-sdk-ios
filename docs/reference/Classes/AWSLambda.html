@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -106,6 +106,14 @@
 		
 		<option value="//api/name/deleteFunction:completionHandler:">- deleteFunction:completionHandler:</option>
 		
+		<option value="//api/name/deleteFunctionConcurrency:">- deleteFunctionConcurrency:</option>
+		
+		<option value="//api/name/deleteFunctionConcurrency:completionHandler:">- deleteFunctionConcurrency:completionHandler:</option>
+		
+		<option value="//api/name/getAccountSettings:">- getAccountSettings:</option>
+		
+		<option value="//api/name/getAccountSettings:completionHandler:">- getAccountSettings:completionHandler:</option>
+		
 		<option value="//api/name/getAlias:">- getAlias:</option>
 		
 		<option value="//api/name/getAlias:completionHandler:">- getAlias:completionHandler:</option>
@@ -146,6 +154,10 @@
 		
 		<option value="//api/name/listFunctions:completionHandler:">- listFunctions:completionHandler:</option>
 		
+		<option value="//api/name/listTags:">- listTags:</option>
+		
+		<option value="//api/name/listTags:completionHandler:">- listTags:completionHandler:</option>
+		
 		<option value="//api/name/listVersionsByFunction:">- listVersionsByFunction:</option>
 		
 		<option value="//api/name/listVersionsByFunction:completionHandler:">- listVersionsByFunction:completionHandler:</option>
@@ -154,9 +166,21 @@
 		
 		<option value="//api/name/publishVersion:completionHandler:">- publishVersion:completionHandler:</option>
 		
+		<option value="//api/name/putFunctionConcurrency:">- putFunctionConcurrency:</option>
+		
+		<option value="//api/name/putFunctionConcurrency:completionHandler:">- putFunctionConcurrency:completionHandler:</option>
+		
 		<option value="//api/name/removePermission:">- removePermission:</option>
 		
 		<option value="//api/name/removePermission:completionHandler:">- removePermission:completionHandler:</option>
+		
+		<option value="//api/name/tagResource:">- tagResource:</option>
+		
+		<option value="//api/name/tagResource:completionHandler:">- tagResource:completionHandler:</option>
+		
+		<option value="//api/name/untagResource:">- untagResource:</option>
+		
+		<option value="//api/name/untagResource:completionHandler:">- untagResource:completionHandler:</option>
 		
 		<option value="//api/name/updateAlias:">- updateAlias:</option>
 		
@@ -208,7 +232,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><fullname>AWS Lambda</fullname><p><b>Overview</b></p><p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional information. For the service overview, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is AWS Lambda</a>, and for information about how the service works, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <i>AWS Lambda Developer Guide</i>.</p></p>
+						<p><fullname>AWS Lambda</fullname><p><b>Overview</b></p><p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional information. For the service overview, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is AWS Lambda</a>, and for information about how the service works, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <b>AWS Lambda Developer Guide</b>.</p></p>
 					</div>
 					
 					
@@ -629,7 +653,7 @@
 				<p>Adds a permission to the resource policy associated with the specified AWS Lambda function. You use resource policies to grant permissions to event sources that use <i>push</i> model. In a <i>push</i> model, event sources (such as Amazon S3 and custom applications) invoke your Lambda function. Each permission you add to the resource policy allows an event source, permission to invoke the Lambda function. </p>
 
 
-<p>For information about the push model, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a>. </p>
+<p>For information about the push model, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda Functions</a>. </p>
 
 
 <p>If you are using versioning, the permissions you add are specific to the Lambda function version or alias you specify in the <code>AddPermission</code> request via the <code>Qualifier</code> parameter. For more information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
@@ -661,7 +685,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaAddPermissionResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorResourceConflict</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorPolicyLengthExceeded</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaAddPermissionResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorResourceConflict</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorPolicyLengthExceeded</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p>
 			</div>
 			
 
@@ -708,7 +732,7 @@
 				<p>Adds a permission to the resource policy associated with the specified AWS Lambda function. You use resource policies to grant permissions to event sources that use <i>push</i> model. In a <i>push</i> model, event sources (such as Amazon S3 and custom applications) invoke your Lambda function. Each permission you add to the resource policy allows an event source, permission to invoke the Lambda function. </p>
 
 
-<p>For information about the push model, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a>. </p>
+<p>For information about the push model, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda Functions</a>. </p>
 
 
 <p>If you are using versioning, the permissions you add are specific to the Lambda function version or alias you specify in the <code>AddPermission</code> request via the <code>Qualifier</code> parameter. For more information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
@@ -737,7 +761,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorResourceConflict</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorPolicyLengthExceeded</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorResourceConflict</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorPolicyLengthExceeded</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -940,7 +964,17 @@
 <p>This association between a stream source and a Lambda function is called the event source mapping.</p>
 
 
-<p><important><p>This event source mapping is relevant only in the AWS Lambda pull model, where AWS Lambda invokes the function. For more information, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <i>AWS Lambda Developer Guide</i>.</p></important><p>You provide mapping information (for example, which stream to read from and which Lambda function to invoke) in the request body.</p><p>Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be associated with multiple AWS Lambda function. A given Lambda function can be associated with multiple AWS event sources.</p><p>If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p><p>This operation requires permission for the <code>lambda:CreateEventSourceMapping</code> action.</p></p>
+<p>You provide mapping information (for example, which stream to read from and which Lambda function to invoke) in the request body.</p>
+
+
+<p>Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be associated with multiple AWS Lambda functions. A given Lambda function can be associated with multiple AWS event sources.</p>
+
+
+<p>If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
+
+
+<p>This operation requires permission for the <code>lambda:CreateEventSourceMapping</code> action.</p>
+
 			</div>
 			
 		    
@@ -1015,7 +1049,17 @@
 <p>This association between a stream source and a Lambda function is called the event source mapping.</p>
 
 
-<p><important><p>This event source mapping is relevant only in the AWS Lambda pull model, where AWS Lambda invokes the function. For more information, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <i>AWS Lambda Developer Guide</i>.</p></important><p>You provide mapping information (for example, which stream to read from and which Lambda function to invoke) in the request body.</p><p>Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be associated with multiple AWS Lambda function. A given Lambda function can be associated with multiple AWS event sources.</p><p>If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p><p>This operation requires permission for the <code>lambda:CreateEventSourceMapping</code> action.</p></p>
+<p>You provide mapping information (for example, which stream to read from and which Lambda function to invoke) in the request body.</p>
+
+
+<p>Each event source, such as an Amazon Kinesis or a DynamoDB stream, can be associated with multiple AWS Lambda functions. A given Lambda function can be associated with multiple AWS event sources.</p>
+
+
+<p>If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
+
+
+<p>This operation requires permission for the <code>lambda:CreateEventSourceMapping</code> action.</p>
+
 			</div>
 			
 		    
@@ -1675,6 +1719,291 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/deleteFunctionConcurrency:" title="deleteFunctionConcurrency:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteFunctionConcurrency:">&ndash;&nbsp;deleteFunctionConcurrency:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes concurrent execution limits from this function. For more information, see <a>concurrent-executions</a>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)deleteFunctionConcurrency:(AWSLambdaDeleteFunctionConcurrencyRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteFunctionConcurrency service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorInvalidParameterValue</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaDeleteFunctionConcurrencyRequest.html">AWSLambdaDeleteFunctionConcurrencyRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteFunctionConcurrency:completionHandler:" title="deleteFunctionConcurrency:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteFunctionConcurrency:completionHandler:">&ndash;&nbsp;deleteFunctionConcurrency:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes concurrent execution limits from this function. For more information, see <a>concurrent-executions</a>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteFunctionConcurrency:(AWSLambdaDeleteFunctionConcurrencyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteFunctionConcurrency service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorInvalidParameterValue</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaDeleteFunctionConcurrencyRequest.html">AWSLambdaDeleteFunctionConcurrencyRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getAccountSettings:" title="getAccountSettings:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getAccountSettings:">&ndash;&nbsp;getAccountSettings:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a customer's account settings.</p>
+
+
+<p>You can use this operation to retrieve Lambda limits information, such as code size and concurrency limits. For more information about limits, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">AWS Lambda Limits</a>. You can also retrieve resource usage statistics, such as code storage usage and function count.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLambdaGetAccountSettingsResponse*&gt; *)getAccountSettings:(AWSLambdaGetAccountSettingsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetAccountSettings service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaGetAccountSettingsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorService</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaGetAccountSettingsRequest.html">AWSLambdaGetAccountSettingsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLambdaGetAccountSettingsResponse.html">AWSLambdaGetAccountSettingsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getAccountSettings:completionHandler:" title="getAccountSettings:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getAccountSettings:completionHandler:">&ndash;&nbsp;getAccountSettings:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a customer's account settings.</p>
+
+
+<p>You can use this operation to retrieve Lambda limits information, such as code size and concurrency limits. For more information about limits, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/limits.html">AWS Lambda Limits</a>. You can also retrieve resource usage statistics, such as code storage usage and function count.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getAccountSettings:(AWSLambdaGetAccountSettingsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLambdaGetAccountSettingsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetAccountSettings service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorService</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaGetAccountSettingsRequest.html">AWSLambdaGetAccountSettingsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLambdaGetAccountSettingsResponse.html">AWSLambdaGetAccountSettingsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/getAlias:" title="getAlias:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/getAlias:">&ndash;&nbsp;getAlias:</a></code>
 </h3>
@@ -2296,9 +2625,6 @@
 <p> If you are using the versioning feature, you can get the resource policy associated with the specific Lambda function version or alias by specifying the version or alias name using the <code>Qualifier</code> parameter. For more information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
 
 
-<p>For information about adding permissions, see <a>AddPermission</a>.</p>
-
-
 <p>You need permission for the <code>lambda:GetPolicy action.</code></p>
 
 			</div>
@@ -2375,9 +2701,6 @@
 <p> If you are using the versioning feature, you can get the resource policy associated with the specific Lambda function version or alias by specifying the version or alias name using the <code>Qualifier</code> parameter. For more information about versioning, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
 
 
-<p>For information about adding permissions, see <a>AddPermission</a>.</p>
-
-
 <p>You need permission for the <code>lambda:GetPolicy action.</code></p>
 
 			</div>
@@ -2450,7 +2773,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Invokes a specific Lambda function.</p>
+				<p>Invokes a specific Lambda function. For an example, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/with-dynamodb-create-function.html#with-dbb-invoke-manually">Create the Lambda Function and Test It Manually</a>. </p>
 
 
 <p>If you are using the versioning feature, you can invoke the specific function version by providing function version or alias name that is pointing to the function version using the <code>Qualifier</code> parameter in the request. If you don't provide the <code>Qualifier</code> parameter, the <code>$LATEST</code> version of the Lambda function is invoked. Invocations occur at least once in response to an event and functions must be idempotent to handle this. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
@@ -2458,6 +2781,8 @@
 
 <p>This operation requires permission for the <code>lambda:InvokeFunction</code> action.</p>
 
+
+<p><note><p>The <code>TooManyRequestsException</code> noted below will return the following: <code>ConcurrentInvocationLimitExceeded</code> will be returned if you have no functions with reserved concurrency and have exceeded your account concurrent limit or if a function without reserved concurrency exceeds the account&rsquo;s unreserved concurrency limit. <code>ReservedFunctionConcurrentInvocationLimitExceeded</code> will be returned when a function with reserved concurrency exceeds its configured concurrency limit. </p></note></p>
 			</div>
 			
 		    
@@ -2482,7 +2807,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaInvocationResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidRequestContent</code>, <code>AWSLambdaErrorRequestTooLarge</code>, <code>AWSLambdaErrorUnsupportedMediaType</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorEC2Unexpected</code>, <code>AWSLambdaErrorSubnetIPAddressLimitReached</code>, <code>AWSLambdaErrorENILimitReached</code>, <code>AWSLambdaErrorEC2Throttled</code>, <code>AWSLambdaErrorEC2AccessDenied</code>, <code>AWSLambdaErrorInvalidSubnetID</code>, <code>AWSLambdaErrorInvalidSecurityGroupID</code>, <code>AWSLambdaErrorInvalidZipFile</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaInvocationResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidRequestContent</code>, <code>AWSLambdaErrorRequestTooLarge</code>, <code>AWSLambdaErrorUnsupportedMediaType</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorEC2Unexpected</code>, <code>AWSLambdaErrorSubnetIPAddressLimitReached</code>, <code>AWSLambdaErrorENILimitReached</code>, <code>AWSLambdaErrorEC2Throttled</code>, <code>AWSLambdaErrorEC2AccessDenied</code>, <code>AWSLambdaErrorInvalidSubnetID</code>, <code>AWSLambdaErrorInvalidSecurityGroupID</code>, <code>AWSLambdaErrorInvalidZipFile</code>, <code>AWSLambdaErrorKMSDisabled</code>, <code>AWSLambdaErrorKMSInvalidState</code>, <code>AWSLambdaErrorKMSAccessDenied</code>, <code>AWSLambdaErrorKMSNotFound</code>, <code>AWSLambdaErrorInvalidRuntime</code>.</p>
 			</div>
 			
 
@@ -2526,7 +2851,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Invokes a specific Lambda function.</p>
+				<p>Invokes a specific Lambda function. For an example, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/with-dynamodb-create-function.html#with-dbb-invoke-manually">Create the Lambda Function and Test It Manually</a>. </p>
 
 
 <p>If you are using the versioning feature, you can invoke the specific function version by providing function version or alias name that is pointing to the function version using the <code>Qualifier</code> parameter in the request. If you don't provide the <code>Qualifier</code> parameter, the <code>$LATEST</code> version of the Lambda function is invoked. Invocations occur at least once in response to an event and functions must be idempotent to handle this. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
@@ -2534,6 +2859,8 @@
 
 <p>This operation requires permission for the <code>lambda:InvokeFunction</code> action.</p>
 
+
+<p><note><p>The <code>TooManyRequestsException</code> noted below will return the following: <code>ConcurrentInvocationLimitExceeded</code> will be returned if you have no functions with reserved concurrency and have exceeded your account concurrent limit or if a function without reserved concurrency exceeds the account&rsquo;s unreserved concurrency limit. <code>ReservedFunctionConcurrentInvocationLimitExceeded</code> will be returned when a function with reserved concurrency exceeds its configured concurrency limit. </p></note></p>
 			</div>
 			
 		    
@@ -2555,7 +2882,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidRequestContent</code>, <code>AWSLambdaErrorRequestTooLarge</code>, <code>AWSLambdaErrorUnsupportedMediaType</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorEC2Unexpected</code>, <code>AWSLambdaErrorSubnetIPAddressLimitReached</code>, <code>AWSLambdaErrorENILimitReached</code>, <code>AWSLambdaErrorEC2Throttled</code>, <code>AWSLambdaErrorEC2AccessDenied</code>, <code>AWSLambdaErrorInvalidSubnetID</code>, <code>AWSLambdaErrorInvalidSecurityGroupID</code>, <code>AWSLambdaErrorInvalidZipFile</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidRequestContent</code>, <code>AWSLambdaErrorRequestTooLarge</code>, <code>AWSLambdaErrorUnsupportedMediaType</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorEC2Unexpected</code>, <code>AWSLambdaErrorSubnetIPAddressLimitReached</code>, <code>AWSLambdaErrorENILimitReached</code>, <code>AWSLambdaErrorEC2Throttled</code>, <code>AWSLambdaErrorEC2AccessDenied</code>, <code>AWSLambdaErrorInvalidSubnetID</code>, <code>AWSLambdaErrorInvalidSecurityGroupID</code>, <code>AWSLambdaErrorInvalidZipFile</code>, <code>AWSLambdaErrorKMSDisabled</code>, <code>AWSLambdaErrorKMSInvalidState</code>, <code>AWSLambdaErrorKMSAccessDenied</code>, <code>AWSLambdaErrorKMSNotFound</code>, <code>AWSLambdaErrorInvalidRuntime</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -2629,7 +2956,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaInvokeAsyncResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidRequestContent</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaInvokeAsyncResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidRequestContent</code>, <code>AWSLambdaErrorInvalidRuntime</code>.</p>
 			</div>
 			
 
@@ -2695,7 +3022,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidRequestContent</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidRequestContent</code>, <code>AWSLambdaErrorInvalidRuntime</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -3058,7 +3385,7 @@
 <p>This operation requires permission for the <code>lambda:ListFunctions</code> action.</p>
 
 
-<p>If you are using versioning feature, the response returns list of $LATEST versions of your functions. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
+<p>If you are using the versioning feature, you can list all of your functions or only <code>$LATEST</code> versions. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
 
 			</div>
 			
@@ -3084,7 +3411,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaListFunctionsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaListFunctionsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorInvalidParameterValue</code>.</p>
 			</div>
 			
 
@@ -3134,7 +3461,7 @@
 <p>This operation requires permission for the <code>lambda:ListFunctions</code> action.</p>
 
 
-<p>If you are using versioning feature, the response returns list of $LATEST versions of your functions. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
+<p>If you are using the versioning feature, you can list all of your functions or only <code>$LATEST</code> versions. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda Function Versioning and Aliases</a>. </p>
 
 			</div>
 			
@@ -3157,7 +3484,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorInvalidParameterValue</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -3180,6 +3507,148 @@
 					<li><code><p><a href="../Classes/AWSLambdaListFunctionsRequest.html">AWSLambdaListFunctionsRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSLambdaListFunctionsResponse.html">AWSLambdaListFunctionsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTags:" title="listTags:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTags:">&ndash;&nbsp;listTags:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of tags assigned to a function when supplied the function ARN (Amazon Resource Name). For more information on Tagging, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLambdaListTagsResponse*&gt; *)listTags:(AWSLambdaListTagsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTags service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaListTagsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaListTagsRequest.html">AWSLambdaListTagsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLambdaListTagsResponse.html">AWSLambdaListTagsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTags:completionHandler:" title="listTags:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTags:completionHandler:">&ndash;&nbsp;listTags:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of tags assigned to a function when supplied the function ARN (Amazon Resource Name). For more information on Tagging, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listTags:(AWSLambdaListTagsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLambdaListTagsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTags service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaListTagsRequest.html">AWSLambdaListTagsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLambdaListTagsResponse.html">AWSLambdaListTagsResponse</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -3374,7 +3843,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaFunctionConfiguration</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorCodeStorageExceeded</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaFunctionConfiguration</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorCodeStorageExceeded</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p>
 			</div>
 			
 
@@ -3441,7 +3910,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorCodeStorageExceeded</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorCodeStorageExceeded</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -3464,6 +3933,148 @@
 					<li><code><p><a href="../Classes/AWSLambdaPublishVersionRequest.html">AWSLambdaPublishVersionRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSLambdaFunctionConfiguration.html">AWSLambdaFunctionConfiguration</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putFunctionConcurrency:" title="putFunctionConcurrency:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putFunctionConcurrency:">&ndash;&nbsp;putFunctionConcurrency:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets a limit on the number of concurrent executions available to this function. It is a subset of your account's total concurrent execution limit per region. Note that Lambda automatically reserves a buffer of 100 concurrent executions for functions without any reserved concurrency limit. This means if your account limit is 1000, you have a total of 900 available to allocate to individual functions. For more information, see <a>concurrent-executions</a>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLambdaConcurrency*&gt; *)putFunctionConcurrency:(AWSLambdaPutFunctionConcurrencyRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutFunctionConcurrency service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaConcurrency</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaPutFunctionConcurrencyRequest.html">AWSLambdaPutFunctionConcurrencyRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLambdaConcurrency.html">AWSLambdaConcurrency</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putFunctionConcurrency:completionHandler:" title="putFunctionConcurrency:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putFunctionConcurrency:completionHandler:">&ndash;&nbsp;putFunctionConcurrency:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets a limit on the number of concurrent executions available to this function. It is a subset of your account's total concurrent execution limit per region. Note that Lambda automatically reserves a buffer of 100 concurrent executions for functions without any reserved concurrency limit. This means if your account limit is 1000, you have a total of 900 available to allocate to individual functions. For more information, see <a>concurrent-executions</a>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)putFunctionConcurrency:(AWSLambdaPutFunctionConcurrencyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLambdaConcurrency *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutFunctionConcurrency service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaPutFunctionConcurrencyRequest.html">AWSLambdaPutFunctionConcurrencyRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLambdaConcurrency.html">AWSLambdaConcurrency</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -3525,7 +4136,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p>
 			</div>
 			
 
@@ -3598,7 +4209,7 @@
 					<tr>
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -3619,6 +4230,280 @@
 				<ul>
 					
 					<li><code><p><a href="../Classes/AWSLambdaRemovePermissionRequest.html">AWSLambdaRemovePermissionRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tagResource:" title="tagResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tagResource:">&ndash;&nbsp;tagResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda function ARN (Amazon Resource Name). If a key is specified without a value, Lambda creates a tag with the specified key and a value of null. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)tagResource:(AWSLambdaTagResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TagResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaTagResourceRequest.html">AWSLambdaTagResourceRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/tagResource:completionHandler:" title="tagResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/tagResource:completionHandler:">&ndash;&nbsp;tagResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda function ARN (Amazon Resource Name). If a key is specified without a value, Lambda creates a tag with the specified key and a value of null. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSLambdaTagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TagResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaTagResourceRequest.html">AWSLambdaTagResourceRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/untagResource:" title="untagResource:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/untagResource:">&ndash;&nbsp;untagResource:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name). For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)untagResource:(AWSLambdaUntagResourceRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UntagResource service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaUntagResourceRequest.html">AWSLambdaUntagResourceRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/untagResource:completionHandler:" title="untagResource:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/untagResource:completionHandler:">&ndash;&nbsp;untagResource:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name). For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSLambdaUntagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the UntagResource service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLambdaUntagResourceRequest.html">AWSLambdaUntagResourceRequest</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -3674,7 +4559,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaAliasConfiguration</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaAliasConfiguration</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p>
 			</div>
 			
 
@@ -3744,7 +4629,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -3985,7 +4870,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaFunctionConfiguration</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorCodeStorageExceeded</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaFunctionConfiguration</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorCodeStorageExceeded</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p>
 			</div>
 			
 
@@ -4058,7 +4943,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorCodeStorageExceeded</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorCodeStorageExceeded</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -4139,7 +5024,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaFunctionConfiguration</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLambdaFunctionConfiguration</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorResourceConflict</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p>
 			</div>
 			
 
@@ -4212,7 +5097,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLambdaErrorDomain</code> domain and the following error code: <code>AWSLambdaErrorService</code>, <code>AWSLambdaErrorResourceNotFound</code>, <code>AWSLambdaErrorInvalidParameterValue</code>, <code>AWSLambdaErrorTooManyRequests</code>, <code>AWSLambdaErrorResourceConflict</code>, <code>AWSLambdaErrorPreconditionFailed</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -4262,7 +5147,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>

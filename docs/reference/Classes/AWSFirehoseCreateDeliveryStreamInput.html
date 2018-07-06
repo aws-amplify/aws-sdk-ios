@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.21 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -58,11 +58,19 @@
 		
 		<option value="//api/name/deliveryStreamName">deliveryStreamName</option>
 		
+		<option value="//api/name/deliveryStreamType">deliveryStreamType</option>
+		
 		<option value="//api/name/elasticsearchDestinationConfiguration">elasticsearchDestinationConfiguration</option>
+		
+		<option value="//api/name/extendedS3DestinationConfiguration">extendedS3DestinationConfiguration</option>
+		
+		<option value="//api/name/kinesisStreamSourceConfiguration">kinesisStreamSourceConfiguration</option>
 		
 		<option value="//api/name/redshiftDestinationConfiguration">redshiftDestinationConfiguration</option>
 		
 		<option value="//api/name/s3DestinationConfiguration">s3DestinationConfiguration</option>
+		
+		<option value="//api/name/splunkDestinationConfiguration">splunkDestinationConfiguration</option>
 		
 	</optgroup>
 	
@@ -99,15 +107,6 @@
 
                     
 					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Contains the parameters for <a>CreateDeliveryStream</a>.</p>
-
-
-<p>Required parameters: [DeliveryStreamName]</p>
-					</div>
-					
 					
 
 					
@@ -132,13 +131,58 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the delivery stream.</p>
+				<p>The name of the delivery stream. This name must be unique per AWS account in the same AWS Region. If the delivery streams are in different accounts or different Regions, you can have multiple delivery streams with the same name.</p>
 
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *deliveryStreamName</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deliveryStreamType" title="deliveryStreamType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deliveryStreamType">&nbsp;&nbsp;deliveryStreamType</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The delivery stream type. This parameter can be one of the following values:</p>
+
+
+<ul><li><p><code>DirectPut</code>: Provider applications access the delivery stream directly.</p></li><li><p><code>KinesisStreamAsSource</code>: The delivery stream uses a Kinesis data stream as a source.</p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSFirehoseDeliveryStreamType deliveryStreamType</code></div>
 
 		    
 			
@@ -174,13 +218,97 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The destination in Amazon ES. This value cannot be specified if Amazon S3 or Amazon Redshift is the desired destination (see restrictions listed above).</p>
+				<p>The destination in Amazon ES. You can specify only one destination.</p>
 
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSFirehoseElasticsearchDestinationConfiguration *elasticsearchDestinationConfiguration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/extendedS3DestinationConfiguration" title="extendedS3DestinationConfiguration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/extendedS3DestinationConfiguration">&nbsp;&nbsp;extendedS3DestinationConfiguration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The destination in Amazon S3. You can specify only one destination.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSFirehoseExtendedS3DestinationConfiguration *extendedS3DestinationConfiguration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/kinesisStreamSourceConfiguration" title="kinesisStreamSourceConfiguration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/kinesisStreamSourceConfiguration">&nbsp;&nbsp;kinesisStreamSourceConfiguration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>When a Kinesis data stream is used as the source for the delivery stream, a <a>KinesisStreamSourceConfiguration</a> containing the Kinesis data stream Amazon Resource Name (ARN) and the role ARN for the source stream.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSFirehoseKinesisStreamSourceConfiguration *kinesisStreamSourceConfiguration</code></div>
 
 		    
 			
@@ -216,7 +344,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The destination in Amazon Redshift. This value cannot be specified if Amazon S3 or Amazon Elasticsearch is the desired destination (see restrictions listed above).</p>
+				<p>The destination in Amazon Redshift. You can specify only one destination.</p>
 
 			</div>
 			
@@ -258,13 +386,55 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The destination in Amazon S3. This value must be specified if <b>ElasticsearchDestinationConfiguration</b> or <b>RedshiftDestinationConfiguration</b> is specified (see restrictions listed above).</p>
+				<p>[Deprecated] The destination in Amazon S3. You can specify only one destination.</p>
 
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration *s3DestinationConfiguration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/splunkDestinationConfiguration" title="splunkDestinationConfiguration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/splunkDestinationConfiguration">&nbsp;&nbsp;splunkDestinationConfiguration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The destination in Splunk. You can specify only one destination.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSFirehoseSplunkDestinationConfiguration *splunkDestinationConfiguration</code></div>
 
 		    
 			
@@ -301,7 +471,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-06-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
