@@ -179,7 +179,7 @@ typedef void(^voidBlock)(void);
             AWSDDLogError(@"Pinpoint Analytics is disabled.");
             return nil;
         }
-        if (_session) {
+        if (_session && ![_session stopTime]) {
             [self endCurrentSession];
             return [self startNewSession];
         } else {
