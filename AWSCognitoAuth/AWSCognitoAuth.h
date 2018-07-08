@@ -168,6 +168,11 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
 @property (nonatomic, readonly) NSString * signOutRedirectUri;
 
 /**
+ uri on sign in.  Must be configured as a uri scheme in your info.plist
+ */
+@property (nonatomic, readonly) NSString * signInUri;
+
+/**
  The FQDN of your Cognito endpoint, something like https://mydomain.region.auth.amazoncognito.com
  */
 @property (nonatomic, readonly) NSString * webDomain;
@@ -200,6 +205,7 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  @param scopes Set of scopes to obtain
  @param signInRedirectUri uri to redirect on sign in.  Must be configured as a uri scheme in your info.plist
  @param signOutRedirectUri uri to redirect on sign out.  Must be configured as a uri scheme in your info.plist
+ @param signInUri uri on sign in.  Must be configured as a uri scheme in your info.plist
  @param webDomain The FQDN of your Cognito endpoint, something like https://mydomain.region.auth.amazoncognito.com
  */
 - (instancetype)initWithAppClientId:(NSString *) appClientId
@@ -207,6 +213,7 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
                              scopes:(NSSet<NSString *> *) scopes
                   signInRedirectUri:(NSString *) signInRedirectUri
                  signOutRedirectUri:(NSString *) signOutRedirectUri
+                          signInUri:(NSString *) signInUri
                           webDomain:(NSString *) webDomain;
 
 /**
@@ -216,6 +223,7 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  @param scopes Set of scopes to obtain
  @param signInRedirectUri uri to redirect on sign in.  Must be configured as a uri scheme in your info.plist
  @param signOutRedirectUri uri to redirect on sign out.  Must be configured as a uri scheme in your info.plist
+ @param signInUri uri on sign in.  Must be configured as a uri scheme in your info.plist
  @param webDomain The FQDN of your Cognito endpoint, something like https://mydomain.region.auth.amazoncognito.com
  @param identityProvider Optional provider name to authenticate with directly
  @param idpIdentifier Optional provider identifier to authenticate with directly
@@ -226,6 +234,7 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
                              scopes:(NSSet<NSString *> *) scopes
                   signInRedirectUri:(NSString *) signInRedirectUri
                  signOutRedirectUri:(NSString *) signOutRedirectUri
+                          signInUri:(NSString *) signInUri
                           webDomain:(NSString *) webDomain
                    identityProvider:(nullable NSString *) identityProvider
                       idpIdentifier:(nullable NSString *) idpIdentifier

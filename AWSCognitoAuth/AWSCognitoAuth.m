@@ -67,6 +67,7 @@ static NSString *const AWSCognitoAuthWebDomain = @"WebDomain";
 static NSString *const AWSCognitoAuthScopes = @"Scopes";
 static NSString *const AWSCognitoAuthSignInRedirectUri = @"SignInRedirectUri";
 static NSString *const AWSCognitoAuthSignOutRedirectUri = @"SignOutRedirectUri";
+static NSString *const AWSCognitoAuthSignInUri = @"CognitoAuthSignInUri";
 static NSString *const AWSCognitoAuthIdpIdentifier = @"IdpIdentifier";
 static NSString *const AWSCognitoAuthIdentityProvider = @"IdentityProvider";
 static NSString *const AWSCognitoAuthPoolId = @"PoolIdForEnablingASF";
@@ -94,6 +95,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         NSSet<NSString *> *scopes = scopesSet;
         NSString *signInRedirectUri = infoDictionary[AWSCognitoAuthSignInRedirectUri] ?: infoDictionary[AWSCognitoAuthSignInRedirectUriLegacy];
         NSString *signOutRedirectUri = infoDictionary[AWSCognitoAuthSignOutRedirectUri] ?: infoDictionary[AWSCognitoAuthSignOutRedirectUriLegacy];
+        NSString *signInUri = infoDictionary[AWSCognitoAuthSignInUri];
         NSString *idpIdentifier = infoDictionary[AWSCognitoAuthIdpIdentifier];
         NSString *identityProvider = infoDictionary[AWSCognitoAuthIdentityProvider];
         NSString *userPoolId = infoDictionary[AWSCognitoAuthPoolId];
@@ -104,6 +106,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                                                                                                                scopes:scopes
                                                                                                     signInRedirectUri:signInRedirectUri
                                                                                                    signOutRedirectUri:signOutRedirectUri
+                                                                                                            signInUri:signInUri
                                                                                                             webDomain:webDomain
                                                                                                      identityProvider:identityProvider
                                                                                                         idpIdentifier:idpIdentifier
@@ -222,7 +225,12 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         suffix = [suffix stringByAppendingString:userContext];
     }
     
-    NSString *url = [NSString stringWithFormat:@"%@/oauth2/authorize?response_type=code&client_id=%@&state=%@&redirect_uri=%@&scope=%@&code_challenge=%@&code_challenge_method=S256%@",self.authConfiguration.webDomain, self.authConfiguration.appClientId, self.state,[self urlEncode:self.authConfiguration.signInRedirectUri], [self urlEncode:[self normalizeScopes]], self.proofKeyHash, suffix];
+    NSString *url = @"";
+    if(self.authConfiguration.signInUri){
+        url = [NSString stringWithFormat:@"%@?response_type=code&client_id=%@&state=%@&redirect_uri=%@&scope=%@&code_challenge=%@&code_challenge_method=S256%@", self.authConfiguration.signInUri, self.authConfiguration.appClientId, self.state,[self urlEncode:self.authConfiguration.signInRedirectUri], [self urlEncode:[self normalizeScopes]], self.proofKeyHash, suffix];
+    } else {
+        url = [NSString stringWithFormat:@"%@/oauth2/authorize?response_type=code&client_id=%@&state=%@&redirect_uri=%@&scope=%@&code_challenge=%@&code_challenge_method=S256%@",self.authConfiguration.webDomain, self.authConfiguration.appClientId, self.state,[self urlEncode:self.authConfiguration.signInRedirectUri], [self urlEncode:[self normalizeScopes]], self.proofKeyHash, suffix];
+    }
     self.svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url] entersReaderIfAvailable:NO];
     self.svc.delegate = self;
     self.svc.modalPresentationStyle = UIModalPresentationPopover;
@@ -880,9 +888,10 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                              scopes:(NSSet<NSString *> *) scopes
                   signInRedirectUri:(NSString *) signInRedirectUri
                  signOutRedirectUri:(NSString *) signOutRedirectUri
+                          signInUri:(NSString *) signInUri
                           webDomain:(NSString *) webDomain
 {
-    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signInRedirectUri signOutRedirectUri:signOutRedirectUri webDomain:webDomain identityProvider:nil idpIdentifier:nil userPoolIdForEnablingASF:nil];
+    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signInRedirectUri signOutRedirectUri:signOutRedirectUri signInUri:signInUri webDomain:webDomain identityProvider:nil idpIdentifier:nil userPoolIdForEnablingASF:nil];
 }
 
 - (instancetype)initWithAppClientId:(NSString *) appClientId
@@ -890,6 +899,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                              scopes:(NSSet<NSString *> *) scopes
                   signInRedirectUri:(NSString *) signInRedirectUri
                  signOutRedirectUri:(NSString *) signOutRedirectUri
+                          signInUri:(NSString *) signInUri
                           webDomain:(NSString *) webDomain
                    identityProvider:(nullable NSString *) identityProvider
                       idpIdentifier:(nullable NSString *) idpIdentifier
@@ -901,6 +911,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         _scopes = scopes;
         _signInRedirectUri = signInRedirectUri;
         _signOutRedirectUri = signOutRedirectUri;
+        _signInUri = signInUri;
         _webDomain = webDomain;
         _identityProvider = identityProvider;
         _idpIdentifier = idpIdentifier;
@@ -917,6 +928,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                                                                                                  scopes:self.scopes
                                                                                       signInRedirectUri:self.signInRedirectUri
                                                                                      signOutRedirectUri:self.signOutRedirectUri
+                                                                                              signInUri:self.signInUri
                                                                                               webDomain:self.webDomain
                                                                                        identityProvider:self.identityProvider
                                                                                           idpIdentifier:self.idpIdentifier
