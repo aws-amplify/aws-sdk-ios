@@ -888,10 +888,9 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                              scopes:(NSSet<NSString *> *) scopes
                   signInRedirectUri:(NSString *) signInRedirectUri
                  signOutRedirectUri:(NSString *) signOutRedirectUri
-                          signInUri:(NSString *) signInUri
                           webDomain:(NSString *) webDomain
 {
-    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signInRedirectUri signOutRedirectUri:signOutRedirectUri signInUri:signInUri webDomain:webDomain identityProvider:nil idpIdentifier:nil userPoolIdForEnablingASF:nil];
+    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signInRedirectUri signOutRedirectUri:signOutRedirectUri signInUri:nil webDomain:webDomain identityProvider:nil idpIdentifier:nil userPoolIdForEnablingASF:nil];
 }
 
 - (instancetype)initWithAppClientId:(NSString *) appClientId
@@ -899,11 +898,24 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                              scopes:(NSSet<NSString *> *) scopes
                   signInRedirectUri:(NSString *) signInRedirectUri
                  signOutRedirectUri:(NSString *) signOutRedirectUri
-                          signInUri:(NSString *) signInUri
                           webDomain:(NSString *) webDomain
                    identityProvider:(nullable NSString *) identityProvider
                       idpIdentifier:(nullable NSString *) idpIdentifier
                          userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF;
+{
+    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signInRedirectUri signOutRedirectUri:signOutRedirectUri signInUri:nil webDomain:webDomain identityProvider:identityProvider idpIdentifier:idpIdentifier userPoolIdForEnablingASF:userPoolIdForEnablingASF];
+}
+
+- (instancetype)initWithAppClientId:(NSString *) appClientId
+                    appClientSecret:(nullable NSString *)appClientSecret
+                             scopes:(NSSet<NSString *> *) scopes
+                  signInRedirectUri:(NSString *) signInRedirectUri
+                 signOutRedirectUri:(NSString *) signOutRedirectUri
+                          signInUri:(nullable NSString *) signInUri
+                          webDomain:(NSString *) webDomain
+                   identityProvider:(nullable NSString *) identityProvider
+                      idpIdentifier:(nullable NSString *) idpIdentifier
+           userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF
 {
     if (self = [super init]) {
         _appClientId = appClientId;
