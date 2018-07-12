@@ -811,12 +811,11 @@ static const NSString *SDK_VERSION = @"2.6.19";
             if (self.connectionAgeTimer != nil) {
                 [self.connectionAgeTimer invalidate];
             }
-            self.connectionAgeTimer = [[NSTimer alloc] initWithFireDate:[NSDate dateWithTimeIntervalSinceNow:1.0]
-                                     interval:1.0
-                                       target:self
-                                     selector:@selector(connectionAgeTimerHandler:)
-                                     userInfo:nil
-                                      repeats:YES];
+            self.connectionAgeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                                       target:self
+                                                                     selector:@selector(connectionAgeTimerHandler:)
+                                                                     userInfo:nil
+                                                                      repeats:YES];
 
             //Subscribe to prior topics
             if (_autoResubscribe) {
