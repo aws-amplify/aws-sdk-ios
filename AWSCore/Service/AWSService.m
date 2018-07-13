@@ -21,7 +21,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.6.23";
+NSString *const AWSiOSSDKVersion = @"2.6.24";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -267,6 +267,8 @@ static NSString *const AWSServiceNameSTS = @"sts";
 static NSString *const AWSServiceNameTranscribe = @"transcribe";
 static NSString *const AWSServiceNameTranslate = @"translate";
 static NSString *const AWSServiceNameComprehend = @"comprehend";
+static NSString *const AWSServiceNameKinesisVideo = @"kinesisvideo";
+static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo";
 
 @interface AWSEndpoint()
 
@@ -475,6 +477,10 @@ static NSString *const AWSServiceNameComprehend = @"comprehend";
             return AWSServiceNameTranslate;
         case AWSServiceComprehend:
             return AWSServiceNameComprehend;
+        case AWSServiceKinesisVideo:
+            return AWSServiceNameKinesisVideo;
+        case AWSServiceKinesisVideoArchivedMedia:
+            return AWSServiceNameKinesisVideoArchivedMedia;
         default:
             return nil;
     }

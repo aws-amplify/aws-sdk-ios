@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.6.23"
+VERSION="2.6.24"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -36,6 +36,8 @@ else
     cp -r AWSElasticLoadBalancing ./docs_tmp/AWSElasticLoadBalancing
     cp -r AWSIoT ./docs_tmp/AWSIoT
     cp -r AWSKinesis ./docs_tmp/AWSKinesis
+    cp -r AWSKinesisVideo ./docs_tmp/AWSKinesisVideo
+    cp -r AWSKinesisVideoArchivedMedia ./docs_tmp/AWSKinesisVideoArchivedMedia
     cp -r AWSKMS ./docs_tmp/AWSKMS
     cp -r AWSLambda ./docs_tmp/AWSLambda
     cp -r AWSLex ./docs_tmp/AWSLex

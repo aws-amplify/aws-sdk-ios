@@ -236,6 +236,14 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      *  Amazon Comprehend
      */
     AWSServiceComprehend NS_SWIFT_NAME(Comprehend),
+    /**
+     *  Amazon Kinesis Video
+     */
+    AWSServiceKinesisVideo NS_SWIFT_NAME(KinesisVideo),
+    /**
+     *  Amazon Kinesis Video Archived Media
+     */
+    AWSServiceKinesisVideoArchivedMedia NS_SWIFT_NAME(KinesisVideoArchivedMedia),
     
     
 };
