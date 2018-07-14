@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSIoTMQTTConfiguration Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.24 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/autoResubscribe">autoResubscribe</option>
+		
+		<option value="//api/name/baseReconnectTimeInterval">baseReconnectTimeInterval</option>
+		
+		<option value="//api/name/keepAliveTimeInterval">keepAliveTimeInterval</option>
+		
+		<option value="//api/name/lastWillAndTestament">lastWillAndTestament</option>
+		
+		<option value="//api/name/maximumReconnectTimeInterval">maximumReconnectTimeInterval</option>
+		
+		<option value="//api/name/minimumConnectionTimeInterval">minimumConnectionTimeInterval</option>
+		
+		<option value="//api/name/publishRetryThrottle">publishRetryThrottle</option>
+		
+		<option value="//api/name/runLoop">runLoop</option>
+		
+		<option value="//api/name/runLoopMode">runLoopMode</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:">- initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:</option>
+		
+		<option value="//api/name/initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:publishRetryThrottle:">- initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:publishRetryThrottle:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSIoTMQTTConfiguration Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSIoTDataManager.h<br />AWSIoTDataManager.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/baseReconnectTimeInterval" title="baseReconnectTimeInterval"></a>
+	<h3 class="method-title"><code><a href="#//api/name/baseReconnectTimeInterval">&nbsp;&nbsp;baseReconnectTimeInterval</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The time in seconds to wait before attempting the first reconnect.  If the MQTT client
+becomes disconnected, it will attempt to reconnect after a quiet period; this quiet
+period doubles with each failed connection attempt, e.g. 1 second, 2 seconds, 4, 8,
+16, 32, etc&hellip; up until a maximum reconnection time (maximumReconnectTimeInterval) is
+reached.  If a connection is active for the minimum connection time
+(minimumConnectionTimeInterval), the quiet period is reset to the initial value.
+Default value: 1 second.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) NSTimeInterval baseReconnectTimeInterval</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/minimumConnectionTimeInterval" title="minimumConnectionTimeInterval"></a>
+	<h3 class="method-title"><code><a href="#//api/name/minimumConnectionTimeInterval">&nbsp;&nbsp;minimumConnectionTimeInterval</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The time in seconds that a connection must be active before resetting
+the current reconnection time to the base reconnection time.  Default value:
+20 seconds.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) NSTimeInterval minimumConnectionTimeInterval</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/maximumReconnectTimeInterval" title="maximumReconnectTimeInterval"></a>
+	<h3 class="method-title"><code><a href="#//api/name/maximumReconnectTimeInterval">&nbsp;&nbsp;maximumReconnectTimeInterval</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The maximum time in seconds to wait prior to attempting to reconnect.  Default value:
+128 seconds.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) NSTimeInterval maximumReconnectTimeInterval</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/keepAliveTimeInterval" title="keepAliveTimeInterval"></a>
+	<h3 class="method-title"><code><a href="#//api/name/keepAliveTimeInterval">&nbsp;&nbsp;keepAliveTimeInterval</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The MQTT keep-alive time in seconds.  Default value: 60s seconds.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) NSTimeInterval keepAliveTimeInterval</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/lastWillAndTestament" title="lastWillAndTestament"></a>
+	<h3 class="method-title"><code><a href="#//api/name/lastWillAndTestament">&nbsp;&nbsp;lastWillAndTestament</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The last will and testament (LWT) to be used when connecting to AWS IoT; in the event
+that this client disconnects improperly, AWS IoT will use this to notify any interested
+clients.  Default value: nil</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (atomic, strong, readonly) AWSIoTMQTTLastWillAndTestament *lastWillAndTestament</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/runLoop" title="runLoop"></a>
+	<h3 class="method-title"><code><a href="#//api/name/runLoop">&nbsp;&nbsp;runLoop</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The run loop to execute the MQTT client in.  Default value: [NSRunLoop currentRunLoop]</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (atomic, strong, readonly) NSRunLoop *runLoop</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/runLoopMode" title="runLoopMode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/runLoopMode">&nbsp;&nbsp;runLoopMode</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The run loop mode to use when executing the MQTT client.  Default value: NSDefaultRunLoopMode</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) NSString *runLoopMode</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/autoResubscribe" title="autoResubscribe"></a>
+	<h3 class="method-title"><code><a href="#//api/name/autoResubscribe">&nbsp;&nbsp;autoResubscribe</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Boolean flag to indicate whether auto-resubscribe feature is enabled. Default value: YES
+When enabled, in the event of abnormal network disconnection, the sdk automatically
+subscribes to previously subscribed topics.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) BOOL autoResubscribe</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/publishRetryThrottle" title="publishRetryThrottle"></a>
+	<h3 class="method-title"><code><a href="#//api/name/publishRetryThrottle">&nbsp;&nbsp;publishRetryThrottle</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The max number of publish messages to retry per second if the pub-ack is not received within 60 seconds
+*</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign, readonly) NSUInteger publishRetryThrottle</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:" title="initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:">&ndash;&nbsp;initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create an AWSIoTMQTTConfiguration object and initialize its parameters.
+The AWSIoTMQTTConfiguration object is then passed to AWSIoTDataManager to initialize it.
+Note, clients need to either specify all parameters explicitly or not customize any
+parameter in which case default parameter values will be used to initialize
+AWSIoTMqttConfiguration.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithKeepAliveTimeInterval:(NSTimeInterval)<em>kat</em> baseReconnectTimeInterval:(NSTimeInterval)<em>brt</em> minimumConnectionTimeInterval:(NSTimeInterval)<em>mct</em> maximumReconnectTimeInterval:(NSTimeInterval)<em>mrt</em> runLoop:(NSRunLoop *)<em>rlp</em> runLoopMode:(NSString *)<em>rlm</em> autoResubscribe:(BOOL)<em>ars</em> lastWillAndTestament:(AWSIoTMQTTLastWillAndTestament *)<em>lwt</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>kat</code></th>
+						<td><p>keepAliveTimeInterval, Mqtt Keep Alive time in seconds</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>brt</code></th>
+						<td><p>baseReconnectTimeInterval, The time in seconds to wait before attempting
+                the first reconnect</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>mct</code></th>
+						<td><p>minimumConnectionTimeInterval, The time in seconds that a connection
+                must be active before resetting the current reconnection time to the
+                base reconnection time.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>mrt</code></th>
+						<td><p>maximumReconnectTimeInterval, The maximum time in seconds to wait prior
+                to attempting to reconnect</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>rlp</code></th>
+						<td><p>The run loop to execute the MQTT client in</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>rlm</code></th>
+						<td><p>The run loop mode to use when executing the MQTT client</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>ars</code></th>
+						<td><p>autoResubscribe, Boolean flag to indicate whether auto-resubscribe
+                feature is enabled</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>lwt</code></th>
+						<td><p>lastWillAndTestament, The last will and testament (LWT) to be used
+                when connecting to AWS IoT</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:publishRetryThrottle:" title="initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:publishRetryThrottle:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:publishRetryThrottle:">&ndash;&nbsp;initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:publishRetryThrottle:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Create an AWSIoTMQTTConfiguration object and initialize its parameters.
+The AWSIoTMQTTConfiguration object is then passed to AWSIoTDataManager to initialize it.
+Note, clients need to either specify all parameters explicitly or not customize any
+parameter in which case default parameter values will be used to initialize
+AWSIoTMqttConfiguration.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (instancetype)initWithKeepAliveTimeInterval:(NSTimeInterval)<em>kat</em> baseReconnectTimeInterval:(NSTimeInterval)<em>brt</em> minimumConnectionTimeInterval:(NSTimeInterval)<em>mct</em> maximumReconnectTimeInterval:(NSTimeInterval)<em>mrt</em> runLoop:(NSRunLoop *)<em>rlp</em> runLoopMode:(NSString *)<em>rlm</em> autoResubscribe:(BOOL)<em>ars</em> lastWillAndTestament:(AWSIoTMQTTLastWillAndTestament *)<em>lwt</em> publishRetryThrottle:(NSUInteger)<em>prt</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>kat</code></th>
+						<td><p>keepAliveTimeInterval, Mqtt Keep Alive time in seconds</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>brt</code></th>
+						<td><p>baseReconnectTimeInterval, The time in seconds to wait before attempting
+the first reconnect</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>mct</code></th>
+						<td><p>minimumConnectionTimeInterval, The time in seconds that a connection
+must be active before resetting the current reconnection time to the
+base reconnection time.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>mrt</code></th>
+						<td><p>maximumReconnectTimeInterval, The maximum time in seconds to wait prior
+to attempting to reconnect</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>rlp</code></th>
+						<td><p>The run loop to execute the MQTT client in</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>rlm</code></th>
+						<td><p>The run loop mode to use when executing the MQTT client</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>ars</code></th>
+						<td><p>autoResubscribe, Boolean flag to indicate whether auto-resubscribe
+feature is enabled</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>lwt</code></th>
+						<td><p>lastWillAndTestament, The last will and testament (LWT) to be used
+when connecting to AWS IoT</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>prt</code></th>
+						<td><p>publishRetryThrottle, the max number of publish messages to retry per second
+if the pub-ack is not received within 60 seconds</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-14</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

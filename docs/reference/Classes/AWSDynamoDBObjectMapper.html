@@ -7,14 +7,14 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
 </head>
 <body class="appledoc">
 	<header>
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.24 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -164,10 +164,56 @@
 						
 
 						
-						<h2 class="task-title">Other Methods</h2>
+						
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/objectMapperConfiguration" title="objectMapperConfiguration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/objectMapperConfiguration">&nbsp;&nbsp;objectMapperConfiguration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSDynamoDBObjectMapperConfiguration *objectMapperConfiguration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBObjectMapper.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/defaultDynamoDBObjectMapper" title="defaultDynamoDBObjectMapper"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultDynamoDBObjectMapper">+&nbsp;defaultDynamoDBObjectMapper</a></code>
 </h3>
@@ -661,7 +707,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask *)save:(AWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *)<em>model</em> configuration:(AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)save:(AWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *)<em>model</em> configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em></code></div>
 
 		    
 			
@@ -724,7 +770,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)save:(AWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *)<em>model</em> configuration:(AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)save:(AWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *)<em>model</em> configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -905,7 +951,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask *)remove:(AWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *)<em>model</em> configuration:(AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)remove:(AWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *)<em>model</em> configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em></code></div>
 
 		    
 			
@@ -968,7 +1014,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)remove:(AWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *)<em>model</em> configuration:(AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)remove:(AWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *)<em>model</em> configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1032,7 +1078,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask *)load:(Class)<em>resultClass</em> hashKey:(id)<em>hashKey</em> rangeKey:(id)<em>rangeKey</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)load:(Class)<em>resultClass</em> hashKey:(id)<em>hashKey</em> rangeKey:(nullable id)<em>rangeKey</em></code></div>
 
 		    
 			
@@ -1170,7 +1216,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask *)load:(Class)<em>resultClass</em> hashKey:(id)<em>hashKey</em> rangeKey:(id)<em>rangeKey</em> configuration:(AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)load:(Class)<em>resultClass</em> hashKey:(id)<em>hashKey</em> rangeKey:(nullable id)<em>rangeKey</em> configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em></code></div>
 
 		    
 			
@@ -1243,7 +1289,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)load:(Class)<em>resultClass</em> hashKey:(id)<em>hashKey</em> rangeKey:(nullable id)<em>rangeKey</em> configuration:(AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)load:(Class)<em>resultClass</em> hashKey:(id)<em>hashKey</em> rangeKey:(nullable id)<em>rangeKey</em> configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1446,7 +1492,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSDynamoDBPaginatedOutput*&gt; *)query:(Class)<em>resultClass</em> expression:(AWSDynamoDBQueryExpression *)<em>expression</em> configuration:(AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSDynamoDBPaginatedOutput*&gt; *)query:(Class)<em>resultClass</em> expression:(AWSDynamoDBQueryExpression *)<em>expression</em> configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em></code></div>
 
 		    
 			
@@ -1514,7 +1560,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)query:(Class)<em>resultClass</em> expression:(AWSDynamoDBQueryExpression *)<em>expression</em> configuration:(AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBPaginatedOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)query:(Class)<em>resultClass</em> expression:(AWSDynamoDBQueryExpression *)<em>expression</em> configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBPaginatedOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1712,7 +1758,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSDynamoDBPaginatedOutput*&gt; *)scan:(Class)<em>resultClass</em> expression:(AWSDynamoDBScanExpression *)<em>expression</em> configuration:(AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSDynamoDBPaginatedOutput*&gt; *)scan:(Class)<em>resultClass</em> expression:(AWSDynamoDBScanExpression *)<em>expression</em> configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em></code></div>
 
 		    
 			
@@ -1780,7 +1826,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)scan:(Class)<em>resultClass</em> expression:(AWSDynamoDBScanExpression *)<em>expression</em> configuration:(AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBPaginatedOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)scan:(Class)<em>resultClass</em> expression:(AWSDynamoDBScanExpression *)<em>expression</em> configuration:(nullable AWSDynamoDBObjectMapperConfiguration *)<em>configuration</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBPaginatedOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1836,74 +1882,22 @@
 </div>
 						</div>
 						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/objectMapperConfiguration" title="objectMapperConfiguration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/objectMapperConfiguration">&nbsp;&nbsp;objectMapperConfiguration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSDynamoDBObjectMapperConfiguration *objectMapperConfiguration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSDynamoDBObjectMapper.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
 					</div>
 					
 					
 
                     
+                    
+          
 				</main>
 
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-14</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
 						
 					</div>
 				</footer>

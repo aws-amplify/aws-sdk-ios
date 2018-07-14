@@ -7,14 +7,14 @@
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
-	<meta name="generator" content="appledoc 2.2.1 (build 1333)">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
 </head>
 <body class="appledoc">
 	<header>
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.23 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.24 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -195,10 +195,56 @@
 						
 
 						
-						<h2 class="task-title">Other Methods</h2>
+						
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/defaultCloudWatch" title="defaultCloudWatch"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultCloudWatch">+&nbsp;defaultCloudWatch</a></code>
 </h3>
@@ -629,7 +675,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteAlarms:(AWSCloudWatchDeleteAlarmsInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteAlarms:(AWSCloudWatchDeleteAlarmsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -768,7 +814,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteDashboards:(AWSCloudWatchDeleteDashboardsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchDeleteDashboardsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteDashboards:(AWSCloudWatchDeleteDashboardsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchDeleteDashboardsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -916,7 +962,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAlarmHistory:(AWSCloudWatchDescribeAlarmHistoryInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchDescribeAlarmHistoryOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAlarmHistory:(AWSCloudWatchDescribeAlarmHistoryInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchDescribeAlarmHistoryOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1058,7 +1104,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAlarms:(AWSCloudWatchDescribeAlarmsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchDescribeAlarmsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAlarms:(AWSCloudWatchDescribeAlarmsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchDescribeAlarmsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1200,7 +1246,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAlarmsForMetric:(AWSCloudWatchDescribeAlarmsForMetricInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchDescribeAlarmsForMetricOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAlarmsForMetric:(AWSCloudWatchDescribeAlarmsForMetricInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchDescribeAlarmsForMetricOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1340,7 +1386,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)disableAlarmActions:(AWSCloudWatchDisableAlarmActionsInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)disableAlarmActions:(AWSCloudWatchDisableAlarmActionsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1477,7 +1523,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)enableAlarmActions:(AWSCloudWatchEnableAlarmActionsInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)enableAlarmActions:(AWSCloudWatchEnableAlarmActionsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1622,7 +1668,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getDashboard:(AWSCloudWatchGetDashboardInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchGetDashboardOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getDashboard:(AWSCloudWatchGetDashboardInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchGetDashboardOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1770,7 +1816,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getMetricData:(AWSCloudWatchGetMetricDataInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchGetMetricDataOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getMetricData:(AWSCloudWatchGetMetricDataInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchGetMetricDataOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1966,7 +2012,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchGetMetricStatisticsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchGetMetricStatisticsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2108,7 +2154,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listDashboards:(AWSCloudWatchListDashboardsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchListDashboardsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listDashboards:(AWSCloudWatchListDashboardsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchListDashboardsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2262,7 +2308,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listMetrics:(AWSCloudWatchListMetricsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchListMetricsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listMetrics:(AWSCloudWatchListMetricsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchListMetricsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2422,7 +2468,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putDashboard:(AWSCloudWatchPutDashboardInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchPutDashboardOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putDashboard:(AWSCloudWatchPutDashboardInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchPutDashboardOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2610,7 +2656,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putMetricAlarm:(AWSCloudWatchPutMetricAlarmInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putMetricAlarm:(AWSCloudWatchPutMetricAlarmInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2783,7 +2829,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putMetricData:(AWSCloudWatchPutMetricDataInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putMetricData:(AWSCloudWatchPutMetricDataInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2920,7 +2966,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setAlarmState:(AWSCloudWatchSetAlarmStateInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setAlarmState:(AWSCloudWatchSetAlarmStateInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2974,74 +3020,22 @@
 </div>
 						</div>
 						
-
-						
-						<h2 class="task-title">Other Methods</h2>
-
-						<div class="task-list">
-							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCloudWatchService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div>
-						</div>
-						
 					</div>
 					
 					
 
                     
+                    
+          
 				</main>
 
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-05</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-14</p>
 						
 						
-						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1333)</a>.</p>
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
 						
 					</div>
 				</footer>
