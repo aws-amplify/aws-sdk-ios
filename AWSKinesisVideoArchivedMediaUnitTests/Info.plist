@@ -3,11 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-<<<<<<< HEAD
-	<string>en</string>
-=======
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
->>>>>>> Update SDK version 2.6.24.
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
