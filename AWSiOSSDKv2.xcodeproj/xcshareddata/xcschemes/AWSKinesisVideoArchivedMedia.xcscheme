@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1778554220F9A72800D083BB"
-               BuildableName = "AWSKinesisVideo.framework"
-               BlueprintName = "AWSKinesisVideo"
+               BlueprintIdentifier = "1778556720F9A7CD00D083BB"
+               BuildableName = "AWSKinesisVideoArchivedMedia.framework"
+               BlueprintName = "AWSKinesisVideoArchivedMedia"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,9 +33,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "177855D820F9B3D000D083BB"
-               BuildableName = "AWSKinesisVideoTests.xctest"
-               BlueprintName = "AWSKinesisVideoTests"
+               BlueprintIdentifier = "1778556F20F9A7CE00D083BB"
+               BuildableName = "AWSKinesisVideoArchivedMediaTests.xctest"
+               BlueprintName = "AWSKinesisVideoArchivedMediaTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,9 +43,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1778558B20F9A8C500D083BB"
-               BuildableName = "AWSKinesisVideoUnitTests.xctest"
-               BlueprintName = "AWSKinesisVideoUnitTests"
+               BlueprintIdentifier = "1778559A20F9A8DA00D083BB"
+               BuildableName = "AWSKinesisVideoArchivedMediaUnitTests.xctest"
+               BlueprintName = "AWSKinesisVideoArchivedMediaUnitTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -53,9 +53,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1778554220F9A72800D083BB"
-            BuildableName = "AWSKinesisVideo.framework"
-            BlueprintName = "AWSKinesisVideo"
+            BlueprintIdentifier = "1778556720F9A7CD00D083BB"
+            BuildableName = "AWSKinesisVideoArchivedMedia.framework"
+            BlueprintName = "AWSKinesisVideoArchivedMedia"
             ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -76,9 +76,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1778554220F9A72800D083BB"
-            BuildableName = "AWSKinesisVideo.framework"
-            BlueprintName = "AWSKinesisVideo"
+            BlueprintIdentifier = "1778556720F9A7CD00D083BB"
+            BuildableName = "AWSKinesisVideoArchivedMedia.framework"
+            BlueprintName = "AWSKinesisVideoArchivedMedia"
             ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -94,9 +94,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1778554220F9A72800D083BB"
-            BuildableName = "AWSKinesisVideo.framework"
-            BlueprintName = "AWSKinesisVideo"
+            BlueprintIdentifier = "1778556720F9A7CD00D083BB"
+            BuildableName = "AWSKinesisVideoArchivedMedia.framework"
+            BlueprintName = "AWSKinesisVideoArchivedMedia"
             ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

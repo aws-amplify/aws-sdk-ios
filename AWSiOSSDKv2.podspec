@@ -66,12 +66,12 @@ Pod::Spec.new do |s|
     kinesis.dependency 'AWSKinesis', '2.6.24'
   end
 
-  s.subspec 'AWSKinesisVideo' do |kinesisvideo|
-    kinesis.dependency 'AWSKinesisVideo', '2.6.24'
+  s.subspec 'AWSKinesisVideo' do |kv|
+    kv.dependency 'AWSKinesisVideo', '2.6.24'
   end
 
-  s.subspec 'AWSKinesisVideoArchivedMedia' do |kinesisvideoarchivedmedia|
-    kinesis.dependency 'AWSKinesisVideoArchivedMedia', '2.6.24'
+  s.subspec 'AWSKinesisVideoArchivedMedia' do |kvam|
+    kvam.dependency 'AWSKinesisVideoArchivedMedia', '2.6.24'
   end
 
   s.subspec 'AWSKMS' do |kms|
