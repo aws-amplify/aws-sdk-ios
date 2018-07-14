@@ -614,6 +614,26 @@
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1778554A20F9A72800D083BB"
+               BuildableName = "AWSKinesisVideoTests.xctest"
+               BlueprintName = "AWSKinesisVideoTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1778556F20F9A7CE00D083BB"
+               BuildableName = "AWSKinesisVideoArchivedMediaTests.xctest"
+               BlueprintName = "AWSKinesisVideoArchivedMediaTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

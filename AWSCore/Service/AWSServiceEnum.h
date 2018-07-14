@@ -245,7 +245,6 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      */
     AWSServiceKinesisVideoArchivedMedia NS_SWIFT_NAME(KinesisVideoArchivedMedia),
     
-    
 };
 
 #endif

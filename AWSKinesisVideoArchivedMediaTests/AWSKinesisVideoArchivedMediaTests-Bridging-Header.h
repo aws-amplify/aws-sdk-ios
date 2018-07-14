@@ -14,4 +14,3 @@
 //
 
 #import "AWSTestUtility.h"
-#import "AWSKinesisVideoArchivedMedia/AWSKinesisVideoArchivedMedia.h"
