@@ -113,6 +113,21 @@
       ],\
       \"documentation\":\"<p>Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see <a href=\\\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
     },\
+    \"GetSpeechSynthesisTask\":{\
+      \"name\":\"GetSpeechSynthesisTask\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/v1/synthesisTasks/{TaskId}\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"GetSpeechSynthesisTaskInput\"},\
+      \"output\":{\"shape\":\"GetSpeechSynthesisTaskOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidTaskIdException\"},\
+        {\"shape\":\"ServiceFailureException\"},\
+        {\"shape\":\"SynthesisTaskNotFoundException\"}\
+      ]\
+    },\
     \"ListLexicons\":{\
       \"name\":\"ListLexicons\",\
       \"http\":{\
@@ -127,6 +142,20 @@
         {\"shape\":\"ServiceFailureException\"}\
       ],\
       \"documentation\":\"<p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href=\\\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
+    },\
+    \"ListSpeechSynthesisTasks\":{\
+      \"name\":\"ListSpeechSynthesisTasks\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/v1/synthesisTasks\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"ListSpeechSynthesisTasksInput\"},\
+      \"output\":{\"shape\":\"ListSpeechSynthesisTasksOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidNextTokenException\"},\
+        {\"shape\":\"ServiceFailureException\"}\
+      ]\
     },\
     \"PutLexicon\":{\
       \"name\":\"PutLexicon\",\
@@ -147,6 +176,28 @@
         {\"shape\":\"ServiceFailureException\"}\
       ],\
       \"documentation\":\"<p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p> <p>For more information, see <a href=\\\"http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
+    },\
+    \"StartSpeechSynthesisTask\":{\
+      \"name\":\"StartSpeechSynthesisTask\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/v1/synthesisTasks\",\
+        \"responseCode\":200\
+      },\
+      \"input\":{\"shape\":\"StartSpeechSynthesisTaskInput\"},\
+      \"output\":{\"shape\":\"StartSpeechSynthesisTaskOutput\"},\
+      \"errors\":[\
+        {\"shape\":\"TextLengthExceededException\"},\
+        {\"shape\":\"InvalidS3BucketException\"},\
+        {\"shape\":\"InvalidS3KeyException\"},\
+        {\"shape\":\"InvalidSampleRateException\"},\
+        {\"shape\":\"InvalidSnsTopicArnException\"},\
+        {\"shape\":\"InvalidSsmlException\"},\
+        {\"shape\":\"LexiconNotFoundException\"},\
+        {\"shape\":\"ServiceFailureException\"},\
+        {\"shape\":\"MarksNotSupportedForFormatException\"},\
+        {\"shape\":\"SsmlMarksNotSupportedForTextTypeException\"}\
+      ]\
     },\
     \"SynthesizeSpeech\":{\
       \"name\":\"SynthesizeSpeech\",\
@@ -176,6 +227,7 @@
       \"streaming\":true\
     },\
     \"ContentType\":{\"type\":\"string\"},\
+    \"DateTime\":{\"type\":\"timestamp\"},\
     \"DeleteLexiconInput\":{\
       \"type\":\"structure\",\
       \"required\":[\"Name\"],\
@@ -256,6 +308,23 @@
         }\
       }\
     },\
+    \"GetSpeechSynthesisTaskInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TaskId\"],\
+      \"members\":{\
+        \"TaskId\":{\
+          \"shape\":\"TaskId\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"TaskId\"\
+        }\
+      }\
+    },\
+    \"GetSpeechSynthesisTaskOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SynthesisTask\":{\"shape\":\"SynthesisTask\"}\
+      }\
+    },\
     \"InvalidLexiconException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -274,6 +343,22 @@
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
+    \"InvalidS3BucketException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"ErrorMessage\"}\
+      },\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
+    \"InvalidS3KeyException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"ErrorMessage\"}\
+      },\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
     \"InvalidSampleRateException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -283,12 +368,28 @@
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
+    \"InvalidSnsTopicArnException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"ErrorMessage\"}\
+      },\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
     \"InvalidSsmlException\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"message\":{\"shape\":\"ErrorMessage\"}\
       },\
       \"documentation\":\"<p>The SSML you provided is invalid. Verify the SSML syntax, spelling of tags and values, and then try again.</p>\",\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
+    \"InvalidTaskIdException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"ErrorMessage\"}\
+      },\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -441,6 +542,33 @@
         }\
       }\
     },\
+    \"ListSpeechSynthesisTasksInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResults\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"MaxResults\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"NextToken\"\
+        },\
+        \"Status\":{\
+          \"shape\":\"TaskStatus\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"Status\"\
+        }\
+      }\
+    },\
+    \"ListSpeechSynthesisTasksOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\"shape\":\"NextToken\"},\
+        \"SynthesisTasks\":{\"shape\":\"SynthesisTasks\"}\
+      }\
+    },\
     \"MarksNotSupportedForFormatException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -468,6 +596,11 @@
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
+    \"MaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":100,\
+      \"min\":1\
+    },\
     \"NextToken\":{\"type\":\"string\"},\
     \"OutputFormat\":{\
       \"type\":\"string\",\
@@ -478,6 +611,15 @@
         \"pcm\"\
       ]\
     },\
+    \"OutputS3BucketName\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"^[a-z0-9][\\\\.\\\\-a-z0-9]{1,61}[a-z0-9]$\"\
+    },\
+    \"OutputS3KeyPrefix\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"^[0-9a-zA-Z\\\\/\\\\!\\\\-_\\\\.\\\\*\\\\'\\\\(\\\\)]{0,1023}[a-zA-Z0-9]$\"\
+    },\
+    \"OutputUri\":{\"type\":\"string\"},\
     \"PutLexiconInput\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -515,6 +657,10 @@
       \"fault\":true\
     },\
     \"Size\":{\"type\":\"integer\"},\
+    \"SnsTopicArn\":{\
+      \"type\":\"string\",\
+      \"pattern\":\"^arn:aws:sns:.*:\\\\w{12}:.+$\"\
+    },\
     \"SpeechMarkType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -537,6 +683,63 @@
       \"documentation\":\"<p>SSML speech marks are not supported for plain text-type input.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
+    },\
+    \"StartSpeechSynthesisTaskInput\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"OutputFormat\",\
+        \"OutputS3BucketName\",\
+        \"Text\",\
+        \"VoiceId\"\
+      ],\
+      \"members\":{\
+        \"LexiconNames\":{\"shape\":\"LexiconNameList\"},\
+        \"OutputFormat\":{\"shape\":\"OutputFormat\"},\
+        \"OutputS3BucketName\":{\"shape\":\"OutputS3BucketName\"},\
+        \"OutputS3KeyPrefix\":{\"shape\":\"OutputS3KeyPrefix\"},\
+        \"SampleRate\":{\"shape\":\"SampleRate\"},\
+        \"SnsTopicArn\":{\"shape\":\"SnsTopicArn\"},\
+        \"SpeechMarkTypes\":{\"shape\":\"SpeechMarkTypeList\"},\
+        \"Text\":{\"shape\":\"Text\"},\
+        \"TextType\":{\"shape\":\"TextType\"},\
+        \"VoiceId\":{\"shape\":\"VoiceId\"}\
+      }\
+    },\
+    \"StartSpeechSynthesisTaskOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SynthesisTask\":{\"shape\":\"SynthesisTask\"}\
+      }\
+    },\
+    \"SynthesisTask\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"TaskId\":{\"shape\":\"TaskId\"},\
+        \"TaskStatus\":{\"shape\":\"TaskStatus\"},\
+        \"TaskStatusReason\":{\"shape\":\"TaskStatusReason\"},\
+        \"OutputUri\":{\"shape\":\"OutputUri\"},\
+        \"CreationTime\":{\"shape\":\"DateTime\"},\
+        \"RequestCharacters\":{\"shape\":\"RequestCharacters\"},\
+        \"SnsTopicArn\":{\"shape\":\"SnsTopicArn\"},\
+        \"LexiconNames\":{\"shape\":\"LexiconNameList\"},\
+        \"OutputFormat\":{\"shape\":\"OutputFormat\"},\
+        \"SampleRate\":{\"shape\":\"SampleRate\"},\
+        \"SpeechMarkTypes\":{\"shape\":\"SpeechMarkTypeList\"},\
+        \"TextType\":{\"shape\":\"TextType\"},\
+        \"VoiceId\":{\"shape\":\"VoiceId\"}\
+      }\
+    },\
+    \"SynthesisTaskNotFoundException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"ErrorMessage\"}\
+      },\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
+    \"SynthesisTasks\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"SynthesisTask\"}\
     },\
     \"SynthesizeSpeechInput\":{\
       \"type\":\"structure\",\
@@ -598,13 +801,28 @@
       },\
       \"payload\":\"AudioStream\"\
     },\
+    \"TaskId\":{\
+      \"type\":\"string\",\
+      \"max\":128,\
+      \"min\":1\
+    },\
+    \"TaskStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"scheduled\",\
+        \"inProgress\",\
+        \"completed\",\
+        \"failed\"\
+      ]\
+    },\
+    \"TaskStatusReason\":{\"type\":\"string\"},\
     \"Text\":{\"type\":\"string\"},\
     \"TextLengthExceededException\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"message\":{\"shape\":\"ErrorMessage\"}\
       },\
-      \"documentation\":\"<p>The value of the \\\"Text\\\" parameter is longer than the accepted limits. The limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. SSML tags are not counted as billed characters.</p>\",\
+      \"documentation\":\"<p>The value of the \\\"Text\\\" parameter is longer than the accepted limits. The limit for input text is a maximum of 3000 characters total, of which no more than 1500 can be billed characters. SSML tags are not counted as billed characters.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -724,8 +942,7 @@
     \"VoiceName\":{\"type\":\"string\"}\
   },\
   \"documentation\":\"<p>Amazon Polly is a web service that makes it easy to synthesize speech from text.</p> <p>The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.</p>\"\
-}\
-";
+}";
 }
 
 @end

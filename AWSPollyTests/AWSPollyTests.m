@@ -292,4 +292,38 @@ static NSDictionary<NSString *,NSString *> *lexicons;
     
 }
 
+- (void)testSynthesisOperations{
+    
+    AWSPolly *Polly = [AWSPolly defaultPolly];
+    
+    AWSPollyStartSpeechSynthesisTaskInput *input = [AWSPollyStartSpeechSynthesisTaskInput new];
+    [input setText:@"I agree with W3C and W2C."];
+    [input setVoiceId:AWSPollyVoiceIdJoey];
+    [input setTextType:AWSPollyTextTypeText];
+    [input setOutputFormat:AWSPollyOutputFormatMp3];
+    [input setLexiconNames:@[w2cLexiconName, w3cLexiconName]]; // W3C will be spoken as World Wide Web Consortium.
+    [input setOutputS3BucketName:@"ios-v2-s3-tm-testdata"];
+    [input setOutputS3KeyPrefix:@"polly-test.mp3"];
+    
+    __block NSString *taskId;
+    [[[Polly startSpeechSynthesisTask:input] continueWithBlock:^id _Nullable(AWSTask<AWSPollyStartSpeechSynthesisTaskOutput *> * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        XCTAssertTrue(task.result.synthesisTask.lexiconNames.count == 2, "Expected 2 Lexicons, but got %lu", task.result.synthesisTask.lexiconNames.count);
+        taskId = task.result.synthesisTask.taskId;
+        
+        return nil;
+    }] waitUntilFinished];
+    
+    AWSPollyGetSpeechSynthesisTaskInput *ip = [AWSPollyGetSpeechSynthesisTaskInput new];
+    ip.taskId = taskId;
+    [[[Polly getSpeechSynthesisTask:ip] continueWithBlock:^id _Nullable(AWSTask<AWSPollyGetSpeechSynthesisTaskOutput *> * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        
+        return nil;
+    }] waitUntilFinished];
+}
+
 @end

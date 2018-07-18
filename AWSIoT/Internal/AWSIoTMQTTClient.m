@@ -502,6 +502,11 @@ static const NSString *SDK_VERSION = @"2.6.19";
         return;
     }
     
+    //Check if already connected. If so, don't retry
+    if (self.mqttStatus == AWSIoTMQTTStatusConnected) {
+        return;
+    }
+
     AWSDDLogInfo(@"Attempting to reconnect.");
     
     self.connectionAgeInSeconds = 0;
@@ -793,7 +798,9 @@ static const NSString *SDK_VERSION = @"2.6.19";
 
 - (void)connectionAgeTimerHandler:(NSTimer*)theTimer {
     self.connectionAgeInSeconds++;
-    if (self.connectionAgeInSeconds > self.minimumConnectionTime) {
+    AWSDDLogVerbose(@"Connection Age: %ld", (long)self.connectionAgeInSeconds);
+    if (self.connectionAgeInSeconds >= self.minimumConnectionTime) {
+        AWSDDLogVerbose(@"Connection Age threshold reached. Resetting reconnect time to [%fs]", self.baseReconnectTime);
         self.currentReconnectTime = self.baseReconnectTime;
         [theTimer invalidate];
     }
@@ -811,11 +818,7 @@ static const NSString *SDK_VERSION = @"2.6.19";
             if (self.connectionAgeTimer != nil) {
                 [self.connectionAgeTimer invalidate];
             }
-            self.connectionAgeTimer = [NSTimer scheduledTimerWithTimeInterval:1.0
-                                                                       target:self
-                                                                     selector:@selector(connectionAgeTimerHandler:)
-                                                                     userInfo:nil
-                                                                      repeats:YES];
+            self.connectionAgeTimer = [ NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(connectionAgeTimerHandler:) userInfo:nil repeats:YES];
 
             //Subscribe to prior topics
             if (_autoResubscribe) {

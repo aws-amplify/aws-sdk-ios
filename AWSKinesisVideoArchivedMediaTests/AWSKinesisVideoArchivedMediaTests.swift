@@ -121,16 +121,16 @@ class AWSKinesisVideoArchivedMediaTests: XCTestCase {
         streamRequest?.playbackMode = .live
         kvamClient.getHLSStreamingSessionURL(streamRequest!) { (result, error) in
             guard let result = result,
-            let endpoint = result.hlsStreamingSessionURL else {
-                let nsError = error! as NSError
-                // Nothing will be streaming during the test
-                // This error differentiates between another that says stream does not exist
-                // This error code does not sufficiently check that the stream has "No fragments found in the stream for the HLS streaming request"
-                // But it is all that is available in iOS
-                // TODO Stream data in parallel
-                XCTAssertTrue(nsError.code == AWSKinesisVideoArchivedMediaErrorType.resourceNotFound.rawValue)
-                streamExpectation.fulfill()
-                return
+                let endpoint = result.hlsStreamingSessionURL else {
+                    let nsError = error! as NSError
+                    // Nothing will be streaming during the test
+                    // This error differentiates between another that says stream does not exist
+                    // This error code does not sufficiently check that the stream has "No fragments found in the stream for the HLS streaming request"
+                    // But it is all that is available in iOS
+                    // TODO Stream data in parallel
+                    XCTAssertTrue(nsError.code == AWSKinesisVideoArchivedMediaErrorType.resourceNotFound.rawValue)
+                    streamExpectation.fulfill()
+                    return
             }
             
             let detector = try! NSDataDetector(types: NSTextCheckingResult.CheckingType.link.rawValue)

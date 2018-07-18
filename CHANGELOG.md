@@ -1,13 +1,36 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.25
+
+### Enhancements
+
+* **Amazon CognitoAuth**
+  * Made `signOutLocally` and `signOutLocallyAndClearLastKnownUser` methods public. See [issue#279](https://github.com/awslabs/aws-sdk-ios-samples/issues/279)
+
+* **Amazon Polly**
+  * Added support for new `SynthesisTask` feature which allows asynchronous and batch processing.
+
+* **Amazon S3**
+  * Added completion handler for TransferUtility instantiation, improved the getTasks function and status tracking. See [issue#769](https://github.com/aws/aws-sdk-ios/issues/769) and [issue #759](https://github.com/aws/aws-sdk-ios/issues/759)
+
+### Bug Fixes
+
+* **AWS IoT**
+  * Optimized AWS IoT reconnection logic and reduced extraneous attempts. See [issue#965](https://github.com/aws/aws-sdk-ios/issues/965)
+  * Fixed bug in connectionAge timer logic. See [pr#992](https://github.com/aws/aws-sdk-ios/pull/992)
+  * Fixed code references in documentation. See [pr#973](https://github.com/aws/aws-sdk-ios/pull/973)
+
+* **Amazon S3**
+  * Fixed bug in SigV4 Signing logic. See [issue#985](https://github.com/aws/aws-sdk-ios/issues/985)
+
 ## 2.6.24
 
 ### New Features
 
 * **Amazon Kinesis Video Streams**
   * Amazon Kinesis Video Streams is a fully managed video ingestion and storage service. It enables you to securely ingest, process, and store video at any scale for applications that power robots, smart cities, industrial automation, security monitoring, machine learning (ML), and more. Kinesis Video Streams also ingests other kinds of time-encoded data like audio, RADAR, and LIDAR signals. Kinesis Video Streams provides you SDKs to install on your devices to make it easy to securely stream video to AWS. Kinesis Video Streams automatically provisions and elastically scales all the infrastructure needed to ingest video streams from millions of devices. It also durably stores, encrypts, and indexes the video streams and provides easy-to-use APIs so that applications can access and retrieve indexed video fragments based on tags and timestamps. Kinesis Video Streams provides a library to integrate ML frameworks such as Apache MxNet, TensorFlow, and OpenCV with video streams to build machine learning applications.
-  * HLS streaming feature is supported through `AWSKinesisVideoArchivedMedia` and `pod AWSKinesisVideoArchivedMedia`.
+  * HLS streaming feature is supported through `AWSKinesisVideoArchivedMedia` and pod `AWSKinesisVideoArchivedMedia`.
 
 ## 2.6.23
 

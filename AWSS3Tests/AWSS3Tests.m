@@ -1567,4 +1567,55 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     }];
 }
 
+- (void)testInventorySetupOnBucket {
+    NSString *sourceBucketName = @"ios-v2-test-508881905";
+
+    NSString *destinationBucketName = @"ios-v2-test-508883511";
+
+    AWSS3 *s3 = [AWSS3 defaultS3];
+    XCTAssertNotNil(s3);
+
+    AWSS3PutBucketInventoryConfigurationRequest *putBucketInventoryRequest = [AWSS3PutBucketInventoryConfigurationRequest new];
+    putBucketInventoryRequest.bucket = sourceBucketName;
+    putBucketInventoryRequest.identifier=@"123";
+
+
+    putBucketInventoryRequest.inventoryConfiguration=[AWSS3InventoryConfiguration new];
+    putBucketInventoryRequest.inventoryConfiguration.isEnabled=@(YES);
+    putBucketInventoryRequest.inventoryConfiguration.identifier=@"123";
+
+    AWSS3InventoryS3BucketDestination *s3dest=[AWSS3InventoryS3BucketDestination new];
+    s3dest.bucket=[NSString stringWithFormat:@"arn:aws:s3:::%@",destinationBucketName];
+    s3dest.format=AWSS3InventoryFormatCsv;
+    s3dest.prefix=@"inventory";
+
+    AWSS3InventoryDestination *destination=[AWSS3InventoryDestination new];
+    destination.s3BucketDestination=s3dest;
+
+    putBucketInventoryRequest.inventoryConfiguration.destination=destination;
+    AWSS3InventorySchedule *schedule=[AWSS3InventorySchedule new];
+    schedule.frequency=AWSS3InventoryFrequencyWeekly;
+    putBucketInventoryRequest.inventoryConfiguration.schedule=schedule;
+    putBucketInventoryRequest.inventoryConfiguration.includedObjectVersions=AWSS3InventoryIncludedObjectVersionsCurrent;
+    putBucketInventoryRequest.inventoryConfiguration.optionalFields=@[@"Size",
+                                                                      @"LastModifiedDate",
+                                                                      @"StorageClass",
+                                                                      @"ETag",
+                                                                      @"IsMultipartUploaded",
+                                                                      @"ReplicationStatus",
+                                                                      @"EncryptionStatus"];
+    NSLog(@"Putting inventory");
+
+    [[s3 putBucketInventoryConfiguration:putBucketInventoryRequest] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        if(task.error != nil){
+            NSLog(@"The request failed. error: [%@]", task.error);
+        }
+        else {
+            NSLog(@"Results %@",task.result);
+        }
+        return task;
+    }].waitUntilFinished;
+}
+
 @end

@@ -223,6 +223,30 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @end
 
+@implementation AWSPollyGetSpeechSynthesisTaskInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"taskId" : @"TaskId",
+             };
+}
+
+@end
+
+@implementation AWSPollyGetSpeechSynthesisTaskOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"synthesisTask" : @"SynthesisTask",
+             };
+}
+
++ (NSValueTransformer *)synthesisTaskJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPollySynthesisTask class]];
+}
+
+@end
+
 @implementation AWSPollyLexicon
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -433,6 +457,64 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 @end
 
+@implementation AWSPollyListSpeechSynthesisTasksInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"scheduled"] == NSOrderedSame) {
+            return @(AWSPollyTaskStatusScheduled);
+        }
+        if ([value caseInsensitiveCompare:@"inProgress"] == NSOrderedSame) {
+            return @(AWSPollyTaskStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"completed"] == NSOrderedSame) {
+            return @(AWSPollyTaskStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"failed"] == NSOrderedSame) {
+            return @(AWSPollyTaskStatusFailed);
+        }
+        return @(AWSPollyTaskStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyTaskStatusScheduled:
+                return @"scheduled";
+            case AWSPollyTaskStatusInProgress:
+                return @"inProgress";
+            case AWSPollyTaskStatusCompleted:
+                return @"completed";
+            case AWSPollyTaskStatusFailed:
+                return @"failed";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPollyListSpeechSynthesisTasksOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"synthesisTasks" : @"SynthesisTasks",
+             };
+}
+
++ (NSValueTransformer *)synthesisTasksJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPollySynthesisTask class]];
+}
+
+@end
+
 @implementation AWSPollyPutLexiconInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -445,6 +527,756 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 @end
 
 @implementation AWSPollyPutLexiconOutput
+
+@end
+
+@implementation AWSPollyStartSpeechSynthesisTaskInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lexiconNames" : @"LexiconNames",
+             @"outputFormat" : @"OutputFormat",
+             @"outputS3BucketName" : @"OutputS3BucketName",
+             @"outputS3KeyPrefix" : @"OutputS3KeyPrefix",
+             @"sampleRate" : @"SampleRate",
+             @"snsTopicArn" : @"SnsTopicArn",
+             @"speechMarkTypes" : @"SpeechMarkTypes",
+             @"text" : @"Text",
+             @"textType" : @"TextType",
+             @"voiceId" : @"VoiceId",
+             };
+}
+
++ (NSValueTransformer *)outputFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"json"] == NSOrderedSame) {
+            return @(AWSPollyOutputFormatJson);
+        }
+        if ([value caseInsensitiveCompare:@"mp3"] == NSOrderedSame) {
+            return @(AWSPollyOutputFormatMp3);
+        }
+        if ([value caseInsensitiveCompare:@"ogg_vorbis"] == NSOrderedSame) {
+            return @(AWSPollyOutputFormatOggVorbis);
+        }
+        if ([value caseInsensitiveCompare:@"pcm"] == NSOrderedSame) {
+            return @(AWSPollyOutputFormatPcm);
+        }
+        return @(AWSPollyOutputFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyOutputFormatJson:
+                return @"json";
+            case AWSPollyOutputFormatMp3:
+                return @"mp3";
+            case AWSPollyOutputFormatOggVorbis:
+                return @"ogg_vorbis";
+            case AWSPollyOutputFormatPcm:
+                return @"pcm";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)textTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ssml"] == NSOrderedSame) {
+            return @(AWSPollyTextTypeSsml);
+        }
+        if ([value caseInsensitiveCompare:@"text"] == NSOrderedSame) {
+            return @(AWSPollyTextTypeText);
+        }
+        return @(AWSPollyTextTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyTextTypeSsml:
+                return @"ssml";
+            case AWSPollyTextTypeText:
+                return @"text";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)voiceIdJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Geraint"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdGeraint);
+        }
+        if ([value caseInsensitiveCompare:@"Gwyneth"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdGwyneth);
+        }
+        if ([value caseInsensitiveCompare:@"Mads"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMads);
+        }
+        if ([value caseInsensitiveCompare:@"Naja"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdNaja);
+        }
+        if ([value caseInsensitiveCompare:@"Hans"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdHans);
+        }
+        if ([value caseInsensitiveCompare:@"Marlene"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMarlene);
+        }
+        if ([value caseInsensitiveCompare:@"Nicole"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdNicole);
+        }
+        if ([value caseInsensitiveCompare:@"Russell"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdRussell);
+        }
+        if ([value caseInsensitiveCompare:@"Amy"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdAmy);
+        }
+        if ([value caseInsensitiveCompare:@"Brian"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdBrian);
+        }
+        if ([value caseInsensitiveCompare:@"Emma"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdEmma);
+        }
+        if ([value caseInsensitiveCompare:@"Raveena"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdRaveena);
+        }
+        if ([value caseInsensitiveCompare:@"Ivy"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdIvy);
+        }
+        if ([value caseInsensitiveCompare:@"Joanna"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdJoanna);
+        }
+        if ([value caseInsensitiveCompare:@"Joey"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdJoey);
+        }
+        if ([value caseInsensitiveCompare:@"Justin"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdJustin);
+        }
+        if ([value caseInsensitiveCompare:@"Kendra"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdKendra);
+        }
+        if ([value caseInsensitiveCompare:@"Kimberly"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdKimberly);
+        }
+        if ([value caseInsensitiveCompare:@"Matthew"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMatthew);
+        }
+        if ([value caseInsensitiveCompare:@"Salli"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdSalli);
+        }
+        if ([value caseInsensitiveCompare:@"Conchita"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdConchita);
+        }
+        if ([value caseInsensitiveCompare:@"Enrique"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdEnrique);
+        }
+        if ([value caseInsensitiveCompare:@"Miguel"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMiguel);
+        }
+        if ([value caseInsensitiveCompare:@"Penelope"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdPenelope);
+        }
+        if ([value caseInsensitiveCompare:@"Chantal"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdChantal);
+        }
+        if ([value caseInsensitiveCompare:@"Celine"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCeline);
+        }
+        if ([value caseInsensitiveCompare:@"Lea"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLea);
+        }
+        if ([value caseInsensitiveCompare:@"Mathieu"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMathieu);
+        }
+        if ([value caseInsensitiveCompare:@"Dora"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdDora);
+        }
+        if ([value caseInsensitiveCompare:@"Karl"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdKarl);
+        }
+        if ([value caseInsensitiveCompare:@"Carla"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCarla);
+        }
+        if ([value caseInsensitiveCompare:@"Giorgio"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdGiorgio);
+        }
+        if ([value caseInsensitiveCompare:@"Mizuki"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMizuki);
+        }
+        if ([value caseInsensitiveCompare:@"Liv"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLiv);
+        }
+        if ([value caseInsensitiveCompare:@"Lotte"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLotte);
+        }
+        if ([value caseInsensitiveCompare:@"Ruben"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdRuben);
+        }
+        if ([value caseInsensitiveCompare:@"Ewa"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdEwa);
+        }
+        if ([value caseInsensitiveCompare:@"Jacek"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdJacek);
+        }
+        if ([value caseInsensitiveCompare:@"Jan"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdJan);
+        }
+        if ([value caseInsensitiveCompare:@"Maja"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMaja);
+        }
+        if ([value caseInsensitiveCompare:@"Ricardo"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdRicardo);
+        }
+        if ([value caseInsensitiveCompare:@"Vitoria"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdVitoria);
+        }
+        if ([value caseInsensitiveCompare:@"Cristiano"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCristiano);
+        }
+        if ([value caseInsensitiveCompare:@"Ines"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdInes);
+        }
+        if ([value caseInsensitiveCompare:@"Carmen"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCarmen);
+        }
+        if ([value caseInsensitiveCompare:@"Maxim"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMaxim);
+        }
+        if ([value caseInsensitiveCompare:@"Tatyana"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdTatyana);
+        }
+        if ([value caseInsensitiveCompare:@"Astrid"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdAstrid);
+        }
+        if ([value caseInsensitiveCompare:@"Filiz"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdFiliz);
+        }
+        if ([value caseInsensitiveCompare:@"Vicki"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdVicki);
+        }
+        if ([value caseInsensitiveCompare:@"Takumi"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdTakumi);
+        }
+        if ([value caseInsensitiveCompare:@"Seoyeon"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdSeoyeon);
+        }
+        if ([value caseInsensitiveCompare:@"Aditi"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdAditi);
+        }
+        return @(AWSPollyVoiceIdUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyVoiceIdGeraint:
+                return @"Geraint";
+            case AWSPollyVoiceIdGwyneth:
+                return @"Gwyneth";
+            case AWSPollyVoiceIdMads:
+                return @"Mads";
+            case AWSPollyVoiceIdNaja:
+                return @"Naja";
+            case AWSPollyVoiceIdHans:
+                return @"Hans";
+            case AWSPollyVoiceIdMarlene:
+                return @"Marlene";
+            case AWSPollyVoiceIdNicole:
+                return @"Nicole";
+            case AWSPollyVoiceIdRussell:
+                return @"Russell";
+            case AWSPollyVoiceIdAmy:
+                return @"Amy";
+            case AWSPollyVoiceIdBrian:
+                return @"Brian";
+            case AWSPollyVoiceIdEmma:
+                return @"Emma";
+            case AWSPollyVoiceIdRaveena:
+                return @"Raveena";
+            case AWSPollyVoiceIdIvy:
+                return @"Ivy";
+            case AWSPollyVoiceIdJoanna:
+                return @"Joanna";
+            case AWSPollyVoiceIdJoey:
+                return @"Joey";
+            case AWSPollyVoiceIdJustin:
+                return @"Justin";
+            case AWSPollyVoiceIdKendra:
+                return @"Kendra";
+            case AWSPollyVoiceIdKimberly:
+                return @"Kimberly";
+            case AWSPollyVoiceIdMatthew:
+                return @"Matthew";
+            case AWSPollyVoiceIdSalli:
+                return @"Salli";
+            case AWSPollyVoiceIdConchita:
+                return @"Conchita";
+            case AWSPollyVoiceIdEnrique:
+                return @"Enrique";
+            case AWSPollyVoiceIdMiguel:
+                return @"Miguel";
+            case AWSPollyVoiceIdPenelope:
+                return @"Penelope";
+            case AWSPollyVoiceIdChantal:
+                return @"Chantal";
+            case AWSPollyVoiceIdCeline:
+                return @"Celine";
+            case AWSPollyVoiceIdLea:
+                return @"Lea";
+            case AWSPollyVoiceIdMathieu:
+                return @"Mathieu";
+            case AWSPollyVoiceIdDora:
+                return @"Dora";
+            case AWSPollyVoiceIdKarl:
+                return @"Karl";
+            case AWSPollyVoiceIdCarla:
+                return @"Carla";
+            case AWSPollyVoiceIdGiorgio:
+                return @"Giorgio";
+            case AWSPollyVoiceIdMizuki:
+                return @"Mizuki";
+            case AWSPollyVoiceIdLiv:
+                return @"Liv";
+            case AWSPollyVoiceIdLotte:
+                return @"Lotte";
+            case AWSPollyVoiceIdRuben:
+                return @"Ruben";
+            case AWSPollyVoiceIdEwa:
+                return @"Ewa";
+            case AWSPollyVoiceIdJacek:
+                return @"Jacek";
+            case AWSPollyVoiceIdJan:
+                return @"Jan";
+            case AWSPollyVoiceIdMaja:
+                return @"Maja";
+            case AWSPollyVoiceIdRicardo:
+                return @"Ricardo";
+            case AWSPollyVoiceIdVitoria:
+                return @"Vitoria";
+            case AWSPollyVoiceIdCristiano:
+                return @"Cristiano";
+            case AWSPollyVoiceIdInes:
+                return @"Ines";
+            case AWSPollyVoiceIdCarmen:
+                return @"Carmen";
+            case AWSPollyVoiceIdMaxim:
+                return @"Maxim";
+            case AWSPollyVoiceIdTatyana:
+                return @"Tatyana";
+            case AWSPollyVoiceIdAstrid:
+                return @"Astrid";
+            case AWSPollyVoiceIdFiliz:
+                return @"Filiz";
+            case AWSPollyVoiceIdVicki:
+                return @"Vicki";
+            case AWSPollyVoiceIdTakumi:
+                return @"Takumi";
+            case AWSPollyVoiceIdSeoyeon:
+                return @"Seoyeon";
+            case AWSPollyVoiceIdAditi:
+                return @"Aditi";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPollyStartSpeechSynthesisTaskOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"synthesisTask" : @"SynthesisTask",
+             };
+}
+
++ (NSValueTransformer *)synthesisTaskJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPollySynthesisTask class]];
+}
+
+@end
+
+@implementation AWSPollySynthesisTask
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationTime" : @"CreationTime",
+             @"lexiconNames" : @"LexiconNames",
+             @"outputFormat" : @"OutputFormat",
+             @"outputUri" : @"OutputUri",
+             @"requestCharacters" : @"RequestCharacters",
+             @"sampleRate" : @"SampleRate",
+             @"snsTopicArn" : @"SnsTopicArn",
+             @"speechMarkTypes" : @"SpeechMarkTypes",
+             @"taskId" : @"TaskId",
+             @"taskStatus" : @"TaskStatus",
+             @"taskStatusReason" : @"TaskStatusReason",
+             @"textType" : @"TextType",
+             @"voiceId" : @"VoiceId",
+             };
+}
+
++ (NSValueTransformer *)creationTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)outputFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"json"] == NSOrderedSame) {
+            return @(AWSPollyOutputFormatJson);
+        }
+        if ([value caseInsensitiveCompare:@"mp3"] == NSOrderedSame) {
+            return @(AWSPollyOutputFormatMp3);
+        }
+        if ([value caseInsensitiveCompare:@"ogg_vorbis"] == NSOrderedSame) {
+            return @(AWSPollyOutputFormatOggVorbis);
+        }
+        if ([value caseInsensitiveCompare:@"pcm"] == NSOrderedSame) {
+            return @(AWSPollyOutputFormatPcm);
+        }
+        return @(AWSPollyOutputFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyOutputFormatJson:
+                return @"json";
+            case AWSPollyOutputFormatMp3:
+                return @"mp3";
+            case AWSPollyOutputFormatOggVorbis:
+                return @"ogg_vorbis";
+            case AWSPollyOutputFormatPcm:
+                return @"pcm";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)taskStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"scheduled"] == NSOrderedSame) {
+            return @(AWSPollyTaskStatusScheduled);
+        }
+        if ([value caseInsensitiveCompare:@"inProgress"] == NSOrderedSame) {
+            return @(AWSPollyTaskStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"completed"] == NSOrderedSame) {
+            return @(AWSPollyTaskStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"failed"] == NSOrderedSame) {
+            return @(AWSPollyTaskStatusFailed);
+        }
+        return @(AWSPollyTaskStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyTaskStatusScheduled:
+                return @"scheduled";
+            case AWSPollyTaskStatusInProgress:
+                return @"inProgress";
+            case AWSPollyTaskStatusCompleted:
+                return @"completed";
+            case AWSPollyTaskStatusFailed:
+                return @"failed";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)textTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ssml"] == NSOrderedSame) {
+            return @(AWSPollyTextTypeSsml);
+        }
+        if ([value caseInsensitiveCompare:@"text"] == NSOrderedSame) {
+            return @(AWSPollyTextTypeText);
+        }
+        return @(AWSPollyTextTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyTextTypeSsml:
+                return @"ssml";
+            case AWSPollyTextTypeText:
+                return @"text";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)voiceIdJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Geraint"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdGeraint);
+        }
+        if ([value caseInsensitiveCompare:@"Gwyneth"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdGwyneth);
+        }
+        if ([value caseInsensitiveCompare:@"Mads"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMads);
+        }
+        if ([value caseInsensitiveCompare:@"Naja"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdNaja);
+        }
+        if ([value caseInsensitiveCompare:@"Hans"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdHans);
+        }
+        if ([value caseInsensitiveCompare:@"Marlene"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMarlene);
+        }
+        if ([value caseInsensitiveCompare:@"Nicole"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdNicole);
+        }
+        if ([value caseInsensitiveCompare:@"Russell"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdRussell);
+        }
+        if ([value caseInsensitiveCompare:@"Amy"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdAmy);
+        }
+        if ([value caseInsensitiveCompare:@"Brian"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdBrian);
+        }
+        if ([value caseInsensitiveCompare:@"Emma"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdEmma);
+        }
+        if ([value caseInsensitiveCompare:@"Raveena"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdRaveena);
+        }
+        if ([value caseInsensitiveCompare:@"Ivy"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdIvy);
+        }
+        if ([value caseInsensitiveCompare:@"Joanna"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdJoanna);
+        }
+        if ([value caseInsensitiveCompare:@"Joey"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdJoey);
+        }
+        if ([value caseInsensitiveCompare:@"Justin"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdJustin);
+        }
+        if ([value caseInsensitiveCompare:@"Kendra"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdKendra);
+        }
+        if ([value caseInsensitiveCompare:@"Kimberly"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdKimberly);
+        }
+        if ([value caseInsensitiveCompare:@"Matthew"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMatthew);
+        }
+        if ([value caseInsensitiveCompare:@"Salli"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdSalli);
+        }
+        if ([value caseInsensitiveCompare:@"Conchita"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdConchita);
+        }
+        if ([value caseInsensitiveCompare:@"Enrique"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdEnrique);
+        }
+        if ([value caseInsensitiveCompare:@"Miguel"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMiguel);
+        }
+        if ([value caseInsensitiveCompare:@"Penelope"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdPenelope);
+        }
+        if ([value caseInsensitiveCompare:@"Chantal"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdChantal);
+        }
+        if ([value caseInsensitiveCompare:@"Celine"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCeline);
+        }
+        if ([value caseInsensitiveCompare:@"Lea"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLea);
+        }
+        if ([value caseInsensitiveCompare:@"Mathieu"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMathieu);
+        }
+        if ([value caseInsensitiveCompare:@"Dora"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdDora);
+        }
+        if ([value caseInsensitiveCompare:@"Karl"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdKarl);
+        }
+        if ([value caseInsensitiveCompare:@"Carla"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCarla);
+        }
+        if ([value caseInsensitiveCompare:@"Giorgio"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdGiorgio);
+        }
+        if ([value caseInsensitiveCompare:@"Mizuki"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMizuki);
+        }
+        if ([value caseInsensitiveCompare:@"Liv"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLiv);
+        }
+        if ([value caseInsensitiveCompare:@"Lotte"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdLotte);
+        }
+        if ([value caseInsensitiveCompare:@"Ruben"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdRuben);
+        }
+        if ([value caseInsensitiveCompare:@"Ewa"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdEwa);
+        }
+        if ([value caseInsensitiveCompare:@"Jacek"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdJacek);
+        }
+        if ([value caseInsensitiveCompare:@"Jan"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdJan);
+        }
+        if ([value caseInsensitiveCompare:@"Maja"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMaja);
+        }
+        if ([value caseInsensitiveCompare:@"Ricardo"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdRicardo);
+        }
+        if ([value caseInsensitiveCompare:@"Vitoria"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdVitoria);
+        }
+        if ([value caseInsensitiveCompare:@"Cristiano"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCristiano);
+        }
+        if ([value caseInsensitiveCompare:@"Ines"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdInes);
+        }
+        if ([value caseInsensitiveCompare:@"Carmen"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdCarmen);
+        }
+        if ([value caseInsensitiveCompare:@"Maxim"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdMaxim);
+        }
+        if ([value caseInsensitiveCompare:@"Tatyana"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdTatyana);
+        }
+        if ([value caseInsensitiveCompare:@"Astrid"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdAstrid);
+        }
+        if ([value caseInsensitiveCompare:@"Filiz"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdFiliz);
+        }
+        if ([value caseInsensitiveCompare:@"Vicki"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdVicki);
+        }
+        if ([value caseInsensitiveCompare:@"Takumi"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdTakumi);
+        }
+        if ([value caseInsensitiveCompare:@"Seoyeon"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdSeoyeon);
+        }
+        if ([value caseInsensitiveCompare:@"Aditi"] == NSOrderedSame) {
+            return @(AWSPollyVoiceIdAditi);
+        }
+        return @(AWSPollyVoiceIdUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyVoiceIdGeraint:
+                return @"Geraint";
+            case AWSPollyVoiceIdGwyneth:
+                return @"Gwyneth";
+            case AWSPollyVoiceIdMads:
+                return @"Mads";
+            case AWSPollyVoiceIdNaja:
+                return @"Naja";
+            case AWSPollyVoiceIdHans:
+                return @"Hans";
+            case AWSPollyVoiceIdMarlene:
+                return @"Marlene";
+            case AWSPollyVoiceIdNicole:
+                return @"Nicole";
+            case AWSPollyVoiceIdRussell:
+                return @"Russell";
+            case AWSPollyVoiceIdAmy:
+                return @"Amy";
+            case AWSPollyVoiceIdBrian:
+                return @"Brian";
+            case AWSPollyVoiceIdEmma:
+                return @"Emma";
+            case AWSPollyVoiceIdRaveena:
+                return @"Raveena";
+            case AWSPollyVoiceIdIvy:
+                return @"Ivy";
+            case AWSPollyVoiceIdJoanna:
+                return @"Joanna";
+            case AWSPollyVoiceIdJoey:
+                return @"Joey";
+            case AWSPollyVoiceIdJustin:
+                return @"Justin";
+            case AWSPollyVoiceIdKendra:
+                return @"Kendra";
+            case AWSPollyVoiceIdKimberly:
+                return @"Kimberly";
+            case AWSPollyVoiceIdMatthew:
+                return @"Matthew";
+            case AWSPollyVoiceIdSalli:
+                return @"Salli";
+            case AWSPollyVoiceIdConchita:
+                return @"Conchita";
+            case AWSPollyVoiceIdEnrique:
+                return @"Enrique";
+            case AWSPollyVoiceIdMiguel:
+                return @"Miguel";
+            case AWSPollyVoiceIdPenelope:
+                return @"Penelope";
+            case AWSPollyVoiceIdChantal:
+                return @"Chantal";
+            case AWSPollyVoiceIdCeline:
+                return @"Celine";
+            case AWSPollyVoiceIdLea:
+                return @"Lea";
+            case AWSPollyVoiceIdMathieu:
+                return @"Mathieu";
+            case AWSPollyVoiceIdDora:
+                return @"Dora";
+            case AWSPollyVoiceIdKarl:
+                return @"Karl";
+            case AWSPollyVoiceIdCarla:
+                return @"Carla";
+            case AWSPollyVoiceIdGiorgio:
+                return @"Giorgio";
+            case AWSPollyVoiceIdMizuki:
+                return @"Mizuki";
+            case AWSPollyVoiceIdLiv:
+                return @"Liv";
+            case AWSPollyVoiceIdLotte:
+                return @"Lotte";
+            case AWSPollyVoiceIdRuben:
+                return @"Ruben";
+            case AWSPollyVoiceIdEwa:
+                return @"Ewa";
+            case AWSPollyVoiceIdJacek:
+                return @"Jacek";
+            case AWSPollyVoiceIdJan:
+                return @"Jan";
+            case AWSPollyVoiceIdMaja:
+                return @"Maja";
+            case AWSPollyVoiceIdRicardo:
+                return @"Ricardo";
+            case AWSPollyVoiceIdVitoria:
+                return @"Vitoria";
+            case AWSPollyVoiceIdCristiano:
+                return @"Cristiano";
+            case AWSPollyVoiceIdInes:
+                return @"Ines";
+            case AWSPollyVoiceIdCarmen:
+                return @"Carmen";
+            case AWSPollyVoiceIdMaxim:
+                return @"Maxim";
+            case AWSPollyVoiceIdTatyana:
+                return @"Tatyana";
+            case AWSPollyVoiceIdAstrid:
+                return @"Astrid";
+            case AWSPollyVoiceIdFiliz:
+                return @"Filiz";
+            case AWSPollyVoiceIdVicki:
+                return @"Vicki";
+            case AWSPollyVoiceIdTakumi:
+                return @"Takumi";
+            case AWSPollyVoiceIdSeoyeon:
+                return @"Seoyeon";
+            case AWSPollyVoiceIdAditi:
+                return @"Aditi";
+            default:
+                return nil;
+        }
+    }];
+}
 
 @end
 

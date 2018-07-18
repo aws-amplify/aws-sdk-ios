@@ -25,8 +25,12 @@ typedef NS_ENUM(NSInteger, AWSPollyErrorType) {
     AWSPollyErrorUnknown,
     AWSPollyErrorInvalidLexicon,
     AWSPollyErrorInvalidNextToken,
+    AWSPollyErrorInvalidS3Bucket,
+    AWSPollyErrorInvalidS3Key,
     AWSPollyErrorInvalidSampleRate,
+    AWSPollyErrorInvalidSnsTopicArn,
     AWSPollyErrorInvalidSsml,
+    AWSPollyErrorInvalidTaskId,
     AWSPollyErrorLexiconNotFound,
     AWSPollyErrorLexiconSizeExceeded,
     AWSPollyErrorMarksNotSupportedForFormat,
@@ -34,6 +38,7 @@ typedef NS_ENUM(NSInteger, AWSPollyErrorType) {
     AWSPollyErrorMaxLexiconsNumberExceeded,
     AWSPollyErrorServiceFailure,
     AWSPollyErrorSsmlMarksNotSupportedForTextType,
+    AWSPollyErrorSynthesisTaskNotFound,
     AWSPollyErrorTextLengthExceeded,
     AWSPollyErrorUnsupportedPlsAlphabet,
     AWSPollyErrorUnsupportedPlsLanguage,
@@ -88,6 +93,14 @@ typedef NS_ENUM(NSInteger, AWSPollySpeechMarkType) {
     AWSPollySpeechMarkTypeSsml,
     AWSPollySpeechMarkTypeViseme,
     AWSPollySpeechMarkTypeWord,
+};
+
+typedef NS_ENUM(NSInteger, AWSPollyTaskStatus) {
+    AWSPollyTaskStatusUnknown,
+    AWSPollyTaskStatusScheduled,
+    AWSPollyTaskStatusInProgress,
+    AWSPollyTaskStatusCompleted,
+    AWSPollyTaskStatusFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSPollyTextType) {
@@ -159,13 +172,20 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 @class AWSPollyDescribeVoicesOutput;
 @class AWSPollyGetLexiconInput;
 @class AWSPollyGetLexiconOutput;
+@class AWSPollyGetSpeechSynthesisTaskInput;
+@class AWSPollyGetSpeechSynthesisTaskOutput;
 @class AWSPollyLexicon;
 @class AWSPollyLexiconAttributes;
 @class AWSPollyLexiconDescription;
 @class AWSPollyListLexiconsInput;
 @class AWSPollyListLexiconsOutput;
+@class AWSPollyListSpeechSynthesisTasksInput;
+@class AWSPollyListSpeechSynthesisTasksOutput;
 @class AWSPollyPutLexiconInput;
 @class AWSPollyPutLexiconOutput;
+@class AWSPollyStartSpeechSynthesisTaskInput;
+@class AWSPollyStartSpeechSynthesisTaskOutput;
+@class AWSPollySynthesisTask;
 @class AWSPollySynthesizeSpeechInput;
 @class AWSPollySynthesizeSpeechOutput;
 @class AWSPollyVoice;
@@ -255,6 +275,32 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
  <p>Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.</p>
  */
 @property (nonatomic, strong) AWSPollyLexiconAttributes * _Nullable lexiconAttributes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPollyGetSpeechSynthesisTaskInput : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable taskId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPollyGetSpeechSynthesisTaskOutput : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSPollySynthesisTask * _Nullable synthesisTask;
 
 @end
 
@@ -366,6 +412,47 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
 /**
  
  */
+@interface AWSPollyListSpeechSynthesisTasksInput : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSPollyTaskStatus status;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPollyListSpeechSynthesisTasksOutput : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSPollySynthesisTask *> * _Nullable synthesisTasks;
+
+@end
+
+/**
+ 
+ */
 @interface AWSPollyPutLexiconInput : AWSRequest
 
 
@@ -386,6 +473,150 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
  */
 @interface AWSPollyPutLexiconOutput : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSPollyStartSpeechSynthesisTaskInput : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable lexiconNames;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSPollyOutputFormat outputFormat;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable outputS3BucketName;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable outputS3KeyPrefix;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable sampleRate;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable snsTopicArn;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable speechMarkTypes;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSPollyTextType textType;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSPollyVoiceId voiceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPollyStartSpeechSynthesisTaskOutput : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) AWSPollySynthesisTask * _Nullable synthesisTask;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPollySynthesisTask : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable lexiconNames;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSPollyOutputFormat outputFormat;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable outputUri;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable requestCharacters;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable sampleRate;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable snsTopicArn;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable speechMarkTypes;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable taskId;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSPollyTaskStatus taskStatus;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable taskStatusReason;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSPollyTextType textType;
+
+/**
+ 
+ */
+@property (nonatomic, assign) AWSPollyVoiceId voiceId;
 
 @end
 

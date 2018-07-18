@@ -99,6 +99,54 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
 + (instancetype)defaultS3TransferUtility;
 
 /**
+ Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+ 
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+ 
+ *Swift*
+ 
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+ let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+ let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+ AWSServiceManager.default().defaultServiceConfiguration = configuration
+ 
+ return true
+ }
+ 
+ *Objective-C*
+ 
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+ AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+ identityPoolId:@"YourIdentityPoolId"];
+ AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+ credentialsProvider:credentialsProvider];
+ [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+ 
+ return YES;
+ }
+ 
+ Then call the following to get the default service client:
+ 
+ *Swift*
+ 
+ let S3TransferUtility = AWSS3TransferUtility.default() { (error) in
+ 
+ }
+ 
+ *Objective-C*
+ 
+ AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility defaultS3TransferUtility:^(NSError * _Nullable error) {
+ 
+ }];
+ 
+ @param completionHandler The completion handler to call when the TransferUtility finishes loading transfers from prior sessions.
+ @return The default service client.
+ */
++ (instancetype)defaultS3TransferUtility:(nullable void (^)(NSError *_Nullable error)) completionHandler
+  NS_SWIFT_NAME(default(completionHandler:));
+
+
+/**
  Creates a service client with the given service configuration and registers it for the key.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
@@ -121,7 +169,9 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
          AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                               credentialsProvider:credentialsProvider];
 
-         [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@"USWest2S3TransferUtility"];
+ [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@"USWest2S3TransferUtility" completionHandler:^(NSError * _Nullable error) {
+ 
+ }];
 
          return YES;
      }
@@ -146,6 +196,58 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
 
 /**
  Creates a service client with the given service configuration and registers it for the key.
+ 
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+ 
+ *Swift*
+ 
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+ let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+ let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+ AWSS3TransferUtility.register(with: configuration!, forKey: "USWest2S3TransferUtility"){ (error) in
+ 
+ }
+ 
+ return true
+ }
+ 
+ *Objective-C*
+ 
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+ AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+ identityPoolId:@"YourIdentityPoolId"];
+ AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+ credentialsProvider:credentialsProvider];
+ 
+ [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@"USWest2S3TransferUtility" completionHandler:^(NSError * _Nullable error) {
+ 
+ }];
+ 
+ return YES;
+ }
+ 
+ Then call the following to get the service client:
+ 
+ *Swift*
+ 
+ let S3TransferUtility = AWSS3TransferUtility(forKey: "USWest2S3TransferUtility")
+ 
+ *Objective-C*
+ 
+ AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@"USWest2S3TransferUtility"];
+ 
+ @warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
+ 
+ @param configuration A service configuration object.
+ @param key           A string to identify the service client.
+ @param completionHandler The completion handler to call when the TransferUtility finishes loading transfers from prior sessions.
+ */
++ (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)configuration
+                                            forKey:(NSString *)key
+                                 completionHandler:(nullable void (^)(NSError *_Nullable error)) completionHandler;
+
+/**
+ Creates a service client with the given service configuration and registers it for the key.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
 
@@ -154,8 +256,9 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: "USWest2S3TransferUtility")
-
+         AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: "USWest2S3TransferUtility") { (error) in
+ 
+         }
          return true
      }
 
@@ -193,6 +296,59 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
                                             forKey:(NSString *)key;
 
 /**
+ Creates a service client with the given service configuration and registers it for the key.
+ 
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+ 
+ *Swift*
+ 
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+ let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+ let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+ AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: "USWest2S3TransferUtility") { (error) in
+ 
+ }
+ 
+ return true
+ }
+ 
+ *Objective-C*
+ 
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+ AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+ identityPoolId:@"YourIdentityPoolId"];
+ AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+ credentialsProvider:credentialsProvider];
+ 
+ [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration transferUtilityConfiguration:nil forKey:@"USWest2S3TransferUtility" completionHandler:^(NSError * _Nullable error) {
+ 
+ }];
+ 
+ return YES;
+ }
+ 
+ Then call the following to get the service client:
+ 
+ *Swift*
+ 
+ let S3TransferUtility = AWSS3TransferUtility(forKey: "USWest2S3TransferUtility")
+ 
+ *Objective-C*
+ 
+ AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@"USWest2S3TransferUtility"];
+ 
+ @warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
+ 
+ @param configuration A service configuration object.
+ @param transferUtilityConfiguration An S3 transfer utility configuration object.
+ @param key           A string to identify the service client.
+ @param completionHandler The completion handler to call when the TransferUtility finishes loading transfers from prior sessions.
+ */
++ (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)configuration
+                      transferUtilityConfiguration:(nullable AWSS3TransferUtilityConfiguration *)transferUtilityConfiguration
+                                            forKey:(NSString *)key
+                                 completionHandler:(nullable void (^)(NSError *_Nullable error)) completionHandler;
+/**
  Retrieves the service client associated with the key. You need to call `+ registerS3TransferUtilityWithConfiguration:forKey:` before invoking this method.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
@@ -215,6 +371,8 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
  @return An instance of the service client.
  */
 + (instancetype)S3TransferUtilityForKey:(NSString *)key;
+
+
 
 /**
  Removes the service client associated with the key and release it.
