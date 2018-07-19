@@ -309,16 +309,26 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
  Dismiss ui, invoke completion and cleanup a getSession call.
  */
 - (void) completeGetSession: (nullable AWSCognitoAuthUserSession *) userSession  error:(nullable NSError *) error {
-    [self dismissSafariVC];
     if(error){
         self.getSessionError = error;
         [self.getSessionQueue cancelAllOperations];
     }
-    if(self.getSessionBlock){
-        self.getSessionBlock(userSession, error);
+    if(self.svc){
+        [self.svc dismissViewControllerAnimated:NO completion:^{
+            self.svc = nil;
+            [self cleanUpAndCallGetSessionBlock:userSession error:error];
+        }];
+    }else {
+        [self cleanUpAndCallGetSessionBlock:userSession error:error];
     }
-    
+}
+
+- (void) cleanUpAndCallGetSessionBlock: (nullable AWSCognitoAuthUserSession *) userSession  error:(nullable NSError *) error {
+    AWSCognitoAuthGetSessionBlock getSessionBlock = self.getSessionBlock;
     [self cleanupSignIn];
+    if(getSessionBlock){
+        getSessionBlock(userSession, error);
+    }
 }
 
 #pragma mark sign out
@@ -327,14 +337,25 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
  Dismiss ui, invoke completion and cleanup a signOut call.
  */
 - (void) completeSignOut:(nullable NSError *) error {
-    [self dismissSafariVC];
     if(error){
         self.signOutError = error;
         [self.signOutQueue cancelAllOperations];
     }
-    if(self.signOutBlock){
-        self.signOutBlock(error);
-        self.signOutBlock = nil;
+    if(self.svc){
+        [self.svc dismissViewControllerAnimated:NO completion:^{
+            self.svc = nil;
+            [self cleanUpAndCallSignOutBlock:error];
+        }];
+    } else {
+        [self cleanUpAndCallSignOutBlock:error];
+    }
+}
+
+- (void) cleanUpAndCallSignOutBlock:(nullable NSError *) error {
+    AWSCognitoAuthSignOutBlock signOutBlock = self.signOutBlock;
+    self.signOutBlock = nil;
+    if(signOutBlock){
+        signOutBlock(error);
     }
 }
 
@@ -578,20 +599,6 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         [request setValue:value forHTTPHeaderField:@"Authorization"];
     }
     [request setValue: [AWSCognitoAuth userAgent] forHTTPHeaderField:@"User-Agent"];
-}
-
-/**
- Dismiss and reap the safari view controller
- */
--(void) dismissSafariVC {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if(self.svc){
-            [self.svc dismissViewControllerAnimated:NO completion:^{
-                //clean up vc
-                self.svc = nil;
-            }];
-        }
-    });
 }
 
 #pragma mark NSURLConnection Delegate Methods
