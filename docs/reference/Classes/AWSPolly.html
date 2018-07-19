@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.24 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.25 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -90,13 +90,25 @@
 		
 		<option value="//api/name/getLexicon:completionHandler:">- getLexicon:completionHandler:</option>
 		
+		<option value="//api/name/getSpeechSynthesisTask:">- getSpeechSynthesisTask:</option>
+		
+		<option value="//api/name/getSpeechSynthesisTask:completionHandler:">- getSpeechSynthesisTask:completionHandler:</option>
+		
 		<option value="//api/name/listLexicons:">- listLexicons:</option>
 		
 		<option value="//api/name/listLexicons:completionHandler:">- listLexicons:completionHandler:</option>
 		
+		<option value="//api/name/listSpeechSynthesisTasks:">- listSpeechSynthesisTasks:</option>
+		
+		<option value="//api/name/listSpeechSynthesisTasks:completionHandler:">- listSpeechSynthesisTasks:completionHandler:</option>
+		
 		<option value="//api/name/putLexicon:">- putLexicon:</option>
 		
 		<option value="//api/name/putLexicon:completionHandler:">- putLexicon:completionHandler:</option>
+		
+		<option value="//api/name/startSpeechSynthesisTask:">- startSpeechSynthesisTask:</option>
+		
+		<option value="//api/name/startSpeechSynthesisTask:completionHandler:">- startSpeechSynthesisTask:completionHandler:</option>
 		
 		<option value="//api/name/synthesizeSpeech:">- synthesizeSpeech:</option>
 		
@@ -1003,6 +1015,146 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/getSpeechSynthesisTask:" title="getSpeechSynthesisTask:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSpeechSynthesisTask:">&ndash;&nbsp;getSpeechSynthesisTask:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>GetSpeechSynthesisTask</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSPollyGetSpeechSynthesisTaskOutput*&gt; *)getSpeechSynthesisTask:(AWSPollyGetSpeechSynthesisTaskInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetSpeechSynthesisTask service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSPollyGetSpeechSynthesisTaskOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorInvalidTaskId</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorSynthesisTaskNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPollyGetSpeechSynthesisTaskInput.html">AWSPollyGetSpeechSynthesisTaskInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPollyGetSpeechSynthesisTaskOutput.html">AWSPollyGetSpeechSynthesisTaskOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPollyService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSpeechSynthesisTask:completionHandler:" title="getSpeechSynthesisTask:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSpeechSynthesisTask:completionHandler:">&ndash;&nbsp;getSpeechSynthesisTask:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>GetSpeechSynthesisTask</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getSpeechSynthesisTask:(AWSPollyGetSpeechSynthesisTaskInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSPollyGetSpeechSynthesisTaskOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetSpeechSynthesisTask service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorInvalidTaskId</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorSynthesisTaskNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPollyGetSpeechSynthesisTaskInput.html">AWSPollyGetSpeechSynthesisTaskInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPollyGetSpeechSynthesisTaskOutput.html">AWSPollyGetSpeechSynthesisTaskOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPollyService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/listLexicons:" title="listLexicons:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/listLexicons:">&ndash;&nbsp;listLexicons:</a></code>
 </h3>
@@ -1130,6 +1282,146 @@
 					<li><code><p><a href="../Classes/AWSPollyListLexiconsInput.html">AWSPollyListLexiconsInput</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSPollyListLexiconsOutput.html">AWSPollyListLexiconsOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPollyService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listSpeechSynthesisTasks:" title="listSpeechSynthesisTasks:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listSpeechSynthesisTasks:">&ndash;&nbsp;listSpeechSynthesisTasks:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ListSpeechSynthesisTasks</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSPollyListSpeechSynthesisTasksOutput*&gt; *)listSpeechSynthesisTasks:(AWSPollyListSpeechSynthesisTasksInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListSpeechSynthesisTasks service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSPollyListSpeechSynthesisTasksOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorInvalidNextToken</code>, <code>AWSPollyErrorServiceFailure</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPollyListSpeechSynthesisTasksInput.html">AWSPollyListSpeechSynthesisTasksInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPollyListSpeechSynthesisTasksOutput.html">AWSPollyListSpeechSynthesisTasksOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPollyService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listSpeechSynthesisTasks:completionHandler:" title="listSpeechSynthesisTasks:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listSpeechSynthesisTasks:completionHandler:">&ndash;&nbsp;listSpeechSynthesisTasks:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>ListSpeechSynthesisTasks</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listSpeechSynthesisTasks:(AWSPollyListSpeechSynthesisTasksInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSPollyListSpeechSynthesisTasksOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListSpeechSynthesisTasks service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorInvalidNextToken</code>, <code>AWSPollyErrorServiceFailure</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPollyListSpeechSynthesisTasksInput.html">AWSPollyListSpeechSynthesisTasksInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPollyListSpeechSynthesisTasksOutput.html">AWSPollyListSpeechSynthesisTasksOutput</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -1278,6 +1570,146 @@
 					<li><code><p><a href="../Classes/AWSPollyPutLexiconInput.html">AWSPollyPutLexiconInput</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSPollyPutLexiconOutput.html">AWSPollyPutLexiconOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPollyService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startSpeechSynthesisTask:" title="startSpeechSynthesisTask:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startSpeechSynthesisTask:">&ndash;&nbsp;startSpeechSynthesisTask:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>StartSpeechSynthesisTask</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSPollyStartSpeechSynthesisTaskOutput*&gt; *)startSpeechSynthesisTask:(AWSPollyStartSpeechSynthesisTaskInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StartSpeechSynthesisTask service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSPollyStartSpeechSynthesisTaskOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidS3Bucket</code>, <code>AWSPollyErrorInvalidS3Key</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSnsTopicArn</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPollyStartSpeechSynthesisTaskInput.html">AWSPollyStartSpeechSynthesisTaskInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPollyStartSpeechSynthesisTaskOutput.html">AWSPollyStartSpeechSynthesisTaskOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPollyService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startSpeechSynthesisTask:completionHandler:" title="startSpeechSynthesisTask:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startSpeechSynthesisTask:completionHandler:">&ndash;&nbsp;startSpeechSynthesisTask:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>StartSpeechSynthesisTask</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)startSpeechSynthesisTask:(AWSPollyStartSpeechSynthesisTaskInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSPollyStartSpeechSynthesisTaskOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StartSpeechSynthesisTask service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidS3Bucket</code>, <code>AWSPollyErrorInvalidS3Key</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSnsTopicArn</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSPollyStartSpeechSynthesisTaskInput.html">AWSPollyStartSpeechSynthesisTaskInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSPollyStartSpeechSynthesisTaskOutput.html">AWSPollyStartSpeechSynthesisTaskOutput</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -1449,7 +1881,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-14</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-19</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

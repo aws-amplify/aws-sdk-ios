@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.24 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.25 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -68,11 +68,17 @@
 		
 		<option value="//api/name/defaultS3TransferUtility">+ defaultS3TransferUtility</option>
 		
+		<option value="//api/name/defaultS3TransferUtility:">+ defaultS3TransferUtility:</option>
+		
 		<option value="//api/name/interceptApplication:handleEventsForBackgroundURLSession:completionHandler:">+ interceptApplication:handleEventsForBackgroundURLSession:completionHandler:</option>
 		
 		<option value="//api/name/registerS3TransferUtilityWithConfiguration:forKey:">+ registerS3TransferUtilityWithConfiguration:forKey:</option>
 		
+		<option value="//api/name/registerS3TransferUtilityWithConfiguration:forKey:completionHandler:">+ registerS3TransferUtilityWithConfiguration:forKey:completionHandler:</option>
+		
 		<option value="//api/name/registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:">+ registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:</option>
+		
+		<option value="//api/name/registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:completionHandler:">+ registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:completionHandler:</option>
 		
 		<option value="//api/name/removeS3TransferUtilityForKey:">+ removeS3TransferUtilityForKey:</option>
 		
@@ -301,6 +307,108 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/defaultS3TransferUtility:" title="defaultS3TransferUtility:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultS3TransferUtility:">+&nbsp;defaultS3TransferUtility:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultS3TransferUtility:(nullable void ( ^ ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the TransferUtility finishes loading transfers from prior sessions.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<p>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: &ldquo;YourIdentityPoolId&rdquo;)
+let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+AWSServiceManager.default().defaultServiceConfiguration = configuration</p>
+
+<p>return true
+}</p>
+
+<p><em>Objective-C</em></p>
+
+<ul>
+<li>(BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions {
+AWSCognitoCredentialsProvider <em>credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+identityPoolId:@&ldquo;YourIdentityPoolId&rdquo;];
+AWSServiceConfiguration </em>configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+credentialsProvider:credentialsProvider];
+[AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;</li>
+</ul>
+
+
+<p>return YES;
+}</p>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<p>let S3TransferUtility = AWSS3TransferUtility.default() { (error) in</p>
+
+<p>}</p>
+
+<p><em>Objective-C</em></p>
+
+<p>AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility defaultS3TransferUtility:^(NSError * _Nullable error) {</p>
+
+<p>}];</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/registerS3TransferUtilityWithConfiguration:forKey:" title="registerS3TransferUtilityWithConfiguration:forKey:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/registerS3TransferUtilityWithConfiguration:forKey:">+&nbsp;registerS3TransferUtilityWithConfiguration:forKey:</a></code>
 </h3>
@@ -366,10 +474,13 @@
                                                                                                      identityPoolId:@"YourIdentityPoolId"];
      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                           credentialsProvider:credentialsProvider];
+</code></pre>
 
-     [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@"USWest2S3TransferUtility"];
+<p>[AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@&ldquo;USWest2S3TransferUtility&rdquo; completionHandler:^(NSError * _Nullable error) {</p>
 
-     return YES;
+<p>}];</p>
+
+<pre><code>     return YES;
  }
 </code></pre>
 
@@ -384,6 +495,114 @@
 
 <pre><code> AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@"USWest2S3TransferUtility"];
 </code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerS3TransferUtilityWithConfiguration:forKey:completionHandler:" title="registerS3TransferUtilityWithConfiguration:forKey:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerS3TransferUtilityWithConfiguration:forKey:completionHandler:">+&nbsp;registerS3TransferUtilityWithConfiguration:forKey:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em> completionHandler:(nullable void ( ^ ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the TransferUtility finishes loading transfers from prior sessions.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<p>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: &ldquo;YourIdentityPoolId&rdquo;)
+let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+AWSS3TransferUtility.register(with: configuration!, forKey: &ldquo;USWest2S3TransferUtility&rdquo;){ (error) in</p>
+
+<p>}</p>
+
+<p>return true
+}</p>
+
+<p><em>Objective-C</em></p>
+
+<ul>
+<li>(BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions {
+AWSCognitoCredentialsProvider <em>credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+identityPoolId:@&ldquo;YourIdentityPoolId&rdquo;];
+AWSServiceConfiguration </em>configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+credentialsProvider:credentialsProvider];</li>
+</ul>
+
+
+<p>[AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@&ldquo;USWest2S3TransferUtility&rdquo; completionHandler:^(NSError * _Nullable error) {</p>
+
+<p>}];</p>
+
+<p>return YES;
+}</p>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<p>let S3TransferUtility = AWSS3TransferUtility(forKey: &ldquo;USWest2S3TransferUtility&rdquo;)</p>
+
+<p><em>Objective-C</em></p>
+
+<p>AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@&ldquo;USWest2S3TransferUtility&rdquo;];</p><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
 			</div>
 			
 
@@ -458,8 +677,9 @@
 <pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
      let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
      let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-     AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: "USWest2S3TransferUtility")
+     AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: "USWest2S3TransferUtility") { (error) in
 
+     }
      return true
  }
 </code></pre>
@@ -489,6 +709,119 @@
 
 <pre><code> AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@"USWest2S3TransferUtility"];
 </code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3TransferUtility.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:completionHandler:" title="registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:completionHandler:">+&nbsp;registerS3TransferUtilityWithConfiguration:transferUtilityConfiguration:forKey:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> transferUtilityConfiguration:(nullable AWSS3TransferUtilityConfiguration *)<em>transferUtilityConfiguration</em> forKey:(NSString *)<em>key</em> completionHandler:(nullable void ( ^ ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>transferUtilityConfiguration</code></th>
+						<td><p>An S3 transfer utility configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the TransferUtility finishes loading transfers from prior sessions.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<p>func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: &ldquo;YourIdentityPoolId&rdquo;)
+let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: &ldquo;USWest2S3TransferUtility&rdquo;) { (error) in</p>
+
+<p>}</p>
+
+<p>return true
+}</p>
+
+<p><em>Objective-C</em></p>
+
+<ul>
+<li>(BOOL)application:(UIApplication <em>)application didFinishLaunchingWithOptions:(NSDictionary </em>)launchOptions {
+AWSCognitoCredentialsProvider <em>credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+identityPoolId:@&ldquo;YourIdentityPoolId&rdquo;];
+AWSServiceConfiguration </em>configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+credentialsProvider:credentialsProvider];</li>
+</ul>
+
+
+<p>[AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration transferUtilityConfiguration:nil forKey:@&ldquo;USWest2S3TransferUtility&rdquo; completionHandler:^(NSError * _Nullable error) {</p>
+
+<p>}];</p>
+
+<p>return YES;
+}</p>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<p>let S3TransferUtility = AWSS3TransferUtility(forKey: &ldquo;USWest2S3TransferUtility&rdquo;)</p>
+
+<p><em>Objective-C</em></p>
+
+<p>AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@&ldquo;USWest2S3TransferUtility&rdquo;];</p><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
 			</div>
 			
 
@@ -1962,7 +2295,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-14</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-19</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
