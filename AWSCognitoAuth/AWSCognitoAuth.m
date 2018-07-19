@@ -313,14 +313,10 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         self.getSessionError = error;
         [self.getSessionQueue cancelAllOperations];
     }
-    if(self.svc){
-        [self.svc dismissViewControllerAnimated:NO completion:^{
-            self.svc = nil;
-            [self cleanUpAndCallGetSessionBlock:userSession error:error];
-        }];
-    }else {
+    
+    [self dismissSafariVC: ^{
         [self cleanUpAndCallGetSessionBlock:userSession error:error];
-    }
+    }];
 }
 
 - (void) cleanUpAndCallGetSessionBlock: (nullable AWSCognitoAuthUserSession *) userSession  error:(nullable NSError *) error {
@@ -341,14 +337,10 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         self.signOutError = error;
         [self.signOutQueue cancelAllOperations];
     }
-    if(self.svc){
-        [self.svc dismissViewControllerAnimated:NO completion:^{
-            self.svc = nil;
-            [self cleanUpAndCallSignOutBlock:error];
-        }];
-    } else {
+    
+    [self dismissSafariVC: ^{
         [self cleanUpAndCallSignOutBlock:error];
-    }
+    }];
 }
 
 - (void) cleanUpAndCallSignOutBlock:(nullable NSError *) error {
@@ -599,6 +591,23 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         [request setValue:value forHTTPHeaderField:@"Authorization"];
     }
     [request setValue: [AWSCognitoAuth userAgent] forHTTPHeaderField:@"User-Agent"];
+}
+
+/**
+ Dismiss and reap the safari view controller
+ */
+-(void) dismissSafariVC: (void (^)(void)) dismissBlock {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(self.svc){
+            [self.svc dismissViewControllerAnimated:NO completion:^{
+                //clean up vc
+                self.svc = nil;
+                dismissBlock();
+            }];
+        }else {
+            dismissBlock();
+        }
+    });
 }
 
 #pragma mark NSURLConnection Delegate Methods
