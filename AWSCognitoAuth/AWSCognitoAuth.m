@@ -614,8 +614,16 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     else if(result[@"error"]){
         //refresh token has expired, switch to interactive auth
         if([@"invalid_grant" isEqualToString:result[@"error"]]){
-            [self launchSignInVC:self.pvc];
-            return;
+            if (![self.delegate respondsToSelector:@selector(shouldLaunchSignInVCIfRefreshTokenIsExpired)]) {
+                [self launchSignInVC:self.pvc];
+                return;
+            }else {
+                BOOL present = [self.delegate shouldLaunchSignInVCIfRefreshTokenIsExpired];
+                if (present) {
+                    [self launchSignInVC:self.pvc];
+                    return;
+                }
+            }
         }
         
         [self completeGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorUnknown]];

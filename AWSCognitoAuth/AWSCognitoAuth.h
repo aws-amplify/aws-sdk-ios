@@ -291,6 +291,12 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  Get view controller to display user authentication on top of.
  */
 - (UIViewController *) getViewController;
+
+@optional
+/**
+ If refresh token is expired, let the user decide if the signInVC should be presented or an error should be returned.
+ */
+- (BOOL) shouldLaunchSignInVCIfRefreshTokenIsExpired;
 @end
 
 
