@@ -126,6 +126,10 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  */
 - (void) signOut: (nullable AWSCognitoAuthSignOutBlock) completion;
 
+/**
+ Remove user session from keychain and clear last known username.
+ */
+-(void) signOutLocallyAndClearLastKnownUser;
 
 /**
  Method to handle app redirect.  Call from AppDelegate application:openURL:options
