@@ -20,6 +20,7 @@
 #import <CommonCrypto/CommonHMAC.h>
 
 NSString *const AWSCognitoAuthErrorDomain = @"com.amazon.cognito.AWSCognitoAuthErrorDomain";
+NSString *const AWSCognitoAuthSessionDidSaveNotification = @"com.amazon.cognito.AWSCognitoAuthSessionDidSaveNotification";
 
 @interface AWSCognitoAuth()<SFSafariViewControllerDelegate, NSURLConnectionDelegate>
 
@@ -626,6 +627,11 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         }else{
             [self updateUsernameAndPersistTokens:userSession];
             [self completeGetSession:userSession error:nil];
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                NSNotification *notification = [NSNotification notificationWithName:AWSCognitoAuthSessionDidSaveNotification object:userSession];
+                [[NSNotificationCenter defaultCenter] postNotification:notification];
+            }];
         }
     }
 }
