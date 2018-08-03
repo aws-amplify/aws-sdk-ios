@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.25 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.26 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -1026,7 +1026,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>GetSpeechSynthesisTask</p>
+				<p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.</p>
+
 			</div>
 			
 		    
@@ -1095,7 +1096,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>GetSpeechSynthesisTask</p>
+				<p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.</p>
+
 			</div>
 			
 		    
@@ -1308,7 +1310,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>ListSpeechSynthesisTasks</p>
+				<p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>
+
 			</div>
 			
 		    
@@ -1377,7 +1380,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>ListSpeechSynthesisTasks</p>
+				<p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>
+
 			</div>
 			
 		    
@@ -1596,7 +1600,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>StartSpeechSynthesisTask</p>
+				<p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.</p>
+
 			</div>
 			
 		    
@@ -1621,7 +1626,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSPollyStartSpeechSynthesisTaskOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidS3Bucket</code>, <code>AWSPollyErrorInvalidS3Key</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSnsTopicArn</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSPollyStartSpeechSynthesisTaskOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidS3Bucket</code>, <code>AWSPollyErrorInvalidS3Key</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSnsTopicArn</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>, <code>AWSPollyErrorLanguageNotSupported</code>.</p>
 			</div>
 			
 
@@ -1665,7 +1670,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>StartSpeechSynthesisTask</p>
+				<p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.</p>
+
 			</div>
 			
 		    
@@ -1687,7 +1693,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidS3Bucket</code>, <code>AWSPollyErrorInvalidS3Key</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSnsTopicArn</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidS3Bucket</code>, <code>AWSPollyErrorInvalidS3Key</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSnsTopicArn</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>, <code>AWSPollyErrorLanguageNotSupported</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -1762,7 +1768,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSPollySynthesizeSpeechOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSPollySynthesizeSpeechOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>, <code>AWSPollyErrorLanguageNotSupported</code>.</p>
 			</div>
 			
 
@@ -1829,7 +1835,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSPollyErrorDomain</code> domain and the following error code: <code>AWSPollyErrorTextLengthExceeded</code>, <code>AWSPollyErrorInvalidSampleRate</code>, <code>AWSPollyErrorInvalidSsml</code>, <code>AWSPollyErrorLexiconNotFound</code>, <code>AWSPollyErrorServiceFailure</code>, <code>AWSPollyErrorMarksNotSupportedForFormat</code>, <code>AWSPollyErrorSsmlMarksNotSupportedForTextType</code>, <code>AWSPollyErrorLanguageNotSupported</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -1881,7 +1887,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-19</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-02</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

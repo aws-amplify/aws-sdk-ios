@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.25 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.26 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -57,6 +57,8 @@
 	<optgroup label="Properties">
 		
 		<option value="//api/name/creationTime">creationTime</option>
+		
+		<option value="//api/name/languageCode">languageCode</option>
 		
 		<option value="//api/name/lexiconNames">lexiconNames</option>
 		
@@ -117,6 +119,13 @@
 
                     
 					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>SynthesisTask object that provides information about a speech synthesis task.</p>
+
+					</div>
+					
 					
 
 					
@@ -140,9 +149,59 @@
 		<div class="method-info-container">
 			
 			
+			<div class="method-subsection brief-description">
+				<p>Timestamp for the time the synthesis task was started.</p>
+
+			</div>
+			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDate *creationTime</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPollyModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/languageCode" title="languageCode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/languageCode">&nbsp;&nbsp;languageCode</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p>
+
+
+<p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href="https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSPollyLanguageCode languageCode</code></div>
 
 		    
 			
@@ -176,6 +235,11 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. </p>
+
+			</div>
 			
 		    
 
@@ -214,6 +278,11 @@
 		<div class="method-info-container">
 			
 			
+			<div class="method-subsection brief-description">
+				<p>The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>
+
+			</div>
+			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSPollyOutputFormat outputFormat</code></div>
@@ -250,6 +319,11 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Pathway for the output speech file.</p>
+
+			</div>
 			
 		    
 
@@ -288,6 +362,11 @@
 		<div class="method-info-container">
 			
 			
+			<div class="method-subsection brief-description">
+				<p>Number of billable characters synthesized.</p>
+
+			</div>
+			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *requestCharacters</code></div>
@@ -324,6 +403,17 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The audio frequency specified in Hz.</p>
+
+
+<p>The valid values for mp3 and ogg_vorbis are "8000", "16000", and "22050". The default value is "22050".</p>
+
+
+<p>Valid values for pcm are "8000" and "16000" The default value is "16000". </p>
+
+			</div>
 			
 		    
 
@@ -362,6 +452,11 @@
 		<div class="method-info-container">
 			
 			
+			<div class="method-subsection brief-description">
+				<p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>
+
+			</div>
+			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *snsTopicArn</code></div>
@@ -398,6 +493,11 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The type of speech marks returned for the input text.</p>
+
+			</div>
 			
 		    
 
@@ -436,6 +536,11 @@
 		<div class="method-info-container">
 			
 			
+			<div class="method-subsection brief-description">
+				<p>The Amazon Polly generated identifier for a speech synthesis task.</p>
+
+			</div>
+			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *taskId</code></div>
@@ -472,6 +577,11 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Current status of the individual speech synthesis task.</p>
+
+			</div>
 			
 		    
 
@@ -510,6 +620,11 @@
 		<div class="method-info-container">
 			
 			
+			<div class="method-subsection brief-description">
+				<p>Reason for the current status of a specific speech synthesis task, including errors if the task has failed.</p>
+
+			</div>
+			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *taskStatusReason</code></div>
@@ -547,6 +662,11 @@
 		<div class="method-info-container">
 			
 			
+			<div class="method-subsection brief-description">
+				<p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>
+
+			</div>
+			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, assign) AWSPollyTextType textType</code></div>
@@ -583,6 +703,11 @@
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Voice ID to use for the synthesis. </p>
+
+			</div>
 			
 		    
 
@@ -625,7 +750,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-19</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-02</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

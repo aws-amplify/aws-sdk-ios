@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.25 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.26 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -731,7 +731,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
 			</div>
 			
 
@@ -795,7 +795,7 @@
 					<tr>
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -1552,7 +1552,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Updates an existing vocabulary with new values.</p>
+				<p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request.</p>
 
 			</div>
 			
@@ -1578,7 +1578,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSTranscribeUpdateVocabularyResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorNotFound</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSTranscribeUpdateVocabularyResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorConflict</code>.</p>
 			</div>
 			
 
@@ -1622,7 +1622,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Updates an existing vocabulary with new values.</p>
+				<p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request.</p>
 
 			</div>
 			
@@ -1645,7 +1645,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorNotFound</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSTranscribeErrorDomain</code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorConflict</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -1697,7 +1697,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-19</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-02</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

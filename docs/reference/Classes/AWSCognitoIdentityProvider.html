@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.25 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.26 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -1350,11 +1350,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new user in the specified user pool and sends a welcome message via email or phone (SMS). This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p>
+				<p>Creates a new user in the specified user pool.</p>
 
 
-<p>Requires developer credentials.</p>
+<p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p>
 
+
+<p><note><p>This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p></note><p>Alternatively, you can call AdminCreateUser with “SUPPRESS” for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p><p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p><p>AdminCreateUser requires developer credentials.</p></p>
 			</div>
 			
 		    
@@ -1423,11 +1425,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new user in the specified user pool and sends a welcome message via email or phone (SMS). This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p>
+				<p>Creates a new user in the specified user pool.</p>
 
 
-<p>Requires developer credentials.</p>
+<p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p>
 
+
+<p><note><p>This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p></note><p>Alternatively, you can call AdminCreateUser with “SUPPRESS” for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p><p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p><p>AdminCreateUser requires developer credentials.</p></p>
 			</div>
 			
 		    
@@ -3292,7 +3296,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>AdminListUserAuthEvents</p>
+				<p>Lists a history of user activity and any risks detected as part of Amazon Cognito advanced security.</p>
+
 			</div>
 			
 		    
@@ -3361,7 +3366,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>AdminListUserAuthEvents</p>
+				<p>Lists a history of user activity and any risks detected as part of Amazon Cognito advanced security.</p>
+
 			</div>
 			
 		    
@@ -3877,7 +3883,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>AdminSetUserMFAPreference</p>
+				<p>Sets the user's multi-factor authentication (MFA) preference.</p>
+
 			</div>
 			
 		    
@@ -3946,7 +3953,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>AdminSetUserMFAPreference</p>
+				<p>Sets the user's multi-factor authentication (MFA) preference.</p>
+
 			</div>
 			
 		    
@@ -4165,7 +4173,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>AdminUpdateAuthEventFeedback</p>
+				<p>Provides feedback for an authentication event as to whether it was from a valid user. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.</p>
+
 			</div>
 			
 		    
@@ -4234,7 +4243,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>AdminUpdateAuthEventFeedback</p>
+				<p>Provides feedback for an authentication event as to whether it was from a valid user. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.</p>
+
 			</div>
 			
 		    
@@ -4761,7 +4771,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>AssociateSoftwareToken</p>
+				<p>Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.</p>
+
 			</div>
 			
 		    
@@ -4830,7 +4841,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>AssociateSoftwareToken</p>
+				<p>Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.</p>
+
 			</div>
 			
 		    
@@ -7865,7 +7877,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>DescribeRiskConfiguration</p>
+				<p>Describes the risk configuration.</p>
+
 			</div>
 			
 		    
@@ -7934,7 +7947,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>DescribeRiskConfiguration</p>
+				<p>Describes the risk configuration.</p>
+
 			</div>
 			
 		    
@@ -9426,7 +9440,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>GetSigningCertificate</p>
+				<p>This method takes a user pool ID, and returns the signing certificate.</p>
+
 			</div>
 			
 		    
@@ -9495,7 +9510,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>GetSigningCertificate</p>
+				<p>This method takes a user pool ID, and returns the signing certificate.</p>
+
 			</div>
 			
 		    
@@ -9992,7 +10008,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>GetUserPoolMfaConfig</p>
+				<p>Gets the user pool multi-factor authentication (MFA) configuration.</p>
+
 			</div>
 			
 		    
@@ -10061,7 +10078,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>GetUserPoolMfaConfig</p>
+				<p>Gets the user pool multi-factor authentication (MFA) configuration.</p>
+
 			</div>
 			
 		    
@@ -11990,7 +12008,14 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>SetRiskConfiguration</p>
+				<p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p>
+
+
+<p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p>
+
+
+<p>See .</p>
+
 			</div>
 			
 		    
@@ -12059,7 +12084,14 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>SetRiskConfiguration</p>
+				<p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p>
+
+
+<p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p>
+
+
+<p>See .</p>
+
 			</div>
 			
 		    
@@ -12282,7 +12314,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>SetUserMFAPreference</p>
+				<p>Set the user's multi-factor authentication (MFA) method preference.</p>
+
 			</div>
 			
 		    
@@ -12351,7 +12384,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>SetUserMFAPreference</p>
+				<p>Set the user's multi-factor authentication (MFA) method preference.</p>
+
 			</div>
 			
 		    
@@ -12422,7 +12456,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>SetUserPoolMfaConfig</p>
+				<p>Set the user pool MFA configuration.</p>
+
 			</div>
 			
 		    
@@ -12491,7 +12526,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>SetUserPoolMfaConfig</p>
+				<p>Set the user pool MFA configuration.</p>
+
 			</div>
 			
 		    
@@ -13130,7 +13166,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>UpdateAuthEventFeedback</p>
+				<p>Provides the feedback for an authentication event whether it was from a valid user or not. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.</p>
+
 			</div>
 			
 		    
@@ -13199,7 +13236,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>UpdateAuthEventFeedback</p>
+				<p>Provides the feedback for an authentication event whether it was from a valid user or not. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.</p>
+
 			</div>
 			
 		    
@@ -14270,7 +14308,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>VerifySoftwareToken</p>
+				<p>Use this API to register a user's entered TOTP code and mark the user's software token MFA status as "verified" if successful. The request takes an access token or a session string, but not both.</p>
+
 			</div>
 			
 		    
@@ -14339,7 +14378,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>VerifySoftwareToken</p>
+				<p>Use this API to register a user's entered TOTP code and mark the user's software token MFA status as "verified" if successful. The request takes an access token or a session string, but not both.</p>
+
 			</div>
 			
 		    
@@ -14555,7 +14595,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-07-19</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-02</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
