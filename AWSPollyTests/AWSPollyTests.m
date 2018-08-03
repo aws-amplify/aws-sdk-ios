@@ -212,6 +212,54 @@ static NSDictionary<NSString *,NSString *> *lexicons;
     sleep(5);
 }
 
+- (void)testPresignedGetUrlWithLanguageCode {
+    AWSPollySynthesizeSpeechURLBuilderRequest *request = [[AWSPollySynthesizeSpeechURLBuilderRequest alloc]init];
+    [request setText:@"नमस्ते आप कैसे हैं"];
+    [request setOutputFormat:AWSPollyOutputFormatMp3];
+    [request setVoiceId:AWSPollyVoiceIdAditi];
+    [request setLanguageCode:AWSPollyLanguageCodeHiIN];
+    [request setExpires:[NSDate dateWithTimeIntervalSinceNow:10*60]];
+    
+    AWSPollySynthesizeSpeechURLBuilder *builder = [AWSPollySynthesizeSpeechURLBuilder defaultPollySynthesizeSpeechURLBuilder];
+    __block NSString *filePath;
+    
+    [[[[builder getPreSignedURL:request] continueWithBlock:^id _Nullable(AWSTask<NSURL *> * _Nonnull task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        NSLog(@"Presigned URL: \n%@\n", task.result);
+        return task;
+    }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:task.result];
+        request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
+        
+        dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+        [[[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            XCTAssertNil(error, @"response contains error:%@,\n presigned URL is:%@",error,((NSURL *)task.result).absoluteString);
+            
+            if (((NSHTTPURLResponse *)response).statusCode < 200 || ((NSHTTPURLResponse *)response).statusCode >=300) {
+                XCTFail(@"response status Code is :%ld",(long)((NSHTTPURLResponse *)response).statusCode);
+                NSLog(@"response data is:\n%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+            }
+            filePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"myfile-presigned.mp3"];
+            NSLog(@"filepath = %@", filePath);
+            [data writeToFile:filePath atomically:YES];
+            
+            dispatch_semaphore_signal(semaphore);
+        }] resume];
+        
+        XCTAssertEqual(dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, 100 * NSEC_PER_SEC)), 0);
+        
+        return nil;
+    }] waitUntilFinished];
+    
+    // Plays the audio retrieved from Polly.
+    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL: [[NSURL alloc] initFileURLWithPath:filePath] error:nil];
+    [player setVolume:1.0];
+    [player play];
+    // Add sleep to finish playback.
+    sleep(5);
+}
+
 - (void)testPresignedURLGetWithSpeechMarks {
     AWSPollySynthesizeSpeechURLBuilderRequest *request = [[AWSPollySynthesizeSpeechURLBuilderRequest alloc]init];
     [request setText:@"Hello World!"];

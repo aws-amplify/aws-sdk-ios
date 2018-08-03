@@ -46,6 +46,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 @interface AWSPinpointEventRecorderTests : XCTestCase
 @property (nonatomic, strong) AWSPinpoint *pinpoint;
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSString *appId;
 
 @end
 
@@ -87,8 +88,8 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
     NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                     options:NSJSONReadingMutableContainers
                                                                       error:nil];
-    
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:credentialsJson[@"pinpointAppId"] launchOptions:@{}];
+    self.appId = credentialsJson[@"pinpointAppId"];
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId launchOptions:@{}];
     
     config.userDefaults = self.userDefaults;
     
@@ -427,7 +428,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"testFullEventCycle"]
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
@@ -506,7 +507,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 - (void)testFullEventCycleWithEndpointUpdate {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"testFullEventCycleWithEndpointUpdate"]
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
@@ -1126,7 +1127,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 - (void) validateMultipleEventsWithOneBatchWithSingleSubmitCall:(int) numberOfEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithOneBatchWithSingleSubmitCall%d", numberOfEvents]
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
@@ -1228,7 +1229,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 - (void) validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread:(int) numberOfEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromSingleThread%d", numberOfEvents]
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
@@ -1332,7 +1333,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 - (void) validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads:(int) numberOfEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
 
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithOneBatchWithMultipleSubmitCallsFromMultipleThreads%d", numberOfEvents]
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
@@ -1490,7 +1491,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 - (void) validateMultipleEventsWithMultipleBatchesWithSingleSubmitCall:(int) numberOfEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithMultipleBatchesWithSingleSubmitCall%d", numberOfEvents]
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
@@ -1596,7 +1597,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 - (void) validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCalls:(int) numberOfEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCalls%d", numberOfEvents]
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
@@ -1704,7 +1705,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 - (void) validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads:(int) numberOfEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads%d", numberOfEvents]
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
@@ -1867,7 +1868,7 @@ NSUInteger const AWSPinpointClientInvalidEvent = 1;
 - (void) validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreadsThenRecordMoreEventsAndSubmitAgain:(int) numberOfEvents {
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:[NSString stringWithFormat:@"validateMultipleEventsWithMultipleBatchesWithMultipleSubmitCallsMultipleThreads%d", numberOfEvents]
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];

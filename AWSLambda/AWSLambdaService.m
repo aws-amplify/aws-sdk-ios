@@ -27,7 +27,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-static NSString *const AWSLambdaSDKVersion = @"2.6.25";
+static NSString *const AWSLambdaSDKVersion = @"2.6.26";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -60,6 +60,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"PreconditionFailedException" : @(AWSLambdaErrorPreconditionFailed),
                             @"RequestTooLargeException" : @(AWSLambdaErrorRequestTooLarge),
                             @"ResourceConflictException" : @(AWSLambdaErrorResourceConflict),
+                            @"ResourceInUseException" : @(AWSLambdaErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSLambdaErrorResourceNotFound),
                             @"ServiceException" : @(AWSLambdaErrorService),
                             @"SubnetIPAddressLimitReachedException" : @(AWSLambdaErrorSubnetIPAddressLimitReached),

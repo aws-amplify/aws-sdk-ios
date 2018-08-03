@@ -1,6 +1,41 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.26
+
+### New Features
+
+* **Amazon Polly**
+  * Amazon Polly enables female voice Aditi to speak Hindi language
+
+### Enhancements
+
+* **AWS IoT**
+  * Refactored MQTTClient to address namespace conflict. See [issue#961](https://github.com/aws/aws-sdk-ios/issues/961)
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Cognito Identity
+  * Amazon Cognito Identity Provider
+  * Amazon DynamoDB
+  * Amazon EC2
+  * AWS Lambda
+  * Amazon Polly
+  * Amazon Rekognition
+  * Amazon Transcribe
+
+### Bug Fixes
+
+* **AWS IoT**
+  * Fixed reconnection logic for the case where the connection is closed by the Server. See [issue#1002](https://github.com/aws/aws-sdk-ios/issues/1002)
+
+* **Amazon Pinpoint**
+  * Fixed bug that demographic information in endpoint profile never gets updated after initialization. Demographic information now is updated with values in the main bundle whenever currentEndpoint is called.
+
+* **Amazon S3**
+  * Fixed bug in MultiPart transfer utility progress tracking. See [issue#759](https://github.com/aws/aws-sdk-ios/issues/759)
+
 ## 2.6.25
 
 ### Enhancements

@@ -200,6 +200,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderIdentityProviderTypeType) {
     AWSCognitoIdentityProviderIdentityProviderTypeTypeFacebook,
     AWSCognitoIdentityProviderIdentityProviderTypeTypeGoogle,
     AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon,
+    AWSCognitoIdentityProviderIdentityProviderTypeTypeOidc,
 };
 
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderMessageActionType) {
@@ -520,59 +521,61 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderVerifyUserAttributeResponse;
 
 /**
- 
+ <p>Account takeover action type.</p>
+ Required parameters: [Notify, EventAction]
  */
 @interface AWSCognitoIdentityProviderAccountTakeoverActionType : AWSModel
 
 
 /**
- 
+ <p>The event action.</p><ul><li><p><code>BLOCK</code> Choosing this action will block the request.</p></li><li><p><code>MFA_IF_CONFIGURED</code> Throw MFA challenge if user has configured it, else allow the request.</p></li><li><p><code>MFA_REQUIRED</code> Throw MFA challenge if user has configured it, else block the request.</p></li><li><p><code>NO_ACTION</code> Allow the user sign-in.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderAccountTakeoverEventActionType eventAction;
 
 /**
- 
+ <p>Flag specifying whether to send a notification.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable notify;
 
 @end
 
 /**
- 
+ <p>Account takeover actions type.</p>
  */
 @interface AWSCognitoIdentityProviderAccountTakeoverActionsType : AWSModel
 
 
 /**
- 
+ <p>Action to take for a high risk.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType * _Nullable highAction;
 
 /**
- 
+ <p>Action to take for a low risk.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType * _Nullable lowAction;
 
 /**
- 
+ <p>Action to take for a medium risk.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType * _Nullable mediumAction;
 
 @end
 
 /**
- 
+ <p>Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.</p>
+ Required parameters: [Actions]
  */
 @interface AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType : AWSModel
 
 
 /**
- 
+ <p>Account takeover risk configuration actions</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionsType * _Nullable actions;
 
 /**
- 
+ <p>The notify configuration used to construct email notifications.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderNotifyConfigurationType * _Nullable notifyConfiguration;
 
@@ -970,7 +973,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderMFAOptionType *> * _Nullable MFAOptions;
 
 /**
- 
+ <p>The user's preferred MFA setting.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable preferredMfaSetting;
 
@@ -990,7 +993,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDate * _Nullable userLastModifiedDate;
 
 /**
- 
+ <p>The list of the user's MFA settings.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable userMFASettingList;
 
@@ -1019,12 +1022,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
 
 /**
- <p>The authentication flow for this call to execute. The API action will depend on this value. For example:</p><ul><li><p><code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p></li><li><p><code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p></li></ul><p>Valid values include:</p><ul><li><p><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p></li><li><p><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p></li><li><p><code>CUSTOM_AUTH</code>: Custom authentication flow.</p></li><li><p><code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</p></li></ul>
+ <p>The authentication flow for this call to execute. The API action will depend on this value. For example:</p><ul><li><p><code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p></li><li><p><code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p></li><li><p><code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code> and return the next challenge or tokens.</p></li></ul><p>Valid values include:</p><ul><li><p><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p></li><li><p><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p></li><li><p><code>CUSTOM_AUTH</code>: Custom authentication flow.</p></li><li><p><code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</p></li><li><p><code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool. </p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderAuthFlowType authFlow;
 
 /**
- <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p><ul><li><p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code></p></li><li><p>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>PASSWORD</code> (required), <code>DEVICE_KEY</code></p></li><li><p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code></p></li></ul>
+ <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p><ul><li><p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>PASSWORD</code> (required), <code>DEVICE_KEY</code></p></li><li><p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code></p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable authParameters;
 
@@ -1039,7 +1042,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderContextDataType * _Nullable contextData;
 
@@ -1062,12 +1065,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
 
 /**
- <p>The name of the challenge which you are responding to with this call. This is returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge.</p><ul><li><p><code>SMS_MFA</code>: Next challenge is to supply an <code>SMS_MFA_CODE</code>, delivered via SMS.</p></li><li><p><code>PASSWORD_VERIFIER</code>: Next challenge is to supply <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after the client-side SRP calculations.</p></li><li><p><code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p></li><li><p><code>DEVICE_SRP_AUTH</code>: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.</p></li><li><p><code>DEVICE_PASSWORD_VERIFIER</code>: Similar to <code>PASSWORD_VERIFIER</code>, but for devices only.</p></li><li><p><code>ADMIN_NO_SRP_AUTH</code>: This is returned if you need to authenticate with <code>USERNAME</code> and <code>PASSWORD</code> directly. An app client must be enabled to use this flow.</p></li><li><p><code>NEW_PASSWORD_REQUIRED</code>: For users which are required to change their passwords after successful first login. This challenge should be passed with <code>NEW_PASSWORD</code> and any other required attributes.</p></li></ul>
+ <p>The name of the challenge which you are responding to with this call. This is returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge.</p><ul><li><p><code>MFA_SETUP</code>: If MFA is required, users who do not have at least one of the MFA methods set up are presented with an <code>MFA_SETUP</code> challenge. The user must set up at least one MFA type to continue to authenticate.</p></li><li><p><code>SELECT_MFA_TYPE</code>: Selects the MFA type. Valid MFA options are <code>SMS_MFA</code> for text SMS MFA, and <code>SOFTWARE_TOKEN_MFA</code> for TOTP software token MFA.</p></li><li><p><code>SMS_MFA</code>: Next challenge is to supply an <code>SMS_MFA_CODE</code>, delivered via SMS.</p></li><li><p><code>PASSWORD_VERIFIER</code>: Next challenge is to supply <code>PASSWORD_CLAIM_SIGNATURE</code>, <code>PASSWORD_CLAIM_SECRET_BLOCK</code>, and <code>TIMESTAMP</code> after the client-side SRP calculations.</p></li><li><p><code>CUSTOM_CHALLENGE</code>: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.</p></li><li><p><code>DEVICE_SRP_AUTH</code>: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.</p></li><li><p><code>DEVICE_PASSWORD_VERIFIER</code>: Similar to <code>PASSWORD_VERIFIER</code>, but for devices only.</p></li><li><p><code>ADMIN_NO_SRP_AUTH</code>: This is returned if you need to authenticate with <code>USERNAME</code> and <code>PASSWORD</code> directly. An app client must be enabled to use this flow.</p></li><li><p><code>NEW_PASSWORD_REQUIRED</code>: For users which are required to change their passwords after successful first login. This challenge should be passed with <code>NEW_PASSWORD</code> and any other required attributes.</p></li></ul>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
 /**
- <p>The challenge parameters. These are returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>AdminRespondToAuthChallenge</code>).</p><p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p><p>The value of the <code>USER_IF_FOR_SRP</code> attribute will be the user's actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to <code>AdminInitiateAuth</code>. This is because, in the <code>AdminRespondToAuthChallenge</code> API <code>ChallengeResponses</code>, the <code>USERNAME</code> attribute cannot be an alias.</p>
+ <p>The challenge parameters. These are returned to you in the <code>AdminInitiateAuth</code> response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (<code>AdminRespondToAuthChallenge</code>).</p><p>All challenges require <code>USERNAME</code> and <code>SECRET_HASH</code> (if applicable).</p><p>The value of the <code>USER_ID_FOR_SRP</code> attribute will be the user's actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to <code>AdminInitiateAuth</code>. This is because, in the <code>AdminRespondToAuthChallenge</code> API <code>ChallengeResponses</code>, the <code>USERNAME</code> attribute cannot be an alias.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
 
@@ -1209,22 +1212,22 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The maximum number of authentication events to return.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- 
+ <p>A pagination token.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- 
+ <p>The user pool ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- 
+ <p>The user pool username or an alias.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1237,12 +1240,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The response object. It includes the <code>EventID</code>, <code>EventType</code>, <code>CreationDate</code>, <code>EventRisk</code>, and <code>EventResponse</code>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAuthEventType *> * _Nullable authEvents;
 
 /**
- 
+ <p>A pagination token.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1326,7 +1329,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderContextDataType * _Nullable contextData;
 
@@ -1377,22 +1380,22 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The SMS text message MFA settings.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSMSMfaSettingsType * _Nullable SMSMfaSettings;
 
 /**
- 
+ <p>The time-based one-time password software token MFA settings.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType * _Nullable softwareTokenMfaSettings;
 
 /**
- 
+ <p>The user pool ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- 
+ <p>The user pool username or alias.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1445,22 +1448,22 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The authentication event ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable eventId;
 
 /**
- 
+ <p>The authentication event feedback value.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderFeedbackValueType feedbackValue;
 
 /**
- 
+ <p>The user pool ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- 
+ <p>The user pool username.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -1619,12 +1622,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The access token.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable accessToken;
 
 /**
- 
+ <p>The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
@@ -1637,12 +1640,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>A unique generated shared secret code that is used in the TOTP algorithm to generate a one time code.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable secretCode;
 
 /**
- 
+ <p>The session which should be passed both ways in challenge-response calls to the service. This allows authentication of the user as part of the MFA setup process.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
@@ -1668,48 +1671,48 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>The authentication event type.</p>
  */
 @interface AWSCognitoIdentityProviderAuthEventType : AWSModel
 
 
 /**
- 
+ <p>The challenge responses.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderChallengeResponseType *> * _Nullable challengeResponses;
 
 /**
- 
+ <p>The creation date</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
 /**
- 
+ <p>The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderEventContextDataType * _Nullable eventContextData;
 
 /**
- 
+ <p>A flag specifying the user feedback captured at the time of an event request is good or bad. </p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderEventFeedbackType * _Nullable eventFeedback;
 
 /**
- 
+ <p>The event ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable eventId;
 
 /**
- 
+ <p>The event response.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderEventResponseType eventResponse;
 
 /**
- 
+ <p>The event risk.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderEventRiskType * _Nullable eventRisk;
 
 /**
- 
+ <p>The event type.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderEventType eventType;
 
@@ -1727,7 +1730,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable accessToken;
 
 /**
- <p>The expiration period of the authentication result.</p>
+ <p>The expiration period of the authentication result in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable expiresIn;
 
@@ -1754,18 +1757,18 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>The challenge response type.</p>
  */
 @interface AWSCognitoIdentityProviderChallengeResponseType : AWSModel
 
 
 /**
- 
+ <p>The challenge name</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeName challengeName;
 
 /**
- 
+ <p>The challenge response.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeResponse challengeResponse;
 
@@ -1827,31 +1830,33 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>The compromised credentials actions type</p>
+ Required parameters: [EventAction]
  */
 @interface AWSCognitoIdentityProviderCompromisedCredentialsActionsType : AWSModel
 
 
 /**
- 
+ <p>The event action.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderCompromisedCredentialsEventActionType eventAction;
 
 @end
 
 /**
- 
+ <p>The compromised credentials risk configuration type.</p>
+ Required parameters: [Actions]
  */
 @interface AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType : AWSModel
 
 
 /**
- 
+ <p>The compromised credentials risk configuration actions.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderCompromisedCredentialsActionsType * _Nullable actions;
 
 /**
- 
+ <p>Perform the action for these events. The default is to perform all events if no event filter is specified.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable eventFilter;
 
@@ -1932,7 +1937,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable secretHash;
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -1984,7 +1989,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable secretHash;
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -2004,33 +2009,34 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>Contextual user data type used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
+ Required parameters: [IpAddress, ServerName, ServerPath, HttpHeaders]
  */
 @interface AWSCognitoIdentityProviderContextDataType : AWSModel
 
 
 /**
- 
+ <p>Encoded data containing device fingerprinting details, collected using the Amazon Cognito context data collection library.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable encodedData;
 
 /**
- 
+ <p>HttpHeaders received on your server in same order.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderHttpHeader *> * _Nullable httpHeaders;
 
 /**
- 
+ <p>Source IP address of your user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipAddress;
 
 /**
- 
+ <p>Your server endpoint where this API is invoked.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable serverName;
 
 /**
- 
+ <p>Your server path where this API is invoked. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable serverPath;
 
@@ -2239,7 +2245,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
 
 /**
- <p>A list of allowed callback URLs for the identity providers.</p>
+ <p>A list of allowed redirect (callback) URLs for the identity providers.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not use HTTP without TLS (i.e. use HTTPS instead of HTTP).</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable callbackURLs;
 
@@ -2249,7 +2255,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable clientName;
 
 /**
- <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
+ <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not use HTTP without TLS (i.e. use HTTPS instead of HTTP).</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable defaultRedirectURI;
 
@@ -2377,7 +2383,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable emailVerificationSubject;
 
 /**
- <p>The Lambda trigger configuration information for the new user pool.</p>
+ <p>The Lambda trigger configuration information for the new user pool.</p><note><p>In a push model, event sources (such as Amazon S3 and custom applications) need permission to invoke a function. So you will need to make an extra call to add permission for these event sources to invoke your Lambda function.</p><p/><p>For more information on using the Lambda API to add permission, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_AddPermission.html"> AddPermission </a>. </p><p>For adding permission using the AWS CLI, see <a href="https://docs.aws.amazon.com/cli/latest/reference/lambda/add-permission.html"> add-permission </a>.</p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderLambdaConfigType * _Nullable lambdaConfig;
 
@@ -2417,7 +2423,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable smsVerificationMessage;
 
 /**
- 
+ <p>Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value "AUDIT".</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolAddOnsType * _Nullable userPoolAddOns;
 
@@ -2674,12 +2680,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The app client ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- 
+ <p>The user pool ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
@@ -2692,7 +2698,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The risk configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderRiskConfigurationType * _Nullable riskConfiguration;
 
@@ -2934,7 +2940,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The REPLY-TO email address.</p>
+ <p>The destination to which the receiver of the email should reply to.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable replyToEmailAddress;
 
@@ -2946,74 +2952,75 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>Specifies the user context data captured at the time of an event request.</p>
  */
 @interface AWSCognitoIdentityProviderEventContextDataType : AWSModel
 
 
 /**
- 
+ <p>The user's city.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable city;
 
 /**
- 
+ <p>The user's country.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable country;
 
 /**
- 
+ <p>The user's device name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deviceName;
 
 /**
- 
+ <p>The user's IP address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipAddress;
 
 /**
- 
+ <p>The user's time zone.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable timezone;
 
 @end
 
 /**
- 
+ <p>Specifies the event feedback type.</p>
+ Required parameters: [FeedbackValue, Provider]
  */
 @interface AWSCognitoIdentityProviderEventFeedbackType : AWSModel
 
 
 /**
- 
+ <p>The event feedback date.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable feedbackDate;
 
 /**
- 
+ <p>The event feedback value.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderFeedbackValueType feedbackValue;
 
 /**
- 
+ <p>The provider.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable provider;
 
 @end
 
 /**
- 
+ <p>The event risk type.</p>
  */
 @interface AWSCognitoIdentityProviderEventRiskType : AWSModel
 
 
 /**
- 
+ <p>The risk decision.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderRiskDecisionType riskDecision;
 
 /**
- 
+ <p>The risk level.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderRiskLevelType riskLevel;
 
@@ -3061,7 +3068,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable secretHash;
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -3213,26 +3220,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>Request to get a signing certificate from Cognito.</p>
+ Required parameters: [UserPoolId]
  */
 @interface AWSCognitoIdentityProviderGetSigningCertificateRequest : AWSRequest
 
 
 /**
- 
+ <p>The user pool ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 @end
 
 /**
- 
+ <p>Response from Cognito for a signing certificate request.</p>
  */
 @interface AWSCognitoIdentityProviderGetSigningCertificateResponse : AWSModel
 
 
 /**
- 
+ <p>The signing certificate.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable certificate;
 
@@ -3308,7 +3316,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The user pool ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
@@ -3321,17 +3329,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The multi-factor (MFA) configuration.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration;
 
 /**
- 
+ <p>The SMS text message multi-factor (MFA) configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSmsMfaConfigType * _Nullable smsMfaConfiguration;
 
 /**
- 
+ <p>The software token multi-factor (MFA) configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaConfigType * _Nullable softwareTokenMfaConfiguration;
 
@@ -3364,7 +3372,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderMFAOptionType *> * _Nullable MFAOptions;
 
 /**
- 
+ <p>The user's preferred MFA setting.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable preferredMfaSetting;
 
@@ -3374,7 +3382,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
 
 /**
- 
+ <p>The list of the user's MFA settings.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable userMFASettingList;
 
@@ -3451,18 +3459,18 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>The HTTP header.</p>
  */
 @interface AWSCognitoIdentityProviderHttpHeader : AWSModel
 
 
 /**
- 
+ <p>The header name</p>
  */
 @property (nonatomic, strong) NSString * _Nullable headerName;
 
 /**
- 
+ <p>The header value.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable headerValue;
 
@@ -3529,12 +3537,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
 
 /**
- <p>The authentication flow for this call to execute. The API action will depend on this value. For example: </p><ul><li><p><code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p></li><li><p><code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p></li></ul><p>Valid values include:</p><ul><li><p><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p></li><li><p><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p></li><li><p><code>CUSTOM_AUTH</code>: Custom authentication flow.</p></li></ul><p><code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>
+ <p>The authentication flow for this call to execute. The API action will depend on this value. For example: </p><ul><li><p><code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new tokens.</p></li><li><p><code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRP_A</code> and return the SRP variables to be used for next challenge execution.</p></li><li><p><code>USER_PASSWORD_AUTH</code> will take in <code>USERNAME</code> and <code>PASSWORD</code> and return the next challenge or tokens.</p></li></ul><p>Valid values include:</p><ul><li><p><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP) protocol.</p></li><li><p><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for refreshing the access token and ID token by supplying a valid refresh token.</p></li><li><p><code>CUSTOM_AUTH</code>: Custom authentication flow.</p></li><li><p><code>USER_PASSWORD_AUTH</code>: Non-SRP authentication flow; USERNAME and PASSWORD are passed directly. If a user migration Lambda trigger is set, this flow will invoke the user migration Lambda if the USERNAME is not found in the user pool. </p></li></ul><p><code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderAuthFlowType authFlow;
 
 /**
- <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p><ul><li><p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code></p></li><li><p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code></p></li></ul>
+ <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p><ul><li><p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code></p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable authParameters;
 
@@ -3549,7 +3557,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -3630,7 +3638,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable preTokenGeneration;
 
 /**
- 
+ <p>The user migration Lambda config type.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userMigration;
 
@@ -4085,61 +4093,63 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>The notify configuration type.</p>
+ Required parameters: [SourceArn]
  */
 @interface AWSCognitoIdentityProviderNotifyConfigurationType : AWSModel
 
 
 /**
- 
+ <p>Email template used when a detected risk event is blocked.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType * _Nullable blockEmail;
 
 /**
- 
+ <p>The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable from;
 
 /**
- 
+ <p>The MFA email template used when MFA is challenged as part of a detected risk.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType * _Nullable mfaEmail;
 
 /**
- 
+ <p>The email template used when a detected risk event is allowed.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType * _Nullable noActionEmail;
 
 /**
- 
+ <p>The destination to which the receiver of an email should reply to.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable replyTo;
 
 /**
- 
+ <p>The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the <code>From</code> parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceArn;
 
 @end
 
 /**
- 
+ <p>The notify email type.</p>
+ Required parameters: [Subject]
  */
 @interface AWSCognitoIdentityProviderNotifyEmailType : AWSModel
 
 
 /**
- 
+ <p>The HTML body.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable htmlBody;
 
 /**
- 
+ <p>The subject.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subject;
 
 /**
- 
+ <p>The text body.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable textBody;
 
@@ -4270,7 +4280,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable secretHash;
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -4374,7 +4384,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable session;
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -4409,74 +4419,74 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>The risk configuration type.</p>
  */
 @interface AWSCognitoIdentityProviderRiskConfigurationType : AWSModel
 
 
 /**
- 
+ <p>The account takeover risk configuration object including the <code>NotifyConfiguration</code> object and <code>Actions</code> to take in the case of an account takeover.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType * _Nullable accountTakeoverRiskConfiguration;
 
 /**
- 
+ <p>The app client ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- 
+ <p>The compromised credentials risk configuration object including the <code>EventFilter</code> and the <code>EventAction</code></p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType * _Nullable compromisedCredentialsRiskConfiguration;
 
 /**
- 
+ <p>The last modified date.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
 
 /**
- 
+ <p>The configuration to override the risk decision.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderRiskExceptionConfigurationType * _Nullable riskExceptionConfiguration;
 
 /**
- 
+ <p>The user pool ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 @end
 
 /**
- 
+ <p>The type of the configuration to override the risk decision.</p>
  */
 @interface AWSCognitoIdentityProviderRiskExceptionConfigurationType : AWSModel
 
 
 /**
- 
+ <p>Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable blockedIPRangeList;
 
 /**
- 
+ <p>Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable skippedIPRangeList;
 
 @end
 
 /**
- 
+ <p>The SMS multi-factor authentication (MFA) settings type.</p>
  */
 @interface AWSCognitoIdentityProviderSMSMfaSettingsType : AWSModel
 
 
 /**
- 
+ <p>Specifies whether SMS text message MFA is enabled.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- 
+ <p>The preferred MFA method.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable preferredMfa;
 
@@ -4499,7 +4509,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable developerOnlyAttribute;
 
 /**
- <p>Specifies whether the attribute can be changed once it has been created.</p>
+ <p>Specifies whether the value of the attribute can be changed.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable varying;
 
@@ -4532,27 +4542,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The account takeover risk configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType * _Nullable accountTakeoverRiskConfiguration;
 
 /**
- 
+ <p>The app client ID. If <code>ClientId</code> is null, then the risk configuration is mapped to <code>userPoolId</code>. When the client ID is null, the same risk configuration is applied to all the clients in the userPool.</p><p>Otherwise, <code>ClientId</code> is mapped to the client. When the client ID is not null, the user pool configuration is overridden and the risk configuration for the client is used instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientId;
 
 /**
- 
+ <p>The compromised credentials risk configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType * _Nullable compromisedCredentialsRiskConfiguration;
 
 /**
- 
+ <p>The configuration to override the risk decision.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderRiskExceptionConfigurationType * _Nullable riskExceptionConfiguration;
 
 /**
- 
+ <p>The user pool ID. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
@@ -4565,7 +4575,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The risk configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderRiskConfigurationType * _Nullable riskConfiguration;
 
@@ -4619,17 +4629,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The access token.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable accessToken;
 
 /**
- 
+ <p>The SMS text message multi-factor authentication (MFA) settings.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSMSMfaSettingsType * _Nullable SMSMfaSettings;
 
 /**
- 
+ <p>The time-based one-time password software token MFA settings.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType * _Nullable softwareTokenMfaSettings;
 
@@ -4650,22 +4660,22 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The MFA configuration.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration;
 
 /**
- 
+ <p>The SMS text message MFA configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSmsMfaConfigType * _Nullable smsMfaConfiguration;
 
 /**
- 
+ <p>The software token MFA configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaConfigType * _Nullable softwareTokenMfaConfiguration;
 
 /**
- 
+ <p>The user pool ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
@@ -4678,17 +4688,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The MFA configuration.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration;
 
 /**
- 
+ <p>The SMS text message MFA configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSmsMfaConfigType * _Nullable smsMfaConfiguration;
 
 /**
- 
+ <p>The software token MFA configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaConfigType * _Nullable softwareTokenMfaConfiguration;
 
@@ -4754,7 +4764,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType * _Nullable userContextData;
 
@@ -4814,49 +4824,49 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>The SMS text message multi-factor authentication (MFA) configuration type.</p>
  */
 @interface AWSCognitoIdentityProviderSmsMfaConfigType : AWSModel
 
 
 /**
- 
+ <p>The SMS authentication message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable smsAuthenticationMessage;
 
 /**
- <p>The SMS configuration type.</p>
+ <p>The SMS configuration.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderSmsConfigurationType * _Nullable smsConfiguration;
 
 @end
 
 /**
- 
+ <p>The type used for enabling software token MFA at the user pool level.</p>
  */
 @interface AWSCognitoIdentityProviderSoftwareTokenMfaConfigType : AWSModel
 
 
 /**
- 
+ <p>Specifies whether software token MFA is enabled.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 @end
 
 /**
- 
+ <p>The type used for enabling software token MFA at the user level.</p>
  */
 @interface AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType : AWSModel
 
 
 /**
- 
+ <p>Specifies whether software token MFA is enabled.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- 
+ <p>The preferred MFA method.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable preferredMfa;
 
@@ -4994,27 +5004,27 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The event ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable eventId;
 
 /**
- 
+ <p>The feedback token.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable feedbackToken;
 
 /**
- 
+ <p>The authentication event feedback value.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderFeedbackValueType feedbackValue;
 
 /**
- 
+ <p>The user pool ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userPoolId;
 
 /**
- 
+ <p>The user pool username.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
 
@@ -5253,7 +5263,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
 
 /**
- <p>A list of allowed callback URLs for the identity providers.</p>
+ <p>A list of allowed redirect (callback) URLs for the identity providers.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not use HTTP without TLS (i.e. use HTTPS instead of HTTP).</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable callbackURLs;
 
@@ -5268,7 +5278,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable clientName;
 
 /**
- <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
+ <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not use HTTP without TLS (i.e. use HTTPS instead of HTTP).</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable defaultRedirectURI;
 
@@ -5390,7 +5400,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable smsVerificationMessage;
 
 /**
- 
+ <p>Used to enable advanced security risk detection. Set the key <code>AdvancedSecurityMode</code> to the value "AUDIT".</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolAddOnsType * _Nullable userPoolAddOns;
 
@@ -5420,13 +5430,13 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @interface AWSCognitoIdentityProviderUserContextDataType : AWSModel
 
 
 /**
- 
+ <p>Contextual data such as the user's device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable encodedData;
 
@@ -5506,13 +5516,14 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- 
+ <p>The user pool add-ons type.</p>
+ Required parameters: [AdvancedSecurityMode]
  */
 @interface AWSCognitoIdentityProviderUserPoolAddOnsType : AWSModel
 
 
 /**
- 
+ <p>The advanced security mode.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderAdvancedSecurityModeType advancedSecurityMode;
 
@@ -5568,7 +5579,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
 
 /**
- <p>A list of allowed callback URLs for the identity providers.</p>
+ <p>A list of allowed redirect (callback) URLs for the identity providers.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not use HTTP without TLS (i.e. use HTTPS instead of HTTP).</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable callbackURLs;
 
@@ -5593,7 +5604,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
 /**
- <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p>
+ <p>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</p><p>A redirect URI must:</p><ul><li><p>Be an absolute URI.</p></li><li><p>Be registered with the authorization server.</p></li><li><p>Not use HTTP without TLS (i.e. use HTTPS instead of HTTP).</p></li><li><p>Not include a fragment component.</p></li></ul><p>See <a href="https://tools.ietf.org/html/rfc6749#section-3.1.2">OAuth 2.0 - Redirection Endpoint</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable defaultRedirectURI;
 
@@ -5707,6 +5718,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable aliasAttributes;
 
 /**
+ <p>The Amazon Resource Name (ARN) for the user pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
  <p>Specifies the attributes that are auto-verified in a user pool.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable autoVerifiedAttributes;
@@ -5722,7 +5738,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderDeviceConfigurationType * _Nullable deviceConfiguration;
 
 /**
- 
+ <p>Holds the domain prefix if the user pool has a domain associated with it.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable domain;
 
@@ -5757,7 +5773,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The AWS Lambda triggers associated with tue user pool.</p>
+ <p>The AWS Lambda triggers associated with the user pool.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderLambdaConfigType * _Nullable lambdaConfig;
 
@@ -5812,7 +5828,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, assign) AWSCognitoIdentityProviderStatusType status;
 
 /**
- 
+ <p>The user pool add-ons.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolAddOnsType * _Nullable userPoolAddOns;
 
@@ -5921,22 +5937,22 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The access token.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable accessToken;
 
 /**
- 
+ <p>The friendly device name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable friendlyDeviceName;
 
 /**
- 
+ <p>The session which should be passed both ways in challenge-response calls to the service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
 /**
- 
+ <p>The one time password computed using the secret code returned by </p>
  */
 @property (nonatomic, strong) NSString * _Nullable userCode;
 
@@ -5949,12 +5965,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- 
+ <p>The session which should be passed both ways in challenge-response calls to the service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
 /**
- 
+ <p>The status of the verify software token.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderVerifySoftwareTokenResponseType status;
 

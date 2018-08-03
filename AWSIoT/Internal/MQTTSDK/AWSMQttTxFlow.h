@@ -14,15 +14,15 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MQTTMessage.h"
+#import "AWSMQTTMessage.h"
 
-@interface MQttTxFlow : NSObject 
+@interface AWSMQttTxFlow : NSObject 
 
-+ (id)flowWithMsg:(MQTTMessage*)aMsg
++ (id)flowWithMsg:(AWSMQTTMessage*)aMsg
          deadline:(unsigned int)aDeadline;
-- (id)initWithMsg:(MQTTMessage*)aMsg deadline:(unsigned int)aDeadline;
+- (id)initWithMsg:(AWSMQTTMessage*)aMsg deadline:(unsigned int)aDeadline;
 
-@property (strong) MQTTMessage* msg;
+@property (strong) AWSMQTTMessage* msg;
 @property (assign) unsigned int deadline;
 
 @end

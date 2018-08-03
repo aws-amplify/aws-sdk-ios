@@ -14,38 +14,38 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MQTTMessage.h"
+#import "AWSMQTTMessage.h"
 
 typedef enum {
-    MQTTEncoderEventReady,
-    MQTTEncoderEventErrorOccurred
-} MQTTEncoderEvent;
+    AWSMQTTEncoderEventReady,
+    AWSMQTTEncoderEventErrorOccurred
+} AWSMQTTEncoderEvent;
 
 typedef enum {
-    MQTTEncoderStatusInitializing,
-    MQTTEncoderStatusReady,
-    MQTTEncoderStatusSending,
-    MQTTEncoderStatusEndEncountered,
-    MQTTEncoderStatusError
-} MQTTEncoderStatus;
+    AWSMQTTEncoderStatusInitializing,
+    AWSMQTTEncoderStatusReady,
+    AWSMQTTEncoderStatusSending,
+    AWSMQTTEncoderStatusEndEncountered,
+    AWSMQTTEncoderStatusError
+} AWSMQTTEncoderStatus;
 
 
-@class MQTTEncoder;
+@class AWSMQTTEncoder;
 
-@protocol MQTTEncoderDelegate
+@protocol AWSMQTTEncoderDelegate
 
-- (void)encoder:(MQTTEncoder*)sender handleEvent:(MQTTEncoderEvent)eventCode;
+- (void)encoder:(AWSMQTTEncoder*)sender handleEvent:(AWSMQTTEncoderEvent)eventCode;
 
 @end
 
-@interface MQTTEncoder : NSObject <NSStreamDelegate> 
+@interface AWSMQTTEncoder : NSObject <NSStreamDelegate> 
 
-@property (weak) id<MQTTEncoderDelegate> delegate;
-@property (assign) MQTTEncoderStatus status;
+@property (weak) id<AWSMQTTEncoderDelegate> delegate;
+@property (assign) AWSMQTTEncoderStatus status;
 
 - (id)initWithStream:(NSOutputStream*)aStream;
 
-- (void)encodeMessage:(MQTTMessage*)msg;
+- (void)encodeMessage:(AWSMQTTMessage*)msg;
 - (void)open;
 - (void)close;
 

@@ -13,16 +13,16 @@
 // permissions and limitations under the License.
 //
 
-#import "MQttTxFlow.h"
+#import "AWSMQttTxFlow.h"
 
-@implementation MQttTxFlow
+@implementation AWSMQttTxFlow
 
-+ (id)flowWithMsg:(MQTTMessage*)msg
++ (id)flowWithMsg:(AWSMQTTMessage*)msg
          deadline:(unsigned int)deadline {
-   return [[MQttTxFlow alloc] initWithMsg:msg deadline:deadline];
+   return [[AWSMQttTxFlow alloc] initWithMsg:msg deadline:deadline];
 }
 
-- (id)initWithMsg:(MQTTMessage*)aMsg
+- (id)initWithMsg:(AWSMQTTMessage*)aMsg
          deadline:(unsigned int)aDeadline {
    _msg = aMsg;
    _deadline = aDeadline;

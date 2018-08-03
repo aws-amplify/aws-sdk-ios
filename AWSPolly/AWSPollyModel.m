@@ -36,6 +36,7 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"includeAdditionalLanguageCodes" : @"IncludeAdditionalLanguageCodes",
              @"languageCode" : @"LanguageCode",
              @"nextToken" : @"NextToken",
              };
@@ -85,11 +86,14 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeItIT);
         }
-        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
-            return @(AWSPollyLanguageCodeKoKR);
-        }
         if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeKoKR);
         }
         if ([value caseInsensitiveCompare:@"nb-NO"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeNbNO);
@@ -149,10 +153,12 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"is-IS";
             case AWSPollyLanguageCodeItIT:
                 return @"it-IT";
-            case AWSPollyLanguageCodeKoKR:
-                return @"ko-KR";
             case AWSPollyLanguageCodeJaJP:
                 return @"ja-JP";
+            case AWSPollyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSPollyLanguageCodeKoKR:
+                return @"ko-KR";
             case AWSPollyLanguageCodeNbNO:
                 return @"nb-NO";
             case AWSPollyLanguageCodeNlNL:
@@ -315,11 +321,14 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeItIT);
         }
-        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
-            return @(AWSPollyLanguageCodeKoKR);
-        }
         if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeKoKR);
         }
         if ([value caseInsensitiveCompare:@"nb-NO"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeNbNO);
@@ -379,10 +388,12 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"is-IS";
             case AWSPollyLanguageCodeItIT:
                 return @"it-IT";
-            case AWSPollyLanguageCodeKoKR:
-                return @"ko-KR";
             case AWSPollyLanguageCodeJaJP:
                 return @"ja-JP";
+            case AWSPollyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSPollyLanguageCodeKoKR:
+                return @"ko-KR";
             case AWSPollyLanguageCodeNbNO:
                 return @"nb-NO";
             case AWSPollyLanguageCodeNlNL:
@@ -534,6 +545,7 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"languageCode" : @"LanguageCode",
              @"lexiconNames" : @"LexiconNames",
              @"outputFormat" : @"OutputFormat",
              @"outputS3BucketName" : @"OutputS3BucketName",
@@ -545,6 +557,147 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
              @"textType" : @"TextType",
              @"voiceId" : @"VoiceId",
              };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"cy-GB"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeCyGB);
+        }
+        if ([value caseInsensitiveCompare:@"da-DK"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeDaDK);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB-WLS"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnGBWLS);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"is-IS"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeIsIS);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"nb-NO"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeNbNO);
+        }
+        if ([value caseInsensitiveCompare:@"nl-NL"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeNlNL);
+        }
+        if ([value caseInsensitiveCompare:@"pl-PL"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodePlPL);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"ro-RO"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeRoRO);
+        }
+        if ([value caseInsensitiveCompare:@"ru-RU"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeRuRU);
+        }
+        if ([value caseInsensitiveCompare:@"sv-SE"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeSvSE);
+        }
+        if ([value caseInsensitiveCompare:@"tr-TR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeTrTR);
+        }
+        return @(AWSPollyLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyLanguageCodeCyGB:
+                return @"cy-GB";
+            case AWSPollyLanguageCodeDaDK:
+                return @"da-DK";
+            case AWSPollyLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSPollyLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSPollyLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSPollyLanguageCodeEnGBWLS:
+                return @"en-GB-WLS";
+            case AWSPollyLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSPollyLanguageCodeEnUS:
+                return @"en-US";
+            case AWSPollyLanguageCodeEsES:
+                return @"es-ES";
+            case AWSPollyLanguageCodeEsUS:
+                return @"es-US";
+            case AWSPollyLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSPollyLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSPollyLanguageCodeIsIS:
+                return @"is-IS";
+            case AWSPollyLanguageCodeItIT:
+                return @"it-IT";
+            case AWSPollyLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSPollyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSPollyLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSPollyLanguageCodeNbNO:
+                return @"nb-NO";
+            case AWSPollyLanguageCodeNlNL:
+                return @"nl-NL";
+            case AWSPollyLanguageCodePlPL:
+                return @"pl-PL";
+            case AWSPollyLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSPollyLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSPollyLanguageCodeRoRO:
+                return @"ro-RO";
+            case AWSPollyLanguageCodeRuRU:
+                return @"ru-RU";
+            case AWSPollyLanguageCodeSvSE:
+                return @"sv-SE";
+            case AWSPollyLanguageCodeTrTR:
+                return @"tr-TR";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)outputFormatJSONTransformer {
@@ -896,6 +1049,7 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"creationTime" : @"CreationTime",
+             @"languageCode" : @"LanguageCode",
              @"lexiconNames" : @"LexiconNames",
              @"outputFormat" : @"OutputFormat",
              @"outputUri" : @"OutputUri",
@@ -916,6 +1070,147 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"cy-GB"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeCyGB);
+        }
+        if ([value caseInsensitiveCompare:@"da-DK"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeDaDK);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB-WLS"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnGBWLS);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"is-IS"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeIsIS);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"nb-NO"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeNbNO);
+        }
+        if ([value caseInsensitiveCompare:@"nl-NL"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeNlNL);
+        }
+        if ([value caseInsensitiveCompare:@"pl-PL"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodePlPL);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"ro-RO"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeRoRO);
+        }
+        if ([value caseInsensitiveCompare:@"ru-RU"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeRuRU);
+        }
+        if ([value caseInsensitiveCompare:@"sv-SE"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeSvSE);
+        }
+        if ([value caseInsensitiveCompare:@"tr-TR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeTrTR);
+        }
+        return @(AWSPollyLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyLanguageCodeCyGB:
+                return @"cy-GB";
+            case AWSPollyLanguageCodeDaDK:
+                return @"da-DK";
+            case AWSPollyLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSPollyLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSPollyLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSPollyLanguageCodeEnGBWLS:
+                return @"en-GB-WLS";
+            case AWSPollyLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSPollyLanguageCodeEnUS:
+                return @"en-US";
+            case AWSPollyLanguageCodeEsES:
+                return @"es-ES";
+            case AWSPollyLanguageCodeEsUS:
+                return @"es-US";
+            case AWSPollyLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSPollyLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSPollyLanguageCodeIsIS:
+                return @"is-IS";
+            case AWSPollyLanguageCodeItIT:
+                return @"it-IT";
+            case AWSPollyLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSPollyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSPollyLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSPollyLanguageCodeNbNO:
+                return @"nb-NO";
+            case AWSPollyLanguageCodeNlNL:
+                return @"nl-NL";
+            case AWSPollyLanguageCodePlPL:
+                return @"pl-PL";
+            case AWSPollyLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSPollyLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSPollyLanguageCodeRoRO:
+                return @"ro-RO";
+            case AWSPollyLanguageCodeRuRU:
+                return @"ru-RU";
+            case AWSPollyLanguageCodeSvSE:
+                return @"sv-SE";
+            case AWSPollyLanguageCodeTrTR:
+                return @"tr-TR";
+            default:
+                return nil;
+        }
     }];
 }
 
@@ -1284,6 +1579,7 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"languageCode" : @"LanguageCode",
              @"lexiconNames" : @"LexiconNames",
              @"outputFormat" : @"OutputFormat",
              @"sampleRate" : @"SampleRate",
@@ -1292,6 +1588,147 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
              @"textType" : @"TextType",
              @"voiceId" : @"VoiceId",
              };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"cy-GB"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeCyGB);
+        }
+        if ([value caseInsensitiveCompare:@"da-DK"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeDaDK);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB-WLS"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnGBWLS);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"is-IS"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeIsIS);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"nb-NO"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeNbNO);
+        }
+        if ([value caseInsensitiveCompare:@"nl-NL"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeNlNL);
+        }
+        if ([value caseInsensitiveCompare:@"pl-PL"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodePlPL);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"ro-RO"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeRoRO);
+        }
+        if ([value caseInsensitiveCompare:@"ru-RU"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeRuRU);
+        }
+        if ([value caseInsensitiveCompare:@"sv-SE"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeSvSE);
+        }
+        if ([value caseInsensitiveCompare:@"tr-TR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeTrTR);
+        }
+        return @(AWSPollyLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPollyLanguageCodeCyGB:
+                return @"cy-GB";
+            case AWSPollyLanguageCodeDaDK:
+                return @"da-DK";
+            case AWSPollyLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSPollyLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSPollyLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSPollyLanguageCodeEnGBWLS:
+                return @"en-GB-WLS";
+            case AWSPollyLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSPollyLanguageCodeEnUS:
+                return @"en-US";
+            case AWSPollyLanguageCodeEsES:
+                return @"es-ES";
+            case AWSPollyLanguageCodeEsUS:
+                return @"es-US";
+            case AWSPollyLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSPollyLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSPollyLanguageCodeIsIS:
+                return @"is-IS";
+            case AWSPollyLanguageCodeItIT:
+                return @"it-IT";
+            case AWSPollyLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSPollyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSPollyLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSPollyLanguageCodeNbNO:
+                return @"nb-NO";
+            case AWSPollyLanguageCodeNlNL:
+                return @"nl-NL";
+            case AWSPollyLanguageCodePlPL:
+                return @"pl-PL";
+            case AWSPollyLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSPollyLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSPollyLanguageCodeRoRO:
+                return @"ro-RO";
+            case AWSPollyLanguageCodeRuRU:
+                return @"ru-RU";
+            case AWSPollyLanguageCodeSvSE:
+                return @"sv-SE";
+            case AWSPollyLanguageCodeTrTR:
+                return @"tr-TR";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)outputFormatJSONTransformer {
@@ -1640,6 +2077,7 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"additionalLanguageCodes" : @"AdditionalLanguageCodes",
              @"gender" : @"Gender",
              @"identifier" : @"Id",
              @"languageCode" : @"LanguageCode",
@@ -1989,11 +2427,14 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
         if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeItIT);
         }
-        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
-            return @(AWSPollyLanguageCodeKoKR);
-        }
         if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSPollyLanguageCodeKoKR);
         }
         if ([value caseInsensitiveCompare:@"nb-NO"] == NSOrderedSame) {
             return @(AWSPollyLanguageCodeNbNO);
@@ -2053,10 +2494,12 @@ NSString *const AWSPollyErrorDomain = @"com.amazonaws.AWSPollyErrorDomain";
                 return @"is-IS";
             case AWSPollyLanguageCodeItIT:
                 return @"it-IT";
-            case AWSPollyLanguageCodeKoKR:
-                return @"ko-KR";
             case AWSPollyLanguageCodeJaJP:
                 return @"ja-JP";
+            case AWSPollyLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSPollyLanguageCodeKoKR:
+                return @"ko-KR";
             case AWSPollyLanguageCodeNbNO:
                 return @"nb-NO";
             case AWSPollyLanguageCodeNlNL:

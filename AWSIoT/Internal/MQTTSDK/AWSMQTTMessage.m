@@ -14,9 +14,9 @@
 //
 
 #import "AWSCocoaLumberjack.h"
-#import "MQTTMessage.h"
+#import "AWSMQTTMessage.h"
 
-@implementation MQTTMessage
+@implementation AWSMQTTMessage
 
 + (id)connectMessageWithClientId:(NSString*)clientId
                         userName:(NSString*)userName
@@ -24,7 +24,7 @@
                        keepAlive:(NSInteger)keepAlive
                     cleanSession:(BOOL)cleanSessionFlag {
     AWSDDLogDebug(@"%s [Line %d], Thread:%@ ", __PRETTY_FUNCTION__, __LINE__, [NSThread currentThread]);
-    MQTTMessage* msg;
+    AWSMQTTMessage* msg;
     UInt8 flags = 0x00;
 
     if (cleanSessionFlag) {
@@ -38,19 +38,19 @@
     }
 
     NSMutableData* data = [NSMutableData data];
-    [data appendMQTTString:@"MQTT"];
-    [data appendByte:4];
-    [data appendByte:flags];
-    [data appendUInt16BigEndian:keepAlive];
-    [data appendMQTTString:clientId];
+    [data AWSMQTT_appendMQTTString:@"MQTT"];
+    [data AWSMQTT_appendByte:4];
+    [data AWSMQTT_appendByte:flags];
+    [data AWSMQTT_appendUInt16BigEndian:keepAlive];
+    [data AWSMQTT_appendMQTTString:clientId];
     if ([userName length] > 0) {
-        [data appendMQTTString:userName];
+        [data AWSMQTT_appendMQTTString:userName];
         if ([password length] > 0) {
-            [data appendMQTTString:password];
+            [data AWSMQTT_appendMQTTString:password];
         }
     }
-    AWSDDLogDebug(@"Creating MQTTMessage with raw data >>>>> %@ <<<<<",data);
-    msg = [[MQTTMessage alloc] initWithType:MQTTConnect data:data];
+    AWSDDLogDebug(@"Creating AWSMQTTMessage with raw data >>>>> %@ <<<<<",data);
+    msg = [[AWSMQTTMessage alloc] initWithType:AWSMQTTConnect data:data];
     return msg;
 }
 
@@ -84,46 +84,46 @@
     }
 
     NSMutableData* data = [NSMutableData data];
-    [data appendMQTTString:@"MQTT"];
-    [data appendByte:4];
-    [data appendByte:flags];
-    [data appendUInt16BigEndian:keepAlive];
-    [data appendMQTTString:clientId];
+    [data AWSMQTT_appendMQTTString:@"MQTT"];
+    [data AWSMQTT_appendByte:4];
+    [data AWSMQTT_appendByte:flags];
+    [data AWSMQTT_appendUInt16BigEndian:keepAlive];
+    [data AWSMQTT_appendMQTTString:clientId];
     if ([willTopic length] > 0) {
-        [data appendMQTTString:willTopic];
-        [data appendUInt16BigEndian:[willMsg length]];
+        [data AWSMQTT_appendMQTTString:willTopic];
+        [data AWSMQTT_appendUInt16BigEndian:[willMsg length]];
         [data appendData:willMsg];
     }
 
     if ([userName length] > 0) {
-        [data appendMQTTString:userName];
+        [data AWSMQTT_appendMQTTString:userName];
         if ([password length] > 0) {
-            [data appendMQTTString:password];
+            [data AWSMQTT_appendMQTTString:password];
         }
     }
-    AWSDDLogDebug(@"Creating MQTTMessage with raw data >>>>> %@ <<<<<",data);
+    AWSDDLogDebug(@"Creating AWSMQTTMessage with raw data >>>>> %@ <<<<<",data);
 
-    MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTConnect
+    AWSMQTTMessage *msg = [[AWSMQTTMessage alloc] initWithType:AWSMQTTConnect
                                                     data:data];
     return msg;
 }
 
 + (id)pingreqMessage {
-    return [[MQTTMessage alloc] initWithType:MQTTPingreq];
+    return [[AWSMQTTMessage alloc] initWithType:AWSMQTTPingreq];
 }
 
 + (id)disconnectMessage {
-    return [[MQTTMessage alloc] initWithType:MQTTDisconnect];
+    return [[AWSMQTTMessage alloc] initWithType:AWSMQTTDisconnect];
 }
 
 + (id)subscribeMessageWithMessageId:(UInt16)msgId
                               topic:(NSString*)topic
                                 qos:(UInt8)qos {
     NSMutableData* data = [NSMutableData data];
-    [data appendUInt16BigEndian:msgId];
-    [data appendMQTTString:topic];
-    [data appendByte:qos];
-    MQTTMessage* msg = [[MQTTMessage alloc] initWithType:MQTTSubscribe
+    [data AWSMQTT_appendUInt16BigEndian:msgId];
+    [data AWSMQTT_appendMQTTString:topic];
+    [data AWSMQTT_appendByte:qos];
+    AWSMQTTMessage* msg = [[AWSMQTTMessage alloc] initWithType:AWSMQTTSubscribe
                                                      qos:1
                                                     data:data];
     return msg;
@@ -132,9 +132,9 @@
 + (id)unsubscribeMessageWithMessageId:(UInt16)msgId
                                 topic:(NSString*)topic {
     NSMutableData* data = [NSMutableData data];
-    [data appendUInt16BigEndian:msgId];
-    [data appendMQTTString:topic];
-    MQTTMessage* msg = [[MQTTMessage alloc] initWithType:MQTTUnsubscribe
+    [data AWSMQTT_appendUInt16BigEndian:msgId];
+    [data AWSMQTT_appendMQTTString:topic];
+    AWSMQTTMessage* msg = [[AWSMQTTMessage alloc] initWithType:AWSMQTTUnsubscribe
                                                      qos:1
                                                     data:data];
     return msg;
@@ -145,9 +145,9 @@
                   retainFlag:(BOOL)retain {
     AWSDDLogVerbose(@"Publish message on topic: %@, retain flag: %@", topic, retain ? @"true":@"false");
     NSMutableData* data = [NSMutableData data];
-    [data appendMQTTString:topic];
+    [data AWSMQTT_appendMQTTString:topic];
     [data appendData:payload];
-    MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTPublish
+    AWSMQTTMessage *msg = [[AWSMQTTMessage alloc] initWithType:AWSMQTTPublish
                                                      qos:0
                                               retainFlag:retain
                                                  dupFlag:false
@@ -164,10 +164,10 @@
     AWSDDLogVerbose(@"Publish message on topic: %@, qos: %d, mssgId: %d, retain flag: %@, dup flag: %@",
                     topic, qosLevel, msgId, retain ? @"ture":@"false", dup ? @"ture":@"false");
     NSMutableData* data = [NSMutableData data];
-    [data appendMQTTString:topic];
-    [data appendUInt16BigEndian:msgId];
+    [data AWSMQTT_appendMQTTString:topic];
+    [data AWSMQTT_appendUInt16BigEndian:msgId];
     [data appendData:payload];
-    MQTTMessage *msg = [[MQTTMessage alloc] initWithType:MQTTPublish
+    AWSMQTTMessage *msg = [[AWSMQTTMessage alloc] initWithType:AWSMQTTPublish
                                                      qos:qosLevel
                                               retainFlag:retain
                                                  dupFlag:dup
@@ -177,29 +177,29 @@
 
 + (id)pubackMessageWithMessageId:(UInt16)msgId {
     NSMutableData* data = [NSMutableData data];
-    [data appendUInt16BigEndian:msgId];
-    return [[MQTTMessage alloc] initWithType:MQTTPuback
+    [data AWSMQTT_appendUInt16BigEndian:msgId];
+    return [[AWSMQTTMessage alloc] initWithType:AWSMQTTPuback
                                          data:data];
 }
 
 + (id)pubrecMessageWithMessageId:(UInt16)msgId {
     NSMutableData* data = [NSMutableData data];
-    [data appendUInt16BigEndian:msgId];
-    return [[MQTTMessage alloc] initWithType:MQTTPubrec
+    [data AWSMQTT_appendUInt16BigEndian:msgId];
+    return [[AWSMQTTMessage alloc] initWithType:AWSMQTTPubrec
                                          data:data];
 }
 
 + (id)pubrelMessageWithMessageId:(UInt16)msgId {
     NSMutableData* data = [NSMutableData data];
-    [data appendUInt16BigEndian:msgId];
-    return [[MQTTMessage alloc] initWithType:MQTTPubrel
+    [data AWSMQTT_appendUInt16BigEndian:msgId];
+    return [[AWSMQTTMessage alloc] initWithType:AWSMQTTPubrel
                                          data:data];
 }
 
 + (id)pubcompMessageWithMessageId:(UInt16)msgId {
     NSMutableData* data = [NSMutableData data];
-    [data appendUInt16BigEndian:msgId];
-    return [[MQTTMessage alloc] initWithType:MQTTPubcomp
+    [data AWSMQTT_appendUInt16BigEndian:msgId];
+    return [[AWSMQTTMessage alloc] initWithType:AWSMQTTPubcomp
                                          data:data];
 }
 
@@ -243,18 +243,18 @@
 
 @end
 
-@implementation NSMutableData (MQTT)
+@implementation NSMutableData (AWSMQTT)
 
-- (void)appendByte:(UInt8)byte {
+- (void)AWSMQTT_appendByte:(UInt8)byte {
     [self appendBytes:&byte length:1];
 }
 
-- (void)appendUInt16BigEndian:(UInt16)val {
-    [self appendByte:val / 256];
-    [self appendByte:val % 256];
+- (void)AWSMQTT_appendUInt16BigEndian:(UInt16)val {
+    [self AWSMQTT_appendByte:val / 256];
+    [self AWSMQTT_appendByte:val % 256];
 }
 
-- (void)appendMQTTString:(NSString*)string {
+- (void)AWSMQTT_appendMQTTString:(NSString*)string {
     UInt8 buf[2];
     const char* utf8String = [string UTF8String];
     size_t strLen = strlen(utf8String);

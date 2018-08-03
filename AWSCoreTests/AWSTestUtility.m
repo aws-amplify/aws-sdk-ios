@@ -159,13 +159,17 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     }
 }
 
-+ (AWSEndpoint *) getIoTEndPoint:(NSString *) endpointName {
++ (NSString *) getIoTEndPoint:(NSString *) endpointName {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
                                                                           ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+    NSDictionary<NSString *, NSString*> *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
                                                                     options:NSJSONReadingMutableContainers
                                                                       error:nil];
-    return [[AWSEndpoint alloc] initWithURLString:credentialsJson[endpointName]];
+    if ([credentialsJson objectForKey:endpointName]) {
+        return [credentialsJson valueForKey:endpointName];
+    } else {
+        return nil;
+    }
 }
 
 

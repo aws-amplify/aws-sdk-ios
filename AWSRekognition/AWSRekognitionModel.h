@@ -408,7 +408,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Information about a detected celebrity and the time the celebrity was detected in a stored video. For more information, see .</p>
+ <p>Information about a detected celebrity and the time the celebrity was detected in a stored video. For more information, see GetCelebrityRecognition in the Amazon Rekognition Developer Guide.</p>
  */
 @interface AWSRekognitionCelebrityRecognition : AWSModel
 
@@ -621,7 +621,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>Kinesis data stream stream to which Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.</p>
+ <p>Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is <code>StreamProcessorOutput</code>.</p>
  */
 @property (nonatomic, strong) AWSRekognitionStreamProcessorOutput * _Nullable output;
 
@@ -768,7 +768,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>Kinesis data stream to which Rekognition Video puts the analysis results.</p>
+ <p>Kinesis data stream to which Amazon Rekognition Video puts the analysis results.</p>
  */
 @property (nonatomic, strong) AWSRekognitionStreamProcessorOutput * _Nullable output;
 
@@ -1021,7 +1021,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Structure containing attributes of the face that the algorithm detected.</p><p>A <code>FaceDetail</code> object contains either the default facial attributes or all facial attributes. The default attributes are <code>BoundingBox</code>, <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>.</p><p> is the only Rekognition Video stored video operation that can return a <code>FaceDetail</code> object with all attributes. To specify which attributes to return, use the <code>FaceAttributes</code> input parameter for . The following Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input parameter.</p><ul><li><p>GetCelebrityRecognition</p></li><li><p>GetPersonTracking</p></li><li><p>GetFaceSearch</p></li></ul><p>The Rekognition Image and operations can return all facial attributes. To specify which attributes to return, use the <code>Attributes</code> input parameter for <code>DetectFaces</code>. For <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
+ <p>Structure containing attributes of the face that the algorithm detected.</p><p>A <code>FaceDetail</code> object contains either the default facial attributes or all facial attributes. The default attributes are <code>BoundingBox</code>, <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>.</p><p> is the only Amazon Rekognition Video stored video operation that can return a <code>FaceDetail</code> object with all attributes. To specify which attributes to return, use the <code>FaceAttributes</code> input parameter for . The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input parameter.</p><ul><li><p>GetCelebrityRecognition</p></li><li><p>GetPersonTracking</p></li><li><p>GetFaceSearch</p></li></ul><p>The Amazon Rekognition Image and operations can return all facial attributes. To specify which attributes to return, use the <code>Attributes</code> input parameter for <code>DetectFaces</code>. For <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
  */
 @interface AWSRekognitionFaceDetail : AWSModel
 
@@ -1259,7 +1259,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>If the previous response was incomplete (because there is more recognized celebrities to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities. </p>
+ <p>If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1287,7 +1287,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
 
 /**
- <p>If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.</p>
+ <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1297,7 +1297,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- <p>Information about a video that Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Rekognition Video operation.</p>
+ <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
 
@@ -1348,7 +1348,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionContentModerationDetection *> * _Nullable moderationLabels;
 
 /**
- <p>If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of moderation labels. </p>
+ <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of moderation labels. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1381,7 +1381,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>If the previous response was incomplete (because there are more faces to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.</p>
+ <p>If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1414,7 +1414,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- <p>Information about a video that Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
+ <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
 
@@ -1437,7 +1437,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>If the previous response was incomplete (because there is more search results to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results. </p>
+ <p>If the previous response was incomplete (because there is more search results to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of search results. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1460,7 +1460,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
 
 /**
- <p>If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results. </p>
+ <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of search results. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1475,7 +1475,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Rekognition Video operation. </p>
+ <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation. </p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
 
@@ -1498,7 +1498,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>If the previous response was incomplete (because there are more labels to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of labels. </p>
+ <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of labels. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1526,7 +1526,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionLabelDetection *> * _Nullable labels;
 
 /**
- <p>If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.</p>
+ <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1536,7 +1536,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- <p>Information about a video that Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
+ <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
 
@@ -1559,7 +1559,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>If the previous response was incomplete (because there are more persons to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons. </p>
+ <p>If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1582,7 +1582,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
 
 /**
- <p>If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons. </p>
+ <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of persons. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1597,14 +1597,14 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- <p>Information about a video that Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Rekognition Video operation.</p>
+ <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
 
 @end
 
 /**
- <p>Provides the input image either as bytes or an S3 object.</p><p>You pass image bytes to a Rekognition API operation by using the <code>Bytes</code> property. For example, you would use the <code>Bytes</code> property to pass an image loaded from a local file system. Image bytes passed by using the <code>Bytes</code> property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Rekognition API operations. For more information, see <a>images-bytes</a>.</p><p> You pass images stored in an S3 bucket to a Rekognition API operation by using the <code>S3Object</code> property. Images stored in an S3 bucket do not need to be base64-encoded.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>
+ <p>Provides the input image either as bytes or an S3 object.</p><p>You pass image bytes to a Rekognition API operation by using the <code>Bytes</code> property. For example, you would use the <code>Bytes</code> property to pass an image loaded from a local file system. Image bytes passed by using the <code>Bytes</code> property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Rekognition API operations. </p><p>For more information, see Analyzing an Image Loaded from a Local File System in the Amazon Rekognition Developer Guide.</p><p> You pass images stored in an S3 bucket to a Rekognition API operation by using the <code>S3Object</code> property. Images stored in an S3 bucket do not need to be base64-encoded.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide. </p>
  */
 @interface AWSRekognitionImage : AWSModel
 
@@ -1679,7 +1679,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable faceModelVersion;
 
 /**
- <p>An array of faces detected and added to the collection. For more information, see <a>collections-index-faces</a>. </p>
+ <p>An array of faces detected and added to the collection. For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide. </p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceRecord *> * _Nullable faceRecords;
 
@@ -1691,7 +1691,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>The Kinesis data stream Amazon Rekognition to which the analysis results of a Amazon Rekognition stream processor are streamed. For more information, see .</p>
+ <p>The Kinesis data stream Amazon Rekognition to which the analysis results of a Amazon Rekognition stream processor are streamed. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
 @interface AWSRekognitionKinesisDataStream : AWSModel
 
@@ -1704,7 +1704,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Kinesis video stream stream that provides the source streaming video for a Rekognition Video stream processor. For more information, see .</p>
+ <p>Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
 @interface AWSRekognitionKinesisVideoStream : AWSModel
 
@@ -1869,12 +1869,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Maximum number of stream processors you want Rekognition Video to return in the response. The default is 1000. </p>
+ <p>Maximum number of stream processors you want Amazon Rekognition Video to return in the response. The default is 1000. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>If the previous response was incomplete (because there are more stream processors to retrieve), Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors. </p>
+ <p>If the previous response was incomplete (because there are more stream processors to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of stream processors. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1887,7 +1887,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>If the response is truncated, Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors. </p>
+ <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -1899,7 +1899,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Provides information about a single type of moderated content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see <a>moderation</a>.</p>
+ <p>Provides information about a single type of moderated content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
  */
 @interface AWSRekognitionModerationLabel : AWSModel
 
@@ -2000,7 +2000,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Details and tracking information for a single time a person is tracked in a video. Amazon Rekognition operations that track persons return an array of <code>PersonDetection</code> objects with elements for each time a person is tracked in a video. For more information, see . </p>
+ <p>Details and tracking information for a single time a person is tracked in a video. Amazon Rekognition operations that track persons return an array of <code>PersonDetection</code> objects with elements for each time a person is tracked in a video. </p><p>For more information, see API_GetPersonTracking in the Amazon Rekognition Developer Guide. </p>
  */
 @interface AWSRekognitionPersonDetection : AWSModel
 
@@ -2041,7 +2041,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>The X and Y coordinates of a point on an image. The X and Y values returned are ratios of the overall image size. For example, if the input image is 700x200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.</p><p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned by . <code>Polygon</code> represents a fine-grained polygon around detected text. For more information, see . </p>
+ <p>The X and Y coordinates of a point on an image. The X and Y values returned are ratios of the overall image size. For example, if the input image is 700x200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.</p><p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned by . <code>Polygon</code> represents a fine-grained polygon around detected text. For more information, see Geometry in the Amazon Rekognition Developer Guide. </p>
  */
 @interface AWSRekognitionPoint : AWSModel
 
@@ -2118,7 +2118,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see <a>manage-access-resource-policies</a>. </p>
+ <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide. </p>
  */
 @interface AWSRekognitionS3Object : AWSModel
 
@@ -2282,7 +2282,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>The Amazon SNS topic ARN that you want Rekognition Video to publish the completion status of the celebrity recognition analysis to.</p>
+ <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -2328,7 +2328,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
 /**
- <p>The Amazon SNS topic ARN that you want Rekognition Video to publish the completion status of the content moderation analysis to.</p>
+ <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the content moderation analysis to.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -2374,7 +2374,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>The ARN of the Amazon SNS topic to which you want Rekognition Video to publish the completion status of the face detection operation.</p>
+ <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the face detection operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -2425,7 +2425,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>The ARN of the Amazon SNS topic to which you want Rekognition Video to publish the completion status of the search. </p>
+ <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. </p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -2466,12 +2466,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>Specifies the minimum confidence that Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Rekognition Video doesn't return any labels with a confidence level lower than this specified value.</p><p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence values greater than or equal to 50 percent.</p>
+ <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any labels with a confidence level lower than this specified value.</p><p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence values greater than or equal to 50 percent.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
 /**
- <p>The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the label detection operation to. </p>
+ <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to. </p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -2512,7 +2512,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>The Amazon SNS topic ARN you want Rekognition Video to publish the completion status of the people detection operation to.</p>
+ <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection operation to.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -2610,7 +2610,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Information about the Amazon Kinesis Data Streams stream to which a Rekognition Video stream processor streams the results of a video analysis. For more information, see .</p>
+ <p>Information about the Amazon Kinesis Data Streams stream to which a Amazon Rekognition Video stream processor streams the results of a video analysis. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.</p>
  */
 @interface AWSRekognitionStreamProcessorOutput : AWSModel
 
@@ -2654,7 +2654,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Information about a word or line of text detected by .</p><p>The <code>DetectedText</code> field contains the text that Amazon Rekognition detected in the image. </p><p>Every word and line has an identifier (<code>Id</code>). Each word belongs to a line and has a parent identifier (<code>ParentId</code>) that identifies the line of text in which the word appears. The word <code>Id</code> is also an index for the word within a line of words. </p><p>For more information, see <a>text-detection</a>.</p>
+ <p>Information about a word or line of text detected by .</p><p>The <code>DetectedText</code> field contains the text that Amazon Rekognition detected in the image. </p><p>Every word and line has an identifier (<code>Id</code>). Each word belongs to a line and has a parent identifier (<code>ParentId</code>) that identifies the line of text in which the word appears. The word <code>Id</code> is also an index for the word within a line of words. </p><p>For more information, see Detecting Text in the Amazon Rekognition Developer Guide.</p>
  */
 @interface AWSRekognitionTextDetection : AWSModel
 

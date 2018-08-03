@@ -126,7 +126,8 @@
         {\"shape\":\"InvalidTaskIdException\"},\
         {\"shape\":\"ServiceFailureException\"},\
         {\"shape\":\"SynthesisTaskNotFoundException\"}\
-      ]\
+      ],\
+      \"documentation\":\"<p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.</p>\"\
     },\
     \"ListLexicons\":{\
       \"name\":\"ListLexicons\",\
@@ -155,7 +156,8 @@
       \"errors\":[\
         {\"shape\":\"InvalidNextTokenException\"},\
         {\"shape\":\"ServiceFailureException\"}\
-      ]\
+      ],\
+      \"documentation\":\"<p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>\"\
     },\
     \"PutLexicon\":{\
       \"name\":\"PutLexicon\",\
@@ -196,8 +198,10 @@
         {\"shape\":\"LexiconNotFoundException\"},\
         {\"shape\":\"ServiceFailureException\"},\
         {\"shape\":\"MarksNotSupportedForFormatException\"},\
-        {\"shape\":\"SsmlMarksNotSupportedForTextTypeException\"}\
-      ]\
+        {\"shape\":\"SsmlMarksNotSupportedForTextTypeException\"},\
+        {\"shape\":\"LanguageNotSupportedException\"}\
+      ],\
+      \"documentation\":\"<p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.</p>\"\
     },\
     \"SynthesizeSpeech\":{\
       \"name\":\"SynthesizeSpeech\",\
@@ -215,7 +219,8 @@
         {\"shape\":\"LexiconNotFoundException\"},\
         {\"shape\":\"ServiceFailureException\"},\
         {\"shape\":\"MarksNotSupportedForFormatException\"},\
-        {\"shape\":\"SsmlMarksNotSupportedForTextTypeException\"}\
+        {\"shape\":\"SsmlMarksNotSupportedForTextTypeException\"},\
+        {\"shape\":\"LanguageNotSupportedException\"}\
       ],\
       \"documentation\":\"<p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href=\\\"http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html\\\">How it Works</a>.</p>\"\
     }\
@@ -253,6 +258,12 @@
           \"documentation\":\"<p> The language identification tag (ISO 639 code for the language name-ISO 3166 country code) for filtering the list of voices returned. If you don't specify this optional parameter, all available voices are returned. </p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"LanguageCode\"\
+        },\
+        \"IncludeAdditionalLanguageCodes\":{\
+          \"shape\":\"IncludeAdditionalLanguageCodes\",\
+          \"documentation\":\"<p>Boolean value indicating whether to return any bilingual voices that use the specified language as an additional language. For instance, if you request all languages that use US English (es-US), and there is an Italian voice that speaks both Italian (it-IT) and US English, that voice will be included if you specify <code>yes</code> but not if you specify <code>no</code>.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"IncludeAdditionalLanguageCodes\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -314,6 +325,7 @@
       \"members\":{\
         \"TaskId\":{\
           \"shape\":\"TaskId\",\
+          \"documentation\":\"<p>The Amazon Polly generated identifier for a speech synthesis task.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"TaskId\"\
         }\
@@ -322,9 +334,13 @@
     \"GetSpeechSynthesisTaskOutput\":{\
       \"type\":\"structure\",\
       \"members\":{\
-        \"SynthesisTask\":{\"shape\":\"SynthesisTask\"}\
+        \"SynthesisTask\":{\
+          \"shape\":\"SynthesisTask\",\
+          \"documentation\":\"<p>SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.</p>\"\
+        }\
       }\
     },\
+    \"IncludeAdditionalLanguageCodes\":{\"type\":\"boolean\"},\
     \"InvalidLexiconException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -348,6 +364,7 @@
       \"members\":{\
         \"message\":{\"shape\":\"ErrorMessage\"}\
       },\
+      \"documentation\":\"<p>The provided Amazon S3 bucket name is invalid. Please check your input with S3 bucket naming requirements and try again.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -356,6 +373,7 @@
       \"members\":{\
         \"message\":{\"shape\":\"ErrorMessage\"}\
       },\
+      \"documentation\":\"<p>The provided Amazon S3 key prefix is invalid. Please provide a valid S3 object key name.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -373,6 +391,7 @@
       \"members\":{\
         \"message\":{\"shape\":\"ErrorMessage\"}\
       },\
+      \"documentation\":\"<p>The provided SNS topic ARN is invalid. Please provide a valid SNS topic ARN and try again.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -390,6 +409,7 @@
       \"members\":{\
         \"message\":{\"shape\":\"ErrorMessage\"}\
       },\
+      \"documentation\":\"<p>The provided Task ID is not valid. Please provide a valid Task ID and try again.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -410,8 +430,9 @@
         \"fr-FR\",\
         \"is-IS\",\
         \"it-IT\",\
-        \"ko-KR\",\
         \"ja-JP\",\
+        \"hi-IN\",\
+        \"ko-KR\",\
         \"nb-NO\",\
         \"nl-NL\",\
         \"pl-PL\",\
@@ -423,7 +444,20 @@
         \"tr-TR\"\
       ]\
     },\
+    \"LanguageCodeList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"LanguageCode\"}\
+    },\
     \"LanguageName\":{\"type\":\"string\"},\
+    \"LanguageNotSupportedException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\"shape\":\"ErrorMessage\"}\
+      },\
+      \"documentation\":\"<p>The language specified is not currently supported by Amazon Polly in this capacity.</p>\",\
+      \"error\":{\"httpStatusCode\":400},\
+      \"exception\":true\
+    },\
     \"LastModified\":{\"type\":\"timestamp\"},\
     \"LexemesCount\":{\"type\":\"integer\"},\
     \"Lexicon\":{\
@@ -547,16 +581,19 @@
       \"members\":{\
         \"MaxResults\":{\
           \"shape\":\"MaxResults\",\
+          \"documentation\":\"<p>Maximum number of speech synthesis tasks returned in a List operation.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"MaxResults\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The pagination token to use in the next request to continue the listing of speech synthesis tasks. </p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"NextToken\"\
         },\
         \"Status\":{\
           \"shape\":\"TaskStatus\",\
+          \"documentation\":\"<p>Status of the speech synthesis tasks returned in a List operation</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"Status\"\
         }\
@@ -565,8 +602,14 @@
     \"ListSpeechSynthesisTasksOutput\":{\
       \"type\":\"structure\",\
       \"members\":{\
-        \"NextToken\":{\"shape\":\"NextToken\"},\
-        \"SynthesisTasks\":{\"shape\":\"SynthesisTasks\"}\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.</p>\"\
+        },\
+        \"SynthesisTasks\":{\
+          \"shape\":\"SynthesisTasks\",\
+          \"documentation\":\"<p>List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.</p>\"\
+        }\
       }\
     },\
     \"MarksNotSupportedForFormatException\":{\
@@ -617,7 +660,7 @@
     },\
     \"OutputS3KeyPrefix\":{\
       \"type\":\"string\",\
-      \"pattern\":\"^[0-9a-zA-Z\\\\/\\\\!\\\\-_\\\\.\\\\*\\\\'\\\\(\\\\)]{0,1023}[a-zA-Z0-9]$\"\
+      \"pattern\":\"^[0-9a-zA-Z\\\\/\\\\!\\\\-_\\\\.\\\\*\\\\'\\\\(\\\\)]{0,800}$\"\
     },\
     \"OutputUri\":{\"type\":\"string\"},\
     \"PutLexiconInput\":{\
@@ -659,7 +702,7 @@
     \"Size\":{\"type\":\"integer\"},\
     \"SnsTopicArn\":{\
       \"type\":\"string\",\
-      \"pattern\":\"^arn:aws:sns:.*:\\\\w{12}:.+$\"\
+      \"pattern\":\"^arn:aws(-(cn|iso(-b)?|us-gov))?:sns:.*:\\\\w{12}:.+$\"\
     },\
     \"SpeechMarkType\":{\
       \"type\":\"string\",\
@@ -693,47 +736,129 @@
         \"VoiceId\"\
       ],\
       \"members\":{\
-        \"LexiconNames\":{\"shape\":\"LexiconNameList\"},\
-        \"OutputFormat\":{\"shape\":\"OutputFormat\"},\
-        \"OutputS3BucketName\":{\"shape\":\"OutputS3BucketName\"},\
-        \"OutputS3KeyPrefix\":{\"shape\":\"OutputS3KeyPrefix\"},\
-        \"SampleRate\":{\"shape\":\"SampleRate\"},\
-        \"SnsTopicArn\":{\"shape\":\"SnsTopicArn\"},\
-        \"SpeechMarkTypes\":{\"shape\":\"SpeechMarkTypeList\"},\
-        \"Text\":{\"shape\":\"Text\"},\
-        \"TextType\":{\"shape\":\"TextType\"},\
-        \"VoiceId\":{\"shape\":\"VoiceId\"}\
+        \"LexiconNames\":{\
+          \"shape\":\"LexiconNameList\",\
+          \"documentation\":\"<p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. </p>\"\
+        },\
+        \"OutputFormat\":{\
+          \"shape\":\"OutputFormat\",\
+          \"documentation\":\"<p>The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>\"\
+        },\
+        \"OutputS3BucketName\":{\
+          \"shape\":\"OutputS3BucketName\",\
+          \"documentation\":\"<p>Amazon S3 bucket name to which the output file will be saved.</p>\"\
+        },\
+        \"OutputS3KeyPrefix\":{\
+          \"shape\":\"OutputS3KeyPrefix\",\
+          \"documentation\":\"<p>The Amazon S3 key prefix for the output speech file.</p>\"\
+        },\
+        \"SampleRate\":{\
+          \"shape\":\"SampleRate\",\
+          \"documentation\":\"<p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \\\"8000\\\", \\\"16000\\\", and \\\"22050\\\". The default value is \\\"22050\\\".</p> <p>Valid values for pcm are \\\"8000\\\" and \\\"16000\\\" The default value is \\\"16000\\\". </p>\"\
+        },\
+        \"SnsTopicArn\":{\
+          \"shape\":\"SnsTopicArn\",\
+          \"documentation\":\"<p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>\"\
+        },\
+        \"SpeechMarkTypes\":{\
+          \"shape\":\"SpeechMarkTypeList\",\
+          \"documentation\":\"<p>The type of speech marks returned for the input text.</p>\"\
+        },\
+        \"Text\":{\
+          \"shape\":\"Text\",\
+          \"documentation\":\"<p>The input text to synthesize. If you specify ssml as the TextType, follow the SSML format for the input text. </p>\"\
+        },\
+        \"TextType\":{\
+          \"shape\":\"TextType\",\
+          \"documentation\":\"<p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>\"\
+        },\
+        \"VoiceId\":{\
+          \"shape\":\"VoiceId\",\
+          \"documentation\":\"<p>Voice ID to use for the synthesis. </p>\"\
+        },\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCode\",\
+          \"documentation\":\"<p>Optional language code for the Speech Synthesis request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\\\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\"\
+        }\
       }\
     },\
     \"StartSpeechSynthesisTaskOutput\":{\
       \"type\":\"structure\",\
       \"members\":{\
-        \"SynthesisTask\":{\"shape\":\"SynthesisTask\"}\
+        \"SynthesisTask\":{\
+          \"shape\":\"SynthesisTask\",\
+          \"documentation\":\"<p>SynthesisTask object that provides information and attributes about a newly submitted speech synthesis task.</p>\"\
+        }\
       }\
     },\
     \"SynthesisTask\":{\
       \"type\":\"structure\",\
       \"members\":{\
-        \"TaskId\":{\"shape\":\"TaskId\"},\
-        \"TaskStatus\":{\"shape\":\"TaskStatus\"},\
-        \"TaskStatusReason\":{\"shape\":\"TaskStatusReason\"},\
-        \"OutputUri\":{\"shape\":\"OutputUri\"},\
-        \"CreationTime\":{\"shape\":\"DateTime\"},\
-        \"RequestCharacters\":{\"shape\":\"RequestCharacters\"},\
-        \"SnsTopicArn\":{\"shape\":\"SnsTopicArn\"},\
-        \"LexiconNames\":{\"shape\":\"LexiconNameList\"},\
-        \"OutputFormat\":{\"shape\":\"OutputFormat\"},\
-        \"SampleRate\":{\"shape\":\"SampleRate\"},\
-        \"SpeechMarkTypes\":{\"shape\":\"SpeechMarkTypeList\"},\
-        \"TextType\":{\"shape\":\"TextType\"},\
-        \"VoiceId\":{\"shape\":\"VoiceId\"}\
-      }\
+        \"TaskId\":{\
+          \"shape\":\"TaskId\",\
+          \"documentation\":\"<p>The Amazon Polly generated identifier for a speech synthesis task.</p>\"\
+        },\
+        \"TaskStatus\":{\
+          \"shape\":\"TaskStatus\",\
+          \"documentation\":\"<p>Current status of the individual speech synthesis task.</p>\"\
+        },\
+        \"TaskStatusReason\":{\
+          \"shape\":\"TaskStatusReason\",\
+          \"documentation\":\"<p>Reason for the current status of a specific speech synthesis task, including errors if the task has failed.</p>\"\
+        },\
+        \"OutputUri\":{\
+          \"shape\":\"OutputUri\",\
+          \"documentation\":\"<p>Pathway for the output speech file.</p>\"\
+        },\
+        \"CreationTime\":{\
+          \"shape\":\"DateTime\",\
+          \"documentation\":\"<p>Timestamp for the time the synthesis task was started.</p>\"\
+        },\
+        \"RequestCharacters\":{\
+          \"shape\":\"RequestCharacters\",\
+          \"documentation\":\"<p>Number of billable characters synthesized.</p>\"\
+        },\
+        \"SnsTopicArn\":{\
+          \"shape\":\"SnsTopicArn\",\
+          \"documentation\":\"<p>ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.</p>\"\
+        },\
+        \"LexiconNames\":{\
+          \"shape\":\"LexiconNameList\",\
+          \"documentation\":\"<p>List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. </p>\"\
+        },\
+        \"OutputFormat\":{\
+          \"shape\":\"OutputFormat\",\
+          \"documentation\":\"<p>The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. </p>\"\
+        },\
+        \"SampleRate\":{\
+          \"shape\":\"SampleRate\",\
+          \"documentation\":\"<p>The audio frequency specified in Hz.</p> <p>The valid values for mp3 and ogg_vorbis are \\\"8000\\\", \\\"16000\\\", and \\\"22050\\\". The default value is \\\"22050\\\".</p> <p>Valid values for pcm are \\\"8000\\\" and \\\"16000\\\" The default value is \\\"16000\\\". </p>\"\
+        },\
+        \"SpeechMarkTypes\":{\
+          \"shape\":\"SpeechMarkTypeList\",\
+          \"documentation\":\"<p>The type of speech marks returned for the input text.</p>\"\
+        },\
+        \"TextType\":{\
+          \"shape\":\"TextType\",\
+          \"documentation\":\"<p>Specifies whether the input text is plain text or SSML. The default value is plain text. </p>\"\
+        },\
+        \"VoiceId\":{\
+          \"shape\":\"VoiceId\",\
+          \"documentation\":\"<p>Voice ID to use for the synthesis. </p>\"\
+        },\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCode\",\
+          \"documentation\":\"<p>Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\\\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>SynthesisTask object that provides information about a speech synthesis task.</p>\"\
     },\
     \"SynthesisTaskNotFoundException\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"message\":{\"shape\":\"ErrorMessage\"}\
       },\
+      \"documentation\":\"<p>The Speech Synthesis task with requested Task ID cannot be found.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -776,6 +901,10 @@
         \"VoiceId\":{\
           \"shape\":\"VoiceId\",\
           \"documentation\":\"<p> Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the <a href=\\\"http://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\\\">DescribeVoices</a> operation. </p>\"\
+        },\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCode\",\
+          \"documentation\":\"<p>Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). </p> <p>If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/API_DescribeVoices.html\\\">DescribeVoices</a> operation for the <code>LanguageCode</code> parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.</p>\"\
         }\
       }\
     },\
@@ -822,7 +951,7 @@
       \"members\":{\
         \"message\":{\"shape\":\"ErrorMessage\"}\
       },\
-      \"documentation\":\"<p>The value of the \\\"Text\\\" parameter is longer than the accepted limits. The limit for input text is a maximum of 3000 characters total, of which no more than 1500 can be billed characters. SSML tags are not counted as billed characters.</p>\",\
+      \"documentation\":\"<p>The value of the \\\"Text\\\" parameter is longer than the accepted limits. For the <code>SynthesizeSpeech</code> API, the limit for input text is a maximum of 6000 characters total, of which no more than 3000 can be billed characters. For the <code>StartSpeechSynthesisTask</code> API, the maximum is 200,000 characters, of which no more than 100,000 can be billed characters. SSML tags are not counted as billed characters.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -873,6 +1002,10 @@
         \"Name\":{\
           \"shape\":\"VoiceName\",\
           \"documentation\":\"<p>Name of the voice (for example, Salli, Kendra, etc.). This provides a human readable voice name that you might display in your application.</p>\"\
+        },\
+        \"AdditionalLanguageCodes\":{\
+          \"shape\":\"LanguageCodeList\",\
+          \"documentation\":\"<p>Additional codes for languages available for the specified voice in addition to its default language. </p> <p>For example, the default language for Aditi is Indian English (en-IN) because it was first used for that language. Since Aditi is bilingual and fluent in both Indian English and Hindi, this parameter would show the code <code>hi-IN</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Description of the voice.</p>\"\
@@ -942,7 +1075,8 @@
     \"VoiceName\":{\"type\":\"string\"}\
   },\
   \"documentation\":\"<p>Amazon Polly is a web service that makes it easy to synthesize speech from text.</p> <p>The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.</p>\"\
-}";
+}\
+";
 }
 
 @end

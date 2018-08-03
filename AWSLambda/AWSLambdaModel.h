@@ -42,6 +42,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorPreconditionFailed,
     AWSLambdaErrorRequestTooLarge,
     AWSLambdaErrorResourceConflict,
+    AWSLambdaErrorResourceInUse,
     AWSLambdaErrorResourceNotFound,
     AWSLambdaErrorService,
     AWSLambdaErrorSubnetIPAddressLimitReached,
@@ -85,6 +86,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimePython36,
     AWSLambdaRuntimeDotnetcore10,
     AWSLambdaRuntimeDotnetcore20,
+    AWSLambdaRuntimeDotnetcore21,
     AWSLambdaRuntimeNodejs43Edge,
     AWSLambdaRuntimeGo1X,
 };
@@ -380,13 +382,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 /**
  <p/>
- Required parameters: [EventSourceArn, FunctionName, StartingPosition]
+ Required parameters: [EventSourceArn, FunctionName]
  */
 @interface AWSLambdaCreateEventSourceMappingRequest : AWSRequest
 
 
 /**
- <p>The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records. The default is 100 records.</p>
+ <p>The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records. The default for Amazon Kinesis and Amazon DynamoDB is 100 records. For SQS, the default is 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -396,7 +398,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The Amazon Resource Name (ARN) of the Amazon Kinesis or the Amazon DynamoDB stream that is the event source. Any record added to this stream could cause AWS Lambda to invoke your Lambda function, it depends on the <code>BatchSize</code>. AWS Lambda POSTs the Amazon Kinesis event, containing records, to your Lambda function as JSON.</p>
+ <p>The Amazon Resource Name (ARN) of the event source. Any record added to this source could cause AWS Lambda to invoke your Lambda function, it depends on the <code>BatchSize</code>. AWS Lambda POSTs the event's records to your Lambda function as JSON.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
@@ -627,7 +629,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Describes mapping between an Amazon Kinesis stream and a Lambda function.</p>
+ <p>Describes mapping between an Amazon Kinesis or DynamoDB stream or an Amazon SQS queue and a Lambda function.</p>
  */
 @interface AWSLambdaEventSourceMappingConfiguration : AWSModel
 
@@ -638,12 +640,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
 /**
- <p>The Amazon Resource Name (ARN) of the Amazon Kinesis stream that is the source of events.</p>
+ <p>The Amazon Resource Name (ARN) of the Amazon Kinesis or DynamoDB stream or the SQS queue that is the source of events.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
 /**
- <p>The Lambda function to invoke when AWS Lambda detects an event on the stream.</p>
+ <p>The Lambda function to invoke when AWS Lambda detects an event on the poll-based source.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable functionArn;
 
@@ -1141,7 +1143,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the Amazon Kinesis stream. (This parameter is optional.)</p>
+ <p>The Amazon Resource Name (ARN) of the Amazon Kinesis or DynamoDB stream, or an SQS queue. (This parameter is optional.)</p>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 

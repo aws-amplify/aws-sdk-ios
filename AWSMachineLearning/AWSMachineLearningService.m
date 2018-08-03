@@ -26,7 +26,7 @@
 #import "AWSMachineLearningResources.h"
 
 static NSString *const AWSInfoMachineLearning = @"MachineLearning";
-static NSString *const AWSMachineLearningSDKVersion = @"2.6.25";
+static NSString *const AWSMachineLearningSDKVersion = @"2.6.26";
 
 
 

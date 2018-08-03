@@ -26,7 +26,7 @@
 #import "AWSPollyResources.h"
 
 static NSString *const AWSInfoPolly = @"Polly";
-static NSString *const AWSPollySDKVersion = @"2.6.25";
+static NSString *const AWSPollySDKVersion = @"2.6.26";
 
 
 @interface AWSPollyResponseSerializer : AWSJSONResponseSerializer
@@ -48,6 +48,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidSnsTopicArnException" : @(AWSPollyErrorInvalidSnsTopicArn),
                             @"InvalidSsmlException" : @(AWSPollyErrorInvalidSsml),
                             @"InvalidTaskIdException" : @(AWSPollyErrorInvalidTaskId),
+                            @"LanguageNotSupportedException" : @(AWSPollyErrorLanguageNotSupported),
                             @"LexiconNotFoundException" : @(AWSPollyErrorLexiconNotFound),
                             @"LexiconSizeExceededException" : @(AWSPollyErrorLexiconSizeExceeded),
                             @"MarksNotSupportedForFormatException" : @(AWSPollyErrorMarksNotSupportedForFormat),

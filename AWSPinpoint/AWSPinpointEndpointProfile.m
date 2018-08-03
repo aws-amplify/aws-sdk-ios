@@ -104,6 +104,11 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     _applicationId = context.configuration.appId;
     _endpointId = context.uniqueId;
     _address = deviceTokenString;
+    
+    //this updates demograhpic information.
+    _location = [AWSPinpointEndpointProfileLocation new];
+    _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
+    _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
 }
 
 - (BOOL) isApplicationLevelOptOut:(AWSPinpointContext *) context {

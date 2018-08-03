@@ -2161,7 +2161,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
         AWSS3TransferUtilityMultiPartUploadTask *transferUtilityMultiPartUploadTask = [self.taskDictionary objectForKey:@(task.taskIdentifier)];
         //Get multipart upload sub task
         AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.inProgressPartsDictionary objectForKey:@(task.taskIdentifier)];
-        
+        transferUtilityMultiPartUploadTask.progress.totalUnitCount = [transferUtilityMultiPartUploadTask.contentLength longLongValue];
         if (subTask.totalBytesSent < totalBytesSent) {
             //Calculate and update the running total
             transferUtilityMultiPartUploadTask.progress.completedUnitCount = transferUtilityMultiPartUploadTask.progress.completedUnitCount - subTask.totalBytesSent + totalBytesSent;

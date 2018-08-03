@@ -16,23 +16,23 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    MQTTConnect = 1,
-    MQTTConnack = 2,
-    MQTTPublish = 3,
-    MQTTPuback = 4,
-    MQTTPubrec = 5,
-    MQTTPubrel = 6,
-    MQTTPubcomp = 7,
-    MQTTSubscribe = 8,
-    MQTTSuback = 9,
-    MQTTUnsubscribe = 10,
-    MQTTUnsuback = 11,
-    MQTTPingreq = 12,
-    MQTTPingresp = 13,
-    MQTTDisconnect = 14
-} MQTTMessageType;
+    AWSMQTTConnect = 1,
+    AWSMQTTConnack = 2,
+    AWSMQTTPublish = 3,
+    AWSMQTTPuback = 4,
+    AWSMQTTPubrec = 5,
+    AWSMQTTPubrel = 6,
+    AWSMQTTPubcomp = 7,
+    AWSMQTTSubscribe = 8,
+    AWSMQTTSuback = 9,
+    AWSMQTTUnsubscribe = 10,
+    AWSMQTTUnsuback = 11,
+    AWSMQTTPingreq = 12,
+    AWSMQTTPingresp = 13,
+    AWSMQTTDisconnect = 14
+} AWSAWSMQTTMessageType;
 
-@interface MQTTMessage : NSObject
+@interface AWSMQTTMessage : NSObject
 
 #pragma mark Instance Methods
 
@@ -102,9 +102,9 @@ typedef enum {
 
 #pragma mark NSMutableData category extension
 
-@interface NSMutableData (MQTT)
-- (void)appendByte:(UInt8)byte;
-- (void)appendUInt16BigEndian:(UInt16)val;
-- (void)appendMQTTString:(NSString*)s;
+@interface NSMutableData (AWSMQTT)
+- (void)AWSMQTT_appendByte:(UInt8)byte;
+- (void)AWSMQTT_appendUInt16BigEndian:(UInt16)val;
+- (void)AWSMQTT_appendMQTTString:(NSString*)s;
 
 @end

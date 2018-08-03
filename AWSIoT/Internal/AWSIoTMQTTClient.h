@@ -14,10 +14,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AWSIoTModel.h"
+#import <AWSCore/AWSCore.h>
 #import "AWSIoTDataManager.h"
-
 #import "AWSSRWebSocket.h"
+#import "AWSIoTMQTTTypes.h"
 
 @interface AWSIoTMQTTTopicModel : NSObject
 @property (nonatomic, strong) NSString *topic;
@@ -33,8 +33,26 @@
 @property (nonatomic, strong) AWSIoTMQTTAckBlock ackCallback;
 @end
 
+@class AWSIoTMQTTClient;
+
+@protocol AWSIoTMQTTClientDelegate
+
+-(void)receivedMessageData:(NSData *)data
+                   onTopic:(NSString *)topic;
+
+-(void)connectionStatusChanged:(AWSIoTMQTTStatus)status
+                        client:(AWSIoTMQTTClient *)client;
+@end
+
+
 @interface AWSIoTMQTTClient <AWSSRWebSocketDelegate, NSStreamDelegate>: NSObject
 
+
+/**
+ Delegate object that is called by the AWSIotMQTTClient object as per the AWSiOTMQTTCLientDelegate protocol to communicate changes in communication status and messages received.
+ */
+ 
+@property(nonatomic, strong) id<AWSIoTMQTTClientDelegate> clientDelegate;
 
 /**
  Boolean flag to indicate whether auto-resubscribe feature is enabled. This flag may
@@ -82,6 +100,15 @@
  An optional associated object (nil by default).
  */
 @property(nonatomic, strong) NSObject *associatedObject;
+
+/**
+ Initalizer with the Delegate object
+ */
+- (instancetype)initWithDelegate:(id<AWSIoTMQTTClientDelegate>)delegate;
+
+- (BOOL)connectWithClientId:(NSString *)clientId
+               presignedURL:(NSString *)presignedURL
+             statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 - (BOOL)connectWithClientId:(NSString *)clientId
                      toHost:(NSString *)host

@@ -15,28 +15,9 @@
 
 #import "AWSIoTDataService.h"
 #import "AWSIoTService.h"
+#import "AWSIoTMQTTTypes.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-typedef NS_ENUM(NSInteger, AWSIoTMQTTStatus) {
-    AWSIoTMQTTStatusUnknown,
-    AWSIoTMQTTStatusConnecting,
-    AWSIoTMQTTStatusConnected,
-    AWSIoTMQTTStatusDisconnected,
-    AWSIoTMQTTStatusConnectionRefused,
-    AWSIoTMQTTStatusConnectionError,
-    AWSIoTMQTTStatusProtocolError
-};
-
-typedef NS_ENUM(NSInteger, AWSIoTMQTTQoS) {
-    AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce = 0,
-    AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce = 1
-};
-
-typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);
-typedef void(^AWSIoTMQTTExtendedNewMessageBlock)(NSObject *mqttClient, NSString *topic, NSData *data);
-typedef void(^AWSIoTMQTTAckBlock)(void);
-
 
 #pragma mark - AWSIoTMQTTLastWillAndTestament
 

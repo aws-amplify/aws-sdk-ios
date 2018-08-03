@@ -127,6 +127,98 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBAutoScalingPolicyDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyName" : @"PolicyName",
+             @"targetTrackingScalingPolicyConfiguration" : @"TargetTrackingScalingPolicyConfiguration",
+             };
+}
+
++ (NSValueTransformer *)targetTrackingScalingPolicyConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBAutoScalingPolicyUpdate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyName" : @"PolicyName",
+             @"targetTrackingScalingPolicyConfiguration" : @"TargetTrackingScalingPolicyConfiguration",
+             };
+}
+
++ (NSValueTransformer *)targetTrackingScalingPolicyConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationUpdate class]];
+}
+
+@end
+
+@implementation AWSDynamoDBAutoScalingSettingsDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingDisabled" : @"AutoScalingDisabled",
+             @"autoScalingRoleArn" : @"AutoScalingRoleArn",
+             @"maximumUnits" : @"MaximumUnits",
+             @"minimumUnits" : @"MinimumUnits",
+             @"scalingPolicies" : @"ScalingPolicies",
+             };
+}
+
++ (NSValueTransformer *)scalingPoliciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAutoScalingPolicyDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBAutoScalingSettingsUpdate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingDisabled" : @"AutoScalingDisabled",
+             @"autoScalingRoleArn" : @"AutoScalingRoleArn",
+             @"maximumUnits" : @"MaximumUnits",
+             @"minimumUnits" : @"MinimumUnits",
+             @"scalingPolicyUpdate" : @"ScalingPolicyUpdate",
+             };
+}
+
++ (NSValueTransformer *)scalingPolicyUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingPolicyUpdate class]];
+}
+
+@end
+
+@implementation AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"disableScaleIn" : @"DisableScaleIn",
+             @"scaleInCooldown" : @"ScaleInCooldown",
+             @"scaleOutCooldown" : @"ScaleOutCooldown",
+             @"targetValue" : @"TargetValue",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"disableScaleIn" : @"DisableScaleIn",
+             @"scaleInCooldown" : @"ScaleInCooldown",
+             @"scaleOutCooldown" : @"ScaleOutCooldown",
+             @"targetValue" : @"TargetValue",
+             };
+}
+
+@end
+
 @implementation AWSDynamoDBBackupDescription
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1550,8 +1642,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"IndexName",
+             @"provisionedWriteCapacityAutoScalingSettingsUpdate" : @"ProvisionedWriteCapacityAutoScalingSettingsUpdate",
              @"provisionedWriteCapacityUnits" : @"ProvisionedWriteCapacityUnits",
              };
+}
+
++ (NSValueTransformer *)provisionedWriteCapacityAutoScalingSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsUpdate class]];
 }
 
 @end
@@ -2338,7 +2435,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"indexName" : @"IndexName",
              @"indexStatus" : @"IndexStatus",
+             @"provisionedReadCapacityAutoScalingSettings" : @"ProvisionedReadCapacityAutoScalingSettings",
              @"provisionedReadCapacityUnits" : @"ProvisionedReadCapacityUnits",
+             @"provisionedWriteCapacityAutoScalingSettings" : @"ProvisionedWriteCapacityAutoScalingSettings",
              @"provisionedWriteCapacityUnits" : @"ProvisionedWriteCapacityUnits",
              };
 }
@@ -2374,6 +2473,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
     }];
 }
 
++ (NSValueTransformer *)provisionedReadCapacityAutoScalingSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsDescription class]];
+}
+
++ (NSValueTransformer *)provisionedWriteCapacityAutoScalingSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsDescription class]];
+}
+
 @end
 
 @implementation AWSDynamoDBReplicaGlobalSecondaryIndexSettingsUpdate
@@ -2381,8 +2488,13 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"indexName" : @"IndexName",
+             @"provisionedReadCapacityAutoScalingSettingsUpdate" : @"ProvisionedReadCapacityAutoScalingSettingsUpdate",
              @"provisionedReadCapacityUnits" : @"ProvisionedReadCapacityUnits",
              };
+}
+
++ (NSValueTransformer *)provisionedReadCapacityAutoScalingSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsUpdate class]];
 }
 
 @end
@@ -2393,7 +2505,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"regionName" : @"RegionName",
              @"replicaGlobalSecondaryIndexSettings" : @"ReplicaGlobalSecondaryIndexSettings",
+             @"replicaProvisionedReadCapacityAutoScalingSettings" : @"ReplicaProvisionedReadCapacityAutoScalingSettings",
              @"replicaProvisionedReadCapacityUnits" : @"ReplicaProvisionedReadCapacityUnits",
+             @"replicaProvisionedWriteCapacityAutoScalingSettings" : @"ReplicaProvisionedWriteCapacityAutoScalingSettings",
              @"replicaProvisionedWriteCapacityUnits" : @"ReplicaProvisionedWriteCapacityUnits",
              @"replicaStatus" : @"ReplicaStatus",
              };
@@ -2401,6 +2515,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)replicaGlobalSecondaryIndexSettingsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription class]];
+}
+
++ (NSValueTransformer *)replicaProvisionedReadCapacityAutoScalingSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsDescription class]];
+}
+
++ (NSValueTransformer *)replicaProvisionedWriteCapacityAutoScalingSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsDescription class]];
 }
 
 + (NSValueTransformer *)replicaStatusJSONTransformer {
@@ -2442,12 +2564,17 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"regionName" : @"RegionName",
              @"replicaGlobalSecondaryIndexSettingsUpdate" : @"ReplicaGlobalSecondaryIndexSettingsUpdate",
+             @"replicaProvisionedReadCapacityAutoScalingSettingsUpdate" : @"ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate",
              @"replicaProvisionedReadCapacityUnits" : @"ReplicaProvisionedReadCapacityUnits",
              };
 }
 
 + (NSValueTransformer *)replicaGlobalSecondaryIndexSettingsUpdateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaGlobalSecondaryIndexSettingsUpdate class]];
+}
+
++ (NSValueTransformer *)replicaProvisionedReadCapacityAutoScalingSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsUpdate class]];
 }
 
 @end
@@ -3162,6 +3289,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"globalTableGlobalSecondaryIndexSettingsUpdate" : @"GlobalTableGlobalSecondaryIndexSettingsUpdate",
              @"globalTableName" : @"GlobalTableName",
+             @"globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate" : @"GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate",
              @"globalTableProvisionedWriteCapacityUnits" : @"GlobalTableProvisionedWriteCapacityUnits",
              @"replicaSettingsUpdate" : @"ReplicaSettingsUpdate",
              };
@@ -3169,6 +3297,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)globalTableGlobalSecondaryIndexSettingsUpdateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate class]];
+}
+
++ (NSValueTransformer *)globalTableProvisionedWriteCapacityAutoScalingSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsUpdate class]];
 }
 
 + (NSValueTransformer *)replicaSettingsUpdateJSONTransformer {

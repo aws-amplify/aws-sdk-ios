@@ -209,6 +209,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBAttributeDefinition;
 @class AWSDynamoDBAttributeValue;
 @class AWSDynamoDBAttributeValueUpdate;
+@class AWSDynamoDBAutoScalingPolicyDescription;
+@class AWSDynamoDBAutoScalingPolicyUpdate;
+@class AWSDynamoDBAutoScalingSettingsDescription;
+@class AWSDynamoDBAutoScalingSettingsUpdate;
+@class AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationDescription;
+@class AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationUpdate;
 @class AWSDynamoDBBackupDescription;
 @class AWSDynamoDBBackupDetails;
 @class AWSDynamoDBBackupSummary;
@@ -417,6 +423,167 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the data for an attribute.</p><p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p><p>For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) AWSDynamoDBAttributeValue * _Nullable value;
+
+@end
+
+/**
+ <p>Represents the properties of the scaling policy.</p>
+ */
+@interface AWSDynamoDBAutoScalingPolicyDescription : AWSModel
+
+
+/**
+ <p>The name of the scaling policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+/**
+ <p>Represents a target tracking scaling policy configuration.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationDescription * _Nullable targetTrackingScalingPolicyConfiguration;
+
+@end
+
+/**
+ <p>Represents the autoscaling policy to be modified.</p>
+ Required parameters: [TargetTrackingScalingPolicyConfiguration]
+ */
+@interface AWSDynamoDBAutoScalingPolicyUpdate : AWSModel
+
+
+/**
+ <p>The name of the scaling policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+/**
+ <p>Represents a target tracking scaling policy configuration.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationUpdate * _Nullable targetTrackingScalingPolicyConfiguration;
+
+@end
+
+/**
+ <p>Represents the autoscaling settings for a global table or global secondary index.</p>
+ */
+@interface AWSDynamoDBAutoScalingSettingsDescription : AWSModel
+
+
+/**
+ <p>Disabled autoscaling for this global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable autoScalingDisabled;
+
+/**
+ <p>Role ARN used for configuring autoScaling policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable autoScalingRoleArn;
+
+/**
+ <p>The maximum capacity units that a global table or global secondary index should be scaled up to.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumUnits;
+
+/**
+ <p>The minimum capacity units that a global table or global secondary index should be scaled down to.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minimumUnits;
+
+/**
+ <p>Information about the scaling policies.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBAutoScalingPolicyDescription *> * _Nullable scalingPolicies;
+
+@end
+
+/**
+ <p>Represents the autoscaling settings to be modified for a global table or global secondary index.</p>
+ */
+@interface AWSDynamoDBAutoScalingSettingsUpdate : AWSModel
+
+
+/**
+ <p>Disabled autoscaling for this global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable autoScalingDisabled;
+
+/**
+ <p>Role ARN used for configuring autoscaling policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable autoScalingRoleArn;
+
+/**
+ <p>The maximum capacity units that a global table or global secondary index should be scaled up to.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maximumUnits;
+
+/**
+ <p>The minimum capacity units that a global table or global secondary index should be scaled down to.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minimumUnits;
+
+/**
+ <p>The scaling policy to apply for scaling target global table or global secondary index capacity units.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingPolicyUpdate * _Nullable scalingPolicyUpdate;
+
+@end
+
+/**
+ <p>Represents the properties of a target tracking scaling policy.</p>
+ Required parameters: [TargetValue]
+ */
+@interface AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationDescription : AWSModel
+
+
+/**
+ <p>Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is false.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable disableScaleIn;
+
+/**
+ <p>The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application autoscaling scales out your scalable target immediately. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable scaleInCooldown;
+
+/**
+ <p>The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. You should continuously (but not excessively) scale out.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable scaleOutCooldown;
+
+/**
+ <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable targetValue;
+
+@end
+
+/**
+ <p>Represents the settings of a target tracking scaling policy that will be modified.</p>
+ Required parameters: [TargetValue]
+ */
+@interface AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationUpdate : AWSModel
+
+
+/**
+ <p>Indicates whether scale in by the target tracking policy is disabled. If the value is true, scale in is disabled and the target tracking policy won't remove capacity from the scalable resource. Otherwise, scale in is enabled and the target tracking policy can remove capacity from the scalable resource. The default value is false.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable disableScaleIn;
+
+/**
+ <p>The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application autoscaling scales out your scalable target immediately. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable scaleInCooldown;
+
+/**
+ <p>The amount of time, in seconds, after a scale out activity completes before another scale out activity can start. While the cooldown period is in effect, the capacity that has been added by the previous scale out event that initiated the cooldown is calculated as part of the desired capacity for the next scale out. You should continuously (but not excessively) scale out.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable scaleOutCooldown;
+
+/**
+ <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable targetValue;
 
 @end
 
@@ -1527,6 +1694,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
+ <p>AutoScaling settings for managing a global secondary index's write capacity units.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable provisionedWriteCapacityAutoScalingSettingsUpdate;
+
+/**
  <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable provisionedWriteCapacityUnits;
@@ -2227,9 +2399,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBIndexStatus indexStatus;
 
 /**
+ <p>Autoscaling settings for a global secondary index replica's read capacity units.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable provisionedReadCapacityAutoScalingSettings;
+
+/**
  <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable provisionedReadCapacityUnits;
+
+/**
+ <p>AutoScaling settings for a global secondary index replica's write capacity units.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable provisionedWriteCapacityAutoScalingSettings;
 
 /**
  <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
@@ -2249,6 +2431,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The name of the global secondary index. The name must be unique among all other indexes on this table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Autoscaling settings for managing a global secondary index replica's read capacity units.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable provisionedReadCapacityAutoScalingSettingsUpdate;
 
 /**
  <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
@@ -2275,9 +2462,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription *> * _Nullable replicaGlobalSecondaryIndexSettings;
 
 /**
+ <p>Autoscaling settings for a global table replica's read capacity units.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable replicaProvisionedReadCapacityAutoScalingSettings;
+
+/**
  <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable replicaProvisionedReadCapacityUnits;
+
+/**
+ <p>AutoScaling settings for a global table replica's write capacity units.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable replicaProvisionedWriteCapacityAutoScalingSettings;
 
 /**
  <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
@@ -2307,6 +2504,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexSettingsUpdate *> * _Nullable replicaGlobalSecondaryIndexSettingsUpdate;
+
+/**
+ <p>Autoscaling settings for managing a global table replica's read capacity units.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable replicaProvisionedReadCapacityAutoScalingSettingsUpdate;
 
 /**
  <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
@@ -2974,6 +3176,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The name of the global table</p>
  */
 @property (nonatomic, strong) NSString * _Nullable globalTableName;
+
+/**
+ <p>AutoScaling settings for managing provisioned write capacity for the global table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate;
 
 /**
  <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException.</code></p>

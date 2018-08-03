@@ -90,7 +90,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     }
     [self.endpointProfile removeAllMetrics];
     [self.endpointProfile removeAllAttributes];
-    //This updates endpoint id, address and debug mode and app id
+    //This updates endpoint id, demograhpic information, address, debug mode and app id
     [self.endpointProfile updateEndpointProfileWithContext:self.context];
     //update opt outs
     BOOL applicationLevelOptOut = [self.endpointProfile isApplicationLevelOptOut:self.context];

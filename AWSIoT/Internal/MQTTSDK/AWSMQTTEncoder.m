@@ -14,9 +14,9 @@
 //
 
 #import "AWSCocoaLumberjack.h"
-#import "MQTTEncoder.h"
+#import "AWSMQTTEncoder.h"
 
-@interface MQTTEncoder () {
+@interface AWSMQTTEncoder () {
     NSOutputStream* stream;
     NSMutableData*  buffer;
     NSInteger       byteIndex;
@@ -26,11 +26,11 @@
 
 @end
 
-@implementation MQTTEncoder
+@implementation AWSMQTTEncoder
 
 - (id)initWithStream:(NSOutputStream*)aStream
  {
-    _status = MQTTEncoderStatusInitializing;
+    _status = AWSMQTTEncoderStatusInitializing;
     stream = aStream;
     [stream setDelegate:self];
     _encodeSemaphore = dispatch_semaphore_create(1);
@@ -62,14 +62,14 @@
             break;
         case NSStreamEventHasSpaceAvailable:
             AWSDDLogVerbose(@"MQTTEncoderStatus = %d", _status);
-            if (_status == MQTTEncoderStatusInitializing) {
-                _status = MQTTEncoderStatusReady;
-                [_delegate encoder:self handleEvent:MQTTEncoderEventReady];
+            if (_status == AWSMQTTEncoderStatusInitializing) {
+                _status = AWSMQTTEncoderStatusReady;
+                [_delegate encoder:self handleEvent:AWSMQTTEncoderEventReady];
             }
-            else if (_status == MQTTEncoderStatusReady) {
-                [_delegate encoder:self handleEvent:MQTTEncoderEventReady];
+            else if (_status == AWSMQTTEncoderStatusReady) {
+                [_delegate encoder:self handleEvent:AWSMQTTEncoderEventReady];
             }
-            else if (_status == MQTTEncoderStatusSending) {
+            else if (_status == AWSMQTTEncoderStatusSending) {
                 UInt8* ptr;
                 NSInteger n, length;
                 
@@ -78,8 +78,8 @@
                 length = [buffer length] - byteIndex;
                 n = [stream write:ptr maxLength:length];
                 if (n == -1) {
-                    _status = MQTTEncoderStatusError;
-                    [_delegate encoder:self handleEvent:MQTTEncoderEventErrorOccurred];
+                    _status = AWSMQTTEncoderStatusError;
+                    [_delegate encoder:self handleEvent:AWSMQTTEncoderEventErrorOccurred];
                 }
                 else if (n < length) {
                     byteIndex += n;
@@ -87,15 +87,15 @@
                 else {
                     buffer = NULL;
                     byteIndex = 0;
-                    _status = MQTTEncoderStatusReady;
+                    _status = AWSMQTTEncoderStatusReady;
                 }
             }
             break;
         case NSStreamEventErrorOccurred:
         case NSStreamEventEndEncountered:
-            if (_status != MQTTEncoderStatusError) {
-                _status = MQTTEncoderStatusError;
-                [_delegate encoder:self handleEvent:MQTTEncoderEventErrorOccurred];
+            if (_status != AWSMQTTEncoderStatusError) {
+                _status = AWSMQTTEncoderStatusError;
+                [_delegate encoder:self handleEvent:AWSMQTTEncoderEventErrorOccurred];
             }
             break;
         default:
@@ -104,7 +104,7 @@
     }
 }
 
-- (void)encodeMessage:(MQTTMessage*)msg {
+- (void)encodeMessage:(AWSMQTTMessage*)msg {
     //Adding a mutex to prevent buffer from being modified by multiple threads
     AWSDDLogVerbose(@"***** waiting on encodeSemaphore *****");
     dispatch_semaphore_wait(self.encodeSemaphore, DISPATCH_TIME_FOREVER);
@@ -112,7 +112,7 @@
     UInt8 header;
     NSInteger n, length;
     
-    if (_status != MQTTEncoderStatusReady) {
+    if (_status != AWSMQTTEncoderStatusReady) {
         AWSDDLogInfo(@"Encoder not ready");
         dispatch_semaphore_signal(self.encodeSemaphore);
         return;
@@ -153,12 +153,12 @@
     
     n = [stream write:[buffer bytes] maxLength:[buffer length]];
     if (n == -1) {
-        _status = MQTTEncoderStatusError;
-        [_delegate encoder:self handleEvent:MQTTEncoderEventErrorOccurred];
+        _status = AWSMQTTEncoderStatusError;
+        [_delegate encoder:self handleEvent:AWSMQTTEncoderEventErrorOccurred];
     }
     else if (n < [buffer length]) {
         byteIndex += n;
-        _status = MQTTEncoderStatusSending;
+        _status = AWSMQTTEncoderStatusSending;
     }
     else {
         buffer = NULL;

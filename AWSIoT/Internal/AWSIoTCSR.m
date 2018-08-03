@@ -14,7 +14,6 @@
 //
 
 #import "AWSIoTCSR.h"
-#import "AWSIOTService.h"
 #import "AWSIoTKeychain.h"
 
 unsigned char seqTag = 0x30;

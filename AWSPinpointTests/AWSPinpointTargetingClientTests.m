@@ -321,17 +321,20 @@ NSString *const AWSDeviceTokenKey = @"com.amazonaws.AWSDeviceTokenKey";
     XCTAssertNotNil(profile.demographic.platform);
     XCTAssertNotNil(profile.demographic.platformVersion);
     
-    UIDevice* currentDevice = [UIDevice currentDevice];
+    NSString *appVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]? [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]:@"Unknown";
+    UIDevice *currentDevice = [UIDevice currentDevice];
     NSString *autoUpdatingLocaleIdentifier = [[NSLocale autoupdatingCurrentLocale] localeIdentifier];
     XCTAssertTrue([profile.demographic.make isEqualToString:@"apple"]);
     XCTAssertTrue([profile.demographic.model isEqualToString:[currentDevice model]]);
     XCTAssertTrue([profile.demographic.timezone isEqualToString:[[NSTimeZone systemTimeZone] name]]);
     XCTAssertTrue([profile.demographic.locale isEqualToString:autoUpdatingLocaleIdentifier]);
-   // XCTAssertTrue([profile.demographic.appVersion isEqualToString:@"1.0"]);
+
+    //This will be same as main bundle's version
+    XCTAssertTrue([profile.demographic.appVersion isEqualToString:appVersion]);
     XCTAssertTrue([profile.demographic.platform isEqualToString:[currentDevice systemName]]);
     XCTAssertTrue([profile.demographic.platformVersion isEqualToString:[currentDevice systemVersion]]);
-    
 }
+
 
 - (void)testUpdateEndpointRequest {
     [self validateUpdateEndpointRequest:NO forAppId:@"testCurrentProfileForAPNS"];

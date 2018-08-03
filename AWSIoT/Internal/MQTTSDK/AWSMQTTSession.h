@@ -14,36 +14,36 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MQTTMessage.h"
+#import "AWSMQTTMessage.h"
 
 typedef enum {
-    MQTTSessionStatusCreated,
-    MQTTSessionStatusConnecting,
-    MQTTSessionStatusConnected,
-    MQTTSessionStatusError
-} MQTTSessionStatus;
+    AWSMQTTSessionStatusCreated,
+    AWSMQTTSessionStatusConnecting,
+    AWSMQTTSessionStatusConnected,
+    AWSMQTTSessionStatusError
+} AWSMQTTSessionStatus;
 
 typedef enum {
-    MQTTSessionEventConnected,
-    MQTTSessionEventConnectionRefused,
-    MQTTSessionEventConnectionClosed,
-    MQTTSessionEventConnectionError,
-    MQTTSessionEventProtocolError
-} MQTTSessionEvent;
+    AWSMQTTSessionEventConnected,
+    AWSMQTTSessionEventConnectionRefused,
+    AWSMQTTSessionEventConnectionClosed,
+    AWSMQTTSessionEventConnectionError,
+    AWSMQTTSessionEventProtocolError
+} AWSMQTTSessionEvent;
 
-@class MQTTSession;
+@class AWSMQTTSession;
 
-@protocol MQTTSessionDelegate
+@protocol AWSMQTTSessionDelegate
 
-- (void)session:(MQTTSession*)session handleEvent:(MQTTSessionEvent)eventCode;
-- (void)session:(MQTTSession*)session newMessage:(NSData*)data onTopic:(NSString*)topic;
+- (void)session:(AWSMQTTSession*)session handleEvent:(AWSMQTTSessionEvent)eventCode;
+- (void)session:(AWSMQTTSession*)session newMessage:(NSData*)data onTopic:(NSString*)topic;
 
 @optional
-- (void)session:(MQTTSession*)session newAckForMessageId:(UInt16)msgId;
+- (void)session:(AWSMQTTSession*)session newAckForMessageId:(UInt16)msgId;
 
 @end
 
-@interface MQTTSession : NSObject 
+@interface AWSMQTTSession : NSObject 
 
 #pragma mark Constructors
 
@@ -59,8 +59,8 @@ typedef enum {
   publishRetryThrottle: (NSUInteger)publishRetryThrottle;
 
 #pragma mark Delegates and Callback blocks
-@property (weak) id<MQTTSessionDelegate> delegate;
-@property (strong) void (^connectionHandler)(MQTTSessionEvent event);
+@property (weak) id<AWSMQTTSessionDelegate> delegate;
+@property (strong) void (^connectionHandler)(AWSMQTTSessionEvent event);
 @property (strong) void (^messageHandler)(NSData* message, NSString* topic);
 @property (strong) void (^subsAckHandler)(UInt16 msgId);
 
@@ -88,7 +88,7 @@ typedef enum {
 - (void)publishJson:(id)payload onTopic:(NSString*)theTopic;
 
 - (BOOL)isReadyToPublish;
-- (void)send:(MQTTMessage*)msg;
+- (void)send:(AWSMQTTMessage*)msg;
 
 @end
 
