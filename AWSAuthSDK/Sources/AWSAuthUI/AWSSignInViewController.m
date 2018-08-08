@@ -27,7 +27,6 @@
 #define DEFAULT_BACKGROUND_COLOR_BOTTOM [UIColor whiteColor]
 #define NAVIGATION_BAR_HEIGHT 64
 
-static NSString *const RESOURCES_BUNDLE = @"AWSAuthUI.bundle";
 static NSString *const SMALL_IMAGE_NAME = @"logo-aws-small";
 static NSString *const BIG_IMAGE_NAME = @"logo-aws-big";
 
@@ -379,7 +378,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 + (UIImage *)getImageFromBundle:(NSString *)imageName {
     NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
-    NSURL *url = [[currentBundle resourceURL] URLByAppendingPathComponent:RESOURCES_BUNDLE];
+    NSURL *url = [currentBundle resourceURL];
     AWSDDLogDebug(@"URL: %@", url);
     
     NSBundle *assetsBundle = [NSBundle bundleWithURL:url];
@@ -396,7 +395,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 + (UIStoryboard *)getUIStoryboardFromBundle:(NSString *)storyboardName {
     NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
-    NSURL *url = [[currentBundle resourceURL] URLByAppendingPathComponent:RESOURCES_BUNDLE];
+    NSURL *url = [currentBundle resourceURL];
     AWSDDLogDebug(@"URL: %@", url);
     
     NSBundle *resourcesBundle = [NSBundle bundleWithURL:url];
