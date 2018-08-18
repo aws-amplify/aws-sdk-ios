@@ -503,9 +503,9 @@ The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format
 
 1. Open the Mac OS X terminal and go to the directory containing the expanded archive. For example:
 
-        $ cd ~/Downloads/aws-ios-sdk-2.6.0
+        $ cd ~/Downloads/aws-ios-sdk-2.5.0
 
-    **Note**: Remember to replace 2.6.0 in the example above with the actual version number of the AWS SDK for iOS that you downloaded.
+    **Note**: Remember to replace 2.5.0 in the example above with the actual version number of the AWS SDK for iOS that you downloaded.
 
 2. Create a directory called `~/Library/Developer/Shared/Documentation/DocSets`:
 
@@ -515,7 +515,7 @@ The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format
 
         $ mv Documentation/com.amazon.aws.ios.docset ~/Library/Developer/Shared/Documentation/DocSets/
 
-4. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.6.0 Documentation** (where '2.6.0' is the appropriate version number).
+4. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.5.0 Documentation** (where '2.5.0' is the appropriate version number).
 
 ## Talk to Us
 

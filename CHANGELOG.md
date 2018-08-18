@@ -1,6 +1,13 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.27
+
+### Bug Fixes
+
+* **Amazon Pinpoint**
+  * Fixed a bug where accessing `AWSPinpointEndpointProfile` from multiple threads would potentially lead to a crash. See [issue#906](https://github.com/aws/aws-sdk-ios/issues/906)
+
 ## 2.6.26
 
 ### New Features

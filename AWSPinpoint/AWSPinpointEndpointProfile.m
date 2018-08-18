@@ -73,7 +73,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
         _location = [AWSPinpointEndpointProfileLocation new];
         _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
         _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
-        [self performSelectorOnMainThread:@selector(setEndpointOptOut:) withObject:[NSNumber numberWithBool:applicationLevelOptOut] waitUntilDone:YES];
+        [self setEndpointOptOut:applicationLevelOptOut];
         _attributes = [NSMutableDictionary dictionary];
         _metrics = [NSMutableDictionary dictionary];
         _user = [AWSPinpointEndpointProfileUser new];
@@ -100,29 +100,31 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
         userDefaults = [NSUserDefaults standardUserDefaults];
     }
     NSString *deviceTokenString = [[[[userDefaults objectForKey:AWSDeviceTokenKey] description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    _channelType = context.configuration.debug ? DEBUG_CHANNEL_TYPE : CHANNEL_TYPE;
-    _applicationId = context.configuration.appId;
-    _endpointId = context.uniqueId;
-    _address = deviceTokenString;
-    
-    //this updates demograhpic information.
-    _location = [AWSPinpointEndpointProfileLocation new];
-    _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
-    _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
+    @synchronized (self) {
+        _channelType = context.configuration.debug ? DEBUG_CHANNEL_TYPE : CHANNEL_TYPE;
+        _applicationId = context.configuration.appId;
+        _endpointId = context.uniqueId;
+        _address = deviceTokenString;
+        
+        //this updates demograhpic information.
+        _location = [AWSPinpointEndpointProfileLocation new];
+        _demographic = [AWSPinpointEndpointProfileDemographic defaultAWSPinpointEndpointProfileDemographic];
+        _effectiveDate = [AWSPinpointDateUtils utcTimeMillisNow];
+    }
 }
 
 - (BOOL) isApplicationLevelOptOut:(AWSPinpointContext *) context {
     if (context.configuration.isApplicationLevelOptOut != NULL && context.configuration.isApplicationLevelOptOut() == YES){
         return YES;
     }
-    
     return NO;
 }
 
-- (void) setEndpointOptOut:(NSNumber *) applicationLevelOptOut {
-    BOOL isOptedOutForRemoteNotifications = ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
- 
-    _optOut = ([applicationLevelOptOut boolValue] || isOptedOutForRemoteNotifications)? @"ALL": @"NONE";
+- (void) setEndpointOptOut:(BOOL) applicationLevelOptOut {
+    @synchronized (self) {
+        BOOL isOptedOutForRemoteNotifications = ![AWSPinpointNotificationManager isNotificationEnabled];
+        self->_optOut = (applicationLevelOptOut || isOptedOutForRemoteNotifications)? @"ALL": @"NONE";
+    }
 }
 
 + (NSArray*) processAttributeValues:(NSArray*) values {
@@ -198,14 +200,14 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 }
 
 - (NSArray *)attributeForKey:(NSString *)theKey {
-    @synchronized(self.attributes) {
+    @synchronized(self) {
         return [self.attributes objectForKey:theKey];
     }
 }
 
 - (BOOL)hasAttributeForKey:(NSString *)theKey {
     if(!theKey) return NO;
-    @synchronized(self.attributes) {
+    @synchronized(self) {
         if([self.attributes objectForKey:theKey]) {
             return YES;
         } else {
@@ -215,7 +217,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 }
 
 - (NSDictionary*) allAttributes {
-    @synchronized(self.attributes) {
+    @synchronized(self) {
         return [NSDictionary dictionaryWithDictionary:self.attributes];
     }
 }
@@ -237,14 +239,14 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 }
 
 - (NSNumber *)metricForKey:(NSString *)theKey {
-    @synchronized(self.metrics) {
+    @synchronized(self) {
         return [self.metrics objectForKey:theKey];
     }
 }
 
 - (BOOL)hasMetricForKey:(NSString *)theKey {
     if(!theKey) return NO;
-    @synchronized(self.metrics) {
+    @synchronized(self) {
         if ([self.metrics objectForKey:theKey] != nil) {
             return YES;
         } else {
@@ -254,7 +256,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 }
 
 - (NSDictionary*) allMetrics {
-    @synchronized(self.metrics) {
+    @synchronized(self) {
         return [NSDictionary dictionaryWithDictionary:self.metrics];
     }
 }

@@ -62,11 +62,20 @@ NSString *const AWSPinpointCampaignKey = @"campaign";
 }
 
 + (BOOL)isNotificationEnabled {
-    BOOL optOut = ![[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
-    if ([[UIApplication sharedApplication] currentUserNotificationSettings].types == UIUserNotificationTypeNone) {
-        optOut = YES;
+    __block BOOL notificationsEnabled;
+    [self runOnMainThread:^{
+        notificationsEnabled = [[UIApplication sharedApplication] isRegisteredForRemoteNotifications];
+    }];
+    
+    return notificationsEnabled;
+}
+
++ (void) runOnMainThread:(void (^)(void))codeBlock {
+    if ([NSThread isMainThread]) {
+        codeBlock();
+    } else {
+        dispatch_sync(dispatch_get_main_queue(), codeBlock);
     }
-    return !optOut;
 }
 
 + (BOOL)validCampaignPushForNotification:(NSDictionary*) notification {
