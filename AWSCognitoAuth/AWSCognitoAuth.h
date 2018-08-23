@@ -178,6 +178,11 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
 @property (nonatomic, readonly) NSString * signOutRedirectUri;
 
 /**
+ uri on sign in.  Must be configured as a uri scheme in your info.plist
+ */
+@property (nonatomic, readonly) NSString * signInUri;
+
+/**
  The FQDN of your Cognito endpoint, something like https://mydomain.region.auth.amazoncognito.com
  */
 @property (nonatomic, readonly) NSString * webDomain;
@@ -240,6 +245,30 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
                    identityProvider:(nullable NSString *) identityProvider
                       idpIdentifier:(nullable NSString *) idpIdentifier
                          userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF;
+
+/**
+ Configuration object for CognitoAuth
+ @param appClientId The app client id
+ @param appClientSecret The optional app client secret
+ @param scopes Set of scopes to obtain
+ @param signInRedirectUri uri to redirect on sign in.  Must be configured as a uri scheme in your info.plist
+ @param signOutRedirectUri uri to redirect on sign out.  Must be configured as a uri scheme in your info.plist
+ @param signInUri uri on sign in.  Must be configured as a uri scheme in your info.plist
+ @param webDomain The FQDN of your Cognito endpoint, something like https://mydomain.region.auth.amazoncognito.com
+ @param identityProvider Optional provider name to authenticate with directly
+ @param idpIdentifier Optional provider identifier to authenticate with directly
+ @param userPoolIdForEnablingASF Optional user pool id for enabling advanced security features
+ */
+- (instancetype)initWithAppClientId:(NSString *) appClientId
+                    appClientSecret:(nullable NSString *) appClientSecret
+                             scopes:(NSSet<NSString *> *) scopes
+                  signInRedirectUri:(NSString *) signInRedirectUri
+                 signOutRedirectUri:(NSString *) signOutRedirectUri
+                          signInUri:(nullable NSString *) signInUri
+                          webDomain:(NSString *) webDomain
+                   identityProvider:(nullable NSString *) identityProvider
+                      idpIdentifier:(nullable NSString *) idpIdentifier
+           userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF;
 @end
 
 
