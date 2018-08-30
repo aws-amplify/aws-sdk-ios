@@ -59,6 +59,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBBackupStatus) {
     AWSDynamoDBBackupStatusAvailable,
 };
 
+typedef NS_ENUM(NSInteger, AWSDynamoDBBackupType) {
+    AWSDynamoDBBackupTypeUnknown,
+    AWSDynamoDBBackupTypeUser,
+    AWSDynamoDBBackupTypeSystem,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBBackupTypeFilter) {
+    AWSDynamoDBBackupTypeFilterUnknown,
+    AWSDynamoDBBackupTypeFilterUser,
+    AWSDynamoDBBackupTypeFilterSystem,
+    AWSDynamoDBBackupTypeFilterAll,
+};
+
 typedef NS_ENUM(NSInteger, AWSDynamoDBComparisonOperator) {
     AWSDynamoDBComparisonOperatorUnknown,
     AWSDynamoDBComparisonOperatorEQ,
@@ -159,6 +172,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBSSEStatus) {
     AWSDynamoDBSSEStatusEnabled,
     AWSDynamoDBSSEStatusDisabling,
     AWSDynamoDBSSEStatusDisabled,
+    AWSDynamoDBSSEStatusUpdating,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBSSEType) {
@@ -612,7 +626,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 /**
  <p>Contains the details of the backup created for the table.</p>
- Required parameters: [BackupArn, BackupName, BackupStatus, BackupCreationDateTime]
+ Required parameters: [BackupArn, BackupName, BackupStatus, BackupType, BackupCreationDateTime]
  */
 @interface AWSDynamoDBBackupDetails : AWSModel
 
@@ -628,6 +642,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDate * _Nullable backupCreationDateTime;
 
 /**
+ <p>Time at which the automatic on-demand backup created by DynamoDB will expire. This <code>SYSTEM</code> on-demand backup expires automatically 35 days after its creation.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable backupExpiryDateTime;
+
+/**
  <p>Name of the requested backup.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable backupName;
@@ -641,6 +660,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED. </p>
  */
 @property (nonatomic, assign) AWSDynamoDBBackupStatus backupStatus;
+
+/**
+ <p>BackupType:</p><ul><li><p><code>USER</code> - On-demand backup created by you.</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBBackupType backupType;
 
 @end
 
@@ -661,6 +685,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDate * _Nullable backupCreationDateTime;
 
 /**
+ <p>Time at which the automatic on-demand backup created by DynamoDB will expire. This <code>SYSTEM</code> on-demand backup expires automatically 35 days after its creation.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable backupExpiryDateTime;
+
+/**
  <p>Name of the specified backup.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable backupName;
@@ -674,6 +703,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
  */
 @property (nonatomic, assign) AWSDynamoDBBackupStatus backupStatus;
+
+/**
+ <p>BackupType:</p><ul><li><p><code>USER</code> - On-demand backup created by you.</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBBackupType backupType;
 
 /**
  <p>ARN associated with the table.</p>
@@ -854,7 +888,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p><code>ContinuousBackupsStatus</code> can be one of the following states : ENABLED, DISABLED</p>
+ <p><code>ContinuousBackupsStatus</code> can be one of the following states: ENABLED, DISABLED</p>
  */
 @property (nonatomic, assign) AWSDynamoDBContinuousBackupsStatus continuousBackupsStatus;
 
@@ -1783,6 +1817,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
+ <p>The backups from the table specified by <code>BackupType</code> are listed.</p><p>Where <code>BackupType</code> can be:</p><ul><li><p><code>USER</code> - On-demand backup created by you.</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li><li><p><code>ALL</code> - All types of on-demand backups (USER and SYSTEM).</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBBackupTypeFilter backupType;
+
+/**
  <p><code>LastEvaluatedBackupArn</code> is the ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable exclusiveStartBackupArn;
@@ -1793,7 +1832,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>The backups from the table specified by TableName are listed. </p>
+ <p>The backups from the table specified by <code>TableName</code> are listed. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
@@ -2653,7 +2692,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBSSEType SSEType;
 
 /**
- <p>The current state of server-side encryption:</p><ul><li><p><code>ENABLING</code> - Server-side encryption is being enabled.</p></li><li><p><code>ENABLED</code> - Server-side encryption is enabled.</p></li><li><p><code>DISABLING</code> - Server-side encryption is being disabled.</p></li><li><p><code>DISABLED</code> - Server-side encryption is disabled.</p></li></ul>
+ <p>The current state of server-side encryption:</p><ul><li><p><code>ENABLING</code> - Server-side encryption is being enabled.</p></li><li><p><code>ENABLED</code> - Server-side encryption is enabled.</p></li><li><p><code>DISABLING</code> - Server-side encryption is being disabled.</p></li><li><p><code>DISABLED</code> - Server-side encryption is disabled.</p></li><li><p><code>UPDATING</code> - Server-side encryption is being updated.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEStatus status;
 
@@ -2661,7 +2700,6 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 /**
  <p>Represents the settings used to enable server-side encryption.</p>
- Required parameters: [Enabled]
  */
 @interface AWSDynamoDBSSESpecification : AWSModel
 
@@ -2670,6 +2708,16 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Indicates whether server-side encryption is enabled (true) or disabled (false) on the table.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The KMS Master Key (CMK) which should be used for the KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS Master Key alias/aws/dynamodb.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
+
+/**
+ <p>Server-side encryption type:</p><ul><li><p><code>AES256</code> - Server-side encryption which uses the AES256 algorithm.</p></li><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service. (default)</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBSSEType SSEType;
 
 @end
 
@@ -3325,6 +3373,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The new provisioned throughput settings for the specified table or index.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
+
+/**
+ <p>The new server-side encryption settings for the specified table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBSSESpecification * _Nullable SSESpecification;
 
 /**
  <p>Represents the DynamoDB Streams configuration for the table.</p><note><p>You will receive a <code>ResourceInUseException</code> if you attempt to enable a stream on a table that already has a stream, or if you attempt to disable a stream on a table which does not have a stream.</p></note>

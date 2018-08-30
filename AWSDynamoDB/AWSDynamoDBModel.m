@@ -249,13 +249,23 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"backupArn" : @"BackupArn",
              @"backupCreationDateTime" : @"BackupCreationDateTime",
+             @"backupExpiryDateTime" : @"BackupExpiryDateTime",
              @"backupName" : @"BackupName",
              @"backupSizeBytes" : @"BackupSizeBytes",
              @"backupStatus" : @"BackupStatus",
+             @"backupType" : @"BackupType",
              };
 }
 
 + (NSValueTransformer *)backupCreationDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)backupExpiryDateTimeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
@@ -289,6 +299,27 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
     }];
 }
 
++ (NSValueTransformer *)backupTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"USER"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeUser);
+        }
+        if ([value caseInsensitiveCompare:@"SYSTEM"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeSystem);
+        }
+        return @(AWSDynamoDBBackupTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBBackupTypeUser:
+                return @"USER";
+            case AWSDynamoDBBackupTypeSystem:
+                return @"SYSTEM";
+            default:
+                return nil;
+        }
+    }];
+}
+
 @end
 
 @implementation AWSDynamoDBBackupSummary
@@ -297,9 +328,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 	return @{
              @"backupArn" : @"BackupArn",
              @"backupCreationDateTime" : @"BackupCreationDateTime",
+             @"backupExpiryDateTime" : @"BackupExpiryDateTime",
              @"backupName" : @"BackupName",
              @"backupSizeBytes" : @"BackupSizeBytes",
              @"backupStatus" : @"BackupStatus",
+             @"backupType" : @"BackupType",
              @"tableArn" : @"TableArn",
              @"tableId" : @"TableId",
              @"tableName" : @"TableName",
@@ -307,6 +340,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 }
 
 + (NSValueTransformer *)backupCreationDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)backupExpiryDateTimeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
@@ -334,6 +375,27 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
                 return @"DELETED";
             case AWSDynamoDBBackupStatusAvailable:
                 return @"AVAILABLE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)backupTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"USER"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeUser);
+        }
+        if ([value caseInsensitiveCompare:@"SYSTEM"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeSystem);
+        }
+        return @(AWSDynamoDBBackupTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBBackupTypeUser:
+                return @"USER";
+            case AWSDynamoDBBackupTypeSystem:
+                return @"SYSTEM";
             default:
                 return nil;
         }
@@ -1730,12 +1792,39 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"backupType" : @"BackupType",
              @"exclusiveStartBackupArn" : @"ExclusiveStartBackupArn",
              @"limit" : @"Limit",
              @"tableName" : @"TableName",
              @"timeRangeLowerBound" : @"TimeRangeLowerBound",
              @"timeRangeUpperBound" : @"TimeRangeUpperBound",
              };
+}
+
++ (NSValueTransformer *)backupTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"USER"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeFilterUser);
+        }
+        if ([value caseInsensitiveCompare:@"SYSTEM"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeFilterSystem);
+        }
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeFilterAll);
+        }
+        return @(AWSDynamoDBBackupTypeFilterUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBBackupTypeFilterUser:
+                return @"USER";
+            case AWSDynamoDBBackupTypeFilterSystem:
+                return @"SYSTEM";
+            case AWSDynamoDBBackupTypeFilterAll:
+                return @"ALL";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)timeRangeLowerBoundJSONTransformer {
@@ -2724,6 +2813,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
         if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
             return @(AWSDynamoDBSSEStatusDisabled);
         }
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSEStatusUpdating);
+        }
         return @(AWSDynamoDBSSEStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2735,6 +2827,8 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
                 return @"DISABLING";
             case AWSDynamoDBSSEStatusDisabled:
                 return @"DISABLED";
+            case AWSDynamoDBSSEStatusUpdating:
+                return @"UPDATING";
             default:
                 return nil;
         }
@@ -2748,7 +2842,30 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"enabled" : @"Enabled",
+             @"KMSMasterKeyId" : @"KMSMasterKeyId",
+             @"SSEType" : @"SSEType",
              };
+}
+
++ (NSValueTransformer *)SSETypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AES256"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSETypeAES256);
+        }
+        if ([value caseInsensitiveCompare:@"KMS"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSETypeKms);
+        }
+        return @(AWSDynamoDBSSETypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBSSETypeAES256:
+                return @"AES256";
+            case AWSDynamoDBSSETypeKms:
+                return @"KMS";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -3516,6 +3633,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"attributeDefinitions" : @"AttributeDefinitions",
              @"globalSecondaryIndexUpdates" : @"GlobalSecondaryIndexUpdates",
              @"provisionedThroughput" : @"ProvisionedThroughput",
+             @"SSESpecification" : @"SSESpecification",
              @"streamSpecification" : @"StreamSpecification",
              @"tableName" : @"TableName",
              };
@@ -3531,6 +3649,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+}
+
++ (NSValueTransformer *)SSESpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBSSESpecification class]];
 }
 
 + (NSValueTransformer *)streamSpecificationJSONTransformer {

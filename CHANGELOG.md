@@ -1,6 +1,28 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.28
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Autoscaling
+  * Amazon CloudWatch Logs
+  * Amazon Cognito Identity Provider
+  * Amazon DynamoDB
+  * Amazon EC2
+  * AWS KMS
+  * Amazon Rekognition
+  * Amazon Transcribe
+
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed bug in MultiPart transfer utility where resuming multiple times finishes the upload before it has been completed. See [issue#1015](https://github.com/aws/aws-sdk-ios/issues/1015)
+
+* **Amazon Core**
+  * Added checks to AWSURLSessionManager to prevent crashes and instead propagate error due to transient IO issues. See [issue#1025](https://github.com/aws/aws-sdk-ios/issues/1025)
+
 ## 2.6.27
 
 ### Bug Fixes

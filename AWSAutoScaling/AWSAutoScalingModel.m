@@ -339,6 +339,60 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSAutoScalingBatchDeleteScheduledActionAnswer
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failedScheduledActions" : @"FailedScheduledActions",
+             };
+}
+
++ (NSValueTransformer *)failedScheduledActionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingFailedScheduledUpdateGroupActionRequest class]];
+}
+
+@end
+
+@implementation AWSAutoScalingBatchDeleteScheduledActionType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"scheduledActionNames" : @"ScheduledActionNames",
+             };
+}
+
+@end
+
+@implementation AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failedScheduledUpdateGroupActions" : @"FailedScheduledUpdateGroupActions",
+             };
+}
+
++ (NSValueTransformer *)failedScheduledUpdateGroupActionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingFailedScheduledUpdateGroupActionRequest class]];
+}
+
+@end
+
+@implementation AWSAutoScalingBatchPutScheduledUpdateGroupActionType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"scheduledUpdateGroupActions" : @"ScheduledUpdateGroupActions",
+             };
+}
+
++ (NSValueTransformer *)scheduledUpdateGroupActionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingScheduledUpdateGroupActionRequest class]];
+}
+
+@end
+
 @implementation AWSAutoScalingBlockDeviceMapping
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1029,6 +1083,18 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSAutoScalingFailedScheduledUpdateGroupActionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"errorCode" : @"ErrorCode",
+             @"errorMessage" : @"ErrorMessage",
+             @"scheduledActionName" : @"ScheduledActionName",
+             };
+}
+
+@end
+
 @implementation AWSAutoScalingFilter
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1650,6 +1716,38 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 }
 
 + (NSValueTransformer *)timeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
+@end
+
+@implementation AWSAutoScalingScheduledUpdateGroupActionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"desiredCapacity" : @"DesiredCapacity",
+             @"endTime" : @"EndTime",
+             @"maxSize" : @"MaxSize",
+             @"minSize" : @"MinSize",
+             @"recurrence" : @"Recurrence",
+             @"scheduledActionName" : @"ScheduledActionName",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
         return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {

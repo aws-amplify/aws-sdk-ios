@@ -156,11 +156,6 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  */
 - (void)suspend;
 
-/**
- Set the progress Block
- */
-- (void) setProgressBlock: (AWSS3TransferUtilityProgressBlock) progressBlock;
-
 @end
 
 /**
@@ -168,7 +163,17 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  */
 @interface AWSS3TransferUtilityUploadTask : AWSS3TransferUtilityTask
 
+/**
+ set completion handler for task
+ **/
+
 - (void) setCompletionHandler: (AWSS3TransferUtilityUploadCompletionHandlerBlock)completionHandler;
+
+/**
+ Set the progress Block
+ */
+- (void) setProgressBlock: (AWSS3TransferUtilityProgressBlock) progressBlock;
+
 @end
 
 /**
@@ -235,8 +240,15 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  The task object to represent a download task.
  */
 @interface AWSS3TransferUtilityDownloadTask : AWSS3TransferUtilityTask
-
+/**
+ set completion handler for task
+ **/
 - (void) setCompletionHandler: (AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler;
+
+/**
+ Set the progress Block
+ */
+- (void) setProgressBlock: (AWSS3TransferUtilityProgressBlock) progressBlock;
 
 @end
 

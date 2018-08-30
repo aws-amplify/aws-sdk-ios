@@ -26,12 +26,14 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
 @property NSString *nsURLSessionID;
 @property NSString *file;
 @property int retryCount;
+@property NSString *transferType;
 @property (strong, nonatomic) NSString *transferID;
 @end
 
 @interface AWSS3TransferUtilityUploadTask()
 @property (strong, nonatomic) AWSS3TransferUtilityUploadExpression *expression;
 @property BOOL temporaryFileCreated;
+@property NSString *transferType;
 @end
 
 @interface AWSS3TransferUtilityMultiPartUploadTask()
@@ -42,6 +44,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
 @property BOOL temporaryFileCreated;
 @property NSNumber *contentLength;
 @property int retryCount;
+@property NSString *transferType;
 @end
 
 @interface AWSS3TransferUtilityDownloadTask()
@@ -54,6 +57,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
 @property NSString *file;
 @property int64_t totalBytesExpectedToSend;
 @property AWSS3TransferUtilityTransferStatusType status;
+@property NSString *transferType;
 
 @end
 
@@ -153,47 +157,27 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
     }];
 }
 
-//update transfer status.
-+ (void) updateTransferRequestStatusInDB: (NSString *) transferID
-                          taskIdentifier: (NSUInteger) taskIdentifier
-                                  status: (AWSS3TransferUtilityTransferStatusType) status
-                           databaseQueue: (AWSFMDatabaseQueue *) databaseQueue {
-    NSString *const AWSS3TransferUtilityUpdateTransferUtilityStatus = @"UPDATE awstransfer "
-    @"SET status=:status "
-    @"WHERE transfer_id=:transfer_id and "
-    @"      session_task_id=:session_task_id ";
-    
-    [databaseQueue inDatabase:^(AWSFMDatabase *db) {
-        BOOL result = [db executeUpdate: AWSS3TransferUtilityUpdateTransferUtilityStatus
-                withParameterDictionary:@{
-                                          @"transfer_id": transferID,
-                                          @"session_task_id": @(taskIdentifier),
-                                          @"status": [AWSS3TransferUtilityDatabaseHelper getStringRepresentation:status],
-                                          }];
-        if (!result) {
-            AWSDDLogError(@"Failed to update transfer_request [%@] in Database. [%@]", transferID,
-                          db.lastError);
-        }
-    }];
-}
-
-// update transfer status and eTag
+// update transfer record given transferID and partNumber
 + (void) updateTransferRequestInDB: (NSString *) transferID
+                        partNumber: (NSNumber *) partNumber
                     taskIdentifier: (NSUInteger) taskIdentifier
                               eTag: (NSString *) eTag
                             status: (AWSS3TransferUtilityTransferStatusType) status
+                       retry_count: (NSUInteger) retryCount
                      databaseQueue: (AWSFMDatabaseQueue *) databaseQueue {
     NSString *const AWSS3TransferUtilityUpdateTransferUtilityStatusAndETag = @"UPDATE awstransfer "
-    @"SET status=:status, etag = :etag "
+    @"SET status=:status, etag = :etag, session_task_id = :session_task_id, retry_count = :retry_count "
     @"WHERE transfer_id=:transfer_id and "
-    @"      session_task_id=:session_task_id ";
+    @"      part_number =:part_number ";
     [databaseQueue inDatabase:^(AWSFMDatabase *db) {
         BOOL result = [db executeUpdate: AWSS3TransferUtilityUpdateTransferUtilityStatusAndETag
                 withParameterDictionary:@{
                                           @"transfer_id": transferID,
                                           @"session_task_id": @(taskIdentifier),
                                           @"etag": eTag,
-                                          @"status": [AWSS3TransferUtilityDatabaseHelper getStringRepresentation:status]
+                                          @"status": [AWSS3TransferUtilityDatabaseHelper getStringRepresentation:status],
+                                          @"part_number": partNumber,
+                                          @"retry_count": @(retryCount)
                                           }];
         
         if (!result) {
@@ -209,8 +193,8 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
     
     [AWSS3TransferUtilityDatabaseHelper insertTransferRequestInDB:task.transferID
                                                    nsURLSessionID:task.nsURLSessionID
-                                                   taskIdentifier:@(task.sessionTask.taskIdentifier)
-                                                     transferType:@"UPLOAD"
+                                                   taskIdentifier:@0
+                                                     transferType:task.transferType
                                                            bucket:task.bucket
                                                               key:task.key
                                                        partNumber:@0
@@ -234,8 +218,8 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
     }
     [AWSS3TransferUtilityDatabaseHelper insertTransferRequestInDB:task.transferID
                                                    nsURLSessionID:task.nsURLSessionID
-                                                   taskIdentifier:@(task.sessionTask.taskIdentifier)
-                                                     transferType:@"DOWNLOAD"
+                                                   taskIdentifier:@0
+                                                     transferType:task.transferType
                                                            bucket:task.bucket
                                                               key:task.key
                                                        partNumber:@0
@@ -256,7 +240,7 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
     [AWSS3TransferUtilityDatabaseHelper insertTransferRequestInDB:task.transferID
                                                    nsURLSessionID:task.nsURLSessionID
                                                    taskIdentifier:@0
-                                                     transferType:@"MULTI_PART_UPLOAD"
+                                                     transferType:task.transferType
                                                            bucket:task.bucket
                                                               key:task.key
                                                        partNumber:@0
@@ -277,8 +261,8 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
                                    databaseQueue: (AWSFMDatabaseQueue *) databaseQueue {
     [AWSS3TransferUtilityDatabaseHelper insertTransferRequestInDB:task.transferID
                                                    nsURLSessionID:task.nsURLSessionID
-                                                   taskIdentifier:@(subTask.taskIdentifier)
-                                                     transferType:@"MULTI_PART_UPLOAD_SUB_TASK"
+                                                   taskIdentifier:@0
+                                                     transferType:subTask.transferType
                                                            bucket:task.bucket
                                                               key:task.key
                                                        partNumber:subTask.partNumber

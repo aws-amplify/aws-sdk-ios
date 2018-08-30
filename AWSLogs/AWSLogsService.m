@@ -26,7 +26,7 @@
 #import "AWSLogsResources.h"
 
 static NSString *const AWSInfoLogs = @"Logs";
-static NSString *const AWSLogsSDKVersion = @"2.6.27";
+static NSString *const AWSLogsSDKVersion = @"2.6.28";
 
 
 @interface AWSLogsResponseSerializer : AWSJSONResponseSerializer
@@ -49,6 +49,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ResourceAlreadyExistsException" : @(AWSLogsErrorResourceAlreadyExists),
                             @"ResourceNotFoundException" : @(AWSLogsErrorResourceNotFound),
                             @"ServiceUnavailableException" : @(AWSLogsErrorServiceUnavailable),
+                            @"UnrecognizedClientException" : @(AWSLogsErrorUnrecognizedClient),
                             };
 }
 

@@ -782,6 +782,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"keyId" : @"KeyId",
              @"limit" : @"Limit",
              @"marker" : @"Marker",
              };

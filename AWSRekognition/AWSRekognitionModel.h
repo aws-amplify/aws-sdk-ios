@@ -180,6 +180,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionDeleteFacesResponse;
 @class AWSRekognitionDeleteStreamProcessorRequest;
 @class AWSRekognitionDeleteStreamProcessorResponse;
+@class AWSRekognitionDescribeCollectionRequest;
+@class AWSRekognitionDescribeCollectionResponse;
 @class AWSRekognitionDescribeStreamProcessorRequest;
 @class AWSRekognitionDescribeStreamProcessorResponse;
 @class AWSRekognitionDetectFacesRequest;
@@ -246,6 +248,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionSearchFacesByImageResponse;
 @class AWSRekognitionSearchFacesRequest;
 @class AWSRekognitionSearchFacesResponse;
+@class AWSRekognitionSection;
 @class AWSRekognitionSmile;
 @class AWSRekognitionStartCelebrityRecognitionRequest;
 @class AWSRekognitionStartCelebrityRecognitionResponse;
@@ -271,6 +274,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionTextDetection;
 @class AWSRekognitionVideo;
 @class AWSRekognitionVideoMetadata;
+@class AWSRekognitionWarning;
 
 /**
  <p>Structure containing the estimated age range, in years, for a face.</p><p>Rekognition estimates an age-range for faces detected in the input image. Estimated age ranges can overlap; a face of a 5 year old may have an estimated range of 4-6 whilst the face of a 6 year old may have an estimated range of 4-8.</p>
@@ -731,6 +735,47 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 /**
  
  */
+@interface AWSRekognitionDescribeCollectionRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable collectionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDescribeCollectionResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable collectionARN;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTimestamp;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable faceCount;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable faceModelVersion;
+
+@end
+
+/**
+ 
+ */
 @interface AWSRekognitionDescribeStreamProcessorRequest : AWSRequest
 
 
@@ -992,6 +1037,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @interface AWSRekognitionFace : AWSModel
 
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable associationScore;
 
 /**
  <p>Bounding box of the face.</p>
@@ -1277,9 +1327,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
+
+/**
  <p>Array of celebrities recognized in the video.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionCelebrityRecognition *> * _Nullable celebrities;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
 
 /**
  <p>The current status of the celebrity recognition job.</p>
@@ -1300,6 +1360,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -1338,6 +1403,16 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
+
+/**
  <p>The current status of the content moderation job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
@@ -1361,6 +1436,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from <code>GetContentModeration</code>. </p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -1394,6 +1474,16 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
+
+/**
  <p>An array of faces detected in the video. Each element contains a detected face's details and the time, in milliseconds from the start of the video, the face was detected. </p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceDetection *> * _Nullable faces;
@@ -1417,6 +1507,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -1455,6 +1550,16 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
+
+/**
  <p>The current status of the face search job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
@@ -1478,6 +1583,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation. </p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -1516,6 +1626,16 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
+
+/**
  <p>The current status of the label detection job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
@@ -1539,6 +1659,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -1577,6 +1702,16 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
+
+/**
  <p>The current status of the person tracking job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
@@ -1600,6 +1735,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -2018,7 +2158,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Information about a person whose face matches a face(s) in a Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection (, information about the person (<a>PersonDetail</a>) and the timestamp for when the person was detected in a video. An array of <code>PersonMatch</code> objects is returned by . </p>
+ <p>Information about a person whose face matches a face(s) in a Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection (), information about the person (<a>PersonDetail</a>) and the timestamp for when the person was detected in a video. An array of <code>PersonMatch</code> objects is returned by . </p>
  */
 @interface AWSRekognitionPersonMatch : AWSModel
 
@@ -2248,6 +2388,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSRekognitionSection : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endTimestamp;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable startTimestamp;
+
+@end
+
+/**
  <p>Indicates whether or not the face is smiling, and the confidence level in the determination.</p>
  */
 @interface AWSRekognitionSmile : AWSModel
@@ -2275,6 +2433,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartCelebrityRecognition</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enablePersonTracking;
 
 /**
  <p>Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. </p>
@@ -2413,6 +2576,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>ID of the collection that contains the faces you want to search for.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable collectionId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enablePersonTracking;
 
 /**
  <p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%. </p>
@@ -2739,6 +2907,34 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Horizontal pixel dimension of the video.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable frameWidth;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable rotation;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionWarning : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionSection *> * _Nullable sections;
 
 @end
 

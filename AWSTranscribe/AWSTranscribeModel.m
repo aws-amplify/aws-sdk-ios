@@ -410,6 +410,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"channelIdentification" : @"ChannelIdentification",
              @"maxSpeakerLabels" : @"MaxSpeakerLabels",
              @"showSpeakerLabels" : @"ShowSpeakerLabels",
              @"vocabularyName" : @"VocabularyName",

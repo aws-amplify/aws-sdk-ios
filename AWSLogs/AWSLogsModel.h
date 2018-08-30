@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, AWSLogsErrorType) {
     AWSLogsErrorResourceAlreadyExists,
     AWSLogsErrorResourceNotFound,
     AWSLogsErrorServiceUnavailable,
+    AWSLogsErrorUnrecognizedClient,
 };
 
 typedef NS_ENUM(NSInteger, AWSLogsDistribution) {
@@ -505,7 +506,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The prefix to match.</p><p>iIf <code>orderBy</code> is <code>LastEventTime</code>,you cannot specify this parameter.</p>
+ <p>The prefix to match.</p><p>If <code>orderBy</code> is <code>LastEventTime</code>,you cannot specify this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logStreamNamePrefix;
 
@@ -561,12 +562,12 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The name of the CloudWatch metric to which the monitored log information should be published. For example, you may publish to a metric called ErrorCount.</p>
+ <p>Filters results to include only those with the specified metric name. If you include this parameter in your request, you must also include the <code>metricNamespace</code> parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p>The namespace of the CloudWatch metric.</p>
+ <p>Filters results to include only those in the specified namespace. If you include this parameter in your request, you must also include the <code>metricName</code> parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricNamespace;
 
@@ -928,7 +929,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not included.</p>
+ <p>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp equal to or later than this time are not included.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable endTime;
 
@@ -958,7 +959,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSNumber * _Nullable startFromHead;
 
 /**
- <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not included.</p>
+ <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp equal to this time or later than this time are included. Events with a time stamp earlier than this time are not included.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable startTime;
 
@@ -976,12 +977,12 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSArray<AWSLogsOutputLogEvent *> * _Nullable events;
 
 /**
- <p>The token for the next set of items in the backward direction. The token expires after 24 hours.</p>
+ <p>The token for the next set of items in the backward direction. The token expires after 24 hours. This token will never be null. If you have reached the end of the stream, it will return the same token you passed in.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextBackwardToken;
 
 /**
- <p>The token for the next set of items in the forward direction. The token expires after 24 hours.</p>
+ <p>The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it will return the same token you passed in.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextForwardToken;
 
@@ -1000,7 +1001,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable message;
 
 /**
- <p>The time the event occurred, expressed as the number of milliseconds fter Jan 1, 1970 00:00:00 UTC.</p>
+ <p>The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timestamp;
 
@@ -1366,7 +1367,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.</p><p>The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream.</p><p> { "Version": "2012-10-17" "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": logArn } ] } </p>
+ <p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.</p><p>The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream.</p><p><code>{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": "logArn" } ] } </code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 

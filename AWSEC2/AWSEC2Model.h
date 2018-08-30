@@ -421,6 +421,13 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeT2_large,
     AWSEC2InstanceTypeT2_xlarge,
     AWSEC2InstanceTypeT2_2xlarge,
+    AWSEC2InstanceTypeT3_nano,
+    AWSEC2InstanceTypeT3_micro,
+    AWSEC2InstanceTypeT3_small,
+    AWSEC2InstanceTypeT3_medium,
+    AWSEC2InstanceTypeT3_large,
+    AWSEC2InstanceTypeT3_xlarge,
+    AWSEC2InstanceTypeT3_2xlarge,
     AWSEC2InstanceTypeM1_small,
     AWSEC2InstanceTypeM1_medium,
     AWSEC2InstanceTypeM1_large,
@@ -587,6 +594,12 @@ typedef NS_ENUM(NSInteger, AWSEC2ListingStatus) {
     AWSEC2ListingStatusPending,
     AWSEC2ListingStatusCancelled,
     AWSEC2ListingStatusClosed,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2LogDestinationType) {
+    AWSEC2LogDestinationTypeUnknown,
+    AWSEC2LogDestinationTypeCloudWatchLogs,
+    AWSEC2LogDestinationTypeS3,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2MarketType) {
@@ -2421,7 +2434,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The route table association ID (needed to disassociate the route table).</p>
+ <p>The route table association ID. This ID is required for disassociating the route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
@@ -2564,7 +2577,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the Internet gateway.</p>
+ <p>The ID of the internet gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable internetGatewayId;
 
@@ -3913,7 +3926,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -3923,7 +3936,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the VPC for which to create the egress-only Internet gateway.</p>
+ <p>The ID of the VPC for which to create the egress-only internet gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcId;
 
@@ -3936,12 +3949,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
- <p>Information about the egress-only Internet gateway.</p>
+ <p>Information about the egress-only internet gateway.</p>
  */
 @property (nonatomic, strong) AWSEC2EgressOnlyInternetGateway * _Nullable egressOnlyInternetGateway;
 
@@ -4035,23 +4048,38 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 /**
  <p>Contains the parameters for CreateFlowLogs.</p>
- Required parameters: [DeliverLogsPermissionArn, LogGroupName, ResourceIds, ResourceType, TrafficType]
+ Required parameters: [ResourceIds, ResourceType, TrafficType]
  */
 @interface AWSEC2CreateFlowLogsRequest : AWSRequest
 
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
- <p>The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group.</p>
+ <p>The ARN for the IAM role that's used to post flow logs to a log group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deliverLogsPermissionArn;
 
 /**
- <p>The name of the CloudWatch log group.</p>
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Specifies the destination to which the flow log data is to be published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. The value specified for this parameter depends on the value specified for LogDestinationType.</p><p>If LogDestinationType is not specified or <code>cloud-watch-logs</code>, specify the Amazon Resource Name (ARN) of the CloudWatch Logs log group.</p><p>If LogDestinationType is <code>s3</code>, specify the ARN of the Amazon S3 bucket. You can also specify a subfolder in the bucket. To specify a subfolder in the bucket, use the following ARN format: <code>bucket_ARN/subfolder_name/</code>. For example, to specify a subfolder named <code>my-logs</code> in a bucket named <code>my-bucket</code>, use the following ARN: <code>arn:aws:s3:::my-bucket/my-logs/</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logDestination;
+
+/**
+ <p>Specifies the type of destination to which the flow log data is to be published. Flow log data can be published to CloudWatch Logs or Amazon S3. To publish flow log data to CloudWatch Logs, specify <code>cloud-watch-logs</code>. To publish flow log data to Amazon S3, specify <code>s3</code>.</p><p>Default: <code>cloud-watch-logs</code></p>
+ */
+@property (nonatomic, assign) AWSEC2LogDestinationType logDestinationType;
+
+/**
+ <p>The name of the log group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
@@ -4079,7 +4107,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -4265,7 +4293,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Information about the Internet gateway.</p>
+ <p>Information about the internet gateway.</p>
  */
 @property (nonatomic, strong) AWSEC2InternetGateway * _Nullable internetGateway;
 
@@ -4405,7 +4433,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable allocationId;
 
 /**
- <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p><p>Constraint: Maximum 64 ASCII characters.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p><p>Constraint: Maximum 64 ASCII characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -4477,7 +4505,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2PortRange * _Nullable portRange;
 
 /**
- <p>The protocol. A value of <code>-1</code> or <code>all</code> means all protocols. If you specify <code>all</code>, <code>-1</code>, or a protocol number other than <code>6</code> (tcp), <code>17</code> (udp), or <code>1</code> (icmp), traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
+ <p>The protocol. A value of <code>-1</code> or <code>all</code> means all protocols. If you specify <code>all</code>, <code>-1</code>, or a protocol number other than <code>6</code> (tcp), <code>17</code> (udp), or <code>1</code> (icmp), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable protocols;
 
@@ -4728,12 +4756,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>[IPv6 traffic only] The ID of an egress-only Internet gateway.</p>
+ <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable egressOnlyInternetGatewayId;
 
 /**
- <p>The ID of an Internet gateway or virtual private gateway attached to your VPC.</p>
+ <p>The ID of an internet gateway or virtual private gateway attached to your VPC.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable gatewayId;
 
@@ -5568,7 +5596,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the egress-only Internet gateway.</p>
+ <p>The ID of the egress-only internet gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable egressOnlyInternetGatewayId;
 
@@ -5695,6 +5723,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
  <p>One or more flow log IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable flowLogIds;
@@ -5758,7 +5791,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the Internet gateway.</p>
+ <p>The ID of the internet gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable internetGatewayId;
 
@@ -6639,7 +6672,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>group-id</code> - The ID of a VPC security group that's associated with the instance.</p></li><li><p><code>instance-id</code> - The ID of the instance.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC that the instance is linked to.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>group-id</code> - The ID of a VPC security group that's associated with the instance.</p></li><li><p><code>instance-id</code> - The ID of the instance.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC to which the instance is linked.</p><p><code>vpc-id</code> - The ID of the VPC that the instance is linked to.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -6649,7 +6682,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceIds;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000; if <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the instance IDs parameter in the same request.</p><p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
+ <p>The maximum number of results to return for the request in a single page. The remaining results of the initial request can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000. If <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the instance IDs parameter in the same request.</p><p>Constraint: If the value is greater than 1000, we return only 1000 items.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -6793,12 +6826,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more egress-only Internet gateway IDs.</p>
+ <p>One or more egress-only internet gateway IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable egressOnlyInternetGatewayIds;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000; if <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned.</p>
+ <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000. If <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -6816,7 +6849,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Information about the egress-only Internet gateways.</p>
+ <p>Information about the egress-only internet gateways.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2EgressOnlyInternetGateway *> * _Nullable egressOnlyInternetGateways;
 
@@ -7094,7 +7127,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>One or more filters.</p><ul><li><p><code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code> | <code>FAILED</code>).</p></li><li><p><code>flow-log-id</code> - The ID of the flow log.</p></li><li><p><code>log-group-name</code> - The name of the log group.</p></li><li><p><code>resource-id</code> - The ID of the VPC, subnet, or network interface.</p></li><li><p><code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> | <code>REJECT</code> | <code>ALL</code>)</p></li></ul>
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters.</p><ul><li><p><code>deliver-log-status</code> - The status of the logs delivery (<code>SUCCESS</code> | <code>FAILED</code>).</p></li><li><p><code>log-destination-type</code> - The type of destination to which the flow log publishes data. Possible destination types include <code>cloud-watch-logs</code> and <code>S3</code>.</p></li><li><p><code>flow-log-id</code> - The ID of the flow log.</p></li><li><p><code>log-group-name</code> - The name of the log group.</p></li><li><p><code>resource-id</code> - The ID of the VPC, subnet, or network interface.</p></li><li><p><code>traffic-type</code> - The type of traffic (<code>ACCEPT</code> | <code>REJECT</code> | <code>ALL</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filter;
 
@@ -7104,7 +7142,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable flowLogIds;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000; if <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the flow log IDs parameter in the same request.</p>
+ <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000. If <code>MaxResults</code> is given a value larger than 1000, only 1000 results are returned. You cannot specify this parameter and the flow log IDs parameter in the same request.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -7848,7 +7886,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>One or more Internet gateway IDs.</p><p>Default: Describes all your Internet gateways.</p>
+ <p>One or more internet gateway IDs.</p><p>Default: Describes all your internet gateways.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable internetGatewayIds;
 
@@ -7861,7 +7899,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Information about one or more Internet gateways.</p>
+ <p>Information about one or more internet gateways.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InternetGateway *> * _Nullable internetGateways;
 
@@ -9485,7 +9523,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 /**
  <p>Contains the parameters for DescribeVolumeAttribute.</p>
- Required parameters: [VolumeId]
+ Required parameters: [Attribute, VolumeId]
  */
 @interface AWSEC2DescribeVolumeAttributeRequest : AWSRequest
 
@@ -10307,7 +10345,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the Internet gateway.</p>
+ <p>The ID of the internet gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable internetGatewayId;
 
@@ -10854,18 +10892,18 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes an egress-only Internet gateway.</p>
+ <p>Describes an egress-only internet gateway.</p>
  */
 @interface AWSEC2EgressOnlyInternetGateway : AWSModel
 
 
 /**
- <p>Information about the attachment of the egress-only Internet gateway.</p>
+ <p>Information about the attachment of the egress-only internet gateway.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InternetGatewayAttachment *> * _Nullable attachments;
 
 /**
- <p>The ID of the egress-only Internet gateway.</p>
+ <p>The ID of the egress-only internet gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable egressOnlyInternetGatewayId;
 
@@ -11476,7 +11514,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSDate * _Nullable creationTime;
 
 /**
- <p>Information about the error that occurred. <code>Rate limited</code> indicates that CloudWatch logs throttling has been applied for one or more network interfaces, or that you've reached the limit on the number of CloudWatch Logs log groups that you can create. <code>Access error</code> indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. <code>Unknown error</code> indicates an internal error.</p>
+ <p>Information about the error that occurred. <code>Rate limited</code> indicates that CloudWatch Logs throttling has been applied for one or more network interfaces, or that you've reached the limit on the number of log groups that you can create. <code>Access error</code> indicates that the IAM role associated with the flow log does not have sufficient permissions to publish to CloudWatch Logs. <code>Unknown error</code> indicates an internal error.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deliverLogsErrorMessage;
 
@@ -11499,6 +11537,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The status of the flow log (<code>ACTIVE</code>).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable flowLogStatus;
+
+/**
+ <p>Specifies the destination to which the flow log data is published. Flow log data can be published to an CloudWatch Logs log group or an Amazon S3 bucket. If the flow log publishes to CloudWatch Logs, this element indicates the Amazon Resource Name (ARN) of the CloudWatch Logs log group to which the data is published. If the flow log publishes to Amazon S3, this element indicates the ARN of the Amazon S3 bucket to which the data is published.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logDestination;
+
+/**
+ <p>Specifies the type of destination to which the flow log data is published. Flow log data can be published to CloudWatch Logs or Amazon S3.</p>
+ */
+@property (nonatomic, assign) AWSEC2LogDestinationType logDestinationType;
 
 /**
  <p>The name of the flow log group.</p>
@@ -14000,36 +14048,36 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes an Internet gateway.</p>
+ <p>Describes an internet gateway.</p>
  */
 @interface AWSEC2InternetGateway : AWSModel
 
 
 /**
- <p>Any VPCs attached to the Internet gateway.</p>
+ <p>Any VPCs attached to the internet gateway.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InternetGatewayAttachment *> * _Nullable attachments;
 
 /**
- <p>The ID of the Internet gateway.</p>
+ <p>The ID of the internet gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable internetGatewayId;
 
 /**
- <p>Any tags assigned to the Internet gateway.</p>
+ <p>Any tags assigned to the internet gateway.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
 @end
 
 /**
- <p>Describes the attachment of a VPC to an Internet gateway or an egress-only Internet gateway.</p>
+ <p>Describes the attachment of a VPC to an internet gateway or an egress-only internet gateway.</p>
  */
 @interface AWSEC2InternetGatewayAttachment : AWSModel
 
 
 /**
- <p>The current state of the attachment. For an Internet gateway, the state is <code>available</code> when attached to a VPC; otherwise, this value is not returned.</p>
+ <p>The current state of the attachment. For an internet gateway, the state is <code>available</code> when attached to a VPC; otherwise, this value is not returned.</p>
  */
 @property (nonatomic, assign) AWSEC2AttachmentStatus state;
 
@@ -15862,7 +15910,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable enableDnsHostnames;
 
 /**
- <p>Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" will succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled.</p><p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute.</p>
+ <p>Indicates whether the DNS resolution is supported for the VPC. If enabled, queries to the Amazon provided DNS server at the 169.254.169.253 IP address, or the reserved IP address at the base of the VPC network range "plus two" succeed. If disabled, the Amazon provided DNS service in the VPC that resolves public DNS hostnames to IP addresses is not enabled.</p><p>You cannot modify the DNS resolution and DNS hostnames attributes in the same request. Use separate requests for each attribute.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable enableDnsSupport;
 
@@ -16044,7 +16092,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>One or more Amazon Resource Names (ARNs) of principals for which to allow permission. Specify <code>*</code> to allow all principals.</p>
+ <p>The Amazon Resource Names (ARN) of one or more principals. Permissions are granted to the principals in this list. To grant permissions to all principals, specify an asterisk (*).</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addAllowedPrincipals;
 
@@ -16054,7 +16102,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more Amazon Resource Names (ARNs) of principals for which to remove permission.</p>
+ <p>The Amazon Resource Names (ARN) of one or more principals. Permissions are revoked for principals in this list.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable removeAllowedPrincipals;
 
@@ -16895,7 +16943,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
 /**
- <p>The name of the placement group the instance is in (for cluster compute instances).</p>
+ <p>The name of the placement group the instance is in.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
@@ -17128,7 +17176,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The ID of the virtual private gateway (VGW).</p>
+ <p>The ID of the virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable gatewayId;
 
@@ -17755,7 +17803,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2PortRange * _Nullable portRange;
 
 /**
- <p>The IP protocol. You can specify <code>all</code> or <code>-1</code> to mean all protocols. If you specify <code>all</code>, <code>-1</code>, or a protocol number other than <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports is allowed, regardless of any ports or ICMP types or codes you specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
+ <p>The IP protocol. You can specify <code>all</code> or <code>-1</code> to mean all protocols. If you specify <code>all</code>, <code>-1</code>, or a protocol number other than <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports is allowed, regardless of any ports or ICMP types or codes you that specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable protocols;
 
@@ -17779,12 +17827,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The IPv4 CIDR address block used for the destination match. The value you provide must match the CIDR of an existing route in the table.</p>
+ <p>The IPv4 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
 
 /**
- <p>The IPv6 CIDR address block used for the destination match. The value you provide must match the CIDR of an existing route in the table.</p>
+ <p>The IPv6 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationIpv6CidrBlock;
 
@@ -17794,12 +17842,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>[IPv6 traffic only] The ID of an egress-only Internet gateway.</p>
+ <p>[IPv6 traffic only] The ID of an egress-only internet gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable egressOnlyInternetGatewayId;
 
 /**
- <p>The ID of an Internet gateway or virtual private gateway.</p>
+ <p>The ID of an internet gateway or virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable gatewayId;
 
@@ -19108,7 +19156,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable destinationPrefixListId;
 
 /**
- <p>The ID of the egress-only Internet gateway.</p>
+ <p>The ID of the egress-only internet gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable egressOnlyInternetGatewayId;
 
@@ -21252,7 +21300,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
 /**
- <p>The number of unused private IPv4 addresses in the subnet. Note that the IPv4 addresses for any stopped instances are considered unavailable.</p>
+ <p>The number of unused private IPv4 addresses in the subnet. The IPv4 addresses for any stopped instances are considered unavailable.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable availableIpAddressCount;
 
