@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.27 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -101,6 +101,10 @@
 		<option value="//api/name/deleteStreamProcessor:">- deleteStreamProcessor:</option>
 		
 		<option value="//api/name/deleteStreamProcessor:completionHandler:">- deleteStreamProcessor:completionHandler:</option>
+		
+		<option value="//api/name/describeCollection:">- describeCollection:</option>
+		
+		<option value="//api/name/describeCollection:completionHandler:">- describeCollection:completionHandler:</option>
 		
 		<option value="//api/name/describeStreamProcessor:">- describeStreamProcessor:</option>
 		
@@ -1533,6 +1537,146 @@
 					<li><code><p><a href="../Classes/AWSRekognitionDeleteStreamProcessorRequest.html">AWSRekognitionDeleteStreamProcessorRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSRekognitionDeleteStreamProcessorResponse.html">AWSRekognitionDeleteStreamProcessorResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSRekognitionService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeCollection:" title="describeCollection:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeCollection:">&ndash;&nbsp;describeCollection:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>DescribeCollection</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSRekognitionDescribeCollectionResponse*&gt; *)describeCollection:(AWSRekognitionDescribeCollectionRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeCollection service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSRekognitionDescribeCollectionResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSRekognitionErrorDomain</code> domain and the following error code: <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorResourceNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSRekognitionDescribeCollectionRequest.html">AWSRekognitionDescribeCollectionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSRekognitionDescribeCollectionResponse.html">AWSRekognitionDescribeCollectionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSRekognitionService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeCollection:completionHandler:" title="describeCollection:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeCollection:completionHandler:">&ndash;&nbsp;describeCollection:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>DescribeCollection</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeCollection:(AWSRekognitionDescribeCollectionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSRekognitionDescribeCollectionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeCollection service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSRekognitionErrorDomain</code> domain and the following error code: <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorResourceNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSRekognitionDescribeCollectionRequest.html">AWSRekognitionDescribeCollectionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSRekognitionDescribeCollectionResponse.html">AWSRekognitionDescribeCollectionResponse</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -3526,7 +3670,7 @@
 <p>If you provide the optional <code>ExternalImageID</code> for the input image you provided, Amazon Rekognition associates this ID with all faces that it detects. When you call the operation, the response returns the external ID. You can use this external image ID to create a client-side index to associate the faces with each image. You can then use the index to find all faces in an image. </p>
 
 
-<p>In response, the operation returns an array of metadata for all detected faces. This includes, the bounding box of the detected face, confidence value (indicating the bounding box contains a face), a face ID assigned by the service for each face that is detected and stored, and an image ID assigned by the service for the input image. If you request all facial attributes (using the <code>detectionAttributes</code> parameter, Amazon Rekognition returns detailed facial attributes such as facial landmarks (for example, location of eye and mount) and other facial attributes such gender. If you provide the same image, specify the same collection, and use the same external ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p>
+<p>In response, the operation returns an array of metadata for all detected faces. This includes, the bounding box of the detected face, confidence value (indicating the bounding box contains a face), a face ID assigned by the service for each face that is detected and stored, and an image ID assigned by the service for the input image. If you request all facial attributes (using the <code>detectionAttributes</code> parameter, Amazon Rekognition returns detailed facial attributes such as facial landmarks (for example, location of eye and mouth) and other facial attributes such gender. If you provide the same image, specify the same collection, and use the same external ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p>
 
 
 <p>For more information, see Adding Faces to a Collection in the Amazon Rekognition Developer Guide.</p>
@@ -3620,7 +3764,7 @@
 <p>If you provide the optional <code>ExternalImageID</code> for the input image you provided, Amazon Rekognition associates this ID with all faces that it detects. When you call the operation, the response returns the external ID. You can use this external image ID to create a client-side index to associate the faces with each image. You can then use the index to find all faces in an image. </p>
 
 
-<p>In response, the operation returns an array of metadata for all detected faces. This includes, the bounding box of the detected face, confidence value (indicating the bounding box contains a face), a face ID assigned by the service for each face that is detected and stored, and an image ID assigned by the service for the input image. If you request all facial attributes (using the <code>detectionAttributes</code> parameter, Amazon Rekognition returns detailed facial attributes such as facial landmarks (for example, location of eye and mount) and other facial attributes such gender. If you provide the same image, specify the same collection, and use the same external ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p>
+<p>In response, the operation returns an array of metadata for all detected faces. This includes, the bounding box of the detected face, confidence value (indicating the bounding box contains a face), a face ID assigned by the service for each face that is detected and stored, and an image ID assigned by the service for the input image. If you request all facial attributes (using the <code>detectionAttributes</code> parameter, Amazon Rekognition returns detailed facial attributes such as facial landmarks (for example, location of eye and mouth) and other facial attributes such gender. If you provide the same image, specify the same collection, and use the same external ID in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p>
 
 
 <p>For more information, see Adding Faces to a Collection in the Amazon Rekognition Developer Guide.</p>
@@ -5086,7 +5230,7 @@
 				<p>Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.</p>
 
 
-<p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartFaceSearch</code> returns a job identifier (<code>JobId</code>) which you use to get the search results once the search has completed. When searching is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>. To get the search results, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see <a>collections-search-person</a>.</p>
+<p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartFaceSearch</code> returns a job identifier (<code>JobId</code>) which you use to get the search results once the search has completed. When searching is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>. To get the search results, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see <a>procedure-person-search-videos</a>.</p>
 
 			</div>
 			
@@ -5159,7 +5303,7 @@
 				<p>Starts the asynchronous search for faces in a collection that match the faces of persons detected in a stored video.</p>
 
 
-<p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartFaceSearch</code> returns a job identifier (<code>JobId</code>) which you use to get the search results once the search has completed. When searching is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>. To get the search results, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see <a>collections-search-person</a>.</p>
+<p>The video must be stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name and the filename of the video. <code>StartFaceSearch</code> returns a job identifier (<code>JobId</code>) which you use to get the search results once the search has completed. When searching is finished, Amazon Rekognition Video publishes a completion status to the Amazon Simple Notification Service topic that you specify in <code>NotificationChannel</code>. To get the search results, first check that the status value published to the Amazon SNS topic is <code>SUCCEEDED</code>. If so, call and pass the job identifier (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>. For more information, see <a>procedure-person-search-videos</a>.</p>
 
 			</div>
 			
@@ -5836,7 +5980,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-17</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
