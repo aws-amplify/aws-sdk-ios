@@ -639,6 +639,16 @@ static const NSString *SDK_VERSION = @"2.6.19";
     [defaultRunLoopTimer invalidate];
     
     if (!self.runLoopShouldContinue ) {
+        // Add a block to invalidated the connectionAgeTimer in order to release the strong reference to self
+        // and run the run loop another cycle to give the block a chance the execute.
+        [runLoopForStreamsThread performBlock:^{
+            if (self.connectionAgeTimer != nil ) {
+                [self.connectionAgeTimer invalidate];
+                self.connectionAgeTimer = nil;
+            }
+        }];
+        [runLoopForStreamsThread runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+        
         [self.session close];
     
         //Set status
