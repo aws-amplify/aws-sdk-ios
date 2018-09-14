@@ -1,6 +1,22 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.29
+
+### Enhancements
+
+* **Amazon Polly**
+  * Added support for new voice `Zhiyu`.
+
+* **Amazon CognitoAuth**
+  * User completion code called after SFSafariViewController dismissed See [pull#1000](https://github.com/aws/aws-sdk-ios/pull/1000)
+  * Allow developer to decide if sign in screen should be shown again if the refresh token has expired. See [pull#1007](https://github.com/aws/aws-sdk-ios/pull/1007)
+
+### Bug Fixes
+
+* **Amazon CognitoAuth**
+  * Added check to see if refreshToken is received from the server. If not, retrieve it from the keychain. See [issue#1035](https://github.com/aws/aws-sdk-ios/issues/1035)
+
 ## 2.6.28
 
 ### Misc. Updates

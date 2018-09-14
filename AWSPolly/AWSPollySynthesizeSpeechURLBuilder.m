@@ -16,7 +16,7 @@
 #import "AWSPollySynthesizeSpeechURLBuilder.h"
 
 static NSString *const AWSInfoPollySynthesizeSpeechURLBuilder = @"PollySynthesizeSpeechUrlBuilder";
-static NSString *const AWSPollySDKVersion = @"2.6.28";
+static NSString *const AWSPollySDKVersion = @"2.6.29";
 
 NSString *const AWSPollySynthesizeSpeechURLBuilderErrorDomain = @"com.amazonaws.AWSPollySynthesizeSpeechURLBuilderErrorDomain";
 NSString *const AWSPollyPresignedUrlPath = @"v1/speech";
@@ -228,6 +228,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 - (NSString *)stringFromLanguageCode: (AWSPollyLanguageCode)languageCode {
     switch (languageCode) {
+        case AWSPollyLanguageCodeCmnCN:
+            return @"cmn-CN";
         case AWSPollyLanguageCodeCyGB:
             return @"cy-GB";
         case AWSPollyLanguageCodeDaDK:
@@ -393,6 +395,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             return @"Aditi";
         case AWSPollyVoiceIdLea:
             return @"Lea";
+        case AWSPollyVoiceIdZhiyu:
+            return @"Zhiyu";
         default:
             return nil;
     }

@@ -167,8 +167,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     
     if(expirationDate){
         NSDate *expiration = [NSDate aws_dateFromString:expirationDate format:AWSDateISO8601DateFormat1];
-        NSString * refreshTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserRefreshToken];
-        NSString * refreshToken = self.pool.keychain[refreshTokenKey];
+        NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
 
         // Token exists, the user is confirmed
         self.confirmedStatus = AWSCognitoIdentityUserStatusConfirmed;
@@ -213,7 +212,15 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
                 
                 AWSCognitoIdentityProviderInitiateAuthResponse *response = task.result;
                 AWSCognitoIdentityProviderAuthenticationResultType *authResult = response.authenticationResult;
-                AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken: authResult.idToken accessToken:authResult.accessToken refreshToken:authResult.refreshToken expiresIn:authResult.expiresIn];
+                /** Check to see if refreshToken is received in the response.
+                 If not, load it from the keychain.
+                 */
+                NSString * refreshToken = authResult.refreshToken;
+                if (refreshToken == nil){
+                    NSString * keyChainNamespace = [self keyChainNamespaceClientId];
+                    refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
+                }
+                AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken: authResult.idToken accessToken:authResult.accessToken refreshToken:refreshToken expiresIn:authResult.expiresIn];
                 [self updateUsernameAndPersistTokens:session];
                 return [AWSTask taskWithResult:session];
             }];
@@ -1222,14 +1229,20 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     }
 }
 
+- (NSString *) refreshTokenFromKeyChain: (NSString *) keyChainNamespace {
+    NSString * refreshTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserRefreshToken];
+    NSString * refreshToken = self.pool.keychain[refreshTokenKey];
+    return refreshToken;
+}
+
 -(BOOL) isSignedIn {
     if(self.username == nil){
         return NO;
     }
     
     NSString * keyChainNamespace = [self keyChainNamespaceClientId];
-    NSString * refreshTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserRefreshToken];
-    return self.pool.keychain[refreshTokenKey] != nil;
+    NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
+    return refreshToken != nil;
 }
 
 - (AWSTask<AWSCognitoIdentityUserGlobalSignOutResponse *> *) globalSignOut {

@@ -416,6 +416,7 @@
     \"LanguageCode\":{\
       \"type\":\"string\",\
       \"enum\":[\
+        \"cmn-CN\",\
         \"cy-GB\",\
         \"da-DK\",\
         \"de-DE\",\
@@ -1065,7 +1066,8 @@
         \"Vicki\",\
         \"Takumi\",\
         \"Seoyeon\",\
-        \"Aditi\"\
+        \"Aditi\",\
+        \"Zhiyu\"\
       ]\
     },\
     \"VoiceList\":{\
