@@ -1,6 +1,6 @@
 ---
 name: Usage Question
-about: Ask a question about AWS AppSync usage
+about: Ask a question about AWS iOS SDK usage
 
 ---
 
