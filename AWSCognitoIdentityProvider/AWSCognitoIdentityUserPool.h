@@ -66,6 +66,12 @@ NS_ASSUME_NONNULL_BEGIN
                                    userPoolConfiguration:(AWSCognitoIdentityUserPoolConfiguration *)userPoolConfiguration
                                                   forKey:(NSString *)key;
 
++ (void)registerCognitoIdentityUserPoolWithConfiguration:(nullable AWSServiceConfiguration *)configuration
+                                   userPoolConfiguration:(AWSCognitoIdentityUserPoolConfiguration *)userPoolConfiguration
+                                                  forKey:(NSString *)key
+                                              forService:(nullable NSString *)service
+                                          forAccessGroup:(nullable NSString *)group;
+
 + (instancetype)CognitoIdentityUserPoolForKey:(NSString *)key;
 
 + (void)removeCognitoIdentityUserPoolForKey:(NSString *)key;

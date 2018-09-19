@@ -93,7 +93,9 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
                                                                                                                          pinpointAppId:pinpointAppId
                                                                     migrationEnabled:migrationEnabledBoolean ];
             _defaultUserPool = [[AWSCognitoIdentityUserPool alloc] initWithConfiguration:serviceConfiguration
-                                                                   userPoolConfiguration:configuration];
+                                                                   userPoolConfiguration:configuration
+                                                                              forService:NULL
+                                                                          forAccessGroup:NULL];
         } else {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                            reason:@"The service configuration is `nil`. You need to configure `Info.plist` before using this method."
@@ -125,7 +127,26 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
     AWSCognitoIdentityUserPool *identityProvider = [[AWSCognitoIdentityUserPool alloc] initWithConfiguration:configuration
-                                                                                       userPoolConfiguration:userPoolConfiguration];
+                                                                                       userPoolConfiguration:userPoolConfiguration
+                                                                                                  forService:NULL
+                                                                                              forAccessGroup:NULL];
+    [_serviceClients setObject:identityProvider
+                        forKey:key];
+}
+
++ (void)registerCognitoIdentityUserPoolWithConfiguration:(AWSServiceConfiguration *)configuration
+                                   userPoolConfiguration:(AWSCognitoIdentityUserPoolConfiguration *)userPoolConfiguration
+                                                  forKey:(NSString *)key
+                                              forService:(nullable NSString *)service
+                                          forAccessGroup:(nullable NSString *)group {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _serviceClients = [AWSSynchronizedMutableDictionary new];
+    });
+    AWSCognitoIdentityUserPool *identityProvider = [[AWSCognitoIdentityUserPool alloc] initWithConfiguration:configuration
+                                                                                       userPoolConfiguration:userPoolConfiguration
+                                                                                                  forService:service
+                                                                                              forAccessGroup:group];
     [_serviceClients setObject:identityProvider
                         forKey:key];
 }
@@ -147,7 +168,9 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
 
 // Internal init method
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration
-                userPoolConfiguration:(AWSCognitoIdentityUserPoolConfiguration *)userPoolConfiguration; {
+                userPoolConfiguration:(AWSCognitoIdentityUserPoolConfiguration *)userPoolConfiguration
+                           forService:(nullable NSString *)service
+                       forAccessGroup:(nullable NSString *)group {
     if (self = [super init]) {
         if (configuration) {
             _configuration = [configuration copy];
@@ -167,7 +190,11 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
 
         _keychain = [AWSUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoIdentityUserPool class]]];
         
-        
+        if (service == NULL){
+            _keychain = [AWSUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, [AWSCognitoIdentityUserPool class]]];
+        }else{
+            _keychain = [AWSUICKeyChainStore keyChainStoreWithService:service accessGroup:group];
+        }
         //If Pinpoint is setup, get the endpoint or create one.
         if(userPoolConfiguration.pinpointAppId) {
         
