@@ -26,7 +26,7 @@
 #import "AWSCloudWatchResources.h"
 
 static NSString *const AWSInfoCloudWatch = @"CloudWatch";
-static NSString *const AWSCloudWatchSDKVersion = @"2.6.29";
+static NSString *const AWSCloudWatchSDKVersion = @"2.6.30";
 
 
 @interface AWSCloudWatchResponseSerializer : AWSXMLResponseSerializer
@@ -499,6 +499,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCloudWatchGetMetricStatisticsOutput *response, NSError *error))completionHandler {
     [[self getMetricStatistics:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchGetMetricStatisticsOutput *> * _Nonnull task) {
         AWSCloudWatchGetMetricStatisticsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCloudWatchGetMetricWidgetImageOutput *> *)getMetricWidgetImage:(AWSCloudWatchGetMetricWidgetImageInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetMetricWidgetImage"
+                   outputClass:[AWSCloudWatchGetMetricWidgetImageOutput class]];
+}
+
+- (void)getMetricWidgetImage:(AWSCloudWatchGetMetricWidgetImageInput *)request
+     completionHandler:(void (^)(AWSCloudWatchGetMetricWidgetImageOutput *response, NSError *error))completionHandler {
+    [[self getMetricWidgetImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchGetMetricWidgetImageOutput *> * _Nonnull task) {
+        AWSCloudWatchGetMetricWidgetImageOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

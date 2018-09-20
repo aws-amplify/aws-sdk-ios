@@ -971,6 +971,27 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSCloudWatchGetMetricWidgetImageInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metricWidget" : @"MetricWidget",
+             @"outputFormat" : @"OutputFormat",
+             };
+}
+
+@end
+
+@implementation AWSCloudWatchGetMetricWidgetImageOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metricWidgetImage" : @"MetricWidgetImage",
+             };
+}
+
+@end
+
 @implementation AWSCloudWatchListDashboardsInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1416,6 +1437,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"counts" : @"Counts",
              @"dimensions" : @"Dimensions",
              @"metricName" : @"MetricName",
              @"statisticValues" : @"StatisticValues",
@@ -1423,6 +1445,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"timestamp" : @"Timestamp",
              @"unit" : @"Unit",
              @"value" : @"Value",
+             @"values" : @"Values",
              };
 }
 

@@ -172,7 +172,6 @@
     XCTAssertNotNil(pinpoint.pinpointContext);
     XCTAssertNotNil(pinpoint.pinpointContext.clientContext);
     XCTAssertNotNil(pinpoint.pinpointContext.uniqueId);
-    XCTAssertNotNil(pinpoint.pinpointContext.analyticsService);
     XCTAssertNotNil(pinpoint.pinpointContext.targetingService);
     XCTAssertNotNil(pinpoint.pinpointContext.configuration);
     XCTAssertTrue([pinpointConfiguration.appId isEqualToString:pinpoint.pinpointContext.configuration.appId]);
@@ -220,7 +219,6 @@
     XCTAssertNotNil(pinpoint.pinpointContext);
     XCTAssertNotNil(pinpoint.pinpointContext.clientContext);
     XCTAssertNotNil(pinpoint.pinpointContext.uniqueId);
-    XCTAssertNotNil(pinpoint.pinpointContext.analyticsService);
     XCTAssertNotNil(pinpoint.pinpointContext.targetingService);
     XCTAssertNotNil(pinpoint.pinpointContext.configuration);
     XCTAssertEqual(pinpointConfiguration, pinpoint.pinpointContext.configuration);
@@ -269,7 +267,6 @@
     XCTAssertNotNil(pinpoint.pinpointContext);
     XCTAssertNotNil(pinpoint.pinpointContext.clientContext);
     XCTAssertNotNil(pinpoint.pinpointContext.uniqueId);
-    XCTAssertNotNil(pinpoint.pinpointContext.analyticsService);
     XCTAssertNil(pinpoint.pinpointContext.targetingService);
     XCTAssertNotNil(pinpoint.pinpointContext.configuration);
     XCTAssertEqual(pinpointConfiguration, pinpoint.pinpointContext.configuration);

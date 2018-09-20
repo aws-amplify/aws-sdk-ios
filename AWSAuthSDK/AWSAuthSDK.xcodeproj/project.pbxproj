@@ -99,7 +99,6 @@
 		B58F54C31F382449009ED450 /* AWSSignInViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B58F53D61F381A51009ED450 /* AWSSignInViewController.h */; };
 		B5FC69051FAFA1AA004790CB /* AWSMobileClient.h in Headers */ = {isa = PBXBuildFile; fileRef = B5FC69031FAFA1AA004790CB /* AWSMobileClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5FC690A1FAFA1D0004790CB /* AWSMobileClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B5FC69091FAFA1D0004790CB /* AWSMobileClient.m */; };
-		B5FC690B1FAFA1DF004790CB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B5FC69041FAFA1AA004790CB /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +115,118 @@
 			proxyType = 1;
 			remoteGlobalIDString = CE0D416C1C6A66E5006B91B5;
 			remoteInfo = AWSCore;
+		};
+		B51E4F5F215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17E6B436209BB7A80079B286;
+			remoteInfo = AWSTranscribe;
+		};
+		B51E4F61215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17ADAE95209BD11E00FF7598;
+			remoteInfo = AWSTranscribeTests;
+		};
+		B51E4F63215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 17E6B457209BB7C90079B286;
+			remoteInfo = AWSTranscribeUnitTests;
+		};
+		B51E4F65215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A7ACC2020B0E85000DDBEC1;
+			remoteInfo = AWSTranslate;
+		};
+		B51E4F67215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A7ACC4E20B0FF1000DDBEC1;
+			remoteInfo = AWSTranslateUnitTests;
+		};
+		B51E4F69215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A7ACC6B20B110DE00DDBEC1;
+			remoteInfo = AWSComprehend;
+		};
+		B51E4F6B215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A7ACCA420B115BC00DDBEC1;
+			remoteInfo = AWSComprehendUnitTests;
+		};
+		B51E4F6D215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A7ACCD320B11B5200DDBEC1;
+			remoteInfo = AWSComprehendTests;
+		};
+		B51E4F6F215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9A7ACCF520B11CDD00DDBEC1;
+			remoteInfo = AWSTranslateTests;
+		};
+		B51E4F71215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1778554320F9A72800D083BB;
+			remoteInfo = AWSKinesisVideo;
+		};
+		B51E4F73215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1778558C20F9A8C500D083BB;
+			remoteInfo = AWSKinesisVideoUnitTests;
+		};
+		B51E4F75215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1778556820F9A7CD00D083BB;
+			remoteInfo = AWSKinesisVideoArchivedMedia;
+		};
+		B51E4F77215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1778559B20F9A8DA00D083BB;
+			remoteInfo = AWSKinesisVideoArchivedMediaUnitTests;
+		};
+		B51E4F79215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1778557020F9A7CE00D083BB;
+			remoteInfo = AWSKinesisVideoArchivedMediaTests;
+		};
+		B51E4F7B215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 177855D920F9B3D000D083BB;
+			remoteInfo = AWSKinesisVideoTests;
+		};
+		B51E4F7D215449FB001BC958 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9AC4C4DF20F4803900B1ECF4;
+			remoteInfo = AWSRekognitionTests;
 		};
 		B55D57111F44EC3F005A0E56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -494,13 +605,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = CE5604901C6BC96500B4E00B;
 			remoteInfo = AWSAnalyticsUnitTests;
-		};
-		B55D577D1F44EC3F005A0E56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1813F65B1DB5A0B8009486D6;
-			remoteInfo = AWSResources;
 		};
 		B55D577F1F44EC3F005A0E56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1103,7 +1207,6 @@
 				B55D57781F44EC3F005A0E56 /* AWSMobileAnalyticsTests.xctest */,
 				B55D577A1F44EC3F005A0E56 /* AWSMobileAnalyticsLegacyTests.xctest */,
 				B55D577C1F44EC3F005A0E56 /* AWSMobileAnalyticsUnitTests.xctest */,
-				B55D577E1F44EC3F005A0E56 /* AWSResources.bundle */,
 				B55D57801F44EC3F005A0E56 /* AWSPinpoint.framework */,
 				B55D57821F44EC3F005A0E56 /* AWSPinpointTests.xctest */,
 				B55D57841F44EC3F005A0E56 /* AWSPinpointUnitTests.xctest */,
@@ -1127,7 +1230,23 @@
 				B55D57A81F44EC3F005A0E56 /* AWSSQS.framework */,
 				B55D57AA1F44EC3F005A0E56 /* AWSSQSTests.xctest */,
 				B55D57AC1F44EC3F005A0E56 /* AWSSQSUnitTests.xctest */,
+				B51E4F60215449FB001BC958 /* AWSTranscribe.framework */,
+				B51E4F62215449FB001BC958 /* AWSTranscribeTests.xctest */,
+				B51E4F64215449FB001BC958 /* AWSTranscribeUnitTests.xctest */,
 				B55D57AE1F44EC3F005A0E56 /* AWSAllTestsHost.app */,
+				B51E4F66215449FB001BC958 /* AWSTranslate.framework */,
+				B51E4F68215449FB001BC958 /* AWSTranslateUnitTests.xctest */,
+				B51E4F6A215449FB001BC958 /* AWSComprehend.framework */,
+				B51E4F6C215449FB001BC958 /* AWSComprehendUnitTests.xctest */,
+				B51E4F6E215449FB001BC958 /* AWSComprehendTests.xctest */,
+				B51E4F70215449FB001BC958 /* AWSTranslateTests.xctest */,
+				B51E4F72215449FB001BC958 /* AWSKinesisVideo.framework */,
+				B51E4F74215449FB001BC958 /* AWSKinesisVideoUnitTests.xctest */,
+				B51E4F76215449FB001BC958 /* AWSKinesisVideoArchivedMedia.framework */,
+				B51E4F78215449FB001BC958 /* AWSKinesisVideoArchivedMediaUnitTests.xctest */,
+				B51E4F7A215449FB001BC958 /* AWSKinesisVideoArchivedMediaTests.xctest */,
+				B51E4F7C215449FB001BC958 /* AWSKinesisVideoTests.xctest */,
+				B51E4F7E215449FB001BC958 /* AWSRekognitionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1455,6 +1574,118 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		B51E4F60215449FB001BC958 /* AWSTranscribe.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSTranscribe.framework;
+			remoteRef = B51E4F5F215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F62215449FB001BC958 /* AWSTranscribeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSTranscribeTests.xctest;
+			remoteRef = B51E4F61215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F64215449FB001BC958 /* AWSTranscribeUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSTranscribeUnitTests.xctest;
+			remoteRef = B51E4F63215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F66215449FB001BC958 /* AWSTranslate.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSTranslate.framework;
+			remoteRef = B51E4F65215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F68215449FB001BC958 /* AWSTranslateUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSTranslateUnitTests.xctest;
+			remoteRef = B51E4F67215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F6A215449FB001BC958 /* AWSComprehend.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSComprehend.framework;
+			remoteRef = B51E4F69215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F6C215449FB001BC958 /* AWSComprehendUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSComprehendUnitTests.xctest;
+			remoteRef = B51E4F6B215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F6E215449FB001BC958 /* AWSComprehendTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSComprehendTests.xctest;
+			remoteRef = B51E4F6D215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F70215449FB001BC958 /* AWSTranslateTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSTranslateTests.xctest;
+			remoteRef = B51E4F6F215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F72215449FB001BC958 /* AWSKinesisVideo.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSKinesisVideo.framework;
+			remoteRef = B51E4F71215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F74215449FB001BC958 /* AWSKinesisVideoUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSKinesisVideoUnitTests.xctest;
+			remoteRef = B51E4F73215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F76215449FB001BC958 /* AWSKinesisVideoArchivedMedia.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSKinesisVideoArchivedMedia.framework;
+			remoteRef = B51E4F75215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F78215449FB001BC958 /* AWSKinesisVideoArchivedMediaUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSKinesisVideoArchivedMediaUnitTests.xctest;
+			remoteRef = B51E4F77215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F7A215449FB001BC958 /* AWSKinesisVideoArchivedMediaTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSKinesisVideoArchivedMediaTests.xctest;
+			remoteRef = B51E4F79215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F7C215449FB001BC958 /* AWSKinesisVideoTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSKinesisVideoTests.xctest;
+			remoteRef = B51E4F7B215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B51E4F7E215449FB001BC958 /* AWSRekognitionTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSRekognitionTests.xctest;
+			remoteRef = B51E4F7D215449FB001BC958 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		B55D57121F44EC3F005A0E56 /* AWSCore.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -1833,13 +2064,6 @@
 			remoteRef = B55D577B1F44EC3F005A0E56 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		B55D577E1F44EC3F005A0E56 /* AWSResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = AWSResources.bundle;
-			remoteRef = B55D577D1F44EC3F005A0E56 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		B55D57801F44EC3F005A0E56 /* AWSPinpoint.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -2062,7 +2286,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5FC690B1FAFA1DF004790CB /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

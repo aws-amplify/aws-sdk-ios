@@ -542,6 +542,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"interleaved" : @"interleaved",
              @"limit" : @"limit",
              @"logGroupName" : @"logGroupName",
+             @"logStreamNamePrefix" : @"logStreamNamePrefix",
              @"logStreamNames" : @"logStreamNames",
              @"nextToken" : @"nextToken",
              @"startTime" : @"startTime",

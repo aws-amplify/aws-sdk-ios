@@ -59,6 +59,7 @@ static NSString *const AWSMobileAnalyticsRoot = @"com.amazonaws.MobileAnalytics"
 
 - (void)testConstructor {
     AWSPinpointContext *context = [AWSPinpointContext contextWithConfiguration:self.configuration];
+    
     XCTAssertNotNil(context);
     XCTAssertNotNil(context.clientContext);
     XCTAssertNotNil(context.configuration.userDefaults);

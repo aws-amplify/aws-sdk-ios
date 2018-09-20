@@ -422,6 +422,31 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeContinuousBackups:(AWSDynamoDBDescribeContinuousBackupsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeContinuousBackupsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ DescribeEndpoints
+ 
+ @param request A container for the necessary parameters to execute the DescribeEndpoints service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDescribeEndpointsResponse`.
+ 
+ @see AWSDynamoDBDescribeEndpointsRequest
+ @see AWSDynamoDBDescribeEndpointsResponse
+ */
+- (AWSTask<AWSDynamoDBDescribeEndpointsResponse *> *)describeEndpoints:(AWSDynamoDBDescribeEndpointsRequest *)request;
+
+/**
+ DescribeEndpoints
+ 
+ @param request A container for the necessary parameters to execute the DescribeEndpoints service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSDynamoDBDescribeEndpointsRequest
+ @see AWSDynamoDBDescribeEndpointsResponse
+ */
+- (void)describeEndpoints:(AWSDynamoDBDescribeEndpointsRequest *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeEndpointsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns information about the specified global table.</p>
  
  @param request A container for the necessary parameters to execute the DescribeGlobalTable service method.

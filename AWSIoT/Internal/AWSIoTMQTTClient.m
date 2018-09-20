@@ -596,7 +596,7 @@ static const NSString *SDK_VERSION = @"2.6.19";
     //Set the timeout to 1800 seconds, which is 1.5x of the max keep-alive 1200 seconds.
     //The unit of measure for the dispatch_time function is nano seconds.
 
-    dispatch_semaphore_wait(_timerSemaphore, dispatch_time(DISPATCH_TIME_NOW, 1800 *1000*1000*1000));
+    dispatch_semaphore_wait(_timerSemaphore, dispatch_time(DISPATCH_TIME_NOW, 1800 * NSEC_PER_SEC));
     if (! self.reconnectTimer && self.mqttStatus != AWSIoTMQTTStatusConnected ) {
         self.reconnectTimer =[NSTimer timerWithTimeInterval:self.currentReconnectTime target:self selector: @selector(reconnectToSession) userInfo:nil repeats:NO];
         [[NSRunLoop currentRunLoop] addTimer:self.reconnectTimer forMode:NSRunLoopCommonModes];

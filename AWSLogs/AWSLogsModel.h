@@ -830,7 +830,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSNumber * _Nullable endTime;
 
 /**
- <p>The filter pattern to use. If not provided, all the events are matched.</p>
+ <p>The filter pattern to use. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p><p>If not provided, all the events are matched.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterPattern;
 
@@ -845,12 +845,17 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>The name of the log group.</p>
+ <p>The name of the log group to search.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>Optional list of log stream names.</p>
+ <p>Filters the results to include only events from log streams that have names starting with this prefix.</p><p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, but the value for <code>logStreamNamePrefix</code> does not match any log stream names specified in <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logStreamNamePrefix;
+
+/**
+ <p>Filters the results to only logs from the log streams in this list.</p><p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, but the value for <code>logStreamNamePrefix</code> does not match any log stream names specified in <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code> error.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable logStreamNames;
 

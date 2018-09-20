@@ -534,6 +534,54 @@ static id mockNetworking = nil;
     [AWSCloudWatch removeCloudWatchForKey:key];
 }
 
+- (void)testGetMetricWidgetImage {
+    NSString *key = @"testGetMetricWidgetImage";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
+
+    AWSCloudWatch *awsClient = [AWSCloudWatch CloudWatchForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSCloudWatch CloudWatchForKey:key] getMetricWidgetImage:[AWSCloudWatchGetMetricWidgetImageInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSCloudWatch removeCloudWatchForKey:key];
+}
+
+- (void)testGetMetricWidgetImageCompletionHandler {
+    NSString *key = @"testGetMetricWidgetImage";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSCloudWatch registerCloudWatchWithConfiguration:configuration forKey:key];
+
+    AWSCloudWatch *awsClient = [AWSCloudWatch CloudWatchForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSCloudWatch CloudWatchForKey:key] getMetricWidgetImage:[AWSCloudWatchGetMetricWidgetImageInput new] completionHandler:^(AWSCloudWatchGetMetricWidgetImageOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSCloudWatch removeCloudWatchForKey:key];
+}
+
 - (void)testListDashboards {
     NSString *key = @"testListDashboards";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];

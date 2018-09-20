@@ -272,6 +272,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"clientToken" : @"ClientToken",
              @"instanceType" : @"InstanceType",
              @"quantity" : @"Quantity",
+             @"tagSpecifications" : @"TagSpecifications",
              };
 }
 
@@ -294,6 +295,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -5257,7 +5262,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"dryRun" : @"DryRun",
              @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
              @"networkInterfaceIds" : @"NetworkInterfaceIds",
+             @"nextToken" : @"NextToken",
              };
 }
 
@@ -5272,6 +5279,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"networkInterfaces" : @"NetworkInterfaces",
+             @"nextToken" : @"NextToken",
              };
 }
 
@@ -16781,6 +16789,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"customer-gateway"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeCustomerGateway);
         }
+        if ([value caseInsensitiveCompare:@"dedicated-host"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeDedicatedHost);
+        }
         if ([value caseInsensitiveCompare:@"dhcp-options"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeDHCPOptions);
         }
@@ -16834,6 +16845,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         switch ([value integerValue]) {
             case AWSEC2ResourceTypeCustomerGateway:
                 return @"customer-gateway";
+            case AWSEC2ResourceTypeDedicatedHost:
+                return @"dedicated-host";
             case AWSEC2ResourceTypeDHCPOptions:
                 return @"dhcp-options";
             case AWSEC2ResourceTypeImage:
@@ -16892,6 +16905,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"customer-gateway"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeCustomerGateway);
         }
+        if ([value caseInsensitiveCompare:@"dedicated-host"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeDedicatedHost);
+        }
         if ([value caseInsensitiveCompare:@"dhcp-options"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeDHCPOptions);
         }
@@ -16945,6 +16961,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         switch ([value integerValue]) {
             case AWSEC2ResourceTypeCustomerGateway:
                 return @"customer-gateway";
+            case AWSEC2ResourceTypeDedicatedHost:
+                return @"dedicated-host";
             case AWSEC2ResourceTypeDHCPOptions:
                 return @"dhcp-options";
             case AWSEC2ResourceTypeImage:
@@ -28464,6 +28482,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"customer-gateway"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeCustomerGateway);
         }
+        if ([value caseInsensitiveCompare:@"dedicated-host"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeDedicatedHost);
+        }
         if ([value caseInsensitiveCompare:@"dhcp-options"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeDHCPOptions);
         }
@@ -28517,6 +28538,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         switch ([value integerValue]) {
             case AWSEC2ResourceTypeCustomerGateway:
                 return @"customer-gateway";
+            case AWSEC2ResourceTypeDedicatedHost:
+                return @"dedicated-host";
             case AWSEC2ResourceTypeDHCPOptions:
                 return @"dhcp-options";
             case AWSEC2ResourceTypeImage:
@@ -30092,6 +30115,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"customer-gateway"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeCustomerGateway);
         }
+        if ([value caseInsensitiveCompare:@"dedicated-host"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeDedicatedHost);
+        }
         if ([value caseInsensitiveCompare:@"dhcp-options"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeDHCPOptions);
         }
@@ -30145,6 +30171,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         switch ([value integerValue]) {
             case AWSEC2ResourceTypeCustomerGateway:
                 return @"customer-gateway";
+            case AWSEC2ResourceTypeDedicatedHost:
+                return @"dedicated-host";
             case AWSEC2ResourceTypeDHCPOptions:
                 return @"dhcp-options";
             case AWSEC2ResourceTypeImage:
@@ -30199,6 +30227,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"customer-gateway"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeCustomerGateway);
         }
+        if ([value caseInsensitiveCompare:@"dedicated-host"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeDedicatedHost);
+        }
         if ([value caseInsensitiveCompare:@"dhcp-options"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeDHCPOptions);
         }
@@ -30252,6 +30283,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         switch ([value integerValue]) {
             case AWSEC2ResourceTypeCustomerGateway:
                 return @"customer-gateway";
+            case AWSEC2ResourceTypeDedicatedHost:
+                return @"dedicated-host";
             case AWSEC2ResourceTypeDHCPOptions:
                 return @"dhcp-options";
             case AWSEC2ResourceTypeImage:

@@ -38,7 +38,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
 @implementation AWSPinpointEvent
 
 -(instancetype)initWithEventType:(NSString*) theEventType
-                         session:(AWSPinpointSession*) session {
+                         session:(AWSPinpointSession*) session{
     return [self initWithEventType:theEventType
                     eventTimestamp:[AWSPinpointDateUtils utcTimeMillisNow]
                            session:session];
@@ -46,7 +46,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
 
 -(instancetype)initWithEventType:(NSString*) theEventType
                   eventTimestamp:(UTCTimeMillis) theEventTimestamp
-                         session:(AWSPinpointSession*) session {
+                         session:(AWSPinpointSession*) session{
     return [self initWithEventType:theEventType
                     eventTimestamp:theEventTimestamp
                            session:session
@@ -58,7 +58,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
                   eventTimestamp:(UTCTimeMillis) theEventTimestamp
                          session:(AWSPinpointSession*) session
                       attributes:(NSMutableDictionary*) attributes
-                         metrics:(NSMutableDictionary*) metrics {
+                         metrics:(NSMutableDictionary*) metrics{
     if (self = [super init]) {
         _eventType = [self validateEventType:theEventType];
         _eventTimestamp = theEventTimestamp;
@@ -66,7 +66,6 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
         _attributes = attributes;
         _metrics = metrics;
     }
-    
     return self;
 }
 
@@ -235,7 +234,6 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
                         session:[_session copyWithZone:zone]
                      attributes:[_attributes copyWithZone:zone]
                         metrics:[_metrics copyWithZone:zone]];
-
         return copy;
     }
 }

@@ -935,6 +935,38 @@
       } ],\
       \"documentation\" : \"Get an SMS channel\"\
     },\
+    \"PutEvents\": {\
+      \"name\" : \"PutEvents\",\
+      \"http\" : {\
+        \"method\" : \"POST\",\
+        \"requestUri\" : \"/v1/apps/{application-id}/events/legacy\",\
+        \"responseCode\" : 202\
+      },\
+      \"input\" : {\
+        \"shape\" : \"EventsRequest\"\
+      },\
+      \"output\" : {\
+        \"shape\" : \"EventsResponse\"\
+      },\
+      \"errors\" : [ {\
+          \"shape\" : \"BadRequestException\"\
+        }, {\
+          \"shape\" : \"NotFoundException\"\
+        }, {\
+          \"shape\" : \"TooManyRequestsException\"\
+        }, {\
+          \"shape\" : \"RequestEntityTooLargeException\"\
+        }, {\
+          \"shape\" : \"BadGatewayException\"\
+        }, {\
+          \"shape\" : \"ServiceUnavailableException\"\
+        }, {\
+        \"shape\" : \"RequestTimedOutException\"\
+        }, {\
+        \"shape\" : \"InternalServerErrorException\"\
+      } ],\
+      \"documentation\" : \"Use to submit events to Pinpoint into multiple regions.\"\
+    },\
     \"PutEventStream\" : {\
       \"name\" : \"PutEventStream\",\
       \"http\" : {\
@@ -1593,6 +1625,24 @@
       \"type\" : \"string\",\
       \"enum\" : [ \"INCLUSIVE\", \"EXCLUSIVE\" ]\
     },\
+    \"BadGatewayException\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Message\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
+        },\
+        \"RequestID\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
+        }\
+      },\
+      \"documentation\" : \"Simple message object.\",\
+      \"exception\" : true,\
+      \"error\" : {\
+      \"httpStatusCode\" : 502\
+      }\
+    },    \
     \"BadRequestException\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
@@ -2295,6 +2345,19 @@
       },\
       \"documentation\" : \"Endpoint demographic data\"\
     },\
+    \"EndpointItemResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"StatusCode\" : {\
+          \"shape\" : \"__integer\",\
+          \"documentation\" : \"The response status code.\"\
+        },\
+        \"Message\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The response message.\"\
+        }\
+      }\
+    },\
     \"EndpointLocation\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
@@ -2444,7 +2507,7 @@
         }\
       },\
       \"documentation\" : \"Endpoint response\"\
-    },\
+    },    \
     \"EndpointUser\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
@@ -2488,6 +2551,61 @@
         }\
       },\
       \"documentation\" : \"Model for an event publishing subscription export.\"\
+    },\
+    \"Event\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"EventType\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The event type submitted.\"\
+        },\
+        \"Timestamp\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The timestamp associated with event.\"\
+        },\
+        \"ClientSdkVersion\" : {\
+           \"shape\" : \"__string\",\
+           \"documentation\" : \"The client sdk version.\"\
+         },\
+        \"Attributes\" : {\
+          \"shape\" : \"MapOf__string\",\
+          \"documentation\" : \"Event attributes.\"\
+        },\
+        \"Metrics\" : {\
+          \"shape\" : \"MapOf__double\",\
+          \"documentation\" : \"Event metrics.\"\
+        },\
+        \"Session\" : {\
+          \"shape\" : \"Session\",\
+          \"documentation\" : \"The session associated with the event.\"\
+        }\
+      }\
+    },\
+    \"EventItemResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"StatusCode\" : {\
+          \"shape\" : \"__integer\",\
+          \"documentation\" : \"The response status code.\"\
+        },\
+        \"Message\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The response message.\"\
+        }\
+      }\
+    },\
+    \"EventsBatch\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Endpoint\" : {\
+          \"shape\" : \"EndpointRequest\",\
+          \"documentation\" : \"Endpoint information to submit.\"\
+        },\
+        \"Events\" : {\
+          \"shape\" : \"MapOfEvents\",\
+          \"documentation\" : \"Events to submit.\"\
+        }\
+      }\
     },\
     \"ForbiddenException\" : {\
       \"type\" : \"structure\",\
@@ -3194,6 +3312,19 @@
       \"required\" : [ \"SMSChannelResponse\" ],\
       \"payload\" : \"SMSChannelResponse\"\
     },\
+    \"ItemResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"EndpointItemResponse\" : {\
+          \"shape\" : \"EndpointItemResponse\",\
+          \"documentation\" : \"The response from endpoint request.\"\
+        },\
+        \"EventsItemResponse\" : {\
+          \"shape\" : \"MapOfEventsItemResponse\",\
+          \"documentation\" : \"The response from each event request.\"\
+        }\
+      }\
+    },\
     \"ImportJobRequest\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
@@ -3427,6 +3558,49 @@
         \"shape\" : \"AttributeDimension\"\
       }\
     },\
+    \"MapOfBatchItem\" : {\
+      \"type\" : \"map\",\
+      \"key\" : {\
+        \"shape\" : \"__string\",\
+        \"documentation\" : \"The key here is endpoint Id.\"\
+      },\
+      \"value\" : {\
+        \"shape\" : \"EventsBatch\",\
+        \"documentation\": \"The endpoint information associated with the endpoint Id to submit.\"\
+      }\
+    },\
+    \"MapOfEvents\" : {\
+      \"type\" : \"map\",\
+      \"key\" : {\
+        \"shape\" : \"__string\",\
+        \"documentation\" : \"The key here is event Id.\"\
+      },\
+      \"value\" : {\
+        \"shape\" : \"Event\",\
+        \"documentation\" : \"The event information associated with the endpoint Id to submit.\"\
+      }\
+    },\
+    \"MapOfEventsItemResponse\" : {\
+      \"type\" : \"map\",\
+      \"key\" : {\
+        \"shape\" : \"__string\",\
+        \"documentation\" : \"Event Id of each event response.\"\
+      },\
+      \"value\" : {\
+        \"shape\" : \"EventItemResponse\",\
+        \"documentation\" : \"Event response.\"\
+      }\
+    },\
+    \"MapOfResults\" : {\
+      \"type\" : \"map\",\
+      \"key\" : {\
+        \"shape\" : \"__string\",\
+        \"documentation\" : \"The key here is event Id.\"\
+      },\
+      \"value\" : {\
+        \"shape\" : \"ItemResponse\"\
+      }\
+    },\
     \"MapOfListOf__string\" : {\
       \"type\" : \"map\",\
       \"key\" : {\
@@ -3655,6 +3829,29 @@
         \"httpStatusCode\" : 404\
       }\
     },\
+    \"EventsRequest\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"ApplicationId\" : {\
+          \"shape\" : \"__string\",\
+          \"location\" : \"uri\",\
+          \"locationName\" : \"application-id\"\
+        },\
+        \"BatchItem\" : {\
+          \"shape\" : \"MapOfBatchItem\",\
+          \"documentation\" : \"Batch events to submit\"\
+        }\
+      }\
+    },\
+    \"EventsResponse\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Results\" : {\
+          \"shape\" : \"MapOfResults\",\
+          \"documentation\" : \"Events submission response.\"\
+        }\
+      }\
+    },\
     \"PutEventStreamRequest\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
@@ -3715,6 +3912,42 @@
     \"RecencyType\" : {\
       \"type\" : \"string\",\
       \"enum\" : [ \"ACTIVE\", \"INACTIVE\" ]\
+    },\
+    \"RequestEntityTooLargeException\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Message\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
+        },\
+        \"RequestID\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
+        }\
+      },\
+      \"documentation\" : \"Simple message object.\",\
+      \"exception\" : true,\
+      \"error\" : {\
+        \"httpStatusCode\" : 417\
+      }\
+    },\
+    \"RequestTimedOutException\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Message\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
+        },\
+        \"RequestID\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
+        }\
+      },\
+      \"documentation\" : \"Simple message object.\",\
+      \"exception\" : true,\
+      \"error\" : {\
+        \"httpStatusCode\" : 504\
+      }\
     },\
     \"SMSChannelRequest\" : {\
       \"type\" : \"structure\",\
@@ -3998,6 +4231,24 @@
       },\
       \"documentation\" : \"Segments in your account.\"\
     },\
+    \"ServiceUnavailableException\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Message\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The error message returned from the API.\"\
+        },\
+        \"RequestID\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The unique message body ID.\"\
+        }\
+      },\
+      \"documentation\" : \"Simple message object.\",\
+      \"exception\" : true,\
+      \"error\" : {\
+        \"httpStatusCode\" : 503\
+     }\
+    },\
     \"SendMessagesRequest\" : {\
       \"type\" : \"structure\",\
       \"members\" : {\
@@ -4036,6 +4287,27 @@
         }\
       },\
       \"documentation\" : \"Dimension specification of a segment.\"\
+    },\
+    \"Session\" : {\
+      \"type\" : \"structure\",\
+      \"members\" : {\
+        \"Id\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The session id.\"\
+        },\
+        \"Duration\" : {\
+          \"shape\" : \"__long\",\
+          \"documentation\" : \"The duration of the session.\"\
+        },\
+        \"StartTimestamp\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The start time of the session.\"\
+        },\
+        \"StopTimestamp\" : {\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The stop time of the session.\"\
+        }\
+      }\
     },\
     \"TooManyRequestsException\" : {\
       \"type\" : \"structure\",\
@@ -4488,6 +4760,9 @@
     },\
     \"__integer\" : {\
       \"type\" : \"integer\"\
+    },\
+    \"__long\" : {\
+       \"type\" : \"long\"\
     },\
     \"__string\" : {\
       \"type\" : \"string\"\

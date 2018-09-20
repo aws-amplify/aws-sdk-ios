@@ -1,6 +1,24 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.30
+
+### Enhancements
+
+* **General SDK Improvements**
+  * Fix warnings in the SDK imposed by the iOS 12 platform update.
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon CloudWatch
+  * Amazon CloudWatch Logs
+  * Amazon DynamoDB
+  * Amazon EC2
+  * Amazon Elastic Load Balancing
+  * Amazon Polly
+  * Amazon Simple Email Service
+
 ## 2.6.29
 
 ### Enhancements

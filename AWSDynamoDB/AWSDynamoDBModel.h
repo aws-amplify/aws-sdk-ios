@@ -261,6 +261,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeBackupOutput;
 @class AWSDynamoDBDescribeContinuousBackupsInput;
 @class AWSDynamoDBDescribeContinuousBackupsOutput;
+@class AWSDynamoDBDescribeEndpointsRequest;
+@class AWSDynamoDBDescribeEndpointsResponse;
 @class AWSDynamoDBDescribeGlobalTableInput;
 @class AWSDynamoDBDescribeGlobalTableOutput;
 @class AWSDynamoDBDescribeGlobalTableSettingsInput;
@@ -271,6 +273,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeTableOutput;
 @class AWSDynamoDBDescribeTimeToLiveInput;
 @class AWSDynamoDBDescribeTimeToLiveOutput;
+@class AWSDynamoDBEndpoint;
 @class AWSDynamoDBExpectedAttributeValue;
 @class AWSDynamoDBGetItemInput;
 @class AWSDynamoDBGetItemOutput;
@@ -1298,6 +1301,27 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 /**
  
  */
+@interface AWSDynamoDBDescribeEndpointsRequest : AWSRequest
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeEndpointsResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBEndpoint *> * _Nullable endpoints;
+
+@end
+
+/**
+ 
+ */
 @interface AWSDynamoDBDescribeGlobalTableInput : AWSRequest
 
 
@@ -1438,6 +1462,24 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p/>
  */
 @property (nonatomic, strong) AWSDynamoDBTimeToLiveDescription * _Nullable timeToLiveDescription;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBEndpoint : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable address;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable cachePeriodInMinutes;
 
 @end
 

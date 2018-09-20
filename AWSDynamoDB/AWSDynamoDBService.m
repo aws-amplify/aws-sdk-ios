@@ -27,7 +27,7 @@
 #import "AWSDynamoDBRequestRetryHandler.h"
 
 static NSString *const AWSInfoDynamoDB = @"DynamoDB";
-static NSString *const AWSDynamoDBSDKVersion = @"2.6.29";
+static NSString *const AWSDynamoDBSDKVersion = @"2.6.30";
 
 
 @interface AWSDynamoDBResponseSerializer : AWSJSONResponseSerializer
@@ -508,6 +508,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSDynamoDBDescribeContinuousBackupsOutput *response, NSError *error))completionHandler {
     [[self describeContinuousBackups:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBDescribeContinuousBackupsOutput *> * _Nonnull task) {
         AWSDynamoDBDescribeContinuousBackupsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBDescribeEndpointsResponse *> *)describeEndpoints:(AWSDynamoDBDescribeEndpointsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"DescribeEndpoints"
+                   outputClass:[AWSDynamoDBDescribeEndpointsResponse class]];
+}
+
+- (void)describeEndpoints:(AWSDynamoDBDescribeEndpointsRequest *)request
+     completionHandler:(void (^)(AWSDynamoDBDescribeEndpointsResponse *response, NSError *error))completionHandler {
+    [[self describeEndpoints:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBDescribeEndpointsResponse *> * _Nonnull task) {
+        AWSDynamoDBDescribeEndpointsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

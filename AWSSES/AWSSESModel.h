@@ -2666,7 +2666,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 @property (nonatomic, strong) NSString * _Nullable fromArn;
 
 /**
- <p>The raw text of the message. The client is responsible for ensuring the following:</p><ul><li><p>Message must contain a header and a body, separated by a blank line.</p></li><li><p>All required header fields must be present.</p></li><li><p>Each part of a multipart MIME message must be formatted properly.</p></li><li><p>MIME content types must be among those supported by Amazon SES. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Amazon SES Developer Guide</a>.</p></li><li><p>Must be base64-encoded.</p></li><li><p>Per <a href="https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6">RFC 5321</a>, the maximum length of each line of text, including the &lt;CRLF&gt;, must not exceed 1,000 characters.</p></li></ul>
+ <p>The raw email message itself. The message has to meet the following criteria:</p><ul><li><p>The message has to contain a header and a body, separated by a blank line.</p></li><li><p>All of the required header fields must be present in the message.</p></li><li><p>Each part of a multipart MIME message must be formatted properly.</p></li><li><p>Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Unsupported Attachment Types</a> in the <i>Amazon SES Developer Guide</i>.</p></li><li><p>The entire message must be base64-encoded.</p></li><li><p>If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, we highly recommend that you encode that content. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Sending Raw Email</a> in the <i>Amazon SES Developer Guide</i>.</p></li><li><p>Per <a href="https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6">RFC 5321</a>, the maximum length of each line of text, including the &lt;CRLF&gt;, must not exceed 1,000 characters.</p></li></ul>
  */
 @property (nonatomic, strong) AWSSESRawMessage * _Nullable rawMessage;
 
@@ -2930,7 +2930,7 @@ typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
 
 
 /**
- <p>The identity for which the Amazon SNS topic will be set. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>
+ <p>The identity (email address or domain) that you want to set the Amazon SNS topic for.</p><important><p>You can only specify a verified identity for this parameter.</p></important><p>You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: <code>sender@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identity;
 

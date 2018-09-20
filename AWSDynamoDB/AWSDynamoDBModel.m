@@ -1208,6 +1208,24 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBDescribeEndpointsRequest
+
+@end
+
+@implementation AWSDynamoDBDescribeEndpointsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpoints" : @"Endpoints",
+             };
+}
+
++ (NSValueTransformer *)endpointsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBEndpoint class]];
+}
+
+@end
+
 @implementation AWSDynamoDBDescribeGlobalTableInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1318,6 +1336,17 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)timeToLiveDescriptionJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTimeToLiveDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBEndpoint
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"address" : @"Address",
+             @"cachePeriodInMinutes" : @"CachePeriodInMinutes",
+             };
 }
 
 @end

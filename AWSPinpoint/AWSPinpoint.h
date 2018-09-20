@@ -19,12 +19,11 @@
 FOUNDATION_EXPORT double AWSPinpointVersionNumber;
 
 //! Project version string for AWSPinpoint.
-FOUNDATION_EXPORT const unsigned char AWSMPinpointVersionString[];
+FOUNDATION_EXPORT const unsigned char AWSPinpointVersionString[];
 
 #import <AWSCore/AWSCore.h>
 
 #import "AWSPinpointService.h"
-#import "AWSPinpointAnalytics.h"
 #import "AWSPinpointAnalyticsClient.h"
 #import "AWSPinpointConfiguration.h"
 #import "AWSPinpointEndpointProfile.h"

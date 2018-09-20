@@ -133,6 +133,8 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @class AWSCloudWatchGetMetricDataOutput;
 @class AWSCloudWatchGetMetricStatisticsInput;
 @class AWSCloudWatchGetMetricStatisticsOutput;
+@class AWSCloudWatchGetMetricWidgetImageInput;
+@class AWSCloudWatchGetMetricWidgetImageOutput;
 @class AWSCloudWatchListDashboardsInput;
 @class AWSCloudWatchListDashboardsOutput;
 @class AWSCloudWatchListMetricsInput;
@@ -587,7 +589,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 
 
 /**
- <p>The time stamp indicating the latest data to be returned.</p>
+ <p>The time stamp indicating the latest data to be returned.</p><p>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values that align with the value of the metric's <code>Period</code> and sync up with the beginning and end of an hour. For example, if the <code>Period</code> of a metric is 5 minutes, specifying 12:05 or 12:30 as <code>EndTime</code> can get a faster response from CloudWatch then setting 12:07 or 12:29 as the <code>EndTime</code>.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
@@ -612,7 +614,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, assign) AWSCloudWatchScanBy scanBy;
 
 /**
- <p>The time stamp indicating the earliest data to be returned.</p>
+ <p>The time stamp indicating the earliest data to be returned.</p><p>For better performance, specify <code>StartTime</code> and <code>EndTime</code> values that align with the value of the metric's <code>Period</code> and sync up with the beginning and end of an hour. For example, if the <code>Period</code> of a metric is 5 minutes, specifying 12:05 or 12:30 as <code>StartTime</code> can get a faster response from CloudWatch then setting 12:07 or 12:29 as the <code>StartTime</code>.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startTime;
 
@@ -653,7 +655,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p>The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>, you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both.</p>
+ <p>The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>, you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>, but not both. Percentile statistics are not available for metrics when any of the metric values are negative numbers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable extendedStatistics;
 
@@ -704,6 +706,37 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
  <p>A label for the specified metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable label;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCloudWatchGetMetricWidgetImageInput : AWSRequest
+
+
+/**
+ <p>A JSON string that defines the bitmap graph to be retrieved. The string includes the metrics to include in the graph, statistics, annotations, title, axis limits, and so on. You can include only one <code>MetricWidget</code> parameter in each <code>GetMetricWidgetImage</code> call.</p><p>For more information about the syntax of <code>MetricWidget</code> see <a>CloudWatch-Metric-Widget-Structure</a>.</p><p>If any metric on the graph could not load all the requested data points, an orange triangle with an exclamation point appears next to the graph legend.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricWidget;
+
+/**
+ <p>The format of the resulting image. Only PNG images are supported.</p><p>The default is <code>png</code>. If you specify <code>png</code>, the API returns an HTTP response with the content-type set to <code>text/xml</code>. The image data is in a <code>MetricWidgetImage</code> field. For example:</p><p><code> &lt;GetMetricWidgetImageResponse xmlns="http://monitoring.amazonaws.com/doc/2010-08-01/"&gt;</code></p><p><code> &lt;GetMetricWidgetImageResult&gt;</code></p><p><code> &lt;MetricWidgetImage&gt;</code></p><p><code> iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...</code></p><p><code> &lt;/MetricWidgetImage&gt;</code></p><p><code> &lt;/GetMetricWidgetImageResult&gt;</code></p><p><code> &lt;ResponseMetadata&gt;</code></p><p><code> &lt;RequestId&gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b&lt;/RequestId&gt;</code></p><p><code> &lt;/ResponseMetadata&gt;</code></p><p><code>&lt;/GetMetricWidgetImageResponse&gt;</code></p><p>The <code>image/png</code> setting is intended only for custom HTTP requests. For most use cases, and all actions using an AWS SDK, you should use <code>png</code>. If you specify <code>image/png</code>, the HTTP response has a content-type set to <code>image/png</code>, and the body of the response is a PNG image. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outputFormat;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCloudWatchGetMetricWidgetImageOutput : AWSModel
+
+
+/**
+ <p>The image of the graph, in the output format specified.</p>
+ */
+@property (nonatomic, strong) NSData * _Nullable metricWidgetImage;
 
 @end
 
@@ -1043,6 +1076,11 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 
 
 /**
+ <p>Array of numbers that is used along with the <code>Values</code> array. Each number in the <code>Count</code> array is the number of times the corresponding value in the <code>Values</code> array occurred during the period. </p><p>If you omit the <code>Counts</code> array, the default of 1 is used as the value for each count. If you include a <code>Counts</code> array, it must include the same amount of values as the <code>Values</code> array.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable counts;
+
+/**
  <p>The dimensions associated with the metric.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
@@ -1076,6 +1114,11 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
  <p>The value for the metric.</p><p>Although the parameter accepts numbers of type Double, CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable value;
+
+/**
+ <p>Array of numbers representing the values for the metric during the period. Each unique value is listed just once in this array, and the corresponding number in the <code>Counts</code> array specifies the number of times that value occurred during the period. You can include up to 150 unique values in each <code>PutMetricData</code> action that specifies a <code>Values</code> array.</p><p>Although the <code>Values</code> array accepts numbers of type <code>Double</code>, CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable values;
 
 @end
 
@@ -1151,7 +1194,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable actionsEnabled;
 
 /**
- <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: arn:aws:automate:<i>region</i>:ec2:stop | arn:aws:automate:<i>region</i>:ec2:terminate | arn:aws:automate:<i>region</i>:ec2:recover | arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i> | arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i> autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></p><p>Valid Values (for use with IAM roles): arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</p>
+ <p>The actions to execute when this alarm transitions to the <code>ALARM</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code> | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></p><p>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alarmActions;
 
@@ -1196,7 +1239,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSString * _Nullable extendedStatistic;
 
 /**
- <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: arn:aws:automate:<i>region</i>:ec2:stop | arn:aws:automate:<i>region</i>:ec2:terminate | arn:aws:automate:<i>region</i>:ec2:recover | arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i> | arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i> autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></p><p>Valid Values (for use with IAM roles): arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</p>
+ <p>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code> | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></p><p>Valid Values (for use with IAM roles): <code>&gt;arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable insufficientDataActions;
 
@@ -1211,7 +1254,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
 /**
- <p>The actions to execute when this alarm transitions to an <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: arn:aws:automate:<i>region</i>:ec2:stop | arn:aws:automate:<i>region</i>:ec2:terminate | arn:aws:automate:<i>region</i>:ec2:recover | arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i> | arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i> autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></p><p>Valid Values (for use with IAM roles): arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0 | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0 | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</p>
+ <p>The actions to execute when this alarm transitions to an <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code> | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></p><p>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable OKActions;
 
@@ -1249,7 +1292,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 
 
 /**
- <p>The data for the metric.</p>
+ <p>The data for the metric. The array can include no more than 20 metrics per call.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchMetricDatum *> * _Nullable metricData;
 
