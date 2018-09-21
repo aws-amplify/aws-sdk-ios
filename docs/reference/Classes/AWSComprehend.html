@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -169,56 +169,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultComprehend" title="defaultComprehend"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultComprehend">+&nbsp;defaultComprehend</a></code>
 </h3>
@@ -651,7 +605,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchDetectDominantLanguage:(AWSComprehendBatchDetectDominantLanguageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectDominantLanguageResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchDetectDominantLanguage:(AWSComprehendBatchDetectDominantLanguageRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendBatchDetectDominantLanguageResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -793,7 +747,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchDetectEntities:(AWSComprehendBatchDetectEntitiesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectEntitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchDetectEntities:(AWSComprehendBatchDetectEntitiesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendBatchDetectEntitiesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -935,7 +889,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchDetectKeyPhrases:(AWSComprehendBatchDetectKeyPhrasesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectKeyPhrasesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchDetectKeyPhrases:(AWSComprehendBatchDetectKeyPhrasesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendBatchDetectKeyPhrasesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1077,7 +1031,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)batchDetectSentiment:(AWSComprehendBatchDetectSentimentRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectSentimentResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)batchDetectSentiment:(AWSComprehendBatchDetectSentimentRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendBatchDetectSentimentResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1219,7 +1173,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeTopicsDetectionJob:(AWSComprehendDescribeTopicsDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDescribeTopicsDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeTopicsDetectionJob:(AWSComprehendDescribeTopicsDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDescribeTopicsDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1361,7 +1315,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectDominantLanguage:(AWSComprehendDetectDominantLanguageRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectDominantLanguageResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectDominantLanguage:(AWSComprehendDetectDominantLanguageRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDetectDominantLanguageResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1503,7 +1457,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectEntities:(AWSComprehendDetectEntitiesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectEntitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectEntities:(AWSComprehendDetectEntitiesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDetectEntitiesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1645,7 +1599,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectKeyPhrases:(AWSComprehendDetectKeyPhrasesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectKeyPhrasesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectKeyPhrases:(AWSComprehendDetectKeyPhrasesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDetectKeyPhrasesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1787,7 +1741,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)detectSentiment:(AWSComprehendDetectSentimentRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectSentimentResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)detectSentiment:(AWSComprehendDetectSentimentRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendDetectSentimentResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1929,7 +1883,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTopicsDetectionJobs:(AWSComprehendListTopicsDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListTopicsDetectionJobsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTopicsDetectionJobs:(AWSComprehendListTopicsDetectionJobsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendListTopicsDetectionJobsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2071,7 +2025,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startTopicsDetectionJob:(AWSComprehendStartTopicsDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStartTopicsDetectionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startTopicsDetectionJob:(AWSComprehendStartTopicsDetectionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSComprehendStartTopicsDetectionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2128,6 +2082,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -2140,7 +2148,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

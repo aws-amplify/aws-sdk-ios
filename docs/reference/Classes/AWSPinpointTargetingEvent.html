@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>AWSPinpointAnalyticsEvent Class Reference</title>
+	<title>AWSPinpointTargetingEvent Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -58,6 +58,8 @@
 		
 		<option value="//api/name/attributes">attributes</option>
 		
+		<option value="//api/name/clientSdkVersion">clientSdkVersion</option>
+		
 		<option value="//api/name/eventType">eventType</option>
 		
 		<option value="//api/name/metrics">metrics</option>
@@ -65,8 +67,6 @@
 		<option value="//api/name/session">session</option>
 		
 		<option value="//api/name/timestamp">timestamp</option>
-		
-		<option value="//api/name/version">version</option>
 		
 	</optgroup>
 	
@@ -87,7 +87,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">AWSPinpointAnalyticsEvent Class Reference</h1>
+					<h1 class="title">AWSPinpointTargetingEvent Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -96,19 +96,12 @@
 	<td>AWSModel : AWSMTLModel</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>AWSPinpointAnalyticsModel.h<br />AWSPinpointAnalyticsModel.m</td>
+	<td>AWSPinpointTargetingModel.h<br />AWSPinpointTargetingModel.m</td>
 </tr>
 						</tbody></table></div>
 					
 
                     
-					
-					<div class="section section-overview">
-						<a title="Overview" name="overview"></a>
-						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Represents a single event that happened on a client device. Attributes and metrics are optional.
-Required parameters: [eventType, timestamp, session]</p>
-					</div>
 					
 					
 
@@ -133,6 +126,10 @@ Required parameters: [eventType, timestamp, session]</p>
 		<div class="method-info-container">
 			
 			
+			<div class="method-subsection brief-description">
+				<p>Event attributes.</p>
+			</div>
+			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *attributes</code></div>
@@ -153,7 +150,48 @@ Required parameters: [eventType, timestamp, session]</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointAnalyticsModel.h</code></p>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/clientSdkVersion" title="clientSdkVersion"></a>
+	<h3 class="method-title"><code><a href="#//api/name/clientSdkVersion">&nbsp;&nbsp;clientSdkVersion</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The client sdk version.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *clientSdkVersion</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
 			</div>
 			
 			
@@ -169,6 +207,10 @@ Required parameters: [eventType, timestamp, session]</p>
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The event type submitted.</p>
+			</div>
 			
 		    
 
@@ -190,7 +232,7 @@ Required parameters: [eventType, timestamp, session]</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointAnalyticsModel.h</code></p>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
 			</div>
 			
 			
@@ -206,6 +248,10 @@ Required parameters: [eventType, timestamp, session]</p>
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>Event metrics.</p>
+			</div>
 			
 		    
 
@@ -227,7 +273,7 @@ Required parameters: [eventType, timestamp, session]</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointAnalyticsModel.h</code></p>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
 			</div>
 			
 			
@@ -244,9 +290,13 @@ Required parameters: [eventType, timestamp, session]</p>
 		<div class="method-info-container">
 			
 			
+			<div class="method-subsection brief-description">
+				<p>The session associated with the event.</p>
+			</div>
+			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSPinpointAnalyticsSession *session</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSPinpointTargetingSession *session</code></div>
 
 		    
 			
@@ -264,7 +314,7 @@ Required parameters: [eventType, timestamp, session]</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointAnalyticsModel.h</code></p>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
 			</div>
 			
 			
@@ -280,6 +330,10 @@ Required parameters: [eventType, timestamp, session]</p>
 
 		<div class="method-info-container">
 			
+			
+			<div class="method-subsection brief-description">
+				<p>The timestamp associated with event.</p>
+			</div>
 			
 		    
 
@@ -301,44 +355,7 @@ Required parameters: [eventType, timestamp, session]</p>
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointAnalyticsModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/version" title="version"></a>
-	<h3 class="method-title"><code><a href="#//api/name/version">&nbsp;&nbsp;version</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *version</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointAnalyticsModel.h</code></p>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
 			</div>
 			
 			
@@ -359,7 +376,7 @@ Required parameters: [eventType, timestamp, session]</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -196,56 +196,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultCognitoIdentity" title="defaultCognitoIdentity"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultCognitoIdentity">+&nbsp;defaultCognitoIdentity</a></code>
 </h3>
@@ -690,7 +644,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityPool *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityIdentityPool *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -838,7 +792,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteIdentities:(AWSCognitoIdentityDeleteIdentitiesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityDeleteIdentitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteIdentities:(AWSCognitoIdentityDeleteIdentitiesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityDeleteIdentitiesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -984,7 +938,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteIdentityPool:(AWSCognitoIdentityDeleteIdentityPoolInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteIdentityPool:(AWSCognitoIdentityDeleteIdentityPoolInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1129,7 +1083,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeIdentity:(AWSCognitoIdentityDescribeIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityDescription *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeIdentity:(AWSCognitoIdentityDescribeIdentityInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityIdentityDescription *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1277,7 +1231,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityPool *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityIdentityPool *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1425,7 +1379,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getCredentialsForIdentity:(AWSCognitoIdentityGetCredentialsForIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetCredentialsForIdentityResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getCredentialsForIdentity:(AWSCognitoIdentityGetCredentialsForIdentityInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityGetCredentialsForIdentityResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1573,7 +1527,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getId:(AWSCognitoIdentityGetIdInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetIdResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getId:(AWSCognitoIdentityGetIdInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityGetIdResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1721,7 +1675,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetIdentityPoolRolesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityGetIdentityPoolRolesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1875,7 +1829,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetOpenIdTokenResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityGetOpenIdTokenResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2029,7 +1983,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getOpenIdTokenForDeveloperIdentity:(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getOpenIdTokenForDeveloperIdentity:(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2177,7 +2131,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listIdentities:(AWSCognitoIdentityListIdentitiesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityListIdentitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listIdentities:(AWSCognitoIdentityListIdentitiesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityListIdentitiesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2325,7 +2279,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listIdentityPools:(AWSCognitoIdentityListIdentityPoolsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityListIdentityPoolsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listIdentityPools:(AWSCognitoIdentityListIdentityPoolsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityListIdentityPoolsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2473,7 +2427,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)lookupDeveloperIdentity:(AWSCognitoIdentityLookupDeveloperIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityLookupDeveloperIdentityResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)lookupDeveloperIdentity:(AWSCognitoIdentityLookupDeveloperIdentityInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityLookupDeveloperIdentityResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2621,7 +2575,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)mergeDeveloperIdentities:(AWSCognitoIdentityMergeDeveloperIdentitiesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityMergeDeveloperIdentitiesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)mergeDeveloperIdentities:(AWSCognitoIdentityMergeDeveloperIdentitiesInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityMergeDeveloperIdentitiesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2767,7 +2721,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setIdentityPoolRoles:(AWSCognitoIdentitySetIdentityPoolRolesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setIdentityPoolRoles:(AWSCognitoIdentitySetIdentityPoolRolesInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2910,7 +2864,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)unlinkDeveloperIdentity:(AWSCognitoIdentityUnlinkDeveloperIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)unlinkDeveloperIdentity:(AWSCognitoIdentityUnlinkDeveloperIdentityInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3053,7 +3007,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)unlinkIdentity:(AWSCognitoIdentityUnlinkIdentityInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)unlinkIdentity:(AWSCognitoIdentityUnlinkIdentityInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3198,7 +3152,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateIdentityPool:(AWSCognitoIdentityIdentityPool *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityPool *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateIdentityPool:(AWSCognitoIdentityIdentityPool *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityIdentityPool *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3255,6 +3209,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -3267,7 +3275,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

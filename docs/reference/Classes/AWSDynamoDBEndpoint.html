@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>AWSPinpointAnalyticsSession Class Reference</title>
+	<title>AWSDynamoDBEndpoint Class Reference</title>
 
 	<link rel="stylesheet" href="../css/style.css">
 	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,13 +56,9 @@
 	
 	<optgroup label="Properties">
 		
-		<option value="//api/name/duration">duration</option>
+		<option value="//api/name/address">address</option>
 		
-		<option value="//api/name/identifier">identifier</option>
-		
-		<option value="//api/name/startTimestamp">startTimestamp</option>
-		
-		<option value="//api/name/stopTimestamp">stopTimestamp</option>
+		<option value="//api/name/cachePeriodInMinutes">cachePeriodInMinutes</option>
 		
 	</optgroup>
 	
@@ -83,7 +79,7 @@
 		<div id="overview_contents" class="container">
 			<div id="content">
 				<main role="main">
-					<h1 class="title">AWSPinpointAnalyticsSession Class Reference</h1>
+					<h1 class="title">AWSDynamoDBEndpoint Class Reference</h1>
 
 					
 					<div class="section section-specification"><table cellspacing="0"><tbody>
@@ -92,7 +88,7 @@
 	<td>AWSModel : AWSMTLModel</td>
 </tr><tr>
 	<th>Declared in</th>
-	<td>AWSPinpointAnalyticsModel.h<br />AWSPinpointAnalyticsModel.m</td>
+	<td>AWSDynamoDBModel.h<br />AWSDynamoDBModel.m</td>
 </tr>
 						</tbody></table></div>
 					
@@ -112,8 +108,8 @@
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/duration" title="duration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/duration">&nbsp;&nbsp;duration</a></code>
+	<a name="//api/name/address" title="address"></a>
+	<h3 class="method-title"><code><a href="#//api/name/address">&nbsp;&nbsp;address</a></code>
 </h3>
 
 	<div class="method-info">
@@ -124,7 +120,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *duration</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *address</code></div>
 
 		    
 			
@@ -142,15 +138,15 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointAnalyticsModel.h</code></p>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
 			</div>
 			
 			
 		</div>
 	</div>
 </div><div class="section-method">
-	<a name="//api/name/identifier" title="identifier"></a>
-	<h3 class="method-title"><code><a href="#//api/name/identifier">&nbsp;&nbsp;identifier</a></code>
+	<a name="//api/name/cachePeriodInMinutes" title="cachePeriodInMinutes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cachePeriodInMinutes">&nbsp;&nbsp;cachePeriodInMinutes</a></code>
 </h3>
 
 	<div class="method-info">
@@ -161,7 +157,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *identifier</code></div>
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *cachePeriodInMinutes</code></div>
 
 		    
 			
@@ -179,81 +175,7 @@
 			
 			<div class="method-subsection declared-in-section">
 				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointAnalyticsModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/startTimestamp" title="startTimestamp"></a>
-	<h3 class="method-title"><code><a href="#//api/name/startTimestamp">&nbsp;&nbsp;startTimestamp</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *startTimestamp</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointAnalyticsModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/stopTimestamp" title="stopTimestamp"></a>
-	<h3 class="method-title"><code><a href="#//api/name/stopTimestamp">&nbsp;&nbsp;stopTimestamp</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *stopTimestamp</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointAnalyticsModel.h</code></p>
+				<p><code class="declared-in-ref">AWSDynamoDBModel.h</code></p>
 			</div>
 			
 			
@@ -274,7 +196,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

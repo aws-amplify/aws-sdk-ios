@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -264,56 +264,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSKMSService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultKMS" title="defaultKMS"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultKMS">+&nbsp;defaultKMS</a></code>
 </h3>
@@ -758,7 +712,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)cancelKeyDeletion:(AWSKMSCancelKeyDeletionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSCancelKeyDeletionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)cancelKeyDeletion:(AWSKMSCancelKeyDeletionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSCancelKeyDeletionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -934,7 +888,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createAlias:(AWSKMSCreateAliasRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createAlias:(AWSKMSCreateAliasRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1085,7 +1039,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createGrant:(AWSKMSCreateGrantRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSCreateGrantResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createGrant:(AWSKMSCreateGrantRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSCreateGrantResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1245,7 +1199,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createKey:(AWSKMSCreateKeyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSCreateKeyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createKey:(AWSKMSCreateKeyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSCreateKeyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1405,7 +1359,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)decrypt:(AWSKMSDecryptRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSDecryptResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)decrypt:(AWSKMSDecryptRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSDecryptResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1557,7 +1511,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteAlias:(AWSKMSDeleteAliasRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteAlias:(AWSKMSDeleteAliasRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1712,7 +1666,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteImportedKeyMaterial:(AWSKMSDeleteImportedKeyMaterialRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteImportedKeyMaterial:(AWSKMSDeleteImportedKeyMaterialRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1863,7 +1817,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeKey:(AWSKMSDescribeKeyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSDescribeKeyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeKey:(AWSKMSDescribeKeyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSDescribeKeyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2015,7 +1969,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)disableKey:(AWSKMSDisableKeyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)disableKey:(AWSKMSDisableKeyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2158,7 +2112,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)disableKeyRotation:(AWSKMSDisableKeyRotationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)disableKeyRotation:(AWSKMSDisableKeyRotationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2301,7 +2255,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)enableKey:(AWSKMSEnableKeyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)enableKey:(AWSKMSEnableKeyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2444,7 +2398,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)enableKeyRotation:(AWSKMSEnableKeyRotationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)enableKeyRotation:(AWSKMSEnableKeyRotationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2613,7 +2567,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)encrypt:(AWSKMSEncryptRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSEncryptResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)encrypt:(AWSKMSEncryptRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSEncryptResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2809,7 +2763,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)generateDataKey:(AWSKMSGenerateDataKeyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSGenerateDataKeyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)generateDataKey:(AWSKMSGenerateDataKeyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSGenerateDataKeyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2969,7 +2923,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)generateDataKeyWithoutPlaintext:(AWSKMSGenerateDataKeyWithoutPlaintextRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSGenerateDataKeyWithoutPlaintextResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)generateDataKeyWithoutPlaintext:(AWSKMSGenerateDataKeyWithoutPlaintextRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSGenerateDataKeyWithoutPlaintextResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3117,7 +3071,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)generateRandom:(AWSKMSGenerateRandomRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSGenerateRandomResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)generateRandom:(AWSKMSGenerateRandomRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSGenerateRandomResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3259,7 +3213,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getKeyPolicy:(AWSKMSGetKeyPolicyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSGetKeyPolicyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getKeyPolicy:(AWSKMSGetKeyPolicyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSGetKeyPolicyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3419,7 +3373,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getKeyRotationStatus:(AWSKMSGetKeyRotationStatusRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSGetKeyRotationStatusResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getKeyRotationStatus:(AWSKMSGetKeyRotationStatusRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSGetKeyRotationStatusResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3579,7 +3533,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getParametersForImport:(AWSKMSGetParametersForImportRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSGetParametersForImportResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getParametersForImport:(AWSKMSGetParametersForImportRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSGetParametersForImportResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3751,7 +3705,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)importKeyMaterial:(AWSKMSImportKeyMaterialRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSImportKeyMaterialResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)importKeyMaterial:(AWSKMSImportKeyMaterialRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSImportKeyMaterialResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3911,7 +3865,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listAliases:(AWSKMSListAliasesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSListAliasesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listAliases:(AWSKMSListAliasesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSListAliasesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4059,7 +4013,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listGrants:(AWSKMSListGrantsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSListGrantsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listGrants:(AWSKMSListGrantsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSListGrantsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4201,7 +4155,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listKeyPolicies:(AWSKMSListKeyPoliciesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSListKeyPoliciesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listKeyPolicies:(AWSKMSListKeyPoliciesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSListKeyPoliciesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4343,7 +4297,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listKeys:(AWSKMSListKeysRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSListKeysResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listKeys:(AWSKMSListKeysRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSListKeysResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4491,7 +4445,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listResourceTags:(AWSKMSListResourceTagsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSListResourceTagsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listResourceTags:(AWSKMSListResourceTagsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSListResourceTagsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4639,7 +4593,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listRetirableGrants:(AWSKMSListRetirableGrantsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSListGrantsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listRetirableGrants:(AWSKMSListRetirableGrantsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSListGrantsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4785,7 +4739,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putKeyPolicy:(AWSKMSPutKeyPolicyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putKeyPolicy:(AWSKMSPutKeyPolicyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4942,7 +4896,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)reEncrypt:(AWSKMSReEncryptRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSReEncryptResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)reEncrypt:(AWSKMSReEncryptRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSReEncryptResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5094,7 +5048,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)retireGrant:(AWSKMSRetireGrantRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)retireGrant:(AWSKMSRetireGrantRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5237,7 +5191,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)revokeGrant:(AWSKMSRevokeGrantRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)revokeGrant:(AWSKMSRevokeGrantRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5386,7 +5340,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)scheduleKeyDeletion:(AWSKMSScheduleKeyDeletionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKMSScheduleKeyDeletionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)scheduleKeyDeletion:(AWSKMSScheduleKeyDeletionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKMSScheduleKeyDeletionResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5550,7 +5504,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSKMSTagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)tagResource:(AWSKMSTagResourceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5699,7 +5653,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSKMSUntagResourceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)untagResource:(AWSKMSUntagResourceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5860,7 +5814,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateAlias:(AWSKMSUpdateAliasRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateAlias:(AWSKMSUpdateAliasRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6009,7 +5963,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateKeyDescription:(AWSKMSUpdateKeyDescriptionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateKeyDescription:(AWSKMSUpdateKeyDescriptionRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6063,6 +6017,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKMSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -6075,7 +6083,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

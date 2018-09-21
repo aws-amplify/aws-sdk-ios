@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -157,56 +157,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultTranscribe" title="defaultTranscribe"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultTranscribe">+&nbsp;defaultTranscribe</a></code>
 </h3>
@@ -639,7 +593,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createVocabulary:(AWSTranscribeCreateVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranscribeCreateVocabularyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createVocabulary:(AWSTranscribeCreateVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeCreateVocabularyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -779,7 +733,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteVocabulary:(AWSTranscribeDeleteVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteVocabulary:(AWSTranscribeDeleteVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -918,7 +872,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getTranscriptionJob:(AWSTranscribeGetTranscriptionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranscribeGetTranscriptionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getTranscriptionJob:(AWSTranscribeGetTranscriptionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeGetTranscriptionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1060,7 +1014,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getVocabulary:(AWSTranscribeGetVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranscribeGetVocabularyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getVocabulary:(AWSTranscribeGetVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeGetVocabularyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1202,7 +1156,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTranscriptionJobs:(AWSTranscribeListTranscriptionJobsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranscribeListTranscriptionJobsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTranscriptionJobs:(AWSTranscribeListTranscriptionJobsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeListTranscriptionJobsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1344,7 +1298,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listVocabularies:(AWSTranscribeListVocabulariesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranscribeListVocabulariesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listVocabularies:(AWSTranscribeListVocabulariesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeListVocabulariesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1486,7 +1440,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startTranscriptionJob:(AWSTranscribeStartTranscriptionJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranscribeStartTranscriptionJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startTranscriptionJob:(AWSTranscribeStartTranscriptionJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeStartTranscriptionJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1628,7 +1582,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateVocabulary:(AWSTranscribeUpdateVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSTranscribeUpdateVocabularyResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateVocabulary:(AWSTranscribeUpdateVocabularyRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSTranscribeUpdateVocabularyResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1685,6 +1639,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSTranscribeService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -1697,7 +1705,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

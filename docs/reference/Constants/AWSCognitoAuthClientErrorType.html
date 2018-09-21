@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -89,6 +89,7 @@
 <li>AWSCognitoAuthClientErrorSecurityReason - The security of this request could not be guaranteed.</li>
 <li>AWSCognitoAuthClientInvalidAuthenticationDelegate - The AWSCognitoAuthDelegate delegate is not setup or returned an invalid value.</li>
 <li>AWSCognitoAuthClientNoIdTokenIssued - If no id token was issued. For future use. </li>
+<li>AWSCognitoAuthClientErrorExpiredRefreshToken - If the refresh token is expired. </li>
 </ul>
 
 					</div>
@@ -114,6 +115,8 @@
                             
                             &nbsp;&nbsp; <a href="">AWSCognitoAuthClientNoIdTokenIssued</a> = -6000,<br>
                             
+                            &nbsp;&nbsp; <a href="">AWSCognitoAuthClientErrorExpiredRefreshToken</a> = -7000,<br>
+                            
                             };</code>
                     
                     </div>
@@ -136,6 +139,7 @@
 <li>AWSCognitoAuthClientErrorSecurityReason - The security of this request could not be guaranteed.</li>
 <li>AWSCognitoAuthClientInvalidAuthenticationDelegate - The AWSCognitoAuthDelegate delegate is not setup or returned an invalid value.</li>
 <li>AWSCognitoAuthClientNoIdTokenIssued - If no id token was issued. For future use. </li>
+<li>AWSCognitoAuthClientErrorExpiredRefreshToken - If the refresh token is expired. </li>
 </ul>
 
 
@@ -164,6 +168,7 @@
 <li>AWSCognitoAuthClientErrorSecurityReason - The security of this request could not be guaranteed.</li>
 <li>AWSCognitoAuthClientInvalidAuthenticationDelegate - The AWSCognitoAuthDelegate delegate is not setup or returned an invalid value.</li>
 <li>AWSCognitoAuthClientNoIdTokenIssued - If no id token was issued. For future use. </li>
+<li>AWSCognitoAuthClientErrorExpiredRefreshToken - If the refresh token is expired. </li>
 </ul>
 
 
@@ -192,6 +197,7 @@
 <li>AWSCognitoAuthClientErrorSecurityReason - The security of this request could not be guaranteed.</li>
 <li>AWSCognitoAuthClientInvalidAuthenticationDelegate - The AWSCognitoAuthDelegate delegate is not setup or returned an invalid value.</li>
 <li>AWSCognitoAuthClientNoIdTokenIssued - If no id token was issued. For future use. </li>
+<li>AWSCognitoAuthClientErrorExpiredRefreshToken - If the refresh token is expired. </li>
 </ul>
 
 
@@ -220,6 +226,7 @@
 <li>AWSCognitoAuthClientErrorSecurityReason - The security of this request could not be guaranteed.</li>
 <li>AWSCognitoAuthClientInvalidAuthenticationDelegate - The AWSCognitoAuthDelegate delegate is not setup or returned an invalid value.</li>
 <li>AWSCognitoAuthClientNoIdTokenIssued - If no id token was issued. For future use. </li>
+<li>AWSCognitoAuthClientErrorExpiredRefreshToken - If the refresh token is expired. </li>
 </ul>
 
 
@@ -248,6 +255,7 @@
 <li>AWSCognitoAuthClientErrorSecurityReason - The security of this request could not be guaranteed.</li>
 <li>AWSCognitoAuthClientInvalidAuthenticationDelegate - The AWSCognitoAuthDelegate delegate is not setup or returned an invalid value.</li>
 <li>AWSCognitoAuthClientNoIdTokenIssued - If no id token was issued. For future use. </li>
+<li>AWSCognitoAuthClientErrorExpiredRefreshToken - If the refresh token is expired. </li>
 </ul>
 
 
@@ -276,6 +284,7 @@
 <li>AWSCognitoAuthClientErrorSecurityReason - The security of this request could not be guaranteed.</li>
 <li>AWSCognitoAuthClientInvalidAuthenticationDelegate - The AWSCognitoAuthDelegate delegate is not setup or returned an invalid value.</li>
 <li>AWSCognitoAuthClientNoIdTokenIssued - If no id token was issued. For future use. </li>
+<li>AWSCognitoAuthClientErrorExpiredRefreshToken - If the refresh token is expired. </li>
 </ul>
 
 
@@ -304,6 +313,36 @@
 <li>AWSCognitoAuthClientErrorSecurityReason - The security of this request could not be guaranteed.</li>
 <li>AWSCognitoAuthClientInvalidAuthenticationDelegate - The AWSCognitoAuthDelegate delegate is not setup or returned an invalid value.</li>
 <li>AWSCognitoAuthClientNoIdTokenIssued - If no id token was issued. For future use. </li>
+<li>AWSCognitoAuthClientErrorExpiredRefreshToken - If the refresh token is expired. </li>
+</ul>
+
+
+
+
+
+
+    
+	<p>
+		Declared In <code class="declared-in-ref">AWSCognitoAuth.h</code>.
+	</p>
+	
+</dd>
+                            
+                            <dt><a name="" title="AWSCognitoAuthClientErrorExpiredRefreshToken"></a><code>AWSCognitoAuthClientErrorExpiredRefreshToken</code></dt>
+<dd>
+
+
+<p>The error domain for AWSCognitoAuth errors.</p>
+
+<ul>
+<li>AWSCognitoAuthClientErrorUnknown - Unknown error.</li>
+<li>AWSCognitoAuthClientErrorUserCanceledOperation - User canceled flow.</li>
+<li>AWSCognitoAuthClientErrorLoadingPageFailed - A necessary page failed to load.</li>
+<li>AWSCognitoAuthClientErrorBadRequest - A parameter was missing or invalid.</li>
+<li>AWSCognitoAuthClientErrorSecurityReason - The security of this request could not be guaranteed.</li>
+<li>AWSCognitoAuthClientInvalidAuthenticationDelegate - The AWSCognitoAuthDelegate delegate is not setup or returned an invalid value.</li>
+<li>AWSCognitoAuthClientNoIdTokenIssued - If no id token was issued. For future use. </li>
+<li>AWSCognitoAuthClientErrorExpiredRefreshToken - If the refresh token is expired. </li>
 </ul>
 
 
@@ -342,7 +381,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

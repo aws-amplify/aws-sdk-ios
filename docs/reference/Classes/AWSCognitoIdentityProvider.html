@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -511,56 +511,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCognitoIdentityProviderService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultCognitoIdentityProvider" title="defaultCognitoIdentityProvider"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultCognitoIdentityProvider">+&nbsp;defaultCognitoIdentityProvider</a></code>
 </h3>
@@ -993,7 +947,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)addCustomAttributes:(AWSCognitoIdentityProviderAddCustomAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAddCustomAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)addCustomAttributes:(AWSCognitoIdentityProviderAddCustomAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAddCustomAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1139,7 +1093,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminAddUserToGroup:(AWSCognitoIdentityProviderAdminAddUserToGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminAddUserToGroup:(AWSCognitoIdentityProviderAdminAddUserToGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1284,7 +1238,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminConfirmSignUp:(AWSCognitoIdentityProviderAdminConfirmSignUpRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminConfirmSignUpResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminConfirmSignUp:(AWSCognitoIdentityProviderAdminConfirmSignUpRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminConfirmSignUpResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1436,7 +1390,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminCreateUser:(AWSCognitoIdentityProviderAdminCreateUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminCreateUserResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminCreateUser:(AWSCognitoIdentityProviderAdminCreateUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminCreateUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1582,7 +1536,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminDeleteUser:(AWSCognitoIdentityProviderAdminDeleteUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminDeleteUser:(AWSCognitoIdentityProviderAdminDeleteUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1727,7 +1681,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminDeleteUserAttributes:(AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminDeleteUserAttributes:(AWSCognitoIdentityProviderAdminDeleteUserAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminDeleteUserAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1899,7 +1853,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminDisableProviderForUser:(AWSCognitoIdentityProviderAdminDisableProviderForUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminDisableProviderForUserResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminDisableProviderForUser:(AWSCognitoIdentityProviderAdminDisableProviderForUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminDisableProviderForUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2047,7 +2001,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminDisableUser:(AWSCognitoIdentityProviderAdminDisableUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminDisableUserResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminDisableUser:(AWSCognitoIdentityProviderAdminDisableUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminDisableUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2195,7 +2149,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminEnableUser:(AWSCognitoIdentityProviderAdminEnableUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminEnableUserResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminEnableUser:(AWSCognitoIdentityProviderAdminEnableUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminEnableUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2341,7 +2295,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminForgetDevice:(AWSCognitoIdentityProviderAdminForgetDeviceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminForgetDevice:(AWSCognitoIdentityProviderAdminForgetDeviceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2486,7 +2440,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminGetDevice:(AWSCognitoIdentityProviderAdminGetDeviceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminGetDeviceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminGetDevice:(AWSCognitoIdentityProviderAdminGetDeviceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminGetDeviceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2634,7 +2588,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminGetUser:(AWSCognitoIdentityProviderAdminGetUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminGetUserResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminGetUser:(AWSCognitoIdentityProviderAdminGetUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminGetUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2782,7 +2736,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminInitiateAuth:(AWSCognitoIdentityProviderAdminInitiateAuthRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminInitiateAuthResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminInitiateAuth:(AWSCognitoIdentityProviderAdminInitiateAuthRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminInitiateAuthResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2934,7 +2888,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminLinkProviderForUser:(AWSCognitoIdentityProviderAdminLinkProviderForUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminLinkProviderForUserResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminLinkProviderForUser:(AWSCognitoIdentityProviderAdminLinkProviderForUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminLinkProviderForUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3082,7 +3036,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminListDevices:(AWSCognitoIdentityProviderAdminListDevicesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminListDevicesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminListDevices:(AWSCognitoIdentityProviderAdminListDevicesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminListDevicesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3230,7 +3184,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminListGroupsForUser:(AWSCognitoIdentityProviderAdminListGroupsForUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminListGroupsForUserResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminListGroupsForUser:(AWSCognitoIdentityProviderAdminListGroupsForUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminListGroupsForUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3372,7 +3326,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminListUserAuthEvents:(AWSCognitoIdentityProviderAdminListUserAuthEventsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminListUserAuthEventsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminListUserAuthEvents:(AWSCognitoIdentityProviderAdminListUserAuthEventsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminListUserAuthEventsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3518,7 +3472,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminRemoveUserFromGroup:(AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminRemoveUserFromGroup:(AWSCognitoIdentityProviderAdminRemoveUserFromGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3669,7 +3623,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminResetUserPassword:(AWSCognitoIdentityProviderAdminResetUserPasswordRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminResetUserPasswordResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminResetUserPassword:(AWSCognitoIdentityProviderAdminResetUserPasswordRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminResetUserPasswordResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3817,7 +3771,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminRespondToAuthChallenge:(AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminRespondToAuthChallenge:(AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3959,7 +3913,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminSetUserMFAPreference:(AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminSetUserMFAPreference:(AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4107,7 +4061,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminSetUserSettings:(AWSCognitoIdentityProviderAdminSetUserSettingsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminSetUserSettingsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminSetUserSettings:(AWSCognitoIdentityProviderAdminSetUserSettingsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminSetUserSettingsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4249,7 +4203,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminUpdateAuthEventFeedback:(AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminUpdateAuthEventFeedback:(AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4397,7 +4351,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminUpdateDeviceStatus:(AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminUpdateDeviceStatus:(AWSCognitoIdentityProviderAdminUpdateDeviceStatusRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminUpdateDeviceStatusResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4557,7 +4511,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminUpdateUserAttributes:(AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminUpdateUserAttributes:(AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminUpdateUserAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4705,7 +4659,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)adminUserGlobalSignOut:(AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)adminUserGlobalSignOut:(AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4847,7 +4801,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)associateSoftwareToken:(AWSCognitoIdentityProviderAssociateSoftwareTokenRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderAssociateSoftwareTokenResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)associateSoftwareToken:(AWSCognitoIdentityProviderAssociateSoftwareTokenRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderAssociateSoftwareTokenResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4989,7 +4943,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)changePassword:(AWSCognitoIdentityProviderChangePasswordRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderChangePasswordResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)changePassword:(AWSCognitoIdentityProviderChangePasswordRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderChangePasswordResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5131,7 +5085,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)confirmDevice:(AWSCognitoIdentityProviderConfirmDeviceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderConfirmDeviceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)confirmDevice:(AWSCognitoIdentityProviderConfirmDeviceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderConfirmDeviceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5273,7 +5227,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)confirmForgotPassword:(AWSCognitoIdentityProviderConfirmForgotPasswordRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderConfirmForgotPasswordResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)confirmForgotPassword:(AWSCognitoIdentityProviderConfirmForgotPasswordRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderConfirmForgotPasswordResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5415,7 +5369,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)confirmSignUp:(AWSCognitoIdentityProviderConfirmSignUpRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderConfirmSignUpResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)confirmSignUp:(AWSCognitoIdentityProviderConfirmSignUpRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderConfirmSignUpResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5563,7 +5517,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createGroup:(AWSCognitoIdentityProviderCreateGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderCreateGroupResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createGroup:(AWSCognitoIdentityProviderCreateGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderCreateGroupResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5705,7 +5659,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createIdentityProvider:(AWSCognitoIdentityProviderCreateIdentityProviderRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderCreateIdentityProviderResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createIdentityProvider:(AWSCognitoIdentityProviderCreateIdentityProviderRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderCreateIdentityProviderResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5847,7 +5801,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createResourceServer:(AWSCognitoIdentityProviderCreateResourceServerRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderCreateResourceServerResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createResourceServer:(AWSCognitoIdentityProviderCreateResourceServerRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderCreateResourceServerResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -5989,7 +5943,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createUserImportJob:(AWSCognitoIdentityProviderCreateUserImportJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderCreateUserImportJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createUserImportJob:(AWSCognitoIdentityProviderCreateUserImportJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderCreateUserImportJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6131,7 +6085,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createUserPool:(AWSCognitoIdentityProviderCreateUserPoolRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderCreateUserPoolResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createUserPool:(AWSCognitoIdentityProviderCreateUserPoolRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderCreateUserPoolResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6273,7 +6227,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createUserPoolClient:(AWSCognitoIdentityProviderCreateUserPoolClientRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderCreateUserPoolClientResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createUserPoolClient:(AWSCognitoIdentityProviderCreateUserPoolClientRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderCreateUserPoolClientResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6415,7 +6369,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createUserPoolDomain:(AWSCognitoIdentityProviderCreateUserPoolDomainRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderCreateUserPoolDomainResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createUserPoolDomain:(AWSCognitoIdentityProviderCreateUserPoolDomainRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderCreateUserPoolDomainResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6561,7 +6515,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteGroup:(AWSCognitoIdentityProviderDeleteGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteGroup:(AWSCognitoIdentityProviderDeleteGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6698,7 +6652,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteIdentityProvider:(AWSCognitoIdentityProviderDeleteIdentityProviderRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteIdentityProvider:(AWSCognitoIdentityProviderDeleteIdentityProviderRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6835,7 +6789,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteResourceServer:(AWSCognitoIdentityProviderDeleteResourceServerRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteResourceServer:(AWSCognitoIdentityProviderDeleteResourceServerRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -6972,7 +6926,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteUser:(AWSCognitoIdentityProviderDeleteUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteUser:(AWSCognitoIdentityProviderDeleteUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7111,7 +7065,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteUserAttributes:(AWSCognitoIdentityProviderDeleteUserAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderDeleteUserAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteUserAttributes:(AWSCognitoIdentityProviderDeleteUserAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderDeleteUserAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7251,7 +7205,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteUserPool:(AWSCognitoIdentityProviderDeleteUserPoolRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteUserPool:(AWSCognitoIdentityProviderDeleteUserPoolRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7388,7 +7342,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteUserPoolClient:(AWSCognitoIdentityProviderDeleteUserPoolClientRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteUserPoolClient:(AWSCognitoIdentityProviderDeleteUserPoolClientRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7527,7 +7481,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteUserPoolDomain:(AWSCognitoIdentityProviderDeleteUserPoolDomainRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderDeleteUserPoolDomainResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteUserPoolDomain:(AWSCognitoIdentityProviderDeleteUserPoolDomainRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderDeleteUserPoolDomainResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7669,7 +7623,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeIdentityProvider:(AWSCognitoIdentityProviderDescribeIdentityProviderRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderDescribeIdentityProviderResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeIdentityProvider:(AWSCognitoIdentityProviderDescribeIdentityProviderRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderDescribeIdentityProviderResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7811,7 +7765,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeResourceServer:(AWSCognitoIdentityProviderDescribeResourceServerRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderDescribeResourceServerResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeResourceServer:(AWSCognitoIdentityProviderDescribeResourceServerRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderDescribeResourceServerResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -7953,7 +7907,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeRiskConfiguration:(AWSCognitoIdentityProviderDescribeRiskConfigurationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderDescribeRiskConfigurationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeRiskConfiguration:(AWSCognitoIdentityProviderDescribeRiskConfigurationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderDescribeRiskConfigurationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8095,7 +8049,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeUserImportJob:(AWSCognitoIdentityProviderDescribeUserImportJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderDescribeUserImportJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeUserImportJob:(AWSCognitoIdentityProviderDescribeUserImportJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderDescribeUserImportJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8237,7 +8191,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeUserPool:(AWSCognitoIdentityProviderDescribeUserPoolRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderDescribeUserPoolResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeUserPool:(AWSCognitoIdentityProviderDescribeUserPoolRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderDescribeUserPoolResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8379,7 +8333,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeUserPoolClient:(AWSCognitoIdentityProviderDescribeUserPoolClientRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderDescribeUserPoolClientResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeUserPoolClient:(AWSCognitoIdentityProviderDescribeUserPoolClientRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderDescribeUserPoolClientResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8521,7 +8475,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeUserPoolDomain:(AWSCognitoIdentityProviderDescribeUserPoolDomainRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderDescribeUserPoolDomainResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeUserPoolDomain:(AWSCognitoIdentityProviderDescribeUserPoolDomainRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderDescribeUserPoolDomainResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8661,7 +8615,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)forgetDevice:(AWSCognitoIdentityProviderForgetDeviceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)forgetDevice:(AWSCognitoIdentityProviderForgetDeviceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8800,7 +8754,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)forgotPassword:(AWSCognitoIdentityProviderForgotPasswordRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderForgotPasswordResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)forgotPassword:(AWSCognitoIdentityProviderForgotPasswordRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderForgotPasswordResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -8942,7 +8896,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getCSVHeader:(AWSCognitoIdentityProviderGetCSVHeaderRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderGetCSVHeaderResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getCSVHeader:(AWSCognitoIdentityProviderGetCSVHeaderRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderGetCSVHeaderResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9084,7 +9038,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getDevice:(AWSCognitoIdentityProviderGetDeviceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderGetDeviceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getDevice:(AWSCognitoIdentityProviderGetDeviceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderGetDeviceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9232,7 +9186,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getGroup:(AWSCognitoIdentityProviderGetGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderGetGroupResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getGroup:(AWSCognitoIdentityProviderGetGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderGetGroupResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9374,7 +9328,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getIdentityProviderByIdentifier:(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getIdentityProviderByIdentifier:(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9516,7 +9470,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderGetSigningCertificateResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderGetSigningCertificateResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9658,7 +9612,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getUICustomization:(AWSCognitoIdentityProviderGetUICustomizationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderGetUICustomizationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getUICustomization:(AWSCognitoIdentityProviderGetUICustomizationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderGetUICustomizationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9800,7 +9754,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getUser:(AWSCognitoIdentityProviderGetUserRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderGetUserResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getUser:(AWSCognitoIdentityProviderGetUserRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderGetUserResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -9942,7 +9896,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getUserAttributeVerificationCode:(AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getUserAttributeVerificationCode:(AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10084,7 +10038,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getUserPoolMfaConfig:(AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getUserPoolMfaConfig:(AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10226,7 +10180,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)globalSignOut:(AWSCognitoIdentityProviderGlobalSignOutRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderGlobalSignOutResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)globalSignOut:(AWSCognitoIdentityProviderGlobalSignOutRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderGlobalSignOutResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10368,7 +10322,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)initiateAuth:(AWSCognitoIdentityProviderInitiateAuthRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderInitiateAuthResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)initiateAuth:(AWSCognitoIdentityProviderInitiateAuthRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderInitiateAuthResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10510,7 +10464,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listDevices:(AWSCognitoIdentityProviderListDevicesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderListDevicesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listDevices:(AWSCognitoIdentityProviderListDevicesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderListDevicesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10658,7 +10612,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listGroups:(AWSCognitoIdentityProviderListGroupsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderListGroupsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listGroups:(AWSCognitoIdentityProviderListGroupsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderListGroupsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10800,7 +10754,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listIdentityProviders:(AWSCognitoIdentityProviderListIdentityProvidersRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderListIdentityProvidersResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listIdentityProviders:(AWSCognitoIdentityProviderListIdentityProvidersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderListIdentityProvidersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -10942,7 +10896,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listResourceServers:(AWSCognitoIdentityProviderListResourceServersRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderListResourceServersResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listResourceServers:(AWSCognitoIdentityProviderListResourceServersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderListResourceServersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -11084,7 +11038,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listUserImportJobs:(AWSCognitoIdentityProviderListUserImportJobsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderListUserImportJobsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listUserImportJobs:(AWSCognitoIdentityProviderListUserImportJobsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderListUserImportJobsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -11226,7 +11180,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listUserPoolClients:(AWSCognitoIdentityProviderListUserPoolClientsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderListUserPoolClientsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listUserPoolClients:(AWSCognitoIdentityProviderListUserPoolClientsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderListUserPoolClientsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -11368,7 +11322,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listUserPools:(AWSCognitoIdentityProviderListUserPoolsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderListUserPoolsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listUserPools:(AWSCognitoIdentityProviderListUserPoolsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderListUserPoolsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -11510,7 +11464,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listUsers:(AWSCognitoIdentityProviderListUsersRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderListUsersResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listUsers:(AWSCognitoIdentityProviderListUsersRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderListUsersResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -11658,7 +11612,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listUsersInGroup:(AWSCognitoIdentityProviderListUsersInGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderListUsersInGroupResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listUsersInGroup:(AWSCognitoIdentityProviderListUsersInGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderListUsersInGroupResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -11800,7 +11754,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)resendConfirmationCode:(AWSCognitoIdentityProviderResendConfirmationCodeRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderResendConfirmationCodeResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)resendConfirmationCode:(AWSCognitoIdentityProviderResendConfirmationCodeRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderResendConfirmationCodeResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -11942,7 +11896,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)respondToAuthChallenge:(AWSCognitoIdentityProviderRespondToAuthChallengeRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderRespondToAuthChallengeResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)respondToAuthChallenge:(AWSCognitoIdentityProviderRespondToAuthChallengeRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderRespondToAuthChallengeResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -12096,7 +12050,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setRiskConfiguration:(AWSCognitoIdentityProviderSetRiskConfigurationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderSetRiskConfigurationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setRiskConfiguration:(AWSCognitoIdentityProviderSetRiskConfigurationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderSetRiskConfigurationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -12248,7 +12202,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setUICustomization:(AWSCognitoIdentityProviderSetUICustomizationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderSetUICustomizationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setUICustomization:(AWSCognitoIdentityProviderSetUICustomizationRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderSetUICustomizationResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -12390,7 +12344,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setUserMFAPreference:(AWSCognitoIdentityProviderSetUserMFAPreferenceRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderSetUserMFAPreferenceResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setUserMFAPreference:(AWSCognitoIdentityProviderSetUserMFAPreferenceRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderSetUserMFAPreferenceResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -12532,7 +12486,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setUserPoolMfaConfig:(AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setUserPoolMfaConfig:(AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -12674,7 +12628,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setUserSettings:(AWSCognitoIdentityProviderSetUserSettingsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderSetUserSettingsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setUserSettings:(AWSCognitoIdentityProviderSetUserSettingsRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderSetUserSettingsResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -12816,7 +12770,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)signUp:(AWSCognitoIdentityProviderSignUpRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderSignUpResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)signUp:(AWSCognitoIdentityProviderSignUpRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderSignUpResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -12958,7 +12912,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startUserImportJob:(AWSCognitoIdentityProviderStartUserImportJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderStartUserImportJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startUserImportJob:(AWSCognitoIdentityProviderStartUserImportJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderStartUserImportJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -13100,7 +13054,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopUserImportJob:(AWSCognitoIdentityProviderStopUserImportJobRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderStopUserImportJobResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopUserImportJob:(AWSCognitoIdentityProviderStopUserImportJobRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderStopUserImportJobResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -13242,7 +13196,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateAuthEventFeedback:(AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateAuthEventFeedback:(AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -13384,7 +13338,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateDeviceStatus:(AWSCognitoIdentityProviderUpdateDeviceStatusRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderUpdateDeviceStatusResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateDeviceStatus:(AWSCognitoIdentityProviderUpdateDeviceStatusRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderUpdateDeviceStatusResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -13532,7 +13486,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateGroup:(AWSCognitoIdentityProviderUpdateGroupRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderUpdateGroupResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateGroup:(AWSCognitoIdentityProviderUpdateGroupRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderUpdateGroupResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -13674,7 +13628,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateIdentityProvider:(AWSCognitoIdentityProviderUpdateIdentityProviderRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderUpdateIdentityProviderResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateIdentityProvider:(AWSCognitoIdentityProviderUpdateIdentityProviderRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderUpdateIdentityProviderResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -13816,7 +13770,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateResourceServer:(AWSCognitoIdentityProviderUpdateResourceServerRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderUpdateResourceServerResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateResourceServer:(AWSCognitoIdentityProviderUpdateResourceServerRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderUpdateResourceServerResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -13958,7 +13912,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateUserAttributes:(AWSCognitoIdentityProviderUpdateUserAttributesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderUpdateUserAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateUserAttributes:(AWSCognitoIdentityProviderUpdateUserAttributesRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderUpdateUserAttributesResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -14100,7 +14054,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateUserPool:(AWSCognitoIdentityProviderUpdateUserPoolRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderUpdateUserPoolResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateUserPool:(AWSCognitoIdentityProviderUpdateUserPoolRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderUpdateUserPoolResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -14242,7 +14196,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateUserPoolClient:(AWSCognitoIdentityProviderUpdateUserPoolClientRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderUpdateUserPoolClientResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateUserPoolClient:(AWSCognitoIdentityProviderUpdateUserPoolClientRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderUpdateUserPoolClientResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -14384,7 +14338,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)verifySoftwareToken:(AWSCognitoIdentityProviderVerifySoftwareTokenRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderVerifySoftwareTokenResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)verifySoftwareToken:(AWSCognitoIdentityProviderVerifySoftwareTokenRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderVerifySoftwareTokenResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -14526,7 +14480,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)verifyUserAttribute:(AWSCognitoIdentityProviderVerifyUserAttributeRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityProviderVerifyUserAttributeResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)verifyUserAttribute:(AWSCognitoIdentityProviderVerifyUserAttributeRequest *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCognitoIdentityProviderVerifyUserAttributeResponse *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -14583,6 +14537,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCognitoIdentityProviderService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -14595,7 +14603,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -216,56 +216,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSKinesisService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultKinesis" title="defaultKinesis"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultKinesis">+&nbsp;defaultKinesis</a></code>
 </h3>
@@ -708,7 +662,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)addTagsToStream:(AWSKinesisAddTagsToStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)addTagsToStream:(AWSKinesisAddTagsToStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -893,7 +847,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createStream:(AWSKinesisCreateStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createStream:(AWSKinesisCreateStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1036,7 +990,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)decreaseStreamRetentionPeriod:(AWSKinesisDecreaseStreamRetentionPeriodInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)decreaseStreamRetentionPeriod:(AWSKinesisDecreaseStreamRetentionPeriodInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1203,7 +1157,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteStream:(AWSKinesisDeleteStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteStream:(AWSKinesisDeleteStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1354,7 +1308,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeLimits:(AWSKinesisDescribeLimitsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisDescribeLimitsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeLimits:(AWSKinesisDescribeLimitsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisDescribeLimitsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1520,7 +1474,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeStream:(AWSKinesisDescribeStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisDescribeStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeStream:(AWSKinesisDescribeStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisDescribeStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1668,7 +1622,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeStreamSummary:(AWSKinesisDescribeStreamSummaryInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisDescribeStreamSummaryOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeStreamSummary:(AWSKinesisDescribeStreamSummaryInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisDescribeStreamSummaryOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1810,7 +1764,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)disableEnhancedMonitoring:(AWSKinesisDisableEnhancedMonitoringInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisEnhancedMonitoringOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)disableEnhancedMonitoring:(AWSKinesisDisableEnhancedMonitoringInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisEnhancedMonitoringOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1952,7 +1906,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)enableEnhancedMonitoring:(AWSKinesisEnableEnhancedMonitoringInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisEnhancedMonitoringOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)enableEnhancedMonitoring:(AWSKinesisEnableEnhancedMonitoringInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisEnhancedMonitoringOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2130,7 +2084,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getRecords:(AWSKinesisGetRecordsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisGetRecordsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getRecords:(AWSKinesisGetRecordsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisGetRecordsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2308,7 +2262,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getShardIterator:(AWSKinesisGetShardIteratorInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisGetShardIteratorOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getShardIterator:(AWSKinesisGetShardIteratorInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisGetShardIteratorOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2454,7 +2408,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)increaseStreamRetentionPeriod:(AWSKinesisIncreaseStreamRetentionPeriodInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)increaseStreamRetentionPeriod:(AWSKinesisIncreaseStreamRetentionPeriodInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2597,7 +2551,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listShards:(AWSKinesisListShardsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisListShardsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listShards:(AWSKinesisListShardsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisListShardsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2757,7 +2711,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listStreams:(AWSKinesisListStreamsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisListStreamsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listStreams:(AWSKinesisListStreamsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisListStreamsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2899,7 +2853,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTagsForStream:(AWSKinesisListTagsForStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisListTagsForStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTagsForStream:(AWSKinesisListTagsForStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisListTagsForStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3081,7 +3035,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)mergeShards:(AWSKinesisMergeShardsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)mergeShards:(AWSKinesisMergeShardsInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3268,7 +3222,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putRecord:(AWSKinesisPutRecordInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisPutRecordOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putRecord:(AWSKinesisPutRecordInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisPutRecordOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3470,7 +3424,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putRecords:(AWSKinesisPutRecordsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisPutRecordsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putRecords:(AWSKinesisPutRecordsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisPutRecordsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3622,7 +3576,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)removeTagsFromStream:(AWSKinesisRemoveTagsFromStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)removeTagsFromStream:(AWSKinesisRemoveTagsFromStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3813,7 +3767,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)splitShard:(AWSKinesisSplitShardInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)splitShard:(AWSKinesisSplitShardInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3968,7 +3922,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)startStreamEncryption:(AWSKinesisStartStreamEncryptionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)startStreamEncryption:(AWSKinesisStartStreamEncryptionInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4123,7 +4077,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)stopStreamEncryption:(AWSKinesisStopStreamEncryptionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)stopStreamEncryption:(AWSKinesisStopStreamEncryptionInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4292,7 +4246,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateShardCount:(AWSKinesisUpdateShardCountInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSKinesisUpdateShardCountOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateShardCount:(AWSKinesisUpdateShardCountInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSKinesisUpdateShardCountOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -4349,6 +4303,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKinesisService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -4361,7 +4369,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

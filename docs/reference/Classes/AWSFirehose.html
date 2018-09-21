@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -164,56 +164,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSFirehoseService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultFirehose" title="defaultFirehose"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultFirehose">+&nbsp;defaultFirehose</a></code>
 </h3>
@@ -694,7 +648,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)createDeliveryStream:(AWSFirehoseCreateDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseCreateDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)createDeliveryStream:(AWSFirehoseCreateDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSFirehoseCreateDeliveryStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -854,7 +808,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteDeliveryStream:(AWSFirehoseDeleteDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseDeleteDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteDeliveryStream:(AWSFirehoseDeleteDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSFirehoseDeleteDeliveryStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -996,7 +950,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeDeliveryStream:(AWSFirehoseDescribeDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseDescribeDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeDeliveryStream:(AWSFirehoseDescribeDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSFirehoseDescribeDeliveryStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1144,7 +1098,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listDeliveryStreams:(AWSFirehoseListDeliveryStreamsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseListDeliveryStreamsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listDeliveryStreams:(AWSFirehoseListDeliveryStreamsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSFirehoseListDeliveryStreamsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1286,7 +1240,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listTagsForDeliveryStream:(AWSFirehoseListTagsForDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseListTagsForDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listTagsForDeliveryStream:(AWSFirehoseListTagsForDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSFirehoseListTagsForDeliveryStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1464,7 +1418,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putRecord:(AWSFirehosePutRecordInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehosePutRecordOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putRecord:(AWSFirehosePutRecordInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSFirehosePutRecordOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1660,7 +1614,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putRecordBatch:(AWSFirehosePutRecordBatchInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehosePutRecordBatchOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putRecordBatch:(AWSFirehosePutRecordBatchInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSFirehosePutRecordBatchOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1814,7 +1768,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)tagDeliveryStream:(AWSFirehoseTagDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseTagDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)tagDeliveryStream:(AWSFirehoseTagDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSFirehoseTagDeliveryStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1968,7 +1922,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)untagDeliveryStream:(AWSFirehoseUntagDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseUntagDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)untagDeliveryStream:(AWSFirehoseUntagDeliveryStreamInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSFirehoseUntagDeliveryStreamOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2140,7 +2094,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)updateDestination:(AWSFirehoseUpdateDestinationInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseUpdateDestinationOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)updateDestination:(AWSFirehoseUpdateDestinationInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSFirehoseUpdateDestinationOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2197,6 +2151,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -2209,7 +2217,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.6.28 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.30 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -118,6 +118,10 @@
 		
 		<option value="//api/name/getMetricStatistics:completionHandler:">- getMetricStatistics:completionHandler:</option>
 		
+		<option value="//api/name/getMetricWidgetImage:">- getMetricWidgetImage:</option>
+		
+		<option value="//api/name/getMetricWidgetImage:completionHandler:">- getMetricWidgetImage:completionHandler:</option>
+		
 		<option value="//api/name/listDashboards:">- listDashboards:</option>
 		
 		<option value="//api/name/listDashboards:completionHandler:">- listDashboards:completionHandler:</option>
@@ -195,56 +199,10 @@
 						
 
 						
-						
+						<h2 class="task-title">Other Methods</h2>
 
 						<div class="task-list">
 							<div class="section-method">
-	<a name="//api/name/configuration" title="configuration"></a>
-	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The service configuration used to instantiate this service client.</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection discussion-section">
-				<h4 class="method-subtitle">Discussion</h4>
-				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
-			</div>
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSCloudWatchService.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
 	<a name="//api/name/defaultCloudWatch" title="defaultCloudWatch"></a>
 	<h3 class="method-title"><code><a href="#//api/name/defaultCloudWatch">+&nbsp;defaultCloudWatch</a></code>
 </h3>
@@ -675,7 +633,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteAlarms:(AWSCloudWatchDeleteAlarmsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteAlarms:(AWSCloudWatchDeleteAlarmsInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -814,7 +772,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)deleteDashboards:(AWSCloudWatchDeleteDashboardsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchDeleteDashboardsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)deleteDashboards:(AWSCloudWatchDeleteDashboardsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchDeleteDashboardsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -962,7 +920,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAlarmHistory:(AWSCloudWatchDescribeAlarmHistoryInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchDescribeAlarmHistoryOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAlarmHistory:(AWSCloudWatchDescribeAlarmHistoryInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchDescribeAlarmHistoryOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1104,7 +1062,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAlarms:(AWSCloudWatchDescribeAlarmsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchDescribeAlarmsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAlarms:(AWSCloudWatchDescribeAlarmsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchDescribeAlarmsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1246,7 +1204,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)describeAlarmsForMetric:(AWSCloudWatchDescribeAlarmsForMetricInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchDescribeAlarmsForMetricOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)describeAlarmsForMetric:(AWSCloudWatchDescribeAlarmsForMetricInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchDescribeAlarmsForMetricOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1386,7 +1344,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)disableAlarmActions:(AWSCloudWatchDisableAlarmActionsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)disableAlarmActions:(AWSCloudWatchDisableAlarmActionsInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1523,7 +1481,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)enableAlarmActions:(AWSCloudWatchEnableAlarmActionsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)enableAlarmActions:(AWSCloudWatchEnableAlarmActionsInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1668,7 +1626,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getDashboard:(AWSCloudWatchGetDashboardInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchGetDashboardOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getDashboard:(AWSCloudWatchGetDashboardInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchGetDashboardOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1738,6 +1696,15 @@
 
 
 <p>Calls to the <code>GetMetricData</code> API have a different pricing structure than calls to <code>GetMetricStatistics</code>. For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
+
+
+<p>Amazon CloudWatch retains metric data as follows:</p>
+
+
+<ul><li><p>Data points with a period of less than 60 seconds are available for 3 hours. These data points are high-resolution metrics and are available only for custom metrics that have been defined with a <code>StorageResolution</code> of 1.</p></li><li><p>Data points with a period of 60 seconds (1-minute) are available for 15 days.</p></li><li><p>Data points with a period of 300 seconds (5-minute) are available for 63 days.</p></li><li><p>Data points with a period of 3600 seconds (1 hour) are available for 455 days (15 months).</p></li></ul>
+
+
+<p>Data points that are initially published with a shorter period are aggregated together for long-term storage. For example, if you collect data using a period of 1 minute, the data remains available for 15 days with 1-minute resolution. After 15 days, this data is still available, but is aggregated and retrievable only with a resolution of 5 minutes. After 63 days, the data is further aggregated and is available with a resolution of 1 hour.</p>
 
 			</div>
 			
@@ -1812,11 +1779,20 @@
 
 <p>Calls to the <code>GetMetricData</code> API have a different pricing structure than calls to <code>GetMetricStatistics</code>. For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p>
 
+
+<p>Amazon CloudWatch retains metric data as follows:</p>
+
+
+<ul><li><p>Data points with a period of less than 60 seconds are available for 3 hours. These data points are high-resolution metrics and are available only for custom metrics that have been defined with a <code>StorageResolution</code> of 1.</p></li><li><p>Data points with a period of 60 seconds (1-minute) are available for 15 days.</p></li><li><p>Data points with a period of 300 seconds (5-minute) are available for 63 days.</p></li><li><p>Data points with a period of 3600 seconds (1 hour) are available for 455 days (15 months).</p></li></ul>
+
+
+<p>Data points that are initially published with a shorter period are aggregated together for long-term storage. For example, if you collect data using a period of 1 minute, the data remains available for 15 days with 1-minute resolution. After 15 days, this data is still available, but is aggregated and retrievable only with a resolution of 5 minutes. After 63 days, the data is further aggregated and is available with a resolution of 1 hour.</p>
+
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getMetricData:(AWSCloudWatchGetMetricDataInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchGetMetricDataOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getMetricData:(AWSCloudWatchGetMetricDataInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchGetMetricDataOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -1895,6 +1871,9 @@
 
 
 <ul><li><p>The SampleCount value of the statistic set is 1.</p></li><li><p>The Min and the Max values of the statistic set are equal.</p></li></ul>
+
+
+<p>Percentile statistics are not available for metrics when any of the metric values are negative numbers.</p>
 
 
 <p>Amazon CloudWatch retains metric data as follows:</p>
@@ -1994,6 +1973,9 @@
 <ul><li><p>The SampleCount value of the statistic set is 1.</p></li><li><p>The Min and the Max values of the statistic set are equal.</p></li></ul>
 
 
+<p>Percentile statistics are not available for metrics when any of the metric values are negative numbers.</p>
+
+
 <p>Amazon CloudWatch retains metric data as follows:</p>
 
 
@@ -2012,7 +1994,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchGetMetricStatisticsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchGetMetricStatisticsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2067,6 +2049,166 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/getMetricWidgetImage:" title="getMetricWidgetImage:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getMetricWidgetImage:">&ndash;&nbsp;getMetricWidgetImage:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this image into your services and products, such as wiki pages, reports, and documents. You could also retrieve images regularly, such as every minute, and create your own custom live dashboard.</p>
+
+
+<p>The graph you retrieve can include all CloudWatch metric graph features, including metric math and horizontal and vertical annotations.</p>
+
+
+<p>There is a limit of 20 transactions per second for this API. Each <code>GetMetricWidgetImage</code> action has the following limits:</p>
+
+
+<ul><li><p>As many as 100 metrics in the graph.</p></li><li><p>Up to 100 KB uncompressed payload.</p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSCloudWatchGetMetricWidgetImageOutput*&gt; *)getMetricWidgetImage:(AWSCloudWatchGetMetricWidgetImageInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetMetricWidgetImage service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSCloudWatchGetMetricWidgetImageOutput</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCloudWatchGetMetricWidgetImageInput.html">AWSCloudWatchGetMetricWidgetImageInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCloudWatchGetMetricWidgetImageOutput.html">AWSCloudWatchGetMetricWidgetImageOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getMetricWidgetImage:completionHandler:" title="getMetricWidgetImage:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getMetricWidgetImage:completionHandler:">&ndash;&nbsp;getMetricWidgetImage:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>You can use the <code>GetMetricWidgetImage</code> API to retrieve a snapshot graph of one or more Amazon CloudWatch metrics as a bitmap image. You can then embed this image into your services and products, such as wiki pages, reports, and documents. You could also retrieve images regularly, such as every minute, and create your own custom live dashboard.</p>
+
+
+<p>The graph you retrieve can include all CloudWatch metric graph features, including metric math and horizontal and vertical annotations.</p>
+
+
+<p>There is a limit of 20 transactions per second for this API. Each <code>GetMetricWidgetImage</code> action has the following limits:</p>
+
+
+<ul><li><p>As many as 100 metrics in the graph.</p></li><li><p>Up to 100 KB uncompressed payload.</p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getMetricWidgetImage:(AWSCloudWatchGetMetricWidgetImageInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchGetMetricWidgetImageOutput *response , NSError *error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetMetricWidgetImage service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSCloudWatchGetMetricWidgetImageInput.html">AWSCloudWatchGetMetricWidgetImageInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSCloudWatchGetMetricWidgetImageOutput.html">AWSCloudWatchGetMetricWidgetImageOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/listDashboards:" title="listDashboards:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/listDashboards:">&ndash;&nbsp;listDashboards:</a></code>
 </h3>
@@ -2079,6 +2221,9 @@
 			
 			<div class="method-subsection brief-description">
 				<p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are listed. </p>
+
+
+<p><code>ListDashboards</code> returns up to 1000 results on one page. If there are more than 1000 dashboards, you can call <code>ListDashboards</code> again and include the value you received for <code>NextToken</code> in the first call, to receive the next 1000 results.</p>
 
 			</div>
 			
@@ -2150,11 +2295,14 @@
 			<div class="method-subsection brief-description">
 				<p>Returns a list of the dashboards for your account. If you include <code>DashboardNamePrefix</code>, only those dashboards with names starting with the prefix are listed. Otherwise, all dashboards in your account are listed. </p>
 
+
+<p><code>ListDashboards</code> returns up to 1000 results on one page. If there are more than 1000 dashboards, you can call <code>ListDashboards</code> again and include the value you received for <code>NextToken</code> in the first call, to receive the next 1000 results.</p>
+
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listDashboards:(AWSCloudWatchListDashboardsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchListDashboardsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listDashboards:(AWSCloudWatchListDashboardsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchListDashboardsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2220,13 +2368,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>List the specified metrics. You can use the returned metrics with <a>GetMetricStatistics</a> to obtain statistical data.</p>
+				<p>List the specified metrics. You can use the returned metrics with <a>GetMetricData</a> or <a>GetMetricStatistics</a> to obtain statistical data.</p>
 
 
 <p>Up to 500 results are returned for any one call. To retrieve additional results, use the returned token with subsequent calls.</p>
 
 
-<p>After you create a metric, allow up to fifteen minutes before the metric appears. Statistics about the metric, however, are available sooner using <a>GetMetricStatistics</a>.</p>
+<p>After you create a metric, allow up to fifteen minutes before the metric appears. Statistics about the metric, however, are available sooner using <a>GetMetricData</a> or <a>GetMetricStatistics</a>.</p>
 
 			</div>
 			
@@ -2296,19 +2444,19 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>List the specified metrics. You can use the returned metrics with <a>GetMetricStatistics</a> to obtain statistical data.</p>
+				<p>List the specified metrics. You can use the returned metrics with <a>GetMetricData</a> or <a>GetMetricStatistics</a> to obtain statistical data.</p>
 
 
 <p>Up to 500 results are returned for any one call. To retrieve additional results, use the returned token with subsequent calls.</p>
 
 
-<p>After you create a metric, allow up to fifteen minutes before the metric appears. Statistics about the metric, however, are available sooner using <a>GetMetricStatistics</a>.</p>
+<p>After you create a metric, allow up to fifteen minutes before the metric appears. Statistics about the metric, however, are available sooner using <a>GetMetricData</a> or <a>GetMetricStatistics</a>.</p>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)listMetrics:(AWSCloudWatchListMetricsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchListMetricsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)listMetrics:(AWSCloudWatchListMetricsInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchListMetricsOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2377,7 +2525,7 @@
 				<p>Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard, the entire contents are replaced with what you specify here.</p>
 
 
-<p>You can have up to 500 dashboards per account. All dashboards in your account are global, not region-specific.</p>
+<p>There is no limit to the number of dashboards in your account. All dashboards in your account are global, not region-specific.</p>
 
 
 <p>A simple way to create a dashboard using <code>PutDashboard</code> is to copy an existing dashboard. To copy an existing dashboard using the console, you can load the dashboard and then use the View/edit source command in the Actions menu to display the JSON block for that dashboard. Another way to copy a dashboard is to use <code>GetDashboard</code>, and then use the data returned within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code>.</p>
@@ -2456,7 +2604,7 @@
 				<p>Creates a dashboard if it does not already exist, or updates an existing dashboard. If you update a dashboard, the entire contents are replaced with what you specify here.</p>
 
 
-<p>You can have up to 500 dashboards per account. All dashboards in your account are global, not region-specific.</p>
+<p>There is no limit to the number of dashboards in your account. All dashboards in your account are global, not region-specific.</p>
 
 
 <p>A simple way to create a dashboard using <code>PutDashboard</code> is to copy an existing dashboard. To copy an existing dashboard using the console, you can load the dashboard and then use the View/edit source command in the Actions menu to display the JSON block for that dashboard. Another way to copy a dashboard is to use <code>GetDashboard</code>, and then use the data returned within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code>.</p>
@@ -2468,7 +2616,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putDashboard:(AWSCloudWatchPutDashboardInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSCloudWatchPutDashboardOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putDashboard:(AWSCloudWatchPutDashboardInput *)<em>request</em> completionHandler:(void ( ^ ) ( AWSCloudWatchPutDashboardOutput *response , NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2558,7 +2706,7 @@
 <p>If you are using temporary security credentials granted using AWS STS, you cannot stop or terminate an EC2 instance using alarm actions.</p>
 
 
-<p>You must create at least one stop, terminate, or reboot alarm using either the Amazon EC2 or CloudWatch consoles to create the <b>EC2ActionsAccess</b> IAM role. After this IAM role is created, you can create stop, terminate, or reboot alarms using a command-line interface or API.</p>
+<p>The first time you create an alarm in the AWS Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch creates the necessary service-linked role for you. The service-linked role is called <code>AWSServiceRoleForCloudWatchEvents</code>. For more information about service-linked roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS service-linked role</a>.</p>
 
 			</div>
 			
@@ -2650,13 +2798,13 @@
 <p>If you are using temporary security credentials granted using AWS STS, you cannot stop or terminate an EC2 instance using alarm actions.</p>
 
 
-<p>You must create at least one stop, terminate, or reboot alarm using either the Amazon EC2 or CloudWatch consoles to create the <b>EC2ActionsAccess</b> IAM role. After this IAM role is created, you can create stop, terminate, or reboot alarms using a command-line interface or API.</p>
+<p>The first time you create an alarm in the AWS Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch creates the necessary service-linked role for you. The service-linked role is called <code>AWSServiceRoleForCloudWatchEvents</code>. For more information about service-linked roles, see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">AWS service-linked role</a>.</p>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putMetricAlarm:(AWSCloudWatchPutMetricAlarmInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putMetricAlarm:(AWSCloudWatchPutMetricAlarmInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2719,10 +2867,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data points with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.</p>
+				<p>Publishes metric data to Amazon CloudWatch. CloudWatch associates the data with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.</p>
 
 
-<p>Each <code>PutMetricData</code> request is limited to 40 KB in size for HTTP POST requests.</p>
+<p>You can publish either individual data points in the <code>Value</code> field, or arrays of values and the number of times each value occurred during the period by using the <code>Values</code> and <code>Counts</code> fields in the <code>MetricDatum</code> structure. Using the <code>Values</code> and <code>Counts</code> method enables you to publish up to 150 values per metric with one <code>PutMetricData</code> request, and supports retrieving percentile statistics on this data.</p>
+
+
+<p>Each <code>PutMetricData</code> request is limited to 40 KB in size for HTTP POST requests. You can send a payload compressed by gzip. Each request is also limited to no more than 20 different metrics.</p>
 
 
 <p>Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>, CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.</p>
@@ -2731,13 +2882,13 @@
 <p>You can use up to 10 dimensions per metric to further clarify what data the metric collects. For more information about specifying dimensions, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
 
 
-<p>Data points with time stamps from 24 hours ago or longer can take at least 48 hours to become available for <a>GetMetricStatistics</a> from the time they are submitted.</p>
+<p>Data points with time stamps from 24 hours ago or longer can take at least 48 hours to become available for <a>GetMetricData</a> or <a>GetMetricStatistics</a> from the time they are submitted.</p>
 
 
-<p>CloudWatch needs raw data points to calculate percentile statistics. If you publish data using a statistic set instead, you can only retrieve percentile statistics for this data if one of the following conditions is true:</p>
+<p>CloudWatch needs raw data points to calculate percentile statistics. These raw data points could be published individually or as part of <code>Values</code> and <code>Counts</code> arrays. If you publish data using statistic sets in the <code>StatisticValues</code> field instead, you can only retrieve percentile statistics for this data if one of the following conditions is true:</p>
 
 
-<ul><li><p>The SampleCount value of the statistic set is 1</p></li><li><p>The Min and the Max values of the statistic set are equal</p></li></ul>
+<ul><li><p>The <code>SampleCount</code> value of the statistic set is 1 and <code>Min</code>, <code>Max</code>, and <code>Sum</code> are all equal.</p></li><li><p>The <code>Min</code> and <code>Max</code> are equal, and <code>Sum</code> is equal to <code>Min</code> multiplied by <code>SampleCount</code>.</p></li></ul>
 
 			</div>
 			
@@ -2805,10 +2956,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Publishes metric data points to Amazon CloudWatch. CloudWatch associates the data points with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.</p>
+				<p>Publishes metric data to Amazon CloudWatch. CloudWatch associates the data with the specified metric. If the specified metric does not exist, CloudWatch creates the metric. When CloudWatch creates a metric, it can take up to fifteen minutes for the metric to appear in calls to <a>ListMetrics</a>.</p>
 
 
-<p>Each <code>PutMetricData</code> request is limited to 40 KB in size for HTTP POST requests.</p>
+<p>You can publish either individual data points in the <code>Value</code> field, or arrays of values and the number of times each value occurred during the period by using the <code>Values</code> and <code>Counts</code> fields in the <code>MetricDatum</code> structure. Using the <code>Values</code> and <code>Counts</code> method enables you to publish up to 150 values per metric with one <code>PutMetricData</code> request, and supports retrieving percentile statistics on this data.</p>
+
+
+<p>Each <code>PutMetricData</code> request is limited to 40 KB in size for HTTP POST requests. You can send a payload compressed by gzip. Each request is also limited to no more than 20 different metrics.</p>
 
 
 <p>Although the <code>Value</code> parameter accepts numbers of type <code>Double</code>, CloudWatch rejects values that are either too small or too large. Values must be in the range of 8.515920e-109 to 1.174271e+108 (Base 10) or 2e-360 to 2e360 (Base 2). In addition, special values (for example, NaN, +Infinity, -Infinity) are not supported.</p>
@@ -2817,19 +2971,19 @@
 <p>You can use up to 10 dimensions per metric to further clarify what data the metric collects. For more information about specifying dimensions, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</p>
 
 
-<p>Data points with time stamps from 24 hours ago or longer can take at least 48 hours to become available for <a>GetMetricStatistics</a> from the time they are submitted.</p>
+<p>Data points with time stamps from 24 hours ago or longer can take at least 48 hours to become available for <a>GetMetricData</a> or <a>GetMetricStatistics</a> from the time they are submitted.</p>
 
 
-<p>CloudWatch needs raw data points to calculate percentile statistics. If you publish data using a statistic set instead, you can only retrieve percentile statistics for this data if one of the following conditions is true:</p>
+<p>CloudWatch needs raw data points to calculate percentile statistics. These raw data points could be published individually or as part of <code>Values</code> and <code>Counts</code> arrays. If you publish data using statistic sets in the <code>StatisticValues</code> field instead, you can only retrieve percentile statistics for this data if one of the following conditions is true:</p>
 
 
-<ul><li><p>The SampleCount value of the statistic set is 1</p></li><li><p>The Min and the Max values of the statistic set are equal</p></li></ul>
+<ul><li><p>The <code>SampleCount</code> value of the statistic set is 1 and <code>Min</code>, <code>Max</code>, and <code>Sum</code> are all equal.</p></li><li><p>The <code>Min</code> and <code>Max</code> are equal, and <code>Sum</code> is equal to <code>Min</code> multiplied by <code>SampleCount</code>.</p></li></ul>
 
 			</div>
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)putMetricData:(AWSCloudWatchPutMetricDataInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)putMetricData:(AWSCloudWatchPutMetricDataInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -2966,7 +3120,7 @@
 			
 		    
 
-			<div class="method-subsection method-declaration"><code>- (void)setAlarmState:(AWSCloudWatchSetAlarmStateInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+			<div class="method-subsection method-declaration"><code>- (void)setAlarmState:(AWSCloudWatchSetAlarmStateInput *)<em>request</em> completionHandler:(void ( ^ ) ( NSError *error ))<em>completionHandler</em></code></div>
 
 		    
 			
@@ -3020,6 +3174,60 @@
 </div>
 						</div>
 						
+
+						
+						<h2 class="task-title">Other Methods</h2>
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSCloudWatchService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
 					</div>
 					
 					
@@ -3032,7 +3240,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-08-30</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-09-21</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
