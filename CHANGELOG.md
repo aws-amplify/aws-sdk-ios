@@ -1,6 +1,18 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.31
+
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed bug in S3 Transfer Utility that was causing progress tracking for multipart transfers to be underreported for background transfers.
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon EC2
+
 ## 2.6.30
 
 ### Enhancements

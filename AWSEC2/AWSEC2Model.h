@@ -539,6 +539,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeD2_4xlarge,
     AWSEC2InstanceTypeD2_8xlarge,
     AWSEC2InstanceTypeF1_2xlarge,
+    AWSEC2InstanceTypeF1_4xlarge,
     AWSEC2InstanceTypeF1_16xlarge,
     AWSEC2InstanceTypeM5_large,
     AWSEC2InstanceTypeM5_xlarge,

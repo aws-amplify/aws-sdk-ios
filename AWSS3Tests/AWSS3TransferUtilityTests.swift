@@ -2322,13 +2322,6 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         wait(for:[expectation2], timeout: 2)
         
-        let expectation3 = self.expectation(description: "test3 completion handler called")
-        AWSS3TransferUtility.default() { (error) in
-            XCTAssertNil(error)
-            expectation3.fulfill()
-        }
-        wait(for:[expectation3], timeout: 2)
-        
         let expectation4 = self.expectation(description: "test4 register completion handler called")
         AWSS3TransferUtility.register(
             with: serviceConfiguration!,
