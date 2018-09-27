@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderSetUICustomizationRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderSetUICustomizationRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="403"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetUICustomizationRequest/setCSS:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CSS values in the UI customization.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *CSS</Declaration>
+			
+			
+			<Anchor>//api/name/CSS</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetUICustomizationRequest/CSS</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CSS values in the UI customization.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *CSS</Declaration>
+			
+			
+			<Anchor>//api/name/CSS</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSetUICustomizationRequest/CSS</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CSS values in the UI customization.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *CSS</Declaration>
+			
+			
+			<Anchor>//api/name/CSS</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetUICustomizationRequest/setClientId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The client ID for the client app.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetUICustomizationRequest/clientId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The client ID for the client app.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSetUICustomizationRequest/clientId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The client ID for the client app.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetUICustomizationRequest/setImageFile:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The uploaded logo image for the UI customization.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *imageFile</Declaration>
+			
+			
+			<Anchor>//api/name/imageFile</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetUICustomizationRequest/imageFile</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The uploaded logo image for the UI customization.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *imageFile</Declaration>
+			
+			
+			<Anchor>//api/name/imageFile</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSetUICustomizationRequest/imageFile</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The uploaded logo image for the UI customization.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *imageFile</Declaration>
+			
+			
+			<Anchor>//api/name/imageFile</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetUICustomizationRequest/setUserPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetUICustomizationRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSetUICustomizationRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="403"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

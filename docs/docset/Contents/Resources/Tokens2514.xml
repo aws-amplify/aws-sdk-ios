@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSIoTAuthorizerStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSIoTAuthorizerStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2514"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTAuthorizerStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTAuthorizerStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2514"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTAuthorizerStatusActive</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTAuthorizerStatusActive</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2514"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTAuthorizerStatusInactive</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTAuthorizerStatusInactive</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2514"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

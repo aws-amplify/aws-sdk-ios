@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseHiveJsonSerDe.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseHiveJsonSerDe</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The native Hive / HCatalog JsonSerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the OpenX SerDe.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="797"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseHiveJsonSerDe/setTimestampFormats:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime&apos;s DateTimeFormat format strings. For more information, see Class DateTimeFormat. You can also use the special value &lt;code&gt;millis&lt;/code&gt; to parse time stamps in epoch milliseconds. If you don&apos;t specify a format, Kinesis Data Firehose uses &lt;code&gt;java.sql.Timestamp::valueOf&lt;/code&gt; by default.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *timestampFormats</Declaration>
+			
+			
+			<Anchor>//api/name/timestampFormats</Anchor>
+            <NodeRef refid="797"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseHiveJsonSerDe/timestampFormats</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime&apos;s DateTimeFormat format strings. For more information, see Class DateTimeFormat. You can also use the special value &lt;code&gt;millis&lt;/code&gt; to parse time stamps in epoch milliseconds. If you don&apos;t specify a format, Kinesis Data Firehose uses &lt;code&gt;java.sql.Timestamp::valueOf&lt;/code&gt; by default.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *timestampFormats</Declaration>
+			
+			
+			<Anchor>//api/name/timestampFormats</Anchor>
+            <NodeRef refid="797"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseHiveJsonSerDe/timestampFormats</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime&apos;s DateTimeFormat format strings. For more information, see Class DateTimeFormat. You can also use the special value &lt;code&gt;millis&lt;/code&gt; to parse time stamps in epoch milliseconds. If you don&apos;t specify a format, Kinesis Data Firehose uses &lt;code&gt;java.sql.Timestamp::valueOf&lt;/code&gt; by default.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *timestampFormats</Declaration>
+			
+			
+			<Anchor>//api/name/timestampFormats</Anchor>
+            <NodeRef refid="797"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

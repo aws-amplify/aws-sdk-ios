@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsFilterLogEventsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsFilterLogEventsResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1420"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilterLogEventsResponse/setEvents:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The matched events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLogsFilteredLogEvent*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1420"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilterLogEventsResponse/events</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The matched events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLogsFilteredLogEvent*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1420"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsFilterLogEventsResponse/events</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The matched events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLogsFilteredLogEvent*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1420"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilterLogEventsResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token to use when requesting the next set of items. The token expires after 24 hours.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1420"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilterLogEventsResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token to use when requesting the next set of items. The token expires after 24 hours.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1420"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsFilterLogEventsResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token to use when requesting the next set of items. The token expires after 24 hours.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1420"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilterLogEventsResponse/setSearchedLogStreams:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates which log streams have been searched and whether each has been searched completely.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLogsSearchedLogStream*&gt; *searchedLogStreams</Declaration>
+			
+			
+			<Anchor>//api/name/searchedLogStreams</Anchor>
+            <NodeRef refid="1420"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilterLogEventsResponse/searchedLogStreams</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates which log streams have been searched and whether each has been searched completely.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLogsSearchedLogStream*&gt; *searchedLogStreams</Declaration>
+			
+			
+			<Anchor>//api/name/searchedLogStreams</Anchor>
+            <NodeRef refid="1420"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsFilterLogEventsResponse/searchedLogStreams</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates which log streams have been searched and whether each has been searched completely.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLogsSearchedLogStream*&gt; *searchedLogStreams</Declaration>
+			
+			
+			<Anchor>//api/name/searchedLogStreams</Anchor>
+            <NodeRef refid="1420"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSGetKeyRotationStatusResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSGetKeyRotationStatusResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1192"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGetKeyRotationStatusResponse/setKeyRotationEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A Boolean value that specifies whether key rotation is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *keyRotationEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/keyRotationEnabled</Anchor>
+            <NodeRef refid="1192"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGetKeyRotationStatusResponse/keyRotationEnabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A Boolean value that specifies whether key rotation is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *keyRotationEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/keyRotationEnabled</Anchor>
+            <NodeRef refid="1192"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGetKeyRotationStatusResponse/keyRotationEnabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A Boolean value that specifies whether key rotation is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *keyRotationEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/keyRotationEnabled</Anchor>
+            <NodeRef refid="1192"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSQSSendMessageBatchResultEntry.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSQSSendMessageBatchResultEntry</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Encloses a &lt;code&gt;MessageId&lt;/code&gt; for a successfully-enqueued message in a &lt;code&gt;&lt;a&gt;SendMessageBatch&lt;/a&gt;.&lt;/code&gt;&lt;/p&gt;
+Required parameters: [Id, MessageId, MD5OfMessageBody]</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2290"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchResultEntry/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier for the message in this batch.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchResultEntry/identifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier for the message in this batch.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSSendMessageBatchResultEntry/identifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier for the message in this batch.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchResultEntry/setMD5OfMessageAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see &lt;a href=&quot;https://www.ietf.org/rfc/rfc1321.txt&quot;&gt;RFC1321&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MD5OfMessageAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/MD5OfMessageAttributes</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchResultEntry/MD5OfMessageAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see &lt;a href=&quot;https://www.ietf.org/rfc/rfc1321.txt&quot;&gt;RFC1321&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MD5OfMessageAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/MD5OfMessageAttributes</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSSendMessageBatchResultEntry/MD5OfMessageAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see &lt;a href=&quot;https://www.ietf.org/rfc/rfc1321.txt&quot;&gt;RFC1321&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MD5OfMessageAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/MD5OfMessageAttributes</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchResultEntry/setMD5OfMessageBody:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see &lt;a href=&quot;https://www.ietf.org/rfc/rfc1321.txt&quot;&gt;RFC1321&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MD5OfMessageBody</Declaration>
+			
+			
+			<Anchor>//api/name/MD5OfMessageBody</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchResultEntry/MD5OfMessageBody</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see &lt;a href=&quot;https://www.ietf.org/rfc/rfc1321.txt&quot;&gt;RFC1321&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MD5OfMessageBody</Declaration>
+			
+			
+			<Anchor>//api/name/MD5OfMessageBody</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSSendMessageBatchResultEntry/MD5OfMessageBody</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An MD5 digest of the non-URL-encoded message attribute string. You can use this attribute to verify that Amazon SQS received the message correctly. Amazon SQS URL-decodes the message before creating the MD5 digest. For information about MD5, see &lt;a href=&quot;https://www.ietf.org/rfc/rfc1321.txt&quot;&gt;RFC1321&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MD5OfMessageBody</Declaration>
+			
+			
+			<Anchor>//api/name/MD5OfMessageBody</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchResultEntry/setMessageId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier for the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *messageId</Declaration>
+			
+			
+			<Anchor>//api/name/messageId</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchResultEntry/messageId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier for the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *messageId</Declaration>
+			
+			
+			<Anchor>//api/name/messageId</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSSendMessageBatchResultEntry/messageId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier for the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *messageId</Declaration>
+			
+			
+			<Anchor>//api/name/messageId</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchResultEntry/setSequenceNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter applies only to FIFO (first-in-first-out) queues.&lt;/p&gt;&lt;p&gt;The large, non-consecutive number that Amazon SQS assigns to each message.&lt;/p&gt;&lt;p&gt;The length of &lt;code&gt;SequenceNumber&lt;/code&gt; is 128 bits. As &lt;code&gt;SequenceNumber&lt;/code&gt; continues to increase for a particular &lt;code&gt;MessageGroupId&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/sequenceNumber</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchResultEntry/sequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter applies only to FIFO (first-in-first-out) queues.&lt;/p&gt;&lt;p&gt;The large, non-consecutive number that Amazon SQS assigns to each message.&lt;/p&gt;&lt;p&gt;The length of &lt;code&gt;SequenceNumber&lt;/code&gt; is 128 bits. As &lt;code&gt;SequenceNumber&lt;/code&gt; continues to increase for a particular &lt;code&gt;MessageGroupId&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/sequenceNumber</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSSendMessageBatchResultEntry/sequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter applies only to FIFO (first-in-first-out) queues.&lt;/p&gt;&lt;p&gt;The large, non-consecutive number that Amazon SQS assigns to each message.&lt;/p&gt;&lt;p&gt;The length of &lt;code&gt;SequenceNumber&lt;/code&gt; is 128 bits. As &lt;code&gt;SequenceNumber&lt;/code&gt; continues to increase for a particular &lt;code&gt;MessageGroupId&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/sequenceNumber</Anchor>
+            <NodeRef refid="2290"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

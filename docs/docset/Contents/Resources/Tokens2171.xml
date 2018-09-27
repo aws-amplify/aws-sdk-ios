@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESSetReceiptRulePositionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESSetReceiptRulePositionRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to set the position of a receipt rule in a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [RuleSetName, RuleName]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2171"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetReceiptRulePositionRequest/setAfter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule after which to place the specified receipt rule.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *after</Declaration>
+			
+			
+			<Anchor>//api/name/after</Anchor>
+            <NodeRef refid="2171"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetReceiptRulePositionRequest/after</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule after which to place the specified receipt rule.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *after</Declaration>
+			
+			
+			<Anchor>//api/name/after</Anchor>
+            <NodeRef refid="2171"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSetReceiptRulePositionRequest/after</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule after which to place the specified receipt rule.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *after</Declaration>
+			
+			
+			<Anchor>//api/name/after</Anchor>
+            <NodeRef refid="2171"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetReceiptRulePositionRequest/setRuleName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule to reposition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleName</Anchor>
+            <NodeRef refid="2171"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetReceiptRulePositionRequest/ruleName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule to reposition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleName</Anchor>
+            <NodeRef refid="2171"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSetReceiptRulePositionRequest/ruleName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule to reposition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleName</Anchor>
+            <NodeRef refid="2171"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetReceiptRulePositionRequest/setRuleSetName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule set that contains the receipt rule to reposition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleSetName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleSetName</Anchor>
+            <NodeRef refid="2171"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetReceiptRulePositionRequest/ruleSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule set that contains the receipt rule to reposition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleSetName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleSetName</Anchor>
+            <NodeRef refid="2171"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSetReceiptRulePositionRequest/ruleSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule set that contains the receipt rule to reposition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleSetName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleSetName</Anchor>
+            <NodeRef refid="2171"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

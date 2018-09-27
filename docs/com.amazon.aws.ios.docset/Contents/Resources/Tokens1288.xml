@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoDeleteStreamInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoDeleteStreamInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1288"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoDeleteStreamInput/setCurrentVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional: The version of the stream that you want to delete. &lt;/p&gt;&lt;p&gt;Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the &lt;code&gt;DescribeStream&lt;/code&gt; API.&lt;/p&gt;&lt;p&gt;If not specified, only the &lt;code&gt;CreationTime&lt;/code&gt; is checked before deleting the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *currentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/currentVersion</Anchor>
+            <NodeRef refid="1288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoDeleteStreamInput/currentVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional: The version of the stream that you want to delete. &lt;/p&gt;&lt;p&gt;Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the &lt;code&gt;DescribeStream&lt;/code&gt; API.&lt;/p&gt;&lt;p&gt;If not specified, only the &lt;code&gt;CreationTime&lt;/code&gt; is checked before deleting the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *currentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/currentVersion</Anchor>
+            <NodeRef refid="1288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoDeleteStreamInput/currentVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional: The version of the stream that you want to delete. &lt;/p&gt;&lt;p&gt;Specify the version as a safeguard to ensure that your are deleting the correct stream. To get the stream version, use the &lt;code&gt;DescribeStream&lt;/code&gt; API.&lt;/p&gt;&lt;p&gt;If not specified, only the &lt;code&gt;CreationTime&lt;/code&gt; is checked before deleting the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *currentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/currentVersion</Anchor>
+            <NodeRef refid="1288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoDeleteStreamInput/setStreamARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream that you want to delete. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoDeleteStreamInput/streamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream that you want to delete. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoDeleteStreamInput/streamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream that you want to delete. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1288"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBProvisionedThroughput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBProvisionedThroughput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the &lt;code&gt;UpdateTable&lt;/code&gt; operation.&lt;/p&gt;&lt;p&gt;For current minimum and maximum provisioned throughput values, see Limits in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;
+Required parameters: [ReadCapacityUnits, WriteCapacityUnits]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="640"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBProvisionedThroughput/setReadCapacityUnits:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of strongly consistent reads consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *readCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/readCapacityUnits</Anchor>
+            <NodeRef refid="640"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBProvisionedThroughput/readCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of strongly consistent reads consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *readCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/readCapacityUnits</Anchor>
+            <NodeRef refid="640"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBProvisionedThroughput/readCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of strongly consistent reads consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *readCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/readCapacityUnits</Anchor>
+            <NodeRef refid="640"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBProvisionedThroughput/setWriteCapacityUnits:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of writes consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *writeCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/writeCapacityUnits</Anchor>
+            <NodeRef refid="640"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBProvisionedThroughput/writeCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of writes consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *writeCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/writeCapacityUnits</Anchor>
+            <NodeRef refid="640"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBProvisionedThroughput/writeCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of writes consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *writeCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/writeCapacityUnits</Anchor>
+            <NodeRef refid="640"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

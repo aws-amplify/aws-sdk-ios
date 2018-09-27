@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLexDialogState.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLexDialogState</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2575"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexDialogStateUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexDialogStateUnknown</Declaration>
+            
+            <DeclaredIn>AWSLexModel.h</DeclaredIn>
+            
+            <NodeRef refid="2575"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexDialogStateElicitIntent</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexDialogStateElicitIntent</Declaration>
+            
+            <DeclaredIn>AWSLexModel.h</DeclaredIn>
+            
+            <NodeRef refid="2575"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexDialogStateConfirmIntent</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexDialogStateConfirmIntent</Declaration>
+            
+            <DeclaredIn>AWSLexModel.h</DeclaredIn>
+            
+            <NodeRef refid="2575"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexDialogStateElicitSlot</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexDialogStateElicitSlot</Declaration>
+            
+            <DeclaredIn>AWSLexModel.h</DeclaredIn>
+            
+            <NodeRef refid="2575"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexDialogStateFulfilled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexDialogStateFulfilled</Declaration>
+            
+            <DeclaredIn>AWSLexModel.h</DeclaredIn>
+            
+            <NodeRef refid="2575"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexDialogStateReadyForFulfillment</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexDialogStateReadyForFulfillment</Declaration>
+            
+            <DeclaredIn>AWSLexModel.h</DeclaredIn>
+            
+            <NodeRef refid="2575"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexDialogStateFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexDialogStateFailed</Declaration>
+            
+            <DeclaredIn>AWSLexModel.h</DeclaredIn>
+            
+            <NodeRef refid="2575"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

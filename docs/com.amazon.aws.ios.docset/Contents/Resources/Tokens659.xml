@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBRestoreTableToPointInTimeOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBRestoreTableToPointInTimeOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="659"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreTableToPointInTimeOutput/setTableDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the properties of a table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBTableDescription *tableDescription</Declaration>
+			
+			
+			<Anchor>//api/name/tableDescription</Anchor>
+            <NodeRef refid="659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreTableToPointInTimeOutput/tableDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the properties of a table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBTableDescription *tableDescription</Declaration>
+			
+			
+			<Anchor>//api/name/tableDescription</Anchor>
+            <NodeRef refid="659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBRestoreTableToPointInTimeOutput/tableDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the properties of a table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBTableDescription *tableDescription</Declaration>
+			
+			
+			<Anchor>//api/name/tableDescription</Anchor>
+            <NodeRef refid="659"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

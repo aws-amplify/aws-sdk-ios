@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1278"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput/setHLSStreamingSessionURL:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL (containing the session token) that a media player can use to retrieve the HLS master playlist.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *HLSStreamingSessionURL</Declaration>
+			
+			
+			<Anchor>//api/name/HLSStreamingSessionURL</Anchor>
+            <NodeRef refid="1278"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput/HLSStreamingSessionURL</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL (containing the session token) that a media player can use to retrieve the HLS master playlist.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *HLSStreamingSessionURL</Declaration>
+			
+			
+			<Anchor>//api/name/HLSStreamingSessionURL</Anchor>
+            <NodeRef refid="1278"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput/HLSStreamingSessionURL</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL (containing the session token) that a media player can use to retrieve the HLS master playlist.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *HLSStreamingSessionURL</Declaration>
+			
+			
+			<Anchor>//api/name/HLSStreamingSessionURL</Anchor>
+            <NodeRef refid="1278"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSMachineLearningPredictInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSMachineLearningPredictInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1454"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMachineLearningPredictInput/setMLModelId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier of the &lt;code&gt;MLModel&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MLModelId</Declaration>
+			
+			
+			<Anchor>//api/name/MLModelId</Anchor>
+            <NodeRef refid="1454"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMachineLearningPredictInput/MLModelId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier of the &lt;code&gt;MLModel&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MLModelId</Declaration>
+			
+			
+			<Anchor>//api/name/MLModelId</Anchor>
+            <NodeRef refid="1454"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMachineLearningPredictInput/MLModelId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier of the &lt;code&gt;MLModel&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MLModelId</Declaration>
+			
+			
+			<Anchor>//api/name/MLModelId</Anchor>
+            <NodeRef refid="1454"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMachineLearningPredictInput/setPredictEndpoint:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *predictEndpoint</Declaration>
+			
+			
+			<Anchor>//api/name/predictEndpoint</Anchor>
+            <NodeRef refid="1454"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMachineLearningPredictInput/predictEndpoint</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *predictEndpoint</Declaration>
+			
+			
+			<Anchor>//api/name/predictEndpoint</Anchor>
+            <NodeRef refid="1454"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMachineLearningPredictInput/predictEndpoint</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *predictEndpoint</Declaration>
+			
+			
+			<Anchor>//api/name/predictEndpoint</Anchor>
+            <NodeRef refid="1454"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMachineLearningPredictInput/setRecord:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of variable name-value pairs that represent an observation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *record</Declaration>
+			
+			
+			<Anchor>//api/name/record</Anchor>
+            <NodeRef refid="1454"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMachineLearningPredictInput/record</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of variable name-value pairs that represent an observation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *record</Declaration>
+			
+			
+			<Anchor>//api/name/record</Anchor>
+            <NodeRef refid="1454"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMachineLearningPredictInput/record</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of variable name-value pairs that represent an observation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *record</Declaration>
+			
+			
+			<Anchor>//api/name/record</Anchor>
+            <NodeRef refid="1454"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsRejectedLogEventsInfo.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsRejectedLogEventsInfo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the rejected events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1443"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsRejectedLogEventsInfo/setExpiredLogEventEndIndex:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The expired log events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *expiredLogEventEndIndex</Declaration>
+			
+			
+			<Anchor>//api/name/expiredLogEventEndIndex</Anchor>
+            <NodeRef refid="1443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsRejectedLogEventsInfo/expiredLogEventEndIndex</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The expired log events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *expiredLogEventEndIndex</Declaration>
+			
+			
+			<Anchor>//api/name/expiredLogEventEndIndex</Anchor>
+            <NodeRef refid="1443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsRejectedLogEventsInfo/expiredLogEventEndIndex</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The expired log events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *expiredLogEventEndIndex</Declaration>
+			
+			
+			<Anchor>//api/name/expiredLogEventEndIndex</Anchor>
+            <NodeRef refid="1443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsRejectedLogEventsInfo/setTooNewLogEventStartIndex:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The log events that are too new.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tooNewLogEventStartIndex</Declaration>
+			
+			
+			<Anchor>//api/name/tooNewLogEventStartIndex</Anchor>
+            <NodeRef refid="1443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsRejectedLogEventsInfo/tooNewLogEventStartIndex</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The log events that are too new.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tooNewLogEventStartIndex</Declaration>
+			
+			
+			<Anchor>//api/name/tooNewLogEventStartIndex</Anchor>
+            <NodeRef refid="1443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsRejectedLogEventsInfo/tooNewLogEventStartIndex</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The log events that are too new.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tooNewLogEventStartIndex</Declaration>
+			
+			
+			<Anchor>//api/name/tooNewLogEventStartIndex</Anchor>
+            <NodeRef refid="1443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsRejectedLogEventsInfo/setTooOldLogEventEndIndex:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The log events that are too old.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tooOldLogEventEndIndex</Declaration>
+			
+			
+			<Anchor>//api/name/tooOldLogEventEndIndex</Anchor>
+            <NodeRef refid="1443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsRejectedLogEventsInfo/tooOldLogEventEndIndex</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The log events that are too old.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tooOldLogEventEndIndex</Declaration>
+			
+			
+			<Anchor>//api/name/tooOldLogEventEndIndex</Anchor>
+            <NodeRef refid="1443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsRejectedLogEventsInfo/tooOldLogEventEndIndex</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The log events that are too old.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tooOldLogEventEndIndex</Declaration>
+			
+			
+			<Anchor>//api/name/tooOldLogEventEndIndex</Anchor>
+            <NodeRef refid="1443"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

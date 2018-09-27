@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLambdaFunctionVersion.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLambdaFunctionVersion</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2567"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaFunctionVersionUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaFunctionVersionUnknown</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2567"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaFunctionVersionAll</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaFunctionVersionAll</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2567"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

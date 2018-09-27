@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3GetBucketCorsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3GetBucketCorsOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1848"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketCorsOutput/setCORSRules:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3CORSRule*&gt; *CORSRules</Declaration>
+			
+			
+			<Anchor>//api/name/CORSRules</Anchor>
+            <NodeRef refid="1848"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketCorsOutput/CORSRules</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3CORSRule*&gt; *CORSRules</Declaration>
+			
+			
+			<Anchor>//api/name/CORSRules</Anchor>
+            <NodeRef refid="1848"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GetBucketCorsOutput/CORSRules</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3CORSRule*&gt; *CORSRules</Declaration>
+			
+			
+			<Anchor>//api/name/CORSRules</Anchor>
+            <NodeRef refid="1848"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

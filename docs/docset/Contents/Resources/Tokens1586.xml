@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingImportJobsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingImportJobsResponse</TokenIdentifier>
+			<Abstract type="html">Import job list.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1586"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobsResponse/setItem:</TokenIdentifier>
+			<Abstract type="html">A list of import jobs for the application.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPinpointTargetingImportJobResponse*&gt; *item</Declaration>
+			
+			
+			<Anchor>//api/name/item</Anchor>
+            <NodeRef refid="1586"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobsResponse/item</TokenIdentifier>
+			<Abstract type="html">A list of import jobs for the application.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPinpointTargetingImportJobResponse*&gt; *item</Declaration>
+			
+			
+			<Anchor>//api/name/item</Anchor>
+            <NodeRef refid="1586"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobsResponse/item</TokenIdentifier>
+			<Abstract type="html">A list of import jobs for the application.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPinpointTargetingImportJobResponse*&gt; *item</Declaration>
+			
+			
+			<Anchor>//api/name/item</Anchor>
+            <NodeRef refid="1586"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobsResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">The string that you use in a subsequent request to get the next page of results in a paginated response.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1586"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobsResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">The string that you use in a subsequent request to get the next page of results in a paginated response.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1586"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobsResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">The string that you use in a subsequent request to get the next page of results in a paginated response.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1586"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

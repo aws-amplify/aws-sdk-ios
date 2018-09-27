@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoCredentialsProvider.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoCredentialsProvider</TokenIdentifier>
+			<Abstract type="html">An AWSCredentialsProvider that uses Amazon Cognito to fetch temporary credentials tied to an identity.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+            
+			
+			<NodeRef refid="173"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/setIdentityProvider:</TokenIdentifier>
+			<Abstract type="html">The identityProvider which is responsible for establishing the identity id and (optionally) the open id token for use in the Amazon Cognito authflow.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) id&lt;AWSCognitoCredentialsProviderHelper&gt; identityProvider</Declaration>
+			
+			
+			<Anchor>//api/name/identityProvider</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/identityProvider</TokenIdentifier>
+			<Abstract type="html">The identityProvider which is responsible for establishing the identity id and (optionally) the open id token for use in the Amazon Cognito authflow.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) id&lt;AWSCognitoCredentialsProviderHelper&gt; identityProvider</Declaration>
+			
+			
+			<Anchor>//api/name/identityProvider</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoCredentialsProvider/identityProvider</TokenIdentifier>
+			<Abstract type="html">The identityProvider which is responsible for establishing the identity id and (optionally) the open id token for use in the Amazon Cognito authflow.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) id&lt;AWSCognitoCredentialsProviderHelper&gt; identityProvider</Declaration>
+			
+			
+			<Anchor>//api/name/identityProvider</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/setIdentityId:</TokenIdentifier>
+			<Abstract type="html">The identity id associated with this provider. This value will be fetched from the keychain at startup. If you do not want to reuse the existing identity id, you must call the clearKeychain method.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly, nullable) NSString *identityId</Declaration>
+			
+			
+			<Anchor>//api/name/identityId</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/identityId</TokenIdentifier>
+			<Abstract type="html">The identity id associated with this provider. This value will be fetched from the keychain at startup. If you do not want to reuse the existing identity id, you must call the clearKeychain method.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly, nullable) NSString *identityId</Declaration>
+			
+			
+			<Anchor>//api/name/identityId</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoCredentialsProvider/identityId</TokenIdentifier>
+			<Abstract type="html">The identity id associated with this provider. This value will be fetched from the keychain at startup. If you do not want to reuse the existing identity id, you must call the clearKeychain method.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly, nullable) NSString *identityId</Declaration>
+			
+			
+			<Anchor>//api/name/identityId</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/setIdentityPoolId:</TokenIdentifier>
+			<Abstract type="html">The identity pool id associated with this provider. Also used to create a namedspaced keychain area to store identity id and credentials.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/identityPoolId</TokenIdentifier>
+			<Abstract type="html">The identity pool id associated with this provider. Also used to create a namedspaced keychain area to store identity id and credentials.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoCredentialsProvider/identityPoolId</TokenIdentifier>
+			<Abstract type="html">The identity pool id associated with this provider. Also used to create a namedspaced keychain area to store identity id and credentials.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/initWithRegionType:identityPoolId:</TokenIdentifier>
+			<Abstract type="html">Initializer for credentials provider with enhanced authentication flow. This is the recommended constructor for first time Amazon Cognito developers. Will create an instance of AWSEnhancedCognitoIdentityProvider.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithRegionType:(AWSRegionType)regionType identityPoolId:(NSString *)identityPoolId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>regionType</Name>
+					<Abstract type="html">The region in which your identity pool exists.</Abstract>
+				</Parameter><Parameter>
+					<Name>identityPoolId</Name>
+					<Abstract type="html">The identity pool id for this provider. Value is used to communicate with Amazon Cognito as well as namespace values stored in the keychain.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithRegionType:identityPoolId:</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/initWithRegionType:identityPoolId:identityProviderManager:</TokenIdentifier>
+			<Abstract type="html">Initializer for credentials provider with enhanced authentication flow. This is the recommended method for first time Amazon Cognito developers. Will create an instance of AWSEnhancedCognitoIdentityProvider.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithRegionType:(AWSRegionType)regionType identityPoolId:(NSString *)identityPoolId identityProviderManager:(nullable id&lt;AWSIdentityProviderManager&gt;)identityProviderManager</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>regionType</Name>
+					<Abstract type="html">The region in which your identity pool exists.</Abstract>
+				</Parameter><Parameter>
+					<Name>identityPoolId</Name>
+					<Abstract type="html">The identity pool id for this provider. Value is used to communicate with Amazon Cognito as well as namespace values stored in the keychain.</Abstract>
+				</Parameter><Parameter>
+					<Name>identityProviderManager</Name>
+					<Abstract type="html">An object that conforms to the AWSIdentityProviderManager protocol. It should return a valid login dictionary when requested. Can be nil if identity is unauthenticated.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithRegionType:identityPoolId:identityProviderManager:</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/initWithRegionType:identityProvider:</TokenIdentifier>
+			<Abstract type="html">Initializer for credentials provider with pre-created AWSCognitoCredentialsProviderHelper. Use this method when using developer authenticated identities.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithRegionType:(AWSRegionType)regionType identityProvider:(id&lt;AWSCognitoCredentialsProviderHelper&gt;)identityProvider</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>regionType</Name>
+					<Abstract type="html">The region in which your identity pool exists.</Abstract>
+				</Parameter><Parameter>
+					<Name>identityProvider</Name>
+					<Abstract type="html">Implementation of AWSCognitoCredentialsProviderHelper which is responsible for acquiring identity id and (optionally) OpenId Connect token.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithRegionType:identityProvider:</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/initWithRegionType:unauthRoleArn:authRoleArn:identityProvider:</TokenIdentifier>
+			<Abstract type="html">Initializer for credentials provider with pre-created AWSCognitoCredentialsProviderHelper. Only use this method if you need to set your IAM roles client side and use developer authenticated identities</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithRegionType:(AWSRegionType)regionType unauthRoleArn:(nullable NSString *)unauthRoleArn authRoleArn:(nullable NSString *)authRoleArn identityProvider:(id&lt;AWSCognitoCredentialsProviderHelper&gt;)identityProvider</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>regionType</Name>
+					<Abstract type="html">The region in which your identity pool exists.</Abstract>
+				</Parameter><Parameter>
+					<Name>unauthRoleArn</Name>
+					<Abstract type="html">The role ARN to use when getting credentials for unauthenticated identities. Provider will check the isAuthenticated property of the identity provider to determine which role to use. Can be nil if unauthenticated identities are not supported or if using enhanced authentication flow.</Abstract>
+				</Parameter><Parameter>
+					<Name>authRoleArn</Name>
+					<Abstract type="html">The role ARN to use when getting credentials for authenticated identities. Provider will check the isAuthenticated property of the identity provider to determine which role to use. Can be nil if authenticated identities are not supported or if using enhanced authentication flow.</Abstract>
+				</Parameter><Parameter>
+					<Name>identityProvider</Name>
+					<Abstract type="html">Implementation of AWSCognitoCredentialsProviderHelper which is responsible for acquiring identity id and (optionally) OpenId Connect token.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithRegionType:unauthRoleArn:authRoleArn:identityProvider:</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/initWithRegionType:identityPoolId:unauthRoleArn:authRoleArn:identityProviderManager:</TokenIdentifier>
+			<Abstract type="html">Initializer for credentials provider with basic auth flow. Only use this method if you still need to set your IAM roles client side. This method will create an instance of AWSBasicCognitoIdentityProvider.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithRegionType:(AWSRegionType)regionType identityPoolId:(NSString *)identityPoolId unauthRoleArn:(nullable NSString *)unauthRoleArn authRoleArn:(nullable NSString *)authRoleArn identityProviderManager:(nullable id&lt;AWSIdentityProviderManager&gt;)identityProviderManager</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>regionType</Name>
+					<Abstract type="html">The region in which your identity pool exists.</Abstract>
+				</Parameter><Parameter>
+					<Name>identityPoolId</Name>
+					<Abstract type="html">The identity pool id for this provider. Value is used to communicate with Amazon Cognito as well as namespace values stored in the keychain.</Abstract>
+				</Parameter><Parameter>
+					<Name>unauthRoleArn</Name>
+					<Abstract type="html">The role ARN to use when getting credentials for unauthenticated identities. Provider will check the isAuthenticated property of the identity provider to determine which role to use. Can be nil if unauthenticated identities are not supported.</Abstract>
+				</Parameter><Parameter>
+					<Name>authRoleArn</Name>
+					<Abstract type="html">The role ARN to use when getting credentials for authenticated identities. Provider will check the isAuthenticated property of the identity provider to determine which role to use. Can be nil if authenticated identities are not supported.</Abstract>
+				</Parameter><Parameter>
+					<Name>identityProviderManager</Name>
+					<Abstract type="html">An object that conforms to the AWSIdentityProviderManager protocol. It should return a valid login dictionary when requested. Can be nil if identity is unauthenticated.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithRegionType:identityPoolId:unauthRoleArn:authRoleArn:identityProviderManager:</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/getIdentityId</TokenIdentifier>
+			<Abstract type="html">Get/retrieve the identity id for this provider. If an identity id is already set on this provider, no remote call is made and the identity will be returned as a result of the AWSTask (the identityId is also available as a property). If no identityId is set on this provider, one will be retrieved from the service.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>- (AWSTask&lt;NSString*&gt; *)getIdentityId</Declaration>
+			
+			<ReturnValue><Abstract type="html">AWSTask</Abstract></ReturnValue>
+			<Anchor>//api/name/getIdentityId</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/clearKeychain</TokenIdentifier>
+			<Abstract type="html">Clear ALL saved values for this provider (identityId, credentials, logins).</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>- (void)clearKeychain</Declaration>
+			
+			
+			<Anchor>//api/name/clearKeychain</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/clearCredentials</TokenIdentifier>
+			<Abstract type="html">Clear the cached AWS credentials for this provider.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+			
+			<Declaration>- (void)clearCredentials</Declaration>
+			
+			
+			<Anchor>//api/name/clearCredentials</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/credentials</TokenIdentifier>
+			<Abstract type="html">Asynchronously returns a valid AWS credentials or an error object if it cannot retrieve valid credentials. It should cache valid credentials as much as possible and refresh them when they are invalid.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.m</DeclaredIn>
+			
+			<Declaration>- (AWSTask&lt;AWSCredentials*&gt; *)credentials</Declaration>
+			
+			<ReturnValue><Abstract type="html">A valid AWS credentials or an error object describing the error.</Abstract></ReturnValue>
+			<Anchor>//api/name/credentials</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoCredentialsProvider/invalidateCachedTemporaryCredentials</TokenIdentifier>
+			<Abstract type="html">Invalidates the cached temporary AWS credentials. If the credentials provider does not cache temporary credentials, this operation is a no-op.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.m</DeclaredIn>
+			
+			<Declaration>- (void)invalidateCachedTemporaryCredentials</Declaration>
+			
+			
+			<Anchor>//api/name/invalidateCachedTemporaryCredentials</Anchor>
+            <NodeRef refid="173"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

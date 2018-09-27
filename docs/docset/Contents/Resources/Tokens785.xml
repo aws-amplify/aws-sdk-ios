@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseDescribeDeliveryStreamOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDescribeDeliveryStreamOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="785"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDescribeDeliveryStreamOutput/setDeliveryStreamDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseDeliveryStreamDescription *deliveryStreamDescription</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamDescription</Anchor>
+            <NodeRef refid="785"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDescribeDeliveryStreamOutput/deliveryStreamDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseDeliveryStreamDescription *deliveryStreamDescription</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamDescription</Anchor>
+            <NodeRef refid="785"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseDescribeDeliveryStreamOutput/deliveryStreamDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseDeliveryStreamDescription *deliveryStreamDescription</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamDescription</Anchor>
+            <NodeRef refid="785"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

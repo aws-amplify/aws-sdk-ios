@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSTranscribeVocabularyState.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSTranscribeVocabularyState</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2715"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranscribeVocabularyStateUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranscribeVocabularyStateUnknown</Declaration>
+            
+            <DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+            <NodeRef refid="2715"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranscribeVocabularyStatePending</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranscribeVocabularyStatePending</Declaration>
+            
+            <DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+            <NodeRef refid="2715"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranscribeVocabularyStateReady</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranscribeVocabularyStateReady</Declaration>
+            
+            <DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+            <NodeRef refid="2715"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranscribeVocabularyStateFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranscribeVocabularyStateFailed</Declaration>
+            
+            <DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+            <NodeRef refid="2715"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

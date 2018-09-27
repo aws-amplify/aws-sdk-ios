@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AWSMobileAnalyticsEventClient.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AWSMobileAnalyticsEventClient</TokenIdentifier>
+			<Abstract type="html">AWSMobileAnalyticsEventClient is the entry point into the Mobile Analytics SDK where AWSMobileAnalyticsEvent objects are created,
+recorded, and submitted to the Mobile Analytics Website.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2390"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/addGlobalAttribute:forKey:</TokenIdentifier>
+			<Abstract type="html">Adds the specified attribute to all subsequent recorded events.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (void)addGlobalAttribute:(NSString *)theValue forKey:(NSString *)theKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theValue</Name>
+					<Abstract type="html">the value of the attribute</Abstract>
+				</Parameter><Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">the name of the attribute to add</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addGlobalAttribute:forKey:</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/addGlobalAttribute:forKey:forEventType:</TokenIdentifier>
+			<Abstract type="html">Adds the specified attribute to all subsequent recorded events with the specified event type.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (void)addGlobalAttribute:(NSString *)theValue forKey:(NSString *)theKey forEventType:(NSString *)theEventType</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theValue</Name>
+					<Abstract type="html">the value of the attribute</Abstract>
+				</Parameter><Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">the name of the attribute to add</Abstract>
+				</Parameter><Parameter>
+					<Name>theEventType</Name>
+					<Abstract type="html">the type of events to add the attribute to</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addGlobalAttribute:forKey:forEventType:</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/addGlobalMetric:forKey:</TokenIdentifier>
+			<Abstract type="html">Adds the specified metric to all subsequent recorded events.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (void)addGlobalMetric:(NSNumber *)theValue forKey:(NSString *)theKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theValue</Name>
+					<Abstract type="html">the value of the metric</Abstract>
+				</Parameter><Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">the name of the metric to add</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addGlobalMetric:forKey:</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/addGlobalMetric:forKey:forEventType:</TokenIdentifier>
+			<Abstract type="html">Adds the specified metric to all subsequent recorded events with the specified event type.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (void)addGlobalMetric:(NSNumber *)theValue forKey:(NSString *)theKey forEventType:(NSString *)theEventType</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theValue</Name>
+					<Abstract type="html">the value of the metric</Abstract>
+				</Parameter><Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">the name of the metric to add</Abstract>
+				</Parameter><Parameter>
+					<Name>theEventType</Name>
+					<Abstract type="html">the type of events to add the metric to</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addGlobalMetric:forKey:forEventType:</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/removeGlobalAttributeForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the specified attribute. All subsequent recorded events will no longer have this global attribute.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (void)removeGlobalAttributeForKey:(NSString *)theKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">the key of the attribute to remove</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeGlobalAttributeForKey:</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/removeGlobalAttributeForKey:forEventType:</TokenIdentifier>
+			<Abstract type="html">Removes the specified attribute. All subsequent recorded events with the specified event type will no longer have this global attribute.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (void)removeGlobalAttributeForKey:(NSString *)theKey forEventType:(NSString *)theEventType</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">the key of the attribute to remove</Abstract>
+				</Parameter><Parameter>
+					<Name>theEventType</Name>
+					<Abstract type="html">the type of events to remove the attribute from</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeGlobalAttributeForKey:forEventType:</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/removeGlobalMetricForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the specified metric. All subsequent recorded events will no longer have this global metric.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (void)removeGlobalMetricForKey:(NSString *)theKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">the key of the metric to remove</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeGlobalMetricForKey:</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/removeGlobalMetricForKey:forEventType:</TokenIdentifier>
+			<Abstract type="html">Removes the specified metric. All subsequent recorded events with the specified event type will no longer have this global metric.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (void)removeGlobalMetricForKey:(NSString *)theKey forEventType:(NSString *)theEventType</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">the key of the metric to remove</Abstract>
+				</Parameter><Parameter>
+					<Name>theEventType</Name>
+					<Abstract type="html">the type of events to remove the metric from</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeGlobalMetricForKey:forEventType:</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/recordEvent:</TokenIdentifier>
+			<Abstract type="html">Records the specified AWSMobileAnalyticsEvent to the local filestore</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (void)recordEvent:(id&lt;AWSMobileAnalyticsEvent&gt;)theEvent</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theEvent</Name>
+					<Abstract type="html">The AWSMobileAnalyticsEvent to persist</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/recordEvent:</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/createEventWithEventType:</TokenIdentifier>
+			<Abstract type="html">Create an AWSMobileAnalyticsEvent with the specified theEventType</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (id&lt;AWSMobileAnalyticsEvent&gt;)createEventWithEventType:(NSString *)theEventType</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theEventType</Name>
+					<Abstract type="html">the type of event to create</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">an AWSMobileAnalyticsEvent with the specified event type</Abstract></ReturnValue>
+			<Anchor>//api/name/createEventWithEventType:</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEventClient/submitEvents</TokenIdentifier>
+			<Abstract type="html">Submits all recorded events to the Mobile Analytics Website. If you try to submit
+events within one minute of a previous submission, the submission request will be ignored.
+See AWSMobileAnalyticsOptions for customizing which Internet connection the SDK can submit on. Events
+are automatically submitted when the application goes into the background.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEventClient.h</DeclaredIn>
+			
+			<Declaration>- (void)submitEvents</Declaration>
+			
+			
+			<Anchor>//api/name/submitEvents</Anchor>
+            <NodeRef refid="2390"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

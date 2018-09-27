@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3Protocols.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3Protocols</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2665"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ProtocolsUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ProtocolsUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2665"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ProtocolsHTTP</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ProtocolsHTTP</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2665"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ProtocolsHTTPS</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ProtocolsHTTPS</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2665"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseRedshiftDestinationUpdate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseRedshiftDestinationUpdate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes an update for a destination in Amazon Redshift.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="822"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setCloudWatchLoggingOptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options for your delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/cloudWatchLoggingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options for your delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/cloudWatchLoggingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options for your delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setClusterJDBCURL:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The database connection string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clusterJDBCURL</Declaration>
+			
+			
+			<Anchor>//api/name/clusterJDBCURL</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/clusterJDBCURL</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The database connection string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clusterJDBCURL</Declaration>
+			
+			
+			<Anchor>//api/name/clusterJDBCURL</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/clusterJDBCURL</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The database connection string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clusterJDBCURL</Declaration>
+			
+			
+			<Anchor>//api/name/clusterJDBCURL</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setReplicateCommand:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &lt;code&gt;COPY&lt;/code&gt; command.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseReplicateCommand *replicateCommand</Declaration>
+			
+			
+			<Anchor>//api/name/replicateCommand</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/replicateCommand</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &lt;code&gt;COPY&lt;/code&gt; command.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseReplicateCommand *replicateCommand</Declaration>
+			
+			
+			<Anchor>//api/name/replicateCommand</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/replicateCommand</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &lt;code&gt;COPY&lt;/code&gt; command.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseReplicateCommand *replicateCommand</Declaration>
+			
+			
+			<Anchor>//api/name/replicateCommand</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setPassword:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *password</Declaration>
+			
+			
+			<Anchor>//api/name/password</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/password</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *password</Declaration>
+			
+			
+			<Anchor>//api/name/password</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/password</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *password</Declaration>
+			
+			
+			<Anchor>//api/name/password</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setProcessingConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/processingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/processingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setRetryOptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseRedshiftRetryOptions *retryOptions</Declaration>
+			
+			
+			<Anchor>//api/name/retryOptions</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/retryOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseRedshiftRetryOptions *retryOptions</Declaration>
+			
+			
+			<Anchor>//api/name/retryOptions</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/retryOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon Redshift. Default value is 3600 (60 minutes).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseRedshiftRetryOptions *retryOptions</Declaration>
+			
+			
+			<Anchor>//api/name/retryOptions</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setRoleARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS credentials. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/roleARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS credentials. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/roleARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS credentials. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setS3BackupMode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 backup mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseRedshiftS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/s3BackupMode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 backup mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseRedshiftS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/s3BackupMode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 backup mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseRedshiftS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setS3BackupUpdate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 destination for backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationUpdate *s3BackupUpdate</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupUpdate</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/s3BackupUpdate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 destination for backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationUpdate *s3BackupUpdate</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupUpdate</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/s3BackupUpdate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 destination for backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationUpdate *s3BackupUpdate</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupUpdate</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setS3Update:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 destination.&lt;/p&gt;&lt;p&gt;The compression formats &lt;code&gt;SNAPPY&lt;/code&gt; or &lt;code&gt;ZIP&lt;/code&gt; cannot be specified in &lt;code&gt;RedshiftDestinationUpdate.S3Update&lt;/code&gt; because the Amazon Redshift &lt;code&gt;COPY&lt;/code&gt; operation that reads from the S3 bucket doesn&apos;t support these compression formats.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationUpdate *s3Update</Declaration>
+			
+			
+			<Anchor>//api/name/s3Update</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/s3Update</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 destination.&lt;/p&gt;&lt;p&gt;The compression formats &lt;code&gt;SNAPPY&lt;/code&gt; or &lt;code&gt;ZIP&lt;/code&gt; cannot be specified in &lt;code&gt;RedshiftDestinationUpdate.S3Update&lt;/code&gt; because the Amazon Redshift &lt;code&gt;COPY&lt;/code&gt; operation that reads from the S3 bucket doesn&apos;t support these compression formats.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationUpdate *s3Update</Declaration>
+			
+			
+			<Anchor>//api/name/s3Update</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/s3Update</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 destination.&lt;/p&gt;&lt;p&gt;The compression formats &lt;code&gt;SNAPPY&lt;/code&gt; or &lt;code&gt;ZIP&lt;/code&gt; cannot be specified in &lt;code&gt;RedshiftDestinationUpdate.S3Update&lt;/code&gt; because the Amazon Redshift &lt;code&gt;COPY&lt;/code&gt; operation that reads from the S3 bucket doesn&apos;t support these compression formats.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationUpdate *s3Update</Declaration>
+			
+			
+			<Anchor>//api/name/s3Update</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/setUsername:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseRedshiftDestinationUpdate/username</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseRedshiftDestinationUpdate/username</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="822"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

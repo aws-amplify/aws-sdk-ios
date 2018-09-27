@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPollyListSpeechSynthesisTasksInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListSpeechSynthesisTasksInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1653"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListSpeechSynthesisTasksInput/setMaxResults:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of speech synthesis tasks returned in a List operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1653"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListSpeechSynthesisTasksInput/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of speech synthesis tasks returned in a List operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1653"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyListSpeechSynthesisTasksInput/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of speech synthesis tasks returned in a List operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1653"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListSpeechSynthesisTasksInput/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pagination token to use in the next request to continue the listing of speech synthesis tasks. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1653"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListSpeechSynthesisTasksInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pagination token to use in the next request to continue the listing of speech synthesis tasks. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1653"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyListSpeechSynthesisTasksInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pagination token to use in the next request to continue the listing of speech synthesis tasks. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1653"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListSpeechSynthesisTasksInput/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Status of the speech synthesis tasks returned in a List operation&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTaskStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1653"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListSpeechSynthesisTasksInput/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Status of the speech synthesis tasks returned in a List operation&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTaskStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1653"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyListSpeechSynthesisTasksInput/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Status of the speech synthesis tasks returned in a List operation&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTaskStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1653"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

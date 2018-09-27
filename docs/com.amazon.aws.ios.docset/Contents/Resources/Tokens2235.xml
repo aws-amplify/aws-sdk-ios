@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSListTopicsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListTopicsInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2235"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListTopicsInput/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Token returned by the previous &lt;code&gt;ListTopics&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2235"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListTopicsInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Token returned by the previous &lt;code&gt;ListTopics&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2235"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSListTopicsInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Token returned by the previous &lt;code&gt;ListTopics&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2235"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

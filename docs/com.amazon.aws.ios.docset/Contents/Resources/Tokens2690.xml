@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSSESDsnAction.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSSESDsnAction</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2690"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESDsnActionUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESDsnActionUnknown</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2690"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESDsnActionFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESDsnActionFailed</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2690"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESDsnActionDelayed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESDsnActionDelayed</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2690"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESDsnActionDelivered</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESDsnActionDelivered</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2690"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESDsnActionRelayed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESDsnActionRelayed</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2690"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESDsnActionExpanded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESDsnActionExpanded</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2690"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

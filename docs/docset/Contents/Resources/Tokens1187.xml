@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSGenerateRandomRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSGenerateRandomRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1187"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGenerateRandomRequest/setNumberOfBytes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The length of the byte string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfBytes</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfBytes</Anchor>
+            <NodeRef refid="1187"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGenerateRandomRequest/numberOfBytes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The length of the byte string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfBytes</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfBytes</Anchor>
+            <NodeRef refid="1187"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGenerateRandomRequest/numberOfBytes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The length of the byte string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfBytes</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfBytes</Anchor>
+            <NodeRef refid="1187"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

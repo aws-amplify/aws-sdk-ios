@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAdminConfirmSignUpResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAdminConfirmSignUpResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the response from the server for the request to confirm registration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="223"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

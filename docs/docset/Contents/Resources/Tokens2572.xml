@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLambdaThrottleReason.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLambdaThrottleReason</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2572"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaThrottleReasonUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaThrottleReasonUnknown</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2572"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaThrottleReasonConcurrentInvocationLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaThrottleReasonConcurrentInvocationLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2572"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaThrottleReasonFunctionInvocationRateLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaThrottleReasonFunctionInvocationRateLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2572"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaThrottleReasonReservedFunctionConcurrentInvocationLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaThrottleReasonReservedFunctionConcurrentInvocationLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2572"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaThrottleReasonReservedFunctionInvocationRateLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaThrottleReasonReservedFunctionInvocationRateLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2572"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaThrottleReasonCallerRateLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaThrottleReasonCallerRateLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2572"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

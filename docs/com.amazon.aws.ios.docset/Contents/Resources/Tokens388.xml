@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderPasswordPolicyType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderPasswordPolicyType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The password policy type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="388"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderPasswordPolicyType/setMinimumLength:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum length of the password policy that you have set. Cannot be less than 6.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minimumLength</Declaration>
+			
+			
+			<Anchor>//api/name/minimumLength</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderPasswordPolicyType/minimumLength</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum length of the password policy that you have set. Cannot be less than 6.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minimumLength</Declaration>
+			
+			
+			<Anchor>//api/name/minimumLength</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderPasswordPolicyType/minimumLength</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum length of the password policy that you have set. Cannot be less than 6.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minimumLength</Declaration>
+			
+			
+			<Anchor>//api/name/minimumLength</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderPasswordPolicyType/setRequireLowercase:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireLowercase</Declaration>
+			
+			
+			<Anchor>//api/name/requireLowercase</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderPasswordPolicyType/requireLowercase</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireLowercase</Declaration>
+			
+			
+			<Anchor>//api/name/requireLowercase</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderPasswordPolicyType/requireLowercase</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one lowercase letter in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireLowercase</Declaration>
+			
+			
+			<Anchor>//api/name/requireLowercase</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderPasswordPolicyType/setRequireNumbers:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one number in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireNumbers</Declaration>
+			
+			
+			<Anchor>//api/name/requireNumbers</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderPasswordPolicyType/requireNumbers</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one number in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireNumbers</Declaration>
+			
+			
+			<Anchor>//api/name/requireNumbers</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderPasswordPolicyType/requireNumbers</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one number in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireNumbers</Declaration>
+			
+			
+			<Anchor>//api/name/requireNumbers</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderPasswordPolicyType/setRequireSymbols:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireSymbols</Declaration>
+			
+			
+			<Anchor>//api/name/requireSymbols</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderPasswordPolicyType/requireSymbols</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireSymbols</Declaration>
+			
+			
+			<Anchor>//api/name/requireSymbols</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderPasswordPolicyType/requireSymbols</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one symbol in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireSymbols</Declaration>
+			
+			
+			<Anchor>//api/name/requireSymbols</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderPasswordPolicyType/setRequireUppercase:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireUppercase</Declaration>
+			
+			
+			<Anchor>//api/name/requireUppercase</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderPasswordPolicyType/requireUppercase</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireUppercase</Declaration>
+			
+			
+			<Anchor>//api/name/requireUppercase</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderPasswordPolicyType/requireUppercase</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;In the password policy that you have set, refers to whether you have required users to use at least one uppercase letter in their password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requireUppercase</Declaration>
+			
+			
+			<Anchor>//api/name/requireUppercase</Anchor>
+            <NodeRef refid="388"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

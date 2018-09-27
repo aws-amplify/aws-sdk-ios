@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSSESBounceType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSSESBounceType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2685"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBounceTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBounceTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2685"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBounceTypeDoesNotExist</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBounceTypeDoesNotExist</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2685"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBounceTypeMessageTooLarge</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBounceTypeMessageTooLarge</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2685"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBounceTypeExceededQuota</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBounceTypeExceededQuota</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2685"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBounceTypeContentRejected</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBounceTypeContentRejected</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2685"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBounceTypeUndefined</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBounceTypeUndefined</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2685"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBounceTypeTemporaryFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBounceTypeTemporaryFailure</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2685"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

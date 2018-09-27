@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3GetBucketVersioningOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3GetBucketVersioningOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1873"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketVersioningOutput/setMFADelete:</TokenIdentifier>
+			<Abstract type="html">Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3MFADeleteStatus MFADelete</Declaration>
+			
+			
+			<Anchor>//api/name/MFADelete</Anchor>
+            <NodeRef refid="1873"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketVersioningOutput/MFADelete</TokenIdentifier>
+			<Abstract type="html">Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3MFADeleteStatus MFADelete</Declaration>
+			
+			
+			<Anchor>//api/name/MFADelete</Anchor>
+            <NodeRef refid="1873"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GetBucketVersioningOutput/MFADelete</TokenIdentifier>
+			<Abstract type="html">Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3MFADeleteStatus MFADelete</Declaration>
+			
+			
+			<Anchor>//api/name/MFADelete</Anchor>
+            <NodeRef refid="1873"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketVersioningOutput/setStatus:</TokenIdentifier>
+			<Abstract type="html">The versioning state of the bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3BucketVersioningStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1873"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketVersioningOutput/status</TokenIdentifier>
+			<Abstract type="html">The versioning state of the bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3BucketVersioningStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1873"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GetBucketVersioningOutput/status</TokenIdentifier>
+			<Abstract type="html">The versioning state of the bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3BucketVersioningStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1873"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

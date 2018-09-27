@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionFaceDetection.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionFaceDetection</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a face detected in a video analysis request and the time the face was detected in the video. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1705"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetection/setFace:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The face properties for the detected face.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFaceDetail *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1705"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetection/face</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The face properties for the detected face.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFaceDetail *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1705"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetection/face</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The face properties for the detected face.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFaceDetail *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1705"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetection/setTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time, in milliseconds from the start of the video, that the face was detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1705"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetection/timestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time, in milliseconds from the start of the video, that the face was detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1705"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetection/timestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time, in milliseconds from the start of the video, that the face was detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1705"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

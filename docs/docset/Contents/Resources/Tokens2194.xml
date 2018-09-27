@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESVerifyDomainIdentityResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESVerifyDomainIdentityResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a TXT record that you must publish to the DNS server of your domain to complete domain verification with Amazon SES.&lt;/p&gt;
+Required parameters: [VerificationToken]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2194"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESVerifyDomainIdentityResponse/setVerificationToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES.&lt;/p&gt;&lt;p&gt;As Amazon SES searches for the TXT record, the domain&apos;s verification status is &quot;Pending&quot;. When Amazon SES detects the record, the domain&apos;s verification status changes to &quot;Success&quot;. If Amazon SES is unable to detect the record within 72 hours, the domain&apos;s verification status changes to &quot;Failed.&quot; In that case, if you still want to verify the domain, you must restart the verification process from the beginning.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *verificationToken</Declaration>
+			
+			
+			<Anchor>//api/name/verificationToken</Anchor>
+            <NodeRef refid="2194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESVerifyDomainIdentityResponse/verificationToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES.&lt;/p&gt;&lt;p&gt;As Amazon SES searches for the TXT record, the domain&apos;s verification status is &quot;Pending&quot;. When Amazon SES detects the record, the domain&apos;s verification status changes to &quot;Success&quot;. If Amazon SES is unable to detect the record within 72 hours, the domain&apos;s verification status changes to &quot;Failed.&quot; In that case, if you still want to verify the domain, you must restart the verification process from the beginning.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *verificationToken</Declaration>
+			
+			
+			<Anchor>//api/name/verificationToken</Anchor>
+            <NodeRef refid="2194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESVerifyDomainIdentityResponse/verificationToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES.&lt;/p&gt;&lt;p&gt;As Amazon SES searches for the TXT record, the domain&apos;s verification status is &quot;Pending&quot;. When Amazon SES detects the record, the domain&apos;s verification status changes to &quot;Success&quot;. If Amazon SES is unable to detect the record within 72 hours, the domain&apos;s verification status changes to &quot;Failed.&quot; In that case, if you still want to verify the domain, you must restart the verification process from the beginning.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *verificationToken</Declaration>
+			
+			
+			<Anchor>//api/name/verificationToken</Anchor>
+            <NodeRef refid="2194"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

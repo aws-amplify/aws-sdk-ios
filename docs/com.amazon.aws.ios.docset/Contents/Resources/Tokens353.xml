@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="353"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse/setMfaConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The multi-factor (MFA) configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/mfaConfiguration</Anchor>
+            <NodeRef refid="353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse/mfaConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The multi-factor (MFA) configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/mfaConfiguration</Anchor>
+            <NodeRef refid="353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse/mfaConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The multi-factor (MFA) configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderUserPoolMfaType mfaConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/mfaConfiguration</Anchor>
+            <NodeRef refid="353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse/setSmsMfaConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS text message multi-factor (MFA) configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSmsMfaConfigType *smsMfaConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/smsMfaConfiguration</Anchor>
+            <NodeRef refid="353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse/smsMfaConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS text message multi-factor (MFA) configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSmsMfaConfigType *smsMfaConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/smsMfaConfiguration</Anchor>
+            <NodeRef refid="353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse/smsMfaConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS text message multi-factor (MFA) configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSmsMfaConfigType *smsMfaConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/smsMfaConfiguration</Anchor>
+            <NodeRef refid="353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse/setSoftwareTokenMfaConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The software token multi-factor (MFA) configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaConfigType *softwareTokenMfaConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/softwareTokenMfaConfiguration</Anchor>
+            <NodeRef refid="353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse/softwareTokenMfaConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The software token multi-factor (MFA) configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaConfigType *softwareTokenMfaConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/softwareTokenMfaConfiguration</Anchor>
+            <NodeRef refid="353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse/softwareTokenMfaConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The software token multi-factor (MFA) configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaConfigType *softwareTokenMfaConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/softwareTokenMfaConfiguration</Anchor>
+            <NodeRef refid="353"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

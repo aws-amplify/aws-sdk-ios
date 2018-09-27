@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESListTemplatesRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESListTemplatesRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2125"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListTemplatesRequest/setMaxItems:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="2125"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListTemplatesRequest/maxItems</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="2125"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESListTemplatesRequest/maxItems</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="2125"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListTemplatesRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A token returned from a previous call to &lt;code&gt;ListTemplates&lt;/code&gt; to indicate the position in the list of email templates.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2125"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListTemplatesRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A token returned from a previous call to &lt;code&gt;ListTemplates&lt;/code&gt; to indicate the position in the list of email templates.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2125"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESListTemplatesRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A token returned from a previous call to &lt;code&gt;ListTemplates&lt;/code&gt; to indicate the position in the list of email templates.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2125"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

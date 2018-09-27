@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSSESDimensionValueSource.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSSESDimensionValueSource</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2689"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESDimensionValueSourceUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESDimensionValueSourceUnknown</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2689"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESDimensionValueSourceMessageTag</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESDimensionValueSourceMessageTag</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2689"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESDimensionValueSourceEmailHeader</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESDimensionValueSourceEmailHeader</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2689"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESDimensionValueSourceLinkTag</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESDimensionValueSourceLinkTag</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2689"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

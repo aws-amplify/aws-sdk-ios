@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendTopicsDetectionJobProperties.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendTopicsDetectionJobProperties</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides information about a topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="552"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/setEndTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time that the topic detection job was completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *endTime</Declaration>
+			
+			
+			<Anchor>//api/name/endTime</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/endTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time that the topic detection job was completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *endTime</Declaration>
+			
+			
+			<Anchor>//api/name/endTime</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobProperties/endTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time that the topic detection job was completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *endTime</Declaration>
+			
+			
+			<Anchor>//api/name/endTime</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/setInputDataConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input data configuration supplied when you created the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendInputDataConfig *inputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/inputDataConfig</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/inputDataConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input data configuration supplied when you created the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendInputDataConfig *inputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/inputDataConfig</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobProperties/inputDataConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input data configuration supplied when you created the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendInputDataConfig *inputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/inputDataConfig</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/setJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier assigned to the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier assigned to the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobProperties/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier assigned to the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/setJobName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/jobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobProperties/jobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/setJobStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the topic detection job. If the status is &lt;code&gt;Failed&lt;/code&gt;, the reason for the failure is shown in the &lt;code&gt;Message&lt;/code&gt; field.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/jobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the topic detection job. If the status is &lt;code&gt;Failed&lt;/code&gt;, the reason for the failure is shown in the &lt;code&gt;Message&lt;/code&gt; field.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobProperties/jobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the topic detection job. If the status is &lt;code&gt;Failed&lt;/code&gt;, the reason for the failure is shown in the &lt;code&gt;Message&lt;/code&gt; field.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/setMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A description for the status of a job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/message</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A description for the status of a job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobProperties/message</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A description for the status of a job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/setNumberOfTopics:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of topics to detect supplied when you created the topic detection job. The default is 10. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfTopics</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfTopics</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/numberOfTopics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of topics to detect supplied when you created the topic detection job. The default is 10. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfTopics</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfTopics</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobProperties/numberOfTopics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of topics to detect supplied when you created the topic detection job. The default is 10. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfTopics</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfTopics</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/setOutputDataConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The output data configuration supplied when you created the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendOutputDataConfig *outputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/outputDataConfig</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/outputDataConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The output data configuration supplied when you created the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendOutputDataConfig *outputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/outputDataConfig</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobProperties/outputDataConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The output data configuration supplied when you created the topic detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendOutputDataConfig *outputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/outputDataConfig</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/setSubmitTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time that the topic detection job was submitted for processing.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *submitTime</Declaration>
+			
+			
+			<Anchor>//api/name/submitTime</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobProperties/submitTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time that the topic detection job was submitted for processing.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *submitTime</Declaration>
+			
+			
+			<Anchor>//api/name/submitTime</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobProperties/submitTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time that the topic detection job was submitted for processing.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *submitTime</Declaration>
+			
+			
+			<Anchor>//api/name/submitTime</Anchor>
+            <NodeRef refid="552"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingAPNSMessage.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingAPNSMessage</TokenIdentifier>
+			<Abstract type="html">APNS Message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1484"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setAction:</TokenIdentifier>
+			<Abstract type="html">The action that occurs if the user taps a push notification delivered by the campaign: OPENAPP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEPLINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user&apos;s device launches and opens a web page at the URL you specify. Possible values include: OPENAPP | DEEPLINK | URL</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingAction action</Declaration>
+			
+			
+			<Anchor>//api/name/action</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/action</TokenIdentifier>
+			<Abstract type="html">The action that occurs if the user taps a push notification delivered by the campaign: OPENAPP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEPLINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user&apos;s device launches and opens a web page at the URL you specify. Possible values include: OPENAPP | DEEPLINK | URL</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingAction action</Declaration>
+			
+			
+			<Anchor>//api/name/action</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/action</TokenIdentifier>
+			<Abstract type="html">The action that occurs if the user taps a push notification delivered by the campaign: OPENAPP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEPLINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user&apos;s device launches and opens a web page at the URL you specify. Possible values include: OPENAPP | DEEPLINK | URL</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingAction action</Declaration>
+			
+			
+			<Anchor>//api/name/action</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setBadge:</TokenIdentifier>
+			<Abstract type="html">Include this key when you want the system to modify the badge of your app icon. If this key is not included in the dictionary, the badge is not changed. To remove the badge, set the value of this key to 0.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *badge</Declaration>
+			
+			
+			<Anchor>//api/name/badge</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/badge</TokenIdentifier>
+			<Abstract type="html">Include this key when you want the system to modify the badge of your app icon. If this key is not included in the dictionary, the badge is not changed. To remove the badge, set the value of this key to 0.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *badge</Declaration>
+			
+			
+			<Anchor>//api/name/badge</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/badge</TokenIdentifier>
+			<Abstract type="html">Include this key when you want the system to modify the badge of your app icon. If this key is not included in the dictionary, the badge is not changed. To remove the badge, set the value of this key to 0.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *badge</Declaration>
+			
+			
+			<Anchor>//api/name/badge</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setBody:</TokenIdentifier>
+			<Abstract type="html">The message body of the notification, the email body or the text message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/body</TokenIdentifier>
+			<Abstract type="html">The message body of the notification, the email body or the text message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/body</TokenIdentifier>
+			<Abstract type="html">The message body of the notification, the email body or the text message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setCategory:</TokenIdentifier>
+			<Abstract type="html">Provide this key with a string value that represents the notification&apos;s type. This value corresponds to the value in the identifier property of one of your app&apos;s registered categories.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/category</TokenIdentifier>
+			<Abstract type="html">Provide this key with a string value that represents the notification&apos;s type. This value corresponds to the value in the identifier property of one of your app&apos;s registered categories.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/category</TokenIdentifier>
+			<Abstract type="html">Provide this key with a string value that represents the notification&apos;s type. This value corresponds to the value in the identifier property of one of your app&apos;s registered categories.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *category</Declaration>
+			
+			
+			<Anchor>//api/name/category</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setData:</TokenIdentifier>
+			<Abstract type="html">The data payload used for a silent push. This payload is added to the notifications&apos; data.pinpoint.jsonBody&apos; object</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/data</TokenIdentifier>
+			<Abstract type="html">The data payload used for a silent push. This payload is added to the notifications&apos; data.pinpoint.jsonBody&apos; object</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/data</TokenIdentifier>
+			<Abstract type="html">The data payload used for a silent push. This payload is added to the notifications&apos; data.pinpoint.jsonBody&apos; object</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setMediaUrl:</TokenIdentifier>
+			<Abstract type="html">The URL that points to a video used in the push notification.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mediaUrl</Declaration>
+			
+			
+			<Anchor>//api/name/mediaUrl</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/mediaUrl</TokenIdentifier>
+			<Abstract type="html">The URL that points to a video used in the push notification.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mediaUrl</Declaration>
+			
+			
+			<Anchor>//api/name/mediaUrl</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/mediaUrl</TokenIdentifier>
+			<Abstract type="html">The URL that points to a video used in the push notification.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mediaUrl</Declaration>
+			
+			
+			<Anchor>//api/name/mediaUrl</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setRawContent:</TokenIdentifier>
+			<Abstract type="html">The Raw JSON formatted string to be used as the payload. This value overrides the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rawContent</Declaration>
+			
+			
+			<Anchor>//api/name/rawContent</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/rawContent</TokenIdentifier>
+			<Abstract type="html">The Raw JSON formatted string to be used as the payload. This value overrides the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rawContent</Declaration>
+			
+			
+			<Anchor>//api/name/rawContent</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/rawContent</TokenIdentifier>
+			<Abstract type="html">The Raw JSON formatted string to be used as the payload. This value overrides the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rawContent</Declaration>
+			
+			
+			<Anchor>//api/name/rawContent</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setSilentPush:</TokenIdentifier>
+			<Abstract type="html">Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *silentPush</Declaration>
+			
+			
+			<Anchor>//api/name/silentPush</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/silentPush</TokenIdentifier>
+			<Abstract type="html">Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *silentPush</Declaration>
+			
+			
+			<Anchor>//api/name/silentPush</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/silentPush</TokenIdentifier>
+			<Abstract type="html">Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *silentPush</Declaration>
+			
+			
+			<Anchor>//api/name/silentPush</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setSound:</TokenIdentifier>
+			<Abstract type="html">Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app&apos;s main bundle or in the Library/Sounds folder of your app&apos;s data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sound</Declaration>
+			
+			
+			<Anchor>//api/name/sound</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/sound</TokenIdentifier>
+			<Abstract type="html">Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app&apos;s main bundle or in the Library/Sounds folder of your app&apos;s data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sound</Declaration>
+			
+			
+			<Anchor>//api/name/sound</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/sound</TokenIdentifier>
+			<Abstract type="html">Include this key when you want the system to play a sound. The value of this key is the name of a sound file in your app&apos;s main bundle or in the Library/Sounds folder of your app&apos;s data container. If the sound file cannot be found, or if you specify defaultfor the value, the system plays the default alert sound.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sound</Declaration>
+			
+			
+			<Anchor>//api/name/sound</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setSubstitutions:</TokenIdentifier>
+			<Abstract type="html">Default message substitutions. Can be overridden by individual address substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/substitutions</TokenIdentifier>
+			<Abstract type="html">Default message substitutions. Can be overridden by individual address substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/substitutions</TokenIdentifier>
+			<Abstract type="html">Default message substitutions. Can be overridden by individual address substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setThreadId:</TokenIdentifier>
+			<Abstract type="html">Provide this key with a string value that represents the app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *threadId</Declaration>
+			
+			
+			<Anchor>//api/name/threadId</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/threadId</TokenIdentifier>
+			<Abstract type="html">Provide this key with a string value that represents the app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *threadId</Declaration>
+			
+			
+			<Anchor>//api/name/threadId</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/threadId</TokenIdentifier>
+			<Abstract type="html">Provide this key with a string value that represents the app-specific identifier for grouping notifications. If you provide a Notification Content app extension, you can use this value to group your notifications together.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *threadId</Declaration>
+			
+			
+			<Anchor>//api/name/threadId</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setTitle:</TokenIdentifier>
+			<Abstract type="html">The message title that displays above the message on the user&apos;s device.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/title</TokenIdentifier>
+			<Abstract type="html">The message title that displays above the message on the user&apos;s device.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/title</TokenIdentifier>
+			<Abstract type="html">The message title that displays above the message on the user&apos;s device.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/setUrl:</TokenIdentifier>
+			<Abstract type="html">The URL to open in the user&apos;s mobile browser. Used if the value for Action is URL.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *url</Declaration>
+			
+			
+			<Anchor>//api/name/url</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSMessage/url</TokenIdentifier>
+			<Abstract type="html">The URL to open in the user&apos;s mobile browser. Used if the value for Action is URL.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *url</Declaration>
+			
+			
+			<Anchor>//api/name/url</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSMessage/url</TokenIdentifier>
+			<Abstract type="html">The URL to open in the user&apos;s mobile browser. Used if the value for Action is URL.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *url</Declaration>
+			
+			
+			<Anchor>//api/name/url</Anchor>
+            <NodeRef refid="1484"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

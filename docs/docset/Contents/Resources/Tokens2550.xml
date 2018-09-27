@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSKinesisMetricsName.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSKinesisMetricsName</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2550"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisMetricsNameUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisMetricsNameUnknown</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2550"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisMetricsNameIncomingBytes</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisMetricsNameIncomingBytes</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2550"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisMetricsNameIncomingRecords</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisMetricsNameIncomingRecords</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2550"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisMetricsNameOutgoingBytes</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisMetricsNameOutgoingBytes</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2550"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisMetricsNameOutgoingRecords</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisMetricsNameOutgoingRecords</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2550"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisMetricsNameWriteProvisionedThroughputExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisMetricsNameWriteProvisionedThroughputExceeded</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2550"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisMetricsNameReadProvisionedThroughputExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisMetricsNameReadProvisionedThroughputExceeded</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2550"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisMetricsNameIteratorAgeMilliseconds</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisMetricsNameIteratorAgeMilliseconds</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2550"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisMetricsNameAll</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisMetricsNameAll</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2550"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

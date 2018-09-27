@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTCreateThingTypeRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTCreateThingTypeRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input for the CreateThingType operation.&lt;/p&gt;
+Required parameters: [thingTypeName]</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="901"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateThingTypeRequest/setThingTypeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeName</Anchor>
+            <NodeRef refid="901"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateThingTypeRequest/thingTypeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeName</Anchor>
+            <NodeRef refid="901"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateThingTypeRequest/thingTypeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeName</Anchor>
+            <NodeRef refid="901"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateThingTypeRequest/setThingTypeProperties:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTThingTypeProperties *thingTypeProperties</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeProperties</Anchor>
+            <NodeRef refid="901"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateThingTypeRequest/thingTypeProperties</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTThingTypeProperties *thingTypeProperties</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeProperties</Anchor>
+            <NodeRef refid="901"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateThingTypeRequest/thingTypeProperties</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ThingTypeProperties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTThingTypeProperties *thingTypeProperties</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeProperties</Anchor>
+            <NodeRef refid="901"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

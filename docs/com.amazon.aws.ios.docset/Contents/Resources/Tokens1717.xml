@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionGetFaceDetectionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionGetFaceDetectionRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1717"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionRequest/setJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier for the face detection job. The &lt;code&gt;JobId&lt;/code&gt; is returned from &lt;code&gt;StartFaceDetection&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1717"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionRequest/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier for the face detection job. The &lt;code&gt;JobId&lt;/code&gt; is returned from &lt;code&gt;StartFaceDetection&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1717"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionRequest/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier for the face detection job. The &lt;code&gt;JobId&lt;/code&gt; is returned from &lt;code&gt;StartFaceDetection&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1717"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionRequest/setMaxResults:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1717"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1717"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1717"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1717"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1717"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the previous response was incomplete (because there are more faces to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of faces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1717"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

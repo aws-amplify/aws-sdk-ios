@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSMobileAnalyticsVirtualMonetizationEventBuilder.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSMobileAnalyticsVirtualMonetizationEventBuilder</TokenIdentifier>
+			<Abstract type="html">AWSMobileAnalyticsVirtualMonetizationEventBuilder builds monetization events to track virtual purchases from your In-Game store.
+In order to build a Virtual monetization event, you must call all of the setters on this builder.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1465"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSMobileAnalyticsVirtualMonetizationEventBuilder/builderWithEventClient:</TokenIdentifier>
+			<Abstract type="html">Create a monetization builder that can record purchase events from your In-Game Store</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>+ (AWSMobileAnalyticsVirtualMonetizationEventBuilder *)builderWithEventClient:(id&lt;AWSMobileAnalyticsEventClient&gt;)theEventClient</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theEventClient</Name>
+					<Abstract type="html">The event client used to create the event</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">a monetization event builder for In-Game store purchases</Abstract></ReturnValue>
+			<Anchor>//api/name/builderWithEventClient:</Anchor>
+            <NodeRef refid="1465"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsVirtualMonetizationEventBuilder/withProductId:</TokenIdentifier>
+			<Abstract type="html">Sets the product id for the item(s) being purchased</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>- (void)withProductId:(NSString *)theProductId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theProductId</Name>
+					<Abstract type="html">The product id of the item(s) being purchased</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/withProductId:</Anchor>
+            <NodeRef refid="1465"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsVirtualMonetizationEventBuilder/withItemPrice:</TokenIdentifier>
+			<Abstract type="html">Sets the item price of the item being purchased</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>- (void)withItemPrice:(double)theItemPrice</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theItemPrice</Name>
+					<Abstract type="html">The numerical item price</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/withItemPrice:</Anchor>
+            <NodeRef refid="1465"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsVirtualMonetizationEventBuilder/withQuantity:</TokenIdentifier>
+			<Abstract type="html">Sets the quantity of item(s) being purchased.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>- (void)withQuantity:(NSInteger)theQuantity</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theQuantity</Name>
+					<Abstract type="html">The quantity of items purchased</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/withQuantity:</Anchor>
+            <NodeRef refid="1465"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsVirtualMonetizationEventBuilder/withCurrency:</TokenIdentifier>
+			<Abstract type="html">Sets the currency of the item price</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>- (void)withCurrency:(NSString *)theCurrency</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theCurrency</Name>
+					<Abstract type="html">The currency of the item price</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/withCurrency:</Anchor>
+            <NodeRef refid="1465"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsVirtualMonetizationEventBuilder/build</TokenIdentifier>
+			<Abstract type="html">Builds the monetization event using the parameters set on the builder. You must
+still record the event.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsVirtualMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>- (id&lt;AWSMobileAnalyticsEvent&gt;)build</Declaration>
+			
+			<ReturnValue><Abstract type="html">an AWSMobileAnalyticsEvent to record</Abstract></ReturnValue>
+			<Anchor>//api/name/build</Anchor>
+            <NodeRef refid="1465"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsVirtualMonetizationEventBuilder/initWithEventClient:</TokenIdentifier>
+			<Abstract type="html">Initializes the AWSMobileAnalyticsMonetizationEventBuilder. This class is not meant to be initialized directly. This method should
+only be called/overridden by derived builders.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsVirtualMonetizationEventBuilder.m</DeclaredIn>
+			
+			<Declaration>- (AWSMobileAnalyticsVirtualMonetizationEventBuilder *)initWithEventClient:(id&lt;AWSMobileAnalyticsEventClient&gt;)theEventClient</Declaration>
+			
+			
+			<Anchor>//api/name/initWithEventClient:</Anchor>
+            <NodeRef refid="1465"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsVirtualMonetizationEventBuilder/isValid</TokenIdentifier>
+			<Abstract type="html">Determines if this builder is in a valid state. This method must be overridden in derived classes.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsVirtualMonetizationEventBuilder.m</DeclaredIn>
+			
+			<Declaration>- (BOOL)isValid</Declaration>
+			
+			<ReturnValue><Abstract type="html">YES if the Builder is valid, NO otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/isValid</Anchor>
+            <NodeRef refid="1465"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

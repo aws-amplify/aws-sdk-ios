@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLexVoiceButtonResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLexVoiceButtonResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1384"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/setIntent:</TokenIdentifier>
+			<Abstract type="html">Name of the intent being ellicited.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *intent</Declaration>
+			
+			
+			<Anchor>//api/name/intent</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/intent</TokenIdentifier>
+			<Abstract type="html">Name of the intent being ellicited.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *intent</Declaration>
+			
+			
+			<Anchor>//api/name/intent</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButtonResponse/intent</TokenIdentifier>
+			<Abstract type="html">Name of the intent being ellicited.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *intent</Declaration>
+			
+			
+			<Anchor>//api/name/intent</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/setOutputText:</TokenIdentifier>
+			<Abstract type="html">Text response.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *outputText</Declaration>
+			
+			
+			<Anchor>//api/name/outputText</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/outputText</TokenIdentifier>
+			<Abstract type="html">Text response.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *outputText</Declaration>
+			
+			
+			<Anchor>//api/name/outputText</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButtonResponse/outputText</TokenIdentifier>
+			<Abstract type="html">Text response.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *outputText</Declaration>
+			
+			
+			<Anchor>//api/name/outputText</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/setSlots:</TokenIdentifier>
+			<Abstract type="html">The slots which are currently filled in an ongoing dialog</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDictionary *slots</Declaration>
+			
+			
+			<Anchor>//api/name/slots</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/slots</TokenIdentifier>
+			<Abstract type="html">The slots which are currently filled in an ongoing dialog</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDictionary *slots</Declaration>
+			
+			
+			<Anchor>//api/name/slots</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButtonResponse/slots</TokenIdentifier>
+			<Abstract type="html">The slots which are currently filled in an ongoing dialog</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDictionary *slots</Declaration>
+			
+			
+			<Anchor>//api/name/slots</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/setElicitSlot:</TokenIdentifier>
+			<Abstract type="html">The slot which is being ellicited for an intent.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *elicitSlot</Declaration>
+			
+			
+			<Anchor>//api/name/elicitSlot</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/elicitSlot</TokenIdentifier>
+			<Abstract type="html">The slot which is being ellicited for an intent.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *elicitSlot</Declaration>
+			
+			
+			<Anchor>//api/name/elicitSlot</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButtonResponse/elicitSlot</TokenIdentifier>
+			<Abstract type="html">The slot which is being ellicited for an intent.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *elicitSlot</Declaration>
+			
+			
+			<Anchor>//api/name/elicitSlot</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/setDialogState:</TokenIdentifier>
+			<Abstract type="html">The current dialog state.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) AWSLexDialogState dialogState</Declaration>
+			
+			
+			<Anchor>//api/name/dialogState</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/dialogState</TokenIdentifier>
+			<Abstract type="html">The current dialog state.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) AWSLexDialogState dialogState</Declaration>
+			
+			
+			<Anchor>//api/name/dialogState</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButtonResponse/dialogState</TokenIdentifier>
+			<Abstract type="html">The current dialog state.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) AWSLexDialogState dialogState</Declaration>
+			
+			
+			<Anchor>//api/name/dialogState</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/setSessionAttributes:</TokenIdentifier>
+			<Abstract type="html">The session attributes returned from the service.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDictionary *sessionAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/sessionAttributes</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/sessionAttributes</TokenIdentifier>
+			<Abstract type="html">The session attributes returned from the service.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDictionary *sessionAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/sessionAttributes</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButtonResponse/sessionAttributes</TokenIdentifier>
+			<Abstract type="html">The session attributes returned from the service.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDictionary *sessionAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/sessionAttributes</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/setAudioStream:</TokenIdentifier>
+			<Abstract type="html">The audio stream . This may be null incase of a text response.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSData *audioStream</Declaration>
+			
+			
+			<Anchor>//api/name/audioStream</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/audioStream</TokenIdentifier>
+			<Abstract type="html">The audio stream . This may be null incase of a text response.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSData *audioStream</Declaration>
+			
+			
+			<Anchor>//api/name/audioStream</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButtonResponse/audioStream</TokenIdentifier>
+			<Abstract type="html">The audio stream . This may be null incase of a text response.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSData *audioStream</Declaration>
+			
+			
+			<Anchor>//api/name/audioStream</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/setAudioContentType:</TokenIdentifier>
+			<Abstract type="html">The format for the audio stream. This may be null if the audion stream is null.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *audioContentType</Declaration>
+			
+			
+			<Anchor>//api/name/audioContentType</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/audioContentType</TokenIdentifier>
+			<Abstract type="html">The format for the audio stream. This may be null if the audion stream is null.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *audioContentType</Declaration>
+			
+			
+			<Anchor>//api/name/audioContentType</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButtonResponse/audioContentType</TokenIdentifier>
+			<Abstract type="html">The format for the audio stream. This may be null if the audion stream is null.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *audioContentType</Declaration>
+			
+			
+			<Anchor>//api/name/audioContentType</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/setInputTranscript:</TokenIdentifier>
+			<Abstract type="html">Transcript of the voice input to the operation.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *inputTranscript</Declaration>
+			
+			
+			<Anchor>//api/name/inputTranscript</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButtonResponse/inputTranscript</TokenIdentifier>
+			<Abstract type="html">Transcript of the voice input to the operation.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *inputTranscript</Declaration>
+			
+			
+			<Anchor>//api/name/inputTranscript</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButtonResponse/inputTranscript</TokenIdentifier>
+			<Abstract type="html">Transcript of the voice input to the operation.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *inputTranscript</Declaration>
+			
+			
+			<Anchor>//api/name/inputTranscript</Anchor>
+            <NodeRef refid="1384"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

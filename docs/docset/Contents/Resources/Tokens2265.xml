@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSQSDeleteMessageBatchRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSQSDeleteMessageBatchRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;
+Required parameters: [QueueUrl, Entries]</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2265"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSDeleteMessageBatchRequest/setEntries:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of receipt handles for the messages to be deleted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSDeleteMessageBatchRequestEntry*&gt; *entries</Declaration>
+			
+			
+			<Anchor>//api/name/entries</Anchor>
+            <NodeRef refid="2265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSDeleteMessageBatchRequest/entries</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of receipt handles for the messages to be deleted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSDeleteMessageBatchRequestEntry*&gt; *entries</Declaration>
+			
+			
+			<Anchor>//api/name/entries</Anchor>
+            <NodeRef refid="2265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSDeleteMessageBatchRequest/entries</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of receipt handles for the messages to be deleted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSDeleteMessageBatchRequestEntry*&gt; *entries</Declaration>
+			
+			
+			<Anchor>//api/name/entries</Anchor>
+            <NodeRef refid="2265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSDeleteMessageBatchRequest/setQueueUrl:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of the Amazon SQS queue from which messages are deleted.&lt;/p&gt;&lt;p&gt;Queue URLs are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueUrl</Declaration>
+			
+			
+			<Anchor>//api/name/queueUrl</Anchor>
+            <NodeRef refid="2265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSDeleteMessageBatchRequest/queueUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of the Amazon SQS queue from which messages are deleted.&lt;/p&gt;&lt;p&gt;Queue URLs are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueUrl</Declaration>
+			
+			
+			<Anchor>//api/name/queueUrl</Anchor>
+            <NodeRef refid="2265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSDeleteMessageBatchRequest/queueUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of the Amazon SQS queue from which messages are deleted.&lt;/p&gt;&lt;p&gt;Queue URLs are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueUrl</Declaration>
+			
+			
+			<Anchor>//api/name/queueUrl</Anchor>
+            <NodeRef refid="2265"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

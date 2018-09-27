@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTMQTTConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTMQTTConfiguration</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1081"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/setBaseReconnectTimeInterval:</TokenIdentifier>
+			<Abstract type="html">The time in seconds to wait before attempting the first reconnect.  If the MQTT client
+becomes disconnected, it will attempt to reconnect after a quiet period; this quiet
+period doubles with each failed connection attempt, e.g. 1 second, 2 seconds, 4, 8,
+16, 32, etc... up until a maximum reconnection time (maximumReconnectTimeInterval) is
+reached.  If a connection is active for the minimum connection time
+(minimumConnectionTimeInterval), the quiet period is reset to the initial value.
+Default value: 1 second.
+  </Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval baseReconnectTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/baseReconnectTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/baseReconnectTimeInterval</TokenIdentifier>
+			<Abstract type="html">The time in seconds to wait before attempting the first reconnect.  If the MQTT client
+becomes disconnected, it will attempt to reconnect after a quiet period; this quiet
+period doubles with each failed connection attempt, e.g. 1 second, 2 seconds, 4, 8,
+16, 32, etc... up until a maximum reconnection time (maximumReconnectTimeInterval) is
+reached.  If a connection is active for the minimum connection time
+(minimumConnectionTimeInterval), the quiet period is reset to the initial value.
+Default value: 1 second.
+  </Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval baseReconnectTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/baseReconnectTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTMQTTConfiguration/baseReconnectTimeInterval</TokenIdentifier>
+			<Abstract type="html">The time in seconds to wait before attempting the first reconnect.  If the MQTT client
+becomes disconnected, it will attempt to reconnect after a quiet period; this quiet
+period doubles with each failed connection attempt, e.g. 1 second, 2 seconds, 4, 8,
+16, 32, etc... up until a maximum reconnection time (maximumReconnectTimeInterval) is
+reached.  If a connection is active for the minimum connection time
+(minimumConnectionTimeInterval), the quiet period is reset to the initial value.
+Default value: 1 second.
+  </Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval baseReconnectTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/baseReconnectTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/setMinimumConnectionTimeInterval:</TokenIdentifier>
+			<Abstract type="html">The time in seconds that a connection must be active before resetting
+the current reconnection time to the base reconnection time.  Default value:
+20 seconds.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval minimumConnectionTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/minimumConnectionTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/minimumConnectionTimeInterval</TokenIdentifier>
+			<Abstract type="html">The time in seconds that a connection must be active before resetting
+the current reconnection time to the base reconnection time.  Default value:
+20 seconds.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval minimumConnectionTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/minimumConnectionTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTMQTTConfiguration/minimumConnectionTimeInterval</TokenIdentifier>
+			<Abstract type="html">The time in seconds that a connection must be active before resetting
+the current reconnection time to the base reconnection time.  Default value:
+20 seconds.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval minimumConnectionTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/minimumConnectionTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/setMaximumReconnectTimeInterval:</TokenIdentifier>
+			<Abstract type="html">The maximum time in seconds to wait prior to attempting to reconnect.  Default value:
+128 seconds.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval maximumReconnectTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/maximumReconnectTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/maximumReconnectTimeInterval</TokenIdentifier>
+			<Abstract type="html">The maximum time in seconds to wait prior to attempting to reconnect.  Default value:
+128 seconds.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval maximumReconnectTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/maximumReconnectTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTMQTTConfiguration/maximumReconnectTimeInterval</TokenIdentifier>
+			<Abstract type="html">The maximum time in seconds to wait prior to attempting to reconnect.  Default value:
+128 seconds.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval maximumReconnectTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/maximumReconnectTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/setKeepAliveTimeInterval:</TokenIdentifier>
+			<Abstract type="html">The MQTT keep-alive time in seconds.  Default value: 60s seconds.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval keepAliveTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/keepAliveTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/keepAliveTimeInterval</TokenIdentifier>
+			<Abstract type="html">The MQTT keep-alive time in seconds.  Default value: 60s seconds.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval keepAliveTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/keepAliveTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTMQTTConfiguration/keepAliveTimeInterval</TokenIdentifier>
+			<Abstract type="html">The MQTT keep-alive time in seconds.  Default value: 60s seconds.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSTimeInterval keepAliveTimeInterval</Declaration>
+			
+			
+			<Anchor>//api/name/keepAliveTimeInterval</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/setLastWillAndTestament:</TokenIdentifier>
+			<Abstract type="html">The last will and testament (LWT) to be used when connecting to AWS IoT; in the event
+that this client disconnects improperly, AWS IoT will use this to notify any interested
+clients.  Default value: nil</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (atomic, strong, readonly) AWSIoTMQTTLastWillAndTestament *lastWillAndTestament</Declaration>
+			
+			
+			<Anchor>//api/name/lastWillAndTestament</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/lastWillAndTestament</TokenIdentifier>
+			<Abstract type="html">The last will and testament (LWT) to be used when connecting to AWS IoT; in the event
+that this client disconnects improperly, AWS IoT will use this to notify any interested
+clients.  Default value: nil</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (atomic, strong, readonly) AWSIoTMQTTLastWillAndTestament *lastWillAndTestament</Declaration>
+			
+			
+			<Anchor>//api/name/lastWillAndTestament</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTMQTTConfiguration/lastWillAndTestament</TokenIdentifier>
+			<Abstract type="html">The last will and testament (LWT) to be used when connecting to AWS IoT; in the event
+that this client disconnects improperly, AWS IoT will use this to notify any interested
+clients.  Default value: nil</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (atomic, strong, readonly) AWSIoTMQTTLastWillAndTestament *lastWillAndTestament</Declaration>
+			
+			
+			<Anchor>//api/name/lastWillAndTestament</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/setRunLoop:</TokenIdentifier>
+			<Abstract type="html">The run loop to execute the MQTT client in.  Default value: [NSRunLoop currentRunLoop]</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (atomic, strong, readonly) NSRunLoop *runLoop</Declaration>
+			
+			
+			<Anchor>//api/name/runLoop</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/runLoop</TokenIdentifier>
+			<Abstract type="html">The run loop to execute the MQTT client in.  Default value: [NSRunLoop currentRunLoop]</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (atomic, strong, readonly) NSRunLoop *runLoop</Declaration>
+			
+			
+			<Anchor>//api/name/runLoop</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTMQTTConfiguration/runLoop</TokenIdentifier>
+			<Abstract type="html">The run loop to execute the MQTT client in.  Default value: [NSRunLoop currentRunLoop]</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (atomic, strong, readonly) NSRunLoop *runLoop</Declaration>
+			
+			
+			<Anchor>//api/name/runLoop</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/setRunLoopMode:</TokenIdentifier>
+			<Abstract type="html">The run loop mode to use when executing the MQTT client.  Default value: NSDefaultRunLoopMode</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *runLoopMode</Declaration>
+			
+			
+			<Anchor>//api/name/runLoopMode</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/runLoopMode</TokenIdentifier>
+			<Abstract type="html">The run loop mode to use when executing the MQTT client.  Default value: NSDefaultRunLoopMode</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *runLoopMode</Declaration>
+			
+			
+			<Anchor>//api/name/runLoopMode</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTMQTTConfiguration/runLoopMode</TokenIdentifier>
+			<Abstract type="html">The run loop mode to use when executing the MQTT client.  Default value: NSDefaultRunLoopMode</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *runLoopMode</Declaration>
+			
+			
+			<Anchor>//api/name/runLoopMode</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/setAutoResubscribe:</TokenIdentifier>
+			<Abstract type="html">Boolean flag to indicate whether auto-resubscribe feature is enabled. Default value: YES
+When enabled, in the event of abnormal network disconnection, the sdk automatically
+subscribes to previously subscribed topics.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) BOOL autoResubscribe</Declaration>
+			
+			
+			<Anchor>//api/name/autoResubscribe</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/autoResubscribe</TokenIdentifier>
+			<Abstract type="html">Boolean flag to indicate whether auto-resubscribe feature is enabled. Default value: YES
+When enabled, in the event of abnormal network disconnection, the sdk automatically
+subscribes to previously subscribed topics.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) BOOL autoResubscribe</Declaration>
+			
+			
+			<Anchor>//api/name/autoResubscribe</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTMQTTConfiguration/autoResubscribe</TokenIdentifier>
+			<Abstract type="html">Boolean flag to indicate whether auto-resubscribe feature is enabled. Default value: YES
+When enabled, in the event of abnormal network disconnection, the sdk automatically
+subscribes to previously subscribed topics.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) BOOL autoResubscribe</Declaration>
+			
+			
+			<Anchor>//api/name/autoResubscribe</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/setPublishRetryThrottle:</TokenIdentifier>
+			<Abstract type="html">The max number of publish messages to retry per second if the pub-ack is not received within 60 seconds
+*</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSUInteger publishRetryThrottle</Declaration>
+			
+			
+			<Anchor>//api/name/publishRetryThrottle</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/publishRetryThrottle</TokenIdentifier>
+			<Abstract type="html">The max number of publish messages to retry per second if the pub-ack is not received within 60 seconds
+*</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSUInteger publishRetryThrottle</Declaration>
+			
+			
+			<Anchor>//api/name/publishRetryThrottle</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTMQTTConfiguration/publishRetryThrottle</TokenIdentifier>
+			<Abstract type="html">The max number of publish messages to retry per second if the pub-ack is not received within 60 seconds
+*</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign, readonly) NSUInteger publishRetryThrottle</Declaration>
+			
+			
+			<Anchor>//api/name/publishRetryThrottle</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:</TokenIdentifier>
+			<Abstract type="html">Create an AWSIoTMQTTConfiguration object and initialize its parameters.
+The AWSIoTMQTTConfiguration object is then passed to AWSIoTDataManager to initialize it.
+Note, clients need to either specify all parameters explicitly or not customize any
+parameter in which case default parameter values will be used to initialize
+AWSIoTMqttConfiguration.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithKeepAliveTimeInterval:(NSTimeInterval)kat baseReconnectTimeInterval:(NSTimeInterval)brt minimumConnectionTimeInterval:(NSTimeInterval)mct maximumReconnectTimeInterval:(NSTimeInterval)mrt runLoop:(NSRunLoop *)rlp runLoopMode:(NSString *)rlm autoResubscribe:(BOOL)ars lastWillAndTestament:(AWSIoTMQTTLastWillAndTestament *)lwt</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>kat</Name>
+					<Abstract type="html">keepAliveTimeInterval, Mqtt Keep Alive time in seconds</Abstract>
+				</Parameter><Parameter>
+					<Name>brt</Name>
+					<Abstract type="html">baseReconnectTimeInterval, The time in seconds to wait before attempting
+                the first reconnect</Abstract>
+				</Parameter><Parameter>
+					<Name>mct</Name>
+					<Abstract type="html">minimumConnectionTimeInterval, The time in seconds that a connection
+                must be active before resetting the current reconnection time to the
+                base reconnection time.</Abstract>
+				</Parameter><Parameter>
+					<Name>mrt</Name>
+					<Abstract type="html">maximumReconnectTimeInterval, The maximum time in seconds to wait prior
+                to attempting to reconnect</Abstract>
+				</Parameter><Parameter>
+					<Name>rlp</Name>
+					<Abstract type="html">The run loop to execute the MQTT client in</Abstract>
+				</Parameter><Parameter>
+					<Name>rlm</Name>
+					<Abstract type="html">The run loop mode to use when executing the MQTT client</Abstract>
+				</Parameter><Parameter>
+					<Name>ars</Name>
+					<Abstract type="html">autoResubscribe, Boolean flag to indicate whether auto-resubscribe
+                feature is enabled</Abstract>
+				</Parameter><Parameter>
+					<Name>lwt</Name>
+					<Abstract type="html">lastWillAndTestament, The last will and testament (LWT) to be used
+                when connecting to AWS IoT</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTMQTTConfiguration/initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:publishRetryThrottle:</TokenIdentifier>
+			<Abstract type="html">Create an AWSIoTMQTTConfiguration object and initialize its parameters.
+The AWSIoTMQTTConfiguration object is then passed to AWSIoTDataManager to initialize it.
+Note, clients need to either specify all parameters explicitly or not customize any
+parameter in which case default parameter values will be used to initialize
+AWSIoTMqttConfiguration.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithKeepAliveTimeInterval:(NSTimeInterval)kat baseReconnectTimeInterval:(NSTimeInterval)brt minimumConnectionTimeInterval:(NSTimeInterval)mct maximumReconnectTimeInterval:(NSTimeInterval)mrt runLoop:(NSRunLoop *)rlp runLoopMode:(NSString *)rlm autoResubscribe:(BOOL)ars lastWillAndTestament:(AWSIoTMQTTLastWillAndTestament *)lwt publishRetryThrottle:(NSUInteger)prt</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>kat</Name>
+					<Abstract type="html">keepAliveTimeInterval, Mqtt Keep Alive time in seconds</Abstract>
+				</Parameter><Parameter>
+					<Name>brt</Name>
+					<Abstract type="html">baseReconnectTimeInterval, The time in seconds to wait before attempting
+the first reconnect</Abstract>
+				</Parameter><Parameter>
+					<Name>mct</Name>
+					<Abstract type="html">minimumConnectionTimeInterval, The time in seconds that a connection
+must be active before resetting the current reconnection time to the
+base reconnection time.</Abstract>
+				</Parameter><Parameter>
+					<Name>mrt</Name>
+					<Abstract type="html">maximumReconnectTimeInterval, The maximum time in seconds to wait prior
+to attempting to reconnect</Abstract>
+				</Parameter><Parameter>
+					<Name>rlp</Name>
+					<Abstract type="html">The run loop to execute the MQTT client in</Abstract>
+				</Parameter><Parameter>
+					<Name>rlm</Name>
+					<Abstract type="html">The run loop mode to use when executing the MQTT client</Abstract>
+				</Parameter><Parameter>
+					<Name>ars</Name>
+					<Abstract type="html">autoResubscribe, Boolean flag to indicate whether auto-resubscribe
+feature is enabled</Abstract>
+				</Parameter><Parameter>
+					<Name>lwt</Name>
+					<Abstract type="html">lastWillAndTestament, The last will and testament (LWT) to be used
+when connecting to AWS IoT</Abstract>
+				</Parameter><Parameter>
+					<Name>prt</Name>
+					<Abstract type="html">publishRetryThrottle, the max number of publish messages to retry per second
+if the pub-ack is not received within 60 seconds</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithKeepAliveTimeInterval:baseReconnectTimeInterval:minimumConnectionTimeInterval:maximumReconnectTimeInterval:runLoop:runLoopMode:autoResubscribe:lastWillAndTestament:publishRetryThrottle:</Anchor>
+            <NodeRef refid="1081"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

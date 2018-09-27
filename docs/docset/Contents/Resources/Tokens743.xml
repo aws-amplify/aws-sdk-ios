@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingLBCookieStickinessPolicy.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingLBCookieStickinessPolicy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a policy for duration-based session stickiness.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="743"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLBCookieStickinessPolicy/setCookieExpirationPeriod:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *cookieExpirationPeriod</Declaration>
+			
+			
+			<Anchor>//api/name/cookieExpirationPeriod</Anchor>
+            <NodeRef refid="743"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLBCookieStickinessPolicy/cookieExpirationPeriod</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *cookieExpirationPeriod</Declaration>
+			
+			
+			<Anchor>//api/name/cookieExpirationPeriod</Anchor>
+            <NodeRef refid="743"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingLBCookieStickinessPolicy/cookieExpirationPeriod</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time period, in seconds, after which the cookie should be considered stale. If this parameter is not specified, the stickiness session lasts for the duration of the browser session.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *cookieExpirationPeriod</Declaration>
+			
+			
+			<Anchor>//api/name/cookieExpirationPeriod</Anchor>
+            <NodeRef refid="743"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLBCookieStickinessPolicy/setPolicyName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the policy. This name must be unique within the set of policies for this load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="743"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLBCookieStickinessPolicy/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the policy. This name must be unique within the set of policies for this load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="743"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingLBCookieStickinessPolicy/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the policy. This name must be unique within the set of policies for this load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="743"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

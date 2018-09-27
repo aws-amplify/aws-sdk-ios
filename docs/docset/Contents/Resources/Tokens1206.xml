@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSListKeyPoliciesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSListKeyPoliciesResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1206"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListKeyPoliciesResponse/setNextMarker:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When &lt;code&gt;Truncated&lt;/code&gt; is true, this element is present and contains the value to use for the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1206"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListKeyPoliciesResponse/nextMarker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When &lt;code&gt;Truncated&lt;/code&gt; is true, this element is present and contains the value to use for the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1206"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSListKeyPoliciesResponse/nextMarker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When &lt;code&gt;Truncated&lt;/code&gt; is true, this element is present and contains the value to use for the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1206"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListKeyPoliciesResponse/setPolicyNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of key policy names. Currently, there is only one key policy per CMK and it is always named &lt;code&gt;default&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *policyNames</Declaration>
+			
+			
+			<Anchor>//api/name/policyNames</Anchor>
+            <NodeRef refid="1206"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListKeyPoliciesResponse/policyNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of key policy names. Currently, there is only one key policy per CMK and it is always named &lt;code&gt;default&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *policyNames</Declaration>
+			
+			
+			<Anchor>//api/name/policyNames</Anchor>
+            <NodeRef refid="1206"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSListKeyPoliciesResponse/policyNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of key policy names. Currently, there is only one key policy per CMK and it is always named &lt;code&gt;default&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *policyNames</Declaration>
+			
+			
+			<Anchor>//api/name/policyNames</Anchor>
+            <NodeRef refid="1206"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListKeyPoliciesResponse/setTruncated:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the &lt;code&gt;NextMarker&lt;/code&gt; element in this response to the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *truncated</Declaration>
+			
+			
+			<Anchor>//api/name/truncated</Anchor>
+            <NodeRef refid="1206"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListKeyPoliciesResponse/truncated</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the &lt;code&gt;NextMarker&lt;/code&gt; element in this response to the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *truncated</Declaration>
+			
+			
+			<Anchor>//api/name/truncated</Anchor>
+            <NodeRef refid="1206"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSListKeyPoliciesResponse/truncated</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the &lt;code&gt;NextMarker&lt;/code&gt; element in this response to the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *truncated</Declaration>
+			
+			
+			<Anchor>//api/name/truncated</Anchor>
+            <NodeRef refid="1206"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTDenied.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTDenied</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains information that denied the authorization.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="939"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDenied/setExplicitDeny:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information that explicitly denies the authorization. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTExplicitDeny *explicitDeny</Declaration>
+			
+			
+			<Anchor>//api/name/explicitDeny</Anchor>
+            <NodeRef refid="939"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDenied/explicitDeny</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information that explicitly denies the authorization. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTExplicitDeny *explicitDeny</Declaration>
+			
+			
+			<Anchor>//api/name/explicitDeny</Anchor>
+            <NodeRef refid="939"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDenied/explicitDeny</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information that explicitly denies the authorization. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTExplicitDeny *explicitDeny</Declaration>
+			
+			
+			<Anchor>//api/name/explicitDeny</Anchor>
+            <NodeRef refid="939"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDenied/setImplicitDeny:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information that implicitly denies the authorization. When a policy doesn&apos;t explicitly deny or allow an action on a resource it is considered an implicit deny.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTImplicitDeny *implicitDeny</Declaration>
+			
+			
+			<Anchor>//api/name/implicitDeny</Anchor>
+            <NodeRef refid="939"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDenied/implicitDeny</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information that implicitly denies the authorization. When a policy doesn&apos;t explicitly deny or allow an action on a resource it is considered an implicit deny.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTImplicitDeny *implicitDeny</Declaration>
+			
+			
+			<Anchor>//api/name/implicitDeny</Anchor>
+            <NodeRef refid="939"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDenied/implicitDeny</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information that implicitly denies the authorization. When a policy doesn&apos;t explicitly deny or allow an action on a resource it is considered an implicit deny.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTImplicitDeny *implicitDeny</Declaration>
+			
+			
+			<Anchor>//api/name/implicitDeny</Anchor>
+            <NodeRef refid="939"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

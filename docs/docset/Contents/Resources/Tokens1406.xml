@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsDescribeLogStreamsRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeLogStreamsRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1406"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/setDescending:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *descending</Declaration>
+			
+			
+			<Anchor>//api/name/descending</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/descending</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *descending</Declaration>
+			
+			
+			<Anchor>//api/name/descending</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsDescribeLogStreamsRequest/descending</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the value is true, results are returned in descending order. If the value is to false, results are returned in ascending order. The default value is false.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *descending</Declaration>
+			
+			
+			<Anchor>//api/name/descending</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/setLimit:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of items returned. If you don&apos;t specify a value, the default is up to 50 items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of items returned. If you don&apos;t specify a value, the default is up to 50 items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsDescribeLogStreamsRequest/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of items returned. If you don&apos;t specify a value, the default is up to 50 items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/setLogGroupName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/logGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsDescribeLogStreamsRequest/logGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/setLogStreamNamePrefix:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The prefix to match.&lt;/p&gt;&lt;p&gt;If &lt;code&gt;orderBy&lt;/code&gt; is &lt;code&gt;LastEventTime&lt;/code&gt;,you cannot specify this parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamNamePrefix</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/logStreamNamePrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The prefix to match.&lt;/p&gt;&lt;p&gt;If &lt;code&gt;orderBy&lt;/code&gt; is &lt;code&gt;LastEventTime&lt;/code&gt;,you cannot specify this parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamNamePrefix</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsDescribeLogStreamsRequest/logStreamNamePrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The prefix to match.&lt;/p&gt;&lt;p&gt;If &lt;code&gt;orderBy&lt;/code&gt; is &lt;code&gt;LastEventTime&lt;/code&gt;,you cannot specify this parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamNamePrefix</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items to return. (You received this token from a previous call.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items to return. (You received this token from a previous call.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsDescribeLogStreamsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items to return. (You received this token from a previous call.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/setOrderBy:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the value is &lt;code&gt;LogStreamName&lt;/code&gt;, the results are ordered by log stream name. If the value is &lt;code&gt;LastEventTime&lt;/code&gt;, the results are ordered by the event time. The default value is &lt;code&gt;LogStreamName&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;If you order the results by event time, you cannot specify the &lt;code&gt;logStreamNamePrefix&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;lastEventTimestamp represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLogsOrderBy orderBy</Declaration>
+			
+			
+			<Anchor>//api/name/orderBy</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeLogStreamsRequest/orderBy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the value is &lt;code&gt;LogStreamName&lt;/code&gt;, the results are ordered by log stream name. If the value is &lt;code&gt;LastEventTime&lt;/code&gt;, the results are ordered by the event time. The default value is &lt;code&gt;LogStreamName&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;If you order the results by event time, you cannot specify the &lt;code&gt;logStreamNamePrefix&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;lastEventTimestamp represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLogsOrderBy orderBy</Declaration>
+			
+			
+			<Anchor>//api/name/orderBy</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsDescribeLogStreamsRequest/orderBy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the value is &lt;code&gt;LogStreamName&lt;/code&gt;, the results are ordered by log stream name. If the value is &lt;code&gt;LastEventTime&lt;/code&gt;, the results are ordered by the event time. The default value is &lt;code&gt;LogStreamName&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;If you order the results by event time, you cannot specify the &lt;code&gt;logStreamNamePrefix&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;lastEventTimestamp represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLogsOrderBy orderBy</Declaration>
+			
+			
+			<Anchor>//api/name/orderBy</Anchor>
+            <NodeRef refid="1406"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

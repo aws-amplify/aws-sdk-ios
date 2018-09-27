@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCognitoIdentityProviderAccountTakeoverEventActionType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCognitoIdentityProviderAccountTakeoverEventActionType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2420"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderAccountTakeoverEventActionTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderAccountTakeoverEventActionTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2420"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderAccountTakeoverEventActionTypeBlock</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderAccountTakeoverEventActionTypeBlock</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2420"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderAccountTakeoverEventActionTypeMfaIfConfigured</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderAccountTakeoverEventActionTypeMfaIfConfigured</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2420"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderAccountTakeoverEventActionTypeMfaRequired</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderAccountTakeoverEventActionTypeMfaRequired</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2420"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderAccountTakeoverEventActionTypeNoAction</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderAccountTakeoverEventActionTypeNoAction</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2420"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

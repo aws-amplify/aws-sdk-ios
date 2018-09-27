@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFormTableCell.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFormTableCell</TokenIdentifier>
+			<Abstract type="html">High level construct to create a cell in the form requiring user input.</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+            
+			
+			<NodeRef refid="842"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFormTableCell/setPlaceHolder:</TokenIdentifier>
+			<Abstract type="html">The placeholder text that appears on an input field
+*</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic, readonly) NSString *placeHolder</Declaration>
+			
+			
+			<Anchor>//api/name/placeHolder</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFormTableCell/placeHolder</TokenIdentifier>
+			<Abstract type="html">The placeholder text that appears on an input field
+*</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic, readonly) NSString *placeHolder</Declaration>
+			
+			
+			<Anchor>//api/name/placeHolder</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFormTableCell/placeHolder</TokenIdentifier>
+			<Abstract type="html">The placeholder text that appears on an input field
+*</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic, readonly) NSString *placeHolder</Declaration>
+			
+			
+			<Anchor>//api/name/placeHolder</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFormTableCell/setInputType:</TokenIdentifier>
+			<Abstract type="html">The type of input for the input field
+*</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) InputType inputType</Declaration>
+			
+			
+			<Anchor>//api/name/inputType</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFormTableCell/inputType</TokenIdentifier>
+			<Abstract type="html">The type of input for the input field
+*</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) InputType inputType</Declaration>
+			
+			
+			<Anchor>//api/name/inputType</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFormTableCell/inputType</TokenIdentifier>
+			<Abstract type="html">The type of input for the input field
+*</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) InputType inputType</Declaration>
+			
+			
+			<Anchor>//api/name/inputType</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFormTableCell/setStaticText:</TokenIdentifier>
+			<Abstract type="html">The default text in the input field
+*</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic, readonly) NSString *staticText</Declaration>
+			
+			
+			<Anchor>//api/name/staticText</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFormTableCell/staticText</TokenIdentifier>
+			<Abstract type="html">The default text in the input field
+*</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic, readonly) NSString *staticText</Declaration>
+			
+			
+			<Anchor>//api/name/staticText</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFormTableCell/staticText</TokenIdentifier>
+			<Abstract type="html">The default text in the input field
+*</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic, readonly) NSString *staticText</Declaration>
+			
+			
+			<Anchor>//api/name/staticText</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFormTableCell/initWithPlaceHolder:type:</TokenIdentifier>
+			<Abstract type="html">Initializers for cell to be added</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithPlaceHolder:(NSString *)placeHolder type:(InputType)inputType</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>placeHolder</Name>
+					<Abstract type="html">The PlaceHolder String</Abstract>
+				</Parameter><Parameter>
+					<Name>inputType</Name>
+					<Abstract type="html">The type of the input</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithPlaceHolder:type:</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFormTableCell/initWithPlaceHolder:staticText:</TokenIdentifier>
+			<Abstract type="html">Initializer for cells to be displayed with static text.</Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithPlaceHolder:(NSString *)placeHolder staticText:(NSString *)staticText</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>placeHolder</Name>
+					<Abstract type="html">The PlaceHolder String</Abstract>
+				</Parameter><Parameter>
+					<Name>staticText</Name>
+					<Abstract type="html">The StaticText String</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithPlaceHolder:staticText:</Anchor>
+            <NodeRef refid="842"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

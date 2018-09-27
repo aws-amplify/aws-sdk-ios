@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoTagStreamOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoTagStreamOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1301"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

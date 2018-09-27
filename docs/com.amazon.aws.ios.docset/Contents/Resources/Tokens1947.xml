@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3PutBucketAccelerateConfigurationRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3PutBucketAccelerateConfigurationRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1947"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutBucketAccelerateConfigurationRequest/setAccelerateConfiguration:</TokenIdentifier>
+			<Abstract type="html">Specifies the Accelerate Configuration you want to set for the bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3AccelerateConfiguration *accelerateConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/accelerateConfiguration</Anchor>
+            <NodeRef refid="1947"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutBucketAccelerateConfigurationRequest/accelerateConfiguration</TokenIdentifier>
+			<Abstract type="html">Specifies the Accelerate Configuration you want to set for the bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3AccelerateConfiguration *accelerateConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/accelerateConfiguration</Anchor>
+            <NodeRef refid="1947"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutBucketAccelerateConfigurationRequest/accelerateConfiguration</TokenIdentifier>
+			<Abstract type="html">Specifies the Accelerate Configuration you want to set for the bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3AccelerateConfiguration *accelerateConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/accelerateConfiguration</Anchor>
+            <NodeRef refid="1947"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutBucketAccelerateConfigurationRequest/setBucket:</TokenIdentifier>
+			<Abstract type="html">Name of the bucket for which the accelerate configuration is set.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1947"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutBucketAccelerateConfigurationRequest/bucket</TokenIdentifier>
+			<Abstract type="html">Name of the bucket for which the accelerate configuration is set.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1947"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutBucketAccelerateConfigurationRequest/bucket</TokenIdentifier>
+			<Abstract type="html">Name of the bucket for which the accelerate configuration is set.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1947"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

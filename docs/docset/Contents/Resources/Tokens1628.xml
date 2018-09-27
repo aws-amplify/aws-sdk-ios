@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingUpdateGcmChannelRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateGcmChannelRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1628"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateGcmChannelRequest/setApplicationId:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1628"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateGcmChannelRequest/applicationId</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1628"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingUpdateGcmChannelRequest/applicationId</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1628"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateGcmChannelRequest/setGCMChannelRequest:</TokenIdentifier>
+			<Abstract type="html">Google Cloud Messaging credentials</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingGCMChannelRequest *GCMChannelRequest</Declaration>
+			
+			
+			<Anchor>//api/name/GCMChannelRequest</Anchor>
+            <NodeRef refid="1628"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateGcmChannelRequest/GCMChannelRequest</TokenIdentifier>
+			<Abstract type="html">Google Cloud Messaging credentials</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingGCMChannelRequest *GCMChannelRequest</Declaration>
+			
+			
+			<Anchor>//api/name/GCMChannelRequest</Anchor>
+            <NodeRef refid="1628"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingUpdateGcmChannelRequest/GCMChannelRequest</TokenIdentifier>
+			<Abstract type="html">Google Cloud Messaging credentials</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingGCMChannelRequest *GCMChannelRequest</Declaration>
+			
+			
+			<Anchor>//api/name/GCMChannelRequest</Anchor>
+            <NodeRef refid="1628"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

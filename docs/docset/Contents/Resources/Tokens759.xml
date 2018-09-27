@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingRemoveAvailabilityZonesInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingRemoveAvailabilityZonesInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the parameters for DisableAvailabilityZonesForLoadBalancer.&lt;/p&gt;
+Required parameters: [LoadBalancerName, AvailabilityZones]</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="759"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingRemoveAvailabilityZonesInput/setAvailabilityZones:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Availability Zones.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *availabilityZones</Declaration>
+			
+			
+			<Anchor>//api/name/availabilityZones</Anchor>
+            <NodeRef refid="759"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingRemoveAvailabilityZonesInput/availabilityZones</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Availability Zones.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *availabilityZones</Declaration>
+			
+			
+			<Anchor>//api/name/availabilityZones</Anchor>
+            <NodeRef refid="759"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingRemoveAvailabilityZonesInput/availabilityZones</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Availability Zones.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *availabilityZones</Declaration>
+			
+			
+			<Anchor>//api/name/availabilityZones</Anchor>
+            <NodeRef refid="759"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingRemoveAvailabilityZonesInput/setLoadBalancerName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *loadBalancerName</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerName</Anchor>
+            <NodeRef refid="759"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingRemoveAvailabilityZonesInput/loadBalancerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *loadBalancerName</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerName</Anchor>
+            <NodeRef refid="759"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingRemoveAvailabilityZonesInput/loadBalancerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *loadBalancerName</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerName</Anchor>
+            <NodeRef refid="759"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

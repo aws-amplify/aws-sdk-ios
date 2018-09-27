@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSNetworkingRetryType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSNetworkingRetryType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2594"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSNetworkingRetryTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSNetworkingRetryTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSNetworking.h</DeclaredIn>
+            
+            <NodeRef refid="2594"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSNetworkingRetryTypeShouldNotRetry</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSNetworkingRetryTypeShouldNotRetry</Declaration>
+            
+            <DeclaredIn>AWSNetworking.h</DeclaredIn>
+            
+            <NodeRef refid="2594"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSNetworkingRetryTypeShouldRetry</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSNetworkingRetryTypeShouldRetry</Declaration>
+            
+            <DeclaredIn>AWSNetworking.h</DeclaredIn>
+            
+            <NodeRef refid="2594"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSNetworkingRetryTypeShouldRefreshCredentialsAndRetry</Declaration>
+            
+            <DeclaredIn>AWSNetworking.h</DeclaredIn>
+            
+            <NodeRef refid="2594"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSNetworkingRetryTypeShouldCorrectClockSkewAndRetry</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSNetworkingRetryTypeShouldCorrectClockSkewAndRetry</Declaration>
+            
+            <DeclaredIn>AWSNetworking.h</DeclaredIn>
+            
+            <NodeRef refid="2594"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSNetworkingRetryTypeResetStreamAndRetry</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSNetworkingRetryTypeResetStreamAndRetry</Declaration>
+            
+            <DeclaredIn>AWSNetworking.h</DeclaredIn>
+            
+            <NodeRef refid="2594"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCognitoIdentityProviderEventResponseType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCognitoIdentityProviderEventResponseType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2435"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderEventResponseTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderEventResponseTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2435"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderEventResponseTypeSuccess</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderEventResponseTypeSuccess</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2435"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderEventResponseTypeFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderEventResponseTypeFailure</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2435"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

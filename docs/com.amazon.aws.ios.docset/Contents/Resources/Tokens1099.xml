@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTRejectCertificateTransferRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTRejectCertificateTransferRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input for the RejectCertificateTransfer operation.&lt;/p&gt;
+Required parameters: [certificateId]</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1099"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRejectCertificateTransferRequest/setCertificateId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateId</Declaration>
+			
+			
+			<Anchor>//api/name/certificateId</Anchor>
+            <NodeRef refid="1099"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRejectCertificateTransferRequest/certificateId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateId</Declaration>
+			
+			
+			<Anchor>//api/name/certificateId</Anchor>
+            <NodeRef refid="1099"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTRejectCertificateTransferRequest/certificateId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateId</Declaration>
+			
+			
+			<Anchor>//api/name/certificateId</Anchor>
+            <NodeRef refid="1099"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRejectCertificateTransferRequest/setRejectReason:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason the certificate transfer was rejected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rejectReason</Declaration>
+			
+			
+			<Anchor>//api/name/rejectReason</Anchor>
+            <NodeRef refid="1099"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRejectCertificateTransferRequest/rejectReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason the certificate transfer was rejected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rejectReason</Declaration>
+			
+			
+			<Anchor>//api/name/rejectReason</Anchor>
+            <NodeRef refid="1099"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTRejectCertificateTransferRequest/rejectReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason the certificate transfer was rejected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rejectReason</Declaration>
+			
+			
+			<Anchor>//api/name/rejectReason</Anchor>
+            <NodeRef refid="1099"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

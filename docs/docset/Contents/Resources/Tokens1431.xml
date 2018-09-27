@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsMetricTransformation.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsMetricTransformation</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates how to transform ingested log events in to metric data in a CloudWatch metric.&lt;/p&gt;
+Required parameters: [metricName, metricNamespace, metricValue]</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1431"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsMetricTransformation/setDefaultValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) The value to emit when a filter pattern does not match a log event. This value can be null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *defaultValue</Declaration>
+			
+			
+			<Anchor>//api/name/defaultValue</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsMetricTransformation/defaultValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) The value to emit when a filter pattern does not match a log event. This value can be null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *defaultValue</Declaration>
+			
+			
+			<Anchor>//api/name/defaultValue</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsMetricTransformation/defaultValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) The value to emit when a filter pattern does not match a log event. This value can be null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *defaultValue</Declaration>
+			
+			
+			<Anchor>//api/name/defaultValue</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsMetricTransformation/setMetricName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the CloudWatch metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricName</Declaration>
+			
+			
+			<Anchor>//api/name/metricName</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsMetricTransformation/metricName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the CloudWatch metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricName</Declaration>
+			
+			
+			<Anchor>//api/name/metricName</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsMetricTransformation/metricName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the CloudWatch metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricName</Declaration>
+			
+			
+			<Anchor>//api/name/metricName</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsMetricTransformation/setMetricNamespace:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The namespace of the CloudWatch metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricNamespace</Declaration>
+			
+			
+			<Anchor>//api/name/metricNamespace</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsMetricTransformation/metricNamespace</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The namespace of the CloudWatch metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricNamespace</Declaration>
+			
+			
+			<Anchor>//api/name/metricNamespace</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsMetricTransformation/metricNamespace</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The namespace of the CloudWatch metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricNamespace</Declaration>
+			
+			
+			<Anchor>//api/name/metricNamespace</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsMetricTransformation/setMetricValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value to publish to the CloudWatch metric when a filter pattern matches a log event.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricValue</Declaration>
+			
+			
+			<Anchor>//api/name/metricValue</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsMetricTransformation/metricValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value to publish to the CloudWatch metric when a filter pattern matches a log event.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricValue</Declaration>
+			
+			
+			<Anchor>//api/name/metricValue</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsMetricTransformation/metricValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value to publish to the CloudWatch metric when a filter pattern matches a log event.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricValue</Declaration>
+			
+			
+			<Anchor>//api/name/metricValue</Anchor>
+            <NodeRef refid="1431"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

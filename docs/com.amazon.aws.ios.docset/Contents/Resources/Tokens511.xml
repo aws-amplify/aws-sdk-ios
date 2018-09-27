@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoSyncSubscribeToDatasetResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoSyncSubscribeToDatasetResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Response to a SubscribeToDataset request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="511"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

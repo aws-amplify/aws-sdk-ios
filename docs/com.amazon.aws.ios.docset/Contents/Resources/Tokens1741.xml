@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionMouthOpen.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionMouthOpen</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the mouth on the face is open, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1741"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionMouthOpen/setConfidence:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Level of confidence in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1741"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionMouthOpen/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Level of confidence in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1741"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionMouthOpen/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Level of confidence in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1741"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionMouthOpen/setValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Boolean value that indicates whether the mouth on the face is open or not.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="1741"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionMouthOpen/value</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Boolean value that indicates whether the mouth on the face is open or not.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="1741"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionMouthOpen/value</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Boolean value that indicates whether the mouth on the face is open or not.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="1741"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

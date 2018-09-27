@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingGetCampaignResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1552"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGetCampaignResponse/setCampaignResponse:</TokenIdentifier>
+			<Abstract type="html">Campaign definition</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignResponse *campaignResponse</Declaration>
+			
+			
+			<Anchor>//api/name/campaignResponse</Anchor>
+            <NodeRef refid="1552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGetCampaignResponse/campaignResponse</TokenIdentifier>
+			<Abstract type="html">Campaign definition</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignResponse *campaignResponse</Declaration>
+			
+			
+			<Anchor>//api/name/campaignResponse</Anchor>
+            <NodeRef refid="1552"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGetCampaignResponse/campaignResponse</TokenIdentifier>
+			<Abstract type="html">Campaign definition</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignResponse *campaignResponse</Declaration>
+			
+			
+			<Anchor>//api/name/campaignResponse</Anchor>
+            <NodeRef refid="1552"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

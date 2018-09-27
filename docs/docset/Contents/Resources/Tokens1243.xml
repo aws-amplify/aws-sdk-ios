@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisGetShardIteratorInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisGetShardIteratorInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the input for &lt;code&gt;GetShardIterator&lt;/code&gt;.&lt;/p&gt;
+Required parameters: [StreamName, ShardId, ShardIteratorType]</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1243"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorInput/setShardId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The shard ID of the Kinesis Data Streams shard to get the iterator for.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardId</Declaration>
+			
+			
+			<Anchor>//api/name/shardId</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorInput/shardId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The shard ID of the Kinesis Data Streams shard to get the iterator for.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardId</Declaration>
+			
+			
+			<Anchor>//api/name/shardId</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetShardIteratorInput/shardId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The shard ID of the Kinesis Data Streams shard to get the iterator for.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardId</Declaration>
+			
+			
+			<Anchor>//api/name/shardId</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorInput/setShardIteratorType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines how the shard iterator is used to start reading data records from the shard.&lt;/p&gt;&lt;p&gt;The following are the valid Amazon Kinesis shard iterator types:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;ATSEQUENCENUMBER - Start reading from the position denoted by a specific sequence number, provided in the value &lt;code&gt;StartingSequenceNumber&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AFTERSEQUENCENUMBER - Start reading right after the position denoted by a specific sequence number, provided in the value &lt;code&gt;StartingSequenceNumber&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;ATTIMESTAMP - Start reading from the position denoted by a specific time stamp, provided in the value &lt;code&gt;Timestamp&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;TRIMHORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisShardIteratorType shardIteratorType</Declaration>
+			
+			
+			<Anchor>//api/name/shardIteratorType</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorInput/shardIteratorType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines how the shard iterator is used to start reading data records from the shard.&lt;/p&gt;&lt;p&gt;The following are the valid Amazon Kinesis shard iterator types:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;ATSEQUENCENUMBER - Start reading from the position denoted by a specific sequence number, provided in the value &lt;code&gt;StartingSequenceNumber&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AFTERSEQUENCENUMBER - Start reading right after the position denoted by a specific sequence number, provided in the value &lt;code&gt;StartingSequenceNumber&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;ATTIMESTAMP - Start reading from the position denoted by a specific time stamp, provided in the value &lt;code&gt;Timestamp&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;TRIMHORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisShardIteratorType shardIteratorType</Declaration>
+			
+			
+			<Anchor>//api/name/shardIteratorType</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetShardIteratorInput/shardIteratorType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines how the shard iterator is used to start reading data records from the shard.&lt;/p&gt;&lt;p&gt;The following are the valid Amazon Kinesis shard iterator types:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;ATSEQUENCENUMBER - Start reading from the position denoted by a specific sequence number, provided in the value &lt;code&gt;StartingSequenceNumber&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AFTERSEQUENCENUMBER - Start reading right after the position denoted by a specific sequence number, provided in the value &lt;code&gt;StartingSequenceNumber&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;ATTIMESTAMP - Start reading from the position denoted by a specific time stamp, provided in the value &lt;code&gt;Timestamp&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;TRIMHORIZON - Start reading at the last untrimmed record in the shard in the system, which is the oldest data record in the shard.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;LATEST - Start reading just after the most recent record in the shard, so that you always read the most recent data in the shard.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisShardIteratorType shardIteratorType</Declaration>
+			
+			
+			<Anchor>//api/name/shardIteratorType</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorInput/setStartingSequenceNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sequence number of the data record in the shard from which to start reading. Used with shard iterator type ATSEQUENCENUMBER and AFTERSEQUENCENUMBER.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startingSequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/startingSequenceNumber</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorInput/startingSequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sequence number of the data record in the shard from which to start reading. Used with shard iterator type ATSEQUENCENUMBER and AFTERSEQUENCENUMBER.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startingSequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/startingSequenceNumber</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetShardIteratorInput/startingSequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sequence number of the data record in the shard from which to start reading. Used with shard iterator type ATSEQUENCENUMBER and AFTERSEQUENCENUMBER.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startingSequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/startingSequenceNumber</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorInput/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Amazon Kinesis data stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Amazon Kinesis data stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetShardIteratorInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Amazon Kinesis data stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorInput/setTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time stamp of the data record from which to start reading. Used with shard iterator type ATTIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, &lt;code&gt;2016-04-04T19:58:46.480-00:00&lt;/code&gt; or &lt;code&gt;1459799926.480&lt;/code&gt;. If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIMHORIZON).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorInput/timestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time stamp of the data record from which to start reading. Used with shard iterator type ATTIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, &lt;code&gt;2016-04-04T19:58:46.480-00:00&lt;/code&gt; or &lt;code&gt;1459799926.480&lt;/code&gt;. If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIMHORIZON).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetShardIteratorInput/timestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time stamp of the data record from which to start reading. Used with shard iterator type ATTIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds. For example, &lt;code&gt;2016-04-04T19:58:46.480-00:00&lt;/code&gt; or &lt;code&gt;1459799926.480&lt;/code&gt;. If a record with this exact time stamp does not exist, the iterator returned is for the next (later) record. If the time stamp is older than the current trim horizon, the iterator returned is for the oldest untrimmed data record (TRIMHORIZON).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1243"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

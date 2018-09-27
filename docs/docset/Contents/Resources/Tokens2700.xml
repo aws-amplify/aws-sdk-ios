@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSSESVerificationStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSSESVerificationStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2700"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESVerificationStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESVerificationStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2700"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESVerificationStatusPending</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESVerificationStatusPending</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2700"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESVerificationStatusSuccess</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESVerificationStatusSuccess</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2700"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESVerificationStatusFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESVerificationStatusFailed</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2700"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESVerificationStatusTemporaryFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESVerificationStatusTemporaryFailure</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2700"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESVerificationStatusNotStarted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESVerificationStatusNotStarted</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2700"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

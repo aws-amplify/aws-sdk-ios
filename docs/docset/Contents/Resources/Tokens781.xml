@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseDeleteDeliveryStreamInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDeleteDeliveryStreamInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="781"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDeleteDeliveryStreamInput/setDeliveryStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deliveryStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamName</Anchor>
+            <NodeRef refid="781"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDeleteDeliveryStreamInput/deliveryStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deliveryStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamName</Anchor>
+            <NodeRef refid="781"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseDeleteDeliveryStreamInput/deliveryStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deliveryStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamName</Anchor>
+            <NodeRef refid="781"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

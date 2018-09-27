@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBRestoreSummary.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBRestoreSummary</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains details for the restore.&lt;/p&gt;
+Required parameters: [RestoreDateTime, RestoreInProgress]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="655"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreSummary/setRestoreDateTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Point in time or source backup time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *restoreDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/restoreDateTime</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreSummary/restoreDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Point in time or source backup time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *restoreDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/restoreDateTime</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBRestoreSummary/restoreDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Point in time or source backup time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *restoreDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/restoreDateTime</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreSummary/setRestoreInProgress:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates if a restore is in progress or not.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *restoreInProgress</Declaration>
+			
+			
+			<Anchor>//api/name/restoreInProgress</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreSummary/restoreInProgress</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates if a restore is in progress or not.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *restoreInProgress</Declaration>
+			
+			
+			<Anchor>//api/name/restoreInProgress</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBRestoreSummary/restoreInProgress</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates if a restore is in progress or not.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *restoreInProgress</Declaration>
+			
+			
+			<Anchor>//api/name/restoreInProgress</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreSummary/setSourceBackupArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the backup from which the table was restored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceBackupArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceBackupArn</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreSummary/sourceBackupArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the backup from which the table was restored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceBackupArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceBackupArn</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBRestoreSummary/sourceBackupArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the backup from which the table was restored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceBackupArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceBackupArn</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreSummary/setSourceTableArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the source table of the backup that is being restored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceTableArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceTableArn</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreSummary/sourceTableArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the source table of the backup that is being restored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceTableArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceTableArn</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBRestoreSummary/sourceTableArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the source table of the backup that is being restored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceTableArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceTableArn</Anchor>
+            <NodeRef refid="655"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

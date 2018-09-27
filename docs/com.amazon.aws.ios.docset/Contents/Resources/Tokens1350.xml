@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaListEventSourceMappingsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListEventSourceMappingsResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains a list of event sources (see &lt;a&gt;EventSourceMappingConfiguration&lt;/a&gt;)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1350"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaListEventSourceMappingsResponse/setEventSourceMappings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of &lt;code&gt;EventSourceMappingConfiguration&lt;/code&gt; objects.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLambdaEventSourceMappingConfiguration*&gt; *eventSourceMappings</Declaration>
+			
+			
+			<Anchor>//api/name/eventSourceMappings</Anchor>
+            <NodeRef refid="1350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaListEventSourceMappingsResponse/eventSourceMappings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of &lt;code&gt;EventSourceMappingConfiguration&lt;/code&gt; objects.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLambdaEventSourceMappingConfiguration*&gt; *eventSourceMappings</Declaration>
+			
+			
+			<Anchor>//api/name/eventSourceMappings</Anchor>
+            <NodeRef refid="1350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaListEventSourceMappingsResponse/eventSourceMappings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of &lt;code&gt;EventSourceMappingConfiguration&lt;/code&gt; objects.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLambdaEventSourceMappingConfiguration*&gt; *eventSourceMappings</Declaration>
+			
+			
+			<Anchor>//api/name/eventSourceMappings</Anchor>
+            <NodeRef refid="1350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaListEventSourceMappingsResponse/setNextMarker:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string, present if there are more event source mappings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaListEventSourceMappingsResponse/nextMarker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string, present if there are more event source mappings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaListEventSourceMappingsResponse/nextMarker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string, present if there are more event source mappings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1350"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

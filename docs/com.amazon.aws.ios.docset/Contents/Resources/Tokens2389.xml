@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AWSMobileAnalyticsEvent.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AWSMobileAnalyticsEvent</TokenIdentifier>
+			<Abstract type="html">Represents the visit or conversion event of an A/B test,
+or may also be used to collect useful information in your application.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2389"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEvent/setEventType:</TokenIdentifier>
+			<Abstract type="html">Returns the name/type of this AWSMobileAnalyticsEvent</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *eventType</Declaration>
+			
+			<ReturnValue><Abstract type="html">the name/type of this AWSMobileAnalyticsEvent</Abstract></ReturnValue>
+			<Anchor>//api/name/eventType</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEvent/eventType</TokenIdentifier>
+			<Abstract type="html">Returns the name/type of this AWSMobileAnalyticsEvent</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *eventType</Declaration>
+			
+			<ReturnValue><Abstract type="html">the name/type of this AWSMobileAnalyticsEvent</Abstract></ReturnValue>
+			<Anchor>//api/name/eventType</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfp/AWSMobileAnalyticsEvent/eventType</TokenIdentifier>
+			<Abstract type="html">Returns the name/type of this AWSMobileAnalyticsEvent</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *eventType</Declaration>
+			
+			<ReturnValue><Abstract type="html">the name/type of this AWSMobileAnalyticsEvent</Abstract></ReturnValue>
+			<Anchor>//api/name/eventType</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEvent/addAttribute:forKey:</TokenIdentifier>
+			<Abstract type="html">Adds an attribute to this AWSMobileAnalyticsEvent with the specified key. Only 40 attributes/metrics
+are allowed to be added to an AWSMobileAnalyticsEvent. If 40 attributes/metrics already exist on this AWSMobileAnalyticsEvent, the call is ignored.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>- (void)addAttribute:(NSString *)theValue forKey:(NSString *)theKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theValue</Name>
+					<Abstract type="html">The value of the attribute. The value will be truncated if it exceeds 200 characters.</Abstract>
+				</Parameter><Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">The key of the attribute. The key will be truncated if it exceeds 50 characters.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addAttribute:forKey:</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEvent/addMetric:forKey:</TokenIdentifier>
+			<Abstract type="html">Adds a metric to this AWSMobileAnalyticsEvent with the specified key. Only 40 attributes/metrics
+are allowed to be added to an AWSMobileAnalyticsEvent. If 40 attribute/metrics already exist on this AWSMobileAnalyticsEvent, the call is ignored.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>- (void)addMetric:(NSNumber *)theValue forKey:(NSString *)theKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theValue</Name>
+					<Abstract type="html">The value of the metric.</Abstract>
+				</Parameter><Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">The key of the metric. The key will be truncated if it exceeds 50 characters.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addMetric:forKey:</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEvent/attributeForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the value of the attribute with the specified key.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)attributeForKey:(NSString *)theKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">The key of the attribute to return</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The attribute with the specified key, or null if attribute does not exist</Abstract></ReturnValue>
+			<Anchor>//api/name/attributeForKey:</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEvent/metricForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the value of the metric with the specified key.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>- (NSNumber *)metricForKey:(NSString *)theKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">The key of the metric to return</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The metric with the specified key, or null if metric does not exist</Abstract></ReturnValue>
+			<Anchor>//api/name/metricForKey:</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEvent/hasAttributeForKey:</TokenIdentifier>
+			<Abstract type="html">Determines if this AWSMobileAnalyticsEvent contains a specific attribute</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)hasAttributeForKey:(NSString *)theKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">The key of the attribute</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES if this AWSMobileAnalyticsEvent has an attribute with the specified key, NO otherwise</Abstract></ReturnValue>
+			<Anchor>//api/name/hasAttributeForKey:</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEvent/hasMetricForKey:</TokenIdentifier>
+			<Abstract type="html">Determines if this AWSMobileAnalyticsEvent contains a specific metric</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)hasMetricForKey:(NSString *)theKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theKey</Name>
+					<Abstract type="html">The key of the metric</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES if this AWSMobileAnalyticsEvent has a metric with the specified key, NO otherwise</Abstract></ReturnValue>
+			<Anchor>//api/name/hasMetricForKey:</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEvent/allAttributes</TokenIdentifier>
+			<Abstract type="html">Returns an NSDictionary of all attributes contained within this AWSMobileAnalyticsEvent</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>- (NSDictionary *)allAttributes</Declaration>
+			
+			<ReturnValue><Abstract type="html">an NSDictionary of all attributes, where the attribute keys are the keys and the attribute values are the values</Abstract></ReturnValue>
+			<Anchor>//api/name/allAttributes</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSMobileAnalyticsEvent/allMetrics</TokenIdentifier>
+			<Abstract type="html">Returns an NSDictionary of all metrics contained within this AWSMobileAnalyticsEvent</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsEvent.h</DeclaredIn>
+			
+			<Declaration>- (NSDictionary *)allMetrics</Declaration>
+			
+			<ReturnValue><Abstract type="html">an NSDictionary of all metrics, where the metric keys are the keys and the metric values are the values</Abstract></ReturnValue>
+			<Anchor>//api/name/allMetrics</Anchor>
+            <NodeRef refid="2389"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

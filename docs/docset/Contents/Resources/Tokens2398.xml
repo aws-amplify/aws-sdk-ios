@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSAppIdentificationStrategy.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSAppIdentificationStrategy</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsConfiguration.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2398"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAppIdentificationStrategyGlobal</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAppIdentificationStrategyGlobal</Declaration>
+            
+            <DeclaredIn>AWSMobileAnalyticsConfiguration.h</DeclaredIn>
+            
+            <NodeRef refid="2398"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAppIdentificationStrategyPrivate</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAppIdentificationStrategyPrivate</Declaration>
+            
+            <DeclaredIn>AWSMobileAnalyticsConfiguration.h</DeclaredIn>
+            
+            <NodeRef refid="2398"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

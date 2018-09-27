@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTJobExecution.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTJobExecution</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job execution object represents the execution of a job on a particular device.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1009"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/setExecutionNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string (consisting of the digits &quot;0&quot; through &quot;9&quot;) which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *executionNumber</Declaration>
+			
+			
+			<Anchor>//api/name/executionNumber</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/executionNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string (consisting of the digits &quot;0&quot; through &quot;9&quot;) which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *executionNumber</Declaration>
+			
+			
+			<Anchor>//api/name/executionNumber</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecution/executionNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string (consisting of the digits &quot;0&quot; through &quot;9&quot;) which identifies this particular job execution on this particular device. It can be used in commands which return or update job execution information. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *executionNumber</Declaration>
+			
+			
+			<Anchor>//api/name/executionNumber</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/setForceCanceled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Will be &lt;code&gt;true&lt;/code&gt; if the job execution was canceled with the optional &lt;code&gt;force&lt;/code&gt; parameter set to &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *forceCanceled</Declaration>
+			
+			
+			<Anchor>//api/name/forceCanceled</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/forceCanceled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Will be &lt;code&gt;true&lt;/code&gt; if the job execution was canceled with the optional &lt;code&gt;force&lt;/code&gt; parameter set to &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *forceCanceled</Declaration>
+			
+			
+			<Anchor>//api/name/forceCanceled</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecution/forceCanceled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Will be &lt;code&gt;true&lt;/code&gt; if the job execution was canceled with the optional &lt;code&gt;force&lt;/code&gt; parameter set to &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *forceCanceled</Declaration>
+			
+			
+			<Anchor>//api/name/forceCanceled</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/setJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier you assigned to the job when it was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier you assigned to the job when it was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecution/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier you assigned to the job when it was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/setLastUpdatedAt:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds since the epoch, when the job execution was last updated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastUpdatedAt</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdatedAt</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/lastUpdatedAt</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds since the epoch, when the job execution was last updated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastUpdatedAt</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdatedAt</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecution/lastUpdatedAt</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds since the epoch, when the job execution was last updated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastUpdatedAt</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdatedAt</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/setQueuedAt:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds since the epoch, when the job execution was queued.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *queuedAt</Declaration>
+			
+			
+			<Anchor>//api/name/queuedAt</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/queuedAt</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds since the epoch, when the job execution was queued.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *queuedAt</Declaration>
+			
+			
+			<Anchor>//api/name/queuedAt</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecution/queuedAt</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds since the epoch, when the job execution was queued.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *queuedAt</Declaration>
+			
+			
+			<Anchor>//api/name/queuedAt</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/setStartedAt:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds since the epoch, when the job execution started.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startedAt</Declaration>
+			
+			
+			<Anchor>//api/name/startedAt</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/startedAt</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds since the epoch, when the job execution started.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startedAt</Declaration>
+			
+			
+			<Anchor>//api/name/startedAt</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecution/startedAt</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds since the epoch, when the job execution started.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startedAt</Declaration>
+			
+			
+			<Anchor>//api/name/startedAt</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTJobExecutionStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTJobExecutionStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecution/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the job execution (IN_PROGRESS, QUEUED, FAILED, SUCCESS, CANCELED, or REJECTED).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTJobExecutionStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/setStatusDetails:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A collection of name/value pairs that describe the status of the job execution.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJobExecutionStatusDetails *statusDetails</Declaration>
+			
+			
+			<Anchor>//api/name/statusDetails</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/statusDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A collection of name/value pairs that describe the status of the job execution.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJobExecutionStatusDetails *statusDetails</Declaration>
+			
+			
+			<Anchor>//api/name/statusDetails</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecution/statusDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A collection of name/value pairs that describe the status of the job execution.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJobExecutionStatusDetails *statusDetails</Declaration>
+			
+			
+			<Anchor>//api/name/statusDetails</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/setThingArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the thing on which the job execution is running.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingArn</Declaration>
+			
+			
+			<Anchor>//api/name/thingArn</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/thingArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the thing on which the job execution is running.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingArn</Declaration>
+			
+			
+			<Anchor>//api/name/thingArn</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecution/thingArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the thing on which the job execution is running.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingArn</Declaration>
+			
+			
+			<Anchor>//api/name/thingArn</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/setVersionNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the job execution. Job execution versions are incremented each time they are updated by a device.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *versionNumber</Declaration>
+			
+			
+			<Anchor>//api/name/versionNumber</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecution/versionNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the job execution. Job execution versions are incremented each time they are updated by a device.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *versionNumber</Declaration>
+			
+			
+			<Anchor>//api/name/versionNumber</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecution/versionNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the job execution. Job execution versions are incremented each time they are updated by a device.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *versionNumber</Declaration>
+			
+			
+			<Anchor>//api/name/versionNumber</Anchor>
+            <NodeRef refid="1009"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

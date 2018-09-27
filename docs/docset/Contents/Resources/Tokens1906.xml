@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3LifecycleRule.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3LifecycleRule</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1906"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/setAbortIncompleteMultipartUpload:</TokenIdentifier>
+			<Abstract type="html">Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3AbortIncompleteMultipartUpload *abortIncompleteMultipartUpload</Declaration>
+			
+			
+			<Anchor>//api/name/abortIncompleteMultipartUpload</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/abortIncompleteMultipartUpload</TokenIdentifier>
+			<Abstract type="html">Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3AbortIncompleteMultipartUpload *abortIncompleteMultipartUpload</Declaration>
+			
+			
+			<Anchor>//api/name/abortIncompleteMultipartUpload</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRule/abortIncompleteMultipartUpload</TokenIdentifier>
+			<Abstract type="html">Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3AbortIncompleteMultipartUpload *abortIncompleteMultipartUpload</Declaration>
+			
+			
+			<Anchor>//api/name/abortIncompleteMultipartUpload</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/setExpiration:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LifecycleExpiration *expiration</Declaration>
+			
+			
+			<Anchor>//api/name/expiration</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/expiration</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LifecycleExpiration *expiration</Declaration>
+			
+			
+			<Anchor>//api/name/expiration</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRule/expiration</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LifecycleExpiration *expiration</Declaration>
+			
+			
+			<Anchor>//api/name/expiration</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/setFilter:</TokenIdentifier>
+			<Abstract type="html">The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LifecycleRuleFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/filter</TokenIdentifier>
+			<Abstract type="html">The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LifecycleRuleFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRule/filter</TokenIdentifier>
+			<Abstract type="html">The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LifecycleRuleFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">Unique identifier for the rule. The value cannot be longer than 255 characters.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/identifier</TokenIdentifier>
+			<Abstract type="html">Unique identifier for the rule. The value cannot be longer than 255 characters.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRule/identifier</TokenIdentifier>
+			<Abstract type="html">Unique identifier for the rule. The value cannot be longer than 255 characters.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/setNoncurrentVersionExpiration:</TokenIdentifier>
+			<Abstract type="html">Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object&apos;s lifetime.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3NoncurrentVersionExpiration *noncurrentVersionExpiration</Declaration>
+			
+			
+			<Anchor>//api/name/noncurrentVersionExpiration</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/noncurrentVersionExpiration</TokenIdentifier>
+			<Abstract type="html">Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object&apos;s lifetime.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3NoncurrentVersionExpiration *noncurrentVersionExpiration</Declaration>
+			
+			
+			<Anchor>//api/name/noncurrentVersionExpiration</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRule/noncurrentVersionExpiration</TokenIdentifier>
+			<Abstract type="html">Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object&apos;s lifetime.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3NoncurrentVersionExpiration *noncurrentVersionExpiration</Declaration>
+			
+			
+			<Anchor>//api/name/noncurrentVersionExpiration</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/setNoncurrentVersionTransitions:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3NoncurrentVersionTransition*&gt; *noncurrentVersionTransitions</Declaration>
+			
+			
+			<Anchor>//api/name/noncurrentVersionTransitions</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/noncurrentVersionTransitions</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3NoncurrentVersionTransition*&gt; *noncurrentVersionTransitions</Declaration>
+			
+			
+			<Anchor>//api/name/noncurrentVersionTransitions</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRule/noncurrentVersionTransitions</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3NoncurrentVersionTransition*&gt; *noncurrentVersionTransitions</Declaration>
+			
+			
+			<Anchor>//api/name/noncurrentVersionTransitions</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/setPrefix:</TokenIdentifier>
+			<Abstract type="html">Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/prefix</TokenIdentifier>
+			<Abstract type="html">Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRule/prefix</TokenIdentifier>
+			<Abstract type="html">Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/setStatus:</TokenIdentifier>
+			<Abstract type="html">If &apos;Enabled&apos;, the rule is currently being applied. If &apos;Disabled&apos;, the rule is not currently being applied.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ExpirationStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/status</TokenIdentifier>
+			<Abstract type="html">If &apos;Enabled&apos;, the rule is currently being applied. If &apos;Disabled&apos;, the rule is not currently being applied.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ExpirationStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRule/status</TokenIdentifier>
+			<Abstract type="html">If &apos;Enabled&apos;, the rule is currently being applied. If &apos;Disabled&apos;, the rule is not currently being applied.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ExpirationStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/setTransitions:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3Transition*&gt; *transitions</Declaration>
+			
+			
+			<Anchor>//api/name/transitions</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRule/transitions</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3Transition*&gt; *transitions</Declaration>
+			
+			
+			<Anchor>//api/name/transitions</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRule/transitions</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3Transition*&gt; *transitions</Declaration>
+			
+			
+			<Anchor>//api/name/transitions</Anchor>
+            <NodeRef refid="1906"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

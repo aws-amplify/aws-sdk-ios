@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3HeadObjectRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3HeadObjectRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1891"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/bucket</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/bucket</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setIfMatch:</TokenIdentifier>
+			<Abstract type="html">Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ifMatch</Declaration>
+			
+			
+			<Anchor>//api/name/ifMatch</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/ifMatch</TokenIdentifier>
+			<Abstract type="html">Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ifMatch</Declaration>
+			
+			
+			<Anchor>//api/name/ifMatch</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/ifMatch</TokenIdentifier>
+			<Abstract type="html">Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ifMatch</Declaration>
+			
+			
+			<Anchor>//api/name/ifMatch</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setIfModifiedSince:</TokenIdentifier>
+			<Abstract type="html">Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *ifModifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/ifModifiedSince</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/ifModifiedSince</TokenIdentifier>
+			<Abstract type="html">Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *ifModifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/ifModifiedSince</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/ifModifiedSince</TokenIdentifier>
+			<Abstract type="html">Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *ifModifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/ifModifiedSince</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setIfNoneMatch:</TokenIdentifier>
+			<Abstract type="html">Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ifNoneMatch</Declaration>
+			
+			
+			<Anchor>//api/name/ifNoneMatch</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/ifNoneMatch</TokenIdentifier>
+			<Abstract type="html">Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ifNoneMatch</Declaration>
+			
+			
+			<Anchor>//api/name/ifNoneMatch</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/ifNoneMatch</TokenIdentifier>
+			<Abstract type="html">Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ifNoneMatch</Declaration>
+			
+			
+			<Anchor>//api/name/ifNoneMatch</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setIfUnmodifiedSince:</TokenIdentifier>
+			<Abstract type="html">Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *ifUnmodifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/ifUnmodifiedSince</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/ifUnmodifiedSince</TokenIdentifier>
+			<Abstract type="html">Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *ifUnmodifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/ifUnmodifiedSince</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/ifUnmodifiedSince</TokenIdentifier>
+			<Abstract type="html">Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *ifUnmodifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/ifUnmodifiedSince</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/key</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/key</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setPartNumber:</TokenIdentifier>
+			<Abstract type="html">Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a &apos;ranged&apos; HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *partNumber</Declaration>
+			
+			
+			<Anchor>//api/name/partNumber</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/partNumber</TokenIdentifier>
+			<Abstract type="html">Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a &apos;ranged&apos; HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *partNumber</Declaration>
+			
+			
+			<Anchor>//api/name/partNumber</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/partNumber</TokenIdentifier>
+			<Abstract type="html">Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a &apos;ranged&apos; HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *partNumber</Declaration>
+			
+			
+			<Anchor>//api/name/partNumber</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setRange:</TokenIdentifier>
+			<Abstract type="html">Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *range</Declaration>
+			
+			
+			<Anchor>//api/name/range</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/range</TokenIdentifier>
+			<Abstract type="html">Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *range</Declaration>
+			
+			
+			<Anchor>//api/name/range</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/range</TokenIdentifier>
+			<Abstract type="html">Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *range</Declaration>
+			
+			
+			<Anchor>//api/name/range</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setRequestPayer:</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/requestPayer</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/requestPayer</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setSSECustomerAlgorithm:</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use to when encrypting the object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/SSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use to when encrypting the object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/SSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use to when encrypting the object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setSSECustomerKey:</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKey</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/SSECustomerKey</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKey</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/SSECustomerKey</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKey</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setSSECustomerKeyMD5:</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/SSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/SSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/setVersionId:</TokenIdentifier>
+			<Abstract type="html">VersionId used to reference a specific version of the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *versionId</Declaration>
+			
+			
+			<Anchor>//api/name/versionId</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3HeadObjectRequest/versionId</TokenIdentifier>
+			<Abstract type="html">VersionId used to reference a specific version of the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *versionId</Declaration>
+			
+			
+			<Anchor>//api/name/versionId</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3HeadObjectRequest/versionId</TokenIdentifier>
+			<Abstract type="html">VersionId used to reference a specific version of the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *versionId</Declaration>
+			
+			
+			<Anchor>//api/name/versionId</Anchor>
+            <NodeRef refid="1891"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

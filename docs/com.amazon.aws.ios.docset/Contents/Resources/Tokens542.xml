@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendEntity.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendEntity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides information about an entity. &lt;/p&gt;&lt;p&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="542"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendEntity/setBeginOffset:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A character offset in the input text that shows where the entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A &lt;i&gt;code point&lt;/i&gt; is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *beginOffset</Declaration>
+			
+			
+			<Anchor>//api/name/beginOffset</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendEntity/beginOffset</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A character offset in the input text that shows where the entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A &lt;i&gt;code point&lt;/i&gt; is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *beginOffset</Declaration>
+			
+			
+			<Anchor>//api/name/beginOffset</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendEntity/beginOffset</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A character offset in the input text that shows where the entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A &lt;i&gt;code point&lt;/i&gt; is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *beginOffset</Declaration>
+			
+			
+			<Anchor>//api/name/beginOffset</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendEntity/setEndOffset:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A character offset in the input text that shows where the entity ends. The offset returns the position of each UTF-8 code point in the string. A &lt;i&gt;code point&lt;/i&gt; is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *endOffset</Declaration>
+			
+			
+			<Anchor>//api/name/endOffset</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendEntity/endOffset</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A character offset in the input text that shows where the entity ends. The offset returns the position of each UTF-8 code point in the string. A &lt;i&gt;code point&lt;/i&gt; is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *endOffset</Declaration>
+			
+			
+			<Anchor>//api/name/endOffset</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendEntity/endOffset</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A character offset in the input text that shows where the entity ends. The offset returns the position of each UTF-8 code point in the string. A &lt;i&gt;code point&lt;/i&gt; is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *endOffset</Declaration>
+			
+			
+			<Anchor>//api/name/endOffset</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendEntity/setScore:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of the detection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *score</Declaration>
+			
+			
+			<Anchor>//api/name/score</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendEntity/score</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of the detection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *score</Declaration>
+			
+			
+			<Anchor>//api/name/score</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendEntity/score</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of the detection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *score</Declaration>
+			
+			
+			<Anchor>//api/name/score</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendEntity/setText:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The text of the entity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendEntity/text</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The text of the entity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendEntity/text</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The text of the entity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendEntity/setTypes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The entity&apos;s type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendEntityType types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendEntity/types</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The entity&apos;s type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendEntityType types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendEntity/types</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The entity&apos;s type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendEntityType types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="542"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

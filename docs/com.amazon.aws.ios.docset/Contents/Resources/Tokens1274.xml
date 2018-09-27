@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoArchivedMedia.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMedia</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1274"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMedia/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMedia/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoArchivedMedia/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSKinesisVideoArchivedMedia/defaultKinesisVideoArchivedMedia</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultKinesisVideoArchivedMedia</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultKinesisVideoArchivedMedia</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSKinesisVideoArchivedMedia/registerKinesisVideoArchivedMediaWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerKinesisVideoArchivedMediaWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerKinesisVideoArchivedMediaWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSKinesisVideoArchivedMedia/KinesisVideoArchivedMediaForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerKinesisVideoArchivedMediaWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)KinesisVideoArchivedMediaForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/KinesisVideoArchivedMediaForKey:</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSKinesisVideoArchivedMedia/removeKinesisVideoArchivedMediaForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeKinesisVideoArchivedMediaForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeKinesisVideoArchivedMediaForKey:</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMedia/getHLSStreamingSessionURL:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Retrieves an HTTP Live Streaming (HLS) URL for the stream. The URL can then be opened in a browser or media player to view the stream contents.&lt;/p&gt;&lt;p&gt;You must specify either the &lt;code&gt;StreamName&lt;/code&gt; or the &lt;code&gt;StreamARN&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;An Amazon Kinesis video stream has the following requirements for providing data through HLS:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;The media type must be &lt;code&gt;video/h264&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Data retention must be greater than 0.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The fragments must contain codec private data in the AVC (Advanced Video Coding) for H.264 format (MPEG-4 specification ISO/IEC 14496-15). For information about adapting stream data to a given format, see Apple Developer site.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput*&gt; *)getHLSStreamingSessionURL:(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetHLSStreamingSessionURL service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput. On failed execution, task.error may contain an NSError with AWSKinesisVideoArchivedMediaErrorDomain domain and the following error code: AWSKinesisVideoArchivedMediaErrorResourceNotFound, AWSKinesisVideoArchivedMediaErrorInvalidArgument, AWSKinesisVideoArchivedMediaErrorClientLimitExceeded, AWSKinesisVideoArchivedMediaErrorNotAuthorized, AWSKinesisVideoArchivedMediaErrorUnsupportedStreamMediaType, AWSKinesisVideoArchivedMediaErrorNoDataRetention, AWSKinesisVideoArchivedMediaErrorMissingCodecPrivateData, AWSKinesisVideoArchivedMediaErrorInvalidCodecPrivateData.</Abstract></ReturnValue>
+			<Anchor>//api/name/getHLSStreamingSessionURL:</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMedia/getHLSStreamingSessionURL:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Retrieves an HTTP Live Streaming (HLS) URL for the stream. The URL can then be opened in a browser or media player to view the stream contents.&lt;/p&gt;&lt;p&gt;You must specify either the &lt;code&gt;StreamName&lt;/code&gt; or the &lt;code&gt;StreamARN&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;An Amazon Kinesis video stream has the following requirements for providing data through HLS:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;The media type must be &lt;code&gt;video/h264&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Data retention must be greater than 0.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The fragments must contain codec private data in the AVC (Advanced Video Coding) for H.264 format (MPEG-4 specification ISO/IEC 14496-15). For information about adapting stream data to a given format, see Apple Developer site.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getHLSStreamingSessionURL:(AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetHLSStreamingSessionURL service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSKinesisVideoArchivedMediaErrorDomain domain and the following error code: AWSKinesisVideoArchivedMediaErrorResourceNotFound, AWSKinesisVideoArchivedMediaErrorInvalidArgument, AWSKinesisVideoArchivedMediaErrorClientLimitExceeded, AWSKinesisVideoArchivedMediaErrorNotAuthorized, AWSKinesisVideoArchivedMediaErrorUnsupportedStreamMediaType, AWSKinesisVideoArchivedMediaErrorNoDataRetention, AWSKinesisVideoArchivedMediaErrorMissingCodecPrivateData, AWSKinesisVideoArchivedMediaErrorInvalidCodecPrivateData.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getHLSStreamingSessionURL:completionHandler:</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMedia/getMediaForFragmentList:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets media for a list of fragments (specified by fragment number) from the archived data in an Amazon Kinesis video stream.&lt;/p&gt;&lt;p&gt;The following limits apply when using the &lt;code&gt;GetMediaForFragmentList&lt;/code&gt; API:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;A client can call &lt;code&gt;GetMediaForFragmentList&lt;/code&gt; up to five times per second per stream. &lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Kinesis Video Streams sends media data at a rate of up to 25 megabytes per second (or 200 megabits per second) during a &lt;code&gt;GetMediaForFragmentList&lt;/code&gt; session. &lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput*&gt; *)getMediaForFragmentList:(AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetMediaForFragmentList service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput. On failed execution, task.error may contain an NSError with AWSKinesisVideoArchivedMediaErrorDomain domain and the following error code: AWSKinesisVideoArchivedMediaErrorResourceNotFound, AWSKinesisVideoArchivedMediaErrorInvalidArgument, AWSKinesisVideoArchivedMediaErrorClientLimitExceeded, AWSKinesisVideoArchivedMediaErrorNotAuthorized.</Abstract></ReturnValue>
+			<Anchor>//api/name/getMediaForFragmentList:</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMedia/getMediaForFragmentList:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets media for a list of fragments (specified by fragment number) from the archived data in an Amazon Kinesis video stream.&lt;/p&gt;&lt;p&gt;The following limits apply when using the &lt;code&gt;GetMediaForFragmentList&lt;/code&gt; API:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;A client can call &lt;code&gt;GetMediaForFragmentList&lt;/code&gt; up to five times per second per stream. &lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Kinesis Video Streams sends media data at a rate of up to 25 megabytes per second (or 200 megabits per second) during a &lt;code&gt;GetMediaForFragmentList&lt;/code&gt; session. &lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getMediaForFragmentList:(AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetMediaForFragmentList service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSKinesisVideoArchivedMediaErrorDomain domain and the following error code: AWSKinesisVideoArchivedMediaErrorResourceNotFound, AWSKinesisVideoArchivedMediaErrorInvalidArgument, AWSKinesisVideoArchivedMediaErrorClientLimitExceeded, AWSKinesisVideoArchivedMediaErrorNotAuthorized.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getMediaForFragmentList:completionHandler:</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMedia/listFragments:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of &lt;a&gt;Fragment&lt;/a&gt; objects from the specified stream and start location within the archived data.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaListFragmentsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaListFragmentsOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSKinesisVideoArchivedMediaListFragmentsOutput*&gt; *)listFragments:(AWSKinesisVideoArchivedMediaListFragmentsInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListFragments service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSKinesisVideoArchivedMediaListFragmentsOutput. On failed execution, task.error may contain an NSError with AWSKinesisVideoArchivedMediaErrorDomain domain and the following error code: AWSKinesisVideoArchivedMediaErrorResourceNotFound, AWSKinesisVideoArchivedMediaErrorInvalidArgument, AWSKinesisVideoArchivedMediaErrorClientLimitExceeded, AWSKinesisVideoArchivedMediaErrorNotAuthorized.</Abstract></ReturnValue>
+			<Anchor>//api/name/listFragments:</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMedia/listFragments:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of &lt;a&gt;Fragment&lt;/a&gt; objects from the specified stream and start location within the archived data.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaListFragmentsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaListFragmentsOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listFragments:(AWSKinesisVideoArchivedMediaListFragmentsInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSKinesisVideoArchivedMediaListFragmentsOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListFragments service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSKinesisVideoArchivedMediaErrorDomain domain and the following error code: AWSKinesisVideoArchivedMediaErrorResourceNotFound, AWSKinesisVideoArchivedMediaErrorInvalidArgument, AWSKinesisVideoArchivedMediaErrorClientLimitExceeded, AWSKinesisVideoArchivedMediaErrorNotAuthorized.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listFragments:completionHandler:</Anchor>
+            <NodeRef refid="1274"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

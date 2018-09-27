@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisDecreaseStreamRetentionPeriodInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisDecreaseStreamRetentionPeriodInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the input for &lt;a&gt;DecreaseStreamRetentionPeriod&lt;/a&gt;.&lt;/p&gt;
+Required parameters: [StreamName, RetentionPeriodHours]</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1229"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisDecreaseStreamRetentionPeriodInput/setRetentionPeriodHours:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new retention period of the stream, in hours. Must be less than the current retention period.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *retentionPeriodHours</Declaration>
+			
+			
+			<Anchor>//api/name/retentionPeriodHours</Anchor>
+            <NodeRef refid="1229"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisDecreaseStreamRetentionPeriodInput/retentionPeriodHours</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new retention period of the stream, in hours. Must be less than the current retention period.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *retentionPeriodHours</Declaration>
+			
+			
+			<Anchor>//api/name/retentionPeriodHours</Anchor>
+            <NodeRef refid="1229"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisDecreaseStreamRetentionPeriodInput/retentionPeriodHours</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new retention period of the stream, in hours. Must be less than the current retention period.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *retentionPeriodHours</Declaration>
+			
+			
+			<Anchor>//api/name/retentionPeriodHours</Anchor>
+            <NodeRef refid="1229"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisDecreaseStreamRetentionPeriodInput/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream to modify.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1229"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisDecreaseStreamRetentionPeriodInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream to modify.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1229"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisDecreaseStreamRetentionPeriodInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream to modify.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1229"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingGetSegmentsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentsResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1580"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGetSegmentsResponse/setSegmentsResponse:</TokenIdentifier>
+			<Abstract type="html">Segments in your account.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSegmentsResponse *segmentsResponse</Declaration>
+			
+			
+			<Anchor>//api/name/segmentsResponse</Anchor>
+            <NodeRef refid="1580"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGetSegmentsResponse/segmentsResponse</TokenIdentifier>
+			<Abstract type="html">Segments in your account.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSegmentsResponse *segmentsResponse</Declaration>
+			
+			
+			<Anchor>//api/name/segmentsResponse</Anchor>
+            <NodeRef refid="1580"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGetSegmentsResponse/segmentsResponse</TokenIdentifier>
+			<Abstract type="html">Segments in your account.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSegmentsResponse *segmentsResponse</Declaration>
+			
+			
+			<Anchor>//api/name/segmentsResponse</Anchor>
+            <NodeRef refid="1580"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

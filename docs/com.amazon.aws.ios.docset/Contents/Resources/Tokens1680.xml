@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionCreateStreamProcessorRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionCreateStreamProcessorRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1680"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateStreamProcessorRequest/setInput:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is &lt;code&gt;StreamProcessorInput&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorInput *input</Declaration>
+			
+			
+			<Anchor>//api/name/input</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateStreamProcessorRequest/input</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is &lt;code&gt;StreamProcessorInput&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorInput *input</Declaration>
+			
+			
+			<Anchor>//api/name/input</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCreateStreamProcessorRequest/input</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis video stream stream that provides the source streaming video. If you are using the AWS CLI, the parameter name is &lt;code&gt;StreamProcessorInput&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorInput *input</Declaration>
+			
+			
+			<Anchor>//api/name/input</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateStreamProcessorRequest/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier you assign to the stream processor. You can use &lt;code&gt;Name&lt;/code&gt; to manage the stream processor. For example, you can get the current status of the stream processor by calling . &lt;code&gt;Name&lt;/code&gt; is idempotent. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateStreamProcessorRequest/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier you assign to the stream processor. You can use &lt;code&gt;Name&lt;/code&gt; to manage the stream processor. For example, you can get the current status of the stream processor by calling . &lt;code&gt;Name&lt;/code&gt; is idempotent. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCreateStreamProcessorRequest/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier you assign to the stream processor. You can use &lt;code&gt;Name&lt;/code&gt; to manage the stream processor. For example, you can get the current status of the stream processor by calling . &lt;code&gt;Name&lt;/code&gt; is idempotent. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateStreamProcessorRequest/setOutput:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is &lt;code&gt;StreamProcessorOutput&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorOutput *output</Declaration>
+			
+			
+			<Anchor>//api/name/output</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateStreamProcessorRequest/output</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is &lt;code&gt;StreamProcessorOutput&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorOutput *output</Declaration>
+			
+			
+			<Anchor>//api/name/output</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCreateStreamProcessorRequest/output</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis data stream stream to which Amazon Rekognition Video puts the analysis results. If you are using the AWS CLI, the parameter name is &lt;code&gt;StreamProcessorOutput&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorOutput *output</Declaration>
+			
+			
+			<Anchor>//api/name/output</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateStreamProcessorRequest/setRoleArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the IAM role that allows access to the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateStreamProcessorRequest/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the IAM role that allows access to the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCreateStreamProcessorRequest/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the IAM role that allows access to the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateStreamProcessorRequest/setSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorSettings *settings</Declaration>
+			
+			
+			<Anchor>//api/name/settings</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateStreamProcessorRequest/settings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorSettings *settings</Declaration>
+			
+			
+			<Anchor>//api/name/settings</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCreateStreamProcessorRequest/settings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorSettings *settings</Declaration>
+			
+			
+			<Anchor>//api/name/settings</Anchor>
+            <NodeRef refid="1680"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

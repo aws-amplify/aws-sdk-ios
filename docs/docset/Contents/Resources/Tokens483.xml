@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoSyncDescribeDatasetResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoSyncDescribeDatasetResponse</TokenIdentifier>
+			<Abstract type="html">Response to a successful DescribeDataset request.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="483"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncDescribeDatasetResponse/setDataset:</TokenIdentifier>
+			<Abstract type="html">Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don&apos;t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoSyncDataset *dataset</Declaration>
+			
+			
+			<Anchor>//api/name/dataset</Anchor>
+            <NodeRef refid="483"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncDescribeDatasetResponse/dataset</TokenIdentifier>
+			<Abstract type="html">Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don&apos;t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoSyncDataset *dataset</Declaration>
+			
+			
+			<Anchor>//api/name/dataset</Anchor>
+            <NodeRef refid="483"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncDescribeDatasetResponse/dataset</TokenIdentifier>
+			<Abstract type="html">Meta data for a collection of data for an identity. An identity can have multiple datasets. A dataset can be general or associated with a particular entity in an application (like a saved game). Datasets are automatically created if they don&apos;t exist. Data is synced by dataset, and a dataset can hold up to 1MB of key-value pairs.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoSyncDataset *dataset</Declaration>
+			
+			
+			<Anchor>//api/name/dataset</Anchor>
+            <NodeRef refid="483"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

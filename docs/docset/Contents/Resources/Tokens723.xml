@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingDeregisterEndPointsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingDeregisterEndPointsOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the output of DeregisterInstancesFromLoadBalancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="723"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDeregisterEndPointsOutput/setInstances:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The remaining instances registered with the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingInstance*&gt; *instances</Declaration>
+			
+			
+			<Anchor>//api/name/instances</Anchor>
+            <NodeRef refid="723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDeregisterEndPointsOutput/instances</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The remaining instances registered with the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingInstance*&gt; *instances</Declaration>
+			
+			
+			<Anchor>//api/name/instances</Anchor>
+            <NodeRef refid="723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingDeregisterEndPointsOutput/instances</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The remaining instances registered with the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingInstance*&gt; *instances</Declaration>
+			
+			
+			<Anchor>//api/name/instances</Anchor>
+            <NodeRef refid="723"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

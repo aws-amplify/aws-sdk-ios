@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSNetworkingConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSNetworkingConfiguration</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1467"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSNetworkingConfiguration/setMaxRetryCount:</TokenIdentifier>
+			<Abstract type="html">The maximum number of retries for failed requests. The value needs to be between 0 and 10 inclusive. If set to higher than 10, it becomes 10.</Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) uint32_t maxRetryCount</Declaration>
+			
+			
+			<Anchor>//api/name/maxRetryCount</Anchor>
+            <NodeRef refid="1467"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSNetworkingConfiguration/maxRetryCount</TokenIdentifier>
+			<Abstract type="html">The maximum number of retries for failed requests. The value needs to be between 0 and 10 inclusive. If set to higher than 10, it becomes 10.</Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) uint32_t maxRetryCount</Declaration>
+			
+			
+			<Anchor>//api/name/maxRetryCount</Anchor>
+            <NodeRef refid="1467"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSNetworkingConfiguration/maxRetryCount</TokenIdentifier>
+			<Abstract type="html">The maximum number of retries for failed requests. The value needs to be between 0 and 10 inclusive. If set to higher than 10, it becomes 10.</Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) uint32_t maxRetryCount</Declaration>
+			
+			
+			<Anchor>//api/name/maxRetryCount</Anchor>
+            <NodeRef refid="1467"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSNetworkingConfiguration/setTimeoutIntervalForRequest:</TokenIdentifier>
+			<Abstract type="html">The timeout interval to use when waiting for additional data.</Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSTimeInterval timeoutIntervalForRequest</Declaration>
+			
+			
+			<Anchor>//api/name/timeoutIntervalForRequest</Anchor>
+            <NodeRef refid="1467"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSNetworkingConfiguration/timeoutIntervalForRequest</TokenIdentifier>
+			<Abstract type="html">The timeout interval to use when waiting for additional data.</Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSTimeInterval timeoutIntervalForRequest</Declaration>
+			
+			
+			<Anchor>//api/name/timeoutIntervalForRequest</Anchor>
+            <NodeRef refid="1467"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSNetworkingConfiguration/timeoutIntervalForRequest</TokenIdentifier>
+			<Abstract type="html">The timeout interval to use when waiting for additional data.</Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSTimeInterval timeoutIntervalForRequest</Declaration>
+			
+			
+			<Anchor>//api/name/timeoutIntervalForRequest</Anchor>
+            <NodeRef refid="1467"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSNetworkingConfiguration/setTimeoutIntervalForResource:</TokenIdentifier>
+			<Abstract type="html">The maximum amount of time that a resource request should be allowed to take.</Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSTimeInterval timeoutIntervalForResource</Declaration>
+			
+			
+			<Anchor>//api/name/timeoutIntervalForResource</Anchor>
+            <NodeRef refid="1467"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSNetworkingConfiguration/timeoutIntervalForResource</TokenIdentifier>
+			<Abstract type="html">The maximum amount of time that a resource request should be allowed to take.</Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSTimeInterval timeoutIntervalForResource</Declaration>
+			
+			
+			<Anchor>//api/name/timeoutIntervalForResource</Anchor>
+            <NodeRef refid="1467"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSNetworkingConfiguration/timeoutIntervalForResource</TokenIdentifier>
+			<Abstract type="html">The maximum amount of time that a resource request should be allowed to take.</Abstract>
+			<DeclaredIn>AWSNetworking.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) NSTimeInterval timeoutIntervalForResource</Declaration>
+			
+			
+			<Anchor>//api/name/timeoutIntervalForResource</Anchor>
+            <NodeRef refid="1467"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

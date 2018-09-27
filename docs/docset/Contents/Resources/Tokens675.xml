@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBUpdateContinuousBackupsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBUpdateContinuousBackupsOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="675"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateContinuousBackupsOutput/setContinuousBackupsDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the continuous backups and point in time recovery settings on the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBContinuousBackupsDescription *continuousBackupsDescription</Declaration>
+			
+			
+			<Anchor>//api/name/continuousBackupsDescription</Anchor>
+            <NodeRef refid="675"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateContinuousBackupsOutput/continuousBackupsDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the continuous backups and point in time recovery settings on the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBContinuousBackupsDescription *continuousBackupsDescription</Declaration>
+			
+			
+			<Anchor>//api/name/continuousBackupsDescription</Anchor>
+            <NodeRef refid="675"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateContinuousBackupsOutput/continuousBackupsDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the continuous backups and point in time recovery settings on the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBContinuousBackupsDescription *continuousBackupsDescription</Declaration>
+			
+			
+			<Anchor>//api/name/continuousBackupsDescription</Anchor>
+            <NodeRef refid="675"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

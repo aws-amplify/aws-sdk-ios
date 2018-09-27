@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionGetLabelDetectionResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionGetLabelDetectionResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1722"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/setBillableDurationSeconds:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *billableDurationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/billableDurationSeconds</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/billableDurationSeconds</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *billableDurationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/billableDurationSeconds</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetLabelDetectionResponse/billableDurationSeconds</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *billableDurationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/billableDurationSeconds</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/setErrorCode:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/errorCode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetLabelDetectionResponse/errorCode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/setJobStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the label detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/jobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the label detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetLabelDetectionResponse/jobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the label detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/setLabels:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of labels detected in the video. Each element contains the detected label and the time, in milliseconds from the start of the video, that the label was detected. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionLabelDetection*&gt; *labels</Declaration>
+			
+			
+			<Anchor>//api/name/labels</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/labels</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of labels detected in the video. Each element contains the detected label and the time, in milliseconds from the start of the video, that the label was detected. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionLabelDetection*&gt; *labels</Declaration>
+			
+			
+			<Anchor>//api/name/labels</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetLabelDetectionResponse/labels</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of labels detected in the video. Each element contains the detected label and the time, in milliseconds from the start of the video, that the label was detected. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionLabelDetection*&gt; *labels</Declaration>
+			
+			
+			<Anchor>//api/name/labels</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetLabelDetectionResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of labels.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/setStatusMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the job fails, &lt;code&gt;StatusMessage&lt;/code&gt; provides a descriptive error message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/statusMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the job fails, &lt;code&gt;StatusMessage&lt;/code&gt; provides a descriptive error message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetLabelDetectionResponse/statusMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the job fails, &lt;code&gt;StatusMessage&lt;/code&gt; provides a descriptive error message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/setVideoMetadata:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a video that Amazon Rekognition Video analyzed. &lt;code&gt;Videometadata&lt;/code&gt; is returned in every page of paginated responses from a Amazon Rekognition video operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideoMetadata *videoMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/videoMetadata</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/videoMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a video that Amazon Rekognition Video analyzed. &lt;code&gt;Videometadata&lt;/code&gt; is returned in every page of paginated responses from a Amazon Rekognition video operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideoMetadata *videoMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/videoMetadata</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetLabelDetectionResponse/videoMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a video that Amazon Rekognition Video analyzed. &lt;code&gt;Videometadata&lt;/code&gt; is returned in every page of paginated responses from a Amazon Rekognition video operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideoMetadata *videoMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/videoMetadata</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/setWarnings:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionWarning*&gt; *warnings</Declaration>
+			
+			
+			<Anchor>//api/name/warnings</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetLabelDetectionResponse/warnings</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionWarning*&gt; *warnings</Declaration>
+			
+			
+			<Anchor>//api/name/warnings</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetLabelDetectionResponse/warnings</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionWarning*&gt; *warnings</Declaration>
+			
+			
+			<Anchor>//api/name/warnings</Anchor>
+            <NodeRef refid="1722"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

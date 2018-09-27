@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSimpleDBDomainMetadataResult.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBDomainMetadataResult</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2329"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/setAttributeNameCount:</TokenIdentifier>
+			<Abstract type="html">The number of unique attribute names in the domain.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeNameCount</Declaration>
+			
+			
+			<Anchor>//api/name/attributeNameCount</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/attributeNameCount</TokenIdentifier>
+			<Abstract type="html">The number of unique attribute names in the domain.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeNameCount</Declaration>
+			
+			
+			<Anchor>//api/name/attributeNameCount</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBDomainMetadataResult/attributeNameCount</TokenIdentifier>
+			<Abstract type="html">The number of unique attribute names in the domain.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeNameCount</Declaration>
+			
+			
+			<Anchor>//api/name/attributeNameCount</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/setAttributeNamesSizeBytes:</TokenIdentifier>
+			<Abstract type="html">The total size of all unique attribute names in the domain, in bytes.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeNamesSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/attributeNamesSizeBytes</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/attributeNamesSizeBytes</TokenIdentifier>
+			<Abstract type="html">The total size of all unique attribute names in the domain, in bytes.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeNamesSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/attributeNamesSizeBytes</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBDomainMetadataResult/attributeNamesSizeBytes</TokenIdentifier>
+			<Abstract type="html">The total size of all unique attribute names in the domain, in bytes.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeNamesSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/attributeNamesSizeBytes</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/setAttributeValueCount:</TokenIdentifier>
+			<Abstract type="html">The number of all attribute name/value pairs in the domain.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeValueCount</Declaration>
+			
+			
+			<Anchor>//api/name/attributeValueCount</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/attributeValueCount</TokenIdentifier>
+			<Abstract type="html">The number of all attribute name/value pairs in the domain.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeValueCount</Declaration>
+			
+			
+			<Anchor>//api/name/attributeValueCount</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBDomainMetadataResult/attributeValueCount</TokenIdentifier>
+			<Abstract type="html">The number of all attribute name/value pairs in the domain.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeValueCount</Declaration>
+			
+			
+			<Anchor>//api/name/attributeValueCount</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/setAttributeValuesSizeBytes:</TokenIdentifier>
+			<Abstract type="html">The total size of all attribute values in the domain, in bytes.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeValuesSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/attributeValuesSizeBytes</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/attributeValuesSizeBytes</TokenIdentifier>
+			<Abstract type="html">The total size of all attribute values in the domain, in bytes.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeValuesSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/attributeValuesSizeBytes</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBDomainMetadataResult/attributeValuesSizeBytes</TokenIdentifier>
+			<Abstract type="html">The total size of all attribute values in the domain, in bytes.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *attributeValuesSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/attributeValuesSizeBytes</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/setItemCount:</TokenIdentifier>
+			<Abstract type="html">The number of all items in the domain.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *itemCount</Declaration>
+			
+			
+			<Anchor>//api/name/itemCount</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/itemCount</TokenIdentifier>
+			<Abstract type="html">The number of all items in the domain.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *itemCount</Declaration>
+			
+			
+			<Anchor>//api/name/itemCount</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBDomainMetadataResult/itemCount</TokenIdentifier>
+			<Abstract type="html">The number of all items in the domain.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *itemCount</Declaration>
+			
+			
+			<Anchor>//api/name/itemCount</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/setItemNamesSizeBytes:</TokenIdentifier>
+			<Abstract type="html">The total size of all item names in the domain, in bytes.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *itemNamesSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/itemNamesSizeBytes</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/itemNamesSizeBytes</TokenIdentifier>
+			<Abstract type="html">The total size of all item names in the domain, in bytes.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *itemNamesSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/itemNamesSizeBytes</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBDomainMetadataResult/itemNamesSizeBytes</TokenIdentifier>
+			<Abstract type="html">The total size of all item names in the domain, in bytes.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *itemNamesSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/itemNamesSizeBytes</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/setTimestamp:</TokenIdentifier>
+			<Abstract type="html">The data and time when metadata was calculated, in Epoch (UNIX) seconds.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBDomainMetadataResult/timestamp</TokenIdentifier>
+			<Abstract type="html">The data and time when metadata was calculated, in Epoch (UNIX) seconds.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBDomainMetadataResult/timestamp</TokenIdentifier>
+			<Abstract type="html">The data and time when metadata was calculated, in Epoch (UNIX) seconds.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="2329"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

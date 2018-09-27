@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCognitoSyncStreamingStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCognitoSyncStreamingStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2458"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncStreamingStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncStreamingStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2458"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncStreamingStatusEnabled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncStreamingStatusEnabled</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2458"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncStreamingStatusDisabled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncStreamingStatusDisabled</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2458"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

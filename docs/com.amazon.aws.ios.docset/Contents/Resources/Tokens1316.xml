@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaCreateAliasRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaCreateAliasRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1316"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateAliasRequest/setDetail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Description of the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateAliasRequest/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Description of the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateAliasRequest/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Description of the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateAliasRequest/setFunctionName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the Lambda function for which you want to create an alias. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateAliasRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the Lambda function for which you want to create an alias. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateAliasRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the Lambda function for which you want to create an alias. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateAliasRequest/setFunctionVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lambda function version for which you are creating the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionVersion</Declaration>
+			
+			
+			<Anchor>//api/name/functionVersion</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateAliasRequest/functionVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lambda function version for which you are creating the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionVersion</Declaration>
+			
+			
+			<Anchor>//api/name/functionVersion</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateAliasRequest/functionVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lambda function version for which you are creating the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionVersion</Declaration>
+			
+			
+			<Anchor>//api/name/functionVersion</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateAliasRequest/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name for the alias you are creating.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateAliasRequest/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name for the alias you are creating.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateAliasRequest/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name for the alias you are creating.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateAliasRequest/setRoutingConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies an additional version your alias can point to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see &lt;a&gt;lambda-traffic-shifting-using-aliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration *routingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/routingConfig</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateAliasRequest/routingConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies an additional version your alias can point to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see &lt;a&gt;lambda-traffic-shifting-using-aliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration *routingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/routingConfig</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateAliasRequest/routingConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies an additional version your alias can point to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see &lt;a&gt;lambda-traffic-shifting-using-aliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration *routingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/routingConfig</Anchor>
+            <NodeRef refid="1316"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingScalingPolicy.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingScalingPolicy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes a scaling policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="106"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setAdjustmentType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The adjustment type, which specifies how &lt;code&gt;ScalingAdjustment&lt;/code&gt; is interpreted. Valid values are &lt;code&gt;ChangeInCapacity&lt;/code&gt;, &lt;code&gt;ExactCapacity&lt;/code&gt;, and &lt;code&gt;PercentChangeInCapacity&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *adjustmentType</Declaration>
+			
+			
+			<Anchor>//api/name/adjustmentType</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/adjustmentType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The adjustment type, which specifies how &lt;code&gt;ScalingAdjustment&lt;/code&gt; is interpreted. Valid values are &lt;code&gt;ChangeInCapacity&lt;/code&gt;, &lt;code&gt;ExactCapacity&lt;/code&gt;, and &lt;code&gt;PercentChangeInCapacity&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *adjustmentType</Declaration>
+			
+			
+			<Anchor>//api/name/adjustmentType</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/adjustmentType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The adjustment type, which specifies how &lt;code&gt;ScalingAdjustment&lt;/code&gt; is interpreted. Valid values are &lt;code&gt;ChangeInCapacity&lt;/code&gt;, &lt;code&gt;ExactCapacity&lt;/code&gt;, and &lt;code&gt;PercentChangeInCapacity&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *adjustmentType</Declaration>
+			
+			
+			<Anchor>//api/name/adjustmentType</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setAlarms:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch alarms related to the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingAlarm*&gt; *alarms</Declaration>
+			
+			
+			<Anchor>//api/name/alarms</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/alarms</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch alarms related to the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingAlarm*&gt; *alarms</Declaration>
+			
+			
+			<Anchor>//api/name/alarms</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/alarms</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch alarms related to the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingAlarm*&gt; *alarms</Declaration>
+			
+			
+			<Anchor>//api/name/alarms</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setAutoScalingGroupName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Auto Scaling group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *autoScalingGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/autoScalingGroupName</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/autoScalingGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Auto Scaling group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *autoScalingGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/autoScalingGroupName</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/autoScalingGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Auto Scaling group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *autoScalingGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/autoScalingGroupName</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setCooldown:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of time, in seconds, after a scaling activity completes before any further dynamic scaling activities can start.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *cooldown</Declaration>
+			
+			
+			<Anchor>//api/name/cooldown</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/cooldown</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of time, in seconds, after a scaling activity completes before any further dynamic scaling activities can start.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *cooldown</Declaration>
+			
+			
+			<Anchor>//api/name/cooldown</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/cooldown</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of time, in seconds, after a scaling activity completes before any further dynamic scaling activities can start.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *cooldown</Declaration>
+			
+			
+			<Anchor>//api/name/cooldown</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setEstimatedInstanceWarmup:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *estimatedInstanceWarmup</Declaration>
+			
+			
+			<Anchor>//api/name/estimatedInstanceWarmup</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/estimatedInstanceWarmup</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *estimatedInstanceWarmup</Declaration>
+			
+			
+			<Anchor>//api/name/estimatedInstanceWarmup</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/estimatedInstanceWarmup</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *estimatedInstanceWarmup</Declaration>
+			
+			
+			<Anchor>//api/name/estimatedInstanceWarmup</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setMetricAggregationType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The aggregation type for the CloudWatch metrics. Valid values are &lt;code&gt;Minimum&lt;/code&gt;, &lt;code&gt;Maximum&lt;/code&gt;, and &lt;code&gt;Average&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricAggregationType</Declaration>
+			
+			
+			<Anchor>//api/name/metricAggregationType</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/metricAggregationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The aggregation type for the CloudWatch metrics. Valid values are &lt;code&gt;Minimum&lt;/code&gt;, &lt;code&gt;Maximum&lt;/code&gt;, and &lt;code&gt;Average&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricAggregationType</Declaration>
+			
+			
+			<Anchor>//api/name/metricAggregationType</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/metricAggregationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The aggregation type for the CloudWatch metrics. Valid values are &lt;code&gt;Minimum&lt;/code&gt;, &lt;code&gt;Maximum&lt;/code&gt;, and &lt;code&gt;Average&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricAggregationType</Declaration>
+			
+			
+			<Anchor>//api/name/metricAggregationType</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setMinAdjustmentMagnitude:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum number of instances to scale. If the value of &lt;code&gt;AdjustmentType&lt;/code&gt; is &lt;code&gt;PercentChangeInCapacity&lt;/code&gt;, the scaling policy changes the &lt;code&gt;DesiredCapacity&lt;/code&gt; of the Auto Scaling group by at least this many instances. Otherwise, the error is &lt;code&gt;ValidationError&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minAdjustmentMagnitude</Declaration>
+			
+			
+			<Anchor>//api/name/minAdjustmentMagnitude</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/minAdjustmentMagnitude</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum number of instances to scale. If the value of &lt;code&gt;AdjustmentType&lt;/code&gt; is &lt;code&gt;PercentChangeInCapacity&lt;/code&gt;, the scaling policy changes the &lt;code&gt;DesiredCapacity&lt;/code&gt; of the Auto Scaling group by at least this many instances. Otherwise, the error is &lt;code&gt;ValidationError&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minAdjustmentMagnitude</Declaration>
+			
+			
+			<Anchor>//api/name/minAdjustmentMagnitude</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/minAdjustmentMagnitude</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum number of instances to scale. If the value of &lt;code&gt;AdjustmentType&lt;/code&gt; is &lt;code&gt;PercentChangeInCapacity&lt;/code&gt;, the scaling policy changes the &lt;code&gt;DesiredCapacity&lt;/code&gt; of the Auto Scaling group by at least this many instances. Otherwise, the error is &lt;code&gt;ValidationError&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minAdjustmentMagnitude</Declaration>
+			
+			
+			<Anchor>//api/name/minAdjustmentMagnitude</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setMinAdjustmentStep:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Available for backward compatibility. Use &lt;code&gt;MinAdjustmentMagnitude&lt;/code&gt; instead.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minAdjustmentStep</Declaration>
+			
+			
+			<Anchor>//api/name/minAdjustmentStep</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/minAdjustmentStep</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Available for backward compatibility. Use &lt;code&gt;MinAdjustmentMagnitude&lt;/code&gt; instead.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minAdjustmentStep</Declaration>
+			
+			
+			<Anchor>//api/name/minAdjustmentStep</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/minAdjustmentStep</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Available for backward compatibility. Use &lt;code&gt;MinAdjustmentMagnitude&lt;/code&gt; instead.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minAdjustmentStep</Declaration>
+			
+			
+			<Anchor>//api/name/minAdjustmentStep</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setPolicyARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyARN</Declaration>
+			
+			
+			<Anchor>//api/name/policyARN</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/policyARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyARN</Declaration>
+			
+			
+			<Anchor>//api/name/policyARN</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/policyARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyARN</Declaration>
+			
+			
+			<Anchor>//api/name/policyARN</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setPolicyName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the scaling policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the scaling policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the scaling policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setPolicyType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy type. Valid values are &lt;code&gt;SimpleScaling&lt;/code&gt; and &lt;code&gt;StepScaling&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyType</Declaration>
+			
+			
+			<Anchor>//api/name/policyType</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/policyType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy type. Valid values are &lt;code&gt;SimpleScaling&lt;/code&gt; and &lt;code&gt;StepScaling&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyType</Declaration>
+			
+			
+			<Anchor>//api/name/policyType</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/policyType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy type. Valid values are &lt;code&gt;SimpleScaling&lt;/code&gt; and &lt;code&gt;StepScaling&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyType</Declaration>
+			
+			
+			<Anchor>//api/name/policyType</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setScalingAdjustment:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *scalingAdjustment</Declaration>
+			
+			
+			<Anchor>//api/name/scalingAdjustment</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/scalingAdjustment</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *scalingAdjustment</Declaration>
+			
+			
+			<Anchor>//api/name/scalingAdjustment</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/scalingAdjustment</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *scalingAdjustment</Declaration>
+			
+			
+			<Anchor>//api/name/scalingAdjustment</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setStepAdjustments:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A set of adjustments that enable you to scale based on the size of the alarm breach.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingStepAdjustment*&gt; *stepAdjustments</Declaration>
+			
+			
+			<Anchor>//api/name/stepAdjustments</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/stepAdjustments</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A set of adjustments that enable you to scale based on the size of the alarm breach.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingStepAdjustment*&gt; *stepAdjustments</Declaration>
+			
+			
+			<Anchor>//api/name/stepAdjustments</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/stepAdjustments</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A set of adjustments that enable you to scale based on the size of the alarm breach.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingStepAdjustment*&gt; *stepAdjustments</Declaration>
+			
+			
+			<Anchor>//api/name/stepAdjustments</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/setTargetTrackingConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A target tracking policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSAutoScalingTargetTrackingConfiguration *targetTrackingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/targetTrackingConfiguration</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingScalingPolicy/targetTrackingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A target tracking policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSAutoScalingTargetTrackingConfiguration *targetTrackingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/targetTrackingConfiguration</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingScalingPolicy/targetTrackingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A target tracking policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSAutoScalingTargetTrackingConfiguration *targetTrackingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/targetTrackingConfiguration</Anchor>
+            <NodeRef refid="106"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

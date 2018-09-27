@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisPutRecordsResultEntry.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisPutRecordsResultEntry</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the result of an individual record from a &lt;code&gt;PutRecords&lt;/code&gt; request. A record that is successfully added to a stream includes &lt;code&gt;SequenceNumber&lt;/code&gt; and &lt;code&gt;ShardId&lt;/code&gt; in the result. A record that fails to be added to the stream includes &lt;code&gt;ErrorCode&lt;/code&gt; and &lt;code&gt;ErrorMessage&lt;/code&gt; in the result.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1259"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsResultEntry/setErrorCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The error code for an individual record result. &lt;code&gt;ErrorCodes&lt;/code&gt; can be either &lt;code&gt;ProvisionedThroughputExceededException&lt;/code&gt; or &lt;code&gt;InternalFailure&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsResultEntry/errorCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The error code for an individual record result. &lt;code&gt;ErrorCodes&lt;/code&gt; can be either &lt;code&gt;ProvisionedThroughputExceededException&lt;/code&gt; or &lt;code&gt;InternalFailure&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisPutRecordsResultEntry/errorCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The error code for an individual record result. &lt;code&gt;ErrorCodes&lt;/code&gt; can be either &lt;code&gt;ProvisionedThroughputExceededException&lt;/code&gt; or &lt;code&gt;InternalFailure&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsResultEntry/setErrorMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The error message for an individual record result. An &lt;code&gt;ErrorCode&lt;/code&gt; value of &lt;code&gt;ProvisionedThroughputExceededException&lt;/code&gt; has an error message that includes the account ID, stream name, and shard ID. An &lt;code&gt;ErrorCode&lt;/code&gt; value of &lt;code&gt;InternalFailure&lt;/code&gt; has the error message &lt;code&gt;&quot;Internal Service Failure&quot;&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorMessage</Declaration>
+			
+			
+			<Anchor>//api/name/errorMessage</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsResultEntry/errorMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The error message for an individual record result. An &lt;code&gt;ErrorCode&lt;/code&gt; value of &lt;code&gt;ProvisionedThroughputExceededException&lt;/code&gt; has an error message that includes the account ID, stream name, and shard ID. An &lt;code&gt;ErrorCode&lt;/code&gt; value of &lt;code&gt;InternalFailure&lt;/code&gt; has the error message &lt;code&gt;&quot;Internal Service Failure&quot;&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorMessage</Declaration>
+			
+			
+			<Anchor>//api/name/errorMessage</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisPutRecordsResultEntry/errorMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The error message for an individual record result. An &lt;code&gt;ErrorCode&lt;/code&gt; value of &lt;code&gt;ProvisionedThroughputExceededException&lt;/code&gt; has an error message that includes the account ID, stream name, and shard ID. An &lt;code&gt;ErrorCode&lt;/code&gt; value of &lt;code&gt;InternalFailure&lt;/code&gt; has the error message &lt;code&gt;&quot;Internal Service Failure&quot;&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorMessage</Declaration>
+			
+			
+			<Anchor>//api/name/errorMessage</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsResultEntry/setSequenceNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sequence number for an individual record result.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/sequenceNumber</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsResultEntry/sequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sequence number for an individual record result.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/sequenceNumber</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisPutRecordsResultEntry/sequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sequence number for an individual record result.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/sequenceNumber</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsResultEntry/setShardId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The shard ID for an individual record result.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardId</Declaration>
+			
+			
+			<Anchor>//api/name/shardId</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsResultEntry/shardId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The shard ID for an individual record result.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardId</Declaration>
+			
+			
+			<Anchor>//api/name/shardId</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisPutRecordsResultEntry/shardId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The shard ID for an individual record result.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardId</Declaration>
+			
+			
+			<Anchor>//api/name/shardId</Anchor>
+            <NodeRef refid="1259"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderSMSMfaSettingsType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderSMSMfaSettingsType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS multi-factor authentication (MFA) settings type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="399"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSMSMfaSettingsType/setEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether SMS text message MFA is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="399"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSMSMfaSettingsType/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether SMS text message MFA is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="399"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSMSMfaSettingsType/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether SMS text message MFA is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="399"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSMSMfaSettingsType/setPreferredMfa:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The preferred MFA method.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *preferredMfa</Declaration>
+			
+			
+			<Anchor>//api/name/preferredMfa</Anchor>
+            <NodeRef refid="399"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSMSMfaSettingsType/preferredMfa</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The preferred MFA method.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *preferredMfa</Declaration>
+			
+			
+			<Anchor>//api/name/preferredMfa</Anchor>
+            <NodeRef refid="399"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSMSMfaSettingsType/preferredMfa</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The preferred MFA method.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *preferredMfa</Declaration>
+			
+			
+			<Anchor>//api/name/preferredMfa</Anchor>
+            <NodeRef refid="399"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

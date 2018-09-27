@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTCancelJobExecutionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTCancelJobExecutionRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="866"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCancelJobExecutionRequest/setExpectedVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *expectedVersion</Declaration>
+			
+			
+			<Anchor>//api/name/expectedVersion</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCancelJobExecutionRequest/expectedVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *expectedVersion</Declaration>
+			
+			
+			<Anchor>//api/name/expectedVersion</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCancelJobExecutionRequest/expectedVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) The expected current version of the job execution. Each time you update the job execution, its version is incremented. If the version of the job execution stored in Jobs does not match, the update is rejected with a VersionMismatch error, and an ErrorResponse that contains the current job execution status data is returned. (This makes it unnecessary to perform a separate DescribeJobExecution request in order to obtain the job execution status data.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *expectedVersion</Declaration>
+			
+			
+			<Anchor>//api/name/expectedVersion</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCancelJobExecutionRequest/setForce:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) If &lt;code&gt;true&lt;/code&gt; the job execution will be canceled if it has status INPROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status QUEUED. If you attempt to cancel a job execution that is INPROGRESS, and you do not set &lt;code&gt;force&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt;, then an &lt;code&gt;InvalidStateTransitionException&lt;/code&gt; will be thrown. The default is &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Canceling a job execution which is &quot;IN_PROGRESS&quot;, will cause the device to be unable to update the job execution status. Use caution and ensure that the device is able to recover to a valid state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *force</Declaration>
+			
+			
+			<Anchor>//api/name/force</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCancelJobExecutionRequest/force</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) If &lt;code&gt;true&lt;/code&gt; the job execution will be canceled if it has status INPROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status QUEUED. If you attempt to cancel a job execution that is INPROGRESS, and you do not set &lt;code&gt;force&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt;, then an &lt;code&gt;InvalidStateTransitionException&lt;/code&gt; will be thrown. The default is &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Canceling a job execution which is &quot;IN_PROGRESS&quot;, will cause the device to be unable to update the job execution status. Use caution and ensure that the device is able to recover to a valid state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *force</Declaration>
+			
+			
+			<Anchor>//api/name/force</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCancelJobExecutionRequest/force</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) If &lt;code&gt;true&lt;/code&gt; the job execution will be canceled if it has status INPROGRESS or QUEUED, otherwise the job execution will be canceled only if it has status QUEUED. If you attempt to cancel a job execution that is INPROGRESS, and you do not set &lt;code&gt;force&lt;/code&gt; to &lt;code&gt;true&lt;/code&gt;, then an &lt;code&gt;InvalidStateTransitionException&lt;/code&gt; will be thrown. The default is &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Canceling a job execution which is &quot;IN_PROGRESS&quot;, will cause the device to be unable to update the job execution status. Use caution and ensure that the device is able to recover to a valid state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *force</Declaration>
+			
+			
+			<Anchor>//api/name/force</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCancelJobExecutionRequest/setJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the job to be canceled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCancelJobExecutionRequest/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the job to be canceled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCancelJobExecutionRequest/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the job to be canceled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCancelJobExecutionRequest/setStatusDetails:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *statusDetails</Declaration>
+			
+			
+			<Anchor>//api/name/statusDetails</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCancelJobExecutionRequest/statusDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *statusDetails</Declaration>
+			
+			
+			<Anchor>//api/name/statusDetails</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCancelJobExecutionRequest/statusDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A collection of name/value pairs that describe the status of the job execution. If not specified, the statusDetails are unchanged. You can specify at most 10 name/value pairs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *statusDetails</Declaration>
+			
+			
+			<Anchor>//api/name/statusDetails</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCancelJobExecutionRequest/setThingName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing whose execution of the job will be canceled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingName</Declaration>
+			
+			
+			<Anchor>//api/name/thingName</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCancelJobExecutionRequest/thingName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing whose execution of the job will be canceled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingName</Declaration>
+			
+			
+			<Anchor>//api/name/thingName</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCancelJobExecutionRequest/thingName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing whose execution of the job will be canceled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingName</Declaration>
+			
+			
+			<Anchor>//api/name/thingName</Anchor>
+            <NodeRef refid="866"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

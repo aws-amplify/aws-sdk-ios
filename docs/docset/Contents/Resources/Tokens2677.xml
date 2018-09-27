@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3Tier.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3Tier</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2677"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3TierUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3TierUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2677"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3TierStandard</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3TierStandard</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2677"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3TierBulk</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3TierBulk</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2677"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3TierExpedited</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3TierExpedited</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2677"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

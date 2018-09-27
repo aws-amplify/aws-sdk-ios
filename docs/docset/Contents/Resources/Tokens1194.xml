@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSGetParametersForImportResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSGetParametersForImportResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1194"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGetParametersForImportResponse/setImportToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The import token to send in a subsequent &lt;a&gt;ImportKeyMaterial&lt;/a&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *importToken</Declaration>
+			
+			
+			<Anchor>//api/name/importToken</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGetParametersForImportResponse/importToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The import token to send in a subsequent &lt;a&gt;ImportKeyMaterial&lt;/a&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *importToken</Declaration>
+			
+			
+			<Anchor>//api/name/importToken</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGetParametersForImportResponse/importToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The import token to send in a subsequent &lt;a&gt;ImportKeyMaterial&lt;/a&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *importToken</Declaration>
+			
+			
+			<Anchor>//api/name/importToken</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGetParametersForImportResponse/setKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the CMK to use in a subsequent &lt;a&gt;ImportKeyMaterial&lt;/a&gt; request. This is the same CMK specified in the &lt;code&gt;GetParametersForImport&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGetParametersForImportResponse/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the CMK to use in a subsequent &lt;a&gt;ImportKeyMaterial&lt;/a&gt; request. This is the same CMK specified in the &lt;code&gt;GetParametersForImport&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGetParametersForImportResponse/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the CMK to use in a subsequent &lt;a&gt;ImportKeyMaterial&lt;/a&gt; request. This is the same CMK specified in the &lt;code&gt;GetParametersForImport&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGetParametersForImportResponse/setParametersValidTo:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an &lt;a&gt;ImportKeyMaterial&lt;/a&gt; request and you must send another &lt;code&gt;GetParametersForImport&lt;/code&gt; request to get new ones.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *parametersValidTo</Declaration>
+			
+			
+			<Anchor>//api/name/parametersValidTo</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGetParametersForImportResponse/parametersValidTo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an &lt;a&gt;ImportKeyMaterial&lt;/a&gt; request and you must send another &lt;code&gt;GetParametersForImport&lt;/code&gt; request to get new ones.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *parametersValidTo</Declaration>
+			
+			
+			<Anchor>//api/name/parametersValidTo</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGetParametersForImportResponse/parametersValidTo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time at which the import token and public key are no longer valid. After this time, you cannot use them to make an &lt;a&gt;ImportKeyMaterial&lt;/a&gt; request and you must send another &lt;code&gt;GetParametersForImport&lt;/code&gt; request to get new ones.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *parametersValidTo</Declaration>
+			
+			
+			<Anchor>//api/name/parametersValidTo</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGetParametersForImportResponse/setPublicKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The public key to use to encrypt the key material before importing it with &lt;a&gt;ImportKeyMaterial&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *publicKey</Declaration>
+			
+			
+			<Anchor>//api/name/publicKey</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGetParametersForImportResponse/publicKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The public key to use to encrypt the key material before importing it with &lt;a&gt;ImportKeyMaterial&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *publicKey</Declaration>
+			
+			
+			<Anchor>//api/name/publicKey</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGetParametersForImportResponse/publicKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The public key to use to encrypt the key material before importing it with &lt;a&gt;ImportKeyMaterial&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *publicKey</Declaration>
+			
+			
+			<Anchor>//api/name/publicKey</Anchor>
+            <NodeRef refid="1194"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

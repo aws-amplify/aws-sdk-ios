@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTKeyPair.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTKeyPair</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes a key pair.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1017"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTKeyPair/setPrivateKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The private key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *privateKey</Declaration>
+			
+			
+			<Anchor>//api/name/privateKey</Anchor>
+            <NodeRef refid="1017"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTKeyPair/privateKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The private key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *privateKey</Declaration>
+			
+			
+			<Anchor>//api/name/privateKey</Anchor>
+            <NodeRef refid="1017"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTKeyPair/privateKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The private key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *privateKey</Declaration>
+			
+			
+			<Anchor>//api/name/privateKey</Anchor>
+            <NodeRef refid="1017"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTKeyPair/setPublicKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The public key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *publicKey</Declaration>
+			
+			
+			<Anchor>//api/name/publicKey</Anchor>
+            <NodeRef refid="1017"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTKeyPair/publicKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The public key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *publicKey</Declaration>
+			
+			
+			<Anchor>//api/name/publicKey</Anchor>
+            <NodeRef refid="1017"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTKeyPair/publicKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The public key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *publicKey</Declaration>
+			
+			
+			<Anchor>//api/name/publicKey</Anchor>
+            <NodeRef refid="1017"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

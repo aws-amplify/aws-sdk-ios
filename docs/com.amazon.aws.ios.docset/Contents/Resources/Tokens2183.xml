@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESUpdateConfigurationSetSendingEnabledRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESUpdateConfigurationSetSendingEnabledRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to enable or disable the email sending capabilities for a specific configuration set.&lt;/p&gt;
+Required parameters: [ConfigurationSetName, Enabled]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2183"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESUpdateConfigurationSetSendingEnabledRequest/setConfigurationSetName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set that you want to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2183"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESUpdateConfigurationSetSendingEnabledRequest/configurationSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set that you want to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2183"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESUpdateConfigurationSetSendingEnabledRequest/configurationSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set that you want to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2183"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESUpdateConfigurationSetSendingEnabledRequest/setEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes whether email sending is enabled or disabled for the configuration set. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="2183"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESUpdateConfigurationSetSendingEnabledRequest/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes whether email sending is enabled or disabled for the configuration set. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="2183"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESUpdateConfigurationSetSendingEnabledRequest/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes whether email sending is enabled or disabled for the configuration set. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="2183"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

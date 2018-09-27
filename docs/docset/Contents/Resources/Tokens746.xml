@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingListenerDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingListenerDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policies enabled for a listener.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="746"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingListenerDescription/setListener:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The listener.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingListener *listener</Declaration>
+			
+			
+			<Anchor>//api/name/listener</Anchor>
+            <NodeRef refid="746"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingListenerDescription/listener</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The listener.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingListener *listener</Declaration>
+			
+			
+			<Anchor>//api/name/listener</Anchor>
+            <NodeRef refid="746"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingListenerDescription/listener</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The listener.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingListener *listener</Declaration>
+			
+			
+			<Anchor>//api/name/listener</Anchor>
+            <NodeRef refid="746"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingListenerDescription/setPolicyNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policies. If there are no policies enabled, the list is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *policyNames</Declaration>
+			
+			
+			<Anchor>//api/name/policyNames</Anchor>
+            <NodeRef refid="746"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingListenerDescription/policyNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policies. If there are no policies enabled, the list is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *policyNames</Declaration>
+			
+			
+			<Anchor>//api/name/policyNames</Anchor>
+            <NodeRef refid="746"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingListenerDescription/policyNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policies. If there are no policies enabled, the list is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *policyNames</Declaration>
+			
+			
+			<Anchor>//api/name/policyNames</Anchor>
+            <NodeRef refid="746"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

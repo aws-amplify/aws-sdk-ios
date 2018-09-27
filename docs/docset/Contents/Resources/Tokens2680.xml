@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3TransferUtilityErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3TransferUtilityErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3TransferUtility.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2680"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3TransferUtilityErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3TransferUtilityErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3TransferUtility.h</DeclaredIn>
+            
+            <NodeRef refid="2680"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3TransferUtilityErrorRedirection</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3TransferUtilityErrorRedirection</Declaration>
+            
+            <DeclaredIn>AWSS3TransferUtility.h</DeclaredIn>
+            
+            <NodeRef refid="2680"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3TransferUtilityErrorClientError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3TransferUtilityErrorClientError</Declaration>
+            
+            <DeclaredIn>AWSS3TransferUtility.h</DeclaredIn>
+            
+            <NodeRef refid="2680"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3TransferUtilityErrorServerError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3TransferUtilityErrorServerError</Declaration>
+            
+            <DeclaredIn>AWSS3TransferUtility.h</DeclaredIn>
+            
+            <NodeRef refid="2680"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3TransferUtilityErrorLocalFileNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3TransferUtilityErrorLocalFileNotFound</Declaration>
+            
+            <DeclaredIn>AWSS3TransferUtility.h</DeclaredIn>
+            
+            <NodeRef refid="2680"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

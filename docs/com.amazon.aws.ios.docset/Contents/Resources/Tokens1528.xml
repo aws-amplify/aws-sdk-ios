@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingEndpointDemographic.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingEndpointDemographic</TokenIdentifier>
+			<Abstract type="html">Endpoint demographic data</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1528"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/setAppVersion:</TokenIdentifier>
+			<Abstract type="html">The version of the application associated with the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *appVersion</Declaration>
+			
+			
+			<Anchor>//api/name/appVersion</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/appVersion</TokenIdentifier>
+			<Abstract type="html">The version of the application associated with the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *appVersion</Declaration>
+			
+			
+			<Anchor>//api/name/appVersion</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointDemographic/appVersion</TokenIdentifier>
+			<Abstract type="html">The version of the application associated with the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *appVersion</Declaration>
+			
+			
+			<Anchor>//api/name/appVersion</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/setLocale:</TokenIdentifier>
+			<Abstract type="html">The endpoint locale in the following format: The ISO 639-1 alpha-2 code, followed by an underscore, followed by an ISO 3166-1 alpha-2 value.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *locale</Declaration>
+			
+			
+			<Anchor>//api/name/locale</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/locale</TokenIdentifier>
+			<Abstract type="html">The endpoint locale in the following format: The ISO 639-1 alpha-2 code, followed by an underscore, followed by an ISO 3166-1 alpha-2 value.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *locale</Declaration>
+			
+			
+			<Anchor>//api/name/locale</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointDemographic/locale</TokenIdentifier>
+			<Abstract type="html">The endpoint locale in the following format: The ISO 639-1 alpha-2 code, followed by an underscore, followed by an ISO 3166-1 alpha-2 value.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *locale</Declaration>
+			
+			
+			<Anchor>//api/name/locale</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/setMake:</TokenIdentifier>
+			<Abstract type="html">The endpoint make, such as such as Apple or Samsung.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *make</Declaration>
+			
+			
+			<Anchor>//api/name/make</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/make</TokenIdentifier>
+			<Abstract type="html">The endpoint make, such as such as Apple or Samsung.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *make</Declaration>
+			
+			
+			<Anchor>//api/name/make</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointDemographic/make</TokenIdentifier>
+			<Abstract type="html">The endpoint make, such as such as Apple or Samsung.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *make</Declaration>
+			
+			
+			<Anchor>//api/name/make</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/setModel:</TokenIdentifier>
+			<Abstract type="html">The endpoint model, such as iPhone.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *model</Declaration>
+			
+			
+			<Anchor>//api/name/model</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/model</TokenIdentifier>
+			<Abstract type="html">The endpoint model, such as iPhone.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *model</Declaration>
+			
+			
+			<Anchor>//api/name/model</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointDemographic/model</TokenIdentifier>
+			<Abstract type="html">The endpoint model, such as iPhone.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *model</Declaration>
+			
+			
+			<Anchor>//api/name/model</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/setModelVersion:</TokenIdentifier>
+			<Abstract type="html">The endpoint model version.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *modelVersion</Declaration>
+			
+			
+			<Anchor>//api/name/modelVersion</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/modelVersion</TokenIdentifier>
+			<Abstract type="html">The endpoint model version.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *modelVersion</Declaration>
+			
+			
+			<Anchor>//api/name/modelVersion</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointDemographic/modelVersion</TokenIdentifier>
+			<Abstract type="html">The endpoint model version.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *modelVersion</Declaration>
+			
+			
+			<Anchor>//api/name/modelVersion</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/setPlatform:</TokenIdentifier>
+			<Abstract type="html">The endpoint platform, such as ios or android.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platform</Declaration>
+			
+			
+			<Anchor>//api/name/platform</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/platform</TokenIdentifier>
+			<Abstract type="html">The endpoint platform, such as ios or android.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platform</Declaration>
+			
+			
+			<Anchor>//api/name/platform</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointDemographic/platform</TokenIdentifier>
+			<Abstract type="html">The endpoint platform, such as ios or android.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platform</Declaration>
+			
+			
+			<Anchor>//api/name/platform</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/setPlatformVersion:</TokenIdentifier>
+			<Abstract type="html">The endpoint platform version.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platformVersion</Declaration>
+			
+			
+			<Anchor>//api/name/platformVersion</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/platformVersion</TokenIdentifier>
+			<Abstract type="html">The endpoint platform version.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platformVersion</Declaration>
+			
+			
+			<Anchor>//api/name/platformVersion</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointDemographic/platformVersion</TokenIdentifier>
+			<Abstract type="html">The endpoint platform version.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platformVersion</Declaration>
+			
+			
+			<Anchor>//api/name/platformVersion</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/setTimezone:</TokenIdentifier>
+			<Abstract type="html">The timezone of the endpoint. Specified as a tz database value, such as Americas/Los_Angeles.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *timezone</Declaration>
+			
+			
+			<Anchor>//api/name/timezone</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointDemographic/timezone</TokenIdentifier>
+			<Abstract type="html">The timezone of the endpoint. Specified as a tz database value, such as Americas/Los_Angeles.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *timezone</Declaration>
+			
+			
+			<Anchor>//api/name/timezone</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointDemographic/timezone</TokenIdentifier>
+			<Abstract type="html">The timezone of the endpoint. Specified as a tz database value, such as Americas/Los_Angeles.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *timezone</Declaration>
+			
+			
+			<Anchor>//api/name/timezone</Anchor>
+            <NodeRef refid="1528"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

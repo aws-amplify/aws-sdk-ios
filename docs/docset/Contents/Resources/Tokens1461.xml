@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSMobileAnalyticsERSEvent.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSMobileAnalyticsERSEvent</TokenIdentifier>
+			<Abstract type="html">Represents a single event that happened on a client device. Attributes and metrics are optional.
+Required parameters: [eventType, timestamp, session]</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1461"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/setAttributes:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/attributes</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMobileAnalyticsERSEvent/attributes</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/setEventType:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventType</Declaration>
+			
+			
+			<Anchor>//api/name/eventType</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/eventType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventType</Declaration>
+			
+			
+			<Anchor>//api/name/eventType</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMobileAnalyticsERSEvent/eventType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventType</Declaration>
+			
+			
+			<Anchor>//api/name/eventType</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/setMetrics:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *metrics</Declaration>
+			
+			
+			<Anchor>//api/name/metrics</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/metrics</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *metrics</Declaration>
+			
+			
+			<Anchor>//api/name/metrics</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMobileAnalyticsERSEvent/metrics</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *metrics</Declaration>
+			
+			
+			<Anchor>//api/name/metrics</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/setSession:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSMobileAnalyticsERSSession *session</Declaration>
+			
+			
+			<Anchor>//api/name/session</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/session</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSMobileAnalyticsERSSession *session</Declaration>
+			
+			
+			<Anchor>//api/name/session</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMobileAnalyticsERSEvent/session</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSMobileAnalyticsERSSession *session</Declaration>
+			
+			
+			<Anchor>//api/name/session</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/setTimestamp:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/timestamp</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMobileAnalyticsERSEvent/timestamp</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/setVersion:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSEvent/version</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMobileAnalyticsERSEvent/version</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1461"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

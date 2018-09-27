@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLogsErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLogsErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2584"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorDataAlreadyAccepted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorDataAlreadyAccepted</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorInvalidOperation</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorInvalidOperation</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorInvalidParameter</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorInvalidParameter</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorInvalidSequenceToken</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorInvalidSequenceToken</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorOperationAborted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorOperationAborted</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorResourceAlreadyExists</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorResourceAlreadyExists</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorResourceNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorResourceNotFound</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorServiceUnavailable</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorServiceUnavailable</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogsErrorUnrecognizedClient</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogsErrorUnrecognizedClient</Declaration>
+            
+            <DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+            <NodeRef refid="2584"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

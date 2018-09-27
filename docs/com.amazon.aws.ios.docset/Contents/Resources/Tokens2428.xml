@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCognitoIdentityProviderCompromisedCredentialsEventActionType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCognitoIdentityProviderCompromisedCredentialsEventActionType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2428"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderCompromisedCredentialsEventActionTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderCompromisedCredentialsEventActionTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2428"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderCompromisedCredentialsEventActionTypeBlock</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderCompromisedCredentialsEventActionTypeBlock</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2428"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderCompromisedCredentialsEventActionTypeNoAction</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderCompromisedCredentialsEventActionTypeNoAction</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2428"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

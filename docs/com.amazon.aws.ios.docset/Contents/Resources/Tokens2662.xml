@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3Payer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3Payer</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2662"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PayerUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PayerUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2662"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PayerRequester</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PayerRequester</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2662"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PayerBucketOwner</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PayerBucketOwner</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2662"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

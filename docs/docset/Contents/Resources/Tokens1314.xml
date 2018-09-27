@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaAliasRoutingConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAliasRoutingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that implements what percentage of traffic will invoke each function version. For more information, see &lt;a&gt;lambda-traffic-shifting-using-aliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1314"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasRoutingConfiguration/setAdditionalVersionWeights:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Set this value to dictate what percentage of traffic will invoke the updated function version. If set to an empty string, 100 percent of traffic will invoke &lt;code&gt;function-version&lt;/code&gt;. For more information, see &lt;a&gt;lambda-traffic-shifting-using-aliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *additionalVersionWeights</Declaration>
+			
+			
+			<Anchor>//api/name/additionalVersionWeights</Anchor>
+            <NodeRef refid="1314"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasRoutingConfiguration/additionalVersionWeights</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Set this value to dictate what percentage of traffic will invoke the updated function version. If set to an empty string, 100 percent of traffic will invoke &lt;code&gt;function-version&lt;/code&gt;. For more information, see &lt;a&gt;lambda-traffic-shifting-using-aliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *additionalVersionWeights</Declaration>
+			
+			
+			<Anchor>//api/name/additionalVersionWeights</Anchor>
+            <NodeRef refid="1314"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaAliasRoutingConfiguration/additionalVersionWeights</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Set this value to dictate what percentage of traffic will invoke the updated function version. If set to an empty string, 100 percent of traffic will invoke &lt;code&gt;function-version&lt;/code&gt;. For more information, see &lt;a&gt;lambda-traffic-shifting-using-aliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *additionalVersionWeights</Declaration>
+			
+			
+			<Anchor>//api/name/additionalVersionWeights</Anchor>
+            <NodeRef refid="1314"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

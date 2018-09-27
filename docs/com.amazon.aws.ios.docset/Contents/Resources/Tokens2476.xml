@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSDynamoDBObjectMapperSaveBehavior.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSDynamoDBObjectMapperSaveBehavior</TokenIdentifier>
+			<Abstract type="html">Enumeration of behaviors for the save operation.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2476"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSDynamoDBObjectMapperSaveBehaviorUnknown</TokenIdentifier>
+            <Abstract type="html">     Unknown SaveBehavior.
+     </Abstract>
+            <Declaration>AWSDynamoDBObjectMapperSaveBehaviorUnknown</Declaration>
+            
+            <DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+            
+            <NodeRef refid="2476"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSDynamoDBObjectMapperSaveBehaviorUpdate</TokenIdentifier>
+            <Abstract type="html">     AWSDynamoDBObjectMapperSaveBehaviorUpdate will not affect unmodeled
+     attributes on a save operation and a nil value for the modeled attribute
+     will remove it from that item in DynamoDB.
+     By default, the mapper uses AWSDynamoDBObjectMapperSaveBehaviorUpdate.
+     </Abstract>
+            <Declaration>AWSDynamoDBObjectMapperSaveBehaviorUpdate</Declaration>
+            
+            <DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+            
+            <NodeRef refid="2476"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes</TokenIdentifier>
+            <Abstract type="html">     AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes is similar
+     to AWSDynamoDBObjectMapperSaveBehaviorUpdate, except that it
+     ignores any null value attribute(s) and will NOT remove them from
+     that item in DynamoDB. It also guarantees to send only one single
+     updateItem request, no matter the object is key-only or not.
+     </Abstract>
+            <Declaration>AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes</Declaration>
+            
+            <DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+            
+            <NodeRef refid="2476"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSDynamoDBObjectMapperSaveBehaviorAppendSet</TokenIdentifier>
+            <Abstract type="html">     AWSDynamoDBObjectMapperSaveBehaviorAppendSet treats scalar attributes
+     (String, Number, Binary) the same as
+     AWSDynamoDBObjectMapperSaveBehaviorUpdateSkipNullAttributes does.
+     However, for set attributes, it will append to the existing attribute
+     value, instead of overriding it. Caller needs to make sure that the
+     modeled attribute type matches the existing set type, otherwise it would
+     result in a service exception.
+     </Abstract>
+            <Declaration>AWSDynamoDBObjectMapperSaveBehaviorAppendSet</Declaration>
+            
+            <DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+            
+            <NodeRef refid="2476"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSDynamoDBObjectMapperSaveBehaviorClobber</TokenIdentifier>
+            <Abstract type="html">     AWSDynamoDBObjectMapperSaveBehaviorClobber will clear and replace all
+     attributes, included unmodeled ones, (delete and recreate) on save.
+     Versioned field constraints will also be disregarded.
+     </Abstract>
+            <Declaration>AWSDynamoDBObjectMapperSaveBehaviorClobber</Declaration>
+            
+            <DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+            
+            <NodeRef refid="2476"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

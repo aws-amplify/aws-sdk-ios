@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAPIGatewayRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAPIGatewayRequest</TokenIdentifier>
+			<Abstract type="html">The request object for invoking an AWS API Gateway API.</Abstract>
+			<DeclaredIn>AWSAPIGatewayModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAPIGatewayRequest/initWithHTTPMethod:URLString:queryParameters:headerParameters:HTTPBody:</TokenIdentifier>
+			<Abstract type="html">Creates an instance of AWSAPIGatewayRequest which is required to invoke an API using the invoke method.</Abstract>
+			<DeclaredIn>AWSAPIGatewayModel.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithHTTPMethod:(NSString *)HTTPMethod URLString:(NSString *_Nullable)URLString queryParameters:(NSDictionary *_Nullable)queryParameters headerParameters:(NSDictionary *_Nullable)headerParameters HTTPBody:(id _Nullable)HTTPBody</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>HTTPMethod</Name>
+					<Abstract type="html">The HTTP method to be invoked(E.g. : GET, PUT, POST, PATCH, UPDATE, DELETE, HEAD)</Abstract>
+				</Parameter><Parameter>
+					<Name>URLString</Name>
+					<Abstract type="html">The path to be invoked(E.g. : /cars)</Abstract>
+				</Parameter><Parameter>
+					<Name>queryParameters</Name>
+					<Abstract type="html">The query string parameters for the invocation request</Abstract>
+				</Parameter><Parameter>
+					<Name>headerParameters</Name>
+					<Abstract type="html">The header parameters for the request</Abstract>
+				</Parameter><Parameter>
+					<Name>HTTPBody</Name>
+					<Abstract type="html">The Http body for the request (Could be of type NSString, NSData, NSInputStream)</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSAPIGateway</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithHTTPMethod:URLString:queryParameters:headerParameters:HTTPBody:</Anchor>
+            <NodeRef refid="2"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

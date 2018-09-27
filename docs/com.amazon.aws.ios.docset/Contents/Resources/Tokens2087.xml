@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESDestination.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the destination of the message, consisting of To:, CC:, and BCC: fields.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Amazon SES does not support the SMTPUTF8 extension, as described in &lt;a href=&quot;https://tools.ietf.org/html/rfc6531&quot;&gt;RFC6531&lt;/a&gt;. For this reason, the &lt;i&gt;local part&lt;/i&gt; of a destination email address (the part of the email address that precedes the @ sign) may only contain RFC3492.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2087"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDestination/setBccAddresses:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The BCC: field(s) of the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *bccAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/bccAddresses</Anchor>
+            <NodeRef refid="2087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDestination/bccAddresses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The BCC: field(s) of the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *bccAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/bccAddresses</Anchor>
+            <NodeRef refid="2087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDestination/bccAddresses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The BCC: field(s) of the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *bccAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/bccAddresses</Anchor>
+            <NodeRef refid="2087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDestination/setCcAddresses:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CC: field(s) of the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *ccAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/ccAddresses</Anchor>
+            <NodeRef refid="2087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDestination/ccAddresses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CC: field(s) of the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *ccAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/ccAddresses</Anchor>
+            <NodeRef refid="2087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDestination/ccAddresses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CC: field(s) of the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *ccAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/ccAddresses</Anchor>
+            <NodeRef refid="2087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDestination/setToAddresses:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The To: field(s) of the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *toAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/toAddresses</Anchor>
+            <NodeRef refid="2087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDestination/toAddresses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The To: field(s) of the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *toAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/toAddresses</Anchor>
+            <NodeRef refid="2087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDestination/toAddresses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The To: field(s) of the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *toAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/toAddresses</Anchor>
+            <NodeRef refid="2087"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

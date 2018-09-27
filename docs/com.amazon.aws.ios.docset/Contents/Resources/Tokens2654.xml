@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3JSONType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3JSONType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2654"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3JSONTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3JSONTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2654"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3JSONTypeDocument</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3JSONTypeDocument</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2654"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3JSONTypeLines</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3JSONTypeLines</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2654"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

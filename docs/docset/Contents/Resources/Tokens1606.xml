@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingSegmentLocation.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingSegmentLocation</TokenIdentifier>
+			<Abstract type="html">Segment location dimensions</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1606"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentLocation/setCountry:</TokenIdentifier>
+			<Abstract type="html">The country filter according to ISO 3166-1 Alpha-2 codes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *country</Declaration>
+			
+			
+			<Anchor>//api/name/country</Anchor>
+            <NodeRef refid="1606"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentLocation/country</TokenIdentifier>
+			<Abstract type="html">The country filter according to ISO 3166-1 Alpha-2 codes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *country</Declaration>
+			
+			
+			<Anchor>//api/name/country</Anchor>
+            <NodeRef refid="1606"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentLocation/country</TokenIdentifier>
+			<Abstract type="html">The country filter according to ISO 3166-1 Alpha-2 codes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *country</Declaration>
+			
+			
+			<Anchor>//api/name/country</Anchor>
+            <NodeRef refid="1606"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

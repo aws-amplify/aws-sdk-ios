@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderListDevicesRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderListDevicesRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the request to list the devices.&lt;/p&gt;
+Required parameters: [AccessToken]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="365"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListDevicesRequest/setAccessToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access tokens for the request to list devices.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="365"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListDevicesRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access tokens for the request to list devices.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="365"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderListDevicesRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access tokens for the request to list devices.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="365"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListDevicesRequest/setLimit:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The limit of the device request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="365"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListDevicesRequest/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The limit of the device request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="365"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderListDevicesRequest/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The limit of the device request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="365"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListDevicesRequest/setPaginationToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pagination token for the list request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *paginationToken</Declaration>
+			
+			
+			<Anchor>//api/name/paginationToken</Anchor>
+            <NodeRef refid="365"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListDevicesRequest/paginationToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pagination token for the list request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *paginationToken</Declaration>
+			
+			
+			<Anchor>//api/name/paginationToken</Anchor>
+            <NodeRef refid="365"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderListDevicesRequest/paginationToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pagination token for the list request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *paginationToken</Declaration>
+			
+			
+			<Anchor>//api/name/paginationToken</Anchor>
+            <NodeRef refid="365"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

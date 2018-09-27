@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3CSVOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3CSVOutput</TokenIdentifier>
+			<Abstract type="html">Describes how CSV-formatted results are formatted.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1801"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CSVOutput/setFieldDelimiter:</TokenIdentifier>
+			<Abstract type="html">Value used to separate individual fields in a record.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *fieldDelimiter</Declaration>
+			
+			
+			<Anchor>//api/name/fieldDelimiter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CSVOutput/fieldDelimiter</TokenIdentifier>
+			<Abstract type="html">Value used to separate individual fields in a record.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *fieldDelimiter</Declaration>
+			
+			
+			<Anchor>//api/name/fieldDelimiter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CSVOutput/fieldDelimiter</TokenIdentifier>
+			<Abstract type="html">Value used to separate individual fields in a record.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *fieldDelimiter</Declaration>
+			
+			
+			<Anchor>//api/name/fieldDelimiter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CSVOutput/setQuoteCharacter:</TokenIdentifier>
+			<Abstract type="html">Value used for escaping where the field delimiter is part of the value.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *quoteCharacter</Declaration>
+			
+			
+			<Anchor>//api/name/quoteCharacter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CSVOutput/quoteCharacter</TokenIdentifier>
+			<Abstract type="html">Value used for escaping where the field delimiter is part of the value.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *quoteCharacter</Declaration>
+			
+			
+			<Anchor>//api/name/quoteCharacter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CSVOutput/quoteCharacter</TokenIdentifier>
+			<Abstract type="html">Value used for escaping where the field delimiter is part of the value.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *quoteCharacter</Declaration>
+			
+			
+			<Anchor>//api/name/quoteCharacter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CSVOutput/setQuoteEscapeCharacter:</TokenIdentifier>
+			<Abstract type="html">Single character used for escaping the quote character inside an already escaped value.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *quoteEscapeCharacter</Declaration>
+			
+			
+			<Anchor>//api/name/quoteEscapeCharacter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CSVOutput/quoteEscapeCharacter</TokenIdentifier>
+			<Abstract type="html">Single character used for escaping the quote character inside an already escaped value.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *quoteEscapeCharacter</Declaration>
+			
+			
+			<Anchor>//api/name/quoteEscapeCharacter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CSVOutput/quoteEscapeCharacter</TokenIdentifier>
+			<Abstract type="html">Single character used for escaping the quote character inside an already escaped value.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *quoteEscapeCharacter</Declaration>
+			
+			
+			<Anchor>//api/name/quoteEscapeCharacter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CSVOutput/setQuoteFields:</TokenIdentifier>
+			<Abstract type="html">Indicates whether or not all output fields should be quoted.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3QuoteFields quoteFields</Declaration>
+			
+			
+			<Anchor>//api/name/quoteFields</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CSVOutput/quoteFields</TokenIdentifier>
+			<Abstract type="html">Indicates whether or not all output fields should be quoted.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3QuoteFields quoteFields</Declaration>
+			
+			
+			<Anchor>//api/name/quoteFields</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CSVOutput/quoteFields</TokenIdentifier>
+			<Abstract type="html">Indicates whether or not all output fields should be quoted.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3QuoteFields quoteFields</Declaration>
+			
+			
+			<Anchor>//api/name/quoteFields</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CSVOutput/setRecordDelimiter:</TokenIdentifier>
+			<Abstract type="html">Value used to separate individual records.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recordDelimiter</Declaration>
+			
+			
+			<Anchor>//api/name/recordDelimiter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CSVOutput/recordDelimiter</TokenIdentifier>
+			<Abstract type="html">Value used to separate individual records.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recordDelimiter</Declaration>
+			
+			
+			<Anchor>//api/name/recordDelimiter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CSVOutput/recordDelimiter</TokenIdentifier>
+			<Abstract type="html">Value used to separate individual records.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recordDelimiter</Declaration>
+			
+			
+			<Anchor>//api/name/recordDelimiter</Anchor>
+            <NodeRef refid="1801"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

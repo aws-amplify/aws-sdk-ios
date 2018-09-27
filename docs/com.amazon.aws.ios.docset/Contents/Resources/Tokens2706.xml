@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSServiceErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSServiceErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2706"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorRequestTimeTooSkewed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorRequestTimeTooSkewed</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorInvalidSignatureException</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorInvalidSignatureException</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorSignatureDoesNotMatch</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorSignatureDoesNotMatch</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorRequestExpired</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorRequestExpired</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorAuthFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorAuthFailure</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorAccessDeniedException</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorAccessDeniedException</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorUnrecognizedClientException</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorUnrecognizedClientException</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorIncompleteSignature</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorIncompleteSignature</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorInvalidClientTokenId</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorInvalidClientTokenId</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorMissingAuthenticationToken</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorMissingAuthenticationToken</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorAccessDenied</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorAccessDenied</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorExpiredToken</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorExpiredToken</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorInvalidAccessKeyId</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorInvalidAccessKeyId</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorInvalidToken</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorInvalidToken</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorTokenRefreshRequired</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorTokenRefreshRequired</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorAccessFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorAccessFailure</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorAuthMissingFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorAuthMissingFailure</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorThrottling</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorThrottling</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSServiceErrorThrottlingException</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSServiceErrorThrottlingException</Declaration>
+            
+            <DeclaredIn>AWSService.h</DeclaredIn>
+            
+            <NodeRef refid="2706"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The verification code response returned by the server response to get the user attribute verification code.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="351"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse/setCodeDeliveryDetails:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code delivery details returned by the server in response to the request to get the user attribute verification code.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType *codeDeliveryDetails</Declaration>
+			
+			
+			<Anchor>//api/name/codeDeliveryDetails</Anchor>
+            <NodeRef refid="351"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse/codeDeliveryDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code delivery details returned by the server in response to the request to get the user attribute verification code.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType *codeDeliveryDetails</Declaration>
+			
+			
+			<Anchor>//api/name/codeDeliveryDetails</Anchor>
+            <NodeRef refid="351"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse/codeDeliveryDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code delivery details returned by the server in response to the request to get the user attribute verification code.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType *codeDeliveryDetails</Declaration>
+			
+			
+			<Anchor>//api/name/codeDeliveryDetails</Anchor>
+            <NodeRef refid="351"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

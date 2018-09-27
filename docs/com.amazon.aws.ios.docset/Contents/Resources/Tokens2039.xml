@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESCloudWatchDestination.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESCloudWatchDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains information associated with an Amazon CloudWatch event destination to which email sending events are published.&lt;/p&gt;&lt;p&gt;Event destinations, such as Amazon CloudWatch, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [DimensionConfigurations]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2039"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESCloudWatchDestination/setDimensionConfigurations:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESCloudWatchDimensionConfiguration*&gt; *dimensionConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/dimensionConfigurations</Anchor>
+            <NodeRef refid="2039"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESCloudWatchDestination/dimensionConfigurations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESCloudWatchDimensionConfiguration*&gt; *dimensionConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/dimensionConfigurations</Anchor>
+            <NodeRef refid="2039"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESCloudWatchDestination/dimensionConfigurations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESCloudWatchDimensionConfiguration*&gt; *dimensionConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/dimensionConfigurations</Anchor>
+            <NodeRef refid="2039"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

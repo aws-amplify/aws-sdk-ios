@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingGetApnsChannelResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApnsChannelResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1544"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGetApnsChannelResponse/setAPNSChannelResponse:</TokenIdentifier>
+			<Abstract type="html">Apple Distribution Push Notification Service channel definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSChannelResponse *APNSChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/APNSChannelResponse</Anchor>
+            <NodeRef refid="1544"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGetApnsChannelResponse/APNSChannelResponse</TokenIdentifier>
+			<Abstract type="html">Apple Distribution Push Notification Service channel definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSChannelResponse *APNSChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/APNSChannelResponse</Anchor>
+            <NodeRef refid="1544"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGetApnsChannelResponse/APNSChannelResponse</TokenIdentifier>
+			<Abstract type="html">Apple Distribution Push Notification Service channel definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSChannelResponse *APNSChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/APNSChannelResponse</Anchor>
+            <NodeRef refid="1544"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

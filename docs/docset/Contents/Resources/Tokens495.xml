@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoSyncIdentityUsage.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoSyncIdentityUsage</TokenIdentifier>
+			<Abstract type="html">Usage information for the identity.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="495"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncIdentityUsage/setDataStorage:</TokenIdentifier>
+			<Abstract type="html">Total data storage for this identity.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dataStorage</Declaration>
+			
+			
+			<Anchor>//api/name/dataStorage</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncIdentityUsage/dataStorage</TokenIdentifier>
+			<Abstract type="html">Total data storage for this identity.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dataStorage</Declaration>
+			
+			
+			<Anchor>//api/name/dataStorage</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncIdentityUsage/dataStorage</TokenIdentifier>
+			<Abstract type="html">Total data storage for this identity.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dataStorage</Declaration>
+			
+			
+			<Anchor>//api/name/dataStorage</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncIdentityUsage/setDatasetCount:</TokenIdentifier>
+			<Abstract type="html">Number of datasets for the identity.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *datasetCount</Declaration>
+			
+			
+			<Anchor>//api/name/datasetCount</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncIdentityUsage/datasetCount</TokenIdentifier>
+			<Abstract type="html">Number of datasets for the identity.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *datasetCount</Declaration>
+			
+			
+			<Anchor>//api/name/datasetCount</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncIdentityUsage/datasetCount</TokenIdentifier>
+			<Abstract type="html">Number of datasets for the identity.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *datasetCount</Declaration>
+			
+			
+			<Anchor>//api/name/datasetCount</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncIdentityUsage/setIdentityId:</TokenIdentifier>
+			<Abstract type="html">A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityId</Declaration>
+			
+			
+			<Anchor>//api/name/identityId</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncIdentityUsage/identityId</TokenIdentifier>
+			<Abstract type="html">A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityId</Declaration>
+			
+			
+			<Anchor>//api/name/identityId</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncIdentityUsage/identityId</TokenIdentifier>
+			<Abstract type="html">A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityId</Declaration>
+			
+			
+			<Anchor>//api/name/identityId</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncIdentityUsage/setIdentityPoolId:</TokenIdentifier>
+			<Abstract type="html">A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncIdentityUsage/identityPoolId</TokenIdentifier>
+			<Abstract type="html">A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncIdentityUsage/identityPoolId</TokenIdentifier>
+			<Abstract type="html">A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncIdentityUsage/setLastModifiedDate:</TokenIdentifier>
+			<Abstract type="html">Date on which the identity was last modified.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncIdentityUsage/lastModifiedDate</TokenIdentifier>
+			<Abstract type="html">Date on which the identity was last modified.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncIdentityUsage/lastModifiedDate</TokenIdentifier>
+			<Abstract type="html">Date on which the identity was last modified.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="495"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,652 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTDataManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTDataManager</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="910"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDataManager/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/setMqttConfiguration:</TokenIdentifier>
+			<Abstract type="html">The MQTT configuration used by this service client. Any changes to this configuration object
+will take effect upon the next invocation of either the connectWithClientId or connectUsingWebSocketWithClientId
+methods.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSIoTMQTTConfiguration *mqttConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/mqttConfiguration</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/mqttConfiguration</TokenIdentifier>
+			<Abstract type="html">The MQTT configuration used by this service client. Any changes to this configuration object
+will take effect upon the next invocation of either the connectWithClientId or connectUsingWebSocketWithClientId
+methods.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSIoTMQTTConfiguration *mqttConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/mqttConfiguration</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDataManager/mqttConfiguration</TokenIdentifier>
+			<Abstract type="html">The MQTT configuration used by this service client. Any changes to this configuration object
+will take effect upon the next invocation of either the connectWithClientId or connectUsingWebSocketWithClientId
+methods.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSIoTMQTTConfiguration *mqttConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/mqttConfiguration</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSIoTDataManager/defaultIoTDataManager</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultIoTDataManager</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultIoTDataManager</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSIoTDataManager/registerIoTDataManagerWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerIoTDataManagerWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerIoTDataManagerWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSIoTDataManager/registerIoTDataManagerWithConfiguration:withMQTTConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and
+AWSIoTMQTTConfiguration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerIoTDataManagerWithConfiguration:(AWSServiceConfiguration *)configuration withMQTTConfiguration:(AWSIoTMQTTConfiguration *)mqttConfig forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>mqttConfig</Name>
+					<Abstract type="html">A AWSIoTMQTTConfiguration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerIoTDataManagerWithConfiguration:withMQTTConfiguration:forKey:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSIoTDataManager/IoTDataManagerForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerIoTDataManagerWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)IoTDataManagerForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/IoTDataManagerForKey:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSIoTDataManager/removeIoTDataManagerForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeIoTDataManagerForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeIoTDataManagerForKey:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/enableMetricsCollection:</TokenIdentifier>
+			<Abstract type="html">Enable or disable sending SDK name and version in the Mqtt Connect message. Enabled by default.
+Must be called before calling connect.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (void)enableMetricsCollection:(BOOL)enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enableMetricsCollection:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/connectWithClientId:cleanSession:certificateId:statusCallback:</TokenIdentifier>
+			<Abstract type="html">Initialises the MQTT session and connects to AWS IoT using certificate-based mutual authentication</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)connectWithClientId:(NSString *)clientId cleanSession:(BOOL)cleanSession certificateId:(NSString *)certificateId statusCallback:(void ( ^ ) ( AWSIoTMQTTStatus status ))callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>clientId</Name>
+					<Abstract type="html">The Client Identifier identifies the Client to the Server.</Abstract>
+				</Parameter><Parameter>
+					<Name>cleanSession</Name>
+					<Abstract type="html">specifies if the server should discard previous session information.</Abstract>
+				</Parameter><Parameter>
+					<Name>certificateId</Name>
+					<Abstract type="html">contains the ID of the certificate to use in the connection; must be in the keychain</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">When new mqtt session status is received callback will be called with new connection status.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">true if initialise finished with success</Abstract></ReturnValue>
+			<Anchor>//api/name/connectWithClientId:cleanSession:certificateId:statusCallback:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/connectUsingWebSocketWithClientId:cleanSession:statusCallback:</TokenIdentifier>
+			<Abstract type="html">Initialises the MQTT session and connects to AWS IoT using WebSocket/SigV4 authentication.  IAM
+credentials are taken from the current service configuration.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)connectUsingWebSocketWithClientId:(NSString *)clientId cleanSession:(BOOL)cleanSession statusCallback:(void ( ^ ) ( AWSIoTMQTTStatus status ))callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>clientId</Name>
+					<Abstract type="html">The Client Identifier identifies the Client to the Server.</Abstract>
+				</Parameter><Parameter>
+					<Name>cleanSession</Name>
+					<Abstract type="html">specifies if the server should discard previous session information.</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">When new mqtt session status is received the callback will be called with new connection status.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">true if initialise finished with success</Abstract></ReturnValue>
+			<Anchor>//api/name/connectUsingWebSocketWithClientId:cleanSession:statusCallback:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/disconnect</TokenIdentifier>
+			<Abstract type="html">Disconnect from a mqtt client (close current mqtt session)</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (void)disconnect</Declaration>
+			
+			
+			<Anchor>//api/name/disconnect</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/getConnectionStatus</TokenIdentifier>
+			<Abstract type="html">Get the current connection status</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (AWSIoTMQTTStatus)getConnectionStatus</Declaration>
+			
+			<ReturnValue><Abstract type="html">AWSIoTMQTTStatus</Abstract></ReturnValue>
+			<Anchor>//api/name/getConnectionStatus</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/publishString:onTopic:QoS:</TokenIdentifier>
+			<Abstract type="html">Send MQTT message to specified topic</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)publishString:(NSString *)string onTopic:(NSString *)topic QoS:(AWSIoTMQTTQoS)qos</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">The message (As NSString object) to be sent.</Abstract>
+				</Parameter><Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The topic for publish to.</Abstract>
+				</Parameter><Parameter>
+					<Name>qos</Name>
+					<Abstract type="html">The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/publishString:onTopic:QoS:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/publishString:onTopic:QoS:ackCallback:</TokenIdentifier>
+			<Abstract type="html">Send MQTT message to specified topic</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)publishString:(NSString *)string onTopic:(NSString *)topic QoS:(AWSIoTMQTTQoS)qos ackCallback:(AWSIoTMQTTAckBlock)ackCallback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>string</Name>
+					<Abstract type="html">The message (As NSString object) to be sent.</Abstract>
+				</Parameter><Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The topic for publish to.</Abstract>
+				</Parameter><Parameter>
+					<Name>qos</Name>
+					<Abstract type="html">The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).</Abstract>
+				</Parameter><Parameter>
+					<Name>ackCallback</Name>
+					<Abstract type="html">the callback for ack if QoS &gt; 0.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/publishString:onTopic:QoS:ackCallback:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/publishData:onTopic:QoS:</TokenIdentifier>
+			<Abstract type="html">Send MQTT message to specified topic</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)publishData:(NSData *)data onTopic:(NSString *)topic QoS:(AWSIoTMQTTQoS)qos</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>data</Name>
+					<Abstract type="html">The message (As NSData) to be sent.</Abstract>
+				</Parameter><Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The topic for publish to.</Abstract>
+				</Parameter><Parameter>
+					<Name>qos</Name>
+					<Abstract type="html">The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/publishData:onTopic:QoS:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/publishData:onTopic:QoS:ackCallback:</TokenIdentifier>
+			<Abstract type="html">Send MQTT message to specified topic</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)publishData:(NSData *)data onTopic:(NSString *)topic QoS:(AWSIoTMQTTQoS)qos ackCallback:(AWSIoTMQTTAckBlock)ackCallback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>data</Name>
+					<Abstract type="html">The message (As NSData) to be sent.</Abstract>
+				</Parameter><Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The topic for publish to.</Abstract>
+				</Parameter><Parameter>
+					<Name>qos</Name>
+					<Abstract type="html">The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).</Abstract>
+				</Parameter><Parameter>
+					<Name>ackCallback</Name>
+					<Abstract type="html">the callback for ack if QoS &gt; 0.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/publishData:onTopic:QoS:ackCallback:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/subscribeToTopic:QoS:messageCallback:</TokenIdentifier>
+			<Abstract type="html">Subscribes to a topic at a specific QoS level</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)subscribeToTopic:(NSString *)topic QoS:(AWSIoTMQTTQoS)qos messageCallback:(AWSIoTMQTTNewMessageBlock)callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The Topic to subscribe to.</Abstract>
+				</Parameter><Parameter>
+					<Name>qos</Name>
+					<Abstract type="html">Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">Reference to AWSIOTMQTTNewMessageBlock. When new message is received the callback will be invoked.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/subscribeToTopic:QoS:messageCallback:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/subscribeToTopic:QoS:messageCallback:ackCallback:</TokenIdentifier>
+			<Abstract type="html">Subscribes to a topic at a specific QoS level</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)subscribeToTopic:(NSString *)topic QoS:(AWSIoTMQTTQoS)qos messageCallback:(AWSIoTMQTTNewMessageBlock)callback ackCallback:(AWSIoTMQTTAckBlock)ackCallback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The Topic to subscribe to.</Abstract>
+				</Parameter><Parameter>
+					<Name>qos</Name>
+					<Abstract type="html">Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">Reference to AWSIOTMQTTNewMessageBlock. When new message is received the callback will be invoked.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/subscribeToTopic:QoS:messageCallback:ackCallback:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/subscribeToTopic:QoS:extendedCallback:</TokenIdentifier>
+			<Abstract type="html">Subscribes to a topic at a specific QoS level</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)subscribeToTopic:(NSString *)topic QoS:(AWSIoTMQTTQoS)qos extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The Topic to subscribe to.</Abstract>
+				</Parameter><Parameter>
+					<Name>qos</Name>
+					<Abstract type="html">Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">Reference to AWSIOTMQTTExtendedNewMessageBlock. When new message is received the callback will be invoked.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/subscribeToTopic:QoS:extendedCallback:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/subscribeToTopic:QoS:extendedCallback:ackCallback:</TokenIdentifier>
+			<Abstract type="html">Subscribes to a topic at a specific QoS level</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)subscribeToTopic:(NSString *)topic QoS:(AWSIoTMQTTQoS)qos extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback ackCallback:(AWSIoTMQTTAckBlock)ackCallback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The Topic to subscribe to.</Abstract>
+				</Parameter><Parameter>
+					<Name>qos</Name>
+					<Abstract type="html">Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">Reference to AWSIOTMQTTExtendedNewMessageBlock. When new message is received the callback will be invoked.</Abstract>
+				</Parameter><Parameter>
+					<Name>ackCallback</Name>
+					<Abstract type="html">the callback for ack if QoS &gt; 0.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/subscribeToTopic:QoS:extendedCallback:ackCallback:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/unsubscribeTopic:</TokenIdentifier>
+			<Abstract type="html">Unsubscribes from a topic</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (void)unsubscribeTopic:(NSString *)topic</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>topic</Name>
+					<Abstract type="html">The Topic to unsubscribe from.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/unsubscribeTopic:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/registerWithShadow:options:eventCallback:</TokenIdentifier>
+			<Abstract type="html">Register for updates on a device shadow</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)registerWithShadow:(NSString *)name options:(NSDictionary&lt;NSString*,NSNumber*&gt; *_Nullable)options eventCallback:(void ( ^ ) ( NSString *name , AWSIoTShadowOperationType operation , AWSIoTShadowOperationStatusType status , NSString *clientToken , NSData *payload ))callback</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The device shadow to register for updates on.</Abstract>
+				</Parameter><Parameter>
+					<Name>options</Name>
+					<Abstract type="html">A dictionary with device shadow registration options.  The options are:
+
+enableDebugging: BOOL, set to YES to enable additional console debugging (default NO)
+enableVersioning: BOOL, set to NO to disable versioning (default YES)
+enableForeignStateUpdateNotifications: BOOL, set to YES to enable foreign state updates (default NO)
+enableStaleDiscards: BOOL, set to NO to disable discarding stale updates (default YES)
+enableIgnoreDeltas: BOOL, set to YES to disable delta updates (default NO)
+QoS: AWSIoTMQTTQoS (default AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce)
+shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 10.0)</Abstract>
+				</Parameter><Parameter>
+					<Name>callback</Name>
+					<Abstract type="html">The function to call when updates are received for the device shadow.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/registerWithShadow:options:eventCallback:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/unregisterFromShadow:</TokenIdentifier>
+			<Abstract type="html">Unregister from updates on a device shadow</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)unregisterFromShadow:(NSString *)name</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The device shadow to unregister from updates on.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/unregisterFromShadow:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/updateShadow:jsonString:</TokenIdentifier>
+			<Abstract type="html">Update a device shadow</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)updateShadow:(NSString *)name jsonString:(NSString *)jsonString</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The device shadow to update.</Abstract>
+				</Parameter><Parameter>
+					<Name>jsonString</Name>
+					<Abstract type="html">The JSON string to update the device shadow with.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateShadow:jsonString:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/updateShadow:jsonString:clientToken:</TokenIdentifier>
+			<Abstract type="html">Update a device shadow with json data and client token.
+If the json data is not valid, it returns false, and no update message
+will be published. If the json data is valid, it publishes the data on
+$aws/things/thingName/shadow/update topic, then return true.</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)updateShadow:(NSString *)name jsonString:(NSString *)jsonString clientToken:(NSString *_Nullable)clientToken</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The name of the device shadow to be updated</Abstract>
+				</Parameter><Parameter>
+					<Name>jsonString</Name>
+					<Abstract type="html">The shadow state in format of JSON string</Abstract>
+				</Parameter><Parameter>
+					<Name>clientToken</Name>
+					<Abstract type="html">The client id to use when upadating the shadow</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">True if json string is valid and can be serialized successfully;
+False if it cannot be serialized successfully.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateShadow:jsonString:clientToken:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/getShadow:</TokenIdentifier>
+			<Abstract type="html">Get a device shadow</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)getShadow:(NSString *)name</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The device shadow to get.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/getShadow:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/getShadow:clientToken:</TokenIdentifier>
+			<Abstract type="html">Get a device shadow</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)getShadow:(NSString *)name clientToken:(NSString *_Nullable)clientToken</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The device shadow to get.</Abstract>
+				</Parameter><Parameter>
+					<Name>clientToken</Name>
+					<Abstract type="html">A client token to use when requesting the device shadow.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/getShadow:clientToken:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/deleteShadow:</TokenIdentifier>
+			<Abstract type="html">Delete a device shadow</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)deleteShadow:(NSString *)name</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The device shadow to delete.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteShadow:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDataManager/deleteShadow:clientToken:</TokenIdentifier>
+			<Abstract type="html">Delete a device shadow</Abstract>
+			<DeclaredIn>AWSIoTDataManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)deleteShadow:(NSString *)name clientToken:(NSString *_Nullable)clientToken</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>name</Name>
+					<Abstract type="html">The device shadow to delete.</Abstract>
+				</Parameter><Parameter>
+					<Name>clientToken</Name>
+					<Abstract type="html">A client token to use when deleting the device shadow.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">Boolean value indicating success or failure.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteShadow:clientToken:</Anchor>
+            <NodeRef refid="910"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

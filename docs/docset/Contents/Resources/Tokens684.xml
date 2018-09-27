@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBUpdateTableOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBUpdateTableOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the output of an &lt;code&gt;UpdateTable&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="684"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateTableOutput/setTableDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the properties of the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBTableDescription *tableDescription</Declaration>
+			
+			
+			<Anchor>//api/name/tableDescription</Anchor>
+            <NodeRef refid="684"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateTableOutput/tableDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the properties of the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBTableDescription *tableDescription</Declaration>
+			
+			
+			<Anchor>//api/name/tableDescription</Anchor>
+            <NodeRef refid="684"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateTableOutput/tableDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the properties of the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBTableDescription *tableDescription</Declaration>
+			
+			
+			<Anchor>//api/name/tableDescription</Anchor>
+            <NodeRef refid="684"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

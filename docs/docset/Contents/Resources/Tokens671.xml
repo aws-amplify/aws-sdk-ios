@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBTimeToLiveDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBTimeToLiveDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The description of the Time to Live (TTL) status on the specified table. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="671"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBTimeToLiveDescription/setAttributeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The name of the Time to Live attribute for items in the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeName</Declaration>
+			
+			
+			<Anchor>//api/name/attributeName</Anchor>
+            <NodeRef refid="671"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBTimeToLiveDescription/attributeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The name of the Time to Live attribute for items in the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeName</Declaration>
+			
+			
+			<Anchor>//api/name/attributeName</Anchor>
+            <NodeRef refid="671"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBTimeToLiveDescription/attributeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The name of the Time to Live attribute for items in the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeName</Declaration>
+			
+			
+			<Anchor>//api/name/attributeName</Anchor>
+            <NodeRef refid="671"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBTimeToLiveDescription/setTimeToLiveStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The Time to Live status for the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBTimeToLiveStatus timeToLiveStatus</Declaration>
+			
+			
+			<Anchor>//api/name/timeToLiveStatus</Anchor>
+            <NodeRef refid="671"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBTimeToLiveDescription/timeToLiveStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The Time to Live status for the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBTimeToLiveStatus timeToLiveStatus</Declaration>
+			
+			
+			<Anchor>//api/name/timeToLiveStatus</Anchor>
+            <NodeRef refid="671"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBTimeToLiveDescription/timeToLiveStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The Time to Live status for the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBTimeToLiveStatus timeToLiveStatus</Declaration>
+			
+			
+			<Anchor>//api/name/timeToLiveStatus</Anchor>
+            <NodeRef refid="671"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

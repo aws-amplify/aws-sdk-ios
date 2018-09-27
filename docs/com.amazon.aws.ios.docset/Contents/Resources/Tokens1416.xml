@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsExportTask.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsExportTask</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents an export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1416"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/setDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of Amazon S3 bucket to which the log data was exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/destination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of Amazon S3 bucket to which the log data was exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsExportTask/destination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of Amazon S3 bucket to which the log data was exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/setDestinationPrefix:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The prefix that was used as the start of Amazon S3 key for every object exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationPrefix</Declaration>
+			
+			
+			<Anchor>//api/name/destinationPrefix</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/destinationPrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The prefix that was used as the start of Amazon S3 key for every object exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationPrefix</Declaration>
+			
+			
+			<Anchor>//api/name/destinationPrefix</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsExportTask/destinationPrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The prefix that was used as the start of Amazon S3 key for every object exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationPrefix</Declaration>
+			
+			
+			<Anchor>//api/name/destinationPrefix</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/setExecutionInfo:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Execution info about the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLogsExportTaskExecutionInfo *executionInfo</Declaration>
+			
+			
+			<Anchor>//api/name/executionInfo</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/executionInfo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Execution info about the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLogsExportTaskExecutionInfo *executionInfo</Declaration>
+			
+			
+			<Anchor>//api/name/executionInfo</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsExportTask/executionInfo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Execution info about the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLogsExportTaskExecutionInfo *executionInfo</Declaration>
+			
+			
+			<Anchor>//api/name/executionInfo</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/setFrom:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *from</Declaration>
+			
+			
+			<Anchor>//api/name/from</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/from</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *from</Declaration>
+			
+			
+			<Anchor>//api/name/from</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsExportTask/from</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *from</Declaration>
+			
+			
+			<Anchor>//api/name/from</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/setLogGroupName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log group from which logs data was exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/logGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log group from which logs data was exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsExportTask/logGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log group from which logs data was exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLogsExportTaskStatus *status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLogsExportTaskStatus *status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsExportTask/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLogsExportTaskStatus *status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/setTaskId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskId</Declaration>
+			
+			
+			<Anchor>//api/name/taskId</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/taskId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskId</Declaration>
+			
+			
+			<Anchor>//api/name/taskId</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsExportTask/taskId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskId</Declaration>
+			
+			
+			<Anchor>//api/name/taskId</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/setTaskName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskName</Declaration>
+			
+			
+			<Anchor>//api/name/taskName</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/taskName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskName</Declaration>
+			
+			
+			<Anchor>//api/name/taskName</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsExportTask/taskName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the export task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskName</Declaration>
+			
+			
+			<Anchor>//api/name/taskName</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/setTo:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *to</Declaration>
+			
+			
+			<Anchor>//api/name/to</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsExportTask/to</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *to</Declaration>
+			
+			
+			<Anchor>//api/name/to</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsExportTask/to</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *to</Declaration>
+			
+			
+			<Anchor>//api/name/to</Anchor>
+            <NodeRef refid="1416"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

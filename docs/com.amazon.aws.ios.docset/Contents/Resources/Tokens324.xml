@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderDescribeUserPoolDomainResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderDescribeUserPoolDomainResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="324"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDescribeUserPoolDomainResponse/setDomainDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A domain description object containing information about the domain.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderDomainDescriptionType *domainDescription</Declaration>
+			
+			
+			<Anchor>//api/name/domainDescription</Anchor>
+            <NodeRef refid="324"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDescribeUserPoolDomainResponse/domainDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A domain description object containing information about the domain.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderDomainDescriptionType *domainDescription</Declaration>
+			
+			
+			<Anchor>//api/name/domainDescription</Anchor>
+            <NodeRef refid="324"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDescribeUserPoolDomainResponse/domainDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A domain description object containing information about the domain.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderDomainDescriptionType *domainDescription</Declaration>
+			
+			
+			<Anchor>//api/name/domainDescription</Anchor>
+            <NodeRef refid="324"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

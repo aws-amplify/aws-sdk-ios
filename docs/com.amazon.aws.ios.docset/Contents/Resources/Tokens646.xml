@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBQueryInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBQueryInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the input of a &lt;code&gt;Query&lt;/code&gt; operation.&lt;/p&gt;
+Required parameters: [TableName]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="646"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setAttributesToGet:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ProjectionExpression&lt;/code&gt; instead. For more information, see AttributesToGet in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *attributesToGet</Declaration>
+			
+			
+			<Anchor>//api/name/attributesToGet</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/attributesToGet</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ProjectionExpression&lt;/code&gt; instead. For more information, see AttributesToGet in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *attributesToGet</Declaration>
+			
+			
+			<Anchor>//api/name/attributesToGet</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/attributesToGet</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ProjectionExpression&lt;/code&gt; instead. For more information, see AttributesToGet in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *attributesToGet</Declaration>
+			
+			
+			<Anchor>//api/name/attributesToGet</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setConditionalOperator:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;FilterExpression&lt;/code&gt; instead. For more information, see ConditionalOperator in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBConditionalOperator conditionalOperator</Declaration>
+			
+			
+			<Anchor>//api/name/conditionalOperator</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/conditionalOperator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;FilterExpression&lt;/code&gt; instead. For more information, see ConditionalOperator in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBConditionalOperator conditionalOperator</Declaration>
+			
+			
+			<Anchor>//api/name/conditionalOperator</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/conditionalOperator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;FilterExpression&lt;/code&gt; instead. For more information, see ConditionalOperator in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBConditionalOperator conditionalOperator</Declaration>
+			
+			
+			<Anchor>//api/name/conditionalOperator</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setConsistentRead:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the read consistency model: If set to &lt;code&gt;true&lt;/code&gt;, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.&lt;/p&gt;&lt;p&gt;Strongly consistent reads are not supported on global secondary indexes. If you query a global secondary index with &lt;code&gt;ConsistentRead&lt;/code&gt; set to &lt;code&gt;true&lt;/code&gt;, you will receive a &lt;code&gt;ValidationException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *consistentRead</Declaration>
+			
+			
+			<Anchor>//api/name/consistentRead</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/consistentRead</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the read consistency model: If set to &lt;code&gt;true&lt;/code&gt;, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.&lt;/p&gt;&lt;p&gt;Strongly consistent reads are not supported on global secondary indexes. If you query a global secondary index with &lt;code&gt;ConsistentRead&lt;/code&gt; set to &lt;code&gt;true&lt;/code&gt;, you will receive a &lt;code&gt;ValidationException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *consistentRead</Declaration>
+			
+			
+			<Anchor>//api/name/consistentRead</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/consistentRead</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the read consistency model: If set to &lt;code&gt;true&lt;/code&gt;, then the operation uses strongly consistent reads; otherwise, the operation uses eventually consistent reads.&lt;/p&gt;&lt;p&gt;Strongly consistent reads are not supported on global secondary indexes. If you query a global secondary index with &lt;code&gt;ConsistentRead&lt;/code&gt; set to &lt;code&gt;true&lt;/code&gt;, you will receive a &lt;code&gt;ValidationException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *consistentRead</Declaration>
+			
+			
+			<Anchor>//api/name/consistentRead</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setExclusiveStartKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The primary key of the first item that this operation will evaluate. Use the value that was returned for &lt;code&gt;LastEvaluatedKey&lt;/code&gt; in the previous operation.&lt;/p&gt;&lt;p&gt;The data type for &lt;code&gt;ExclusiveStartKey&lt;/code&gt; must be String, Number or Binary. No set data types are allowed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *exclusiveStartKey</Declaration>
+			
+			
+			<Anchor>//api/name/exclusiveStartKey</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/exclusiveStartKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The primary key of the first item that this operation will evaluate. Use the value that was returned for &lt;code&gt;LastEvaluatedKey&lt;/code&gt; in the previous operation.&lt;/p&gt;&lt;p&gt;The data type for &lt;code&gt;ExclusiveStartKey&lt;/code&gt; must be String, Number or Binary. No set data types are allowed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *exclusiveStartKey</Declaration>
+			
+			
+			<Anchor>//api/name/exclusiveStartKey</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/exclusiveStartKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The primary key of the first item that this operation will evaluate. Use the value that was returned for &lt;code&gt;LastEvaluatedKey&lt;/code&gt; in the previous operation.&lt;/p&gt;&lt;p&gt;The data type for &lt;code&gt;ExclusiveStartKey&lt;/code&gt; must be String, Number or Binary. No set data types are allowed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *exclusiveStartKey</Declaration>
+			
+			
+			<Anchor>//api/name/exclusiveStartKey</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setExpressionAttributeNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more substitution tokens for attribute names in an expression. The following are some use cases for using &lt;code&gt;ExpressionAttributeNames&lt;/code&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To access an attribute whose name conflicts with a DynamoDB reserved word.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To create a placeholder for repeating occurrences of an attribute name in an expression.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To prevent special characters in an attribute name from being misinterpreted in an expression.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;b&gt;#&lt;/b&gt; character in an expression to dereference an attribute name. For example, consider the following attribute name:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Percentile&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *expressionAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeNames</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/expressionAttributeNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more substitution tokens for attribute names in an expression. The following are some use cases for using &lt;code&gt;ExpressionAttributeNames&lt;/code&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To access an attribute whose name conflicts with a DynamoDB reserved word.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To create a placeholder for repeating occurrences of an attribute name in an expression.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To prevent special characters in an attribute name from being misinterpreted in an expression.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;b&gt;#&lt;/b&gt; character in an expression to dereference an attribute name. For example, consider the following attribute name:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Percentile&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *expressionAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeNames</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/expressionAttributeNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more substitution tokens for attribute names in an expression. The following are some use cases for using &lt;code&gt;ExpressionAttributeNames&lt;/code&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To access an attribute whose name conflicts with a DynamoDB reserved word.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To create a placeholder for repeating occurrences of an attribute name in an expression.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To prevent special characters in an attribute name from being misinterpreted in an expression.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;b&gt;#&lt;/b&gt; character in an expression to dereference an attribute name. For example, consider the following attribute name:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Percentile&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *expressionAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeNames</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setExpressionAttributeValues:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more values that can be substituted in an expression.&lt;/p&gt;&lt;p&gt;Use the &lt;b&gt;:&lt;/b&gt; (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the &lt;i&gt;ProductStatus&lt;/i&gt; attribute was one of the following: &lt;/p&gt;&lt;p&gt;&lt;code&gt;Available | Backordered | Discontinued&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You would first need to specify &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; as follows:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;}, &quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You could then use these values in an expression, such as this:&lt;/p&gt;&lt;p&gt;&lt;code&gt;ProductStatus IN (:avail, :back, :disc)&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on expression attribute values, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *expressionAttributeValues</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeValues</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/expressionAttributeValues</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more values that can be substituted in an expression.&lt;/p&gt;&lt;p&gt;Use the &lt;b&gt;:&lt;/b&gt; (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the &lt;i&gt;ProductStatus&lt;/i&gt; attribute was one of the following: &lt;/p&gt;&lt;p&gt;&lt;code&gt;Available | Backordered | Discontinued&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You would first need to specify &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; as follows:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;}, &quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You could then use these values in an expression, such as this:&lt;/p&gt;&lt;p&gt;&lt;code&gt;ProductStatus IN (:avail, :back, :disc)&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on expression attribute values, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *expressionAttributeValues</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeValues</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/expressionAttributeValues</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more values that can be substituted in an expression.&lt;/p&gt;&lt;p&gt;Use the &lt;b&gt;:&lt;/b&gt; (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the &lt;i&gt;ProductStatus&lt;/i&gt; attribute was one of the following: &lt;/p&gt;&lt;p&gt;&lt;code&gt;Available | Backordered | Discontinued&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You would first need to specify &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; as follows:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;}, &quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You could then use these values in an expression, such as this:&lt;/p&gt;&lt;p&gt;&lt;code&gt;ProductStatus IN (:avail, :back, :disc)&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on expression attribute values, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *expressionAttributeValues</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeValues</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setFilterExpression:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string that contains conditions that DynamoDB applies after the &lt;code&gt;Query&lt;/code&gt; operation, but before the data is returned to you. Items that do not satisfy the &lt;code&gt;FilterExpression&lt;/code&gt; criteria are not returned.&lt;/p&gt;&lt;p&gt;A &lt;code&gt;FilterExpression&lt;/code&gt; does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.&lt;/p&gt;&lt;note&gt;&lt;p&gt;A &lt;code&gt;FilterExpression&lt;/code&gt; is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.&lt;/p&gt;&lt;/note&gt;&lt;p&gt;For more information, see Filter Expressions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *filterExpression</Declaration>
+			
+			
+			<Anchor>//api/name/filterExpression</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/filterExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string that contains conditions that DynamoDB applies after the &lt;code&gt;Query&lt;/code&gt; operation, but before the data is returned to you. Items that do not satisfy the &lt;code&gt;FilterExpression&lt;/code&gt; criteria are not returned.&lt;/p&gt;&lt;p&gt;A &lt;code&gt;FilterExpression&lt;/code&gt; does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.&lt;/p&gt;&lt;note&gt;&lt;p&gt;A &lt;code&gt;FilterExpression&lt;/code&gt; is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.&lt;/p&gt;&lt;/note&gt;&lt;p&gt;For more information, see Filter Expressions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *filterExpression</Declaration>
+			
+			
+			<Anchor>//api/name/filterExpression</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/filterExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string that contains conditions that DynamoDB applies after the &lt;code&gt;Query&lt;/code&gt; operation, but before the data is returned to you. Items that do not satisfy the &lt;code&gt;FilterExpression&lt;/code&gt; criteria are not returned.&lt;/p&gt;&lt;p&gt;A &lt;code&gt;FilterExpression&lt;/code&gt; does not allow key attributes. You cannot define a filter expression based on a partition key or a sort key.&lt;/p&gt;&lt;note&gt;&lt;p&gt;A &lt;code&gt;FilterExpression&lt;/code&gt; is applied after the items have already been read; the process of filtering does not consume any additional read capacity units.&lt;/p&gt;&lt;/note&gt;&lt;p&gt;For more information, see Filter Expressions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *filterExpression</Declaration>
+			
+			
+			<Anchor>//api/name/filterExpression</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setIndexName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of an index to query. This index can be any local secondary index or global secondary index on the table. Note that if you use the &lt;code&gt;IndexName&lt;/code&gt; parameter, you must also provide &lt;code&gt;TableName.&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/indexName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of an index to query. This index can be any local secondary index or global secondary index on the table. Note that if you use the &lt;code&gt;IndexName&lt;/code&gt; parameter, you must also provide &lt;code&gt;TableName.&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/indexName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of an index to query. This index can be any local secondary index or global secondary index on the table. Note that if you use the &lt;code&gt;IndexName&lt;/code&gt; parameter, you must also provide &lt;code&gt;TableName.&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setKeyConditionExpression:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The condition that specifies the key value(s) for items to be retrieved by the &lt;code&gt;Query&lt;/code&gt; action.&lt;/p&gt;&lt;p&gt;The condition must perform an equality test on a single partition key value.&lt;/p&gt;&lt;p&gt;The condition can optionally perform one of several comparison tests on a single sort key value. This allows &lt;code&gt;Query&lt;/code&gt; to retrieve one item with a given partition key value and sort key value, or several items that have the same partition key value but different sort key values.&lt;/p&gt;&lt;p&gt;The partition key equality test is required, and must be specified in the following format:&lt;/p&gt;&lt;p&gt;&lt;code&gt;partitionKeyName&lt;/code&gt;&lt;i&gt;=&lt;/i&gt;&lt;code&gt;:partitionkeyval&lt;/code&gt;&lt;/p&gt;&lt;p&gt;If you also want to provide a condition for the sort key, it must be combined using &lt;code&gt;AND&lt;/code&gt; with the condition for the sort key. Following is an example, using the &lt;b&gt;=&lt;/b&gt; comparison operator for the sort key:&lt;/p&gt;&lt;p&gt;&lt;code&gt;partitionKeyName&lt;/code&gt;&lt;code&gt;=&lt;/code&gt;&lt;code&gt;:partitionkeyval&lt;/code&gt;&lt;code&gt;AND&lt;/code&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;=&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid comparisons for the sort key condition are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;=&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is equal to &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;lt;&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is less than &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;lt;=&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is less than or equal to &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;gt;&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is greater than &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;gt;= &lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is greater than or equal to &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;BETWEEN&lt;/code&gt;&lt;code&gt;:sortkeyval1&lt;/code&gt;&lt;code&gt;AND&lt;/code&gt;&lt;code&gt;:sortkeyval2&lt;/code&gt; - true if the sort key value is greater than or equal to &lt;code&gt;:sortkeyval1&lt;/code&gt;, and less than or equal to &lt;code&gt;:sortkeyval2&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;beginswith (&lt;/code&gt;&lt;code&gt;sortKeyName&lt;/code&gt;, &lt;code&gt;:sortkeyval&lt;/code&gt;&lt;code&gt;)&lt;/code&gt; - true if the sort key value begins with a particular operand. (You cannot use this function with a sort key that is of type Number.) Note that the function name &lt;code&gt;beginswith&lt;/code&gt; is case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; parameter to replace tokens such as &lt;code&gt;:partitionval&lt;/code&gt; and &lt;code&gt;:sortval&lt;/code&gt; with actual values at runtime.&lt;/p&gt;&lt;p&gt;You can optionally use the &lt;code&gt;ExpressionAttributeNames&lt;/code&gt; parameter to replace the names of the partition key and sort key with placeholder tokens. This option might be necessary if an attribute name conflicts with a DynamoDB reserved word. For example, the following &lt;code&gt;KeyConditionExpression&lt;/code&gt; parameter causes an error because &lt;i&gt;Size&lt;/i&gt; is a reserved word:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Size = :myval&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To work around this, define a placeholder (such a &lt;code&gt;#S&lt;/code&gt;) to represent the attribute name &lt;i&gt;Size&lt;/i&gt;. &lt;code&gt;KeyConditionExpression&lt;/code&gt; then is as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;#S = :myval&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For a list of reserved words, see Using Placeholders for Attribute Names and Values in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyConditionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/keyConditionExpression</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/keyConditionExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The condition that specifies the key value(s) for items to be retrieved by the &lt;code&gt;Query&lt;/code&gt; action.&lt;/p&gt;&lt;p&gt;The condition must perform an equality test on a single partition key value.&lt;/p&gt;&lt;p&gt;The condition can optionally perform one of several comparison tests on a single sort key value. This allows &lt;code&gt;Query&lt;/code&gt; to retrieve one item with a given partition key value and sort key value, or several items that have the same partition key value but different sort key values.&lt;/p&gt;&lt;p&gt;The partition key equality test is required, and must be specified in the following format:&lt;/p&gt;&lt;p&gt;&lt;code&gt;partitionKeyName&lt;/code&gt;&lt;i&gt;=&lt;/i&gt;&lt;code&gt;:partitionkeyval&lt;/code&gt;&lt;/p&gt;&lt;p&gt;If you also want to provide a condition for the sort key, it must be combined using &lt;code&gt;AND&lt;/code&gt; with the condition for the sort key. Following is an example, using the &lt;b&gt;=&lt;/b&gt; comparison operator for the sort key:&lt;/p&gt;&lt;p&gt;&lt;code&gt;partitionKeyName&lt;/code&gt;&lt;code&gt;=&lt;/code&gt;&lt;code&gt;:partitionkeyval&lt;/code&gt;&lt;code&gt;AND&lt;/code&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;=&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid comparisons for the sort key condition are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;=&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is equal to &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;lt;&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is less than &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;lt;=&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is less than or equal to &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;gt;&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is greater than &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;gt;= &lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is greater than or equal to &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;BETWEEN&lt;/code&gt;&lt;code&gt;:sortkeyval1&lt;/code&gt;&lt;code&gt;AND&lt;/code&gt;&lt;code&gt;:sortkeyval2&lt;/code&gt; - true if the sort key value is greater than or equal to &lt;code&gt;:sortkeyval1&lt;/code&gt;, and less than or equal to &lt;code&gt;:sortkeyval2&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;beginswith (&lt;/code&gt;&lt;code&gt;sortKeyName&lt;/code&gt;, &lt;code&gt;:sortkeyval&lt;/code&gt;&lt;code&gt;)&lt;/code&gt; - true if the sort key value begins with a particular operand. (You cannot use this function with a sort key that is of type Number.) Note that the function name &lt;code&gt;beginswith&lt;/code&gt; is case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; parameter to replace tokens such as &lt;code&gt;:partitionval&lt;/code&gt; and &lt;code&gt;:sortval&lt;/code&gt; with actual values at runtime.&lt;/p&gt;&lt;p&gt;You can optionally use the &lt;code&gt;ExpressionAttributeNames&lt;/code&gt; parameter to replace the names of the partition key and sort key with placeholder tokens. This option might be necessary if an attribute name conflicts with a DynamoDB reserved word. For example, the following &lt;code&gt;KeyConditionExpression&lt;/code&gt; parameter causes an error because &lt;i&gt;Size&lt;/i&gt; is a reserved word:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Size = :myval&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To work around this, define a placeholder (such a &lt;code&gt;#S&lt;/code&gt;) to represent the attribute name &lt;i&gt;Size&lt;/i&gt;. &lt;code&gt;KeyConditionExpression&lt;/code&gt; then is as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;#S = :myval&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For a list of reserved words, see Using Placeholders for Attribute Names and Values in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyConditionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/keyConditionExpression</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/keyConditionExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The condition that specifies the key value(s) for items to be retrieved by the &lt;code&gt;Query&lt;/code&gt; action.&lt;/p&gt;&lt;p&gt;The condition must perform an equality test on a single partition key value.&lt;/p&gt;&lt;p&gt;The condition can optionally perform one of several comparison tests on a single sort key value. This allows &lt;code&gt;Query&lt;/code&gt; to retrieve one item with a given partition key value and sort key value, or several items that have the same partition key value but different sort key values.&lt;/p&gt;&lt;p&gt;The partition key equality test is required, and must be specified in the following format:&lt;/p&gt;&lt;p&gt;&lt;code&gt;partitionKeyName&lt;/code&gt;&lt;i&gt;=&lt;/i&gt;&lt;code&gt;:partitionkeyval&lt;/code&gt;&lt;/p&gt;&lt;p&gt;If you also want to provide a condition for the sort key, it must be combined using &lt;code&gt;AND&lt;/code&gt; with the condition for the sort key. Following is an example, using the &lt;b&gt;=&lt;/b&gt; comparison operator for the sort key:&lt;/p&gt;&lt;p&gt;&lt;code&gt;partitionKeyName&lt;/code&gt;&lt;code&gt;=&lt;/code&gt;&lt;code&gt;:partitionkeyval&lt;/code&gt;&lt;code&gt;AND&lt;/code&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;=&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid comparisons for the sort key condition are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;=&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is equal to &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;lt;&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is less than &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;lt;=&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is less than or equal to &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;gt;&lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is greater than &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;&amp;amp;gt;= &lt;/code&gt;&lt;code&gt;:sortkeyval&lt;/code&gt; - true if the sort key value is greater than or equal to &lt;code&gt;:sortkeyval&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;sortKeyName&lt;/code&gt;&lt;code&gt;BETWEEN&lt;/code&gt;&lt;code&gt;:sortkeyval1&lt;/code&gt;&lt;code&gt;AND&lt;/code&gt;&lt;code&gt;:sortkeyval2&lt;/code&gt; - true if the sort key value is greater than or equal to &lt;code&gt;:sortkeyval1&lt;/code&gt;, and less than or equal to &lt;code&gt;:sortkeyval2&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;beginswith (&lt;/code&gt;&lt;code&gt;sortKeyName&lt;/code&gt;, &lt;code&gt;:sortkeyval&lt;/code&gt;&lt;code&gt;)&lt;/code&gt; - true if the sort key value begins with a particular operand. (You cannot use this function with a sort key that is of type Number.) Note that the function name &lt;code&gt;beginswith&lt;/code&gt; is case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; parameter to replace tokens such as &lt;code&gt;:partitionval&lt;/code&gt; and &lt;code&gt;:sortval&lt;/code&gt; with actual values at runtime.&lt;/p&gt;&lt;p&gt;You can optionally use the &lt;code&gt;ExpressionAttributeNames&lt;/code&gt; parameter to replace the names of the partition key and sort key with placeholder tokens. This option might be necessary if an attribute name conflicts with a DynamoDB reserved word. For example, the following &lt;code&gt;KeyConditionExpression&lt;/code&gt; parameter causes an error because &lt;i&gt;Size&lt;/i&gt; is a reserved word:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Size = :myval&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To work around this, define a placeholder (such a &lt;code&gt;#S&lt;/code&gt;) to represent the attribute name &lt;i&gt;Size&lt;/i&gt;. &lt;code&gt;KeyConditionExpression&lt;/code&gt; then is as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;#S = :myval&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For a list of reserved words, see Using Placeholders for Attribute Names and Values in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyConditionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/keyConditionExpression</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setKeyConditions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;KeyConditionExpression&lt;/code&gt; instead. For more information, see KeyConditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCondition*&gt; *keyConditions</Declaration>
+			
+			
+			<Anchor>//api/name/keyConditions</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/keyConditions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;KeyConditionExpression&lt;/code&gt; instead. For more information, see KeyConditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCondition*&gt; *keyConditions</Declaration>
+			
+			
+			<Anchor>//api/name/keyConditions</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/keyConditions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;KeyConditionExpression&lt;/code&gt; instead. For more information, see KeyConditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCondition*&gt; *keyConditions</Declaration>
+			
+			
+			<Anchor>//api/name/keyConditions</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setLimit:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in &lt;code&gt;LastEvaluatedKey&lt;/code&gt; to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in &lt;code&gt;LastEvaluatedKey&lt;/code&gt; to apply in a subsequent operation to continue the operation. For more information, see Query and Scan in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in &lt;code&gt;LastEvaluatedKey&lt;/code&gt; to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in &lt;code&gt;LastEvaluatedKey&lt;/code&gt; to apply in a subsequent operation to continue the operation. For more information, see Query and Scan in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in &lt;code&gt;LastEvaluatedKey&lt;/code&gt; to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in &lt;code&gt;LastEvaluatedKey&lt;/code&gt; to apply in a subsequent operation to continue the operation. For more information, see Query and Scan in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setProjectionExpression:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.&lt;/p&gt;&lt;p&gt;If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.&lt;/p&gt;&lt;p&gt;For more information, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *projectionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/projectionExpression</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/projectionExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.&lt;/p&gt;&lt;p&gt;If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.&lt;/p&gt;&lt;p&gt;For more information, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *projectionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/projectionExpression</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/projectionExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.&lt;/p&gt;&lt;p&gt;If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.&lt;/p&gt;&lt;p&gt;For more information, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *projectionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/projectionExpression</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setQueryFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;FilterExpression&lt;/code&gt; instead. For more information, see QueryFilter in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCondition*&gt; *queryFilter</Declaration>
+			
+			
+			<Anchor>//api/name/queryFilter</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/queryFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;FilterExpression&lt;/code&gt; instead. For more information, see QueryFilter in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCondition*&gt; *queryFilter</Declaration>
+			
+			
+			<Anchor>//api/name/queryFilter</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/queryFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;FilterExpression&lt;/code&gt; instead. For more information, see QueryFilter in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCondition*&gt; *queryFilter</Declaration>
+			
+			
+			<Anchor>//api/name/queryFilter</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setReturnConsumedCapacity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the level of detail about provisioned throughput consumption that is returned in the response:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INDEXES&lt;/code&gt; - The response includes the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation, together with &lt;code&gt;ConsumedCapacity&lt;/code&gt; for each table and secondary index that was accessed.&lt;/p&gt;&lt;p&gt;Note that some operations, such as &lt;code&gt;GetItem&lt;/code&gt; and &lt;code&gt;BatchGetItem&lt;/code&gt;, do not access any indexes at all. In these cases, specifying &lt;code&gt;INDEXES&lt;/code&gt; will only return &lt;code&gt;ConsumedCapacity&lt;/code&gt; information for table(s).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;TOTAL&lt;/code&gt; - The response includes only the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - No &lt;code&gt;ConsumedCapacity&lt;/code&gt; details are included in the response.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/returnConsumedCapacity</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/returnConsumedCapacity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the level of detail about provisioned throughput consumption that is returned in the response:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INDEXES&lt;/code&gt; - The response includes the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation, together with &lt;code&gt;ConsumedCapacity&lt;/code&gt; for each table and secondary index that was accessed.&lt;/p&gt;&lt;p&gt;Note that some operations, such as &lt;code&gt;GetItem&lt;/code&gt; and &lt;code&gt;BatchGetItem&lt;/code&gt;, do not access any indexes at all. In these cases, specifying &lt;code&gt;INDEXES&lt;/code&gt; will only return &lt;code&gt;ConsumedCapacity&lt;/code&gt; information for table(s).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;TOTAL&lt;/code&gt; - The response includes only the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - No &lt;code&gt;ConsumedCapacity&lt;/code&gt; details are included in the response.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/returnConsumedCapacity</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/returnConsumedCapacity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the level of detail about provisioned throughput consumption that is returned in the response:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INDEXES&lt;/code&gt; - The response includes the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation, together with &lt;code&gt;ConsumedCapacity&lt;/code&gt; for each table and secondary index that was accessed.&lt;/p&gt;&lt;p&gt;Note that some operations, such as &lt;code&gt;GetItem&lt;/code&gt; and &lt;code&gt;BatchGetItem&lt;/code&gt;, do not access any indexes at all. In these cases, specifying &lt;code&gt;INDEXES&lt;/code&gt; will only return &lt;code&gt;ConsumedCapacity&lt;/code&gt; information for table(s).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;TOTAL&lt;/code&gt; - The response includes only the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - No &lt;code&gt;ConsumedCapacity&lt;/code&gt; details are included in the response.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/returnConsumedCapacity</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setScanIndexForward:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the order for index traversal: If &lt;code&gt;true&lt;/code&gt; (default), the traversal is performed in ascending order; if &lt;code&gt;false&lt;/code&gt;, the traversal is performed in descending order. &lt;/p&gt;&lt;p&gt;Items with the same partition key value are stored in sorted order by sort key. If the sort key data type is Number, the results are stored in numeric order. For type String, the results are stored in order of UTF-8 bytes. For type Binary, DynamoDB treats each byte of the binary data as unsigned.&lt;/p&gt;&lt;p&gt;If &lt;code&gt;ScanIndexForward&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;, DynamoDB returns the results in the order in which they are stored (by sort key value). This is the default behavior. If &lt;code&gt;ScanIndexForward&lt;/code&gt; is &lt;code&gt;false&lt;/code&gt;, DynamoDB reads the results in reverse order by sort key value, and then returns the results to the client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *scanIndexForward</Declaration>
+			
+			
+			<Anchor>//api/name/scanIndexForward</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/scanIndexForward</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the order for index traversal: If &lt;code&gt;true&lt;/code&gt; (default), the traversal is performed in ascending order; if &lt;code&gt;false&lt;/code&gt;, the traversal is performed in descending order. &lt;/p&gt;&lt;p&gt;Items with the same partition key value are stored in sorted order by sort key. If the sort key data type is Number, the results are stored in numeric order. For type String, the results are stored in order of UTF-8 bytes. For type Binary, DynamoDB treats each byte of the binary data as unsigned.&lt;/p&gt;&lt;p&gt;If &lt;code&gt;ScanIndexForward&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;, DynamoDB returns the results in the order in which they are stored (by sort key value). This is the default behavior. If &lt;code&gt;ScanIndexForward&lt;/code&gt; is &lt;code&gt;false&lt;/code&gt;, DynamoDB reads the results in reverse order by sort key value, and then returns the results to the client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *scanIndexForward</Declaration>
+			
+			
+			<Anchor>//api/name/scanIndexForward</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/scanIndexForward</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the order for index traversal: If &lt;code&gt;true&lt;/code&gt; (default), the traversal is performed in ascending order; if &lt;code&gt;false&lt;/code&gt;, the traversal is performed in descending order. &lt;/p&gt;&lt;p&gt;Items with the same partition key value are stored in sorted order by sort key. If the sort key data type is Number, the results are stored in numeric order. For type String, the results are stored in order of UTF-8 bytes. For type Binary, DynamoDB treats each byte of the binary data as unsigned.&lt;/p&gt;&lt;p&gt;If &lt;code&gt;ScanIndexForward&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;, DynamoDB returns the results in the order in which they are stored (by sort key value). This is the default behavior. If &lt;code&gt;ScanIndexForward&lt;/code&gt; is &lt;code&gt;false&lt;/code&gt;, DynamoDB reads the results in reverse order by sort key value, and then returns the results to the client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *scanIndexForward</Declaration>
+			
+			
+			<Anchor>//api/name/scanIndexForward</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setSelect:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the count of matching items, or in the case of an index, some or all of the attributes projected into the index.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLATTRIBUTES&lt;/code&gt; - Returns all of the item attributes from the specified table or index. If you query a local secondary index, then for each matching item in the index DynamoDB will fetch the entire item from the parent table. If the index is configured to project all item attributes, then all of the data can be obtained from the local secondary index, and no fetching is required.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLPROJECTEDATTRIBUTES&lt;/code&gt; - Allowed only when querying an index. Retrieves all attributes that have been projected into the index. If the index is configured to project all attributes, this return value is equivalent to specifying &lt;code&gt;ALLATTRIBUTES&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;COUNT&lt;/code&gt; - Returns the number of matching items, rather than the matching items themselves.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SPECIFICATTRIBUTES&lt;/code&gt; - Returns only the attributes listed in &lt;code&gt;AttributesToGet&lt;/code&gt;. This return value is equivalent to specifying &lt;code&gt;AttributesToGet&lt;/code&gt; without specifying any value for &lt;code&gt;Select&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;If you query or scan a local secondary index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB will fetch each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.&lt;/p&gt;&lt;p&gt;If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If neither &lt;code&gt;Select&lt;/code&gt; nor &lt;code&gt;AttributesToGet&lt;/code&gt; are specified, DynamoDB defaults to &lt;code&gt;ALLATTRIBUTES&lt;/code&gt; when accessing a table, and &lt;code&gt;ALLPROJECTEDATTRIBUTES&lt;/code&gt; when accessing an index. You cannot use both &lt;code&gt;Select&lt;/code&gt; and &lt;code&gt;AttributesToGet&lt;/code&gt; together in a single request, unless the value for &lt;code&gt;Select&lt;/code&gt; is &lt;code&gt;SPECIFICATTRIBUTES&lt;/code&gt;. (This usage is equivalent to specifying &lt;code&gt;AttributesToGet&lt;/code&gt; without any value for &lt;code&gt;Select&lt;/code&gt;.)&lt;/p&gt;&lt;note&gt;&lt;p&gt;If you use the &lt;code&gt;ProjectionExpression&lt;/code&gt; parameter, then the value for &lt;code&gt;Select&lt;/code&gt; can only be &lt;code&gt;SPECIFICATTRIBUTES&lt;/code&gt;. Any other value for &lt;code&gt;Select&lt;/code&gt; will return an error.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBSelect select</Declaration>
+			
+			
+			<Anchor>//api/name/select</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/select</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the count of matching items, or in the case of an index, some or all of the attributes projected into the index.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLATTRIBUTES&lt;/code&gt; - Returns all of the item attributes from the specified table or index. If you query a local secondary index, then for each matching item in the index DynamoDB will fetch the entire item from the parent table. If the index is configured to project all item attributes, then all of the data can be obtained from the local secondary index, and no fetching is required.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLPROJECTEDATTRIBUTES&lt;/code&gt; - Allowed only when querying an index. Retrieves all attributes that have been projected into the index. If the index is configured to project all attributes, this return value is equivalent to specifying &lt;code&gt;ALLATTRIBUTES&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;COUNT&lt;/code&gt; - Returns the number of matching items, rather than the matching items themselves.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SPECIFICATTRIBUTES&lt;/code&gt; - Returns only the attributes listed in &lt;code&gt;AttributesToGet&lt;/code&gt;. This return value is equivalent to specifying &lt;code&gt;AttributesToGet&lt;/code&gt; without specifying any value for &lt;code&gt;Select&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;If you query or scan a local secondary index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB will fetch each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.&lt;/p&gt;&lt;p&gt;If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If neither &lt;code&gt;Select&lt;/code&gt; nor &lt;code&gt;AttributesToGet&lt;/code&gt; are specified, DynamoDB defaults to &lt;code&gt;ALLATTRIBUTES&lt;/code&gt; when accessing a table, and &lt;code&gt;ALLPROJECTEDATTRIBUTES&lt;/code&gt; when accessing an index. You cannot use both &lt;code&gt;Select&lt;/code&gt; and &lt;code&gt;AttributesToGet&lt;/code&gt; together in a single request, unless the value for &lt;code&gt;Select&lt;/code&gt; is &lt;code&gt;SPECIFICATTRIBUTES&lt;/code&gt;. (This usage is equivalent to specifying &lt;code&gt;AttributesToGet&lt;/code&gt; without any value for &lt;code&gt;Select&lt;/code&gt;.)&lt;/p&gt;&lt;note&gt;&lt;p&gt;If you use the &lt;code&gt;ProjectionExpression&lt;/code&gt; parameter, then the value for &lt;code&gt;Select&lt;/code&gt; can only be &lt;code&gt;SPECIFICATTRIBUTES&lt;/code&gt;. Any other value for &lt;code&gt;Select&lt;/code&gt; will return an error.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBSelect select</Declaration>
+			
+			
+			<Anchor>//api/name/select</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/select</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the count of matching items, or in the case of an index, some or all of the attributes projected into the index.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLATTRIBUTES&lt;/code&gt; - Returns all of the item attributes from the specified table or index. If you query a local secondary index, then for each matching item in the index DynamoDB will fetch the entire item from the parent table. If the index is configured to project all item attributes, then all of the data can be obtained from the local secondary index, and no fetching is required.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLPROJECTEDATTRIBUTES&lt;/code&gt; - Allowed only when querying an index. Retrieves all attributes that have been projected into the index. If the index is configured to project all attributes, this return value is equivalent to specifying &lt;code&gt;ALLATTRIBUTES&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;COUNT&lt;/code&gt; - Returns the number of matching items, rather than the matching items themselves.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SPECIFICATTRIBUTES&lt;/code&gt; - Returns only the attributes listed in &lt;code&gt;AttributesToGet&lt;/code&gt;. This return value is equivalent to specifying &lt;code&gt;AttributesToGet&lt;/code&gt; without specifying any value for &lt;code&gt;Select&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;If you query or scan a local secondary index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB will fetch each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.&lt;/p&gt;&lt;p&gt;If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If neither &lt;code&gt;Select&lt;/code&gt; nor &lt;code&gt;AttributesToGet&lt;/code&gt; are specified, DynamoDB defaults to &lt;code&gt;ALLATTRIBUTES&lt;/code&gt; when accessing a table, and &lt;code&gt;ALLPROJECTEDATTRIBUTES&lt;/code&gt; when accessing an index. You cannot use both &lt;code&gt;Select&lt;/code&gt; and &lt;code&gt;AttributesToGet&lt;/code&gt; together in a single request, unless the value for &lt;code&gt;Select&lt;/code&gt; is &lt;code&gt;SPECIFICATTRIBUTES&lt;/code&gt;. (This usage is equivalent to specifying &lt;code&gt;AttributesToGet&lt;/code&gt; without any value for &lt;code&gt;Select&lt;/code&gt;.)&lt;/p&gt;&lt;note&gt;&lt;p&gt;If you use the &lt;code&gt;ProjectionExpression&lt;/code&gt; parameter, then the value for &lt;code&gt;Select&lt;/code&gt; can only be &lt;code&gt;SPECIFICATTRIBUTES&lt;/code&gt;. Any other value for &lt;code&gt;Select&lt;/code&gt; will return an error.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBSelect select</Declaration>
+			
+			
+			<Anchor>//api/name/select</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/setTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table containing the requested items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBQueryInput/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table containing the requested items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBQueryInput/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table containing the requested items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="646"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

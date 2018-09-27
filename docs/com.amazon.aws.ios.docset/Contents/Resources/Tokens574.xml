@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBContinuousBackupsDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBContinuousBackupsDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the continuous backups and point in time recovery settings on the table.&lt;/p&gt;
+Required parameters: [ContinuousBackupsStatus]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="574"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBContinuousBackupsDescription/setContinuousBackupsStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;code&gt;ContinuousBackupsStatus&lt;/code&gt; can be one of the following states: ENABLED, DISABLED&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBContinuousBackupsStatus continuousBackupsStatus</Declaration>
+			
+			
+			<Anchor>//api/name/continuousBackupsStatus</Anchor>
+            <NodeRef refid="574"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBContinuousBackupsDescription/continuousBackupsStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;code&gt;ContinuousBackupsStatus&lt;/code&gt; can be one of the following states: ENABLED, DISABLED&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBContinuousBackupsStatus continuousBackupsStatus</Declaration>
+			
+			
+			<Anchor>//api/name/continuousBackupsStatus</Anchor>
+            <NodeRef refid="574"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBContinuousBackupsDescription/continuousBackupsStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;code&gt;ContinuousBackupsStatus&lt;/code&gt; can be one of the following states: ENABLED, DISABLED&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBContinuousBackupsStatus continuousBackupsStatus</Declaration>
+			
+			
+			<Anchor>//api/name/continuousBackupsStatus</Anchor>
+            <NodeRef refid="574"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBContinuousBackupsDescription/setPointInTimeRecoveryDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The description of the point in time recovery settings applied to the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBPointInTimeRecoveryDescription *pointInTimeRecoveryDescription</Declaration>
+			
+			
+			<Anchor>//api/name/pointInTimeRecoveryDescription</Anchor>
+            <NodeRef refid="574"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBContinuousBackupsDescription/pointInTimeRecoveryDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The description of the point in time recovery settings applied to the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBPointInTimeRecoveryDescription *pointInTimeRecoveryDescription</Declaration>
+			
+			
+			<Anchor>//api/name/pointInTimeRecoveryDescription</Anchor>
+            <NodeRef refid="574"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBContinuousBackupsDescription/pointInTimeRecoveryDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The description of the point in time recovery settings applied to the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBPointInTimeRecoveryDescription *pointInTimeRecoveryDescription</Declaration>
+			
+			
+			<Anchor>//api/name/pointInTimeRecoveryDescription</Anchor>
+            <NodeRef refid="574"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

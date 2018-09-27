@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Configuration for mitigation actions and notification for different levels of risk detected for a potential account takeover.&lt;/p&gt;
+Required parameters: [Actions]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="218"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType/setActions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Account takeover risk configuration actions&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionsType *actions</Declaration>
+			
+			
+			<Anchor>//api/name/actions</Anchor>
+            <NodeRef refid="218"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType/actions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Account takeover risk configuration actions&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionsType *actions</Declaration>
+			
+			
+			<Anchor>//api/name/actions</Anchor>
+            <NodeRef refid="218"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType/actions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Account takeover risk configuration actions&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionsType *actions</Declaration>
+			
+			
+			<Anchor>//api/name/actions</Anchor>
+            <NodeRef refid="218"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType/setNotifyConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The notify configuration used to construct email notifications.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyConfigurationType *notifyConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/notifyConfiguration</Anchor>
+            <NodeRef refid="218"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType/notifyConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The notify configuration used to construct email notifications.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyConfigurationType *notifyConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/notifyConfiguration</Anchor>
+            <NodeRef refid="218"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType/notifyConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The notify configuration used to construct email notifications.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyConfigurationType *notifyConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/notifyConfiguration</Anchor>
+            <NodeRef refid="218"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

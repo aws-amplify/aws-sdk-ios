@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSQSListQueuesRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSQSListQueuesRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2279"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSListQueuesRequest/setQueueNamePrefix:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.&lt;/p&gt;&lt;p&gt;Queue names are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/queueNamePrefix</Anchor>
+            <NodeRef refid="2279"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSListQueuesRequest/queueNamePrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.&lt;/p&gt;&lt;p&gt;Queue names are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/queueNamePrefix</Anchor>
+            <NodeRef refid="2279"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSListQueuesRequest/queueNamePrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned.&lt;/p&gt;&lt;p&gt;Queue names are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/queueNamePrefix</Anchor>
+            <NodeRef refid="2279"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

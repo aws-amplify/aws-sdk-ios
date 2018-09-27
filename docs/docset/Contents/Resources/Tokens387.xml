@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderNumberAttributeConstraintsType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderNumberAttributeConstraintsType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum and maximum value of an attribute that is of the number data type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="387"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNumberAttributeConstraintsType/setMaxValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum value of an attribute that is of the number data type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *maxValue</Declaration>
+			
+			
+			<Anchor>//api/name/maxValue</Anchor>
+            <NodeRef refid="387"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNumberAttributeConstraintsType/maxValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum value of an attribute that is of the number data type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *maxValue</Declaration>
+			
+			
+			<Anchor>//api/name/maxValue</Anchor>
+            <NodeRef refid="387"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNumberAttributeConstraintsType/maxValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum value of an attribute that is of the number data type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *maxValue</Declaration>
+			
+			
+			<Anchor>//api/name/maxValue</Anchor>
+            <NodeRef refid="387"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNumberAttributeConstraintsType/setMinValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum value of an attribute that is of the number data type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *minValue</Declaration>
+			
+			
+			<Anchor>//api/name/minValue</Anchor>
+            <NodeRef refid="387"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNumberAttributeConstraintsType/minValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum value of an attribute that is of the number data type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *minValue</Declaration>
+			
+			
+			<Anchor>//api/name/minValue</Anchor>
+            <NodeRef refid="387"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNumberAttributeConstraintsType/minValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum value of an attribute that is of the number data type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *minValue</Declaration>
+			
+			
+			<Anchor>//api/name/minValue</Anchor>
+            <NodeRef refid="387"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

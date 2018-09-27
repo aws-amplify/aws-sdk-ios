@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTCreateJobRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTCreateJobRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="883"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/setDetail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A short text description of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A short text description of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateJobRequest/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A short text description of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/setDocument:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *document</Declaration>
+			
+			
+			<Anchor>//api/name/document</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/document</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *document</Declaration>
+			
+			
+			<Anchor>//api/name/document</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateJobRequest/document</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *document</Declaration>
+			
+			
+			<Anchor>//api/name/document</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/setDocumentParameters:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Parameters for the job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *documentParameters</Declaration>
+			
+			
+			<Anchor>//api/name/documentParameters</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/documentParameters</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Parameters for the job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *documentParameters</Declaration>
+			
+			
+			<Anchor>//api/name/documentParameters</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateJobRequest/documentParameters</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Parameters for the job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *documentParameters</Declaration>
+			
+			
+			<Anchor>//api/name/documentParameters</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/setDocumentSource:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An S3 link to the job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *documentSource</Declaration>
+			
+			
+			<Anchor>//api/name/documentSource</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/documentSource</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An S3 link to the job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *documentSource</Declaration>
+			
+			
+			<Anchor>//api/name/documentSource</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateJobRequest/documentSource</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An S3 link to the job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *documentSource</Declaration>
+			
+			
+			<Anchor>//api/name/documentSource</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/setJobExecutionsRolloutConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Allows you to create a staged rollout of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJobExecutionsRolloutConfig *jobExecutionsRolloutConfig</Declaration>
+			
+			
+			<Anchor>//api/name/jobExecutionsRolloutConfig</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/jobExecutionsRolloutConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Allows you to create a staged rollout of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJobExecutionsRolloutConfig *jobExecutionsRolloutConfig</Declaration>
+			
+			
+			<Anchor>//api/name/jobExecutionsRolloutConfig</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateJobRequest/jobExecutionsRolloutConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Allows you to create a staged rollout of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJobExecutionsRolloutConfig *jobExecutionsRolloutConfig</Declaration>
+			
+			
+			<Anchor>//api/name/jobExecutionsRolloutConfig</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/setJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, &quot;-&quot; and &quot;_&quot; are valid for use here.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, &quot;-&quot; and &quot;_&quot; are valid for use here.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateJobRequest/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, &quot;-&quot; and &quot;_&quot; are valid for use here.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/setPresignedUrlConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Configuration information for pre-signed S3 URLs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTPresignedUrlConfig *presignedUrlConfig</Declaration>
+			
+			
+			<Anchor>//api/name/presignedUrlConfig</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/presignedUrlConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Configuration information for pre-signed S3 URLs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTPresignedUrlConfig *presignedUrlConfig</Declaration>
+			
+			
+			<Anchor>//api/name/presignedUrlConfig</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateJobRequest/presignedUrlConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Configuration information for pre-signed S3 URLs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTPresignedUrlConfig *presignedUrlConfig</Declaration>
+			
+			
+			<Anchor>//api/name/presignedUrlConfig</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/setTargetSelection:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTTargetSelection targetSelection</Declaration>
+			
+			
+			<Anchor>//api/name/targetSelection</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/targetSelection</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTTargetSelection targetSelection</Declaration>
+			
+			
+			<Anchor>//api/name/targetSelection</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateJobRequest/targetSelection</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT). If continuous, the job may also be run on a thing when a change is detected in a target. For example, a job will run on a thing when the thing is added to a target group, even after the job was completed by all things originally in the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTTargetSelection targetSelection</Declaration>
+			
+			
+			<Anchor>//api/name/targetSelection</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/setTargets:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of things and thing groups to which the job should be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *targets</Declaration>
+			
+			
+			<Anchor>//api/name/targets</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateJobRequest/targets</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of things and thing groups to which the job should be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *targets</Declaration>
+			
+			
+			<Anchor>//api/name/targets</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateJobRequest/targets</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of things and thing groups to which the job should be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *targets</Declaration>
+			
+			
+			<Anchor>//api/name/targets</Anchor>
+            <NodeRef refid="883"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

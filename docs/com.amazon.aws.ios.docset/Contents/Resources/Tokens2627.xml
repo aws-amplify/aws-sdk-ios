@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSRekognitionFaceSearchSortBy.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSRekognitionFaceSearchSortBy</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2627"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionFaceSearchSortByUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionFaceSearchSortByUnknown</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2627"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionFaceSearchSortByIndex</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionFaceSearchSortByIndex</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2627"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionFaceSearchSortByTimestamp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionFaceSearchSortByTimestamp</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2627"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

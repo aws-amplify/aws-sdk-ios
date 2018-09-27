@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AWSCognitoIdentityNewPasswordRequired.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AWSCognitoIdentityNewPasswordRequired</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2379"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityNewPasswordRequired/getNewPasswordDetails:newPasswordRequiredCompletionSource:</TokenIdentifier>
+			<Abstract type="html">Obtain a new password and specify profile information as part of sign in from the end user</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (void)getNewPasswordDetails:(AWSCognitoIdentityNewPasswordRequiredInput *)newPasswordRequiredInput newPasswordRequiredCompletionSource:(AWSTaskCompletionSource&lt;AWSCognitoIdentityNewPasswordRequiredDetails*&gt; *)newPasswordRequiredCompletionSource</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>newPasswordRequiredInput</Name>
+					<Abstract type="html">user profile and required attributes of the end user</Abstract>
+				</Parameter><Parameter>
+					<Name>newPasswordRequiredCompletionSource</Name>
+					<Abstract type="html">set newPasswordRequiredCompletionSource.result with the new password and any attribute updates from the end user</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getNewPasswordDetails:newPasswordRequiredCompletionSource:</Anchor>
+            <NodeRef refid="2379"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityNewPasswordRequired/didCompleteNewPasswordStepWithError:</TokenIdentifier>
+			<Abstract type="html">This step completed, usually either display an error to the end user or dismiss ui</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (void)didCompleteNewPasswordStepWithError:(NSError *_Nullable)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>error</Name>
+					<Abstract type="html">the error if any that occured</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didCompleteNewPasswordStepWithError:</Anchor>
+            <NodeRef refid="2379"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3GetObjectTorrentOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3GetObjectTorrentOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1883"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetObjectTorrentOutput/setBody:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id _Nullable body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetObjectTorrentOutput/body</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id _Nullable body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GetObjectTorrentOutput/body</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id _Nullable body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetObjectTorrentOutput/setRequestCharged:</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="1883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetObjectTorrentOutput/requestCharged</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="1883"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GetObjectTorrentOutput/requestCharged</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="1883"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

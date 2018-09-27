@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsDeleteDestinationRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteDestinationRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1393"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDeleteDestinationRequest/setDestinationName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationName</Declaration>
+			
+			
+			<Anchor>//api/name/destinationName</Anchor>
+            <NodeRef refid="1393"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDeleteDestinationRequest/destinationName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationName</Declaration>
+			
+			
+			<Anchor>//api/name/destinationName</Anchor>
+            <NodeRef refid="1393"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsDeleteDestinationRequest/destinationName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationName</Declaration>
+			
+			
+			<Anchor>//api/name/destinationName</Anchor>
+            <NodeRef refid="1393"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

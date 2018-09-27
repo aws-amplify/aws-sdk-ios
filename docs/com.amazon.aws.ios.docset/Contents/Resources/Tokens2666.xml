@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3QuoteFields.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3QuoteFields</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2666"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3QuoteFieldsUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3QuoteFieldsUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2666"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3QuoteFieldsAlways</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3QuoteFieldsAlways</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2666"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3QuoteFieldsAsneeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3QuoteFieldsAsneeded</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2666"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

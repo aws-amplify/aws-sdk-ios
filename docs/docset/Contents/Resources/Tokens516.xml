@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoUserPoolsSignInProvider.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoUserPoolsSignInProvider</TokenIdentifier>
+			<Abstract type="html">AWSCognitoUserPoolsSignInProvider adopts the AWSSignInProvider protocol.</Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.h</DeclaredIn>
+            
+			
+			<NodeRef refid="516"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSCognitoUserPoolsSignInProvider/setupUserPoolWithId:cognitoIdentityUserPoolAppClientId:cognitoIdentityUserPoolAppClientSecret:region:</TokenIdentifier>
+			<Abstract type="html">Registers the cognito pool with specified configuration. The pool object can be accessed by using the CognitoIdentityUserPoolForKey: method using AWSCognitoUserPoolsSignInProviderKey as the identifier key.</Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.h</DeclaredIn>
+			
+			<Declaration>+ (void)setupUserPoolWithId:(NSString *)cognitoIdentityUserPoolId cognitoIdentityUserPoolAppClientId:(NSString *)cognitoIdentityUserPoolAppClientId cognitoIdentityUserPoolAppClientSecret:(NSString *)cognitoIdentityUserPoolAppClientSecret region:(AWSRegionType)region</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>cognitoIdentityUserPoolId</Name>
+					<Abstract type="html">The Cognito Identity User Pool Id</Abstract>
+				</Parameter><Parameter>
+					<Name>cognitoIdentityUserPoolAppClientId</Name>
+					<Abstract type="html">The Cognito Identity User Pool Client Id</Abstract>
+				</Parameter><Parameter>
+					<Name>cognitoIdentityUserPoolAppClientSecret</Name>
+					<Abstract type="html">The Cognito Identity User Pool Client Secret</Abstract>
+				</Parameter><Parameter>
+					<Name>region</Name>
+					<Abstract type="html">The Cognito Identity User Pool Service Region</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setupUserPoolWithId:cognitoIdentityUserPoolAppClientId:cognitoIdentityUserPoolAppClientSecret:region:</Anchor>
+            <NodeRef refid="516"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSCognitoUserPoolsSignInProvider/sharedInstance</TokenIdentifier>
+			<Abstract type="html">Fetches the shared instance for AWSCognitoUserPoolsSignInProvider. The method setupUserPoolWithId:cognitoIdentityUserPoolAppClientId:cognitoIdentityUserPoolAppClientSecret:region has to be called once before accessing the shared instance.</Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)sharedInstance</Declaration>
+			
+			<ReturnValue><Abstract type="html">the single instance of AWSCognitoUserPoolsSignInProvider</Abstract></ReturnValue>
+			<Anchor>//api/name/sharedInstance</Anchor>
+            <NodeRef refid="516"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoUserPoolsSignInProvider/setInteractiveAuthDelegate:</TokenIdentifier>
+			<Abstract type="html">Set the instance of the class adopting the AWSCognitoIdentityInteractiveAuthenticationDelegate protocol of Cognito Idp SDK.</Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.h</DeclaredIn>
+			
+			<Declaration>- (void)setInteractiveAuthDelegate:(id)interactiveAuthDelegate</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>interactiveAuthDelegate</Name>
+					<Abstract type="html">A class adopting the AWSCognitoIdentityInteractiveAuthenticationDelegate protocol</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setInteractiveAuthDelegate:</Anchor>
+            <NodeRef refid="516"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoUserPoolsSignInProvider/isLoggedIn</TokenIdentifier>
+			<Abstract type="html">Returns the status of the current user pool user.</Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)isLoggedIn</Declaration>
+			
+			<ReturnValue><Abstract type="html">YES if the user is signed in.</Abstract></ReturnValue>
+			<Anchor>//api/name/isLoggedIn</Anchor>
+            <NodeRef refid="516"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoUserPoolsSignInProvider/getUserPool</TokenIdentifier>
+			<Abstract type="html">Returns the configured underlying user pool client.</Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.h</DeclaredIn>
+			
+			<Declaration>- (AWSCognitoIdentityUserPool *)getUserPool</Declaration>
+			
+			<ReturnValue><Abstract type="html">the configured user pool instance</Abstract></ReturnValue>
+			<Anchor>//api/name/getUserPool</Anchor>
+            <NodeRef refid="516"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoUserPoolsSignInProvider/reloadSession</TokenIdentifier>
+			<Abstract type="html">The handler method for managing the session reload for the Sign-In Provider.
+The completionHandler will bubble back errors to the developers.</Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.m</DeclaredIn>
+			
+			<Declaration>- (void)reloadSession</Declaration>
+			
+			
+			<Anchor>//api/name/reloadSession</Anchor>
+            <NodeRef refid="516"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoUserPoolsSignInProvider/login:</TokenIdentifier>
+			<Abstract type="html">The login handler method for the Sign-In Provider.
+The completionHandler will bubble back errors to the developers.</Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.m</DeclaredIn>
+			
+			<Declaration>- (void)login:(AWSSignInManagerCompletionBlock)completionHandler</Declaration>
+			
+			
+			<Anchor>//api/name/login:</Anchor>
+            <NodeRef refid="516"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoUserPoolsSignInProvider/logout</TokenIdentifier>
+			<Abstract type="html">The logout handler method for the Sign-In Provider.</Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.m</DeclaredIn>
+			
+			<Declaration>- (void)logout</Declaration>
+			
+			
+			<Anchor>//api/name/logout</Anchor>
+            <NodeRef refid="516"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

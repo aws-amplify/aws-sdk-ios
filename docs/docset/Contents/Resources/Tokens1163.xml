@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSAliasListEntry.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSAliasListEntry</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains information about an alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1163"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSAliasListEntry/setAliasArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the key ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasArn</Declaration>
+			
+			
+			<Anchor>//api/name/aliasArn</Anchor>
+            <NodeRef refid="1163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSAliasListEntry/aliasArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the key ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasArn</Declaration>
+			
+			
+			<Anchor>//api/name/aliasArn</Anchor>
+            <NodeRef refid="1163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSAliasListEntry/aliasArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the key ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasArn</Declaration>
+			
+			
+			<Anchor>//api/name/aliasArn</Anchor>
+            <NodeRef refid="1163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSAliasListEntry/setAliasName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasName</Declaration>
+			
+			
+			<Anchor>//api/name/aliasName</Anchor>
+            <NodeRef refid="1163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSAliasListEntry/aliasName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasName</Declaration>
+			
+			
+			<Anchor>//api/name/aliasName</Anchor>
+            <NodeRef refid="1163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSAliasListEntry/aliasName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasName</Declaration>
+			
+			
+			<Anchor>//api/name/aliasName</Anchor>
+            <NodeRef refid="1163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSAliasListEntry/setTargetKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the key identifier referred to by the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/targetKeyId</Anchor>
+            <NodeRef refid="1163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSAliasListEntry/targetKeyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the key identifier referred to by the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/targetKeyId</Anchor>
+            <NodeRef refid="1163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSAliasListEntry/targetKeyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the key identifier referred to by the alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/targetKeyId</Anchor>
+            <NodeRef refid="1163"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseElasticsearchDestinationConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseElasticsearchDestinationConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the configuration of a destination in Amazon ES.&lt;/p&gt;
+Required parameters: [RoleARN, DomainARN, IndexName, TypeName, S3Configuration]</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="789"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setBufferingHints:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The buffering options. If no value is specified, the default values for &lt;code&gt;ElasticsearchBufferingHints&lt;/code&gt; are used.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchBufferingHints *bufferingHints</Declaration>
+			
+			
+			<Anchor>//api/name/bufferingHints</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/bufferingHints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The buffering options. If no value is specified, the default values for &lt;code&gt;ElasticsearchBufferingHints&lt;/code&gt; are used.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchBufferingHints *bufferingHints</Declaration>
+			
+			
+			<Anchor>//api/name/bufferingHints</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/bufferingHints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The buffering options. If no value is specified, the default values for &lt;code&gt;ElasticsearchBufferingHints&lt;/code&gt; are used.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchBufferingHints *bufferingHints</Declaration>
+			
+			
+			<Anchor>//api/name/bufferingHints</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setCloudWatchLoggingOptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options for your delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/cloudWatchLoggingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options for your delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/cloudWatchLoggingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options for your delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setDomainARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon ES domain. The IAM role must have permissions for &lt;code&gt;DescribeElasticsearchDomain&lt;/code&gt;, &lt;code&gt;DescribeElasticsearchDomains&lt;/code&gt;, and &lt;code&gt;DescribeElasticsearchDomainConfig&lt;/code&gt; after assuming the role specified in &lt;b&gt;RoleARN&lt;/b&gt;. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *domainARN</Declaration>
+			
+			
+			<Anchor>//api/name/domainARN</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/domainARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon ES domain. The IAM role must have permissions for &lt;code&gt;DescribeElasticsearchDomain&lt;/code&gt;, &lt;code&gt;DescribeElasticsearchDomains&lt;/code&gt;, and &lt;code&gt;DescribeElasticsearchDomainConfig&lt;/code&gt; after assuming the role specified in &lt;b&gt;RoleARN&lt;/b&gt;. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *domainARN</Declaration>
+			
+			
+			<Anchor>//api/name/domainARN</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/domainARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon ES domain. The IAM role must have permissions for &lt;code&gt;DescribeElasticsearchDomain&lt;/code&gt;, &lt;code&gt;DescribeElasticsearchDomains&lt;/code&gt;, and &lt;code&gt;DescribeElasticsearchDomainConfig&lt;/code&gt; after assuming the role specified in &lt;b&gt;RoleARN&lt;/b&gt;. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *domainARN</Declaration>
+			
+			
+			<Anchor>//api/name/domainARN</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setIndexName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/indexName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/indexName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setIndexRotationPeriod:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index rotation period. Index rotation appends a time stamp to the &lt;code&gt;IndexName&lt;/code&gt; to facilitate the expiration of old data. For more information, see Index Rotation for the Amazon ES Destination. The default value is &lt;code&gt;OneDay&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod</Declaration>
+			
+			
+			<Anchor>//api/name/indexRotationPeriod</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/indexRotationPeriod</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index rotation period. Index rotation appends a time stamp to the &lt;code&gt;IndexName&lt;/code&gt; to facilitate the expiration of old data. For more information, see Index Rotation for the Amazon ES Destination. The default value is &lt;code&gt;OneDay&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod</Declaration>
+			
+			
+			<Anchor>//api/name/indexRotationPeriod</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/indexRotationPeriod</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index rotation period. Index rotation appends a time stamp to the &lt;code&gt;IndexName&lt;/code&gt; to facilitate the expiration of old data. For more information, see Index Rotation for the Amazon ES Destination. The default value is &lt;code&gt;OneDay&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod</Declaration>
+			
+			
+			<Anchor>//api/name/indexRotationPeriod</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setProcessingConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/processingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/processingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setRetryOptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchRetryOptions *retryOptions</Declaration>
+			
+			
+			<Anchor>//api/name/retryOptions</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/retryOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchRetryOptions *retryOptions</Declaration>
+			
+			
+			<Anchor>//api/name/retryOptions</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/retryOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES. The default value is 300 (5 minutes).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchRetryOptions *retryOptions</Declaration>
+			
+			
+			<Anchor>//api/name/retryOptions</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setRoleARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/roleARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/roleARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Amazon ES Configuration API and for indexing documents. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setS3BackupMode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Defines how documents should be delivered to Amazon S3. When it is set to &lt;code&gt;FailedDocumentsOnly&lt;/code&gt;, Kinesis Data Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with &lt;code&gt;elasticsearch-failed/&lt;/code&gt; appended to the key prefix. When set to &lt;code&gt;AllDocuments&lt;/code&gt;, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents with &lt;code&gt;elasticsearch-failed/&lt;/code&gt; appended to the prefix. For more information, see Amazon S3 Backup for the Amazon ES Destination. Default value is &lt;code&gt;FailedDocumentsOnly&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/s3BackupMode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Defines how documents should be delivered to Amazon S3. When it is set to &lt;code&gt;FailedDocumentsOnly&lt;/code&gt;, Kinesis Data Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with &lt;code&gt;elasticsearch-failed/&lt;/code&gt; appended to the key prefix. When set to &lt;code&gt;AllDocuments&lt;/code&gt;, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents with &lt;code&gt;elasticsearch-failed/&lt;/code&gt; appended to the prefix. For more information, see Amazon S3 Backup for the Amazon ES Destination. Default value is &lt;code&gt;FailedDocumentsOnly&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/s3BackupMode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Defines how documents should be delivered to Amazon S3. When it is set to &lt;code&gt;FailedDocumentsOnly&lt;/code&gt;, Kinesis Data Firehose writes any documents that could not be indexed to the configured Amazon S3 destination, with &lt;code&gt;elasticsearch-failed/&lt;/code&gt; appended to the key prefix. When set to &lt;code&gt;AllDocuments&lt;/code&gt;, Kinesis Data Firehose delivers all incoming records to Amazon S3, and also writes failed documents with &lt;code&gt;elasticsearch-failed/&lt;/code&gt; appended to the prefix. For more information, see Amazon S3 Backup for the Amazon ES Destination. Default value is &lt;code&gt;FailedDocumentsOnly&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setS3Configuration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration for the backup Amazon S3 location.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration *s3Configuration</Declaration>
+			
+			
+			<Anchor>//api/name/s3Configuration</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/s3Configuration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration for the backup Amazon S3 location.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration *s3Configuration</Declaration>
+			
+			
+			<Anchor>//api/name/s3Configuration</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/s3Configuration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration for the backup Amazon S3 location.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationConfiguration *s3Configuration</Declaration>
+			
+			
+			<Anchor>//api/name/s3Configuration</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/setTypeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during run time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *typeName</Declaration>
+			
+			
+			<Anchor>//api/name/typeName</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationConfiguration/typeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during run time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *typeName</Declaration>
+			
+			
+			<Anchor>//api/name/typeName</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationConfiguration/typeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch type name. For Elasticsearch 6.x, there can be only one type per index. If you try to specify a new type for an existing index that already has another type, Kinesis Data Firehose returns an error during run time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *typeName</Declaration>
+			
+			
+			<Anchor>//api/name/typeName</Anchor>
+            <NodeRef refid="789"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

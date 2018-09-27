@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSTSGetSessionTokenResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSTSGetSessionTokenResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the response to a successful &lt;a&gt;GetSessionToken&lt;/a&gt; request, including temporary AWS credentials that can be used to make AWS requests. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2313"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSGetSessionTokenResponse/setCredentials:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSTSCredentials *credentials</Declaration>
+			
+			
+			<Anchor>//api/name/credentials</Anchor>
+            <NodeRef refid="2313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSGetSessionTokenResponse/credentials</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSTSCredentials *credentials</Declaration>
+			
+			
+			<Anchor>//api/name/credentials</Anchor>
+            <NodeRef refid="2313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSGetSessionTokenResponse/credentials</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSTSCredentials *credentials</Declaration>
+			
+			
+			<Anchor>//api/name/credentials</Anchor>
+            <NodeRef refid="2313"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

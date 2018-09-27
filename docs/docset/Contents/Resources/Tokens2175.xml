@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESTemplateMetadata.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESTemplateMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains information about an email template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2175"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESTemplateMetadata/setCreatedTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time and date the template was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *createdTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/createdTimestamp</Anchor>
+            <NodeRef refid="2175"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESTemplateMetadata/createdTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time and date the template was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *createdTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/createdTimestamp</Anchor>
+            <NodeRef refid="2175"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESTemplateMetadata/createdTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time and date the template was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *createdTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/createdTimestamp</Anchor>
+            <NodeRef refid="2175"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESTemplateMetadata/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2175"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESTemplateMetadata/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2175"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESTemplateMetadata/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2175"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

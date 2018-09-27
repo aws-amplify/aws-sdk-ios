@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCognitoIdentityProviderAliasAttributeType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCognitoIdentityProviderAliasAttributeType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2422"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderAliasAttributeTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderAliasAttributeTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2422"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderAliasAttributeTypePhoneNumber</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderAliasAttributeTypePhoneNumber</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2422"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderAliasAttributeTypeEmail</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderAliasAttributeTypeEmail</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2422"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityProviderAliasAttributeTypePreferredUsername</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityProviderAliasAttributeTypePreferredUsername</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+            <NodeRef refid="2422"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

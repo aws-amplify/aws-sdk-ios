@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the parameters for CreateLoadBalancerPolicy.&lt;/p&gt;
+Required parameters: [LoadBalancerName, PolicyName, PolicyTypeName]</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="713"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/setLoadBalancerName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *loadBalancerName</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerName</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/loadBalancerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *loadBalancerName</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerName</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/loadBalancerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *loadBalancerName</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerName</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/setPolicyAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingPolicyAttribute*&gt; *policyAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/policyAttributes</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/policyAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingPolicyAttribute*&gt; *policyAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/policyAttributes</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/policyAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingPolicyAttribute*&gt; *policyAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/policyAttributes</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/setPolicyName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer policy to be created. This name must be unique within the set of policies for this load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/setPolicyTypeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the base policy type. To get the list of policy types, use &lt;a&gt;DescribeLoadBalancerPolicyTypes&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/policyTypeName</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/policyTypeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the base policy type. To get the list of policy types, use &lt;a&gt;DescribeLoadBalancerPolicyTypes&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/policyTypeName</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingCreateLoadBalancerPolicyInput/policyTypeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the base policy type. To get the list of policy types, use &lt;a&gt;DescribeLoadBalancerPolicyTypes&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/policyTypeName</Anchor>
+            <NodeRef refid="713"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

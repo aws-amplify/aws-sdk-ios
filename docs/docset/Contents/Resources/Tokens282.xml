@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderConfirmDeviceResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderConfirmDeviceResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Confirms the device response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="282"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderConfirmDeviceResponse/setUserConfirmationNecessary:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether the user confirmation is necessary to confirm the device response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *userConfirmationNecessary</Declaration>
+			
+			
+			<Anchor>//api/name/userConfirmationNecessary</Anchor>
+            <NodeRef refid="282"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderConfirmDeviceResponse/userConfirmationNecessary</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether the user confirmation is necessary to confirm the device response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *userConfirmationNecessary</Declaration>
+			
+			
+			<Anchor>//api/name/userConfirmationNecessary</Anchor>
+            <NodeRef refid="282"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderConfirmDeviceResponse/userConfirmationNecessary</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether the user confirmation is necessary to confirm the device response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *userConfirmationNecessary</Declaration>
+			
+			
+			<Anchor>//api/name/userConfirmationNecessary</Anchor>
+            <NodeRef refid="282"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

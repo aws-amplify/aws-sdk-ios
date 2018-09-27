@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the output of ModifyLoadBalancerAttributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="750"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput/setLoadBalancerAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the load balancer attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes *loadBalancerAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerAttributes</Anchor>
+            <NodeRef refid="750"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput/loadBalancerAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the load balancer attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes *loadBalancerAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerAttributes</Anchor>
+            <NodeRef refid="750"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput/loadBalancerAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the load balancer attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes *loadBalancerAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerAttributes</Anchor>
+            <NodeRef refid="750"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput/setLoadBalancerName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *loadBalancerName</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerName</Anchor>
+            <NodeRef refid="750"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput/loadBalancerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *loadBalancerName</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerName</Anchor>
+            <NodeRef refid="750"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput/loadBalancerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *loadBalancerName</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerName</Anchor>
+            <NodeRef refid="750"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

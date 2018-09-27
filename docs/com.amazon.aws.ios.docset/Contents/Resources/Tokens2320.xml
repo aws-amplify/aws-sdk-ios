@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSimpleDB.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDB</TokenIdentifier>
+			<Abstract type="html">Amazon SimpleDB is a web service providing the core database functions of data indexing and querying in the cloud. By offloading the time and effort associated with building and operating a web-scale database, SimpleDB provides developers the freedom to focus on application development. &lt;p&gt; A traditional, clustered relational database requires a sizable upfront capital outlay, is complex to design, and often requires extensive and repetitive database administration. Amazon SimpleDB is dramatically simpler, requiring no schema, automatically indexing your data and providing a simple API for storage and access. This approach eliminates the administrative burden of data modeling, index maintenance, and performance tuning. Developers gain access to this functionality within Amazon&apos;s proven computing environment, are able to scale instantly, and pay only for what they use. &lt;/p&gt;&lt;p&gt; Visit http://aws.amazon.com/simpledb/ for more information. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2320"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDB/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSSimpleDB/defaultSimpleDB</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultSimpleDB</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultSimpleDB</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSSimpleDB/registerSimpleDBWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerSimpleDBWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerSimpleDBWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSSimpleDB/SimpleDBForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerSimpleDBWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)SimpleDBForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/SimpleDBForKey:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSSimpleDB/removeSimpleDBForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeSimpleDBForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeSimpleDBForKey:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/batchDeleteAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput. &lt;/p&gt;&lt;p&gt; The following limitations are enforced for this operation: &lt;ul&gt;&lt;li&gt;1 MB request size&lt;/li&gt;&lt;li&gt;25 item limit per BatchDeleteAttributes operation&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBBatchDeleteAttributesRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)batchDeleteAttributes:(AWSSimpleDBBatchDeleteAttributesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchDeleteAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/batchDeleteAttributes:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/batchDeleteAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput. &lt;/p&gt;&lt;p&gt; The following limitations are enforced for this operation: &lt;ul&gt;&lt;li&gt;1 MB request size&lt;/li&gt;&lt;li&gt;25 item limit per BatchDeleteAttributes operation&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBBatchDeleteAttributesRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)batchDeleteAttributes:(AWSSimpleDBBatchDeleteAttributesRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchDeleteAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/batchDeleteAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/batchPutAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The &lt;code&gt;BatchPutAttributes&lt;/code&gt; operation creates or replaces attributes within one or more items. By using this operation, the client can perform multiple &lt;a&gt;PutAttribute&lt;/a&gt; operation with a single call. This helps yield savings in round trips and latencies, enabling Amazon SimpleDB to optimize requests and generally produce better throughput. &lt;/p&gt;&lt;p&gt; The client may specify the item name with the &lt;code&gt;Item.X.ItemName&lt;/code&gt; parameter. The client may specify new attributes using a combination of the &lt;code&gt;Item.X.Attribute.Y.Name&lt;/code&gt; and &lt;code&gt;Item.X.Attribute.Y.Value&lt;/code&gt; parameters. The client may specify the first attribute for the first item using the parameters &lt;code&gt;Item.0.Attribute.0.Name&lt;/code&gt; and &lt;code&gt;Item.0.Attribute.0.Value&lt;/code&gt;, and for the second attribute for the first item by the parameters &lt;code&gt;Item.0.Attribute.1.Name&lt;/code&gt; and &lt;code&gt;Item.0.Attribute.1.Value&lt;/code&gt;, and so on. &lt;/p&gt;&lt;p&gt; Attributes are uniquely identified within an item by their name/value combination. For example, a single item can have the attributes &lt;code&gt;{ &quot;firstname&quot;, &quot;firstvalue&quot; }&lt;/code&gt; and &lt;code&gt;{ &quot;firstname&quot;, &quot;secondvalue&quot; }&lt;/code&gt;. However, it cannot have two attribute instances where both the &lt;code&gt;Item.X.Attribute.Y.Name&lt;/code&gt; and &lt;code&gt;Item.X.Attribute.Y.Value&lt;/code&gt; are the same. &lt;/p&gt;&lt;p&gt; Optionally, the requester can supply the &lt;code&gt;Replace&lt;/code&gt; parameter for each individual value. Setting this value to &lt;code&gt;true&lt;/code&gt; will cause the new attribute values to replace the existing attribute values. For example, if an item &lt;code&gt;I&lt;/code&gt; has the attributes &lt;code&gt;{ &apos;a&apos;, &apos;1&apos; }, { &apos;b&apos;, &apos;2&apos;}&lt;/code&gt; and &lt;code&gt;{ &apos;b&apos;, &apos;3&apos; }&lt;/code&gt; and the requester does a BatchPutAttributes of &lt;code&gt;{&apos;I&apos;, &apos;b&apos;, &apos;4&apos; }&lt;/code&gt; with the Replace parameter set to true, the final attributes of the item will be &lt;code&gt;{ &apos;a&apos;, &apos;1&apos; }&lt;/code&gt; and &lt;code&gt;{ &apos;b&apos;, &apos;4&apos; }&lt;/code&gt;, replacing the previous values of the &apos;b&apos; attribute with the new value. &lt;/p&gt;&lt;important&gt; This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. This operation does not support conditions using &lt;code&gt;Expected.X.Name&lt;/code&gt;, &lt;code&gt;Expected.X.Value&lt;/code&gt;, or &lt;code&gt;Expected.X.Exists&lt;/code&gt;. &lt;/important&gt;&lt;p&gt; You can execute multiple &lt;code&gt;BatchPutAttributes&lt;/code&gt; operations and other operations in parallel. However, large numbers of concurrent &lt;code&gt;BatchPutAttributes&lt;/code&gt; calls can result in Service Unavailable (503) responses. &lt;/p&gt;&lt;p&gt; The following limitations are enforced for this operation: &lt;ul&gt;&lt;li&gt;256 attribute name-value pairs per item&lt;/li&gt;&lt;li&gt;1 MB request size&lt;/li&gt;&lt;li&gt;1 billion attributes per domain&lt;/li&gt;&lt;li&gt;10 GB of total user data storage per domain&lt;/li&gt;&lt;li&gt;25 item limit per &lt;code&gt;BatchPutAttributes&lt;/code&gt; operation&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBBatchPutAttributesRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)batchPutAttributes:(AWSSimpleDBBatchPutAttributesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchPutAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorDuplicateItemName, AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorNumberItemAttributesExceeded, AWSSimpleDBErrorNumberDomainAttributesExceeded, AWSSimpleDBErrorNumberDomainBytesExceeded, AWSSimpleDBErrorNumberSubmittedItemsExceeded, AWSSimpleDBErrorNumberSubmittedAttributesExceeded.</Abstract></ReturnValue>
+			<Anchor>//api/name/batchPutAttributes:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/batchPutAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The &lt;code&gt;BatchPutAttributes&lt;/code&gt; operation creates or replaces attributes within one or more items. By using this operation, the client can perform multiple &lt;a&gt;PutAttribute&lt;/a&gt; operation with a single call. This helps yield savings in round trips and latencies, enabling Amazon SimpleDB to optimize requests and generally produce better throughput. &lt;/p&gt;&lt;p&gt; The client may specify the item name with the &lt;code&gt;Item.X.ItemName&lt;/code&gt; parameter. The client may specify new attributes using a combination of the &lt;code&gt;Item.X.Attribute.Y.Name&lt;/code&gt; and &lt;code&gt;Item.X.Attribute.Y.Value&lt;/code&gt; parameters. The client may specify the first attribute for the first item using the parameters &lt;code&gt;Item.0.Attribute.0.Name&lt;/code&gt; and &lt;code&gt;Item.0.Attribute.0.Value&lt;/code&gt;, and for the second attribute for the first item by the parameters &lt;code&gt;Item.0.Attribute.1.Name&lt;/code&gt; and &lt;code&gt;Item.0.Attribute.1.Value&lt;/code&gt;, and so on. &lt;/p&gt;&lt;p&gt; Attributes are uniquely identified within an item by their name/value combination. For example, a single item can have the attributes &lt;code&gt;{ &quot;firstname&quot;, &quot;firstvalue&quot; }&lt;/code&gt; and &lt;code&gt;{ &quot;firstname&quot;, &quot;secondvalue&quot; }&lt;/code&gt;. However, it cannot have two attribute instances where both the &lt;code&gt;Item.X.Attribute.Y.Name&lt;/code&gt; and &lt;code&gt;Item.X.Attribute.Y.Value&lt;/code&gt; are the same. &lt;/p&gt;&lt;p&gt; Optionally, the requester can supply the &lt;code&gt;Replace&lt;/code&gt; parameter for each individual value. Setting this value to &lt;code&gt;true&lt;/code&gt; will cause the new attribute values to replace the existing attribute values. For example, if an item &lt;code&gt;I&lt;/code&gt; has the attributes &lt;code&gt;{ &apos;a&apos;, &apos;1&apos; }, { &apos;b&apos;, &apos;2&apos;}&lt;/code&gt; and &lt;code&gt;{ &apos;b&apos;, &apos;3&apos; }&lt;/code&gt; and the requester does a BatchPutAttributes of &lt;code&gt;{&apos;I&apos;, &apos;b&apos;, &apos;4&apos; }&lt;/code&gt; with the Replace parameter set to true, the final attributes of the item will be &lt;code&gt;{ &apos;a&apos;, &apos;1&apos; }&lt;/code&gt; and &lt;code&gt;{ &apos;b&apos;, &apos;4&apos; }&lt;/code&gt;, replacing the previous values of the &apos;b&apos; attribute with the new value. &lt;/p&gt;&lt;important&gt; This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. This operation does not support conditions using &lt;code&gt;Expected.X.Name&lt;/code&gt;, &lt;code&gt;Expected.X.Value&lt;/code&gt;, or &lt;code&gt;Expected.X.Exists&lt;/code&gt;. &lt;/important&gt;&lt;p&gt; You can execute multiple &lt;code&gt;BatchPutAttributes&lt;/code&gt; operations and other operations in parallel. However, large numbers of concurrent &lt;code&gt;BatchPutAttributes&lt;/code&gt; calls can result in Service Unavailable (503) responses. &lt;/p&gt;&lt;p&gt; The following limitations are enforced for this operation: &lt;ul&gt;&lt;li&gt;256 attribute name-value pairs per item&lt;/li&gt;&lt;li&gt;1 MB request size&lt;/li&gt;&lt;li&gt;1 billion attributes per domain&lt;/li&gt;&lt;li&gt;10 GB of total user data storage per domain&lt;/li&gt;&lt;li&gt;25 item limit per &lt;code&gt;BatchPutAttributes&lt;/code&gt; operation&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBBatchPutAttributesRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)batchPutAttributes:(AWSSimpleDBBatchPutAttributesRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchPutAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorDuplicateItemName, AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorNumberItemAttributesExceeded, AWSSimpleDBErrorNumberDomainAttributesExceeded, AWSSimpleDBErrorNumberDomainBytesExceeded, AWSSimpleDBErrorNumberSubmittedItemsExceeded, AWSSimpleDBErrorNumberSubmittedAttributesExceeded.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/batchPutAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/createDomain:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The &lt;code&gt;CreateDomain&lt;/code&gt; operation creates a new domain. The domain name should be unique among the domains associated with the Access Key ID provided in the request. The &lt;code&gt;CreateDomain&lt;/code&gt; operation may take 10 or more seconds to complete. &lt;/p&gt;&lt;p&gt; The client can create up to 100 domains per account. &lt;/p&gt;&lt;p&gt; If the client requires additional domains, go to  http://aws.amazon.com/contact-us/simpledb-limit-request/. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBCreateDomainRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)createDomain:(AWSSimpleDBCreateDomainRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateDomain service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNumberDomainsExceeded.</Abstract></ReturnValue>
+			<Anchor>//api/name/createDomain:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/createDomain:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The &lt;code&gt;CreateDomain&lt;/code&gt; operation creates a new domain. The domain name should be unique among the domains associated with the Access Key ID provided in the request. The &lt;code&gt;CreateDomain&lt;/code&gt; operation may take 10 or more seconds to complete. &lt;/p&gt;&lt;p&gt; The client can create up to 100 domains per account. &lt;/p&gt;&lt;p&gt; If the client requires additional domains, go to  http://aws.amazon.com/contact-us/simpledb-limit-request/. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBCreateDomainRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createDomain:(AWSSimpleDBCreateDomainRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateDomain service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNumberDomainsExceeded.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createDomain:completionHandler:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/deleteAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted. &lt;/p&gt;&lt;p&gt;&lt;code&gt;DeleteAttributes&lt;/code&gt; is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response. &lt;/p&gt;&lt;p&gt; Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a &lt;a&gt;GetAttributes&lt;/a&gt; or &lt;a&gt;Select&lt;/a&gt; operation (read) immediately after a &lt;code&gt;DeleteAttributes&lt;/code&gt; or &lt;a&gt;PutAttributes&lt;/a&gt; operation (write) might not return updated item data. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBDeleteAttributesRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteAttributes:(AWSSimpleDBDeleteAttributesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorAttributeDoesNotExist.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteAttributes:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/deleteAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted. &lt;/p&gt;&lt;p&gt;&lt;code&gt;DeleteAttributes&lt;/code&gt; is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response. &lt;/p&gt;&lt;p&gt; Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a &lt;a&gt;GetAttributes&lt;/a&gt; or &lt;a&gt;Select&lt;/a&gt; operation (read) immediately after a &lt;code&gt;DeleteAttributes&lt;/code&gt; or &lt;a&gt;PutAttributes&lt;/a&gt; operation (write) might not return updated item data. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBDeleteAttributesRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteAttributes:(AWSSimpleDBDeleteAttributesRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorAttributeDoesNotExist.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/deleteDomain:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The &lt;code&gt;DeleteDomain&lt;/code&gt; operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The &lt;code&gt;DeleteDomain&lt;/code&gt; operation might take 10 or more seconds to complete. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBDeleteDomainRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteDomain:(AWSSimpleDBDeleteDomainRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteDomain service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorMissingParameter.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteDomain:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/deleteDomain:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The &lt;code&gt;DeleteDomain&lt;/code&gt; operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The &lt;code&gt;DeleteDomain&lt;/code&gt; operation might take 10 or more seconds to complete. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBDeleteDomainRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteDomain:(AWSSimpleDBDeleteDomainRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteDomain service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorMissingParameter.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteDomain:completionHandler:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/domainMetadata:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBDomainMetadataRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBDomainMetadataResult</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSimpleDBDomainMetadataResult*&gt; *)domainMetadata:(AWSSimpleDBDomainMetadataRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DomainMetadata service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSimpleDBDomainMetadataResult. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain.</Abstract></ReturnValue>
+			<Anchor>//api/name/domainMetadata:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/domainMetadata:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBDomainMetadataRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBDomainMetadataResult</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)domainMetadata:(AWSSimpleDBDomainMetadataRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSSimpleDBDomainMetadataResult *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DomainMetadata service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/domainMetadata:completionHandler:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/getAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter. &lt;/p&gt;&lt;p&gt; If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBGetAttributesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBGetAttributesResult</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSimpleDBGetAttributesResult*&gt; *)getAttributes:(AWSSimpleDBGetAttributesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSimpleDBGetAttributesResult. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain.</Abstract></ReturnValue>
+			<Anchor>//api/name/getAttributes:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/getAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter. &lt;/p&gt;&lt;p&gt; If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBGetAttributesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBGetAttributesResult</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getAttributes:(AWSSimpleDBGetAttributesRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSSimpleDBGetAttributesResult *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/listDomains:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The &lt;code&gt;ListDomains&lt;/code&gt; operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by NextToken is returned if there are more than &lt;code&gt;MaxNumberOfDomains&lt;/code&gt; domains. Calling &lt;code&gt;ListDomains&lt;/code&gt; successive times with the &lt;code&gt;NextToken&lt;/code&gt; provided by the operation returns up to &lt;code&gt;MaxNumberOfDomains&lt;/code&gt; more domain names with each successive operation call. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBListDomainsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBListDomainsResult</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSimpleDBListDomainsResult*&gt; *)listDomains:(AWSSimpleDBListDomainsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListDomains service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSimpleDBListDomainsResult. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorInvalidNextToken.</Abstract></ReturnValue>
+			<Anchor>//api/name/listDomains:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/listDomains:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The &lt;code&gt;ListDomains&lt;/code&gt; operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by NextToken is returned if there are more than &lt;code&gt;MaxNumberOfDomains&lt;/code&gt; domains. Calling &lt;code&gt;ListDomains&lt;/code&gt; successive times with the &lt;code&gt;NextToken&lt;/code&gt; provided by the operation returns up to &lt;code&gt;MaxNumberOfDomains&lt;/code&gt; more domain names with each successive operation call. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBListDomainsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBListDomainsResult</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listDomains:(AWSSimpleDBListDomainsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSSimpleDBListDomainsResult *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListDomains service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorInvalidNextToken.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listDomains:completionHandler:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/putAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The PutAttributes operation creates or replaces attributes in an item. The client may specify new attributes using a combination of the &lt;code&gt;Attribute.X.Name&lt;/code&gt; and &lt;code&gt;Attribute.X.Value&lt;/code&gt; parameters. The client specifies the first attribute by the parameters &lt;code&gt;Attribute.0.Name&lt;/code&gt; and &lt;code&gt;Attribute.0.Value&lt;/code&gt;, the second attribute by the parameters &lt;code&gt;Attribute.1.Name&lt;/code&gt; and &lt;code&gt;Attribute.1.Value&lt;/code&gt;, and so on. &lt;/p&gt;&lt;p&gt; Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes &lt;code&gt;{ &quot;firstname&quot;, &quot;firstvalue&quot; }&lt;/code&gt; and &lt;code&gt;{ &quot;firstname&quot;, secondvalue&quot; }&lt;/code&gt;. However, it cannot have two attribute instances where both the &lt;code&gt;Attribute.X.Name&lt;/code&gt; and &lt;code&gt;Attribute.X.Value&lt;/code&gt; are the same. &lt;/p&gt;&lt;p&gt; Optionally, the requestor can supply the &lt;code&gt;Replace&lt;/code&gt; parameter for each individual attribute. Setting this value to &lt;code&gt;true&lt;/code&gt; causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes &lt;code&gt;{ &apos;a&apos;, &apos;1&apos; }&lt;/code&gt;, &lt;code&gt;{ &apos;b&apos;, &apos;2&apos;}&lt;/code&gt; and &lt;code&gt;{ &apos;b&apos;, &apos;3&apos; }&lt;/code&gt; and the requestor calls &lt;code&gt;PutAttributes&lt;/code&gt; using the attributes &lt;code&gt;{ &apos;b&apos;, &apos;4&apos; }&lt;/code&gt; with the &lt;code&gt;Replace&lt;/code&gt; parameter set to true, the final attributes of the item are changed to &lt;code&gt;{ &apos;a&apos;, &apos;1&apos; }&lt;/code&gt; and &lt;code&gt;{ &apos;b&apos;, &apos;4&apos; }&lt;/code&gt;, which replaces the previous values of the &apos;b&apos; attribute with the new value. &lt;/p&gt;&lt;p&gt; You cannot specify an empty string as an attribute name. &lt;/p&gt;&lt;p&gt; Because Amazon SimpleDB makes multiple copies of client data and uses an eventual consistency update model, an immediate &lt;a&gt;GetAttributes&lt;/a&gt; or &lt;a&gt;Select&lt;/a&gt; operation (read) immediately after a &lt;a&gt;PutAttributes&lt;/a&gt; or &lt;a&gt;DeleteAttributes&lt;/a&gt; operation (write) might not return the updated data. &lt;/p&gt;&lt;p&gt; The following limitations are enforced for this operation: &lt;ul&gt;&lt;li&gt;256 total attribute name-value pairs per item&lt;/li&gt;&lt;li&gt;One billion attributes per domain&lt;/li&gt;&lt;li&gt;10 GB of total user data storage per domain&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBPutAttributesRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)putAttributes:(AWSSimpleDBPutAttributesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorNumberDomainAttributesExceeded, AWSSimpleDBErrorNumberDomainBytesExceeded, AWSSimpleDBErrorNumberItemAttributesExceeded, AWSSimpleDBErrorAttributeDoesNotExist.</Abstract></ReturnValue>
+			<Anchor>//api/name/putAttributes:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/putAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The PutAttributes operation creates or replaces attributes in an item. The client may specify new attributes using a combination of the &lt;code&gt;Attribute.X.Name&lt;/code&gt; and &lt;code&gt;Attribute.X.Value&lt;/code&gt; parameters. The client specifies the first attribute by the parameters &lt;code&gt;Attribute.0.Name&lt;/code&gt; and &lt;code&gt;Attribute.0.Value&lt;/code&gt;, the second attribute by the parameters &lt;code&gt;Attribute.1.Name&lt;/code&gt; and &lt;code&gt;Attribute.1.Value&lt;/code&gt;, and so on. &lt;/p&gt;&lt;p&gt; Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes &lt;code&gt;{ &quot;firstname&quot;, &quot;firstvalue&quot; }&lt;/code&gt; and &lt;code&gt;{ &quot;firstname&quot;, secondvalue&quot; }&lt;/code&gt;. However, it cannot have two attribute instances where both the &lt;code&gt;Attribute.X.Name&lt;/code&gt; and &lt;code&gt;Attribute.X.Value&lt;/code&gt; are the same. &lt;/p&gt;&lt;p&gt; Optionally, the requestor can supply the &lt;code&gt;Replace&lt;/code&gt; parameter for each individual attribute. Setting this value to &lt;code&gt;true&lt;/code&gt; causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes &lt;code&gt;{ &apos;a&apos;, &apos;1&apos; }&lt;/code&gt;, &lt;code&gt;{ &apos;b&apos;, &apos;2&apos;}&lt;/code&gt; and &lt;code&gt;{ &apos;b&apos;, &apos;3&apos; }&lt;/code&gt; and the requestor calls &lt;code&gt;PutAttributes&lt;/code&gt; using the attributes &lt;code&gt;{ &apos;b&apos;, &apos;4&apos; }&lt;/code&gt; with the &lt;code&gt;Replace&lt;/code&gt; parameter set to true, the final attributes of the item are changed to &lt;code&gt;{ &apos;a&apos;, &apos;1&apos; }&lt;/code&gt; and &lt;code&gt;{ &apos;b&apos;, &apos;4&apos; }&lt;/code&gt;, which replaces the previous values of the &apos;b&apos; attribute with the new value. &lt;/p&gt;&lt;p&gt; You cannot specify an empty string as an attribute name. &lt;/p&gt;&lt;p&gt; Because Amazon SimpleDB makes multiple copies of client data and uses an eventual consistency update model, an immediate &lt;a&gt;GetAttributes&lt;/a&gt; or &lt;a&gt;Select&lt;/a&gt; operation (read) immediately after a &lt;a&gt;PutAttributes&lt;/a&gt; or &lt;a&gt;DeleteAttributes&lt;/a&gt; operation (write) might not return the updated data. &lt;/p&gt;&lt;p&gt; The following limitations are enforced for this operation: &lt;ul&gt;&lt;li&gt;256 total attribute name-value pairs per item&lt;/li&gt;&lt;li&gt;One billion attributes per domain&lt;/li&gt;&lt;li&gt;10 GB of total user data storage per domain&lt;/li&gt;&lt;/ul&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBPutAttributesRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putAttributes:(AWSSimpleDBPutAttributesRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorNumberDomainAttributesExceeded, AWSSimpleDBErrorNumberDomainBytesExceeded, AWSSimpleDBErrorNumberItemAttributesExceeded, AWSSimpleDBErrorAttributeDoesNotExist.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/select:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The &lt;code&gt;Select&lt;/code&gt; operation returns a set of attributes for &lt;code&gt;ItemNames&lt;/code&gt; that match the select expression. &lt;code&gt;Select&lt;/code&gt; is similar to the standard SQL SELECT statement. &lt;/p&gt;&lt;p&gt; The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate &lt;code&gt;NextToken&lt;/code&gt; so the client can access the next page of results. &lt;/p&gt;&lt;p&gt; For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBSelectRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBSelectResult</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSimpleDBSelectResult*&gt; *)select:(AWSSimpleDBSelectRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the Select service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSimpleDBSelectResult. On failed execution, task.error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorInvalidNextToken, AWSSimpleDBErrorInvalidNumberPredicates, AWSSimpleDBErrorInvalidNumberValueTests, AWSSimpleDBErrorInvalidQueryExpression, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorRequestTimeout, AWSSimpleDBErrorTooManyRequestedAttributes.</Abstract></ReturnValue>
+			<Anchor>//api/name/select:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDB/select:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The &lt;code&gt;Select&lt;/code&gt; operation returns a set of attributes for &lt;code&gt;ItemNames&lt;/code&gt; that match the select expression. &lt;code&gt;Select&lt;/code&gt; is similar to the standard SQL SELECT statement. &lt;/p&gt;&lt;p&gt; The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate &lt;code&gt;NextToken&lt;/code&gt; so the client can access the next page of results. &lt;/p&gt;&lt;p&gt; For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBSelectRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBSelectResult</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)select:(AWSSimpleDBSelectRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSSimpleDBSelectResult *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the Select service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSimpleDBErrorDomain domain and the following error code: AWSSimpleDBErrorInvalidParameterValue, AWSSimpleDBErrorInvalidNextToken, AWSSimpleDBErrorInvalidNumberPredicates, AWSSimpleDBErrorInvalidNumberValueTests, AWSSimpleDBErrorInvalidQueryExpression, AWSSimpleDBErrorMissingParameter, AWSSimpleDBErrorNoSuchDomain, AWSSimpleDBErrorRequestTimeout, AWSSimpleDBErrorTooManyRequestedAttributes.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/select:completionHandler:</Anchor>
+            <NodeRef refid="2320"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

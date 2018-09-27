@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendListTopicsDetectionJobsRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendListTopicsDetectionJobsRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="545"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendListTopicsDetectionJobsRequest/setFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendTopicsDetectionJobFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="545"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendListTopicsDetectionJobsRequest/filter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendTopicsDetectionJobFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="545"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendListTopicsDetectionJobsRequest/filter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the jobs that are returned. Jobs can be filtered on their name, status, or the date and time that they were submitted. You can set only one filter at a time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendTopicsDetectionJobFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="545"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendListTopicsDetectionJobsRequest/setMaxResults:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return in each page.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="545"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendListTopicsDetectionJobsRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return in each page.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="545"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendListTopicsDetectionJobsRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return in each page.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="545"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendListTopicsDetectionJobsRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies the next page of results to return.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="545"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendListTopicsDetectionJobsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies the next page of results to return.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="545"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendListTopicsDetectionJobsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies the next page of results to return.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="545"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

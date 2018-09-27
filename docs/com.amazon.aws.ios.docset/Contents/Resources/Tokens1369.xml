@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaVpcConfigResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaVpcConfigResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;VPC configuration associated with your Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1369"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaVpcConfigResponse/setSecurityGroupIds:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of security group IDs associated with the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *securityGroupIds</Declaration>
+			
+			
+			<Anchor>//api/name/securityGroupIds</Anchor>
+            <NodeRef refid="1369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaVpcConfigResponse/securityGroupIds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of security group IDs associated with the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *securityGroupIds</Declaration>
+			
+			
+			<Anchor>//api/name/securityGroupIds</Anchor>
+            <NodeRef refid="1369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaVpcConfigResponse/securityGroupIds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of security group IDs associated with the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *securityGroupIds</Declaration>
+			
+			
+			<Anchor>//api/name/securityGroupIds</Anchor>
+            <NodeRef refid="1369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaVpcConfigResponse/setSubnetIds:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of subnet IDs associated with the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *subnetIds</Declaration>
+			
+			
+			<Anchor>//api/name/subnetIds</Anchor>
+            <NodeRef refid="1369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaVpcConfigResponse/subnetIds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of subnet IDs associated with the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *subnetIds</Declaration>
+			
+			
+			<Anchor>//api/name/subnetIds</Anchor>
+            <NodeRef refid="1369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaVpcConfigResponse/subnetIds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of subnet IDs associated with the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *subnetIds</Declaration>
+			
+			
+			<Anchor>//api/name/subnetIds</Anchor>
+            <NodeRef refid="1369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaVpcConfigResponse/setVpcId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The VPC ID associated with you Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vpcId</Declaration>
+			
+			
+			<Anchor>//api/name/vpcId</Anchor>
+            <NodeRef refid="1369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaVpcConfigResponse/vpcId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The VPC ID associated with you Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vpcId</Declaration>
+			
+			
+			<Anchor>//api/name/vpcId</Anchor>
+            <NodeRef refid="1369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaVpcConfigResponse/vpcId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The VPC ID associated with you Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vpcId</Declaration>
+			
+			
+			<Anchor>//api/name/vpcId</Anchor>
+            <NodeRef refid="1369"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

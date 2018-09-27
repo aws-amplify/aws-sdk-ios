@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingUpdateApnsSandboxChannelRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApnsSandboxChannelRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1616"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateApnsSandboxChannelRequest/setAPNSSandboxChannelRequest:</TokenIdentifier>
+			<Abstract type="html">Apple Development Push Notification Service channel definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSSandboxChannelRequest *APNSSandboxChannelRequest</Declaration>
+			
+			
+			<Anchor>//api/name/APNSSandboxChannelRequest</Anchor>
+            <NodeRef refid="1616"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateApnsSandboxChannelRequest/APNSSandboxChannelRequest</TokenIdentifier>
+			<Abstract type="html">Apple Development Push Notification Service channel definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSSandboxChannelRequest *APNSSandboxChannelRequest</Declaration>
+			
+			
+			<Anchor>//api/name/APNSSandboxChannelRequest</Anchor>
+            <NodeRef refid="1616"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingUpdateApnsSandboxChannelRequest/APNSSandboxChannelRequest</TokenIdentifier>
+			<Abstract type="html">Apple Development Push Notification Service channel definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSSandboxChannelRequest *APNSSandboxChannelRequest</Declaration>
+			
+			
+			<Anchor>//api/name/APNSSandboxChannelRequest</Anchor>
+            <NodeRef refid="1616"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateApnsSandboxChannelRequest/setApplicationId:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1616"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateApnsSandboxChannelRequest/applicationId</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1616"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingUpdateApnsSandboxChannelRequest/applicationId</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1616"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingConnectionSettings.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingConnectionSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the &lt;code&gt;ConnectionSettings&lt;/code&gt; attribute.&lt;/p&gt;
+Required parameters: [IdleTimeout]</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="704"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingConnectionSettings/setIdleTimeout:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *idleTimeout</Declaration>
+			
+			
+			<Anchor>//api/name/idleTimeout</Anchor>
+            <NodeRef refid="704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingConnectionSettings/idleTimeout</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *idleTimeout</Declaration>
+			
+			
+			<Anchor>//api/name/idleTimeout</Anchor>
+            <NodeRef refid="704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingConnectionSettings/idleTimeout</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in seconds, that the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *idleTimeout</Declaration>
+			
+			
+			<Anchor>//api/name/idleTimeout</Anchor>
+            <NodeRef refid="704"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

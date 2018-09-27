@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSTranscribeStartTranscriptionJobResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSTranscribeStartTranscriptionJobResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2357"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobResponse/setTranscriptionJob:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object containing details of the asynchronous transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSTranscribeTranscriptionJob *transcriptionJob</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJob</Anchor>
+            <NodeRef refid="2357"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobResponse/transcriptionJob</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object containing details of the asynchronous transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSTranscribeTranscriptionJob *transcriptionJob</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJob</Anchor>
+            <NodeRef refid="2357"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeStartTranscriptionJobResponse/transcriptionJob</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object containing details of the asynchronous transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSTranscribeTranscriptionJob *transcriptionJob</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJob</Anchor>
+            <NodeRef refid="2357"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

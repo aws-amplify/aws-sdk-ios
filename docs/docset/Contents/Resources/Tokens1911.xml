@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3ListBucketInventoryConfigurationsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3ListBucketInventoryConfigurationsOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1911"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketInventoryConfigurationsOutput/setContinuationToken:</TokenIdentifier>
+			<Abstract type="html">If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketInventoryConfigurationsOutput/continuationToken</TokenIdentifier>
+			<Abstract type="html">If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketInventoryConfigurationsOutput/continuationToken</TokenIdentifier>
+			<Abstract type="html">If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketInventoryConfigurationsOutput/setInventoryConfigurationList:</TokenIdentifier>
+			<Abstract type="html">The list of inventory configurations for a bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3InventoryConfiguration*&gt; *inventoryConfigurationList</Declaration>
+			
+			
+			<Anchor>//api/name/inventoryConfigurationList</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketInventoryConfigurationsOutput/inventoryConfigurationList</TokenIdentifier>
+			<Abstract type="html">The list of inventory configurations for a bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3InventoryConfiguration*&gt; *inventoryConfigurationList</Declaration>
+			
+			
+			<Anchor>//api/name/inventoryConfigurationList</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketInventoryConfigurationsOutput/inventoryConfigurationList</TokenIdentifier>
+			<Abstract type="html">The list of inventory configurations for a bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3InventoryConfiguration*&gt; *inventoryConfigurationList</Declaration>
+			
+			
+			<Anchor>//api/name/inventoryConfigurationList</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketInventoryConfigurationsOutput/setIsTruncated:</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of inventory configurations is truncated in this response. A value of true indicates that the list is truncated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketInventoryConfigurationsOutput/isTruncated</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of inventory configurations is truncated in this response. A value of true indicates that the list is truncated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketInventoryConfigurationsOutput/isTruncated</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of inventory configurations is truncated in this response. A value of true indicates that the list is truncated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketInventoryConfigurationsOutput/setNextContinuationToken:</TokenIdentifier>
+			<Abstract type="html">The marker used to continue this inventory configuration listing. Use the NextContinuationToken from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextContinuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextContinuationToken</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketInventoryConfigurationsOutput/nextContinuationToken</TokenIdentifier>
+			<Abstract type="html">The marker used to continue this inventory configuration listing. Use the NextContinuationToken from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextContinuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextContinuationToken</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketInventoryConfigurationsOutput/nextContinuationToken</TokenIdentifier>
+			<Abstract type="html">The marker used to continue this inventory configuration listing. Use the NextContinuationToken from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextContinuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextContinuationToken</Anchor>
+            <NodeRef refid="1911"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

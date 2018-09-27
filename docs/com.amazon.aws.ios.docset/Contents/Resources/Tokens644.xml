@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBPutRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBPutRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to perform a &lt;code&gt;PutItem&lt;/code&gt; operation on an item.&lt;/p&gt;
+Required parameters: [Item]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="644"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutRequest/setItem:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of attribute name to attribute values, representing the primary key of an item to be processed by &lt;code&gt;PutItem&lt;/code&gt;. All of the table&apos;s primary key attributes must be specified, and their data types must match those of the table&apos;s key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *item</Declaration>
+			
+			
+			<Anchor>//api/name/item</Anchor>
+            <NodeRef refid="644"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutRequest/item</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of attribute name to attribute values, representing the primary key of an item to be processed by &lt;code&gt;PutItem&lt;/code&gt;. All of the table&apos;s primary key attributes must be specified, and their data types must match those of the table&apos;s key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *item</Declaration>
+			
+			
+			<Anchor>//api/name/item</Anchor>
+            <NodeRef refid="644"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutRequest/item</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of attribute name to attribute values, representing the primary key of an item to be processed by &lt;code&gt;PutItem&lt;/code&gt;. All of the table&apos;s primary key attributes must be specified, and their data types must match those of the table&apos;s key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *item</Declaration>
+			
+			
+			<Anchor>//api/name/item</Anchor>
+            <NodeRef refid="644"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

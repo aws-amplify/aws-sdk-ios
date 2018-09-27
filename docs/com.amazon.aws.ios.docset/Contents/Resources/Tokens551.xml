@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendTopicsDetectionJobFilter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendTopicsDetectionJobFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides information for filtering topic detection jobs. For more information, see .&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="551"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobFilter/setJobName:</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobFilter/jobName</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobFilter/jobName</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobFilter/setJobStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the list of topic detection jobs based on job status. Returns only jobs with the specified status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobFilter/jobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the list of topic detection jobs based on job status. Returns only jobs with the specified status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobFilter/jobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the list of topic detection jobs based on job status. Returns only jobs with the specified status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobFilter/setSubmitTimeAfter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *submitTimeAfter</Declaration>
+			
+			
+			<Anchor>//api/name/submitTimeAfter</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobFilter/submitTimeAfter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *submitTimeAfter</Declaration>
+			
+			
+			<Anchor>//api/name/submitTimeAfter</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobFilter/submitTimeAfter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *submitTimeAfter</Declaration>
+			
+			
+			<Anchor>//api/name/submitTimeAfter</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobFilter/setSubmitTimeBefore:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *submitTimeBefore</Declaration>
+			
+			
+			<Anchor>//api/name/submitTimeBefore</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendTopicsDetectionJobFilter/submitTimeBefore</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *submitTimeBefore</Declaration>
+			
+			
+			<Anchor>//api/name/submitTimeBefore</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendTopicsDetectionJobFilter/submitTimeBefore</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Filters the list of jobs based on the time that the job was submitted for processing. Only returns jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *submitTimeBefore</Declaration>
+			
+			
+			<Anchor>//api/name/submitTimeBefore</Anchor>
+            <NodeRef refid="551"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

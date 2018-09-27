@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoStreamInfo.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoStreamInfo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object describing a Kinesis video stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1298"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/setCreationTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A time stamp that indicates when the stream was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationTime</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/creationTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A time stamp that indicates when the stream was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationTime</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoStreamInfo/creationTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A time stamp that indicates when the stream was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationTime</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/setDataRetentionInHours:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;How long the stream retains data, in hours.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dataRetentionInHours</Declaration>
+			
+			
+			<Anchor>//api/name/dataRetentionInHours</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/dataRetentionInHours</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;How long the stream retains data, in hours.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dataRetentionInHours</Declaration>
+			
+			
+			<Anchor>//api/name/dataRetentionInHours</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoStreamInfo/dataRetentionInHours</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;How long the stream retains data, in hours.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dataRetentionInHours</Declaration>
+			
+			
+			<Anchor>//api/name/dataRetentionInHours</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/setDeviceName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the device that is associated with the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceName</Declaration>
+			
+			
+			<Anchor>//api/name/deviceName</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/deviceName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the device that is associated with the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceName</Declaration>
+			
+			
+			<Anchor>//api/name/deviceName</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoStreamInfo/deviceName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the device that is associated with the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceName</Declaration>
+			
+			
+			<Anchor>//api/name/deviceName</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/setKmsKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *kmsKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/kmsKeyId</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/kmsKeyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *kmsKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/kmsKeyId</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoStreamInfo/kmsKeyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the AWS Key Management Service (AWS KMS) key that Kinesis Video Streams uses to encrypt data on the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *kmsKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/kmsKeyId</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/setMediaType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &lt;code&gt;MediaType&lt;/code&gt; of the stream. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mediaType</Declaration>
+			
+			
+			<Anchor>//api/name/mediaType</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/mediaType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &lt;code&gt;MediaType&lt;/code&gt; of the stream. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mediaType</Declaration>
+			
+			
+			<Anchor>//api/name/mediaType</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoStreamInfo/mediaType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &lt;code&gt;MediaType&lt;/code&gt; of the stream. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mediaType</Declaration>
+			
+			
+			<Anchor>//api/name/mediaType</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisVideoStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisVideoStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoStreamInfo/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisVideoStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/setStreamARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/streamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoStreamInfo/streamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoStreamInfo/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/setVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoStreamInfo/version</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoStreamInfo/version</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1298"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

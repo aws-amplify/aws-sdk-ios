@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderConfirmForgotPasswordResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderConfirmForgotPasswordResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The response from the server that results from a user&apos;s request to retrieve a forgotten password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="284"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

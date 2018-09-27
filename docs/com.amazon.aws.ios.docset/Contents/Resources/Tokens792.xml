@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseElasticsearchRetryOptions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseElasticsearchRetryOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents to Amazon ES.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="792"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchRetryOptions/setDurationInSeconds:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *durationInSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/durationInSeconds</Anchor>
+            <NodeRef refid="792"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchRetryOptions/durationInSeconds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *durationInSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/durationInSeconds</Anchor>
+            <NodeRef refid="792"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchRetryOptions/durationInSeconds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;After an initial failure to deliver to Amazon ES, the total amount of time during which Kinesis Data Firehose retries delivery (including the first attempt). After this time has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results in no retries.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *durationInSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/durationInSeconds</Anchor>
+            <NodeRef refid="792"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESListCustomVerificationEmailTemplatesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESListCustomVerificationEmailTemplatesResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A paginated list of custom verification email templates.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2116"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListCustomVerificationEmailTemplatesResponse/setCustomVerificationEmailTemplates:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of the custom verification email templates that exist in your account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESCustomVerificationEmailTemplate*&gt; *customVerificationEmailTemplates</Declaration>
+			
+			
+			<Anchor>//api/name/customVerificationEmailTemplates</Anchor>
+            <NodeRef refid="2116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListCustomVerificationEmailTemplatesResponse/customVerificationEmailTemplates</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of the custom verification email templates that exist in your account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESCustomVerificationEmailTemplate*&gt; *customVerificationEmailTemplates</Declaration>
+			
+			
+			<Anchor>//api/name/customVerificationEmailTemplates</Anchor>
+            <NodeRef refid="2116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESListCustomVerificationEmailTemplatesResponse/customVerificationEmailTemplates</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of the custom verification email templates that exist in your account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESCustomVerificationEmailTemplate*&gt; *customVerificationEmailTemplates</Declaration>
+			
+			
+			<Anchor>//api/name/customVerificationEmailTemplates</Anchor>
+            <NodeRef refid="2116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListCustomVerificationEmailTemplatesResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to &lt;code&gt;ListTemplates&lt;/code&gt; to retrieve the next 50 custom verification email templates.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListCustomVerificationEmailTemplatesResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to &lt;code&gt;ListTemplates&lt;/code&gt; to retrieve the next 50 custom verification email templates.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESListCustomVerificationEmailTemplatesResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to &lt;code&gt;ListTemplates&lt;/code&gt; to retrieve the next 50 custom verification email templates.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2116"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderCreateUserImportJobRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderCreateUserImportJobRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the request to create the user import job.&lt;/p&gt;
+Required parameters: [JobName, UserPoolId, CloudWatchLogsRoleArn]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="294"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateUserImportJobRequest/setCloudWatchLogsRoleArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role ARN for the Amazon CloudWatch Logging role for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudWatchLogsRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLogsRoleArn</Anchor>
+            <NodeRef refid="294"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateUserImportJobRequest/cloudWatchLogsRoleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role ARN for the Amazon CloudWatch Logging role for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudWatchLogsRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLogsRoleArn</Anchor>
+            <NodeRef refid="294"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateUserImportJobRequest/cloudWatchLogsRoleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role ARN for the Amazon CloudWatch Logging role for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudWatchLogsRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLogsRoleArn</Anchor>
+            <NodeRef refid="294"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateUserImportJobRequest/setJobName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job name for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="294"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateUserImportJobRequest/jobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job name for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="294"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateUserImportJobRequest/jobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job name for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="294"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateUserImportJobRequest/setUserPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool that the users are being imported into.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="294"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateUserImportJobRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool that the users are being imported into.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="294"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateUserImportJobRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool that the users are being imported into.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="294"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

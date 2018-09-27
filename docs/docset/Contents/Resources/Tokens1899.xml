@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3InventoryS3BucketDestination.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3InventoryS3BucketDestination</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1899"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryS3BucketDestination/setAccountId:</TokenIdentifier>
+			<Abstract type="html">The ID of the account that owns the destination bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accountId</Declaration>
+			
+			
+			<Anchor>//api/name/accountId</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryS3BucketDestination/accountId</TokenIdentifier>
+			<Abstract type="html">The ID of the account that owns the destination bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accountId</Declaration>
+			
+			
+			<Anchor>//api/name/accountId</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryS3BucketDestination/accountId</TokenIdentifier>
+			<Abstract type="html">The ID of the account that owns the destination bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accountId</Declaration>
+			
+			
+			<Anchor>//api/name/accountId</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryS3BucketDestination/setBucket:</TokenIdentifier>
+			<Abstract type="html">The Amazon resource name (ARN) of the bucket where inventory results will be published.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryS3BucketDestination/bucket</TokenIdentifier>
+			<Abstract type="html">The Amazon resource name (ARN) of the bucket where inventory results will be published.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryS3BucketDestination/bucket</TokenIdentifier>
+			<Abstract type="html">The Amazon resource name (ARN) of the bucket where inventory results will be published.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryS3BucketDestination/setEncryption:</TokenIdentifier>
+			<Abstract type="html">Contains the type of server-side encryption used to encrypt the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryEncryption *encryption</Declaration>
+			
+			
+			<Anchor>//api/name/encryption</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryS3BucketDestination/encryption</TokenIdentifier>
+			<Abstract type="html">Contains the type of server-side encryption used to encrypt the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryEncryption *encryption</Declaration>
+			
+			
+			<Anchor>//api/name/encryption</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryS3BucketDestination/encryption</TokenIdentifier>
+			<Abstract type="html">Contains the type of server-side encryption used to encrypt the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryEncryption *encryption</Declaration>
+			
+			
+			<Anchor>//api/name/encryption</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryS3BucketDestination/setFormat:</TokenIdentifier>
+			<Abstract type="html">Specifies the output format of the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3InventoryFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryS3BucketDestination/format</TokenIdentifier>
+			<Abstract type="html">Specifies the output format of the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3InventoryFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryS3BucketDestination/format</TokenIdentifier>
+			<Abstract type="html">Specifies the output format of the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3InventoryFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryS3BucketDestination/setPrefix:</TokenIdentifier>
+			<Abstract type="html">The prefix that is prepended to all inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryS3BucketDestination/prefix</TokenIdentifier>
+			<Abstract type="html">The prefix that is prepended to all inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryS3BucketDestination/prefix</TokenIdentifier>
+			<Abstract type="html">The prefix that is prepended to all inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1899"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

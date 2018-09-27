@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingPolicyARNType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingPolicyARNType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the output of PutScalingPolicy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="95"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingPolicyARNType/setAlarms:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch alarms created for the target tracking policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingAlarm*&gt; *alarms</Declaration>
+			
+			
+			<Anchor>//api/name/alarms</Anchor>
+            <NodeRef refid="95"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingPolicyARNType/alarms</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch alarms created for the target tracking policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingAlarm*&gt; *alarms</Declaration>
+			
+			
+			<Anchor>//api/name/alarms</Anchor>
+            <NodeRef refid="95"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingPolicyARNType/alarms</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch alarms created for the target tracking policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingAlarm*&gt; *alarms</Declaration>
+			
+			
+			<Anchor>//api/name/alarms</Anchor>
+            <NodeRef refid="95"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingPolicyARNType/setPolicyARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyARN</Declaration>
+			
+			
+			<Anchor>//api/name/policyARN</Anchor>
+            <NodeRef refid="95"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingPolicyARNType/policyARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyARN</Declaration>
+			
+			
+			<Anchor>//api/name/policyARN</Anchor>
+            <NodeRef refid="95"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingPolicyARNType/policyARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyARN</Declaration>
+			
+			
+			<Anchor>//api/name/policyARN</Anchor>
+            <NodeRef refid="95"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

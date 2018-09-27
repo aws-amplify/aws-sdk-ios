@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBUpdateGlobalTableInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBUpdateGlobalTableInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="677"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateGlobalTableInput/setGlobalTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The global table name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableName</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableName</Anchor>
+            <NodeRef refid="677"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateGlobalTableInput/globalTableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The global table name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableName</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableName</Anchor>
+            <NodeRef refid="677"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateGlobalTableInput/globalTableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The global table name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableName</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableName</Anchor>
+            <NodeRef refid="677"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateGlobalTableInput/setReplicaUpdates:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of regions that should be added or removed from the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaUpdate*&gt; *replicaUpdates</Declaration>
+			
+			
+			<Anchor>//api/name/replicaUpdates</Anchor>
+            <NodeRef refid="677"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateGlobalTableInput/replicaUpdates</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of regions that should be added or removed from the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaUpdate*&gt; *replicaUpdates</Declaration>
+			
+			
+			<Anchor>//api/name/replicaUpdates</Anchor>
+            <NodeRef refid="677"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateGlobalTableInput/replicaUpdates</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of regions that should be added or removed from the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaUpdate*&gt; *replicaUpdates</Declaration>
+			
+			
+			<Anchor>//api/name/replicaUpdates</Anchor>
+            <NodeRef refid="677"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

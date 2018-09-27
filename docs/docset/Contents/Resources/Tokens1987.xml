@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3RestoreRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3RestoreRequest</TokenIdentifier>
+			<Abstract type="html">Container for restore job parameters.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1987"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/setDays:</TokenIdentifier>
+			<Abstract type="html">Lifetime of the active copy in days. Do not use with restores that specify OutputLocation.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *days</Declaration>
+			
+			
+			<Anchor>//api/name/days</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/days</TokenIdentifier>
+			<Abstract type="html">Lifetime of the active copy in days. Do not use with restores that specify OutputLocation.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *days</Declaration>
+			
+			
+			<Anchor>//api/name/days</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3RestoreRequest/days</TokenIdentifier>
+			<Abstract type="html">Lifetime of the active copy in days. Do not use with restores that specify OutputLocation.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *days</Declaration>
+			
+			
+			<Anchor>//api/name/days</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/setDetail:</TokenIdentifier>
+			<Abstract type="html">The optional description for the job.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/detail</TokenIdentifier>
+			<Abstract type="html">The optional description for the job.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3RestoreRequest/detail</TokenIdentifier>
+			<Abstract type="html">The optional description for the job.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/setGlacierJobParameters:</TokenIdentifier>
+			<Abstract type="html">Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3GlacierJobParameters *glacierJobParameters</Declaration>
+			
+			
+			<Anchor>//api/name/glacierJobParameters</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/glacierJobParameters</TokenIdentifier>
+			<Abstract type="html">Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3GlacierJobParameters *glacierJobParameters</Declaration>
+			
+			
+			<Anchor>//api/name/glacierJobParameters</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3RestoreRequest/glacierJobParameters</TokenIdentifier>
+			<Abstract type="html">Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3GlacierJobParameters *glacierJobParameters</Declaration>
+			
+			
+			<Anchor>//api/name/glacierJobParameters</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/setOutputLocation:</TokenIdentifier>
+			<Abstract type="html">Describes the location where the restore job&apos;s output is stored.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3OutputLocation *outputLocation</Declaration>
+			
+			
+			<Anchor>//api/name/outputLocation</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/outputLocation</TokenIdentifier>
+			<Abstract type="html">Describes the location where the restore job&apos;s output is stored.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3OutputLocation *outputLocation</Declaration>
+			
+			
+			<Anchor>//api/name/outputLocation</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3RestoreRequest/outputLocation</TokenIdentifier>
+			<Abstract type="html">Describes the location where the restore job&apos;s output is stored.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3OutputLocation *outputLocation</Declaration>
+			
+			
+			<Anchor>//api/name/outputLocation</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/setSelectParameters:</TokenIdentifier>
+			<Abstract type="html">Describes the parameters for Select job types.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SelectParameters *selectParameters</Declaration>
+			
+			
+			<Anchor>//api/name/selectParameters</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/selectParameters</TokenIdentifier>
+			<Abstract type="html">Describes the parameters for Select job types.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SelectParameters *selectParameters</Declaration>
+			
+			
+			<Anchor>//api/name/selectParameters</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3RestoreRequest/selectParameters</TokenIdentifier>
+			<Abstract type="html">Describes the parameters for Select job types.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SelectParameters *selectParameters</Declaration>
+			
+			
+			<Anchor>//api/name/selectParameters</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/setTier:</TokenIdentifier>
+			<Abstract type="html">Glacier retrieval tier at which the restore will be processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Tier tier</Declaration>
+			
+			
+			<Anchor>//api/name/tier</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/tier</TokenIdentifier>
+			<Abstract type="html">Glacier retrieval tier at which the restore will be processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Tier tier</Declaration>
+			
+			
+			<Anchor>//api/name/tier</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3RestoreRequest/tier</TokenIdentifier>
+			<Abstract type="html">Glacier retrieval tier at which the restore will be processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Tier tier</Declaration>
+			
+			
+			<Anchor>//api/name/tier</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/setTypes:</TokenIdentifier>
+			<Abstract type="html">Type of restore request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RestoreRequestType types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RestoreRequest/types</TokenIdentifier>
+			<Abstract type="html">Type of restore request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RestoreRequestType types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3RestoreRequest/types</TokenIdentifier>
+			<Abstract type="html">Type of restore request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RestoreRequestType types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1987"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

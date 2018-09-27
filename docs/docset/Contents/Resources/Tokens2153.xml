@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESSendEmailRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESSendEmailRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to send a single formatted email using Amazon SES. For more information, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [Source, Destination, Message]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2153"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/setConfigurationSetName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set to use when you send an email using &lt;code&gt;SendEmail&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/configurationSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set to use when you send an email using &lt;code&gt;SendEmail&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSendEmailRequest/configurationSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set to use when you send an email using &lt;code&gt;SendEmail&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/setDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination for this email, composed of To:, CC:, and BCC: fields.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESDestination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/destination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination for this email, composed of To:, CC:, and BCC: fields.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESDestination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSendEmailRequest/destination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination for this email, composed of To:, CC:, and BCC: fields.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESDestination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/setMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The message to be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESMessage *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/message</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The message to be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESMessage *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSendEmailRequest/message</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The message to be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESMessage *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/setReplyToAddresses:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *replyToAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/replyToAddresses</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/replyToAddresses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *replyToAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/replyToAddresses</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSendEmailRequest/replyToAddresses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *replyToAddresses</Declaration>
+			
+			
+			<Anchor>//api/name/replyToAddresses</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/setReturnPath:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient&apos;s ISP; this message will then be forwarded to the email address specified by the &lt;code&gt;ReturnPath&lt;/code&gt; parameter. The &lt;code&gt;ReturnPath&lt;/code&gt; parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *returnPath</Declaration>
+			
+			
+			<Anchor>//api/name/returnPath</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/returnPath</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient&apos;s ISP; this message will then be forwarded to the email address specified by the &lt;code&gt;ReturnPath&lt;/code&gt; parameter. The &lt;code&gt;ReturnPath&lt;/code&gt; parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *returnPath</Declaration>
+			
+			
+			<Anchor>//api/name/returnPath</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSendEmailRequest/returnPath</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient&apos;s ISP; this message will then be forwarded to the email address specified by the &lt;code&gt;ReturnPath&lt;/code&gt; parameter. The &lt;code&gt;ReturnPath&lt;/code&gt; parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *returnPath</Declaration>
+			
+			
+			<Anchor>//api/name/returnPath</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/setReturnPathArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the &lt;code&gt;ReturnPath&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;For example, if the owner of &lt;code&gt;example.com&lt;/code&gt; (which has ARN &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;) attaches a policy to it that authorizes you to use &lt;code&gt;feedback@example.com&lt;/code&gt;, then you would specify the &lt;code&gt;ReturnPathArn&lt;/code&gt; to be &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;, and the &lt;code&gt;ReturnPath&lt;/code&gt; to be &lt;code&gt;feedback@example.com&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;For more information about sending authorization, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *returnPathArn</Declaration>
+			
+			
+			<Anchor>//api/name/returnPathArn</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/returnPathArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the &lt;code&gt;ReturnPath&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;For example, if the owner of &lt;code&gt;example.com&lt;/code&gt; (which has ARN &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;) attaches a policy to it that authorizes you to use &lt;code&gt;feedback@example.com&lt;/code&gt;, then you would specify the &lt;code&gt;ReturnPathArn&lt;/code&gt; to be &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;, and the &lt;code&gt;ReturnPath&lt;/code&gt; to be &lt;code&gt;feedback@example.com&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;For more information about sending authorization, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *returnPathArn</Declaration>
+			
+			
+			<Anchor>//api/name/returnPathArn</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSendEmailRequest/returnPathArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the &lt;code&gt;ReturnPath&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;For example, if the owner of &lt;code&gt;example.com&lt;/code&gt; (which has ARN &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;) attaches a policy to it that authorizes you to use &lt;code&gt;feedback@example.com&lt;/code&gt;, then you would specify the &lt;code&gt;ReturnPathArn&lt;/code&gt; to be &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;, and the &lt;code&gt;ReturnPath&lt;/code&gt; to be &lt;code&gt;feedback@example.com&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;For more information about sending authorization, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *returnPathArn</Declaration>
+			
+			
+			<Anchor>//api/name/returnPathArn</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/setSource:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the Amazon SES Developer Guide.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Amazon SES does not support the SMTPUTF8 extension, as described in &lt;a href=&quot;https://tools.ietf.org/html/rfc6531&quot;&gt;RFC6531&lt;/a&gt;. For this reason, the &lt;i&gt;local part&lt;/i&gt; of a source email address (the part of the email address that precedes the @ sign) may only contain RFC 2047. MIME encoded-word syntax uses the following form: &lt;code&gt;=?charset?encoding?encoded-text?=&lt;/code&gt;.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *source</Declaration>
+			
+			
+			<Anchor>//api/name/source</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/source</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the Amazon SES Developer Guide.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Amazon SES does not support the SMTPUTF8 extension, as described in &lt;a href=&quot;https://tools.ietf.org/html/rfc6531&quot;&gt;RFC6531&lt;/a&gt;. For this reason, the &lt;i&gt;local part&lt;/i&gt; of a source email address (the part of the email address that precedes the @ sign) may only contain RFC 2047. MIME encoded-word syntax uses the following form: &lt;code&gt;=?charset?encoding?encoded-text?=&lt;/code&gt;.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *source</Declaration>
+			
+			
+			<Anchor>//api/name/source</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSendEmailRequest/source</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the Amazon SES Developer Guide.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Amazon SES does not support the SMTPUTF8 extension, as described in &lt;a href=&quot;https://tools.ietf.org/html/rfc6531&quot;&gt;RFC6531&lt;/a&gt;. For this reason, the &lt;i&gt;local part&lt;/i&gt; of a source email address (the part of the email address that precedes the @ sign) may only contain RFC 2047. MIME encoded-word syntax uses the following form: &lt;code&gt;=?charset?encoding?encoded-text?=&lt;/code&gt;.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *source</Declaration>
+			
+			
+			<Anchor>//api/name/source</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/setSourceArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the &lt;code&gt;Source&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;For example, if the owner of &lt;code&gt;example.com&lt;/code&gt; (which has ARN &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;) attaches a policy to it that authorizes you to send from &lt;code&gt;user@example.com&lt;/code&gt;, then you would specify the &lt;code&gt;SourceArn&lt;/code&gt; to be &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;, and the &lt;code&gt;Source&lt;/code&gt; to be &lt;code&gt;user@example.com&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;For more information about sending authorization, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceArn</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/sourceArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the &lt;code&gt;Source&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;For example, if the owner of &lt;code&gt;example.com&lt;/code&gt; (which has ARN &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;) attaches a policy to it that authorizes you to send from &lt;code&gt;user@example.com&lt;/code&gt;, then you would specify the &lt;code&gt;SourceArn&lt;/code&gt; to be &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;, and the &lt;code&gt;Source&lt;/code&gt; to be &lt;code&gt;user@example.com&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;For more information about sending authorization, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceArn</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSendEmailRequest/sourceArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the &lt;code&gt;Source&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;For example, if the owner of &lt;code&gt;example.com&lt;/code&gt; (which has ARN &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;) attaches a policy to it that authorizes you to send from &lt;code&gt;user@example.com&lt;/code&gt;, then you would specify the &lt;code&gt;SourceArn&lt;/code&gt; to be &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;, and the &lt;code&gt;Source&lt;/code&gt; to be &lt;code&gt;user@example.com&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;For more information about sending authorization, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceArn</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/setTags:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tags, in the form of name/value pairs, to apply to an email that you send using &lt;code&gt;SendEmail&lt;/code&gt;. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESMessageTag*&gt; *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendEmailRequest/tags</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tags, in the form of name/value pairs, to apply to an email that you send using &lt;code&gt;SendEmail&lt;/code&gt;. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESMessageTag*&gt; *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSendEmailRequest/tags</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tags, in the form of name/value pairs, to apply to an email that you send using &lt;code&gt;SendEmail&lt;/code&gt;. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESMessageTag*&gt; *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="2153"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

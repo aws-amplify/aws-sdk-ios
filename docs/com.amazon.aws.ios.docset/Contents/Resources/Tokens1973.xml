@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3RecordsEvent.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3RecordsEvent</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1973"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RecordsEvent/setPayload:</TokenIdentifier>
+			<Abstract type="html">The byte array of partial, one or more result records.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id _Nullable payload</Declaration>
+			
+			
+			<Anchor>//api/name/payload</Anchor>
+            <NodeRef refid="1973"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RecordsEvent/payload</TokenIdentifier>
+			<Abstract type="html">The byte array of partial, one or more result records.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id _Nullable payload</Declaration>
+			
+			
+			<Anchor>//api/name/payload</Anchor>
+            <NodeRef refid="1973"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3RecordsEvent/payload</TokenIdentifier>
+			<Abstract type="html">The byte array of partial, one or more result records.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id _Nullable payload</Declaration>
+			
+			
+			<Anchor>//api/name/payload</Anchor>
+            <NodeRef refid="1973"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The global sign-out response, as an administrator.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="267"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

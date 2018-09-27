@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3ReplicationRule.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3ReplicationRule</TokenIdentifier>
+			<Abstract type="html">Container for information about a particular replication rule.
+Required parameters: [Prefix, Status, Destination]</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1982"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ReplicationRule/setDestination:</TokenIdentifier>
+			<Abstract type="html">Container for replication destination information.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Destination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ReplicationRule/destination</TokenIdentifier>
+			<Abstract type="html">Container for replication destination information.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Destination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ReplicationRule/destination</TokenIdentifier>
+			<Abstract type="html">Container for replication destination information.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Destination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ReplicationRule/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">Unique identifier for the rule. The value cannot be longer than 255 characters.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ReplicationRule/identifier</TokenIdentifier>
+			<Abstract type="html">Unique identifier for the rule. The value cannot be longer than 255 characters.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ReplicationRule/identifier</TokenIdentifier>
+			<Abstract type="html">Unique identifier for the rule. The value cannot be longer than 255 characters.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ReplicationRule/setPrefix:</TokenIdentifier>
+			<Abstract type="html">Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ReplicationRule/prefix</TokenIdentifier>
+			<Abstract type="html">Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ReplicationRule/prefix</TokenIdentifier>
+			<Abstract type="html">Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ReplicationRule/setSourceSelectionCriteria:</TokenIdentifier>
+			<Abstract type="html">Container for filters that define which source objects should be replicated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SourceSelectionCriteria *sourceSelectionCriteria</Declaration>
+			
+			
+			<Anchor>//api/name/sourceSelectionCriteria</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ReplicationRule/sourceSelectionCriteria</TokenIdentifier>
+			<Abstract type="html">Container for filters that define which source objects should be replicated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SourceSelectionCriteria *sourceSelectionCriteria</Declaration>
+			
+			
+			<Anchor>//api/name/sourceSelectionCriteria</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ReplicationRule/sourceSelectionCriteria</TokenIdentifier>
+			<Abstract type="html">Container for filters that define which source objects should be replicated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SourceSelectionCriteria *sourceSelectionCriteria</Declaration>
+			
+			
+			<Anchor>//api/name/sourceSelectionCriteria</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ReplicationRule/setStatus:</TokenIdentifier>
+			<Abstract type="html">The rule is ignored if status is not Enabled.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ReplicationRuleStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ReplicationRule/status</TokenIdentifier>
+			<Abstract type="html">The rule is ignored if status is not Enabled.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ReplicationRuleStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ReplicationRule/status</TokenIdentifier>
+			<Abstract type="html">The rule is ignored if status is not Enabled.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ReplicationRuleStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1982"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

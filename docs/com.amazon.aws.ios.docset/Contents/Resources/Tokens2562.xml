@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSKinesisVideoErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSKinesisVideoErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2562"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorAccountStreamLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorAccountStreamLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorClientLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorClientLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorDeviceStreamLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorDeviceStreamLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorInvalidArgument</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorInvalidArgument</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorInvalidDevice</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorInvalidDevice</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorInvalidResourceFormat</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorInvalidResourceFormat</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorNotAuthorized</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorNotAuthorized</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorResourceInUse</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorResourceInUse</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorResourceNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorResourceNotFound</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorTagsPerResourceExceededLimit</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorTagsPerResourceExceededLimit</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoErrorVersionMismatch</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoErrorVersionMismatch</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+            <NodeRef refid="2562"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBObjectModel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBObjectModel</TokenIdentifier>
+			<Abstract type="html">A base class for all objects mapped to an Amazon DynamoDB table row. They need to inherit from this class.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+            
+			
+			<NodeRef refid="635"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

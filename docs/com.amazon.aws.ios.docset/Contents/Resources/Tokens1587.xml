@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingItemResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingItemResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1587"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingItemResponse/setEndpointItemResponse:</TokenIdentifier>
+			<Abstract type="html">The response from endpoint request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointItemResponse *endpointItemResponse</Declaration>
+			
+			
+			<Anchor>//api/name/endpointItemResponse</Anchor>
+            <NodeRef refid="1587"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingItemResponse/endpointItemResponse</TokenIdentifier>
+			<Abstract type="html">The response from endpoint request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointItemResponse *endpointItemResponse</Declaration>
+			
+			
+			<Anchor>//api/name/endpointItemResponse</Anchor>
+            <NodeRef refid="1587"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingItemResponse/endpointItemResponse</TokenIdentifier>
+			<Abstract type="html">The response from endpoint request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointItemResponse *endpointItemResponse</Declaration>
+			
+			
+			<Anchor>//api/name/endpointItemResponse</Anchor>
+            <NodeRef refid="1587"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingItemResponse/setEventsItemResponse:</TokenIdentifier>
+			<Abstract type="html">The response from each event request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSPinpointTargetingEventItemResponse*&gt; *eventsItemResponse</Declaration>
+			
+			
+			<Anchor>//api/name/eventsItemResponse</Anchor>
+            <NodeRef refid="1587"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingItemResponse/eventsItemResponse</TokenIdentifier>
+			<Abstract type="html">The response from each event request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSPinpointTargetingEventItemResponse*&gt; *eventsItemResponse</Declaration>
+			
+			
+			<Anchor>//api/name/eventsItemResponse</Anchor>
+            <NodeRef refid="1587"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingItemResponse/eventsItemResponse</TokenIdentifier>
+			<Abstract type="html">The response from each event request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSPinpointTargetingEventItemResponse*&gt; *eventsItemResponse</Declaration>
+			
+			
+			<Anchor>//api/name/eventsItemResponse</Anchor>
+            <NodeRef refid="1587"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderCreateGroupRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderCreateGroupRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="288"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateGroupRequest/setDetail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string containing the description of the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateGroupRequest/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string containing the description of the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateGroupRequest/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A string containing the description of the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateGroupRequest/setGroupName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the group. Must be unique.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *groupName</Declaration>
+			
+			
+			<Anchor>//api/name/groupName</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateGroupRequest/groupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the group. Must be unique.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *groupName</Declaration>
+			
+			
+			<Anchor>//api/name/groupName</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateGroupRequest/groupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the group. Must be unique.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *groupName</Declaration>
+			
+			
+			<Anchor>//api/name/groupName</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateGroupRequest/setPrecedence:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower &lt;code&gt;Precedence&lt;/code&gt; values take precedence over groups with higher or null &lt;code&gt;Precedence&lt;/code&gt; values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the &lt;code&gt;cognito:roles&lt;/code&gt; and &lt;code&gt;cognito:preferredrole&lt;/code&gt; claims in the user&apos;s tokens.&lt;/p&gt;&lt;p&gt;Two groups can have the same &lt;code&gt;Precedence&lt;/code&gt; value. If this happens, neither group takes precedence over the other. If two groups with the same &lt;code&gt;Precedence&lt;/code&gt; have the same role ARN, that role is used in the &lt;code&gt;cognito:preferredrole&lt;/code&gt; claim in tokens for users in each group. If the two groups have different role ARNs, the &lt;code&gt;cognito:preferred_role&lt;/code&gt; claim is not set in users&apos; tokens.&lt;/p&gt;&lt;p&gt;The default &lt;code&gt;Precedence&lt;/code&gt; value is null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *precedence</Declaration>
+			
+			
+			<Anchor>//api/name/precedence</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateGroupRequest/precedence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower &lt;code&gt;Precedence&lt;/code&gt; values take precedence over groups with higher or null &lt;code&gt;Precedence&lt;/code&gt; values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the &lt;code&gt;cognito:roles&lt;/code&gt; and &lt;code&gt;cognito:preferredrole&lt;/code&gt; claims in the user&apos;s tokens.&lt;/p&gt;&lt;p&gt;Two groups can have the same &lt;code&gt;Precedence&lt;/code&gt; value. If this happens, neither group takes precedence over the other. If two groups with the same &lt;code&gt;Precedence&lt;/code&gt; have the same role ARN, that role is used in the &lt;code&gt;cognito:preferredrole&lt;/code&gt; claim in tokens for users in each group. If the two groups have different role ARNs, the &lt;code&gt;cognito:preferred_role&lt;/code&gt; claim is not set in users&apos; tokens.&lt;/p&gt;&lt;p&gt;The default &lt;code&gt;Precedence&lt;/code&gt; value is null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *precedence</Declaration>
+			
+			
+			<Anchor>//api/name/precedence</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateGroupRequest/precedence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A nonnegative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower &lt;code&gt;Precedence&lt;/code&gt; values take precedence over groups with higher or null &lt;code&gt;Precedence&lt;/code&gt; values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN will be used in the &lt;code&gt;cognito:roles&lt;/code&gt; and &lt;code&gt;cognito:preferredrole&lt;/code&gt; claims in the user&apos;s tokens.&lt;/p&gt;&lt;p&gt;Two groups can have the same &lt;code&gt;Precedence&lt;/code&gt; value. If this happens, neither group takes precedence over the other. If two groups with the same &lt;code&gt;Precedence&lt;/code&gt; have the same role ARN, that role is used in the &lt;code&gt;cognito:preferredrole&lt;/code&gt; claim in tokens for users in each group. If the two groups have different role ARNs, the &lt;code&gt;cognito:preferred_role&lt;/code&gt; claim is not set in users&apos; tokens.&lt;/p&gt;&lt;p&gt;The default &lt;code&gt;Precedence&lt;/code&gt; value is null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *precedence</Declaration>
+			
+			
+			<Anchor>//api/name/precedence</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateGroupRequest/setRoleArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role ARN for the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateGroupRequest/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role ARN for the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateGroupRequest/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role ARN for the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateGroupRequest/setUserPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateGroupRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateGroupRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="288"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

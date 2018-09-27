@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTListOutgoingCertificatesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTListOutgoingCertificatesResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The output from the ListOutgoingCertificates operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1041"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListOutgoingCertificatesResponse/setNextMarker:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The marker for the next set of results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1041"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListOutgoingCertificatesResponse/nextMarker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The marker for the next set of results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1041"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListOutgoingCertificatesResponse/nextMarker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The marker for the next set of results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1041"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListOutgoingCertificatesResponse/setOutgoingCertificates:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificates that are being transferred but not yet accepted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSIoTOutgoingCertificate*&gt; *outgoingCertificates</Declaration>
+			
+			
+			<Anchor>//api/name/outgoingCertificates</Anchor>
+            <NodeRef refid="1041"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListOutgoingCertificatesResponse/outgoingCertificates</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificates that are being transferred but not yet accepted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSIoTOutgoingCertificate*&gt; *outgoingCertificates</Declaration>
+			
+			
+			<Anchor>//api/name/outgoingCertificates</Anchor>
+            <NodeRef refid="1041"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListOutgoingCertificatesResponse/outgoingCertificates</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificates that are being transferred but not yet accepted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSIoTOutgoingCertificate*&gt; *outgoingCertificates</Declaration>
+			
+			
+			<Anchor>//api/name/outgoingCertificates</Anchor>
+            <NodeRef refid="1041"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

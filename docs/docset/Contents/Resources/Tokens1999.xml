@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3ServerSideEncryptionConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3ServerSideEncryptionConfiguration</TokenIdentifier>
+			<Abstract type="html">Container for server-side encryption configuration rules. Currently S3 supports one rule only.
+Required parameters: [Rules]</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1999"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ServerSideEncryptionConfiguration/setRules:</TokenIdentifier>
+			<Abstract type="html">Container for information about a particular server-side encryption configuration rule.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3ServerSideEncryptionRule*&gt; *rules</Declaration>
+			
+			
+			<Anchor>//api/name/rules</Anchor>
+            <NodeRef refid="1999"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ServerSideEncryptionConfiguration/rules</TokenIdentifier>
+			<Abstract type="html">Container for information about a particular server-side encryption configuration rule.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3ServerSideEncryptionRule*&gt; *rules</Declaration>
+			
+			
+			<Anchor>//api/name/rules</Anchor>
+            <NodeRef refid="1999"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ServerSideEncryptionConfiguration/rules</TokenIdentifier>
+			<Abstract type="html">Container for information about a particular server-side encryption configuration rule.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3ServerSideEncryptionRule*&gt; *rules</Declaration>
+			
+			
+			<Anchor>//api/name/rules</Anchor>
+            <NodeRef refid="1999"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

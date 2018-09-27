@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionSearchFacesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionSearchFacesResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1755"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesResponse/setFaceMatches:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of faces that matched the input face, along with the confidence in the match.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFaceMatch*&gt; *faceMatches</Declaration>
+			
+			
+			<Anchor>//api/name/faceMatches</Anchor>
+            <NodeRef refid="1755"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesResponse/faceMatches</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of faces that matched the input face, along with the confidence in the match.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFaceMatch*&gt; *faceMatches</Declaration>
+			
+			
+			<Anchor>//api/name/faceMatches</Anchor>
+            <NodeRef refid="1755"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionSearchFacesResponse/faceMatches</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of faces that matched the input face, along with the confidence in the match.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFaceMatch*&gt; *faceMatches</Declaration>
+			
+			
+			<Anchor>//api/name/faceMatches</Anchor>
+            <NodeRef refid="1755"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesResponse/setFaceModelVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Version number of the face detection model associated with the input collection (&lt;code&gt;CollectionId&lt;/code&gt;).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceModelVersion</Declaration>
+			
+			
+			<Anchor>//api/name/faceModelVersion</Anchor>
+            <NodeRef refid="1755"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesResponse/faceModelVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Version number of the face detection model associated with the input collection (&lt;code&gt;CollectionId&lt;/code&gt;).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceModelVersion</Declaration>
+			
+			
+			<Anchor>//api/name/faceModelVersion</Anchor>
+            <NodeRef refid="1755"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionSearchFacesResponse/faceModelVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Version number of the face detection model associated with the input collection (&lt;code&gt;CollectionId&lt;/code&gt;).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceModelVersion</Declaration>
+			
+			
+			<Anchor>//api/name/faceModelVersion</Anchor>
+            <NodeRef refid="1755"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesResponse/setSearchedFaceId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the face that was searched for matches in a collection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *searchedFaceId</Declaration>
+			
+			
+			<Anchor>//api/name/searchedFaceId</Anchor>
+            <NodeRef refid="1755"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesResponse/searchedFaceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the face that was searched for matches in a collection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *searchedFaceId</Declaration>
+			
+			
+			<Anchor>//api/name/searchedFaceId</Anchor>
+            <NodeRef refid="1755"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionSearchFacesResponse/searchedFaceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the face that was searched for matches in a collection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *searchedFaceId</Declaration>
+			
+			
+			<Anchor>//api/name/searchedFaceId</Anchor>
+            <NodeRef refid="1755"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

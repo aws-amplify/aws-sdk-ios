@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSFirehoseProcessorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSFirehoseProcessorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2505"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseProcessorTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseProcessorTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2505"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseProcessorTypeLambda</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseProcessorTypeLambda</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2505"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

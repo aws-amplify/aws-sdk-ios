@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSTranslateErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSTranslateErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSTranslateModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2716"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranslateErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranslateErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSTranslateModel.h</DeclaredIn>
+            
+            <NodeRef refid="2716"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranslateErrorDetectedLanguageLowConfidence</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranslateErrorDetectedLanguageLowConfidence</Declaration>
+            
+            <DeclaredIn>AWSTranslateModel.h</DeclaredIn>
+            
+            <NodeRef refid="2716"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranslateErrorInternalServer</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranslateErrorInternalServer</Declaration>
+            
+            <DeclaredIn>AWSTranslateModel.h</DeclaredIn>
+            
+            <NodeRef refid="2716"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranslateErrorInvalidRequest</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranslateErrorInvalidRequest</Declaration>
+            
+            <DeclaredIn>AWSTranslateModel.h</DeclaredIn>
+            
+            <NodeRef refid="2716"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranslateErrorServiceUnavailable</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranslateErrorServiceUnavailable</Declaration>
+            
+            <DeclaredIn>AWSTranslateModel.h</DeclaredIn>
+            
+            <NodeRef refid="2716"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranslateErrorTextSizeLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranslateErrorTextSizeLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSTranslateModel.h</DeclaredIn>
+            
+            <NodeRef refid="2716"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranslateErrorTooManyRequests</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranslateErrorTooManyRequests</Declaration>
+            
+            <DeclaredIn>AWSTranslateModel.h</DeclaredIn>
+            
+            <NodeRef refid="2716"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranslateErrorUnsupportedLanguagePair</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranslateErrorUnsupportedLanguagePair</Declaration>
+            
+            <DeclaredIn>AWSTranslateModel.h</DeclaredIn>
+            
+            <NodeRef refid="2716"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

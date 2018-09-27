@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingSegmentImportResource.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingSegmentImportResource</TokenIdentifier>
+			<Abstract type="html">Segment import definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1605"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/setChannelCounts:</TokenIdentifier>
+			<Abstract type="html">Channel type counts</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *channelCounts</Declaration>
+			
+			
+			<Anchor>//api/name/channelCounts</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/channelCounts</TokenIdentifier>
+			<Abstract type="html">Channel type counts</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *channelCounts</Declaration>
+			
+			
+			<Anchor>//api/name/channelCounts</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentImportResource/channelCounts</TokenIdentifier>
+			<Abstract type="html">Channel type counts</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *channelCounts</Declaration>
+			
+			
+			<Anchor>//api/name/channelCounts</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/setExternalId:</TokenIdentifier>
+			<Abstract type="html">A unique, custom ID assigned to the IAM role that restricts who can assume the role.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/externalId</TokenIdentifier>
+			<Abstract type="html">A unique, custom ID assigned to the IAM role that restricts who can assume the role.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentImportResource/externalId</TokenIdentifier>
+			<Abstract type="html">A unique, custom ID assigned to the IAM role that restricts who can assume the role.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/setFormat:</TokenIdentifier>
+			<Abstract type="html">The format of the endpoint files that were imported to create this segment. Valid values: CSV, JSON</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/format</TokenIdentifier>
+			<Abstract type="html">The format of the endpoint files that were imported to create this segment. Valid values: CSV, JSON</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentImportResource/format</TokenIdentifier>
+			<Abstract type="html">The format of the endpoint files that were imported to create this segment. Valid values: CSV, JSON</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/setRoleArn:</TokenIdentifier>
+			<Abstract type="html">The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the endpoints in Amazon S3.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/roleArn</TokenIdentifier>
+			<Abstract type="html">The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the endpoints in Amazon S3.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentImportResource/roleArn</TokenIdentifier>
+			<Abstract type="html">The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the endpoints in Amazon S3.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/setS3Url:</TokenIdentifier>
+			<Abstract type="html">A URL that points to the Amazon S3 location from which the endpoints for this segment were imported.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *s3Url</Declaration>
+			
+			
+			<Anchor>//api/name/s3Url</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/s3Url</TokenIdentifier>
+			<Abstract type="html">A URL that points to the Amazon S3 location from which the endpoints for this segment were imported.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *s3Url</Declaration>
+			
+			
+			<Anchor>//api/name/s3Url</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentImportResource/s3Url</TokenIdentifier>
+			<Abstract type="html">A URL that points to the Amazon S3 location from which the endpoints for this segment were imported.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *s3Url</Declaration>
+			
+			
+			<Anchor>//api/name/s3Url</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/setSize:</TokenIdentifier>
+			<Abstract type="html">The number of endpoints that were successfully imported to create this segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *size</Declaration>
+			
+			
+			<Anchor>//api/name/size</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentImportResource/size</TokenIdentifier>
+			<Abstract type="html">The number of endpoints that were successfully imported to create this segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *size</Declaration>
+			
+			
+			<Anchor>//api/name/size</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentImportResource/size</TokenIdentifier>
+			<Abstract type="html">The number of endpoints that were successfully imported to create this segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *size</Declaration>
+			
+			
+			<Anchor>//api/name/size</Anchor>
+            <NodeRef refid="1605"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

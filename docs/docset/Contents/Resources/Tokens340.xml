@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderGetDeviceRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderGetDeviceRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the request to get the device.&lt;/p&gt;
+Required parameters: [DeviceKey]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="340"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetDeviceRequest/setAccessToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="340"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetDeviceRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="340"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderGetDeviceRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="340"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetDeviceRequest/setDeviceKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The device key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceKey</Declaration>
+			
+			
+			<Anchor>//api/name/deviceKey</Anchor>
+            <NodeRef refid="340"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetDeviceRequest/deviceKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The device key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceKey</Declaration>
+			
+			
+			<Anchor>//api/name/deviceKey</Anchor>
+            <NodeRef refid="340"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderGetDeviceRequest/deviceKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The device key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceKey</Declaration>
+			
+			
+			<Anchor>//api/name/deviceKey</Anchor>
+            <NodeRef refid="340"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

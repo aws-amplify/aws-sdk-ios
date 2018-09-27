@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSMachineLearningErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSMachineLearningErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2589"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2589"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningErrorInternalServer</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningErrorInternalServer</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2589"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningErrorInvalidInput</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningErrorInvalidInput</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2589"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningErrorLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningErrorLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2589"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningErrorPredictorNotMounted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningErrorPredictorNotMounted</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2589"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningErrorResourceNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningErrorResourceNotFound</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2589"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

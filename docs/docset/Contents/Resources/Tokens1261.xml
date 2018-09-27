@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisRecorder.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisRecorder</TokenIdentifier>
+			<Abstract type="html">  The AWSKinesisRecorder is a high level client meant for storing put record requests on the user&apos;s device. This allows developers to retain requests when the device is offline. It can also increase performance and battery efficiency since the Wi-Fi or cell network does not need to be woken up as frequently.</Abstract>
+			<DeclaredIn>AWSKinesisRecorder.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1261"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSKinesisRecorder/defaultKinesisRecorder</TokenIdentifier>
+			<Abstract type="html">Returns a shared instance of this service client using [AWSServiceManager defaultServiceManager].defaultServiceConfiguration. When defaultServiceConfiguration is not set, this method returns nil.</Abstract>
+			<DeclaredIn>AWSKinesisRecorder.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultKinesisRecorder</Declaration>
+			
+			<ReturnValue><Abstract type="html">A shared instance of this service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultKinesisRecorder</Anchor>
+            <NodeRef refid="1261"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSKinesisRecorder/registerKinesisRecorderWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSKinesisRecorder.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerKinesisRecorderWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerKinesisRecorderWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="1261"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSKinesisRecorder/KinesisRecorderForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerKinesisWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSKinesisRecorder.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)KinesisRecorderForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/KinesisRecorderForKey:</Anchor>
+            <NodeRef refid="1261"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSKinesisRecorder/removeKinesisRecorderForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSKinesisRecorder.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeKinesisRecorderForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeKinesisRecorderForKey:</Anchor>
+            <NodeRef refid="1261"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

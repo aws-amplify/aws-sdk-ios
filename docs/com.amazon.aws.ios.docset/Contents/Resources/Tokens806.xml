@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseOpenXJsonSerDe.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseOpenXJsonSerDe</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The OpenX SerDe. Used by Kinesis Data Firehose for deserializing data, which means converting it from the JSON format in preparation for serializing it to the Parquet or ORC format. This is one of two deserializers you can choose, depending on which one offers the functionality you need. The other option is the native Hive / HCatalog JsonSerDe.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="806"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseOpenXJsonSerDe/setCaseInsensitive:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When set to &lt;code&gt;true&lt;/code&gt;, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *caseInsensitive</Declaration>
+			
+			
+			<Anchor>//api/name/caseInsensitive</Anchor>
+            <NodeRef refid="806"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseOpenXJsonSerDe/caseInsensitive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When set to &lt;code&gt;true&lt;/code&gt;, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *caseInsensitive</Declaration>
+			
+			
+			<Anchor>//api/name/caseInsensitive</Anchor>
+            <NodeRef refid="806"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseOpenXJsonSerDe/caseInsensitive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When set to &lt;code&gt;true&lt;/code&gt;, which is the default, Kinesis Data Firehose converts JSON keys to lowercase before deserializing them.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *caseInsensitive</Declaration>
+			
+			
+			<Anchor>//api/name/caseInsensitive</Anchor>
+            <NodeRef refid="806"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseOpenXJsonSerDe/setColumnToJsonKeyMappings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maps column names to JSON keys that aren&apos;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, &lt;code&gt;timestamp&lt;/code&gt; is a Hive keyword. If you have a JSON key named &lt;code&gt;timestamp&lt;/code&gt;, set this parameter to &lt;code&gt;{&quot;ts&quot;: &quot;timestamp&quot;}&lt;/code&gt; to map this key to a column named &lt;code&gt;ts&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *columnToJsonKeyMappings</Declaration>
+			
+			
+			<Anchor>//api/name/columnToJsonKeyMappings</Anchor>
+            <NodeRef refid="806"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseOpenXJsonSerDe/columnToJsonKeyMappings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maps column names to JSON keys that aren&apos;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, &lt;code&gt;timestamp&lt;/code&gt; is a Hive keyword. If you have a JSON key named &lt;code&gt;timestamp&lt;/code&gt;, set this parameter to &lt;code&gt;{&quot;ts&quot;: &quot;timestamp&quot;}&lt;/code&gt; to map this key to a column named &lt;code&gt;ts&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *columnToJsonKeyMappings</Declaration>
+			
+			
+			<Anchor>//api/name/columnToJsonKeyMappings</Anchor>
+            <NodeRef refid="806"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseOpenXJsonSerDe/columnToJsonKeyMappings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maps column names to JSON keys that aren&apos;t identical to the column names. This is useful when the JSON contains keys that are Hive keywords. For example, &lt;code&gt;timestamp&lt;/code&gt; is a Hive keyword. If you have a JSON key named &lt;code&gt;timestamp&lt;/code&gt;, set this parameter to &lt;code&gt;{&quot;ts&quot;: &quot;timestamp&quot;}&lt;/code&gt; to map this key to a column named &lt;code&gt;ts&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *columnToJsonKeyMappings</Declaration>
+			
+			
+			<Anchor>//api/name/columnToJsonKeyMappings</Anchor>
+            <NodeRef refid="806"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseOpenXJsonSerDe/setConvertDotsInJsonKeysToUnderscores:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When set to &lt;code&gt;true&lt;/code&gt;, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &quot;a.b&quot;, you can define the column name to be &quot;a_b&quot; when using this option.&lt;/p&gt;&lt;p&gt;The default is &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *convertDotsInJsonKeysToUnderscores</Declaration>
+			
+			
+			<Anchor>//api/name/convertDotsInJsonKeysToUnderscores</Anchor>
+            <NodeRef refid="806"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseOpenXJsonSerDe/convertDotsInJsonKeysToUnderscores</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When set to &lt;code&gt;true&lt;/code&gt;, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &quot;a.b&quot;, you can define the column name to be &quot;a_b&quot; when using this option.&lt;/p&gt;&lt;p&gt;The default is &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *convertDotsInJsonKeysToUnderscores</Declaration>
+			
+			
+			<Anchor>//api/name/convertDotsInJsonKeysToUnderscores</Anchor>
+            <NodeRef refid="806"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseOpenXJsonSerDe/convertDotsInJsonKeysToUnderscores</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When set to &lt;code&gt;true&lt;/code&gt;, specifies that the names of the keys include dots and that you want Kinesis Data Firehose to replace them with underscores. This is useful because Apache Hive does not allow dots in column names. For example, if the JSON contains a key whose name is &quot;a.b&quot;, you can define the column name to be &quot;a_b&quot; when using this option.&lt;/p&gt;&lt;p&gt;The default is &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *convertDotsInJsonKeysToUnderscores</Declaration>
+			
+			
+			<Anchor>//api/name/convertDotsInJsonKeysToUnderscores</Anchor>
+            <NodeRef refid="806"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

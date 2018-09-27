@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentitySoftwareMfaSetupRequiredDetails.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentitySoftwareMfaSetupRequiredDetails</TokenIdentifier>
+			<Abstract type="html">When responding to a software mfa setup required challenge this encapsulates the end user&apos;s user code and friendly name for their TOTP</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+            
+			
+			<NodeRef refid="458"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentitySoftwareMfaSetupRequiredDetails/setUserCode:</TokenIdentifier>
+			<Abstract type="html">The end user&apos;s code from their software mfa</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nonnull) NSString *userCode</Declaration>
+			
+			
+			<Anchor>//api/name/userCode</Anchor>
+            <NodeRef refid="458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentitySoftwareMfaSetupRequiredDetails/userCode</TokenIdentifier>
+			<Abstract type="html">The end user&apos;s code from their software mfa</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nonnull) NSString *userCode</Declaration>
+			
+			
+			<Anchor>//api/name/userCode</Anchor>
+            <NodeRef refid="458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentitySoftwareMfaSetupRequiredDetails/userCode</TokenIdentifier>
+			<Abstract type="html">The end user&apos;s code from their software mfa</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nonnull) NSString *userCode</Declaration>
+			
+			
+			<Anchor>//api/name/userCode</Anchor>
+            <NodeRef refid="458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentitySoftwareMfaSetupRequiredDetails/setFriendlyDeviceName:</TokenIdentifier>
+			<Abstract type="html">The friendly device name that will be specified when this software mfa is requested.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nullable) NSString *friendlyDeviceName</Declaration>
+			
+			
+			<Anchor>//api/name/friendlyDeviceName</Anchor>
+            <NodeRef refid="458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentitySoftwareMfaSetupRequiredDetails/friendlyDeviceName</TokenIdentifier>
+			<Abstract type="html">The friendly device name that will be specified when this software mfa is requested.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nullable) NSString *friendlyDeviceName</Declaration>
+			
+			
+			<Anchor>//api/name/friendlyDeviceName</Anchor>
+            <NodeRef refid="458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentitySoftwareMfaSetupRequiredDetails/friendlyDeviceName</TokenIdentifier>
+			<Abstract type="html">The friendly device name that will be specified when this software mfa is requested.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nullable) NSString *friendlyDeviceName</Declaration>
+			
+			
+			<Anchor>//api/name/friendlyDeviceName</Anchor>
+            <NodeRef refid="458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentitySoftwareMfaSetupRequiredDetails/initWithUserCode:friendlyDeviceName:</TokenIdentifier>
+			<Abstract type="html">Initializer given the software tokens&apos; code and friendly device name
+*</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithUserCode:(NSString *)userCode friendlyDeviceName:(NSString *_Nullable)friendlyDeviceName</Declaration>
+			
+			
+			<Anchor>//api/name/initWithUserCode:friendlyDeviceName:</Anchor>
+            <NodeRef refid="458"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

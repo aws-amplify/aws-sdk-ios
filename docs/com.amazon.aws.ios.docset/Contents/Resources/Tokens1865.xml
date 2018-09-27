@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3GetBucketPolicyOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3GetBucketPolicyOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1865"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketPolicyOutput/setPolicy:</TokenIdentifier>
+			<Abstract type="html">The bucket policy as a JSON document.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policy</Declaration>
+			
+			
+			<Anchor>//api/name/policy</Anchor>
+            <NodeRef refid="1865"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketPolicyOutput/policy</TokenIdentifier>
+			<Abstract type="html">The bucket policy as a JSON document.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policy</Declaration>
+			
+			
+			<Anchor>//api/name/policy</Anchor>
+            <NodeRef refid="1865"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GetBucketPolicyOutput/policy</TokenIdentifier>
+			<Abstract type="html">The bucket policy as a JSON document.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policy</Declaration>
+			
+			
+			<Anchor>//api/name/policy</Anchor>
+            <NodeRef refid="1865"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

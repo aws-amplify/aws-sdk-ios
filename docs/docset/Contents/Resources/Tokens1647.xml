@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPollyGetSpeechSynthesisTaskOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPollyGetSpeechSynthesisTaskOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1647"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyGetSpeechSynthesisTaskOutput/setSynthesisTask:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPollySynthesisTask *synthesisTask</Declaration>
+			
+			
+			<Anchor>//api/name/synthesisTask</Anchor>
+            <NodeRef refid="1647"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyGetSpeechSynthesisTaskOutput/synthesisTask</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPollySynthesisTask *synthesisTask</Declaration>
+			
+			
+			<Anchor>//api/name/synthesisTask</Anchor>
+            <NodeRef refid="1647"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyGetSpeechSynthesisTaskOutput/synthesisTask</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;SynthesisTask object that provides information from the requested task, including output format, creation time, task status, and so on.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPollySynthesisTask *synthesisTask</Declaration>
+			
+			
+			<Anchor>//api/name/synthesisTask</Anchor>
+            <NodeRef refid="1647"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingImportJobResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingImportJobResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1585"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setApplicationId:</TokenIdentifier>
+			<Abstract type="html">The unique ID of the application to which the import job applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/applicationId</TokenIdentifier>
+			<Abstract type="html">The unique ID of the application to which the import job applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/applicationId</TokenIdentifier>
+			<Abstract type="html">The unique ID of the application to which the import job applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setCompletedPieces:</TokenIdentifier>
+			<Abstract type="html">The number of pieces that have successfully imported as of the time of the request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *completedPieces</Declaration>
+			
+			
+			<Anchor>//api/name/completedPieces</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/completedPieces</TokenIdentifier>
+			<Abstract type="html">The number of pieces that have successfully imported as of the time of the request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *completedPieces</Declaration>
+			
+			
+			<Anchor>//api/name/completedPieces</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/completedPieces</TokenIdentifier>
+			<Abstract type="html">The number of pieces that have successfully imported as of the time of the request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *completedPieces</Declaration>
+			
+			
+			<Anchor>//api/name/completedPieces</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setCompletionDate:</TokenIdentifier>
+			<Abstract type="html">The date the import job completed in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *completionDate</Declaration>
+			
+			
+			<Anchor>//api/name/completionDate</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/completionDate</TokenIdentifier>
+			<Abstract type="html">The date the import job completed in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *completionDate</Declaration>
+			
+			
+			<Anchor>//api/name/completionDate</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/completionDate</TokenIdentifier>
+			<Abstract type="html">The date the import job completed in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *completionDate</Declaration>
+			
+			
+			<Anchor>//api/name/completionDate</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setCreationDate:</TokenIdentifier>
+			<Abstract type="html">The date the import job was created in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/creationDate</TokenIdentifier>
+			<Abstract type="html">The date the import job was created in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/creationDate</TokenIdentifier>
+			<Abstract type="html">The date the import job was created in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setDefinition:</TokenIdentifier>
+			<Abstract type="html">The import job settings.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingImportJobResource *definition</Declaration>
+			
+			
+			<Anchor>//api/name/definition</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/definition</TokenIdentifier>
+			<Abstract type="html">The import job settings.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingImportJobResource *definition</Declaration>
+			
+			
+			<Anchor>//api/name/definition</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/definition</TokenIdentifier>
+			<Abstract type="html">The import job settings.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingImportJobResource *definition</Declaration>
+			
+			
+			<Anchor>//api/name/definition</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setFailedPieces:</TokenIdentifier>
+			<Abstract type="html">The number of pieces that have failed to import as of the time of the request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *failedPieces</Declaration>
+			
+			
+			<Anchor>//api/name/failedPieces</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/failedPieces</TokenIdentifier>
+			<Abstract type="html">The number of pieces that have failed to import as of the time of the request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *failedPieces</Declaration>
+			
+			
+			<Anchor>//api/name/failedPieces</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/failedPieces</TokenIdentifier>
+			<Abstract type="html">The number of pieces that have failed to import as of the time of the request.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *failedPieces</Declaration>
+			
+			
+			<Anchor>//api/name/failedPieces</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setFailures:</TokenIdentifier>
+			<Abstract type="html">Provides up to 100 of the first failed entries for the job, if any exist.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *failures</Declaration>
+			
+			
+			<Anchor>//api/name/failures</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/failures</TokenIdentifier>
+			<Abstract type="html">Provides up to 100 of the first failed entries for the job, if any exist.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *failures</Declaration>
+			
+			
+			<Anchor>//api/name/failures</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/failures</TokenIdentifier>
+			<Abstract type="html">Provides up to 100 of the first failed entries for the job, if any exist.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *failures</Declaration>
+			
+			
+			<Anchor>//api/name/failures</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">The unique ID of the import job.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/identifier</TokenIdentifier>
+			<Abstract type="html">The unique ID of the import job.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/identifier</TokenIdentifier>
+			<Abstract type="html">The unique ID of the import job.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setJobStatus:</TokenIdentifier>
+			<Abstract type="html">The status of the import job. Valid values: CREATED, INITIALIZING, PROCESSING, COMPLETING, COMPLETED, FAILING, FAILEDThe job status is FAILED if one or more pieces failed to import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/jobStatus</TokenIdentifier>
+			<Abstract type="html">The status of the import job. Valid values: CREATED, INITIALIZING, PROCESSING, COMPLETING, COMPLETED, FAILING, FAILEDThe job status is FAILED if one or more pieces failed to import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/jobStatus</TokenIdentifier>
+			<Abstract type="html">The status of the import job. Valid values: CREATED, INITIALIZING, PROCESSING, COMPLETING, COMPLETED, FAILING, FAILEDThe job status is FAILED if one or more pieces failed to import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setTotalFailures:</TokenIdentifier>
+			<Abstract type="html">The number of endpoints that failed to import; for example, because of syntax errors.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalFailures</Declaration>
+			
+			
+			<Anchor>//api/name/totalFailures</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/totalFailures</TokenIdentifier>
+			<Abstract type="html">The number of endpoints that failed to import; for example, because of syntax errors.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalFailures</Declaration>
+			
+			
+			<Anchor>//api/name/totalFailures</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/totalFailures</TokenIdentifier>
+			<Abstract type="html">The number of endpoints that failed to import; for example, because of syntax errors.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalFailures</Declaration>
+			
+			
+			<Anchor>//api/name/totalFailures</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setTotalPieces:</TokenIdentifier>
+			<Abstract type="html">The total number of pieces that must be imported to finish the job. Each piece is an approximately equal portion of the endpoints to import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalPieces</Declaration>
+			
+			
+			<Anchor>//api/name/totalPieces</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/totalPieces</TokenIdentifier>
+			<Abstract type="html">The total number of pieces that must be imported to finish the job. Each piece is an approximately equal portion of the endpoints to import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalPieces</Declaration>
+			
+			
+			<Anchor>//api/name/totalPieces</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/totalPieces</TokenIdentifier>
+			<Abstract type="html">The total number of pieces that must be imported to finish the job. Each piece is an approximately equal portion of the endpoints to import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalPieces</Declaration>
+			
+			
+			<Anchor>//api/name/totalPieces</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setTotalProcessed:</TokenIdentifier>
+			<Abstract type="html">The number of endpoints that were processed by the import job.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalProcessed</Declaration>
+			
+			
+			<Anchor>//api/name/totalProcessed</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/totalProcessed</TokenIdentifier>
+			<Abstract type="html">The number of endpoints that were processed by the import job.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalProcessed</Declaration>
+			
+			
+			<Anchor>//api/name/totalProcessed</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/totalProcessed</TokenIdentifier>
+			<Abstract type="html">The number of endpoints that were processed by the import job.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalProcessed</Declaration>
+			
+			
+			<Anchor>//api/name/totalProcessed</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/setTypes:</TokenIdentifier>
+			<Abstract type="html">The job type. Will be Import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResponse/types</TokenIdentifier>
+			<Abstract type="html">The job type. Will be Import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResponse/types</TokenIdentifier>
+			<Abstract type="html">The job type. Will be Import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1585"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

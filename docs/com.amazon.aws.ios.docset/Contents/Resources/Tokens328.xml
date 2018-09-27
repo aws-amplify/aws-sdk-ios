@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderDeviceSecretVerifierConfigType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderDeviceSecretVerifierConfigType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The device verifier against which it will be authenticated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="328"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDeviceSecretVerifierConfigType/setPasswordVerifier:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The password verifier.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *passwordVerifier</Declaration>
+			
+			
+			<Anchor>//api/name/passwordVerifier</Anchor>
+            <NodeRef refid="328"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDeviceSecretVerifierConfigType/passwordVerifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The password verifier.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *passwordVerifier</Declaration>
+			
+			
+			<Anchor>//api/name/passwordVerifier</Anchor>
+            <NodeRef refid="328"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDeviceSecretVerifierConfigType/passwordVerifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The password verifier.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *passwordVerifier</Declaration>
+			
+			
+			<Anchor>//api/name/passwordVerifier</Anchor>
+            <NodeRef refid="328"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDeviceSecretVerifierConfigType/setSalt:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The salt.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *salt</Declaration>
+			
+			
+			<Anchor>//api/name/salt</Anchor>
+            <NodeRef refid="328"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDeviceSecretVerifierConfigType/salt</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The salt.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *salt</Declaration>
+			
+			
+			<Anchor>//api/name/salt</Anchor>
+            <NodeRef refid="328"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDeviceSecretVerifierConfigType/salt</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The salt.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *salt</Declaration>
+			
+			
+			<Anchor>//api/name/salt</Anchor>
+            <NodeRef refid="328"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

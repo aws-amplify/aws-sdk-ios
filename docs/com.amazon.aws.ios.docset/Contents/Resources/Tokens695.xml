@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingAppCookieStickinessPolicy.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingAppCookieStickinessPolicy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a policy for application-controlled session stickiness.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="695"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingAppCookieStickinessPolicy/setCookieName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the application cookie used for stickiness.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cookieName</Declaration>
+			
+			
+			<Anchor>//api/name/cookieName</Anchor>
+            <NodeRef refid="695"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingAppCookieStickinessPolicy/cookieName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the application cookie used for stickiness.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cookieName</Declaration>
+			
+			
+			<Anchor>//api/name/cookieName</Anchor>
+            <NodeRef refid="695"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingAppCookieStickinessPolicy/cookieName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the application cookie used for stickiness.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cookieName</Declaration>
+			
+			
+			<Anchor>//api/name/cookieName</Anchor>
+            <NodeRef refid="695"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingAppCookieStickinessPolicy/setPolicyName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="695"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingAppCookieStickinessPolicy/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="695"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingAppCookieStickinessPolicy/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The mnemonic name for the policy being created. The name must be unique within a set of policies for this load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="695"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

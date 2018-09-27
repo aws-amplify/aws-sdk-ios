@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3Progress.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3Progress</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1945"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Progress/setBytesProcessed:</TokenIdentifier>
+			<Abstract type="html">Current number of uncompressed object bytes processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesProcessed</Declaration>
+			
+			
+			<Anchor>//api/name/bytesProcessed</Anchor>
+            <NodeRef refid="1945"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Progress/bytesProcessed</TokenIdentifier>
+			<Abstract type="html">Current number of uncompressed object bytes processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesProcessed</Declaration>
+			
+			
+			<Anchor>//api/name/bytesProcessed</Anchor>
+            <NodeRef refid="1945"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3Progress/bytesProcessed</TokenIdentifier>
+			<Abstract type="html">Current number of uncompressed object bytes processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesProcessed</Declaration>
+			
+			
+			<Anchor>//api/name/bytesProcessed</Anchor>
+            <NodeRef refid="1945"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Progress/setBytesScanned:</TokenIdentifier>
+			<Abstract type="html">Current number of object bytes scanned.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesScanned</Declaration>
+			
+			
+			<Anchor>//api/name/bytesScanned</Anchor>
+            <NodeRef refid="1945"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Progress/bytesScanned</TokenIdentifier>
+			<Abstract type="html">Current number of object bytes scanned.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesScanned</Declaration>
+			
+			
+			<Anchor>//api/name/bytesScanned</Anchor>
+            <NodeRef refid="1945"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3Progress/bytesScanned</TokenIdentifier>
+			<Abstract type="html">Current number of object bytes scanned.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesScanned</Declaration>
+			
+			
+			<Anchor>//api/name/bytesScanned</Anchor>
+            <NodeRef refid="1945"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSIoTJobStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSIoTJobStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2525"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2525"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobStatusInProgress</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobStatusInProgress</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2525"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobStatusCanceled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobStatusCanceled</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2525"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobStatusCompleted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobStatusCompleted</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2525"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobStatusDeletionInProgress</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobStatusDeletionInProgress</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2525"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

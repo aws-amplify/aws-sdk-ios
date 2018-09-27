@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSMobileAnalyticsAppleMonetizationEventBuilder.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSMobileAnalyticsAppleMonetizationEventBuilder</TokenIdentifier>
+			<Abstract type="html">AWSMobileAnalyticsAppleMonetizationEventBuilder builds monetization events to track purchases from Apple&apos;s
+IAP Framework. In order to build a monetization event, you must call all of the setters on this builder.
+You will need to access properties on both the SKProduct class and the SKPurchaseTransaction class in order
+to build an Apple Monetization event.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsAppleMonetizationEventBuilder.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1459"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSMobileAnalyticsAppleMonetizationEventBuilder/builderWithEventClient:</TokenIdentifier>
+			<Abstract type="html">Create a monetization builder that can record purchase events from Apple&apos;s
+IAP Framework.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsAppleMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>+ (AWSMobileAnalyticsAppleMonetizationEventBuilder *)builderWithEventClient:(id&lt;AWSMobileAnalyticsEventClient&gt;)theEventClient</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theEventClient</Name>
+					<Abstract type="html">The event client used to create the event</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">a monetization event builder for Apple purchases</Abstract></ReturnValue>
+			<Anchor>//api/name/builderWithEventClient:</Anchor>
+            <NodeRef refid="1459"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsAppleMonetizationEventBuilder/withProductId:</TokenIdentifier>
+			<Abstract type="html">Sets the product id for the item(s) being purchased</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsAppleMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>- (void)withProductId:(NSString *)theProductId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theProductId</Name>
+					<Abstract type="html">The product id of the item(s) being purchased</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/withProductId:</Anchor>
+            <NodeRef refid="1459"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsAppleMonetizationEventBuilder/withItemPrice:andPriceLocale:</TokenIdentifier>
+			<Abstract type="html">Sets the item price and locale of the item being purchased. (Obtained from the SKProduct object)</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsAppleMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>- (void)withItemPrice:(double)theItemPrice andPriceLocale:(NSLocale *)thePriceLocale</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theItemPrice</Name>
+					<Abstract type="html">The numerical item price</Abstract>
+				</Parameter><Parameter>
+					<Name>thePriceLocale</Name>
+					<Abstract type="html">The locale representing the item price&apos;s currency</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/withItemPrice:andPriceLocale:</Anchor>
+            <NodeRef refid="1459"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsAppleMonetizationEventBuilder/withQuantity:</TokenIdentifier>
+			<Abstract type="html">Sets the quantity of item(s) being purchased. (Obtained from the SKPurchaseTransaction object)</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsAppleMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>- (void)withQuantity:(NSInteger)theQuantity</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theQuantity</Name>
+					<Abstract type="html">The quantity of items purchased</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/withQuantity:</Anchor>
+            <NodeRef refid="1459"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsAppleMonetizationEventBuilder/withTransactionId:</TokenIdentifier>
+			<Abstract type="html">Sets the transaction id of the purchase (Obtained from the SKPurchaseTransaction object)</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsAppleMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>- (void)withTransactionId:(NSString *)theTransactionId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>theTransactionId</Name>
+					<Abstract type="html">The transaction id of the purchase</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/withTransactionId:</Anchor>
+            <NodeRef refid="1459"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsAppleMonetizationEventBuilder/build</TokenIdentifier>
+			<Abstract type="html">Builds the monetization event using the parameters set on the builder. You must
+still record the event.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsAppleMonetizationEventBuilder.h</DeclaredIn>
+			
+			<Declaration>- (id&lt;AWSMobileAnalyticsEvent&gt;)build</Declaration>
+			
+			<ReturnValue><Abstract type="html">an AWSMobileAnalyticsEvent to record</Abstract></ReturnValue>
+			<Anchor>//api/name/build</Anchor>
+            <NodeRef refid="1459"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsAppleMonetizationEventBuilder/initWithEventClient:</TokenIdentifier>
+			<Abstract type="html">Initializes the AWSMobileAnalyticsMonetizationEventBuilder. This class is not meant to be initialized directly. This method should
+only be called/overridden by derived builders.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsAppleMonetizationEventBuilder.m</DeclaredIn>
+			
+			<Declaration>- (AWSMobileAnalyticsAppleMonetizationEventBuilder *)initWithEventClient:(id&lt;AWSMobileAnalyticsEventClient&gt;)theEventClient</Declaration>
+			
+			
+			<Anchor>//api/name/initWithEventClient:</Anchor>
+            <NodeRef refid="1459"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsAppleMonetizationEventBuilder/isValid</TokenIdentifier>
+			<Abstract type="html">Determines if this builder is in a valid state. This method must be overridden in derived classes.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsAppleMonetizationEventBuilder.m</DeclaredIn>
+			
+			<Declaration>- (BOOL)isValid</Declaration>
+			
+			<ReturnValue><Abstract type="html">YES if the Builder is valid, NO otherwise.</Abstract></ReturnValue>
+			<Anchor>//api/name/isValid</Anchor>
+            <NodeRef refid="1459"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

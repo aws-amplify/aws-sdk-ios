@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSTranscribeStartTranscriptionJobRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSTranscribeStartTranscriptionJobRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2356"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/setLanguageCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code for the language used in the input media file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code for the language used in the input media file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeStartTranscriptionJobRequest/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code for the language used in the input media file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/setMedia:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that describes the input media for a transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSTranscribeMedia *media</Declaration>
+			
+			
+			<Anchor>//api/name/media</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/media</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that describes the input media for a transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSTranscribeMedia *media</Declaration>
+			
+			
+			<Anchor>//api/name/media</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeStartTranscriptionJobRequest/media</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that describes the input media for a transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSTranscribeMedia *media</Declaration>
+			
+			
+			<Anchor>//api/name/media</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/setMediaFormat:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The format of the input media file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeMediaFormat mediaFormat</Declaration>
+			
+			
+			<Anchor>//api/name/mediaFormat</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/mediaFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The format of the input media file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeMediaFormat mediaFormat</Declaration>
+			
+			
+			<Anchor>//api/name/mediaFormat</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeStartTranscriptionJobRequest/mediaFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The format of the input media file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeMediaFormat mediaFormat</Declaration>
+			
+			
+			<Anchor>//api/name/mediaFormat</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/setMediaSampleRateHertz:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sample rate, in Hertz, of the audio track in the input media file. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *mediaSampleRateHertz</Declaration>
+			
+			
+			<Anchor>//api/name/mediaSampleRateHertz</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/mediaSampleRateHertz</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sample rate, in Hertz, of the audio track in the input media file. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *mediaSampleRateHertz</Declaration>
+			
+			
+			<Anchor>//api/name/mediaSampleRateHertz</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeStartTranscriptionJobRequest/mediaSampleRateHertz</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sample rate, in Hertz, of the audio track in the input media file. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *mediaSampleRateHertz</Declaration>
+			
+			
+			<Anchor>//api/name/mediaSampleRateHertz</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/setOutputBucketName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The location where the transcription is stored.&lt;/p&gt;&lt;p&gt;If you set the &lt;code&gt;OutputBucketName&lt;/code&gt;, Amazon Transcribe puts the transcription in the specified S3 bucket. When you call the &lt;a&gt;GetTranscriptionJob&lt;/a&gt; operation, the operation returns this location in the &lt;code&gt;TranscriptFileUri&lt;/code&gt; field. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see Permissions Required for IAM User Roles.&lt;/p&gt;&lt;p&gt;If you don&apos;t set the &lt;code&gt;OutputBucketName&lt;/code&gt;, Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the &lt;code&gt;TranscriptFileUri&lt;/code&gt; field. Use this URL to download the transcription.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *outputBucketName</Declaration>
+			
+			
+			<Anchor>//api/name/outputBucketName</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/outputBucketName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The location where the transcription is stored.&lt;/p&gt;&lt;p&gt;If you set the &lt;code&gt;OutputBucketName&lt;/code&gt;, Amazon Transcribe puts the transcription in the specified S3 bucket. When you call the &lt;a&gt;GetTranscriptionJob&lt;/a&gt; operation, the operation returns this location in the &lt;code&gt;TranscriptFileUri&lt;/code&gt; field. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see Permissions Required for IAM User Roles.&lt;/p&gt;&lt;p&gt;If you don&apos;t set the &lt;code&gt;OutputBucketName&lt;/code&gt;, Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the &lt;code&gt;TranscriptFileUri&lt;/code&gt; field. Use this URL to download the transcription.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *outputBucketName</Declaration>
+			
+			
+			<Anchor>//api/name/outputBucketName</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeStartTranscriptionJobRequest/outputBucketName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The location where the transcription is stored.&lt;/p&gt;&lt;p&gt;If you set the &lt;code&gt;OutputBucketName&lt;/code&gt;, Amazon Transcribe puts the transcription in the specified S3 bucket. When you call the &lt;a&gt;GetTranscriptionJob&lt;/a&gt; operation, the operation returns this location in the &lt;code&gt;TranscriptFileUri&lt;/code&gt; field. The S3 bucket must have permissions that allow Amazon Transcribe to put files in the bucket. For more information, see Permissions Required for IAM User Roles.&lt;/p&gt;&lt;p&gt;If you don&apos;t set the &lt;code&gt;OutputBucketName&lt;/code&gt;, Amazon Transcribe generates a pre-signed URL, a shareable URL that provides secure access to your transcription, and returns it in the &lt;code&gt;TranscriptFileUri&lt;/code&gt; field. Use this URL to download the transcription.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *outputBucketName</Declaration>
+			
+			
+			<Anchor>//api/name/outputBucketName</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/setSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A &lt;code&gt;Settings&lt;/code&gt; object that provides optional settings for a transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSTranscribeSettings *settings</Declaration>
+			
+			
+			<Anchor>//api/name/settings</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/settings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A &lt;code&gt;Settings&lt;/code&gt; object that provides optional settings for a transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSTranscribeSettings *settings</Declaration>
+			
+			
+			<Anchor>//api/name/settings</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeStartTranscriptionJobRequest/settings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A &lt;code&gt;Settings&lt;/code&gt; object that provides optional settings for a transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSTranscribeSettings *settings</Declaration>
+			
+			
+			<Anchor>//api/name/settings</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/setTranscriptionJobName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the job. You can&apos;t use the strings &quot;.&quot; or &quot;..&quot; in the job name. The name must be unique within an AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transcriptionJobName</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobName</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeStartTranscriptionJobRequest/transcriptionJobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the job. You can&apos;t use the strings &quot;.&quot; or &quot;..&quot; in the job name. The name must be unique within an AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transcriptionJobName</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobName</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeStartTranscriptionJobRequest/transcriptionJobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the job. You can&apos;t use the strings &quot;.&quot; or &quot;..&quot; in the job name. The name must be unique within an AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transcriptionJobName</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobName</Anchor>
+            <NodeRef refid="2356"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

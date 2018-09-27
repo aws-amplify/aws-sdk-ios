@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBObjectMapperConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBObjectMapperConfiguration</TokenIdentifier>
+			<Abstract type="html">Immutable configuration object for service call behavior. An instance of this configuration is supplied to every DynamoDBMapper at construction. New instances can be given to the mapper object on individual save, load, and remove operations to override the defaults.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+            
+			
+			<NodeRef refid="634"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBObjectMapperConfiguration/setSaveBehavior:</TokenIdentifier>
+			<Abstract type="html">The behavior for the save operation.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBObjectMapperSaveBehavior saveBehavior</Declaration>
+			
+			
+			<Anchor>//api/name/saveBehavior</Anchor>
+            <NodeRef refid="634"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBObjectMapperConfiguration/saveBehavior</TokenIdentifier>
+			<Abstract type="html">The behavior for the save operation.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBObjectMapperSaveBehavior saveBehavior</Declaration>
+			
+			
+			<Anchor>//api/name/saveBehavior</Anchor>
+            <NodeRef refid="634"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBObjectMapperConfiguration/saveBehavior</TokenIdentifier>
+			<Abstract type="html">The behavior for the save operation.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBObjectMapperSaveBehavior saveBehavior</Declaration>
+			
+			
+			<Anchor>//api/name/saveBehavior</Anchor>
+            <NodeRef refid="634"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBObjectMapperConfiguration/setConsistentRead:</TokenIdentifier>
+			<Abstract type="html">When set to @YES, AWSDynamoDBObjectMapper uses consistent read to read data from the table. When set to @NO, it uses eventually consistant read.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nullable) NSNumber *consistentRead</Declaration>
+			
+			
+			<Anchor>//api/name/consistentRead</Anchor>
+            <NodeRef refid="634"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBObjectMapperConfiguration/consistentRead</TokenIdentifier>
+			<Abstract type="html">When set to @YES, AWSDynamoDBObjectMapper uses consistent read to read data from the table. When set to @NO, it uses eventually consistant read.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nullable) NSNumber *consistentRead</Declaration>
+			
+			
+			<Anchor>//api/name/consistentRead</Anchor>
+            <NodeRef refid="634"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBObjectMapperConfiguration/consistentRead</TokenIdentifier>
+			<Abstract type="html">When set to @YES, AWSDynamoDBObjectMapper uses consistent read to read data from the table. When set to @NO, it uses eventually consistant read.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nullable) NSNumber *consistentRead</Declaration>
+			
+			
+			<Anchor>//api/name/consistentRead</Anchor>
+            <NodeRef refid="634"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

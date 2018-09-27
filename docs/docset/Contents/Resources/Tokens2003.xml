@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3Stats.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3Stats</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2003"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Stats/setBytesProcessed:</TokenIdentifier>
+			<Abstract type="html">Total number of uncompressed object bytes processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesProcessed</Declaration>
+			
+			
+			<Anchor>//api/name/bytesProcessed</Anchor>
+            <NodeRef refid="2003"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Stats/bytesProcessed</TokenIdentifier>
+			<Abstract type="html">Total number of uncompressed object bytes processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesProcessed</Declaration>
+			
+			
+			<Anchor>//api/name/bytesProcessed</Anchor>
+            <NodeRef refid="2003"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3Stats/bytesProcessed</TokenIdentifier>
+			<Abstract type="html">Total number of uncompressed object bytes processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesProcessed</Declaration>
+			
+			
+			<Anchor>//api/name/bytesProcessed</Anchor>
+            <NodeRef refid="2003"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Stats/setBytesScanned:</TokenIdentifier>
+			<Abstract type="html">Total number of object bytes scanned.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesScanned</Declaration>
+			
+			
+			<Anchor>//api/name/bytesScanned</Anchor>
+            <NodeRef refid="2003"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Stats/bytesScanned</TokenIdentifier>
+			<Abstract type="html">Total number of object bytes scanned.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesScanned</Declaration>
+			
+			
+			<Anchor>//api/name/bytesScanned</Anchor>
+            <NodeRef refid="2003"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3Stats/bytesScanned</TokenIdentifier>
+			<Abstract type="html">Total number of object bytes scanned.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *bytesScanned</Declaration>
+			
+			
+			<Anchor>//api/name/bytesScanned</Anchor>
+            <NodeRef refid="2003"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

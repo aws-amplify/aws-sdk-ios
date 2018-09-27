@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisGetRecordsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisGetRecordsInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the input for &lt;a&gt;GetRecords&lt;/a&gt;.&lt;/p&gt;
+Required parameters: [ShardIterator]</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1241"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetRecordsInput/setLimit:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, &lt;a&gt;GetRecords&lt;/a&gt; throws &lt;code&gt;InvalidArgumentException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1241"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetRecordsInput/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, &lt;a&gt;GetRecords&lt;/a&gt; throws &lt;code&gt;InvalidArgumentException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1241"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetRecordsInput/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of records to return. Specify a value of up to 10,000. If you specify a value that is greater than 10,000, &lt;a&gt;GetRecords&lt;/a&gt; throws &lt;code&gt;InvalidArgumentException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1241"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetRecordsInput/setShardIterator:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardIterator</Declaration>
+			
+			
+			<Anchor>//api/name/shardIterator</Anchor>
+            <NodeRef refid="1241"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetRecordsInput/shardIterator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardIterator</Declaration>
+			
+			
+			<Anchor>//api/name/shardIterator</Anchor>
+            <NodeRef refid="1241"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetRecordsInput/shardIterator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The position in the shard from which you want to start sequentially reading data records. A shard iterator specifies this position using the sequence number of a data record in the shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardIterator</Declaration>
+			
+			
+			<Anchor>//api/name/shardIterator</Anchor>
+            <NodeRef refid="1241"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

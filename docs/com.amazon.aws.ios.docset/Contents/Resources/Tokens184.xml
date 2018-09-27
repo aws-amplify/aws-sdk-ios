@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityDeleteIdentitiesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDeleteIdentitiesResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returned in response to a successful &lt;code&gt;DeleteIdentities&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="184"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityDeleteIdentitiesResponse/setUnprocessedIdentityIds:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityUnprocessedIdentityId*&gt; *unprocessedIdentityIds</Declaration>
+			
+			
+			<Anchor>//api/name/unprocessedIdentityIds</Anchor>
+            <NodeRef refid="184"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityDeleteIdentitiesResponse/unprocessedIdentityIds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityUnprocessedIdentityId*&gt; *unprocessedIdentityIds</Declaration>
+			
+			
+			<Anchor>//api/name/unprocessedIdentityIds</Anchor>
+            <NodeRef refid="184"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityDeleteIdentitiesResponse/unprocessedIdentityIds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of UnprocessedIdentityId objects, each of which contains an ErrorCode and IdentityId.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityUnprocessedIdentityId*&gt; *unprocessedIdentityIds</Declaration>
+			
+			
+			<Anchor>//api/name/unprocessedIdentityIds</Anchor>
+            <NodeRef refid="184"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

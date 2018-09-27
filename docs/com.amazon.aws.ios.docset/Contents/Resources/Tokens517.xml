@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehend.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehend</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Amazon Comprehend is an AWS service for gaining insight into the content of documents. Use these actions to determine the topics contained in your documents, the topics they discuss, the predominant sentiment expressed in them, the predominant language used, and more.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="517"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehend/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSComprehend/defaultComprehend</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultComprehend</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultComprehend</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSComprehend/registerComprehendWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerComprehendWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerComprehendWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSComprehend/ComprehendForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerComprehendWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)ComprehendForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/ComprehendForKey:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSComprehend/removeComprehendForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeComprehendForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeComprehendForKey:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/batchDetectDominantLanguage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see Amazon Comprehend Supported Languages. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectDominantLanguageRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectDominantLanguageResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendBatchDetectDominantLanguageResponse*&gt; *)batchDetectDominantLanguage:(AWSComprehendBatchDetectDominantLanguageRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchDetectDominantLanguage service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendBatchDetectDominantLanguageResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorBatchSizeLimitExceeded, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/batchDetectDominantLanguage:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/batchDetectDominantLanguage:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the dominant language of the input text for a batch of documents. For a list of languages that Amazon Comprehend can detect, see Amazon Comprehend Supported Languages. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectDominantLanguageRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectDominantLanguageResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)batchDetectDominantLanguage:(AWSComprehendBatchDetectDominantLanguageRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectDominantLanguageResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchDetectDominantLanguage service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorBatchSizeLimitExceeded, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/batchDetectDominantLanguage:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/batchDetectEntities:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Inspects the text of a batch of documents and returns information about them. For more information about entities, see &lt;a&gt;how-entities&lt;/a&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectEntitiesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectEntitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendBatchDetectEntitiesResponse*&gt; *)batchDetectEntities:(AWSComprehendBatchDetectEntitiesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchDetectEntities service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendBatchDetectEntitiesResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorBatchSizeLimitExceeded, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/batchDetectEntities:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/batchDetectEntities:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Inspects the text of a batch of documents and returns information about them. For more information about entities, see &lt;a&gt;how-entities&lt;/a&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectEntitiesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectEntitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)batchDetectEntities:(AWSComprehendBatchDetectEntitiesRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectEntitiesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchDetectEntities service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorBatchSizeLimitExceeded, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/batchDetectEntities:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/batchDetectKeyPhrases:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Detects the key noun phrases found in a batch of documents.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectKeyPhrasesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectKeyPhrasesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendBatchDetectKeyPhrasesResponse*&gt; *)batchDetectKeyPhrases:(AWSComprehendBatchDetectKeyPhrasesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchDetectKeyPhrases service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendBatchDetectKeyPhrasesResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorBatchSizeLimitExceeded, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/batchDetectKeyPhrases:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/batchDetectKeyPhrases:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Detects the key noun phrases found in a batch of documents.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectKeyPhrasesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectKeyPhrasesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)batchDetectKeyPhrases:(AWSComprehendBatchDetectKeyPhrasesRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectKeyPhrasesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchDetectKeyPhrases service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorBatchSizeLimitExceeded, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/batchDetectKeyPhrases:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/batchDetectSentiment:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Inspects a batch of documents and returns an inference of the prevailing sentiment, &lt;code&gt;POSITIVE&lt;/code&gt;, &lt;code&gt;NEUTRAL&lt;/code&gt;, &lt;code&gt;MIXED&lt;/code&gt;, or &lt;code&gt;NEGATIVE&lt;/code&gt;, in each one.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectSentimentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectSentimentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendBatchDetectSentimentResponse*&gt; *)batchDetectSentiment:(AWSComprehendBatchDetectSentimentRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchDetectSentiment service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendBatchDetectSentimentResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorBatchSizeLimitExceeded, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/batchDetectSentiment:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/batchDetectSentiment:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Inspects a batch of documents and returns an inference of the prevailing sentiment, &lt;code&gt;POSITIVE&lt;/code&gt;, &lt;code&gt;NEUTRAL&lt;/code&gt;, &lt;code&gt;MIXED&lt;/code&gt;, or &lt;code&gt;NEGATIVE&lt;/code&gt;, in each one.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectSentimentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectSentimentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)batchDetectSentiment:(AWSComprehendBatchDetectSentimentRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendBatchDetectSentimentResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the BatchDetectSentiment service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorBatchSizeLimitExceeded, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/batchDetectSentiment:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/describeTopicsDetectionJob:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets the properties associated with a topic detection job. Use this operation to get the status of a detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDescribeTopicsDetectionJobRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDescribeTopicsDetectionJobResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendDescribeTopicsDetectionJobResponse*&gt; *)describeTopicsDetectionJob:(AWSComprehendDescribeTopicsDetectionJobRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeTopicsDetectionJob service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendDescribeTopicsDetectionJobResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorJobNotFound, AWSComprehendErrorTooManyRequests, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeTopicsDetectionJob:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/describeTopicsDetectionJob:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets the properties associated with a topic detection job. Use this operation to get the status of a detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDescribeTopicsDetectionJobRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDescribeTopicsDetectionJobResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeTopicsDetectionJob:(AWSComprehendDescribeTopicsDetectionJobRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDescribeTopicsDetectionJobResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeTopicsDetectionJob service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorJobNotFound, AWSComprehendErrorTooManyRequests, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeTopicsDetectionJob:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/detectDominantLanguage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see Amazon Comprehend Supported Languages. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectDominantLanguageRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectDominantLanguageResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendDetectDominantLanguageResponse*&gt; *)detectDominantLanguage:(AWSComprehendDetectDominantLanguageRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DetectDominantLanguage service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendDetectDominantLanguageResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/detectDominantLanguage:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/detectDominantLanguage:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the dominant language of the input text. For a list of languages that Amazon Comprehend can detect, see Amazon Comprehend Supported Languages. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectDominantLanguageRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectDominantLanguageResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)detectDominantLanguage:(AWSComprehendDetectDominantLanguageRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectDominantLanguageResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DetectDominantLanguage service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/detectDominantLanguage:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/detectEntities:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Inspects text for entities, and returns information about them. For more information, about entities, see &lt;a&gt;how-entities&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectEntitiesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectEntitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendDetectEntitiesResponse*&gt; *)detectEntities:(AWSComprehendDetectEntitiesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DetectEntities service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendDetectEntitiesResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/detectEntities:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/detectEntities:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Inspects text for entities, and returns information about them. For more information, about entities, see &lt;a&gt;how-entities&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectEntitiesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectEntitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)detectEntities:(AWSComprehendDetectEntitiesRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectEntitiesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DetectEntities service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/detectEntities:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/detectKeyPhrases:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Detects the key noun phrases found in the text. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectKeyPhrasesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectKeyPhrasesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendDetectKeyPhrasesResponse*&gt; *)detectKeyPhrases:(AWSComprehendDetectKeyPhrasesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DetectKeyPhrases service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendDetectKeyPhrasesResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/detectKeyPhrases:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/detectKeyPhrases:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Detects the key noun phrases found in the text. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectKeyPhrasesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectKeyPhrasesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)detectKeyPhrases:(AWSComprehendDetectKeyPhrasesRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectKeyPhrasesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DetectKeyPhrases service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/detectKeyPhrases:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/detectSentiment:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Inspects text and returns an inference of the prevailing sentiment (&lt;code&gt;POSITIVE&lt;/code&gt;, &lt;code&gt;NEUTRAL&lt;/code&gt;, &lt;code&gt;MIXED&lt;/code&gt;, or &lt;code&gt;NEGATIVE&lt;/code&gt;). &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectSentimentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectSentimentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendDetectSentimentResponse*&gt; *)detectSentiment:(AWSComprehendDetectSentimentRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DetectSentiment service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendDetectSentimentResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/detectSentiment:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/detectSentiment:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Inspects text and returns an inference of the prevailing sentiment (&lt;code&gt;POSITIVE&lt;/code&gt;, &lt;code&gt;NEUTRAL&lt;/code&gt;, &lt;code&gt;MIXED&lt;/code&gt;, or &lt;code&gt;NEGATIVE&lt;/code&gt;). &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectSentimentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectSentimentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)detectSentiment:(AWSComprehendDetectSentimentRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendDetectSentimentResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DetectSentiment service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTextSizeLimitExceeded, AWSComprehendErrorUnsupportedLanguage, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/detectSentiment:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/listTopicsDetectionJobs:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets a list of the topic detection jobs that you have submitted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendListTopicsDetectionJobsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendListTopicsDetectionJobsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendListTopicsDetectionJobsResponse*&gt; *)listTopicsDetectionJobs:(AWSComprehendListTopicsDetectionJobsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListTopicsDetectionJobs service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendListTopicsDetectionJobsResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTooManyRequests, AWSComprehendErrorInvalidFilter, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/listTopicsDetectionJobs:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/listTopicsDetectionJobs:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets a list of the topic detection jobs that you have submitted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendListTopicsDetectionJobsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendListTopicsDetectionJobsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listTopicsDetectionJobs:(AWSComprehendListTopicsDetectionJobsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendListTopicsDetectionJobsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListTopicsDetectionJobs service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTooManyRequests, AWSComprehendErrorInvalidFilter, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listTopicsDetectionJobs:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/startTopicsDetectionJob:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Starts an asynchronous topic detection job. Use the &lt;code&gt;DescribeTopicDetectionJob&lt;/code&gt; operation to track the status of a job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendStartTopicsDetectionJobRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendStartTopicsDetectionJobResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSComprehendStartTopicsDetectionJobResponse*&gt; *)startTopicsDetectionJob:(AWSComprehendStartTopicsDetectionJobRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the StartTopicsDetectionJob service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSComprehendStartTopicsDetectionJobResponse. On failed execution, task.error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTooManyRequests, AWSComprehendErrorInternalServer.</Abstract></ReturnValue>
+			<Anchor>//api/name/startTopicsDetectionJob:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehend/startTopicsDetectionJob:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Starts an asynchronous topic detection job. Use the &lt;code&gt;DescribeTopicDetectionJob&lt;/code&gt; operation to track the status of a job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendStartTopicsDetectionJobRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendStartTopicsDetectionJobResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)startTopicsDetectionJob:(AWSComprehendStartTopicsDetectionJobRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStartTopicsDetectionJobResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the StartTopicsDetectionJob service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSComprehendErrorDomain domain and the following error code: AWSComprehendErrorInvalidRequest, AWSComprehendErrorTooManyRequests, AWSComprehendErrorInternalServer.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/startTopicsDetectionJob:completionHandler:</Anchor>
+            <NodeRef refid="517"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTGetRegistrationCodeRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTGetRegistrationCodeRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input to the GetRegistrationCode operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="999"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

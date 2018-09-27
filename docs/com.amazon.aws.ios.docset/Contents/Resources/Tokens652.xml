@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBReplicaSettingsDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBReplicaSettingsDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the properties of a replica.&lt;/p&gt;
+Required parameters: [RegionName]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="652"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/setRegionName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The region name of the replica.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *regionName</Declaration>
+			
+			
+			<Anchor>//api/name/regionName</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/regionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The region name of the replica.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *regionName</Declaration>
+			
+			
+			<Anchor>//api/name/regionName</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBReplicaSettingsDescription/regionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The region name of the replica.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *regionName</Declaration>
+			
+			
+			<Anchor>//api/name/regionName</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/setReplicaGlobalSecondaryIndexSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Replica global secondary index settings for the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription*&gt; *replicaGlobalSecondaryIndexSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaGlobalSecondaryIndexSettings</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/replicaGlobalSecondaryIndexSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Replica global secondary index settings for the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription*&gt; *replicaGlobalSecondaryIndexSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaGlobalSecondaryIndexSettings</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBReplicaSettingsDescription/replicaGlobalSecondaryIndexSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Replica global secondary index settings for the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription*&gt; *replicaGlobalSecondaryIndexSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaGlobalSecondaryIndexSettings</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/setReplicaProvisionedReadCapacityAutoScalingSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Autoscaling settings for a global table replica&apos;s read capacity units.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription *replicaProvisionedReadCapacityAutoScalingSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedReadCapacityAutoScalingSettings</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/replicaProvisionedReadCapacityAutoScalingSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Autoscaling settings for a global table replica&apos;s read capacity units.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription *replicaProvisionedReadCapacityAutoScalingSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedReadCapacityAutoScalingSettings</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBReplicaSettingsDescription/replicaProvisionedReadCapacityAutoScalingSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Autoscaling settings for a global table replica&apos;s read capacity units.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription *replicaProvisionedReadCapacityAutoScalingSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedReadCapacityAutoScalingSettings</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/setReplicaProvisionedReadCapacityUnits:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of strongly consistent reads consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *replicaProvisionedReadCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedReadCapacityUnits</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/replicaProvisionedReadCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of strongly consistent reads consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *replicaProvisionedReadCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedReadCapacityUnits</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBReplicaSettingsDescription/replicaProvisionedReadCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of strongly consistent reads consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *replicaProvisionedReadCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedReadCapacityUnits</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/setReplicaProvisionedWriteCapacityAutoScalingSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;AutoScaling settings for a global table replica&apos;s write capacity units.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription *replicaProvisionedWriteCapacityAutoScalingSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedWriteCapacityAutoScalingSettings</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/replicaProvisionedWriteCapacityAutoScalingSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;AutoScaling settings for a global table replica&apos;s write capacity units.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription *replicaProvisionedWriteCapacityAutoScalingSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedWriteCapacityAutoScalingSettings</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBReplicaSettingsDescription/replicaProvisionedWriteCapacityAutoScalingSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;AutoScaling settings for a global table replica&apos;s write capacity units.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription *replicaProvisionedWriteCapacityAutoScalingSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedWriteCapacityAutoScalingSettings</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/setReplicaProvisionedWriteCapacityUnits:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of writes consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *replicaProvisionedWriteCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedWriteCapacityUnits</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/replicaProvisionedWriteCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of writes consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *replicaProvisionedWriteCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedWriteCapacityUnits</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBReplicaSettingsDescription/replicaProvisionedWriteCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of writes consumed per second before DynamoDB returns a &lt;code&gt;ThrottlingException&lt;/code&gt;. For more information, see Specifying Read and Write Requirements in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *replicaProvisionedWriteCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/replicaProvisionedWriteCapacityUnits</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/setReplicaStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current state of the region:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CREATING&lt;/code&gt; - The region is being created.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATING&lt;/code&gt; - The region is being updated.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DELETING&lt;/code&gt; - The region is being deleted.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ACTIVE&lt;/code&gt; - The region is ready for use.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReplicaStatus replicaStatus</Declaration>
+			
+			
+			<Anchor>//api/name/replicaStatus</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBReplicaSettingsDescription/replicaStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current state of the region:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CREATING&lt;/code&gt; - The region is being created.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATING&lt;/code&gt; - The region is being updated.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DELETING&lt;/code&gt; - The region is being deleted.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ACTIVE&lt;/code&gt; - The region is ready for use.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReplicaStatus replicaStatus</Declaration>
+			
+			
+			<Anchor>//api/name/replicaStatus</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBReplicaSettingsDescription/replicaStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current state of the region:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CREATING&lt;/code&gt; - The region is being created.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATING&lt;/code&gt; - The region is being updated.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DELETING&lt;/code&gt; - The region is being deleted.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ACTIVE&lt;/code&gt; - The region is ready for use.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReplicaStatus replicaStatus</Declaration>
+			
+			
+			<Anchor>//api/name/replicaStatus</Anchor>
+            <NodeRef refid="652"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

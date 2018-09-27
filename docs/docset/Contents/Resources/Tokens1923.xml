@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3ListObjectsV2Request.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3ListObjectsV2Request</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1923"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/setBucket:</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to list.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/bucket</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to list.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListObjectsV2Request/bucket</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to list.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/setContinuationToken:</TokenIdentifier>
+			<Abstract type="html">ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/continuationToken</TokenIdentifier>
+			<Abstract type="html">ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListObjectsV2Request/continuationToken</TokenIdentifier>
+			<Abstract type="html">ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/setDelimiter:</TokenIdentifier>
+			<Abstract type="html">A delimiter is a character you use to group keys.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *delimiter</Declaration>
+			
+			
+			<Anchor>//api/name/delimiter</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/delimiter</TokenIdentifier>
+			<Abstract type="html">A delimiter is a character you use to group keys.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *delimiter</Declaration>
+			
+			
+			<Anchor>//api/name/delimiter</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListObjectsV2Request/delimiter</TokenIdentifier>
+			<Abstract type="html">A delimiter is a character you use to group keys.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *delimiter</Declaration>
+			
+			
+			<Anchor>//api/name/delimiter</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/setEncodingType:</TokenIdentifier>
+			<Abstract type="html">Encoding type used by Amazon S3 to encode object keys in the response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3EncodingType encodingType</Declaration>
+			
+			
+			<Anchor>//api/name/encodingType</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/encodingType</TokenIdentifier>
+			<Abstract type="html">Encoding type used by Amazon S3 to encode object keys in the response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3EncodingType encodingType</Declaration>
+			
+			
+			<Anchor>//api/name/encodingType</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListObjectsV2Request/encodingType</TokenIdentifier>
+			<Abstract type="html">Encoding type used by Amazon S3 to encode object keys in the response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3EncodingType encodingType</Declaration>
+			
+			
+			<Anchor>//api/name/encodingType</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/setFetchOwner:</TokenIdentifier>
+			<Abstract type="html">The owner field is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *fetchOwner</Declaration>
+			
+			
+			<Anchor>//api/name/fetchOwner</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/fetchOwner</TokenIdentifier>
+			<Abstract type="html">The owner field is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *fetchOwner</Declaration>
+			
+			
+			<Anchor>//api/name/fetchOwner</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListObjectsV2Request/fetchOwner</TokenIdentifier>
+			<Abstract type="html">The owner field is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *fetchOwner</Declaration>
+			
+			
+			<Anchor>//api/name/fetchOwner</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/setMaxKeys:</TokenIdentifier>
+			<Abstract type="html">Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxKeys</Declaration>
+			
+			
+			<Anchor>//api/name/maxKeys</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/maxKeys</TokenIdentifier>
+			<Abstract type="html">Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxKeys</Declaration>
+			
+			
+			<Anchor>//api/name/maxKeys</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListObjectsV2Request/maxKeys</TokenIdentifier>
+			<Abstract type="html">Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxKeys</Declaration>
+			
+			
+			<Anchor>//api/name/maxKeys</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/setPrefix:</TokenIdentifier>
+			<Abstract type="html">Limits the response to keys that begin with the specified prefix.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/prefix</TokenIdentifier>
+			<Abstract type="html">Limits the response to keys that begin with the specified prefix.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListObjectsV2Request/prefix</TokenIdentifier>
+			<Abstract type="html">Limits the response to keys that begin with the specified prefix.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/setRequestPayer:</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/requestPayer</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListObjectsV2Request/requestPayer</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/setStartAfter:</TokenIdentifier>
+			<Abstract type="html">StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startAfter</Declaration>
+			
+			
+			<Anchor>//api/name/startAfter</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListObjectsV2Request/startAfter</TokenIdentifier>
+			<Abstract type="html">StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startAfter</Declaration>
+			
+			
+			<Anchor>//api/name/startAfter</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListObjectsV2Request/startAfter</TokenIdentifier>
+			<Abstract type="html">StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startAfter</Declaration>
+			
+			
+			<Anchor>//api/name/startAfter</Anchor>
+            <NodeRef refid="1923"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

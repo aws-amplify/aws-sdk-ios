@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3S3Location.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3S3Location</TokenIdentifier>
+			<Abstract type="html">Describes an S3 location that will receive the results of the restore request.
+Required parameters: [BucketName, Prefix]</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1991"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/setAccessControlList:</TokenIdentifier>
+			<Abstract type="html">A list of grants that control access to the staged results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3Grant*&gt; *accessControlList</Declaration>
+			
+			
+			<Anchor>//api/name/accessControlList</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/accessControlList</TokenIdentifier>
+			<Abstract type="html">A list of grants that control access to the staged results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3Grant*&gt; *accessControlList</Declaration>
+			
+			
+			<Anchor>//api/name/accessControlList</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3S3Location/accessControlList</TokenIdentifier>
+			<Abstract type="html">A list of grants that control access to the staged results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3Grant*&gt; *accessControlList</Declaration>
+			
+			
+			<Anchor>//api/name/accessControlList</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/setBucketName:</TokenIdentifier>
+			<Abstract type="html">The name of the bucket where the restore results will be placed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucketName</Declaration>
+			
+			
+			<Anchor>//api/name/bucketName</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/bucketName</TokenIdentifier>
+			<Abstract type="html">The name of the bucket where the restore results will be placed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucketName</Declaration>
+			
+			
+			<Anchor>//api/name/bucketName</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3S3Location/bucketName</TokenIdentifier>
+			<Abstract type="html">The name of the bucket where the restore results will be placed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucketName</Declaration>
+			
+			
+			<Anchor>//api/name/bucketName</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/setCannedACL:</TokenIdentifier>
+			<Abstract type="html">The canned ACL to apply to the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ObjectCannedACL cannedACL</Declaration>
+			
+			
+			<Anchor>//api/name/cannedACL</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/cannedACL</TokenIdentifier>
+			<Abstract type="html">The canned ACL to apply to the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ObjectCannedACL cannedACL</Declaration>
+			
+			
+			<Anchor>//api/name/cannedACL</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3S3Location/cannedACL</TokenIdentifier>
+			<Abstract type="html">The canned ACL to apply to the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ObjectCannedACL cannedACL</Declaration>
+			
+			
+			<Anchor>//api/name/cannedACL</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/setEncryption:</TokenIdentifier>
+			<Abstract type="html">Describes the server-side encryption that will be applied to the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Encryption *encryption</Declaration>
+			
+			
+			<Anchor>//api/name/encryption</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/encryption</TokenIdentifier>
+			<Abstract type="html">Describes the server-side encryption that will be applied to the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Encryption *encryption</Declaration>
+			
+			
+			<Anchor>//api/name/encryption</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3S3Location/encryption</TokenIdentifier>
+			<Abstract type="html">Describes the server-side encryption that will be applied to the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Encryption *encryption</Declaration>
+			
+			
+			<Anchor>//api/name/encryption</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/setPrefix:</TokenIdentifier>
+			<Abstract type="html">The prefix that is prepended to the restore results for this request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/prefix</TokenIdentifier>
+			<Abstract type="html">The prefix that is prepended to the restore results for this request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3S3Location/prefix</TokenIdentifier>
+			<Abstract type="html">The prefix that is prepended to the restore results for this request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/setStorageClass:</TokenIdentifier>
+			<Abstract type="html">The class of storage used to store the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3StorageClass storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/storageClass</TokenIdentifier>
+			<Abstract type="html">The class of storage used to store the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3StorageClass storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3S3Location/storageClass</TokenIdentifier>
+			<Abstract type="html">The class of storage used to store the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3StorageClass storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/setTagging:</TokenIdentifier>
+			<Abstract type="html">The tag-set that is applied to the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Tagging *tagging</Declaration>
+			
+			
+			<Anchor>//api/name/tagging</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/tagging</TokenIdentifier>
+			<Abstract type="html">The tag-set that is applied to the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Tagging *tagging</Declaration>
+			
+			
+			<Anchor>//api/name/tagging</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3S3Location/tagging</TokenIdentifier>
+			<Abstract type="html">The tag-set that is applied to the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Tagging *tagging</Declaration>
+			
+			
+			<Anchor>//api/name/tagging</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/setUserMetadata:</TokenIdentifier>
+			<Abstract type="html">A list of metadata to store with the restore results in S3.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3MetadataEntry*&gt; *userMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/userMetadata</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3Location/userMetadata</TokenIdentifier>
+			<Abstract type="html">A list of metadata to store with the restore results in S3.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3MetadataEntry*&gt; *userMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/userMetadata</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3S3Location/userMetadata</TokenIdentifier>
+			<Abstract type="html">A list of metadata to store with the restore results in S3.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3MetadataEntry*&gt; *userMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/userMetadata</Anchor>
+            <NodeRef refid="1991"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

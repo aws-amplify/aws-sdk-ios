@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESSendTemplatedEmailResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESSendTemplatedEmailResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2158"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendTemplatedEmailResponse/setMessageId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique message identifier returned from the &lt;code&gt;SendTemplatedEmail&lt;/code&gt; action. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *messageId</Declaration>
+			
+			
+			<Anchor>//api/name/messageId</Anchor>
+            <NodeRef refid="2158"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSendTemplatedEmailResponse/messageId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique message identifier returned from the &lt;code&gt;SendTemplatedEmail&lt;/code&gt; action. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *messageId</Declaration>
+			
+			
+			<Anchor>//api/name/messageId</Anchor>
+            <NodeRef refid="2158"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSendTemplatedEmailResponse/messageId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique message identifier returned from the &lt;code&gt;SendTemplatedEmail&lt;/code&gt; action. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *messageId</Declaration>
+			
+			
+			<Anchor>//api/name/messageId</Anchor>
+            <NodeRef refid="2158"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

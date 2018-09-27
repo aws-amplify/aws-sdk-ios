@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSQSReceiveMessageRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSQSReceiveMessageRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;
+Required parameters: [QueueUrl]</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2284"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/setAttributeNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of attributes that need to be returned along with each message. These attributes include:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;All&lt;/code&gt; - Returns all values.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateFirstReceiveTimestamp&lt;/code&gt; - Returns the time the message was first received from the queue (epoch time in milliseconds).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateReceiveCount&lt;/code&gt; - Returns the number of times a message has been received from the queue but not deleted.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SenderId&lt;/code&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;For an IAM user, returns the IAM user ID, for example &lt;code&gt;ABCDEFGHI1JKLMNOPQ23R&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;For an IAM role, returns the IAM role ID, for example &lt;code&gt;ABCDE1F2GH3I4JK5LMNOP:i-a123b456&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SentTimestamp&lt;/code&gt; - Returns the time the message was sent to the queue (epoch time in milliseconds).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MessageDeduplicationId&lt;/code&gt; - Returns the value provided by the sender that calls the &lt;code&gt;&lt;a&gt;SendMessage&lt;/a&gt;&lt;/code&gt; action.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MessageGroupId&lt;/code&gt; - Returns the value provided by the sender that calls the &lt;code&gt;&lt;a&gt;SendMessage&lt;/a&gt;&lt;/code&gt; action. Messages with the same &lt;code&gt;MessageGroupId&lt;/code&gt; are returned in sequence.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SequenceNumber&lt;/code&gt; - Returns the value provided by Amazon SQS.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Any other valid special request parameters (such as the following) are ignored:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateNumberOfMessages&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateNumberOfMessagesDelayed&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateNumberOfMessagesNotVisible&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CreatedTimestamp&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ContentBasedDeduplication&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DelaySeconds&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;FifoQueue&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;LastModifiedTimestamp&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MaximumMessageSize&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MessageRetentionPeriod&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Policy&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;QueueArn&lt;/code&gt;, &lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ReceiveMessageWaitTimeSeconds&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;RedrivePolicy&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;VisibilityTimeout&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *attributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/attributeNames</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/attributeNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of attributes that need to be returned along with each message. These attributes include:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;All&lt;/code&gt; - Returns all values.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateFirstReceiveTimestamp&lt;/code&gt; - Returns the time the message was first received from the queue (epoch time in milliseconds).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateReceiveCount&lt;/code&gt; - Returns the number of times a message has been received from the queue but not deleted.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SenderId&lt;/code&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;For an IAM user, returns the IAM user ID, for example &lt;code&gt;ABCDEFGHI1JKLMNOPQ23R&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;For an IAM role, returns the IAM role ID, for example &lt;code&gt;ABCDE1F2GH3I4JK5LMNOP:i-a123b456&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SentTimestamp&lt;/code&gt; - Returns the time the message was sent to the queue (epoch time in milliseconds).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MessageDeduplicationId&lt;/code&gt; - Returns the value provided by the sender that calls the &lt;code&gt;&lt;a&gt;SendMessage&lt;/a&gt;&lt;/code&gt; action.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MessageGroupId&lt;/code&gt; - Returns the value provided by the sender that calls the &lt;code&gt;&lt;a&gt;SendMessage&lt;/a&gt;&lt;/code&gt; action. Messages with the same &lt;code&gt;MessageGroupId&lt;/code&gt; are returned in sequence.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SequenceNumber&lt;/code&gt; - Returns the value provided by Amazon SQS.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Any other valid special request parameters (such as the following) are ignored:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateNumberOfMessages&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateNumberOfMessagesDelayed&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateNumberOfMessagesNotVisible&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CreatedTimestamp&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ContentBasedDeduplication&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DelaySeconds&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;FifoQueue&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;LastModifiedTimestamp&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MaximumMessageSize&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MessageRetentionPeriod&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Policy&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;QueueArn&lt;/code&gt;, &lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ReceiveMessageWaitTimeSeconds&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;RedrivePolicy&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;VisibilityTimeout&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *attributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/attributeNames</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSReceiveMessageRequest/attributeNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of attributes that need to be returned along with each message. These attributes include:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;All&lt;/code&gt; - Returns all values.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateFirstReceiveTimestamp&lt;/code&gt; - Returns the time the message was first received from the queue (epoch time in milliseconds).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateReceiveCount&lt;/code&gt; - Returns the number of times a message has been received from the queue but not deleted.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SenderId&lt;/code&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;For an IAM user, returns the IAM user ID, for example &lt;code&gt;ABCDEFGHI1JKLMNOPQ23R&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;For an IAM role, returns the IAM role ID, for example &lt;code&gt;ABCDE1F2GH3I4JK5LMNOP:i-a123b456&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SentTimestamp&lt;/code&gt; - Returns the time the message was sent to the queue (epoch time in milliseconds).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MessageDeduplicationId&lt;/code&gt; - Returns the value provided by the sender that calls the &lt;code&gt;&lt;a&gt;SendMessage&lt;/a&gt;&lt;/code&gt; action.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MessageGroupId&lt;/code&gt; - Returns the value provided by the sender that calls the &lt;code&gt;&lt;a&gt;SendMessage&lt;/a&gt;&lt;/code&gt; action. Messages with the same &lt;code&gt;MessageGroupId&lt;/code&gt; are returned in sequence.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SequenceNumber&lt;/code&gt; - Returns the value provided by Amazon SQS.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Any other valid special request parameters (such as the following) are ignored:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateNumberOfMessages&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateNumberOfMessagesDelayed&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ApproximateNumberOfMessagesNotVisible&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CreatedTimestamp&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ContentBasedDeduplication&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DelaySeconds&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;FifoQueue&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;LastModifiedTimestamp&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MaximumMessageSize&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MessageRetentionPeriod&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Policy&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;QueueArn&lt;/code&gt;, &lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ReceiveMessageWaitTimeSeconds&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;RedrivePolicy&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;VisibilityTimeout&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *attributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/attributeNames</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/setMaxNumberOfMessages:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values are 1 to 10. Default is 1.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxNumberOfMessages</Declaration>
+			
+			
+			<Anchor>//api/name/maxNumberOfMessages</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/maxNumberOfMessages</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values are 1 to 10. Default is 1.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxNumberOfMessages</Declaration>
+			
+			
+			<Anchor>//api/name/maxNumberOfMessages</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSReceiveMessageRequest/maxNumberOfMessages</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of messages to return. Amazon SQS never returns more messages than this value (however, fewer messages might be returned). Valid values are 1 to 10. Default is 1.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxNumberOfMessages</Declaration>
+			
+			
+			<Anchor>//api/name/maxNumberOfMessages</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/setMessageAttributeNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the message attribute, where &lt;i&gt;N&lt;/i&gt; is the index.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;The name can contain alphanumeric characters and the underscore (&lt;code&gt;_&lt;/code&gt;), hyphen (&lt;code&gt;-&lt;/code&gt;), and period (&lt;code&gt;.&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name is case-sensitive and must be unique among all attribute names for the message.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name must not start with AWS-reserved prefixes such as &lt;code&gt;AWS.&lt;/code&gt; or &lt;code&gt;Amazon.&lt;/code&gt; (or any casing variants).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name must not start or end with a period (&lt;code&gt;.&lt;/code&gt;), and it should not have periods in succession (&lt;code&gt;..&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name can be up to 256 characters long.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;When using &lt;code&gt;ReceiveMessage&lt;/code&gt;, you can send a list of attribute names to receive, or you can return all of the attributes by specifying &lt;code&gt;All&lt;/code&gt; or &lt;code&gt;.&lt;/code&gt; in your request. You can also use all message attributes starting with a prefix, for example &lt;code&gt;bar.&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *messageAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/messageAttributeNames</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/messageAttributeNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the message attribute, where &lt;i&gt;N&lt;/i&gt; is the index.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;The name can contain alphanumeric characters and the underscore (&lt;code&gt;_&lt;/code&gt;), hyphen (&lt;code&gt;-&lt;/code&gt;), and period (&lt;code&gt;.&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name is case-sensitive and must be unique among all attribute names for the message.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name must not start with AWS-reserved prefixes such as &lt;code&gt;AWS.&lt;/code&gt; or &lt;code&gt;Amazon.&lt;/code&gt; (or any casing variants).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name must not start or end with a period (&lt;code&gt;.&lt;/code&gt;), and it should not have periods in succession (&lt;code&gt;..&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name can be up to 256 characters long.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;When using &lt;code&gt;ReceiveMessage&lt;/code&gt;, you can send a list of attribute names to receive, or you can return all of the attributes by specifying &lt;code&gt;All&lt;/code&gt; or &lt;code&gt;.&lt;/code&gt; in your request. You can also use all message attributes starting with a prefix, for example &lt;code&gt;bar.&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *messageAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/messageAttributeNames</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSReceiveMessageRequest/messageAttributeNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the message attribute, where &lt;i&gt;N&lt;/i&gt; is the index.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;The name can contain alphanumeric characters and the underscore (&lt;code&gt;_&lt;/code&gt;), hyphen (&lt;code&gt;-&lt;/code&gt;), and period (&lt;code&gt;.&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name is case-sensitive and must be unique among all attribute names for the message.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name must not start with AWS-reserved prefixes such as &lt;code&gt;AWS.&lt;/code&gt; or &lt;code&gt;Amazon.&lt;/code&gt; (or any casing variants).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name must not start or end with a period (&lt;code&gt;.&lt;/code&gt;), and it should not have periods in succession (&lt;code&gt;..&lt;/code&gt;).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The name can be up to 256 characters long.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;When using &lt;code&gt;ReceiveMessage&lt;/code&gt;, you can send a list of attribute names to receive, or you can return all of the attributes by specifying &lt;code&gt;All&lt;/code&gt; or &lt;code&gt;.&lt;/code&gt; in your request. You can also use all message attributes starting with a prefix, for example &lt;code&gt;bar.&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *messageAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/messageAttributeNames</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/setQueueUrl:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of the Amazon SQS queue from which messages are received.&lt;/p&gt;&lt;p&gt;Queue URLs are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueUrl</Declaration>
+			
+			
+			<Anchor>//api/name/queueUrl</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/queueUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of the Amazon SQS queue from which messages are received.&lt;/p&gt;&lt;p&gt;Queue URLs are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueUrl</Declaration>
+			
+			
+			<Anchor>//api/name/queueUrl</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSReceiveMessageRequest/queueUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of the Amazon SQS queue from which messages are received.&lt;/p&gt;&lt;p&gt;Queue URLs are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueUrl</Declaration>
+			
+			
+			<Anchor>//api/name/queueUrl</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/setReceiveRequestAttemptId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter applies only to FIFO (first-in-first-out) queues.&lt;/p&gt;&lt;p&gt;The token used for deduplication of &lt;code&gt;ReceiveMessage&lt;/code&gt; calls. If a networking issue occurs after a &lt;code&gt;ReceiveMessage&lt;/code&gt; action, and instead of a response you receive a generic error, you can retry the same action with an identical &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; to retrieve the same set of messages, even if their visibility timeout has not yet expired.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;You can use &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; only for 5 minutes after a &lt;code&gt;ReceiveMessage&lt;/code&gt; action.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;When you set &lt;code&gt;FifoQueue&lt;/code&gt;, a caller of the &lt;code&gt;ReceiveMessage&lt;/code&gt; action can provide a &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; explicitly.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;If a caller of the &lt;code&gt;ReceiveMessage&lt;/code&gt; action doesn&apos;t provide a &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;, Amazon SQS generates a &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;You can retry the &lt;code&gt;ReceiveMessage&lt;/code&gt; action with the same &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; if none of the messages have been modified (deleted or had their visibility changes).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;During a visibility timeout, subsequent calls with the same &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; return the same messages and receipt handles. If a retry occurs within the deduplication interval, it resets the visibility timeout. For more information, see Visibility Timeout in the &lt;i&gt;Amazon Simple Queue Service Developer Guide&lt;/i&gt;.&lt;/p&gt;&lt;important&gt;&lt;p&gt;If a caller of the &lt;code&gt;ReceiveMessage&lt;/code&gt; action is still processing messages when the visibility timeout expires and messages become visible, another worker reading from the same queue can receive the same messages and therefore process duplicates. Also, if a reader whose message processing time is longer than the visibility timeout tries to delete the processed messages, the action fails with an error.&lt;/p&gt;&lt;p&gt;To mitigate this effect, ensure that your application observes a safe threshold before the visibility timeout expires and extend the visibility timeout as necessary.&lt;/p&gt;&lt;/important&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;While messages with a particular &lt;code&gt;MessageGroupId&lt;/code&gt; are invisible, no more messages belonging to the same &lt;code&gt;MessageGroupId&lt;/code&gt; are returned until the visibility timeout expires. You can still receive messages with another &lt;code&gt;MessageGroupId&lt;/code&gt; as long as it is also visible.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;If a caller of &lt;code&gt;ReceiveMessage&lt;/code&gt; can&apos;t track the &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;, no retries work until the original visibility timeout expires. As a result, delays might occur but the messages in the queue remain in a strict order.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The length of &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; is 128 characters. &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; can contain alphanumeric characters (&lt;code&gt;a-z&lt;/code&gt;, &lt;code&gt;A-Z&lt;/code&gt;, &lt;code&gt;0-9&lt;/code&gt;) and punctuation (&lt;code&gt;!&quot;#$%&amp;amp;amp;&apos;()*+,-./:;&amp;amp;lt;=&amp;amp;gt;?@[\]^_`{|}~&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;For best practices of using &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;, see Using the ReceiveRequestAttemptId Request Parameter in the &lt;i&gt;Amazon Simple Queue Service Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *receiveRequestAttemptId</Declaration>
+			
+			
+			<Anchor>//api/name/receiveRequestAttemptId</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/receiveRequestAttemptId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter applies only to FIFO (first-in-first-out) queues.&lt;/p&gt;&lt;p&gt;The token used for deduplication of &lt;code&gt;ReceiveMessage&lt;/code&gt; calls. If a networking issue occurs after a &lt;code&gt;ReceiveMessage&lt;/code&gt; action, and instead of a response you receive a generic error, you can retry the same action with an identical &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; to retrieve the same set of messages, even if their visibility timeout has not yet expired.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;You can use &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; only for 5 minutes after a &lt;code&gt;ReceiveMessage&lt;/code&gt; action.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;When you set &lt;code&gt;FifoQueue&lt;/code&gt;, a caller of the &lt;code&gt;ReceiveMessage&lt;/code&gt; action can provide a &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; explicitly.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;If a caller of the &lt;code&gt;ReceiveMessage&lt;/code&gt; action doesn&apos;t provide a &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;, Amazon SQS generates a &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;You can retry the &lt;code&gt;ReceiveMessage&lt;/code&gt; action with the same &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; if none of the messages have been modified (deleted or had their visibility changes).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;During a visibility timeout, subsequent calls with the same &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; return the same messages and receipt handles. If a retry occurs within the deduplication interval, it resets the visibility timeout. For more information, see Visibility Timeout in the &lt;i&gt;Amazon Simple Queue Service Developer Guide&lt;/i&gt;.&lt;/p&gt;&lt;important&gt;&lt;p&gt;If a caller of the &lt;code&gt;ReceiveMessage&lt;/code&gt; action is still processing messages when the visibility timeout expires and messages become visible, another worker reading from the same queue can receive the same messages and therefore process duplicates. Also, if a reader whose message processing time is longer than the visibility timeout tries to delete the processed messages, the action fails with an error.&lt;/p&gt;&lt;p&gt;To mitigate this effect, ensure that your application observes a safe threshold before the visibility timeout expires and extend the visibility timeout as necessary.&lt;/p&gt;&lt;/important&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;While messages with a particular &lt;code&gt;MessageGroupId&lt;/code&gt; are invisible, no more messages belonging to the same &lt;code&gt;MessageGroupId&lt;/code&gt; are returned until the visibility timeout expires. You can still receive messages with another &lt;code&gt;MessageGroupId&lt;/code&gt; as long as it is also visible.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;If a caller of &lt;code&gt;ReceiveMessage&lt;/code&gt; can&apos;t track the &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;, no retries work until the original visibility timeout expires. As a result, delays might occur but the messages in the queue remain in a strict order.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The length of &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; is 128 characters. &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; can contain alphanumeric characters (&lt;code&gt;a-z&lt;/code&gt;, &lt;code&gt;A-Z&lt;/code&gt;, &lt;code&gt;0-9&lt;/code&gt;) and punctuation (&lt;code&gt;!&quot;#$%&amp;amp;amp;&apos;()*+,-./:;&amp;amp;lt;=&amp;amp;gt;?@[\]^_`{|}~&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;For best practices of using &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;, see Using the ReceiveRequestAttemptId Request Parameter in the &lt;i&gt;Amazon Simple Queue Service Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *receiveRequestAttemptId</Declaration>
+			
+			
+			<Anchor>//api/name/receiveRequestAttemptId</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSReceiveMessageRequest/receiveRequestAttemptId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter applies only to FIFO (first-in-first-out) queues.&lt;/p&gt;&lt;p&gt;The token used for deduplication of &lt;code&gt;ReceiveMessage&lt;/code&gt; calls. If a networking issue occurs after a &lt;code&gt;ReceiveMessage&lt;/code&gt; action, and instead of a response you receive a generic error, you can retry the same action with an identical &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; to retrieve the same set of messages, even if their visibility timeout has not yet expired.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;You can use &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; only for 5 minutes after a &lt;code&gt;ReceiveMessage&lt;/code&gt; action.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;When you set &lt;code&gt;FifoQueue&lt;/code&gt;, a caller of the &lt;code&gt;ReceiveMessage&lt;/code&gt; action can provide a &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; explicitly.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;If a caller of the &lt;code&gt;ReceiveMessage&lt;/code&gt; action doesn&apos;t provide a &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;, Amazon SQS generates a &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;You can retry the &lt;code&gt;ReceiveMessage&lt;/code&gt; action with the same &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; if none of the messages have been modified (deleted or had their visibility changes).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;During a visibility timeout, subsequent calls with the same &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; return the same messages and receipt handles. If a retry occurs within the deduplication interval, it resets the visibility timeout. For more information, see Visibility Timeout in the &lt;i&gt;Amazon Simple Queue Service Developer Guide&lt;/i&gt;.&lt;/p&gt;&lt;important&gt;&lt;p&gt;If a caller of the &lt;code&gt;ReceiveMessage&lt;/code&gt; action is still processing messages when the visibility timeout expires and messages become visible, another worker reading from the same queue can receive the same messages and therefore process duplicates. Also, if a reader whose message processing time is longer than the visibility timeout tries to delete the processed messages, the action fails with an error.&lt;/p&gt;&lt;p&gt;To mitigate this effect, ensure that your application observes a safe threshold before the visibility timeout expires and extend the visibility timeout as necessary.&lt;/p&gt;&lt;/important&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;While messages with a particular &lt;code&gt;MessageGroupId&lt;/code&gt; are invisible, no more messages belonging to the same &lt;code&gt;MessageGroupId&lt;/code&gt; are returned until the visibility timeout expires. You can still receive messages with another &lt;code&gt;MessageGroupId&lt;/code&gt; as long as it is also visible.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;If a caller of &lt;code&gt;ReceiveMessage&lt;/code&gt; can&apos;t track the &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;, no retries work until the original visibility timeout expires. As a result, delays might occur but the messages in the queue remain in a strict order.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The length of &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; is 128 characters. &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt; can contain alphanumeric characters (&lt;code&gt;a-z&lt;/code&gt;, &lt;code&gt;A-Z&lt;/code&gt;, &lt;code&gt;0-9&lt;/code&gt;) and punctuation (&lt;code&gt;!&quot;#$%&amp;amp;amp;&apos;()*+,-./:;&amp;amp;lt;=&amp;amp;gt;?@[\]^_`{|}~&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;For best practices of using &lt;code&gt;ReceiveRequestAttemptId&lt;/code&gt;, see Using the ReceiveRequestAttemptId Request Parameter in the &lt;i&gt;Amazon Simple Queue Service Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *receiveRequestAttemptId</Declaration>
+			
+			
+			<Anchor>//api/name/receiveRequestAttemptId</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/setVisibilityTimeout:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a &lt;code&gt;ReceiveMessage&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *visibilityTimeout</Declaration>
+			
+			
+			<Anchor>//api/name/visibilityTimeout</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/visibilityTimeout</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a &lt;code&gt;ReceiveMessage&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *visibilityTimeout</Declaration>
+			
+			
+			<Anchor>//api/name/visibilityTimeout</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSReceiveMessageRequest/visibilityTimeout</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The duration (in seconds) that the received messages are hidden from subsequent retrieve requests after being retrieved by a &lt;code&gt;ReceiveMessage&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *visibilityTimeout</Declaration>
+			
+			
+			<Anchor>//api/name/visibilityTimeout</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/setWaitTimeSeconds:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than &lt;code&gt;WaitTimeSeconds&lt;/code&gt;. If no messages are available and the wait time expires, the call returns successfully with an empty list of messages.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *waitTimeSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/waitTimeSeconds</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSReceiveMessageRequest/waitTimeSeconds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than &lt;code&gt;WaitTimeSeconds&lt;/code&gt;. If no messages are available and the wait time expires, the call returns successfully with an empty list of messages.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *waitTimeSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/waitTimeSeconds</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSReceiveMessageRequest/waitTimeSeconds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The duration (in seconds) for which the call waits for a message to arrive in the queue before returning. If a message is available, the call returns sooner than &lt;code&gt;WaitTimeSeconds&lt;/code&gt;. If no messages are available and the wait time expires, the call returns successfully with an empty list of messages.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *waitTimeSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/waitTimeSeconds</Anchor>
+            <NodeRef refid="2284"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

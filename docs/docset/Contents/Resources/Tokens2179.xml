@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESUpdateAccountSendingEnabledRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESUpdateAccountSendingEnabledRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to enable or disable the email sending capabilities for your entire Amazon SES account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2179"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESUpdateAccountSendingEnabledRequest/setEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="2179"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESUpdateAccountSendingEnabledRequest/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="2179"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESUpdateAccountSendingEnabledRequest/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="2179"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

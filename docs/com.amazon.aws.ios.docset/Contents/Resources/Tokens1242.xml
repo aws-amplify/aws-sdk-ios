@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisGetRecordsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisGetRecordsOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the output for &lt;a&gt;GetRecords&lt;/a&gt;.&lt;/p&gt;
+Required parameters: [Records]</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1242"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetRecordsOutput/setMillisBehindLatest:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of milliseconds the &lt;a&gt;GetRecords&lt;/a&gt; response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *millisBehindLatest</Declaration>
+			
+			
+			<Anchor>//api/name/millisBehindLatest</Anchor>
+            <NodeRef refid="1242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetRecordsOutput/millisBehindLatest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of milliseconds the &lt;a&gt;GetRecords&lt;/a&gt; response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *millisBehindLatest</Declaration>
+			
+			
+			<Anchor>//api/name/millisBehindLatest</Anchor>
+            <NodeRef refid="1242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetRecordsOutput/millisBehindLatest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of milliseconds the &lt;a&gt;GetRecords&lt;/a&gt; response is from the tip of the stream, indicating how far behind current time the consumer is. A value of zero indicates that record processing is caught up, and there are no new records to process at this moment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *millisBehindLatest</Declaration>
+			
+			
+			<Anchor>//api/name/millisBehindLatest</Anchor>
+            <NodeRef refid="1242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetRecordsOutput/setNextShardIterator:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The next position in the shard from which to start sequentially reading data records. If set to &lt;code&gt;null&lt;/code&gt;, the shard has been closed and the requested iterator does not return any more data. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextShardIterator</Declaration>
+			
+			
+			<Anchor>//api/name/nextShardIterator</Anchor>
+            <NodeRef refid="1242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetRecordsOutput/nextShardIterator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The next position in the shard from which to start sequentially reading data records. If set to &lt;code&gt;null&lt;/code&gt;, the shard has been closed and the requested iterator does not return any more data. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextShardIterator</Declaration>
+			
+			
+			<Anchor>//api/name/nextShardIterator</Anchor>
+            <NodeRef refid="1242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetRecordsOutput/nextShardIterator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The next position in the shard from which to start sequentially reading data records. If set to &lt;code&gt;null&lt;/code&gt;, the shard has been closed and the requested iterator does not return any more data. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextShardIterator</Declaration>
+			
+			
+			<Anchor>//api/name/nextShardIterator</Anchor>
+            <NodeRef refid="1242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetRecordsOutput/setRecords:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data records retrieved from the shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKinesisRecord*&gt; *records</Declaration>
+			
+			
+			<Anchor>//api/name/records</Anchor>
+            <NodeRef refid="1242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetRecordsOutput/records</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data records retrieved from the shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKinesisRecord*&gt; *records</Declaration>
+			
+			
+			<Anchor>//api/name/records</Anchor>
+            <NodeRef refid="1242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetRecordsOutput/records</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data records retrieved from the shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKinesisRecord*&gt; *records</Declaration>
+			
+			
+			<Anchor>//api/name/records</Anchor>
+            <NodeRef refid="1242"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

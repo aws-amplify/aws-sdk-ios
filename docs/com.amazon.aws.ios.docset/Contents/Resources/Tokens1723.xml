@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionGetPersonTrackingRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionGetPersonTrackingRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1723"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetPersonTrackingRequest/setJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier for a job that tracks persons in a video. You get the &lt;code&gt;JobId&lt;/code&gt; from a call to &lt;code&gt;StartPersonTracking&lt;/code&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetPersonTrackingRequest/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier for a job that tracks persons in a video. You get the &lt;code&gt;JobId&lt;/code&gt; from a call to &lt;code&gt;StartPersonTracking&lt;/code&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetPersonTrackingRequest/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier for a job that tracks persons in a video. You get the &lt;code&gt;JobId&lt;/code&gt; from a call to &lt;code&gt;StartPersonTracking&lt;/code&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetPersonTrackingRequest/setMaxResults:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetPersonTrackingRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetPersonTrackingRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetPersonTrackingRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetPersonTrackingRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetPersonTrackingRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the previous response was incomplete (because there are more persons to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of persons. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetPersonTrackingRequest/setSortBy:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sort to use for elements in the &lt;code&gt;Persons&lt;/code&gt; array. Use &lt;code&gt;TIMESTAMP&lt;/code&gt; to sort array elements by the time persons are detected. Use &lt;code&gt;INDEX&lt;/code&gt; to sort by the tracked persons. If you sort by &lt;code&gt;INDEX&lt;/code&gt;, the array elements for each person are sorted by detection confidence. The default sort is by &lt;code&gt;TIMESTAMP&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionPersonTrackingSortBy sortBy</Declaration>
+			
+			
+			<Anchor>//api/name/sortBy</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetPersonTrackingRequest/sortBy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sort to use for elements in the &lt;code&gt;Persons&lt;/code&gt; array. Use &lt;code&gt;TIMESTAMP&lt;/code&gt; to sort array elements by the time persons are detected. Use &lt;code&gt;INDEX&lt;/code&gt; to sort by the tracked persons. If you sort by &lt;code&gt;INDEX&lt;/code&gt;, the array elements for each person are sorted by detection confidence. The default sort is by &lt;code&gt;TIMESTAMP&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionPersonTrackingSortBy sortBy</Declaration>
+			
+			
+			<Anchor>//api/name/sortBy</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetPersonTrackingRequest/sortBy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sort to use for elements in the &lt;code&gt;Persons&lt;/code&gt; array. Use &lt;code&gt;TIMESTAMP&lt;/code&gt; to sort array elements by the time persons are detected. Use &lt;code&gt;INDEX&lt;/code&gt; to sort by the tracked persons. If you sort by &lt;code&gt;INDEX&lt;/code&gt;, the array elements for each person are sorted by detection confidence. The default sort is by &lt;code&gt;TIMESTAMP&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionPersonTrackingSortBy sortBy</Declaration>
+			
+			
+			<Anchor>//api/name/sortBy</Anchor>
+            <NodeRef refid="1723"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpoint.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpoint</TokenIdentifier>
+			<Abstract type="html">Amazon Pinpoint</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1468"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpoint/setTargetingClient:</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointTargetingClient. The TargetingClient is the high level client to be used for updating the endpoint profile.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointTargetingClient *targetingClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointTargetingClient to update endpoint profile information.</Abstract></ReturnValue>
+			<Anchor>//api/name/targetingClient</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpoint/targetingClient</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointTargetingClient. The TargetingClient is the high level client to be used for updating the endpoint profile.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointTargetingClient *targetingClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointTargetingClient to update endpoint profile information.</Abstract></ReturnValue>
+			<Anchor>//api/name/targetingClient</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpoint/targetingClient</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointTargetingClient. The TargetingClient is the high level client to be used for updating the endpoint profile.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointTargetingClient *targetingClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointTargetingClient to update endpoint profile information.</Abstract></ReturnValue>
+			<Anchor>//api/name/targetingClient</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpoint/setAnalyticsClient:</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointAnalyticsClient. The AnalyticsClient is the high level client to be used for recording and sending events.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointAnalyticsClient *analyticsClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointAnalyticsClient to create, record, and submit events.</Abstract></ReturnValue>
+			<Anchor>//api/name/analyticsClient</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpoint/analyticsClient</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointAnalyticsClient. The AnalyticsClient is the high level client to be used for recording and sending events.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointAnalyticsClient *analyticsClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointAnalyticsClient to create, record, and submit events.</Abstract></ReturnValue>
+			<Anchor>//api/name/analyticsClient</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpoint/analyticsClient</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointAnalyticsClient. The AnalyticsClient is the high level client to be used for recording and sending events.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointAnalyticsClient *analyticsClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointAnalyticsClient to create, record, and submit events.</Abstract></ReturnValue>
+			<Anchor>//api/name/analyticsClient</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpoint/setNotificationManager:</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointNotificationManager. It contains callback interceptors that need to be called for campaign analytics to work.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointNotificationManager *notificationManager</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointNotificationManager used for targeting campaign analytics.</Abstract></ReturnValue>
+			<Anchor>//api/name/notificationManager</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpoint/notificationManager</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointNotificationManager. It contains callback interceptors that need to be called for campaign analytics to work.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointNotificationManager *notificationManager</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointNotificationManager used for targeting campaign analytics.</Abstract></ReturnValue>
+			<Anchor>//api/name/notificationManager</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpoint/notificationManager</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointNotificationManager. It contains callback interceptors that need to be called for campaign analytics to work.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointNotificationManager *notificationManager</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointNotificationManager used for targeting campaign analytics.</Abstract></ReturnValue>
+			<Anchor>//api/name/notificationManager</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpoint/setSessionClient:</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointSessionClient. The session client should be used only if enableAutoSessionRecording is false.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointSessionClient *sessionClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointSessionClient used for recording session events.</Abstract></ReturnValue>
+			<Anchor>//api/name/sessionClient</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpoint/sessionClient</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointSessionClient. The session client should be used only if enableAutoSessionRecording is false.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointSessionClient *sessionClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointSessionClient used for recording session events.</Abstract></ReturnValue>
+			<Anchor>//api/name/sessionClient</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpoint/sessionClient</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointSessionClient. The session client should be used only if enableAutoSessionRecording is false.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointSessionClient *sessionClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointSessionClient used for recording session events.</Abstract></ReturnValue>
+			<Anchor>//api/name/sessionClient</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpoint/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointConfiguration. The configuration passed in to initialize the SDK.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointConfiguration *configuration</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointConfiguration.</Abstract></ReturnValue>
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpoint/configuration</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointConfiguration. The configuration passed in to initialize the SDK.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointConfiguration *configuration</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointConfiguration.</Abstract></ReturnValue>
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpoint/configuration</TokenIdentifier>
+			<Abstract type="html">Returns the AWSPinpointConfiguration. The configuration passed in to initialize the SDK.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSPinpointConfiguration *configuration</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSPinpointConfiguration.</Abstract></ReturnValue>
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPinpoint/pinpointWithConfiguration:</TokenIdentifier>
+			<Abstract type="html">Creates an AWSPinpoint instance with the specified configuration if the instance does not already exists for the configurations&apos; appId. If an instance exists for the given appId, returns the existing instance. configuration are ignored if an instance exists for the given appId. The strong reference to the instance is maintained by AWSPinpoint, and the developer does not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSPinpointService.h</DeclaredIn>
+			
+			<Declaration>+ (nonnull instancetype)pinpointWithConfiguration:(AWSPinpointConfiguration *)configuration</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A configuration object. By default, it uses [AWSServiceManager defaultServiceManager].defaultServiceConfiguration to access the service.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The AWSPinpoint instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</Abstract></ReturnValue>
+			<Anchor>//api/name/pinpointWithConfiguration:</Anchor>
+            <NodeRef refid="1468"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

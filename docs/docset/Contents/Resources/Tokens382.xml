@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderListUsersResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderListUsersResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The response from the request to list users.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="382"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListUsersResponse/setPaginationToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *paginationToken</Declaration>
+			
+			
+			<Anchor>//api/name/paginationToken</Anchor>
+            <NodeRef refid="382"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListUsersResponse/paginationToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *paginationToken</Declaration>
+			
+			
+			<Anchor>//api/name/paginationToken</Anchor>
+            <NodeRef refid="382"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderListUsersResponse/paginationToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier that was returned from the previous call to this operation, which can be used to return the next set of items in the list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *paginationToken</Declaration>
+			
+			
+			<Anchor>//api/name/paginationToken</Anchor>
+            <NodeRef refid="382"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListUsersResponse/setUsers:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The users returned in the request to list users.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderUserType*&gt; *users</Declaration>
+			
+			
+			<Anchor>//api/name/users</Anchor>
+            <NodeRef refid="382"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListUsersResponse/users</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The users returned in the request to list users.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderUserType*&gt; *users</Declaration>
+			
+			
+			<Anchor>//api/name/users</Anchor>
+            <NodeRef refid="382"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderListUsersResponse/users</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The users returned in the request to list users.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderUserType*&gt; *users</Declaration>
+			
+			
+			<Anchor>//api/name/users</Anchor>
+            <NodeRef refid="382"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

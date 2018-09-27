@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3JSONOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3JSONOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1902"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3JSONOutput/setRecordDelimiter:</TokenIdentifier>
+			<Abstract type="html">The value used to separate individual records in the output.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recordDelimiter</Declaration>
+			
+			
+			<Anchor>//api/name/recordDelimiter</Anchor>
+            <NodeRef refid="1902"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3JSONOutput/recordDelimiter</TokenIdentifier>
+			<Abstract type="html">The value used to separate individual records in the output.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recordDelimiter</Declaration>
+			
+			
+			<Anchor>//api/name/recordDelimiter</Anchor>
+            <NodeRef refid="1902"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3JSONOutput/recordDelimiter</TokenIdentifier>
+			<Abstract type="html">The value used to separate individual records in the output.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recordDelimiter</Declaration>
+			
+			
+			<Anchor>//api/name/recordDelimiter</Anchor>
+            <NodeRef refid="1902"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

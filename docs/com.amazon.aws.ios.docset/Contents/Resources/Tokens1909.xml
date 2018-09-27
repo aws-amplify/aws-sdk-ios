@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3ListBucketAnalyticsConfigurationsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3ListBucketAnalyticsConfigurationsOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1909"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketAnalyticsConfigurationsOutput/setAnalyticsConfigurationList:</TokenIdentifier>
+			<Abstract type="html">The list of analytics configurations for a bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3AnalyticsConfiguration*&gt; *analyticsConfigurationList</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsConfigurationList</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketAnalyticsConfigurationsOutput/analyticsConfigurationList</TokenIdentifier>
+			<Abstract type="html">The list of analytics configurations for a bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3AnalyticsConfiguration*&gt; *analyticsConfigurationList</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsConfigurationList</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketAnalyticsConfigurationsOutput/analyticsConfigurationList</TokenIdentifier>
+			<Abstract type="html">The list of analytics configurations for a bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3AnalyticsConfiguration*&gt; *analyticsConfigurationList</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsConfigurationList</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketAnalyticsConfigurationsOutput/setContinuationToken:</TokenIdentifier>
+			<Abstract type="html">The ContinuationToken that represents where this request began.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketAnalyticsConfigurationsOutput/continuationToken</TokenIdentifier>
+			<Abstract type="html">The ContinuationToken that represents where this request began.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketAnalyticsConfigurationsOutput/continuationToken</TokenIdentifier>
+			<Abstract type="html">The ContinuationToken that represents where this request began.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketAnalyticsConfigurationsOutput/setIsTruncated:</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketAnalyticsConfigurationsOutput/isTruncated</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketAnalyticsConfigurationsOutput/isTruncated</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketAnalyticsConfigurationsOutput/setNextContinuationToken:</TokenIdentifier>
+			<Abstract type="html">NextContinuationToken is sent when isTruncated is true, which indicates that there are more analytics configurations to list. The next request must include this NextContinuationToken. The token is obfuscated and is not a usable value.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextContinuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextContinuationToken</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketAnalyticsConfigurationsOutput/nextContinuationToken</TokenIdentifier>
+			<Abstract type="html">NextContinuationToken is sent when isTruncated is true, which indicates that there are more analytics configurations to list. The next request must include this NextContinuationToken. The token is obfuscated and is not a usable value.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextContinuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextContinuationToken</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketAnalyticsConfigurationsOutput/nextContinuationToken</TokenIdentifier>
+			<Abstract type="html">NextContinuationToken is sent when isTruncated is true, which indicates that there are more analytics configurations to list. The next request must include this NextContinuationToken. The token is obfuscated and is not a usable value.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextContinuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextContinuationToken</Anchor>
+            <NodeRef refid="1909"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

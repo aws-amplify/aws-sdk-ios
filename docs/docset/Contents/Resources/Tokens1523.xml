@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingDirectMessageConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDirectMessageConfiguration</TokenIdentifier>
+			<Abstract type="html">The message configuration.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1523"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDirectMessageConfiguration/setAPNSMessage:</TokenIdentifier>
+			<Abstract type="html">The message to APNS channels. Overrides the default push notification message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSMessage *APNSMessage</Declaration>
+			
+			
+			<Anchor>//api/name/APNSMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDirectMessageConfiguration/APNSMessage</TokenIdentifier>
+			<Abstract type="html">The message to APNS channels. Overrides the default push notification message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSMessage *APNSMessage</Declaration>
+			
+			
+			<Anchor>//api/name/APNSMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingDirectMessageConfiguration/APNSMessage</TokenIdentifier>
+			<Abstract type="html">The message to APNS channels. Overrides the default push notification message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSMessage *APNSMessage</Declaration>
+			
+			
+			<Anchor>//api/name/APNSMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDirectMessageConfiguration/setDefaultMessage:</TokenIdentifier>
+			<Abstract type="html">The default message for all channels.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingDefaultMessage *defaultMessage</Declaration>
+			
+			
+			<Anchor>//api/name/defaultMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDirectMessageConfiguration/defaultMessage</TokenIdentifier>
+			<Abstract type="html">The default message for all channels.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingDefaultMessage *defaultMessage</Declaration>
+			
+			
+			<Anchor>//api/name/defaultMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingDirectMessageConfiguration/defaultMessage</TokenIdentifier>
+			<Abstract type="html">The default message for all channels.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingDefaultMessage *defaultMessage</Declaration>
+			
+			
+			<Anchor>//api/name/defaultMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDirectMessageConfiguration/setDefaultPushNotificationMessage:</TokenIdentifier>
+			<Abstract type="html">The default push notification message for all push channels.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingDefaultPushNotificationMessage *defaultPushNotificationMessage</Declaration>
+			
+			
+			<Anchor>//api/name/defaultPushNotificationMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDirectMessageConfiguration/defaultPushNotificationMessage</TokenIdentifier>
+			<Abstract type="html">The default push notification message for all push channels.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingDefaultPushNotificationMessage *defaultPushNotificationMessage</Declaration>
+			
+			
+			<Anchor>//api/name/defaultPushNotificationMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingDirectMessageConfiguration/defaultPushNotificationMessage</TokenIdentifier>
+			<Abstract type="html">The default push notification message for all push channels.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingDefaultPushNotificationMessage *defaultPushNotificationMessage</Declaration>
+			
+			
+			<Anchor>//api/name/defaultPushNotificationMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDirectMessageConfiguration/setGCMMessage:</TokenIdentifier>
+			<Abstract type="html">The message to GCM channels. Overrides the default push notification message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingGCMMessage *GCMMessage</Declaration>
+			
+			
+			<Anchor>//api/name/GCMMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDirectMessageConfiguration/GCMMessage</TokenIdentifier>
+			<Abstract type="html">The message to GCM channels. Overrides the default push notification message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingGCMMessage *GCMMessage</Declaration>
+			
+			
+			<Anchor>//api/name/GCMMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingDirectMessageConfiguration/GCMMessage</TokenIdentifier>
+			<Abstract type="html">The message to GCM channels. Overrides the default push notification message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingGCMMessage *GCMMessage</Declaration>
+			
+			
+			<Anchor>//api/name/GCMMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDirectMessageConfiguration/setSMSMessage:</TokenIdentifier>
+			<Abstract type="html">The message to SMS channels. Overrides the default message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSMSMessage *SMSMessage</Declaration>
+			
+			
+			<Anchor>//api/name/SMSMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDirectMessageConfiguration/SMSMessage</TokenIdentifier>
+			<Abstract type="html">The message to SMS channels. Overrides the default message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSMSMessage *SMSMessage</Declaration>
+			
+			
+			<Anchor>//api/name/SMSMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingDirectMessageConfiguration/SMSMessage</TokenIdentifier>
+			<Abstract type="html">The message to SMS channels. Overrides the default message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSMSMessage *SMSMessage</Declaration>
+			
+			
+			<Anchor>//api/name/SMSMessage</Anchor>
+            <NodeRef refid="1523"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

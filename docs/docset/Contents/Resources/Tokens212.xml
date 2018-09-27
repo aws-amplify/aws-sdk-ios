@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityNewPasswordRequiredInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityNewPasswordRequiredInput</TokenIdentifier>
+			<Abstract type="html">When responding to new password required, this encapsulates the existing user attributes and the required user attributes.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+            
+			
+			<NodeRef refid="212"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

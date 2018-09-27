@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCognitoSyncBulkPublishStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCognitoSyncBulkPublishStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2454"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncBulkPublishStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncBulkPublishStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2454"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncBulkPublishStatusNotStarted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncBulkPublishStatusNotStarted</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2454"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncBulkPublishStatusInProgress</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncBulkPublishStatusInProgress</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2454"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncBulkPublishStatusFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncBulkPublishStatusFailed</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2454"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncBulkPublishStatusSucceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncBulkPublishStatusSucceeded</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2454"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

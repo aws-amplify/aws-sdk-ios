@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The compromised credentials risk configuration type.&lt;/p&gt;
+Required parameters: [Actions]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="280"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType/setActions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The compromised credentials risk configuration actions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCompromisedCredentialsActionsType *actions</Declaration>
+			
+			
+			<Anchor>//api/name/actions</Anchor>
+            <NodeRef refid="280"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType/actions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The compromised credentials risk configuration actions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCompromisedCredentialsActionsType *actions</Declaration>
+			
+			
+			<Anchor>//api/name/actions</Anchor>
+            <NodeRef refid="280"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType/actions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The compromised credentials risk configuration actions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCompromisedCredentialsActionsType *actions</Declaration>
+			
+			
+			<Anchor>//api/name/actions</Anchor>
+            <NodeRef refid="280"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType/setEventFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Perform the action for these events. The default is to perform all events if no event filter is specified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *eventFilter</Declaration>
+			
+			
+			<Anchor>//api/name/eventFilter</Anchor>
+            <NodeRef refid="280"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType/eventFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Perform the action for these events. The default is to perform all events if no event filter is specified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *eventFilter</Declaration>
+			
+			
+			<Anchor>//api/name/eventFilter</Anchor>
+            <NodeRef refid="280"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType/eventFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Perform the action for these events. The default is to perform all events if no event filter is specified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *eventFilter</Declaration>
+			
+			
+			<Anchor>//api/name/eventFilter</Anchor>
+            <NodeRef refid="280"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

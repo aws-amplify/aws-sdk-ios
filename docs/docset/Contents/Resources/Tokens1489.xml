@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingAddressConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingAddressConfiguration</TokenIdentifier>
+			<Abstract type="html">Address configuration.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1489"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/setBodyOverride:</TokenIdentifier>
+			<Abstract type="html">Body override. If specified will override default body.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bodyOverride</Declaration>
+			
+			
+			<Anchor>//api/name/bodyOverride</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/bodyOverride</TokenIdentifier>
+			<Abstract type="html">Body override. If specified will override default body.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bodyOverride</Declaration>
+			
+			
+			<Anchor>//api/name/bodyOverride</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAddressConfiguration/bodyOverride</TokenIdentifier>
+			<Abstract type="html">Body override. If specified will override default body.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bodyOverride</Declaration>
+			
+			
+			<Anchor>//api/name/bodyOverride</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/setChannelType:</TokenIdentifier>
+			<Abstract type="html">Type of channel of this address</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingChannelType channelType</Declaration>
+			
+			
+			<Anchor>//api/name/channelType</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/channelType</TokenIdentifier>
+			<Abstract type="html">Type of channel of this address</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingChannelType channelType</Declaration>
+			
+			
+			<Anchor>//api/name/channelType</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAddressConfiguration/channelType</TokenIdentifier>
+			<Abstract type="html">Type of channel of this address</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingChannelType channelType</Declaration>
+			
+			
+			<Anchor>//api/name/channelType</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/setContext:</TokenIdentifier>
+			<Abstract type="html">A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification&apos;s &apos;data.pinpoint&apos; object or added to the email/sms delivery receipt event attributes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *context</Declaration>
+			
+			
+			<Anchor>//api/name/context</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/context</TokenIdentifier>
+			<Abstract type="html">A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification&apos;s &apos;data.pinpoint&apos; object or added to the email/sms delivery receipt event attributes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *context</Declaration>
+			
+			
+			<Anchor>//api/name/context</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAddressConfiguration/context</TokenIdentifier>
+			<Abstract type="html">A map of custom attributes to attributes to be attached to the message for this address. This payload is added to the push notification&apos;s &apos;data.pinpoint&apos; object or added to the email/sms delivery receipt event attributes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *context</Declaration>
+			
+			
+			<Anchor>//api/name/context</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/setRawContent:</TokenIdentifier>
+			<Abstract type="html">The Raw JSON formatted string to be used as the payload. This value overrides the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rawContent</Declaration>
+			
+			
+			<Anchor>//api/name/rawContent</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/rawContent</TokenIdentifier>
+			<Abstract type="html">The Raw JSON formatted string to be used as the payload. This value overrides the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rawContent</Declaration>
+			
+			
+			<Anchor>//api/name/rawContent</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAddressConfiguration/rawContent</TokenIdentifier>
+			<Abstract type="html">The Raw JSON formatted string to be used as the payload. This value overrides the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rawContent</Declaration>
+			
+			
+			<Anchor>//api/name/rawContent</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/setSubstitutions:</TokenIdentifier>
+			<Abstract type="html">A map of substitution values for the message to be merged with the DefaultMessage&apos;s substitutions. Substitutions on this map take precedence over the all other substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/substitutions</TokenIdentifier>
+			<Abstract type="html">A map of substitution values for the message to be merged with the DefaultMessage&apos;s substitutions. Substitutions on this map take precedence over the all other substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAddressConfiguration/substitutions</TokenIdentifier>
+			<Abstract type="html">A map of substitution values for the message to be merged with the DefaultMessage&apos;s substitutions. Substitutions on this map take precedence over the all other substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/setTitleOverride:</TokenIdentifier>
+			<Abstract type="html">Title override. If specified will override default title if applicable.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *titleOverride</Declaration>
+			
+			
+			<Anchor>//api/name/titleOverride</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAddressConfiguration/titleOverride</TokenIdentifier>
+			<Abstract type="html">Title override. If specified will override default title if applicable.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *titleOverride</Declaration>
+			
+			
+			<Anchor>//api/name/titleOverride</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAddressConfiguration/titleOverride</TokenIdentifier>
+			<Abstract type="html">Title override. If specified will override default title if applicable.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *titleOverride</Declaration>
+			
+			
+			<Anchor>//api/name/titleOverride</Anchor>
+            <NodeRef refid="1489"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionEmotion.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionEmotion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The emotions detected on the face, and the confidence level in the determination. For example, HAPPY, SAD, and ANGRY.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1700"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionEmotion/setConfidence:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Level of confidence in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1700"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionEmotion/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Level of confidence in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1700"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionEmotion/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Level of confidence in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1700"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionEmotion/setTypes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Type of emotion detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionEmotionName types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1700"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionEmotion/types</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Type of emotion detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionEmotionName types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1700"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionEmotion/types</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Type of emotion detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionEmotionName types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1700"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

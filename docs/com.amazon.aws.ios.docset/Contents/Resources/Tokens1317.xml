@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaCreateEventSourceMappingRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaCreateEventSourceMappingRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;
+Required parameters: [EventSourceArn, FunctionName]</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1317"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/setBatchSize:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records. The default for Amazon Kinesis and Amazon DynamoDB is 100 records. For SQS, the default is 1.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *batchSize</Declaration>
+			
+			
+			<Anchor>//api/name/batchSize</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/batchSize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records. The default for Amazon Kinesis and Amazon DynamoDB is 100 records. For SQS, the default is 1.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *batchSize</Declaration>
+			
+			
+			<Anchor>//api/name/batchSize</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateEventSourceMappingRequest/batchSize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records. The default for Amazon Kinesis and Amazon DynamoDB is 100 records. For SQS, the default is 1.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *batchSize</Declaration>
+			
+			
+			<Anchor>//api/name/batchSize</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/setEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether AWS Lambda should begin polling the event source. By default, &lt;code&gt;Enabled&lt;/code&gt; is true. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether AWS Lambda should begin polling the event source. By default, &lt;code&gt;Enabled&lt;/code&gt; is true. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateEventSourceMappingRequest/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether AWS Lambda should begin polling the event source. By default, &lt;code&gt;Enabled&lt;/code&gt; is true. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/setEventSourceArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the event source. Any record added to this source could cause AWS Lambda to invoke your Lambda function, it depends on the &lt;code&gt;BatchSize&lt;/code&gt;. AWS Lambda POSTs the event&apos;s records to your Lambda function as JSON.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventSourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/eventSourceArn</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/eventSourceArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the event source. Any record added to this source could cause AWS Lambda to invoke your Lambda function, it depends on the &lt;code&gt;BatchSize&lt;/code&gt;. AWS Lambda POSTs the event&apos;s records to your Lambda function as JSON.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventSourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/eventSourceArn</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateEventSourceMappingRequest/eventSourceArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the event source. Any record added to this source could cause AWS Lambda to invoke your Lambda function, it depends on the &lt;code&gt;BatchSize&lt;/code&gt;. AWS Lambda POSTs the event&apos;s records to your Lambda function as JSON.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventSourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/eventSourceArn</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/setFunctionName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Lambda function to invoke when AWS Lambda detects an event on the stream.&lt;/p&gt;&lt;p&gt; You can specify the function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). &lt;/p&gt;&lt;p&gt; If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see AWS Lambda Function Versioning and Aliases&lt;/p&gt;&lt;p&gt;AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). &lt;/p&gt;&lt;p&gt;Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Lambda function to invoke when AWS Lambda detects an event on the stream.&lt;/p&gt;&lt;p&gt; You can specify the function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). &lt;/p&gt;&lt;p&gt; If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see AWS Lambda Function Versioning and Aliases&lt;/p&gt;&lt;p&gt;AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). &lt;/p&gt;&lt;p&gt;Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateEventSourceMappingRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Lambda function to invoke when AWS Lambda detects an event on the stream.&lt;/p&gt;&lt;p&gt; You can specify the function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). &lt;/p&gt;&lt;p&gt; If you are using versioning, you can also provide a qualified function ARN (ARN that is qualified with function version or alias name as suffix). For more information about versioning, see AWS Lambda Function Versioning and Aliases&lt;/p&gt;&lt;p&gt;AWS Lambda also allows you to specify only the function name with the account ID qualifier (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). &lt;/p&gt;&lt;p&gt;Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/setStartingPosition:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see Kinesis streams. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLambdaEventSourcePosition startingPosition</Declaration>
+			
+			
+			<Anchor>//api/name/startingPosition</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/startingPosition</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see Kinesis streams. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLambdaEventSourcePosition startingPosition</Declaration>
+			
+			
+			<Anchor>//api/name/startingPosition</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateEventSourceMappingRequest/startingPosition</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The position in the DynamoDB or Kinesis stream where AWS Lambda should start reading. For more information, see Kinesis streams. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLambdaEventSourcePosition startingPosition</Declaration>
+			
+			
+			<Anchor>//api/name/startingPosition</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/setStartingPositionTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The timestamp of the data record from which to start reading. Used with Kinesis streams. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startingPositionTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/startingPositionTimestamp</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateEventSourceMappingRequest/startingPositionTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The timestamp of the data record from which to start reading. Used with Kinesis streams. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startingPositionTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/startingPositionTimestamp</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateEventSourceMappingRequest/startingPositionTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The timestamp of the data record from which to start reading. Used with Kinesis streams. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startingPositionTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/startingPositionTimestamp</Anchor>
+            <NodeRef refid="1317"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

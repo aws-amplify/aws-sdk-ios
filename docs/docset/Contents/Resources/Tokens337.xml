@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderForgotPasswordResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderForgotPasswordResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Respresents the response from the server regarding the request to reset a password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="337"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordResponse/setCodeDeliveryDetails:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code delivery details returned by the server in response to the request to reset a password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType *codeDeliveryDetails</Declaration>
+			
+			
+			<Anchor>//api/name/codeDeliveryDetails</Anchor>
+            <NodeRef refid="337"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordResponse/codeDeliveryDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code delivery details returned by the server in response to the request to reset a password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType *codeDeliveryDetails</Declaration>
+			
+			
+			<Anchor>//api/name/codeDeliveryDetails</Anchor>
+            <NodeRef refid="337"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderForgotPasswordResponse/codeDeliveryDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code delivery details returned by the server in response to the request to reset a password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType *codeDeliveryDetails</Declaration>
+			
+			
+			<Anchor>//api/name/codeDeliveryDetails</Anchor>
+            <NodeRef refid="337"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

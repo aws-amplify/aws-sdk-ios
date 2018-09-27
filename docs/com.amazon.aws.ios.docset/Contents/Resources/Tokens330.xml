@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderDomainDescriptionType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderDomainDescriptionType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A container for information about a domain.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="330"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/setAWSAccountId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account ID for the user pool owner.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *AWSAccountId</Declaration>
+			
+			
+			<Anchor>//api/name/AWSAccountId</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/AWSAccountId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account ID for the user pool owner.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *AWSAccountId</Declaration>
+			
+			
+			<Anchor>//api/name/AWSAccountId</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDomainDescriptionType/AWSAccountId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account ID for the user pool owner.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *AWSAccountId</Declaration>
+			
+			
+			<Anchor>//api/name/AWSAccountId</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/setCloudFrontDistribution:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the CloudFront distribution.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudFrontDistribution</Declaration>
+			
+			
+			<Anchor>//api/name/cloudFrontDistribution</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/cloudFrontDistribution</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the CloudFront distribution.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudFrontDistribution</Declaration>
+			
+			
+			<Anchor>//api/name/cloudFrontDistribution</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDomainDescriptionType/cloudFrontDistribution</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the CloudFront distribution.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudFrontDistribution</Declaration>
+			
+			
+			<Anchor>//api/name/cloudFrontDistribution</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/setCustomDomainConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCustomDomainConfigType *customDomainConfig</Declaration>
+			
+			
+			<Anchor>//api/name/customDomainConfig</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/customDomainConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCustomDomainConfigType *customDomainConfig</Declaration>
+			
+			
+			<Anchor>//api/name/customDomainConfig</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDomainDescriptionType/customDomainConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration for a custom domain that hosts the sign-up and sign-in webpages for your application.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCustomDomainConfigType *customDomainConfig</Declaration>
+			
+			
+			<Anchor>//api/name/customDomainConfig</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/setDomain:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The domain string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *domain</Declaration>
+			
+			
+			<Anchor>//api/name/domain</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/domain</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The domain string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *domain</Declaration>
+			
+			
+			<Anchor>//api/name/domain</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDomainDescriptionType/domain</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The domain string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *domain</Declaration>
+			
+			
+			<Anchor>//api/name/domain</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/setS3Bucket:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The S3 bucket where the static files for this domain are stored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *s3Bucket</Declaration>
+			
+			
+			<Anchor>//api/name/s3Bucket</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/s3Bucket</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The S3 bucket where the static files for this domain are stored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *s3Bucket</Declaration>
+			
+			
+			<Anchor>//api/name/s3Bucket</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDomainDescriptionType/s3Bucket</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The S3 bucket where the static files for this domain are stored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *s3Bucket</Declaration>
+			
+			
+			<Anchor>//api/name/s3Bucket</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The domain status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderDomainStatusType status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The domain status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderDomainStatusType status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDomainDescriptionType/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The domain status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderDomainStatusType status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/setUserPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDomainDescriptionType/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/setVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The app version.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDomainDescriptionType/version</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The app version.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDomainDescriptionType/version</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The app version.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="330"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

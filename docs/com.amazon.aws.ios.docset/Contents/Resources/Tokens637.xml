@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBPointInTimeRecoveryDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBPointInTimeRecoveryDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The description of the point in time settings applied to the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="637"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPointInTimeRecoveryDescription/setEarliestRestorableDateTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the earliest point in time you can restore your table to. It You can restore your table to any point in time during the last 35 days. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *earliestRestorableDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/earliestRestorableDateTime</Anchor>
+            <NodeRef refid="637"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPointInTimeRecoveryDescription/earliestRestorableDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the earliest point in time you can restore your table to. It You can restore your table to any point in time during the last 35 days. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *earliestRestorableDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/earliestRestorableDateTime</Anchor>
+            <NodeRef refid="637"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPointInTimeRecoveryDescription/earliestRestorableDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the earliest point in time you can restore your table to. It You can restore your table to any point in time during the last 35 days. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *earliestRestorableDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/earliestRestorableDateTime</Anchor>
+            <NodeRef refid="637"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPointInTimeRecoveryDescription/setLatestRestorableDateTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;code&gt;LatestRestorableDateTime&lt;/code&gt; is typically 5 minutes before the current time. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *latestRestorableDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/latestRestorableDateTime</Anchor>
+            <NodeRef refid="637"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPointInTimeRecoveryDescription/latestRestorableDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;code&gt;LatestRestorableDateTime&lt;/code&gt; is typically 5 minutes before the current time. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *latestRestorableDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/latestRestorableDateTime</Anchor>
+            <NodeRef refid="637"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPointInTimeRecoveryDescription/latestRestorableDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;code&gt;LatestRestorableDateTime&lt;/code&gt; is typically 5 minutes before the current time. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *latestRestorableDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/latestRestorableDateTime</Anchor>
+            <NodeRef refid="637"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPointInTimeRecoveryDescription/setPointInTimeRecoveryStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current state of point in time recovery:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ENABLING&lt;/code&gt; - Point in time recovery is being enabled.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ENABLED&lt;/code&gt; - Point in time recovery is enabled.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DISABLED&lt;/code&gt; - Point in time recovery is disabled.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBPointInTimeRecoveryStatus pointInTimeRecoveryStatus</Declaration>
+			
+			
+			<Anchor>//api/name/pointInTimeRecoveryStatus</Anchor>
+            <NodeRef refid="637"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPointInTimeRecoveryDescription/pointInTimeRecoveryStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current state of point in time recovery:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ENABLING&lt;/code&gt; - Point in time recovery is being enabled.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ENABLED&lt;/code&gt; - Point in time recovery is enabled.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DISABLED&lt;/code&gt; - Point in time recovery is disabled.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBPointInTimeRecoveryStatus pointInTimeRecoveryStatus</Declaration>
+			
+			
+			<Anchor>//api/name/pointInTimeRecoveryStatus</Anchor>
+            <NodeRef refid="637"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPointInTimeRecoveryDescription/pointInTimeRecoveryStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current state of point in time recovery:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ENABLING&lt;/code&gt; - Point in time recovery is being enabled.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ENABLED&lt;/code&gt; - Point in time recovery is enabled.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DISABLED&lt;/code&gt; - Point in time recovery is disabled.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBPointInTimeRecoveryStatus pointInTimeRecoveryStatus</Declaration>
+			
+			
+			<Anchor>//api/name/pointInTimeRecoveryStatus</Anchor>
+            <NodeRef refid="637"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

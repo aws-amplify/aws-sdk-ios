@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingBatchDeleteScheduledActionAnswer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingBatchDeleteScheduledActionAnswer</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="25"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingBatchDeleteScheduledActionAnswer/setFailedScheduledActions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the scheduled actions that could not be deleted, including an error message. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingFailedScheduledUpdateGroupActionRequest*&gt; *failedScheduledActions</Declaration>
+			
+			
+			<Anchor>//api/name/failedScheduledActions</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingBatchDeleteScheduledActionAnswer/failedScheduledActions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the scheduled actions that could not be deleted, including an error message. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingFailedScheduledUpdateGroupActionRequest*&gt; *failedScheduledActions</Declaration>
+			
+			
+			<Anchor>//api/name/failedScheduledActions</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingBatchDeleteScheduledActionAnswer/failedScheduledActions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the scheduled actions that could not be deleted, including an error message. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingFailedScheduledUpdateGroupActionRequest*&gt; *failedScheduledActions</Declaration>
+			
+			
+			<Anchor>//api/name/failedScheduledActions</Anchor>
+            <NodeRef refid="25"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

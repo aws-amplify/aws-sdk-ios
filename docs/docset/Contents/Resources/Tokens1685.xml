@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionDeleteFacesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionDeleteFacesResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1685"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDeleteFacesResponse/setDeletedFaces:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of strings (face IDs) of the faces that were deleted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *deletedFaces</Declaration>
+			
+			
+			<Anchor>//api/name/deletedFaces</Anchor>
+            <NodeRef refid="1685"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDeleteFacesResponse/deletedFaces</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of strings (face IDs) of the faces that were deleted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *deletedFaces</Declaration>
+			
+			
+			<Anchor>//api/name/deletedFaces</Anchor>
+            <NodeRef refid="1685"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDeleteFacesResponse/deletedFaces</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of strings (face IDs) of the faces that were deleted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *deletedFaces</Declaration>
+			
+			
+			<Anchor>//api/name/deletedFaces</Anchor>
+            <NodeRef refid="1685"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

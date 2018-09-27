@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESReceiptRuleSetMetadata.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESReceiptRuleSetMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a receipt rule set.&lt;/p&gt;&lt;p&gt;A receipt rule set is a collection of rules that specify what Amazon SES should do with mail it receives on behalf of your account&apos;s verified domains.&lt;/p&gt;&lt;p&gt;For information about setting up receipt rule sets, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2138"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptRuleSetMetadata/setCreatedTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date and time the receipt rule set was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *createdTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/createdTimestamp</Anchor>
+            <NodeRef refid="2138"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptRuleSetMetadata/createdTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date and time the receipt rule set was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *createdTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/createdTimestamp</Anchor>
+            <NodeRef refid="2138"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptRuleSetMetadata/createdTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date and time the receipt rule set was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *createdTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/createdTimestamp</Anchor>
+            <NodeRef refid="2138"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptRuleSetMetadata/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule set. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Start and end with a letter or number.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2138"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptRuleSetMetadata/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule set. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Start and end with a letter or number.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2138"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptRuleSetMetadata/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule set. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Start and end with a letter or number.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2138"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

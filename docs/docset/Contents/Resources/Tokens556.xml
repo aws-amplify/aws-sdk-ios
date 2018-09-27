@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBAttributeValue.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBAttributeValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the data for an attribute.&lt;/p&gt;&lt;p&gt;Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.&lt;/p&gt;&lt;p&gt;For more information, see Data Types in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="556"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/setB:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Binary. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;B&quot;: &quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk&quot;&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *B</Declaration>
+			
+			
+			<Anchor>//api/name/B</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/B</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Binary. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;B&quot;: &quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk&quot;&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *B</Declaration>
+			
+			
+			<Anchor>//api/name/B</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBAttributeValue/B</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Binary. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;B&quot;: &quot;dGhpcyB0ZXh0IGlzIGJhc2U2NC1lbmNvZGVk&quot;&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *B</Declaration>
+			
+			
+			<Anchor>//api/name/B</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/setBOOLEAN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Boolean. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;BOOL&quot;: true&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *BOOLEAN</Declaration>
+			
+			
+			<Anchor>//api/name/BOOLEAN</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/BOOLEAN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Boolean. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;BOOL&quot;: true&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *BOOLEAN</Declaration>
+			
+			
+			<Anchor>//api/name/BOOLEAN</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBAttributeValue/BOOLEAN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Boolean. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;BOOL&quot;: true&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *BOOLEAN</Declaration>
+			
+			
+			<Anchor>//api/name/BOOLEAN</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/setBS:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Binary Set. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;BS&quot;: [&quot;U3Vubnk=&quot;, &quot;UmFpbnk=&quot;, &quot;U25vd3k=&quot;]&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSData*&gt; *BS</Declaration>
+			
+			
+			<Anchor>//api/name/BS</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/BS</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Binary Set. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;BS&quot;: [&quot;U3Vubnk=&quot;, &quot;UmFpbnk=&quot;, &quot;U25vd3k=&quot;]&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSData*&gt; *BS</Declaration>
+			
+			
+			<Anchor>//api/name/BS</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBAttributeValue/BS</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Binary Set. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;BS&quot;: [&quot;U3Vubnk=&quot;, &quot;UmFpbnk=&quot;, &quot;U25vd3k=&quot;]&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSData*&gt; *BS</Declaration>
+			
+			
+			<Anchor>//api/name/BS</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/setL:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type List. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;L&quot;: [&quot;Cookies&quot;, &quot;Coffee&quot;, 3.14159]&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBAttributeValue*&gt; *L</Declaration>
+			
+			
+			<Anchor>//api/name/L</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/L</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type List. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;L&quot;: [&quot;Cookies&quot;, &quot;Coffee&quot;, 3.14159]&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBAttributeValue*&gt; *L</Declaration>
+			
+			
+			<Anchor>//api/name/L</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBAttributeValue/L</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type List. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;L&quot;: [&quot;Cookies&quot;, &quot;Coffee&quot;, 3.14159]&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBAttributeValue*&gt; *L</Declaration>
+			
+			
+			<Anchor>//api/name/L</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/setM:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Map. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;M&quot;: {&quot;Name&quot;: {&quot;S&quot;: &quot;Joe&quot;}, &quot;Age&quot;: {&quot;N&quot;: &quot;35&quot;}}&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *M</Declaration>
+			
+			
+			<Anchor>//api/name/M</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/M</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Map. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;M&quot;: {&quot;Name&quot;: {&quot;S&quot;: &quot;Joe&quot;}, &quot;Age&quot;: {&quot;N&quot;: &quot;35&quot;}}&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *M</Declaration>
+			
+			
+			<Anchor>//api/name/M</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBAttributeValue/M</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Map. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;M&quot;: {&quot;Name&quot;: {&quot;S&quot;: &quot;Joe&quot;}, &quot;Age&quot;: {&quot;N&quot;: &quot;35&quot;}}&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *M</Declaration>
+			
+			
+			<Anchor>//api/name/M</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/setN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Number. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;N&quot;: &quot;123.45&quot;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *N</Declaration>
+			
+			
+			<Anchor>//api/name/N</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/N</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Number. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;N&quot;: &quot;123.45&quot;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *N</Declaration>
+			
+			
+			<Anchor>//api/name/N</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBAttributeValue/N</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Number. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;N&quot;: &quot;123.45&quot;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *N</Declaration>
+			
+			
+			<Anchor>//api/name/N</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/setNS:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Number Set. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;NS&quot;: [&quot;42.2&quot;, &quot;-19&quot;, &quot;7.5&quot;, &quot;3.14&quot;]&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *NS</Declaration>
+			
+			
+			<Anchor>//api/name/NS</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/NS</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Number Set. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;NS&quot;: [&quot;42.2&quot;, &quot;-19&quot;, &quot;7.5&quot;, &quot;3.14&quot;]&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *NS</Declaration>
+			
+			
+			<Anchor>//api/name/NS</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBAttributeValue/NS</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Number Set. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;NS&quot;: [&quot;42.2&quot;, &quot;-19&quot;, &quot;7.5&quot;, &quot;3.14&quot;]&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Numbers are sent across the network to DynamoDB as strings, to maximize compatibility across languages and libraries. However, DynamoDB treats them as number type attributes for mathematical operations.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *NS</Declaration>
+			
+			
+			<Anchor>//api/name/NS</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/setNIL:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Null. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;NULL&quot;: true&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *NIL</Declaration>
+			
+			
+			<Anchor>//api/name/NIL</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/NIL</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Null. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;NULL&quot;: true&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *NIL</Declaration>
+			
+			
+			<Anchor>//api/name/NIL</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBAttributeValue/NIL</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type Null. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;NULL&quot;: true&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *NIL</Declaration>
+			
+			
+			<Anchor>//api/name/NIL</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/setS:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type String. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;S&quot;: &quot;Hello&quot;&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *S</Declaration>
+			
+			
+			<Anchor>//api/name/S</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/S</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type String. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;S&quot;: &quot;Hello&quot;&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *S</Declaration>
+			
+			
+			<Anchor>//api/name/S</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBAttributeValue/S</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type String. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;S&quot;: &quot;Hello&quot;&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *S</Declaration>
+			
+			
+			<Anchor>//api/name/S</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/setSS:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type String Set. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;SS&quot;: [&quot;Giraffe&quot;, &quot;Hippo&quot; ,&quot;Zebra&quot;]&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *SS</Declaration>
+			
+			
+			<Anchor>//api/name/SS</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBAttributeValue/SS</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type String Set. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;SS&quot;: [&quot;Giraffe&quot;, &quot;Hippo&quot; ,&quot;Zebra&quot;]&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *SS</Declaration>
+			
+			
+			<Anchor>//api/name/SS</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBAttributeValue/SS</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An attribute of type String Set. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;&quot;SS&quot;: [&quot;Giraffe&quot;, &quot;Hippo&quot; ,&quot;Zebra&quot;]&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *SS</Declaration>
+			
+			
+			<Anchor>//api/name/SS</Anchor>
+            <NodeRef refid="556"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

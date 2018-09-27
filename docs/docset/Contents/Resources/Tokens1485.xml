@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingAPNSSandboxChannelRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingAPNSSandboxChannelRequest</TokenIdentifier>
+			<Abstract type="html">Apple Development Push Notification Service channel definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1485"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSSandboxChannelRequest/setCertificate:</TokenIdentifier>
+			<Abstract type="html">The distribution certificate from Apple.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificate</Declaration>
+			
+			
+			<Anchor>//api/name/certificate</Anchor>
+            <NodeRef refid="1485"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSSandboxChannelRequest/certificate</TokenIdentifier>
+			<Abstract type="html">The distribution certificate from Apple.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificate</Declaration>
+			
+			
+			<Anchor>//api/name/certificate</Anchor>
+            <NodeRef refid="1485"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSSandboxChannelRequest/certificate</TokenIdentifier>
+			<Abstract type="html">The distribution certificate from Apple.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificate</Declaration>
+			
+			
+			<Anchor>//api/name/certificate</Anchor>
+            <NodeRef refid="1485"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSSandboxChannelRequest/setEnabled:</TokenIdentifier>
+			<Abstract type="html">If the channel is enabled for sending messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="1485"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSSandboxChannelRequest/enabled</TokenIdentifier>
+			<Abstract type="html">If the channel is enabled for sending messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="1485"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSSandboxChannelRequest/enabled</TokenIdentifier>
+			<Abstract type="html">If the channel is enabled for sending messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="1485"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSSandboxChannelRequest/setPrivateKey:</TokenIdentifier>
+			<Abstract type="html">The certificate private key.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *privateKey</Declaration>
+			
+			
+			<Anchor>//api/name/privateKey</Anchor>
+            <NodeRef refid="1485"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingAPNSSandboxChannelRequest/privateKey</TokenIdentifier>
+			<Abstract type="html">The certificate private key.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *privateKey</Declaration>
+			
+			
+			<Anchor>//api/name/privateKey</Anchor>
+            <NodeRef refid="1485"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingAPNSSandboxChannelRequest/privateKey</TokenIdentifier>
+			<Abstract type="html">The certificate private key.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *privateKey</Declaration>
+			
+			
+			<Anchor>//api/name/privateKey</Anchor>
+            <NodeRef refid="1485"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

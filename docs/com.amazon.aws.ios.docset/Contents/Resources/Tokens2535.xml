@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSIoTThingIndexingMode.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSIoTThingIndexingMode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2535"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTThingIndexingModeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTThingIndexingModeUnknown</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2535"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTThingIndexingModeOff</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTThingIndexingModeOff</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2535"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTThingIndexingModeRegistry</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTThingIndexingModeRegistry</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2535"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTThingIndexingModeRegistryAndShadow</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTThingIndexingModeRegistryAndShadow</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2535"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

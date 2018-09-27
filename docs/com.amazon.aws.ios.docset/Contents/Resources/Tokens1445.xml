@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsSearchedLogStream.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsSearchedLogStream</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the search status of a log stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1445"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsSearchedLogStream/setLogStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamName</Anchor>
+            <NodeRef refid="1445"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsSearchedLogStream/logStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamName</Anchor>
+            <NodeRef refid="1445"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsSearchedLogStream/logStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamName</Anchor>
+            <NodeRef refid="1445"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsSearchedLogStream/setSearchedCompletely:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether all the events in this log stream were searched.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *searchedCompletely</Declaration>
+			
+			
+			<Anchor>//api/name/searchedCompletely</Anchor>
+            <NodeRef refid="1445"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsSearchedLogStream/searchedCompletely</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether all the events in this log stream were searched.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *searchedCompletely</Declaration>
+			
+			
+			<Anchor>//api/name/searchedCompletely</Anchor>
+            <NodeRef refid="1445"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsSearchedLogStream/searchedCompletely</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether all the events in this log stream were searched.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *searchedCompletely</Declaration>
+			
+			
+			<Anchor>//api/name/searchedCompletely</Anchor>
+            <NodeRef refid="1445"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingLoadBalancerAttributes.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingLoadBalancerAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attributes for a load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="747"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLoadBalancerAttributes/setAccessLog:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.&lt;/p&gt;&lt;p&gt;For more information, see Enable Access Logs in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingAccessLog *accessLog</Declaration>
+			
+			
+			<Anchor>//api/name/accessLog</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLoadBalancerAttributes/accessLog</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.&lt;/p&gt;&lt;p&gt;For more information, see Enable Access Logs in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingAccessLog *accessLog</Declaration>
+			
+			
+			<Anchor>//api/name/accessLog</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingLoadBalancerAttributes/accessLog</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer captures detailed information of all requests and delivers the information to the Amazon S3 bucket that you specify.&lt;/p&gt;&lt;p&gt;For more information, see Enable Access Logs in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingAccessLog *accessLog</Declaration>
+			
+			
+			<Anchor>//api/name/accessLog</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLoadBalancerAttributes/setAdditionalAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is reserved.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingAdditionalAttribute*&gt; *additionalAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/additionalAttributes</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLoadBalancerAttributes/additionalAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is reserved.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingAdditionalAttribute*&gt; *additionalAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/additionalAttributes</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingLoadBalancerAttributes/additionalAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is reserved.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingAdditionalAttribute*&gt; *additionalAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/additionalAttributes</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLoadBalancerAttributes/setConnectionDraining:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.&lt;/p&gt;&lt;p&gt;For more information, see Configure Connection Draining in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingConnectionDraining *connectionDraining</Declaration>
+			
+			
+			<Anchor>//api/name/connectionDraining</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLoadBalancerAttributes/connectionDraining</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.&lt;/p&gt;&lt;p&gt;For more information, see Configure Connection Draining in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingConnectionDraining *connectionDraining</Declaration>
+			
+			
+			<Anchor>//api/name/connectionDraining</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingLoadBalancerAttributes/connectionDraining</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer allows existing requests to complete before the load balancer shifts traffic away from a deregistered or unhealthy instance.&lt;/p&gt;&lt;p&gt;For more information, see Configure Connection Draining in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingConnectionDraining *connectionDraining</Declaration>
+			
+			
+			<Anchor>//api/name/connectionDraining</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLoadBalancerAttributes/setConnectionSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.&lt;/p&gt;&lt;p&gt;By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see Configure Idle Connection Timeout in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingConnectionSettings *connectionSettings</Declaration>
+			
+			
+			<Anchor>//api/name/connectionSettings</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLoadBalancerAttributes/connectionSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.&lt;/p&gt;&lt;p&gt;By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see Configure Idle Connection Timeout in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingConnectionSettings *connectionSettings</Declaration>
+			
+			
+			<Anchor>//api/name/connectionSettings</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingLoadBalancerAttributes/connectionSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer allows the connections to remain idle (no data is sent over the connection) for the specified duration.&lt;/p&gt;&lt;p&gt;By default, Elastic Load Balancing maintains a 60-second idle connection timeout for both front-end and back-end connections of your load balancer. For more information, see Configure Idle Connection Timeout in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingConnectionSettings *connectionSettings</Declaration>
+			
+			
+			<Anchor>//api/name/connectionSettings</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLoadBalancerAttributes/setCrossZoneLoadBalancing:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.&lt;/p&gt;&lt;p&gt;For more information, see Configure Cross-Zone Load Balancing in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingCrossZoneLoadBalancing *crossZoneLoadBalancing</Declaration>
+			
+			
+			<Anchor>//api/name/crossZoneLoadBalancing</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingLoadBalancerAttributes/crossZoneLoadBalancing</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.&lt;/p&gt;&lt;p&gt;For more information, see Configure Cross-Zone Load Balancing in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingCrossZoneLoadBalancing *crossZoneLoadBalancing</Declaration>
+			
+			
+			<Anchor>//api/name/crossZoneLoadBalancing</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingLoadBalancerAttributes/crossZoneLoadBalancing</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If enabled, the load balancer routes the request traffic evenly across all instances regardless of the Availability Zones.&lt;/p&gt;&lt;p&gt;For more information, see Configure Cross-Zone Load Balancing in the &lt;i&gt;Classic Load Balancers Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSElasticLoadBalancingCrossZoneLoadBalancing *crossZoneLoadBalancing</Declaration>
+			
+			
+			<Anchor>//api/name/crossZoneLoadBalancing</Anchor>
+            <NodeRef refid="747"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

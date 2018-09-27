@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3ListBucketMetricsConfigurationsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3ListBucketMetricsConfigurationsOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1913"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketMetricsConfigurationsOutput/setContinuationToken:</TokenIdentifier>
+			<Abstract type="html">The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketMetricsConfigurationsOutput/continuationToken</TokenIdentifier>
+			<Abstract type="html">The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketMetricsConfigurationsOutput/continuationToken</TokenIdentifier>
+			<Abstract type="html">The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *continuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/continuationToken</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketMetricsConfigurationsOutput/setIsTruncated:</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketMetricsConfigurationsOutput/isTruncated</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketMetricsConfigurationsOutput/isTruncated</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketMetricsConfigurationsOutput/setMetricsConfigurationList:</TokenIdentifier>
+			<Abstract type="html">The list of metrics configurations for a bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3MetricsConfiguration*&gt; *metricsConfigurationList</Declaration>
+			
+			
+			<Anchor>//api/name/metricsConfigurationList</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketMetricsConfigurationsOutput/metricsConfigurationList</TokenIdentifier>
+			<Abstract type="html">The list of metrics configurations for a bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3MetricsConfiguration*&gt; *metricsConfigurationList</Declaration>
+			
+			
+			<Anchor>//api/name/metricsConfigurationList</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketMetricsConfigurationsOutput/metricsConfigurationList</TokenIdentifier>
+			<Abstract type="html">The list of metrics configurations for a bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3MetricsConfiguration*&gt; *metricsConfigurationList</Declaration>
+			
+			
+			<Anchor>//api/name/metricsConfigurationList</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketMetricsConfigurationsOutput/setNextContinuationToken:</TokenIdentifier>
+			<Abstract type="html">The marker used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextContinuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextContinuationToken</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListBucketMetricsConfigurationsOutput/nextContinuationToken</TokenIdentifier>
+			<Abstract type="html">The marker used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextContinuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextContinuationToken</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListBucketMetricsConfigurationsOutput/nextContinuationToken</TokenIdentifier>
+			<Abstract type="html">The marker used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextContinuationToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextContinuationToken</Anchor>
+            <NodeRef refid="1913"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSQSDeleteMessageBatchResultEntry.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSQSDeleteMessageBatchResultEntry</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Encloses the &lt;code&gt;Id&lt;/code&gt; of an entry in &lt;code&gt;&lt;a&gt;DeleteMessageBatch&lt;/a&gt;.&lt;/code&gt;&lt;/p&gt;
+Required parameters: [Id]</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2268"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSDeleteMessageBatchResultEntry/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a successfully deleted message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSDeleteMessageBatchResultEntry/identifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a successfully deleted message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSDeleteMessageBatchResultEntry/identifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a successfully deleted message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2268"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

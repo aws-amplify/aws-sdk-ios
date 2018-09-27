@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTCodeSigning.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTCodeSigning</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the method to use when code signing a file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="875"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCodeSigning/setAwsSignerJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the AWSSignerJob which was created to sign the file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *awsSignerJobId</Declaration>
+			
+			
+			<Anchor>//api/name/awsSignerJobId</Anchor>
+            <NodeRef refid="875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCodeSigning/awsSignerJobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the AWSSignerJob which was created to sign the file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *awsSignerJobId</Declaration>
+			
+			
+			<Anchor>//api/name/awsSignerJobId</Anchor>
+            <NodeRef refid="875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCodeSigning/awsSignerJobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the AWSSignerJob which was created to sign the file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *awsSignerJobId</Declaration>
+			
+			
+			<Anchor>//api/name/awsSignerJobId</Anchor>
+            <NodeRef refid="875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCodeSigning/setCustomCodeSigning:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A custom method for code signing a file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTCustomCodeSigning *customCodeSigning</Declaration>
+			
+			
+			<Anchor>//api/name/customCodeSigning</Anchor>
+            <NodeRef refid="875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCodeSigning/customCodeSigning</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A custom method for code signing a file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTCustomCodeSigning *customCodeSigning</Declaration>
+			
+			
+			<Anchor>//api/name/customCodeSigning</Anchor>
+            <NodeRef refid="875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCodeSigning/customCodeSigning</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A custom method for code signing a file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTCustomCodeSigning *customCodeSigning</Declaration>
+			
+			
+			<Anchor>//api/name/customCodeSigning</Anchor>
+            <NodeRef refid="875"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

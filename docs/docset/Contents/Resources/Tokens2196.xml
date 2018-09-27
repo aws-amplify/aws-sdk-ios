@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESVerifyEmailIdentityRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESVerifyEmailIdentityRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [EmailAddress]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2196"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESVerifyEmailIdentityRequest/setEmailAddress:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address to be verified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *emailAddress</Declaration>
+			
+			
+			<Anchor>//api/name/emailAddress</Anchor>
+            <NodeRef refid="2196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESVerifyEmailIdentityRequest/emailAddress</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address to be verified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *emailAddress</Declaration>
+			
+			
+			<Anchor>//api/name/emailAddress</Anchor>
+            <NodeRef refid="2196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESVerifyEmailIdentityRequest/emailAddress</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address to be verified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *emailAddress</Declaration>
+			
+			
+			<Anchor>//api/name/emailAddress</Anchor>
+            <NodeRef refid="2196"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderUpdateDeviceStatusRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderUpdateDeviceStatusRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the request to update the device status.&lt;/p&gt;
+Required parameters: [AccessToken, DeviceKey]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="425"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateDeviceStatusRequest/setAccessToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="425"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateDeviceStatusRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="425"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUpdateDeviceStatusRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="425"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateDeviceStatusRequest/setDeviceKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The device key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceKey</Declaration>
+			
+			
+			<Anchor>//api/name/deviceKey</Anchor>
+            <NodeRef refid="425"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateDeviceStatusRequest/deviceKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The device key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceKey</Declaration>
+			
+			
+			<Anchor>//api/name/deviceKey</Anchor>
+            <NodeRef refid="425"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUpdateDeviceStatusRequest/deviceKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The device key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceKey</Declaration>
+			
+			
+			<Anchor>//api/name/deviceKey</Anchor>
+            <NodeRef refid="425"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateDeviceStatusRequest/setDeviceRememberedStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of whether a device is remembered.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderDeviceRememberedStatusType deviceRememberedStatus</Declaration>
+			
+			
+			<Anchor>//api/name/deviceRememberedStatus</Anchor>
+            <NodeRef refid="425"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateDeviceStatusRequest/deviceRememberedStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of whether a device is remembered.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderDeviceRememberedStatusType deviceRememberedStatus</Declaration>
+			
+			
+			<Anchor>//api/name/deviceRememberedStatus</Anchor>
+            <NodeRef refid="425"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUpdateDeviceStatusRequest/deviceRememberedStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of whether a device is remembered.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderDeviceRememberedStatusType deviceRememberedStatus</Declaration>
+			
+			
+			<Anchor>//api/name/deviceRememberedStatus</Anchor>
+            <NodeRef refid="425"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTTransferData.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTTransferData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Data used to transfer a certificate to an AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1143"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTTransferData/setAcceptDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer was accepted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *acceptDate</Declaration>
+			
+			
+			<Anchor>//api/name/acceptDate</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTTransferData/acceptDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer was accepted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *acceptDate</Declaration>
+			
+			
+			<Anchor>//api/name/acceptDate</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTTransferData/acceptDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer was accepted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *acceptDate</Declaration>
+			
+			
+			<Anchor>//api/name/acceptDate</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTTransferData/setRejectDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer was rejected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *rejectDate</Declaration>
+			
+			
+			<Anchor>//api/name/rejectDate</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTTransferData/rejectDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer was rejected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *rejectDate</Declaration>
+			
+			
+			<Anchor>//api/name/rejectDate</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTTransferData/rejectDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer was rejected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *rejectDate</Declaration>
+			
+			
+			<Anchor>//api/name/rejectDate</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTTransferData/setRejectReason:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason why the transfer was rejected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rejectReason</Declaration>
+			
+			
+			<Anchor>//api/name/rejectReason</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTTransferData/rejectReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason why the transfer was rejected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rejectReason</Declaration>
+			
+			
+			<Anchor>//api/name/rejectReason</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTTransferData/rejectReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason why the transfer was rejected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rejectReason</Declaration>
+			
+			
+			<Anchor>//api/name/rejectReason</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTTransferData/setTransferDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer took place.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *transferDate</Declaration>
+			
+			
+			<Anchor>//api/name/transferDate</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTTransferData/transferDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer took place.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *transferDate</Declaration>
+			
+			
+			<Anchor>//api/name/transferDate</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTTransferData/transferDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer took place.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *transferDate</Declaration>
+			
+			
+			<Anchor>//api/name/transferDate</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTTransferData/setTransferMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The transfer message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transferMessage</Declaration>
+			
+			
+			<Anchor>//api/name/transferMessage</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTTransferData/transferMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The transfer message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transferMessage</Declaration>
+			
+			
+			<Anchor>//api/name/transferMessage</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTTransferData/transferMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The transfer message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transferMessage</Declaration>
+			
+			
+			<Anchor>//api/name/transferMessage</Anchor>
+            <NodeRef refid="1143"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCognitoCredentialsProviderErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCognitoCredentialsProviderErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2413"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoCredentialsProviderErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoCredentialsProviderErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+            
+            <NodeRef refid="2413"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoCredentialsProviderIdentityIdIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoCredentialsProviderIdentityIdIsNil</Declaration>
+            
+            <DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+            
+            <NodeRef refid="2413"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoCredentialsProviderInvalidConfiguration</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoCredentialsProviderInvalidConfiguration</Declaration>
+            
+            <DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+            
+            <NodeRef refid="2413"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoCredentialsProviderInvalidCognitoIdentityToken</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoCredentialsProviderInvalidCognitoIdentityToken</Declaration>
+            
+            <DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+            
+            <NodeRef refid="2413"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoCredentialsProviderCredentialsRefreshTimeout</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoCredentialsProviderCredentialsRefreshTimeout</Declaration>
+            
+            <DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+            
+            <NodeRef refid="2413"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendBatchDetectDominantLanguageResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectDominantLanguageResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="520"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectDominantLanguageResponse/setErrorList:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list containing one object for each document that contained an error. The results are sorted in ascending order by the &lt;code&gt;Index&lt;/code&gt; field and match the order of the documents in the input list. If there are no errors in the batch, the &lt;code&gt;ErrorList&lt;/code&gt; is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendBatchItemError*&gt; *errorList</Declaration>
+			
+			
+			<Anchor>//api/name/errorList</Anchor>
+            <NodeRef refid="520"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectDominantLanguageResponse/errorList</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list containing one object for each document that contained an error. The results are sorted in ascending order by the &lt;code&gt;Index&lt;/code&gt; field and match the order of the documents in the input list. If there are no errors in the batch, the &lt;code&gt;ErrorList&lt;/code&gt; is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendBatchItemError*&gt; *errorList</Declaration>
+			
+			
+			<Anchor>//api/name/errorList</Anchor>
+            <NodeRef refid="520"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendBatchDetectDominantLanguageResponse/errorList</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list containing one object for each document that contained an error. The results are sorted in ascending order by the &lt;code&gt;Index&lt;/code&gt; field and match the order of the documents in the input list. If there are no errors in the batch, the &lt;code&gt;ErrorList&lt;/code&gt; is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendBatchItemError*&gt; *errorList</Declaration>
+			
+			
+			<Anchor>//api/name/errorList</Anchor>
+            <NodeRef refid="520"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectDominantLanguageResponse/setResultList:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of objects containing the results of the operation. The results are sorted in ascending order by the &lt;code&gt;Index&lt;/code&gt; field and match the order of the documents in the input list. If all of the documents contain an error, the &lt;code&gt;ResultList&lt;/code&gt; is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendBatchDetectDominantLanguageItemResult*&gt; *resultList</Declaration>
+			
+			
+			<Anchor>//api/name/resultList</Anchor>
+            <NodeRef refid="520"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectDominantLanguageResponse/resultList</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of objects containing the results of the operation. The results are sorted in ascending order by the &lt;code&gt;Index&lt;/code&gt; field and match the order of the documents in the input list. If all of the documents contain an error, the &lt;code&gt;ResultList&lt;/code&gt; is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendBatchDetectDominantLanguageItemResult*&gt; *resultList</Declaration>
+			
+			
+			<Anchor>//api/name/resultList</Anchor>
+            <NodeRef refid="520"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendBatchDetectDominantLanguageResponse/resultList</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of objects containing the results of the operation. The results are sorted in ascending order by the &lt;code&gt;Index&lt;/code&gt; field and match the order of the documents in the input list. If all of the documents contain an error, the &lt;code&gt;ResultList&lt;/code&gt; is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendBatchDetectDominantLanguageItemResult*&gt; *resultList</Declaration>
+			
+			
+			<Anchor>//api/name/resultList</Anchor>
+            <NodeRef refid="520"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

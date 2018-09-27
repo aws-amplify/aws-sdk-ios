@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESReceiptFilter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESReceiptFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.&lt;/p&gt;&lt;p&gt;For information about setting up IP address filters, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [Name, IpFilter]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2135"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptFilter/setIpFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReceiptIpFilter *ipFilter</Declaration>
+			
+			
+			<Anchor>//api/name/ipFilter</Anchor>
+            <NodeRef refid="2135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptFilter/ipFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReceiptIpFilter *ipFilter</Declaration>
+			
+			
+			<Anchor>//api/name/ipFilter</Anchor>
+            <NodeRef refid="2135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptFilter/ipFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReceiptIpFilter *ipFilter</Declaration>
+			
+			
+			<Anchor>//api/name/ipFilter</Anchor>
+            <NodeRef refid="2135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptFilter/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the IP address filter. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Start and end with a letter or number.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptFilter/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the IP address filter. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Start and end with a letter or number.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptFilter/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the IP address filter. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Start and end with a letter or number.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2135"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

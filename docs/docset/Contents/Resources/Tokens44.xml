@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingDescribeAdjustmentTypesAnswer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingDescribeAdjustmentTypesAnswer</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="44"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAdjustmentTypesAnswer/setAdjustmentTypes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy adjustment types.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingAdjustmentType*&gt; *adjustmentTypes</Declaration>
+			
+			
+			<Anchor>//api/name/adjustmentTypes</Anchor>
+            <NodeRef refid="44"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAdjustmentTypesAnswer/adjustmentTypes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy adjustment types.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingAdjustmentType*&gt; *adjustmentTypes</Declaration>
+			
+			
+			<Anchor>//api/name/adjustmentTypes</Anchor>
+            <NodeRef refid="44"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingDescribeAdjustmentTypesAnswer/adjustmentTypes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy adjustment types.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingAdjustmentType*&gt; *adjustmentTypes</Declaration>
+			
+			
+			<Anchor>//api/name/adjustmentTypes</Anchor>
+            <NodeRef refid="44"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

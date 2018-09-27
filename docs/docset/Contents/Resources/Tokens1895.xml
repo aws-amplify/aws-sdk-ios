@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3InventoryConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3InventoryConfiguration</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1895"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/setDestination:</TokenIdentifier>
+			<Abstract type="html">Contains information about where to publish the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryDestination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/destination</TokenIdentifier>
+			<Abstract type="html">Contains information about where to publish the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryDestination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryConfiguration/destination</TokenIdentifier>
+			<Abstract type="html">Contains information about where to publish the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryDestination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/setFilter:</TokenIdentifier>
+			<Abstract type="html">Specifies an inventory filter. The inventory only includes objects that meet the filter&apos;s criteria.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/filter</TokenIdentifier>
+			<Abstract type="html">Specifies an inventory filter. The inventory only includes objects that meet the filter&apos;s criteria.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryConfiguration/filter</TokenIdentifier>
+			<Abstract type="html">Specifies an inventory filter. The inventory only includes objects that meet the filter&apos;s criteria.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">The ID used to identify the inventory configuration.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/identifier</TokenIdentifier>
+			<Abstract type="html">The ID used to identify the inventory configuration.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryConfiguration/identifier</TokenIdentifier>
+			<Abstract type="html">The ID used to identify the inventory configuration.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/setIncludedObjectVersions:</TokenIdentifier>
+			<Abstract type="html">Specifies which object version(s) to included in the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3InventoryIncludedObjectVersions includedObjectVersions</Declaration>
+			
+			
+			<Anchor>//api/name/includedObjectVersions</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/includedObjectVersions</TokenIdentifier>
+			<Abstract type="html">Specifies which object version(s) to included in the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3InventoryIncludedObjectVersions includedObjectVersions</Declaration>
+			
+			
+			<Anchor>//api/name/includedObjectVersions</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryConfiguration/includedObjectVersions</TokenIdentifier>
+			<Abstract type="html">Specifies which object version(s) to included in the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3InventoryIncludedObjectVersions includedObjectVersions</Declaration>
+			
+			
+			<Anchor>//api/name/includedObjectVersions</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/setIsEnabled:</TokenIdentifier>
+			<Abstract type="html">Specifies whether the inventory is enabled or disabled.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/isEnabled</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/isEnabled</TokenIdentifier>
+			<Abstract type="html">Specifies whether the inventory is enabled or disabled.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/isEnabled</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryConfiguration/isEnabled</TokenIdentifier>
+			<Abstract type="html">Specifies whether the inventory is enabled or disabled.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/isEnabled</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/setOptionalFields:</TokenIdentifier>
+			<Abstract type="html">Contains the optional fields that are included in the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *optionalFields</Declaration>
+			
+			
+			<Anchor>//api/name/optionalFields</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/optionalFields</TokenIdentifier>
+			<Abstract type="html">Contains the optional fields that are included in the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *optionalFields</Declaration>
+			
+			
+			<Anchor>//api/name/optionalFields</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryConfiguration/optionalFields</TokenIdentifier>
+			<Abstract type="html">Contains the optional fields that are included in the inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *optionalFields</Declaration>
+			
+			
+			<Anchor>//api/name/optionalFields</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/setSchedule:</TokenIdentifier>
+			<Abstract type="html">Specifies the schedule for generating inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventorySchedule *schedule</Declaration>
+			
+			
+			<Anchor>//api/name/schedule</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3InventoryConfiguration/schedule</TokenIdentifier>
+			<Abstract type="html">Specifies the schedule for generating inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventorySchedule *schedule</Declaration>
+			
+			
+			<Anchor>//api/name/schedule</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3InventoryConfiguration/schedule</TokenIdentifier>
+			<Abstract type="html">Specifies the schedule for generating inventory results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventorySchedule *schedule</Declaration>
+			
+			
+			<Anchor>//api/name/schedule</Anchor>
+            <NodeRef refid="1895"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

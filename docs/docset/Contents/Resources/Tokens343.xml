@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderGetGroupResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderGetGroupResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="343"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetGroupResponse/setGroup:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The group object for the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderGroupType *group</Declaration>
+			
+			
+			<Anchor>//api/name/group</Anchor>
+            <NodeRef refid="343"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderGetGroupResponse/group</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The group object for the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderGroupType *group</Declaration>
+			
+			
+			<Anchor>//api/name/group</Anchor>
+            <NodeRef refid="343"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderGetGroupResponse/group</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The group object for the group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderGroupType *group</Declaration>
+			
+			
+			<Anchor>//api/name/group</Anchor>
+            <NodeRef refid="343"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

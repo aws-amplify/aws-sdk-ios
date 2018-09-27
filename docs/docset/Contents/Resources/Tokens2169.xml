@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESSetIdentityNotificationTopicRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESSetIdentityNotificationTopicRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce, complaint, or delivery notifications for emails sent with that identity as the Source. For information about Amazon SES notifications, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [Identity, NotificationType]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2169"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetIdentityNotificationTopicRequest/setIdentity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity (email address or domain) that you want to set the Amazon SNS topic for.&lt;/p&gt;&lt;important&gt;&lt;p&gt;You can only specify a verified identity for this parameter.&lt;/p&gt;&lt;/important&gt;&lt;p&gt;You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: &lt;code&gt;sender@example.com&lt;/code&gt;, &lt;code&gt;example.com&lt;/code&gt;, &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identity</Declaration>
+			
+			
+			<Anchor>//api/name/identity</Anchor>
+            <NodeRef refid="2169"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetIdentityNotificationTopicRequest/identity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity (email address or domain) that you want to set the Amazon SNS topic for.&lt;/p&gt;&lt;important&gt;&lt;p&gt;You can only specify a verified identity for this parameter.&lt;/p&gt;&lt;/important&gt;&lt;p&gt;You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: &lt;code&gt;sender@example.com&lt;/code&gt;, &lt;code&gt;example.com&lt;/code&gt;, &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identity</Declaration>
+			
+			
+			<Anchor>//api/name/identity</Anchor>
+            <NodeRef refid="2169"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSetIdentityNotificationTopicRequest/identity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity (email address or domain) that you want to set the Amazon SNS topic for.&lt;/p&gt;&lt;important&gt;&lt;p&gt;You can only specify a verified identity for this parameter.&lt;/p&gt;&lt;/important&gt;&lt;p&gt;You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: &lt;code&gt;sender@example.com&lt;/code&gt;, &lt;code&gt;example.com&lt;/code&gt;, &lt;code&gt;arn:aws:ses:us-east-1:123456789012:identity/example.com&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identity</Declaration>
+			
+			
+			<Anchor>//api/name/identity</Anchor>
+            <NodeRef refid="2169"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetIdentityNotificationTopicRequest/setNotificationType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of notifications that will be published to the specified Amazon SNS topic.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESNotificationType notificationType</Declaration>
+			
+			
+			<Anchor>//api/name/notificationType</Anchor>
+            <NodeRef refid="2169"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetIdentityNotificationTopicRequest/notificationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of notifications that will be published to the specified Amazon SNS topic.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESNotificationType notificationType</Declaration>
+			
+			
+			<Anchor>//api/name/notificationType</Anchor>
+            <NodeRef refid="2169"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSetIdentityNotificationTopicRequest/notificationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of notifications that will be published to the specified Amazon SNS topic.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESNotificationType notificationType</Declaration>
+			
+			
+			<Anchor>//api/name/notificationType</Anchor>
+            <NodeRef refid="2169"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetIdentityNotificationTopicRequest/setSnsTopic:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, &lt;code&gt;SnsTopic&lt;/code&gt; is cleared and publishing is disabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *snsTopic</Declaration>
+			
+			
+			<Anchor>//api/name/snsTopic</Anchor>
+            <NodeRef refid="2169"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetIdentityNotificationTopicRequest/snsTopic</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, &lt;code&gt;SnsTopic&lt;/code&gt; is cleared and publishing is disabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *snsTopic</Declaration>
+			
+			
+			<Anchor>//api/name/snsTopic</Anchor>
+            <NodeRef refid="2169"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSetIdentityNotificationTopicRequest/snsTopic</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, &lt;code&gt;SnsTopic&lt;/code&gt; is cleared and publishing is disabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *snsTopic</Declaration>
+			
+			
+			<Anchor>//api/name/snsTopic</Anchor>
+            <NodeRef refid="2169"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

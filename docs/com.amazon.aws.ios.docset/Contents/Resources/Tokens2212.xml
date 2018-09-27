@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSDeletePlatformApplicationInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSDeletePlatformApplicationInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Input for DeletePlatformApplication action.&lt;/p&gt;
+Required parameters: [PlatformApplicationArn]</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2212"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSDeletePlatformApplicationInput/setPlatformApplicationArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;PlatformApplicationArn of platform application object to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platformApplicationArn</Declaration>
+			
+			
+			<Anchor>//api/name/platformApplicationArn</Anchor>
+            <NodeRef refid="2212"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSDeletePlatformApplicationInput/platformApplicationArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;PlatformApplicationArn of platform application object to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platformApplicationArn</Declaration>
+			
+			
+			<Anchor>//api/name/platformApplicationArn</Anchor>
+            <NodeRef refid="2212"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSDeletePlatformApplicationInput/platformApplicationArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;PlatformApplicationArn of platform application object to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platformApplicationArn</Declaration>
+			
+			
+			<Anchor>//api/name/platformApplicationArn</Anchor>
+            <NodeRef refid="2212"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

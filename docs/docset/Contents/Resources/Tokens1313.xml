@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaAliasConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAliasConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides configuration information about a Lambda function version alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1313"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/setAliasArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias called &lt;code&gt;BETA&lt;/code&gt; that points to a helloworld function version, the ARN is &lt;code&gt;arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasArn</Declaration>
+			
+			
+			<Anchor>//api/name/aliasArn</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/aliasArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias called &lt;code&gt;BETA&lt;/code&gt; that points to a helloworld function version, the ARN is &lt;code&gt;arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasArn</Declaration>
+			
+			
+			<Anchor>//api/name/aliasArn</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaAliasConfiguration/aliasArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lambda function ARN that is qualified using the alias name as the suffix. For example, if you create an alias called &lt;code&gt;BETA&lt;/code&gt; that points to a helloworld function version, the ARN is &lt;code&gt;arn:aws:lambda:aws-regions:acct-id:function:helloworld:BETA&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasArn</Declaration>
+			
+			
+			<Anchor>//api/name/aliasArn</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/setDetail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Alias description.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Alias description.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaAliasConfiguration/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Alias description.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/setFunctionVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Function version to which the alias points.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionVersion</Declaration>
+			
+			
+			<Anchor>//api/name/functionVersion</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/functionVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Function version to which the alias points.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionVersion</Declaration>
+			
+			
+			<Anchor>//api/name/functionVersion</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaAliasConfiguration/functionVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Function version to which the alias points.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionVersion</Declaration>
+			
+			
+			<Anchor>//api/name/functionVersion</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Alias name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Alias name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaAliasConfiguration/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Alias name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/setRevisionId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the latest updated revision of the function or alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/revisionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the latest updated revision of the function or alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaAliasConfiguration/revisionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the latest updated revision of the function or alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/setRoutingConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies an additional function versions the alias points to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see &lt;a&gt;lambda-traffic-shifting-using-aliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration *routingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/routingConfig</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaAliasConfiguration/routingConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies an additional function versions the alias points to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see &lt;a&gt;lambda-traffic-shifting-using-aliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration *routingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/routingConfig</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaAliasConfiguration/routingConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies an additional function versions the alias points to, allowing you to dictate what percentage of traffic will invoke each version. For more information, see &lt;a&gt;lambda-traffic-shifting-using-aliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration *routingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/routingConfig</Anchor>
+            <NodeRef refid="1313"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

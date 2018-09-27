@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSSESBehaviorOnMXFailure.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSSESBehaviorOnMXFailure</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2684"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBehaviorOnMXFailureUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBehaviorOnMXFailureUnknown</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2684"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBehaviorOnMXFailureUseDefaultValue</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBehaviorOnMXFailureUseDefaultValue</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2684"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBehaviorOnMXFailureRejectMessage</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBehaviorOnMXFailureRejectMessage</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2684"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

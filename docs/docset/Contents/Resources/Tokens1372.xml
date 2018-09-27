@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLexAudioSession.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLexAudioSession</TokenIdentifier>
+			<Abstract type="html">Wrapper to AVAudioSession class.
+It auto-detects output source(Internal speaker or microphone) at runtime by listening to
+AVAudioSessionRouteChangeNotification.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1372"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioSession/setPlayAndRecordCategory:</TokenIdentifier>
+			<Abstract type="html">Set AVAudioSession category to AVAudioSessionCategoryPlayAndRecord</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)setPlayAndRecordCategory:(NSError **)outError</Declaration>
+			
+			
+			<Anchor>//api/name/setPlayAndRecordCategory:</Anchor>
+            <NodeRef refid="1372"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioSession/overrideOutputAudioPort:</TokenIdentifier>
+			<Abstract type="html">Override output audio port to AVAudioSessionPortOverrideSpeaker if headset is not detected.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)overrideOutputAudioPort:(NSError **)outError</Declaration>
+			
+			
+			<Anchor>//api/name/overrideOutputAudioPort:</Anchor>
+            <NodeRef refid="1372"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioSession/requestRecordPermission:</TokenIdentifier>
+			<Abstract type="html">Request record permission to AVAudioSession.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)requestRecordPermission:(PermissionBlock)response</Declaration>
+			
+			
+			<Anchor>//api/name/requestRecordPermission:</Anchor>
+            <NodeRef refid="1372"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioSession/startObservingAudioSessionRouteChangeNotification</TokenIdentifier>
+			<Abstract type="html">Start observing for AVAudioSessionRouteChangeNotification if not already started.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)startObservingAudioSessionRouteChangeNotification</Declaration>
+			
+			
+			<Anchor>//api/name/startObservingAudioSessionRouteChangeNotification</Anchor>
+            <NodeRef refid="1372"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioSession/endObservingAudioSessionRouteChangeNotification</TokenIdentifier>
+			<Abstract type="html">Remove observing for AVAudioSessionRouteChangeNotification.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)endObservingAudioSessionRouteChangeNotification</Declaration>
+			
+			
+			<Anchor>//api/name/endObservingAudioSessionRouteChangeNotification</Anchor>
+            <NodeRef refid="1372"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingEndpointLocation.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingEndpointLocation</TokenIdentifier>
+			<Abstract type="html">Endpoint location data</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1530"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/setCity:</TokenIdentifier>
+			<Abstract type="html">The city where the endpoint is located.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *city</Declaration>
+			
+			
+			<Anchor>//api/name/city</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/city</TokenIdentifier>
+			<Abstract type="html">The city where the endpoint is located.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *city</Declaration>
+			
+			
+			<Anchor>//api/name/city</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointLocation/city</TokenIdentifier>
+			<Abstract type="html">The city where the endpoint is located.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *city</Declaration>
+			
+			
+			<Anchor>//api/name/city</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/setCountry:</TokenIdentifier>
+			<Abstract type="html">Country according to ISO 3166-1 Alpha-2 codes. For example, US.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *country</Declaration>
+			
+			
+			<Anchor>//api/name/country</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/country</TokenIdentifier>
+			<Abstract type="html">Country according to ISO 3166-1 Alpha-2 codes. For example, US.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *country</Declaration>
+			
+			
+			<Anchor>//api/name/country</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointLocation/country</TokenIdentifier>
+			<Abstract type="html">Country according to ISO 3166-1 Alpha-2 codes. For example, US.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *country</Declaration>
+			
+			
+			<Anchor>//api/name/country</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/setLatitude:</TokenIdentifier>
+			<Abstract type="html">The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *latitude</Declaration>
+			
+			
+			<Anchor>//api/name/latitude</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/latitude</TokenIdentifier>
+			<Abstract type="html">The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *latitude</Declaration>
+			
+			
+			<Anchor>//api/name/latitude</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointLocation/latitude</TokenIdentifier>
+			<Abstract type="html">The latitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *latitude</Declaration>
+			
+			
+			<Anchor>//api/name/latitude</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/setLongitude:</TokenIdentifier>
+			<Abstract type="html">The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *longitude</Declaration>
+			
+			
+			<Anchor>//api/name/longitude</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/longitude</TokenIdentifier>
+			<Abstract type="html">The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *longitude</Declaration>
+			
+			
+			<Anchor>//api/name/longitude</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointLocation/longitude</TokenIdentifier>
+			<Abstract type="html">The longitude of the endpoint location. Rounded to one decimal (Roughly corresponding to a mile).</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *longitude</Declaration>
+			
+			
+			<Anchor>//api/name/longitude</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/setPostalCode:</TokenIdentifier>
+			<Abstract type="html">The postal code or zip code of the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *postalCode</Declaration>
+			
+			
+			<Anchor>//api/name/postalCode</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/postalCode</TokenIdentifier>
+			<Abstract type="html">The postal code or zip code of the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *postalCode</Declaration>
+			
+			
+			<Anchor>//api/name/postalCode</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointLocation/postalCode</TokenIdentifier>
+			<Abstract type="html">The postal code or zip code of the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *postalCode</Declaration>
+			
+			
+			<Anchor>//api/name/postalCode</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/setRegion:</TokenIdentifier>
+			<Abstract type="html">The region of the endpoint location. For example, corresponds to a state in US.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *region</Declaration>
+			
+			
+			<Anchor>//api/name/region</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointLocation/region</TokenIdentifier>
+			<Abstract type="html">The region of the endpoint location. For example, corresponds to a state in US.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *region</Declaration>
+			
+			
+			<Anchor>//api/name/region</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointLocation/region</TokenIdentifier>
+			<Abstract type="html">The region of the endpoint location. For example, corresponds to a state in US.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *region</Declaration>
+			
+			
+			<Anchor>//api/name/region</Anchor>
+            <NodeRef refid="1530"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

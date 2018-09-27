@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSKeyListEntry.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSKeyListEntry</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains information about each entry in the key list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1199"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSKeyListEntry/setKeyArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyArn</Declaration>
+			
+			
+			<Anchor>//api/name/keyArn</Anchor>
+            <NodeRef refid="1199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSKeyListEntry/keyArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyArn</Declaration>
+			
+			
+			<Anchor>//api/name/keyArn</Anchor>
+            <NodeRef refid="1199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSKeyListEntry/keyArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyArn</Declaration>
+			
+			
+			<Anchor>//api/name/keyArn</Anchor>
+            <NodeRef refid="1199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSKeyListEntry/setKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier of the key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSKeyListEntry/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier of the key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSKeyListEntry/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier of the key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1199"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

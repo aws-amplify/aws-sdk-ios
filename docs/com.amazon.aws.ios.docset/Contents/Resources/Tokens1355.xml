@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaListVersionsByFunctionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListVersionsByFunctionRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;
+Required parameters: [FunctionName]</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1355"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaListVersionsByFunctionRequest/setFunctionName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Function name whose versions to list. You can specify a function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). AWS Lambda also allows you to specify a partial ARN (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaListVersionsByFunctionRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Function name whose versions to list. You can specify a function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). AWS Lambda also allows you to specify a partial ARN (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaListVersionsByFunctionRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Function name whose versions to list. You can specify a function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). AWS Lambda also allows you to specify a partial ARN (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaListVersionsByFunctionRequest/setMarker:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Optional string. An opaque pagination token returned from a previous &lt;code&gt;ListVersionsByFunction&lt;/code&gt; operation. If present, indicates where to continue the listing. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+            <NodeRef refid="1355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaListVersionsByFunctionRequest/marker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Optional string. An opaque pagination token returned from a previous &lt;code&gt;ListVersionsByFunction&lt;/code&gt; operation. If present, indicates where to continue the listing. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+            <NodeRef refid="1355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaListVersionsByFunctionRequest/marker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Optional string. An opaque pagination token returned from a previous &lt;code&gt;ListVersionsByFunction&lt;/code&gt; operation. If present, indicates where to continue the listing. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+            <NodeRef refid="1355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaListVersionsByFunctionRequest/setMaxItems:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional integer. Specifies the maximum number of AWS Lambda function versions to return in response. This parameter value must be greater than 0.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="1355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaListVersionsByFunctionRequest/maxItems</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional integer. Specifies the maximum number of AWS Lambda function versions to return in response. This parameter value must be greater than 0.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="1355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaListVersionsByFunctionRequest/maxItems</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional integer. Specifies the maximum number of AWS Lambda function versions to return in response. This parameter value must be greater than 0.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="1355"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

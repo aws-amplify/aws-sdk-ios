@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSGenerateDataKeyWithoutPlaintextResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSGenerateDataKeyWithoutPlaintextResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1186"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGenerateDataKeyWithoutPlaintextResponse/setCiphertextBlob:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encrypted data encryption key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *ciphertextBlob</Declaration>
+			
+			
+			<Anchor>//api/name/ciphertextBlob</Anchor>
+            <NodeRef refid="1186"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGenerateDataKeyWithoutPlaintextResponse/ciphertextBlob</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encrypted data encryption key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *ciphertextBlob</Declaration>
+			
+			
+			<Anchor>//api/name/ciphertextBlob</Anchor>
+            <NodeRef refid="1186"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGenerateDataKeyWithoutPlaintextResponse/ciphertextBlob</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encrypted data encryption key. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *ciphertextBlob</Declaration>
+			
+			
+			<Anchor>//api/name/ciphertextBlob</Anchor>
+            <NodeRef refid="1186"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGenerateDataKeyWithoutPlaintextResponse/setKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the CMK under which the data encryption key was generated and encrypted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1186"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGenerateDataKeyWithoutPlaintextResponse/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the CMK under which the data encryption key was generated and encrypted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1186"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGenerateDataKeyWithoutPlaintextResponse/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the CMK under which the data encryption key was generated and encrypted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1186"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

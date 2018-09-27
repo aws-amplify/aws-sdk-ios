@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="243"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest/setDestinationUser:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn&apos;t exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.&lt;/p&gt;&lt;p&gt;For a native username + password user, the &lt;code&gt;ProviderAttributeValue&lt;/code&gt; for the &lt;code&gt;DestinationUser&lt;/code&gt; should be the username in the user pool. For a federated user, it should be the provider-specific &lt;code&gt;user_id&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;ProviderAttributeName&lt;/code&gt; of the &lt;code&gt;DestinationUser&lt;/code&gt; is ignored.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;ProviderName&lt;/code&gt; should be set to &lt;code&gt;Cognito&lt;/code&gt; for users in Cognito user pools.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderProviderUserIdentifierType *destinationUser</Declaration>
+			
+			
+			<Anchor>//api/name/destinationUser</Anchor>
+            <NodeRef refid="243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest/destinationUser</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn&apos;t exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.&lt;/p&gt;&lt;p&gt;For a native username + password user, the &lt;code&gt;ProviderAttributeValue&lt;/code&gt; for the &lt;code&gt;DestinationUser&lt;/code&gt; should be the username in the user pool. For a federated user, it should be the provider-specific &lt;code&gt;user_id&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;ProviderAttributeName&lt;/code&gt; of the &lt;code&gt;DestinationUser&lt;/code&gt; is ignored.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;ProviderName&lt;/code&gt; should be set to &lt;code&gt;Cognito&lt;/code&gt; for users in Cognito user pools.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderProviderUserIdentifierType *destinationUser</Declaration>
+			
+			
+			<Anchor>//api/name/destinationUser</Anchor>
+            <NodeRef refid="243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest/destinationUser</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The existing user in the user pool to be linked to the external identity provider user account. Can be a native (Username + Password) Cognito User Pools user or a federated user (for example, a SAML or Facebook user). If the user doesn&apos;t exist, an exception is thrown. This is the user that is returned when the new user (with the linked identity provider attribute) signs in.&lt;/p&gt;&lt;p&gt;For a native username + password user, the &lt;code&gt;ProviderAttributeValue&lt;/code&gt; for the &lt;code&gt;DestinationUser&lt;/code&gt; should be the username in the user pool. For a federated user, it should be the provider-specific &lt;code&gt;user_id&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;ProviderAttributeName&lt;/code&gt; of the &lt;code&gt;DestinationUser&lt;/code&gt; is ignored.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;ProviderName&lt;/code&gt; should be set to &lt;code&gt;Cognito&lt;/code&gt; for users in Cognito user pools.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderProviderUserIdentifierType *destinationUser</Declaration>
+			
+			
+			<Anchor>//api/name/destinationUser</Anchor>
+            <NodeRef refid="243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest/setSourceUser:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An external identity provider account for a user who does not currently exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;SourceUser&lt;/code&gt; is a federated social identity provider user (Facebook, Google, or Login with Amazon), you must set the &lt;code&gt;ProviderAttributeName&lt;/code&gt; to &lt;code&gt;CognitoSubject&lt;/code&gt;. For social identity providers, the &lt;code&gt;ProviderName&lt;/code&gt; will be &lt;code&gt;Facebook&lt;/code&gt;, &lt;code&gt;Google&lt;/code&gt;, or &lt;code&gt;LoginWithAmazon&lt;/code&gt;, and Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;sub&lt;/code&gt;, and &lt;code&gt;userid&lt;/code&gt;, respectively. The &lt;code&gt;ProviderAttributeValue&lt;/code&gt; for the user must be the same value as the &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;sub&lt;/code&gt;, or &lt;code&gt;userid&lt;/code&gt; value found in the social identity provider token.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;For SAML, the &lt;code&gt;ProviderAttributeName&lt;/code&gt; can be any value that matches a claim in the SAML assertion. If you wish to link SAML users based on the subject of the SAML assertion, you should map the subject to a claim through the SAML identity provider and submit that claim name as the &lt;code&gt;ProviderAttributeName&lt;/code&gt;. If you set &lt;code&gt;ProviderAttributeName&lt;/code&gt; to &lt;code&gt;CognitoSubject&lt;/code&gt;, Cognito will automatically parse the default unique identifier found in the subject from the SAML token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderProviderUserIdentifierType *sourceUser</Declaration>
+			
+			
+			<Anchor>//api/name/sourceUser</Anchor>
+            <NodeRef refid="243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest/sourceUser</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An external identity provider account for a user who does not currently exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;SourceUser&lt;/code&gt; is a federated social identity provider user (Facebook, Google, or Login with Amazon), you must set the &lt;code&gt;ProviderAttributeName&lt;/code&gt; to &lt;code&gt;CognitoSubject&lt;/code&gt;. For social identity providers, the &lt;code&gt;ProviderName&lt;/code&gt; will be &lt;code&gt;Facebook&lt;/code&gt;, &lt;code&gt;Google&lt;/code&gt;, or &lt;code&gt;LoginWithAmazon&lt;/code&gt;, and Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;sub&lt;/code&gt;, and &lt;code&gt;userid&lt;/code&gt;, respectively. The &lt;code&gt;ProviderAttributeValue&lt;/code&gt; for the user must be the same value as the &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;sub&lt;/code&gt;, or &lt;code&gt;userid&lt;/code&gt; value found in the social identity provider token.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;For SAML, the &lt;code&gt;ProviderAttributeName&lt;/code&gt; can be any value that matches a claim in the SAML assertion. If you wish to link SAML users based on the subject of the SAML assertion, you should map the subject to a claim through the SAML identity provider and submit that claim name as the &lt;code&gt;ProviderAttributeName&lt;/code&gt;. If you set &lt;code&gt;ProviderAttributeName&lt;/code&gt; to &lt;code&gt;CognitoSubject&lt;/code&gt;, Cognito will automatically parse the default unique identifier found in the subject from the SAML token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderProviderUserIdentifierType *sourceUser</Declaration>
+			
+			
+			<Anchor>//api/name/sourceUser</Anchor>
+            <NodeRef refid="243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest/sourceUser</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An external identity provider account for a user who does not currently exist yet in the user pool. This user must be a federated user (for example, a SAML or Facebook user), not another native user.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;SourceUser&lt;/code&gt; is a federated social identity provider user (Facebook, Google, or Login with Amazon), you must set the &lt;code&gt;ProviderAttributeName&lt;/code&gt; to &lt;code&gt;CognitoSubject&lt;/code&gt;. For social identity providers, the &lt;code&gt;ProviderName&lt;/code&gt; will be &lt;code&gt;Facebook&lt;/code&gt;, &lt;code&gt;Google&lt;/code&gt;, or &lt;code&gt;LoginWithAmazon&lt;/code&gt;, and Cognito will automatically parse the Facebook, Google, and Login with Amazon tokens for &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;sub&lt;/code&gt;, and &lt;code&gt;userid&lt;/code&gt;, respectively. The &lt;code&gt;ProviderAttributeValue&lt;/code&gt; for the user must be the same value as the &lt;code&gt;id&lt;/code&gt;, &lt;code&gt;sub&lt;/code&gt;, or &lt;code&gt;userid&lt;/code&gt; value found in the social identity provider token.&lt;/p&gt;&lt;p/&gt;&lt;p&gt;For SAML, the &lt;code&gt;ProviderAttributeName&lt;/code&gt; can be any value that matches a claim in the SAML assertion. If you wish to link SAML users based on the subject of the SAML assertion, you should map the subject to a claim through the SAML identity provider and submit that claim name as the &lt;code&gt;ProviderAttributeName&lt;/code&gt;. If you set &lt;code&gt;ProviderAttributeName&lt;/code&gt; to &lt;code&gt;CognitoSubject&lt;/code&gt;, Cognito will automatically parse the default unique identifier found in the subject from the SAML token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderProviderUserIdentifierType *sourceUser</Declaration>
+			
+			
+			<Anchor>//api/name/sourceUser</Anchor>
+            <NodeRef refid="243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest/setUserPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="243"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminLinkProviderForUserRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="243"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingSetDimension.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingSetDimension</TokenIdentifier>
+			<Abstract type="html">Dimension specification of a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1612"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSetDimension/setDimensionType:</TokenIdentifier>
+			<Abstract type="html">The type of dimension: INCLUSIVE - Endpoints that match the criteria are included in the segment. EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingDimensionType dimensionType</Declaration>
+			
+			
+			<Anchor>//api/name/dimensionType</Anchor>
+            <NodeRef refid="1612"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSetDimension/dimensionType</TokenIdentifier>
+			<Abstract type="html">The type of dimension: INCLUSIVE - Endpoints that match the criteria are included in the segment. EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingDimensionType dimensionType</Declaration>
+			
+			
+			<Anchor>//api/name/dimensionType</Anchor>
+            <NodeRef refid="1612"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSetDimension/dimensionType</TokenIdentifier>
+			<Abstract type="html">The type of dimension: INCLUSIVE - Endpoints that match the criteria are included in the segment. EXCLUSIVE - Endpoints that match the criteria are excluded from the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingDimensionType dimensionType</Declaration>
+			
+			
+			<Anchor>//api/name/dimensionType</Anchor>
+            <NodeRef refid="1612"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSetDimension/setValues:</TokenIdentifier>
+			<Abstract type="html">The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *values</Declaration>
+			
+			
+			<Anchor>//api/name/values</Anchor>
+            <NodeRef refid="1612"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSetDimension/values</TokenIdentifier>
+			<Abstract type="html">The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *values</Declaration>
+			
+			
+			<Anchor>//api/name/values</Anchor>
+            <NodeRef refid="1612"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSetDimension/values</TokenIdentifier>
+			<Abstract type="html">The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *values</Declaration>
+			
+			
+			<Anchor>//api/name/values</Anchor>
+            <NodeRef refid="1612"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

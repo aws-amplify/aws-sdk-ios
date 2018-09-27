@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Categories/NSDate+AWS.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cat/NSDate(AWS)</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCategory.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2371"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSDate/aws_setRuntimeClockSkew:</TokenIdentifier>
+			<Abstract type="html">Set the clock skew for the current device.  This clock skew will be used for calculating
+signatures to AWS signatures and for parsing/converting date values from responses.</Abstract>
+			<DeclaredIn>AWSCategory.h</DeclaredIn>
+			
+			<Declaration>+ (void)aws_setRuntimeClockSkew:(NSTimeInterval)clockskew</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>clockskew</Name>
+					<Abstract type="html">the skew (in seconds) for this device.  If the clock on the device is fast, pass positive skew to correct.  If the clock on the device is slow, pass negative skew to correct.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/aws_setRuntimeClockSkew:</Anchor>
+            <NodeRef refid="2371"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/NSDate/aws_getRuntimeClockSkew</TokenIdentifier>
+			<Abstract type="html">Get the clock skew for the current device.</Abstract>
+			<DeclaredIn>AWSCategory.h</DeclaredIn>
+			
+			<Declaration>+ (NSTimeInterval)aws_getRuntimeClockSkew</Declaration>
+			
+			<ReturnValue><Abstract type="html">the skew (in seconds) currently set for this device.  Positive clock skew implies the device is fast, negative implies the device is slow.</Abstract></ReturnValue>
+			<Anchor>//api/name/aws_getRuntimeClockSkew</Anchor>
+            <NodeRef refid="2371"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

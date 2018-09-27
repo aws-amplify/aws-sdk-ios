@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisUpdateShardCountInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisUpdateShardCountInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1271"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisUpdateShardCountInput/setScalingType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The scaling type. Uniform scaling creates shards of equal size.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisScalingType scalingType</Declaration>
+			
+			
+			<Anchor>//api/name/scalingType</Anchor>
+            <NodeRef refid="1271"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisUpdateShardCountInput/scalingType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The scaling type. Uniform scaling creates shards of equal size.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisScalingType scalingType</Declaration>
+			
+			
+			<Anchor>//api/name/scalingType</Anchor>
+            <NodeRef refid="1271"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisUpdateShardCountInput/scalingType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The scaling type. Uniform scaling creates shards of equal size.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisScalingType scalingType</Declaration>
+			
+			
+			<Anchor>//api/name/scalingType</Anchor>
+            <NodeRef refid="1271"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisUpdateShardCountInput/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1271"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisUpdateShardCountInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1271"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisUpdateShardCountInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1271"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisUpdateShardCountInput/setTargetShardCount:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new number of shards.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *targetShardCount</Declaration>
+			
+			
+			<Anchor>//api/name/targetShardCount</Anchor>
+            <NodeRef refid="1271"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisUpdateShardCountInput/targetShardCount</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new number of shards.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *targetShardCount</Declaration>
+			
+			
+			<Anchor>//api/name/targetShardCount</Anchor>
+            <NodeRef refid="1271"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisUpdateShardCountInput/targetShardCount</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new number of shards.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *targetShardCount</Declaration>
+			
+			
+			<Anchor>//api/name/targetShardCount</Anchor>
+            <NodeRef refid="1271"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

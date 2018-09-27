@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityUnlinkDeveloperIdentityInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityUnlinkDeveloperIdentityInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Input to the &lt;code&gt;UnlinkDeveloperIdentity&lt;/code&gt; action.&lt;/p&gt;
+Required parameters: [IdentityId, IdentityPoolId, DeveloperProviderName, DeveloperUserIdentifier]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="460"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityUnlinkDeveloperIdentityInput/setDeveloperProviderName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &quot;domain&quot; by which Cognito will refer to your users.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *developerProviderName</Declaration>
+			
+			
+			<Anchor>//api/name/developerProviderName</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityUnlinkDeveloperIdentityInput/developerProviderName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &quot;domain&quot; by which Cognito will refer to your users.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *developerProviderName</Declaration>
+			
+			
+			<Anchor>//api/name/developerProviderName</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityUnlinkDeveloperIdentityInput/developerProviderName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &quot;domain&quot; by which Cognito will refer to your users.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *developerProviderName</Declaration>
+			
+			
+			<Anchor>//api/name/developerProviderName</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityUnlinkDeveloperIdentityInput/setDeveloperUserIdentifier:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique ID used by your backend authentication process to identify a user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *developerUserIdentifier</Declaration>
+			
+			
+			<Anchor>//api/name/developerUserIdentifier</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityUnlinkDeveloperIdentityInput/developerUserIdentifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique ID used by your backend authentication process to identify a user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *developerUserIdentifier</Declaration>
+			
+			
+			<Anchor>//api/name/developerUserIdentifier</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityUnlinkDeveloperIdentityInput/developerUserIdentifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique ID used by your backend authentication process to identify a user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *developerUserIdentifier</Declaration>
+			
+			
+			<Anchor>//api/name/developerUserIdentifier</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityUnlinkDeveloperIdentityInput/setIdentityId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier in the format REGION:GUID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityId</Declaration>
+			
+			
+			<Anchor>//api/name/identityId</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityUnlinkDeveloperIdentityInput/identityId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier in the format REGION:GUID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityId</Declaration>
+			
+			
+			<Anchor>//api/name/identityId</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityUnlinkDeveloperIdentityInput/identityId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier in the format REGION:GUID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityId</Declaration>
+			
+			
+			<Anchor>//api/name/identityId</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityUnlinkDeveloperIdentityInput/setIdentityPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identity pool ID in the format REGION:GUID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityUnlinkDeveloperIdentityInput/identityPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identity pool ID in the format REGION:GUID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityUnlinkDeveloperIdentityInput/identityPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identity pool ID in the format REGION:GUID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="460"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

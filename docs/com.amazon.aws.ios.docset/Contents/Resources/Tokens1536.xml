@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingEventStream.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingEventStream</TokenIdentifier>
+			<Abstract type="html">Model for an event publishing subscription export.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1536"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/setApplicationId:</TokenIdentifier>
+			<Abstract type="html">The ID of the application from which events should be published.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/applicationId</TokenIdentifier>
+			<Abstract type="html">The ID of the application from which events should be published.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEventStream/applicationId</TokenIdentifier>
+			<Abstract type="html">The ID of the application from which events should be published.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/setDestinationStreamArn:</TokenIdentifier>
+			<Abstract type="html">The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.Firehose ARN: arn:aws:firehose:REGION:ACCOUNTID:deliverystream/STREAMNAMEKinesis ARN: arn:aws:kinesis:REGION:ACCOUNTID:stream/STREAMNAME</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationStreamArn</Declaration>
+			
+			
+			<Anchor>//api/name/destinationStreamArn</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/destinationStreamArn</TokenIdentifier>
+			<Abstract type="html">The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.Firehose ARN: arn:aws:firehose:REGION:ACCOUNTID:deliverystream/STREAMNAMEKinesis ARN: arn:aws:kinesis:REGION:ACCOUNTID:stream/STREAMNAME</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationStreamArn</Declaration>
+			
+			
+			<Anchor>//api/name/destinationStreamArn</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEventStream/destinationStreamArn</TokenIdentifier>
+			<Abstract type="html">The Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.Firehose ARN: arn:aws:firehose:REGION:ACCOUNTID:deliverystream/STREAMNAMEKinesis ARN: arn:aws:kinesis:REGION:ACCOUNTID:stream/STREAMNAME</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationStreamArn</Declaration>
+			
+			
+			<Anchor>//api/name/destinationStreamArn</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/setExternalId:</TokenIdentifier>
+			<Abstract type="html">The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/externalId</TokenIdentifier>
+			<Abstract type="html">The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEventStream/externalId</TokenIdentifier>
+			<Abstract type="html">The external ID assigned the IAM role that authorizes Amazon Pinpoint to publish to the stream.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/setLastModifiedDate:</TokenIdentifier>
+			<Abstract type="html">The date the event stream was last updated in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/lastModifiedDate</TokenIdentifier>
+			<Abstract type="html">The date the event stream was last updated in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEventStream/lastModifiedDate</TokenIdentifier>
+			<Abstract type="html">The date the event stream was last updated in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/setLastUpdatedBy:</TokenIdentifier>
+			<Abstract type="html">The IAM user who last modified the event stream.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastUpdatedBy</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdatedBy</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/lastUpdatedBy</TokenIdentifier>
+			<Abstract type="html">The IAM user who last modified the event stream.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastUpdatedBy</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdatedBy</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEventStream/lastUpdatedBy</TokenIdentifier>
+			<Abstract type="html">The IAM user who last modified the event stream.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastUpdatedBy</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdatedBy</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/setRoleArn:</TokenIdentifier>
+			<Abstract type="html">The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEventStream/roleArn</TokenIdentifier>
+			<Abstract type="html">The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEventStream/roleArn</TokenIdentifier>
+			<Abstract type="html">The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1536"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

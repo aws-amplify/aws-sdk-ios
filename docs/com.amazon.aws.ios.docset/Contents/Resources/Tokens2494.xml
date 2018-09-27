@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSFirehoseDeliveryStreamType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSFirehoseDeliveryStreamType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2494"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseDeliveryStreamTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseDeliveryStreamTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2494"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseDeliveryStreamTypeDirectPut</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseDeliveryStreamTypeDirectPut</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2494"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2494"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

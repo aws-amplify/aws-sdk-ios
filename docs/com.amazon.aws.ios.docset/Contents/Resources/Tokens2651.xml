@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3InventoryFrequency.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3InventoryFrequency</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2651"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3InventoryFrequencyUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3InventoryFrequencyUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2651"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3InventoryFrequencyDaily</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3InventoryFrequencyDaily</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2651"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3InventoryFrequencyWeekly</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3InventoryFrequencyWeekly</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2651"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

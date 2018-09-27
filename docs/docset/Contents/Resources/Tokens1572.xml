@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingGetSegmentImportJobsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentImportJobsResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1572"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGetSegmentImportJobsResponse/setImportJobsResponse:</TokenIdentifier>
+			<Abstract type="html">Import job list.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingImportJobsResponse *importJobsResponse</Declaration>
+			
+			
+			<Anchor>//api/name/importJobsResponse</Anchor>
+            <NodeRef refid="1572"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGetSegmentImportJobsResponse/importJobsResponse</TokenIdentifier>
+			<Abstract type="html">Import job list.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingImportJobsResponse *importJobsResponse</Declaration>
+			
+			
+			<Anchor>//api/name/importJobsResponse</Anchor>
+            <NodeRef refid="1572"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGetSegmentImportJobsResponse/importJobsResponse</TokenIdentifier>
+			<Abstract type="html">Import job list.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingImportJobsResponse *importJobsResponse</Declaration>
+			
+			
+			<Anchor>//api/name/importJobsResponse</Anchor>
+            <NodeRef refid="1572"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

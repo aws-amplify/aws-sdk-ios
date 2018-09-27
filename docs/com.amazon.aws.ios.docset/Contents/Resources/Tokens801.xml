@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseKinesisStreamSourceDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseKinesisStreamSourceDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details about a Kinesis data stream used as the source for a Kinesis Data Firehose delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="801"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseKinesisStreamSourceDescription/setDeliveryStartTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis Data Firehose starts retrieving records from the Kinesis data stream starting with this time stamp.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *deliveryStartTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStartTimestamp</Anchor>
+            <NodeRef refid="801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseKinesisStreamSourceDescription/deliveryStartTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis Data Firehose starts retrieving records from the Kinesis data stream starting with this time stamp.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *deliveryStartTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStartTimestamp</Anchor>
+            <NodeRef refid="801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseKinesisStreamSourceDescription/deliveryStartTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis Data Firehose starts retrieving records from the Kinesis data stream starting with this time stamp.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *deliveryStartTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStartTimestamp</Anchor>
+            <NodeRef refid="801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseKinesisStreamSourceDescription/setKinesisStreamARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the source Kinesis data stream. For more information, see Amazon Kinesis Data Streams ARN Format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *kinesisStreamARN</Declaration>
+			
+			
+			<Anchor>//api/name/kinesisStreamARN</Anchor>
+            <NodeRef refid="801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseKinesisStreamSourceDescription/kinesisStreamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the source Kinesis data stream. For more information, see Amazon Kinesis Data Streams ARN Format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *kinesisStreamARN</Declaration>
+			
+			
+			<Anchor>//api/name/kinesisStreamARN</Anchor>
+            <NodeRef refid="801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseKinesisStreamSourceDescription/kinesisStreamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the source Kinesis data stream. For more information, see Amazon Kinesis Data Streams ARN Format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *kinesisStreamARN</Declaration>
+			
+			
+			<Anchor>//api/name/kinesisStreamARN</Anchor>
+            <NodeRef refid="801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseKinesisStreamSourceDescription/setRoleARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the role used by the source Kinesis data stream. For more information, see AWS Identity and Access Management (IAM) ARN Format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseKinesisStreamSourceDescription/roleARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the role used by the source Kinesis data stream. For more information, see AWS Identity and Access Management (IAM) ARN Format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="801"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseKinesisStreamSourceDescription/roleARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the role used by the source Kinesis data stream. For more information, see AWS Identity and Access Management (IAM) ARN Format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="801"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

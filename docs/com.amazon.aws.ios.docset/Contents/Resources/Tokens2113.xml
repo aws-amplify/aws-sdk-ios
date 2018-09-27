@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESListConfigurationSetsRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESListConfigurationSetsRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to list the configuration sets associated with your AWS account. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2113"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListConfigurationSetsRequest/setMaxItems:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of configuration sets to return.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="2113"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListConfigurationSetsRequest/maxItems</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of configuration sets to return.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="2113"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESListConfigurationSetsRequest/maxItems</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of configuration sets to return.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="2113"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListConfigurationSetsRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A token returned from a previous call to &lt;code&gt;ListConfigurationSets&lt;/code&gt; to indicate the position of the configuration set in the configuration set list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2113"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListConfigurationSetsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A token returned from a previous call to &lt;code&gt;ListConfigurationSets&lt;/code&gt; to indicate the position of the configuration set in the configuration set list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2113"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESListConfigurationSetsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A token returned from a previous call to &lt;code&gt;ListConfigurationSets&lt;/code&gt; to indicate the position of the configuration set in the configuration set list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2113"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

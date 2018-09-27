@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLambdaEventSourcePosition.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLambdaEventSourcePosition</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2566"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaEventSourcePositionUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaEventSourcePositionUnknown</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2566"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaEventSourcePositionTrimHorizon</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaEventSourcePositionTrimHorizon</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2566"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaEventSourcePositionLatest</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaEventSourcePositionLatest</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2566"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaEventSourcePositionAtTimestamp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaEventSourcePositionAtTimestamp</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2566"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

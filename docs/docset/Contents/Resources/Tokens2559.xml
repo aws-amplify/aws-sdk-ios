@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSKinesisVideoArchivedMediaHLSFragmentSelectorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSKinesisVideoArchivedMediaHLSFragmentSelectorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2559"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaHLSFragmentSelectorTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaHLSFragmentSelectorTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2559"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaHLSFragmentSelectorTypeProducerTimestamp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaHLSFragmentSelectorTypeProducerTimestamp</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2559"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaHLSFragmentSelectorTypeServerTimestamp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaHLSFragmentSelectorTypeServerTimestamp</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2559"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

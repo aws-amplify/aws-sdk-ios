@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsGetLogEventsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsGetLogEventsResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1423"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsGetLogEventsResponse/setEvents:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLogsOutputLogEvent*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1423"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsGetLogEventsResponse/events</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLogsOutputLogEvent*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1423"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsGetLogEventsResponse/events</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLogsOutputLogEvent*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1423"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsGetLogEventsResponse/setNextBackwardToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items in the backward direction. The token expires after 24 hours. This token will never be null. If you have reached the end of the stream, it will return the same token you passed in.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextBackwardToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextBackwardToken</Anchor>
+            <NodeRef refid="1423"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsGetLogEventsResponse/nextBackwardToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items in the backward direction. The token expires after 24 hours. This token will never be null. If you have reached the end of the stream, it will return the same token you passed in.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextBackwardToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextBackwardToken</Anchor>
+            <NodeRef refid="1423"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsGetLogEventsResponse/nextBackwardToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items in the backward direction. The token expires after 24 hours. This token will never be null. If you have reached the end of the stream, it will return the same token you passed in.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextBackwardToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextBackwardToken</Anchor>
+            <NodeRef refid="1423"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsGetLogEventsResponse/setNextForwardToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it will return the same token you passed in.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextForwardToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextForwardToken</Anchor>
+            <NodeRef refid="1423"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsGetLogEventsResponse/nextForwardToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it will return the same token you passed in.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextForwardToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextForwardToken</Anchor>
+            <NodeRef refid="1423"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsGetLogEventsResponse/nextForwardToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it will return the same token you passed in.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextForwardToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextForwardToken</Anchor>
+            <NodeRef refid="1423"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

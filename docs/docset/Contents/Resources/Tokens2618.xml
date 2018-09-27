@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSPollyVoiceId.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSPollyVoiceId</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2618"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdUnknown</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdGeraint</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdGeraint</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdGwyneth</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdGwyneth</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdMads</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdMads</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdNaja</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdNaja</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdHans</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdHans</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdMarlene</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdMarlene</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdNicole</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdNicole</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdRussell</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdRussell</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdAmy</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdAmy</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdBrian</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdBrian</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdEmma</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdEmma</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdRaveena</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdRaveena</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdIvy</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdIvy</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdJoanna</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdJoanna</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdJoey</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdJoey</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdJustin</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdJustin</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdKendra</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdKendra</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdKimberly</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdKimberly</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdMatthew</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdMatthew</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdSalli</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdSalli</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdConchita</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdConchita</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdEnrique</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdEnrique</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdMiguel</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdMiguel</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdPenelope</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdPenelope</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdChantal</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdChantal</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdCeline</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdCeline</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdLea</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdLea</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdMathieu</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdMathieu</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdDora</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdDora</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdKarl</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdKarl</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdCarla</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdCarla</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdGiorgio</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdGiorgio</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdMizuki</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdMizuki</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdLiv</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdLiv</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdLotte</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdLotte</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdRuben</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdRuben</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdEwa</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdEwa</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdJacek</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdJacek</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdJan</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdJan</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdMaja</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdMaja</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdRicardo</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdRicardo</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdVitoria</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdVitoria</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdCristiano</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdCristiano</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdInes</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdInes</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdCarmen</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdCarmen</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdMaxim</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdMaxim</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdTatyana</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdTatyana</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdAstrid</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdAstrid</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdFiliz</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdFiliz</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdVicki</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdVicki</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdTakumi</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdTakumi</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdSeoyeon</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdSeoyeon</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdAditi</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdAditi</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollyVoiceIdZhiyu</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollyVoiceIdZhiyu</Declaration>
+            
+            <DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+            <NodeRef refid="2618"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

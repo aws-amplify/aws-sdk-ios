@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSMobileAnalytics.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSMobileAnalytics</TokenIdentifier>
+			<Abstract type="html">Amazon Mobile Analytics client.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1458"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalytics/setEventClient:</TokenIdentifier>
+			<Abstract type="html">Returns the AWSMobileAnalyticsEventClient.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) id&lt;AWSMobileAnalyticsEventClient&gt; eventClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSMobileAnalyticsEventClient to create, record, and submit events.</Abstract></ReturnValue>
+			<Anchor>//api/name/eventClient</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalytics/eventClient</TokenIdentifier>
+			<Abstract type="html">Returns the AWSMobileAnalyticsEventClient.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) id&lt;AWSMobileAnalyticsEventClient&gt; eventClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSMobileAnalyticsEventClient to create, record, and submit events.</Abstract></ReturnValue>
+			<Anchor>//api/name/eventClient</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMobileAnalytics/eventClient</TokenIdentifier>
+			<Abstract type="html">Returns the AWSMobileAnalyticsEventClient.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) id&lt;AWSMobileAnalyticsEventClient&gt; eventClient</Declaration>
+			
+			<ReturnValue><Abstract type="html">the AWSMobileAnalyticsEventClient to create, record, and submit events.</Abstract></ReturnValue>
+			<Anchor>//api/name/eventClient</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSMobileAnalytics/defaultMobileAnalytics</TokenIdentifier>
+			<Abstract type="html">Creates an AWSMobileAnalytics instance with the specified appId in the Info.plist if the instance does not already exists for the appId. If an instance exists for the given appId, returns the existing instance. The strong reference to the instance is maintained by AWSMobileAnalytics, and the developer does not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultMobileAnalytics</Declaration>
+			
+			<ReturnValue><Abstract type="html">The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultMobileAnalytics</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSMobileAnalytics/mobileAnalyticsForAppId:</TokenIdentifier>
+			<Abstract type="html">Creates an AWSMobileAnalytics instance with the specified appId using the default configuration if the instance does not already exists for the appId. If an instance exists for the given appId, returns the existing instance. The strong reference to the instance is maintained by AWSMobileAnalytics, and the developer does not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)mobileAnalyticsForAppId:(NSString *)appId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>appId</Name>
+					<Abstract type="html">AppId from Amazon Mobile Analytics Management Console.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</Abstract></ReturnValue>
+			<Anchor>//api/name/mobileAnalyticsForAppId:</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSMobileAnalytics/mobileAnalyticsForAppId:identityPoolId:</TokenIdentifier>
+			<Abstract type="html">Creates an AWSMobileAnalytics instance with the specified appId if the instance does not already exists for the appId. If an instance exists for the given appId, returns the existing instance. identityPoolId is ignored if an instance exists for the given appId. The strong reference to the instance is maintained by AWSMobileAnalytics, and the developer does not need to retain it manually. This method defaults to initialize both mobile analytics and cognito in the AWSUSEast1 region.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)mobileAnalyticsForAppId:(NSString *)appId identityPoolId:(NSString *)identityPoolId</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>appId</Name>
+					<Abstract type="html">AppId from Amazon Mobile Analytics Management Console.</Abstract>
+				</Parameter><Parameter>
+					<Name>identityPoolId</Name>
+					<Abstract type="html">The identity pool id for this provider. Value is used to communicate with Amazon Cognito as well as namespace values stored in the keychain.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</Abstract></ReturnValue>
+			<Anchor>//api/name/mobileAnalyticsForAppId:identityPoolId:</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSMobileAnalytics/mobileAnalyticsForAppId:identityPoolId:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Creates an AWSMobileAnalytics instance with the specified appId if the instance does not already exists for the appId. If an instance exists for the given appId, returns the existing instance. identityPoolId and completionBlock are ignored if an instance exists for the given appId. The strong reference to the instance is maintained by AWSMobileAnalytics, and the developer does not need to retain it manually. This method defaults to initialize both mobile analytics and cognito in the AWSUSEast1 region.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)mobileAnalyticsForAppId:(NSString *)appId identityPoolId:(NSString *)identityPoolId completionBlock:(AWSInitializationCompletionBlock)completionBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>appId</Name>
+					<Abstract type="html">AppId from Amazon Mobile Analytics Management Console.</Abstract>
+				</Parameter><Parameter>
+					<Name>identityPoolId</Name>
+					<Abstract type="html">The identity pool id for this provider. Value is used to communicate with Amazon Cognito as well as namespace values stored in the keychain.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionBlock</Name>
+					<Abstract type="html">A AWSInitializationCompletionBlock that allows developers to handle custom logic after initialization but before the session begins.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</Abstract></ReturnValue>
+			<Anchor>//api/name/mobileAnalyticsForAppId:identityPoolId:completionBlock:</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSMobileAnalytics/mobileAnalyticsForAppId:configuration:</TokenIdentifier>
+			<Abstract type="html">Creates an AWSMobileAnalytics instance with the specified appId using provided configuration if the instance does not already exists for the appId. If an instance exists for the given appId, returns the existing instance. configuration are ignored if an instance exists for the given appId. The strong reference to the instance is maintained by AWSMobileAnalytics, and the developer does not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)mobileAnalyticsForAppId:(NSString *)appId configuration:(AWSMobileAnalyticsConfiguration *)configuration</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>appId</Name>
+					<Abstract type="html">AppId from Amazon Mobile Analytics Management Console.</Abstract>
+				</Parameter><Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A configuraiton object. By default, it uses [AWSServiceManager defaultServiceManager].defaultServiceConfiguration to access the service.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</Abstract></ReturnValue>
+			<Anchor>//api/name/mobileAnalyticsForAppId:configuration:</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSMobileAnalytics/mobileAnalyticsForAppId:configuration:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Creates an AWSMobileAnalytics instance with the specified appId using provided configuration if the instance does not already exists for the appId. If an instance exists for the given appId, returns the existing instance. configuration and completionBlock are ignored if an instance exists for the given appId. The strong reference to the instance is maintained by AWSMobileAnalytics, and the developer does not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)mobileAnalyticsForAppId:(NSString *)appId configuration:(AWSMobileAnalyticsConfiguration *)configuration completionBlock:(AWSInitializationCompletionBlock)completionBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>appId</Name>
+					<Abstract type="html">AppId from Amazon Mobile Analytics Management Console.</Abstract>
+				</Parameter><Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A configuraiton object. By default, it uses [AWSServiceManager defaultServiceManager].defaultServiceConfiguration to access the service.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionBlock</Name>
+					<Abstract type="html">A AWSInitializationCompletionBlock that allows developers to handle custom logic after initialization but before the session begins.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</Abstract></ReturnValue>
+			<Anchor>//api/name/mobileAnalyticsForAppId:configuration:completionBlock:</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSMobileAnalytics/mobileAnalyticsForAppId:insightsPrivateKey:</TokenIdentifier>
+			<Abstract type="html">Creates an AWSMobileAnalytics instance with the specified appId using the default configuration if the instance does not already exists for the appId. If an instance exists for the given appId, returns the existing instance. configuration and completionBlock are ignored if an instance exists for the given appId. The strong reference to the instance is maintained by AWSMobileAnalytics, and the developer does not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)mobileAnalyticsForAppId:(NSString *)appId insightsPrivateKey:(NSString *)insightsPrivateKey</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>appId</Name>
+					<Abstract type="html">AppId from Amazon Mobile Analytics Management Console.</Abstract>
+				</Parameter><Parameter>
+					<Name>insightsPrivateKey</Name>
+					<Abstract type="html">Private Key from the Amazon Insights SDK. Pass Private Key to migrate from the Insights SDK.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</Abstract></ReturnValue>
+			<Anchor>//api/name/mobileAnalyticsForAppId:insightsPrivateKey:</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSMobileAnalytics/mobileAnalyticsForAppId:insightsPrivateKey:configuration:completionBlock:</TokenIdentifier>
+			<Abstract type="html">Creates an AWSMobileAnalytics instance with the specified appId using provided configuration if the instance does not already exists for the appId. If an instance exists for the given appId, returns the existing instance. configuration and completionBlock are ignored if an instance exists for the given appId. The strong reference to the instance is maintained by AWSMobileAnalytics, and the developer does not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)mobileAnalyticsForAppId:(NSString *)appId insightsPrivateKey:(NSString *)insightsPrivateKey configuration:(AWSMobileAnalyticsConfiguration *)configuration completionBlock:(AWSInitializationCompletionBlock)completionBlock</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>appId</Name>
+					<Abstract type="html">AppId from Amazon Mobile Analytics Management Console.</Abstract>
+				</Parameter><Parameter>
+					<Name>insightsPrivateKey</Name>
+					<Abstract type="html">Private Key from the Amazon Insights SDK. Pass Private Key to migrate from the Insights SDK.</Abstract>
+				</Parameter><Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A configuraiton object. By default, it uses [AWSServiceManager defaultServiceManager].defaultServiceConfiguration to access the service.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionBlock</Name>
+					<Abstract type="html">A AWSInitializationCompletionBlock that allows developers to handle custom logic after initialization but before the session begins.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The AWSMobileAnalytics instance with the specified appId or nil if serviceConfiguration is invalid or appId is empty.</Abstract></ReturnValue>
+			<Anchor>//api/name/mobileAnalyticsForAppId:insightsPrivateKey:configuration:completionBlock:</Anchor>
+            <NodeRef refid="1458"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3ListMultipartUploadsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3ListMultipartUploadsOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1916"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setBucket:</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to which the multipart upload was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/bucket</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to which the multipart upload was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/bucket</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to which the multipart upload was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setCommonPrefixes:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3CommonPrefix*&gt; *commonPrefixes</Declaration>
+			
+			
+			<Anchor>//api/name/commonPrefixes</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/commonPrefixes</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3CommonPrefix*&gt; *commonPrefixes</Declaration>
+			
+			
+			<Anchor>//api/name/commonPrefixes</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/commonPrefixes</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3CommonPrefix*&gt; *commonPrefixes</Declaration>
+			
+			
+			<Anchor>//api/name/commonPrefixes</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setDelimiter:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *delimiter</Declaration>
+			
+			
+			<Anchor>//api/name/delimiter</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/delimiter</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *delimiter</Declaration>
+			
+			
+			<Anchor>//api/name/delimiter</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/delimiter</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *delimiter</Declaration>
+			
+			
+			<Anchor>//api/name/delimiter</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setEncodingType:</TokenIdentifier>
+			<Abstract type="html">Encoding type used by Amazon S3 to encode object keys in the response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3EncodingType encodingType</Declaration>
+			
+			
+			<Anchor>//api/name/encodingType</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/encodingType</TokenIdentifier>
+			<Abstract type="html">Encoding type used by Amazon S3 to encode object keys in the response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3EncodingType encodingType</Declaration>
+			
+			
+			<Anchor>//api/name/encodingType</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/encodingType</TokenIdentifier>
+			<Abstract type="html">Encoding type used by Amazon S3 to encode object keys in the response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3EncodingType encodingType</Declaration>
+			
+			
+			<Anchor>//api/name/encodingType</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setIsTruncated:</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/isTruncated</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/isTruncated</TokenIdentifier>
+			<Abstract type="html">Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isTruncated</Declaration>
+			
+			
+			<Anchor>//api/name/isTruncated</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setKeyMarker:</TokenIdentifier>
+			<Abstract type="html">The key at or after which the listing began.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyMarker</Declaration>
+			
+			
+			<Anchor>//api/name/keyMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/keyMarker</TokenIdentifier>
+			<Abstract type="html">The key at or after which the listing began.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyMarker</Declaration>
+			
+			
+			<Anchor>//api/name/keyMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/keyMarker</TokenIdentifier>
+			<Abstract type="html">The key at or after which the listing began.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyMarker</Declaration>
+			
+			
+			<Anchor>//api/name/keyMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setMaxUploads:</TokenIdentifier>
+			<Abstract type="html">Maximum number of multipart uploads that could have been included in the response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxUploads</Declaration>
+			
+			
+			<Anchor>//api/name/maxUploads</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/maxUploads</TokenIdentifier>
+			<Abstract type="html">Maximum number of multipart uploads that could have been included in the response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxUploads</Declaration>
+			
+			
+			<Anchor>//api/name/maxUploads</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/maxUploads</TokenIdentifier>
+			<Abstract type="html">Maximum number of multipart uploads that could have been included in the response.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxUploads</Declaration>
+			
+			
+			<Anchor>//api/name/maxUploads</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setNextKeyMarker:</TokenIdentifier>
+			<Abstract type="html">When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextKeyMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextKeyMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/nextKeyMarker</TokenIdentifier>
+			<Abstract type="html">When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextKeyMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextKeyMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/nextKeyMarker</TokenIdentifier>
+			<Abstract type="html">When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextKeyMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextKeyMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setNextUploadIdMarker:</TokenIdentifier>
+			<Abstract type="html">When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextUploadIdMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextUploadIdMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/nextUploadIdMarker</TokenIdentifier>
+			<Abstract type="html">When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextUploadIdMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextUploadIdMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/nextUploadIdMarker</TokenIdentifier>
+			<Abstract type="html">When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextUploadIdMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextUploadIdMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setPrefix:</TokenIdentifier>
+			<Abstract type="html">When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/prefix</TokenIdentifier>
+			<Abstract type="html">When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/prefix</TokenIdentifier>
+			<Abstract type="html">When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setUploadIdMarker:</TokenIdentifier>
+			<Abstract type="html">Upload ID after which listing began.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *uploadIdMarker</Declaration>
+			
+			
+			<Anchor>//api/name/uploadIdMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/uploadIdMarker</TokenIdentifier>
+			<Abstract type="html">Upload ID after which listing began.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *uploadIdMarker</Declaration>
+			
+			
+			<Anchor>//api/name/uploadIdMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/uploadIdMarker</TokenIdentifier>
+			<Abstract type="html">Upload ID after which listing began.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *uploadIdMarker</Declaration>
+			
+			
+			<Anchor>//api/name/uploadIdMarker</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/setUploads:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3MultipartUpload*&gt; *uploads</Declaration>
+			
+			
+			<Anchor>//api/name/uploads</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ListMultipartUploadsOutput/uploads</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3MultipartUpload*&gt; *uploads</Declaration>
+			
+			
+			<Anchor>//api/name/uploads</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3ListMultipartUploadsOutput/uploads</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3MultipartUpload*&gt; *uploads</Declaration>
+			
+			
+			<Anchor>//api/name/uploads</Anchor>
+            <NodeRef refid="1916"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

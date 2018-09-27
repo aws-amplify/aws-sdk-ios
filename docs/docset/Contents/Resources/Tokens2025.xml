@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3UploadPartCopyRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3UploadPartCopyRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2025"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/bucket</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/bucket</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setReplicateSource:</TokenIdentifier>
+			<Abstract type="html">The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSource</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSource</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/replicateSource</TokenIdentifier>
+			<Abstract type="html">The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSource</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSource</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/replicateSource</TokenIdentifier>
+			<Abstract type="html">The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSource</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSource</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setReplicateSourceIfMatch:</TokenIdentifier>
+			<Abstract type="html">Copies the object if its entity tag (ETag) matches the specified tag.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceIfMatch</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfMatch</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/replicateSourceIfMatch</TokenIdentifier>
+			<Abstract type="html">Copies the object if its entity tag (ETag) matches the specified tag.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceIfMatch</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfMatch</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/replicateSourceIfMatch</TokenIdentifier>
+			<Abstract type="html">Copies the object if its entity tag (ETag) matches the specified tag.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceIfMatch</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfMatch</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setReplicateSourceIfModifiedSince:</TokenIdentifier>
+			<Abstract type="html">Copies the object if it has been modified since the specified time.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *replicateSourceIfModifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfModifiedSince</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/replicateSourceIfModifiedSince</TokenIdentifier>
+			<Abstract type="html">Copies the object if it has been modified since the specified time.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *replicateSourceIfModifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfModifiedSince</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/replicateSourceIfModifiedSince</TokenIdentifier>
+			<Abstract type="html">Copies the object if it has been modified since the specified time.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *replicateSourceIfModifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfModifiedSince</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setReplicateSourceIfNoneMatch:</TokenIdentifier>
+			<Abstract type="html">Copies the object if its entity tag (ETag) is different than the specified ETag.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceIfNoneMatch</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfNoneMatch</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/replicateSourceIfNoneMatch</TokenIdentifier>
+			<Abstract type="html">Copies the object if its entity tag (ETag) is different than the specified ETag.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceIfNoneMatch</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfNoneMatch</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/replicateSourceIfNoneMatch</TokenIdentifier>
+			<Abstract type="html">Copies the object if its entity tag (ETag) is different than the specified ETag.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceIfNoneMatch</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfNoneMatch</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setReplicateSourceIfUnmodifiedSince:</TokenIdentifier>
+			<Abstract type="html">Copies the object if it hasn&apos;t been modified since the specified time.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfUnmodifiedSince</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/replicateSourceIfUnmodifiedSince</TokenIdentifier>
+			<Abstract type="html">Copies the object if it hasn&apos;t been modified since the specified time.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfUnmodifiedSince</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/replicateSourceIfUnmodifiedSince</TokenIdentifier>
+			<Abstract type="html">Copies the object if it hasn&apos;t been modified since the specified time.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *replicateSourceIfUnmodifiedSince</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceIfUnmodifiedSince</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setReplicateSourceRange:</TokenIdentifier>
+			<Abstract type="html">The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceRange</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceRange</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/replicateSourceRange</TokenIdentifier>
+			<Abstract type="html">The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceRange</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceRange</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/replicateSourceRange</TokenIdentifier>
+			<Abstract type="html">The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceRange</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceRange</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setReplicateSourceSSECustomerAlgorithm:</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use when decrypting the source object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceSSECustomerAlgorithm</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/replicateSourceSSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use when decrypting the source object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceSSECustomerAlgorithm</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/replicateSourceSSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use when decrypting the source object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceSSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceSSECustomerAlgorithm</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setReplicateSourceSSECustomerKey:</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceSSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceSSECustomerKey</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/replicateSourceSSECustomerKey</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceSSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceSSECustomerKey</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/replicateSourceSSECustomerKey</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceSSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceSSECustomerKey</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setReplicateSourceSSECustomerKeyMD5:</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceSSECustomerKeyMD5</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/replicateSourceSSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceSSECustomerKeyMD5</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/replicateSourceSSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replicateSourceSSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/replicateSourceSSECustomerKeyMD5</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/key</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/key</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setPartNumber:</TokenIdentifier>
+			<Abstract type="html">Part number of part being copied. This is a positive integer between 1 and 10,000.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *partNumber</Declaration>
+			
+			
+			<Anchor>//api/name/partNumber</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/partNumber</TokenIdentifier>
+			<Abstract type="html">Part number of part being copied. This is a positive integer between 1 and 10,000.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *partNumber</Declaration>
+			
+			
+			<Anchor>//api/name/partNumber</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/partNumber</TokenIdentifier>
+			<Abstract type="html">Part number of part being copied. This is a positive integer between 1 and 10,000.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *partNumber</Declaration>
+			
+			
+			<Anchor>//api/name/partNumber</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setRequestPayer:</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/requestPayer</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/requestPayer</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setSSECustomerAlgorithm:</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use to when encrypting the object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/SSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use to when encrypting the object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/SSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use to when encrypting the object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setSSECustomerKey:</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKey</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/SSECustomerKey</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKey</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/SSECustomerKey</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKey</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setSSECustomerKeyMD5:</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/SSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/SSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/setUploadId:</TokenIdentifier>
+			<Abstract type="html">Upload ID identifying the multipart upload whose part is being copied.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *uploadId</Declaration>
+			
+			
+			<Anchor>//api/name/uploadId</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartCopyRequest/uploadId</TokenIdentifier>
+			<Abstract type="html">Upload ID identifying the multipart upload whose part is being copied.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *uploadId</Declaration>
+			
+			
+			<Anchor>//api/name/uploadId</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartCopyRequest/uploadId</TokenIdentifier>
+			<Abstract type="html">Upload ID identifying the multipart upload whose part is being copied.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *uploadId</Declaration>
+			
+			
+			<Anchor>//api/name/uploadId</Anchor>
+            <NodeRef refid="2025"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

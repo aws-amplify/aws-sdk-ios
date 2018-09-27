@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionListFacesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionListFacesResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1737"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionListFacesResponse/setFaceModelVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Version number of the face detection model associated with the input collection (&lt;code&gt;CollectionId&lt;/code&gt;).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceModelVersion</Declaration>
+			
+			
+			<Anchor>//api/name/faceModelVersion</Anchor>
+            <NodeRef refid="1737"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionListFacesResponse/faceModelVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Version number of the face detection model associated with the input collection (&lt;code&gt;CollectionId&lt;/code&gt;).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceModelVersion</Declaration>
+			
+			
+			<Anchor>//api/name/faceModelVersion</Anchor>
+            <NodeRef refid="1737"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionListFacesResponse/faceModelVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Version number of the face detection model associated with the input collection (&lt;code&gt;CollectionId&lt;/code&gt;).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceModelVersion</Declaration>
+			
+			
+			<Anchor>//api/name/faceModelVersion</Anchor>
+            <NodeRef refid="1737"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionListFacesResponse/setFaces:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of &lt;code&gt;Face&lt;/code&gt; objects. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFace*&gt; *faces</Declaration>
+			
+			
+			<Anchor>//api/name/faces</Anchor>
+            <NodeRef refid="1737"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionListFacesResponse/faces</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of &lt;code&gt;Face&lt;/code&gt; objects. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFace*&gt; *faces</Declaration>
+			
+			
+			<Anchor>//api/name/faces</Anchor>
+            <NodeRef refid="1737"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionListFacesResponse/faces</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of &lt;code&gt;Face&lt;/code&gt; objects. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFace*&gt; *faces</Declaration>
+			
+			
+			<Anchor>//api/name/faces</Anchor>
+            <NodeRef refid="1737"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionListFacesResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1737"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionListFacesResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1737"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionListFacesResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1737"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

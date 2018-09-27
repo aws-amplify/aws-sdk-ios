@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESListIdentitiesRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESListIdentitiesRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to return a list of all identities (email addresses and domains) that you have attempted to verify under your AWS account, regardless of verification status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2117"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListIdentitiesRequest/setIdentityType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of the identities to list. Possible values are &quot;EmailAddress&quot; and &quot;Domain&quot;. If this parameter is omitted, then all identities will be listed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESIdentityType identityType</Declaration>
+			
+			
+			<Anchor>//api/name/identityType</Anchor>
+            <NodeRef refid="2117"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListIdentitiesRequest/identityType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of the identities to list. Possible values are &quot;EmailAddress&quot; and &quot;Domain&quot;. If this parameter is omitted, then all identities will be listed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESIdentityType identityType</Declaration>
+			
+			
+			<Anchor>//api/name/identityType</Anchor>
+            <NodeRef refid="2117"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESListIdentitiesRequest/identityType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of the identities to list. Possible values are &quot;EmailAddress&quot; and &quot;Domain&quot;. If this parameter is omitted, then all identities will be listed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESIdentityType identityType</Declaration>
+			
+			
+			<Anchor>//api/name/identityType</Anchor>
+            <NodeRef refid="2117"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListIdentitiesRequest/setMaxItems:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of identities per page. Possible values are 1-1000 inclusive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="2117"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListIdentitiesRequest/maxItems</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of identities per page. Possible values are 1-1000 inclusive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="2117"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESListIdentitiesRequest/maxItems</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of identities per page. Possible values are 1-1000 inclusive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxItems</Declaration>
+			
+			
+			<Anchor>//api/name/maxItems</Anchor>
+            <NodeRef refid="2117"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListIdentitiesRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token to use for pagination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2117"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListIdentitiesRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token to use for pagination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2117"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESListIdentitiesRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token to use for pagination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2117"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

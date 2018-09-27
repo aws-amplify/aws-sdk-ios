@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3RequestPaymentConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3RequestPaymentConfiguration</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1983"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RequestPaymentConfiguration/setPayer:</TokenIdentifier>
+			<Abstract type="html">Specifies who pays for the download and request fees.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Payer payer</Declaration>
+			
+			
+			<Anchor>//api/name/payer</Anchor>
+            <NodeRef refid="1983"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3RequestPaymentConfiguration/payer</TokenIdentifier>
+			<Abstract type="html">Specifies who pays for the download and request fees.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Payer payer</Declaration>
+			
+			
+			<Anchor>//api/name/payer</Anchor>
+            <NodeRef refid="1983"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3RequestPaymentConfiguration/payer</TokenIdentifier>
+			<Abstract type="html">Specifies who pays for the download and request fees.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Payer payer</Declaration>
+			
+			
+			<Anchor>//api/name/payer</Anchor>
+            <NodeRef refid="1983"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBPaginatedOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBPaginatedOutput</TokenIdentifier>
+			<Abstract type="html">The paginated output object.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+            
+			
+			<NodeRef refid="636"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPaginatedOutput/setItems:</TokenIdentifier>
+			<Abstract type="html">The array of items.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSArray&lt;__kindofAWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *&gt; *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="636"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPaginatedOutput/items</TokenIdentifier>
+			<Abstract type="html">The array of items.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSArray&lt;__kindofAWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *&gt; *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="636"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPaginatedOutput/items</TokenIdentifier>
+			<Abstract type="html">The array of items.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSArray&lt;__kindofAWSDynamoDBObjectModel&lt;AWSDynamoDBModeling&gt; *&gt; *items</Declaration>
+			
+			
+			<Anchor>//api/name/items</Anchor>
+            <NodeRef refid="636"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPaginatedOutput/setLastEvaluatedKey:</TokenIdentifier>
+			<Abstract type="html">The last evaluated key.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly, nullable) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *lastEvaluatedKey</Declaration>
+			
+			
+			<Anchor>//api/name/lastEvaluatedKey</Anchor>
+            <NodeRef refid="636"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPaginatedOutput/lastEvaluatedKey</TokenIdentifier>
+			<Abstract type="html">The last evaluated key.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly, nullable) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *lastEvaluatedKey</Declaration>
+			
+			
+			<Anchor>//api/name/lastEvaluatedKey</Anchor>
+            <NodeRef refid="636"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPaginatedOutput/lastEvaluatedKey</TokenIdentifier>
+			<Abstract type="html">The last evaluated key.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly, nullable) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *lastEvaluatedKey</Declaration>
+			
+			
+			<Anchor>//api/name/lastEvaluatedKey</Anchor>
+            <NodeRef refid="636"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPaginatedOutput/loadNextPage</TokenIdentifier>
+			<Abstract type="html">Loads the next page of items when self.lastEvaluatedKey is not nil.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>- (AWSTask *)loadNextPage</Declaration>
+			
+			<ReturnValue><Abstract type="html">task.error indicates why the request failed, or nil if the request was successful. task.result is always nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/loadNextPage</Anchor>
+            <NodeRef refid="636"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPaginatedOutput/loadNextPageWithCompletionHandler:</TokenIdentifier>
+			<Abstract type="html">Loads the next page of items when self.lastEvaluatedKey is not nil.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>- (void)loadNextPageWithCompletionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error: An error object that indicates why the request failed, or nil if the request was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loadNextPageWithCompletionHandler:</Anchor>
+            <NodeRef refid="636"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPaginatedOutput/reload</TokenIdentifier>
+			<Abstract type="html">Resets self.lastEvaluatedKey to nil and reloads the results from the beginning.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>- (AWSTask *)reload</Declaration>
+			
+			<ReturnValue><Abstract type="html">task.error indicates why the request failed, or nil if the request was successful. task.result is always nil.</Abstract></ReturnValue>
+			<Anchor>//api/name/reload</Anchor>
+            <NodeRef refid="636"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPaginatedOutput/reloadWithCompletionHandler:</TokenIdentifier>
+			<Abstract type="html">Resets self.lastEvaluatedKey to nil and reloads the results from the beginning.</Abstract>
+			<DeclaredIn>AWSDynamoDBObjectMapper.h</DeclaredIn>
+			
+			<Declaration>- (void)reloadWithCompletionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error: An error object that indicates why the request failed, or nil` if the request was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/reloadWithCompletionHandler:</Anchor>
+            <NodeRef refid="636"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

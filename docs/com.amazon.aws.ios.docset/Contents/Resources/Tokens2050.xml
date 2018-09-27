@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESCreateReceiptFilterRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESCreateReceiptFilterRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [Filter]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2050"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESCreateReceiptFilterRequest/setFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReceiptFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="2050"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESCreateReceiptFilterRequest/filter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReceiptFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="2050"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESCreateReceiptFilterRequest/filter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReceiptFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="2050"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

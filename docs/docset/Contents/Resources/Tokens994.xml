@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTGetOTAUpdateResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTGetOTAUpdateResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="994"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetOTAUpdateResponse/setOtaUpdateInfo:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The OTA update info.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTOTAUpdateInfo *otaUpdateInfo</Declaration>
+			
+			
+			<Anchor>//api/name/otaUpdateInfo</Anchor>
+            <NodeRef refid="994"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetOTAUpdateResponse/otaUpdateInfo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The OTA update info.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTOTAUpdateInfo *otaUpdateInfo</Declaration>
+			
+			
+			<Anchor>//api/name/otaUpdateInfo</Anchor>
+            <NodeRef refid="994"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTGetOTAUpdateResponse/otaUpdateInfo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The OTA update info.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTOTAUpdateInfo *otaUpdateInfo</Declaration>
+			
+			
+			<Anchor>//api/name/otaUpdateInfo</Anchor>
+            <NodeRef refid="994"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

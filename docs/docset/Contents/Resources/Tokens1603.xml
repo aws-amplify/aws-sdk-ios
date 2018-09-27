@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingSegmentDemographics.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingSegmentDemographics</TokenIdentifier>
+			<Abstract type="html">Segment demographic dimensions</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1603"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/setAppVersion:</TokenIdentifier>
+			<Abstract type="html">The app version criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *appVersion</Declaration>
+			
+			
+			<Anchor>//api/name/appVersion</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/appVersion</TokenIdentifier>
+			<Abstract type="html">The app version criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *appVersion</Declaration>
+			
+			
+			<Anchor>//api/name/appVersion</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentDemographics/appVersion</TokenIdentifier>
+			<Abstract type="html">The app version criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *appVersion</Declaration>
+			
+			
+			<Anchor>//api/name/appVersion</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/setChannel:</TokenIdentifier>
+			<Abstract type="html">The channel criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *channel</Declaration>
+			
+			
+			<Anchor>//api/name/channel</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/channel</TokenIdentifier>
+			<Abstract type="html">The channel criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *channel</Declaration>
+			
+			
+			<Anchor>//api/name/channel</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentDemographics/channel</TokenIdentifier>
+			<Abstract type="html">The channel criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *channel</Declaration>
+			
+			
+			<Anchor>//api/name/channel</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/setDeviceType:</TokenIdentifier>
+			<Abstract type="html">The device type criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *deviceType</Declaration>
+			
+			
+			<Anchor>//api/name/deviceType</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/deviceType</TokenIdentifier>
+			<Abstract type="html">The device type criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *deviceType</Declaration>
+			
+			
+			<Anchor>//api/name/deviceType</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentDemographics/deviceType</TokenIdentifier>
+			<Abstract type="html">The device type criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *deviceType</Declaration>
+			
+			
+			<Anchor>//api/name/deviceType</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/setMake:</TokenIdentifier>
+			<Abstract type="html">The device make criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *make</Declaration>
+			
+			
+			<Anchor>//api/name/make</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/make</TokenIdentifier>
+			<Abstract type="html">The device make criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *make</Declaration>
+			
+			
+			<Anchor>//api/name/make</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentDemographics/make</TokenIdentifier>
+			<Abstract type="html">The device make criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *make</Declaration>
+			
+			
+			<Anchor>//api/name/make</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/setModel:</TokenIdentifier>
+			<Abstract type="html">The device model criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *model</Declaration>
+			
+			
+			<Anchor>//api/name/model</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/model</TokenIdentifier>
+			<Abstract type="html">The device model criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *model</Declaration>
+			
+			
+			<Anchor>//api/name/model</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentDemographics/model</TokenIdentifier>
+			<Abstract type="html">The device model criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *model</Declaration>
+			
+			
+			<Anchor>//api/name/model</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/setPlatform:</TokenIdentifier>
+			<Abstract type="html">The device platform criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *platform</Declaration>
+			
+			
+			<Anchor>//api/name/platform</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSegmentDemographics/platform</TokenIdentifier>
+			<Abstract type="html">The device platform criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *platform</Declaration>
+			
+			
+			<Anchor>//api/name/platform</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSegmentDemographics/platform</TokenIdentifier>
+			<Abstract type="html">The device platform criteria for the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSetDimension *platform</Declaration>
+			
+			
+			<Anchor>//api/name/platform</Anchor>
+            <NodeRef refid="1603"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

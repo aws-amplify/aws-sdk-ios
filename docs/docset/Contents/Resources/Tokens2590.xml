@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSMachineLearningMLModelType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSMachineLearningMLModelType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2590"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningMLModelTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningMLModelTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2590"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningMLModelTypeRegression</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningMLModelTypeRegression</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2590"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningMLModelTypeBinary</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningMLModelTypeBinary</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2590"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningMLModelTypeMulticlass</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningMLModelTypeMulticlass</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2590"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESReceiptAction.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESReceiptAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.&lt;/p&gt;&lt;p&gt;For information about setting up receipt rules, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2134"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/setAddHeaderAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds a header to the received email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESAddHeaderAction *addHeaderAction</Declaration>
+			
+			
+			<Anchor>//api/name/addHeaderAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/addHeaderAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds a header to the received email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESAddHeaderAction *addHeaderAction</Declaration>
+			
+			
+			<Anchor>//api/name/addHeaderAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptAction/addHeaderAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds a header to the received email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESAddHeaderAction *addHeaderAction</Declaration>
+			
+			
+			<Anchor>//api/name/addHeaderAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/setBounceAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESBounceAction *bounceAction</Declaration>
+			
+			
+			<Anchor>//api/name/bounceAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/bounceAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESBounceAction *bounceAction</Declaration>
+			
+			
+			<Anchor>//api/name/bounceAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptAction/bounceAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESBounceAction *bounceAction</Declaration>
+			
+			
+			<Anchor>//api/name/bounceAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/setLambdaAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESLambdaAction *lambdaAction</Declaration>
+			
+			
+			<Anchor>//api/name/lambdaAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/lambdaAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESLambdaAction *lambdaAction</Declaration>
+			
+			
+			<Anchor>//api/name/lambdaAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptAction/lambdaAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESLambdaAction *lambdaAction</Declaration>
+			
+			
+			<Anchor>//api/name/lambdaAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/setS3Action:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESS3Action *s3Action</Declaration>
+			
+			
+			<Anchor>//api/name/s3Action</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/s3Action</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESS3Action *s3Action</Declaration>
+			
+			
+			<Anchor>//api/name/s3Action</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptAction/s3Action</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESS3Action *s3Action</Declaration>
+			
+			
+			<Anchor>//api/name/s3Action</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/setSNSAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Publishes the email content within a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESSNSAction *SNSAction</Declaration>
+			
+			
+			<Anchor>//api/name/SNSAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/SNSAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Publishes the email content within a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESSNSAction *SNSAction</Declaration>
+			
+			
+			<Anchor>//api/name/SNSAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptAction/SNSAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Publishes the email content within a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESSNSAction *SNSAction</Declaration>
+			
+			
+			<Anchor>//api/name/SNSAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/setStopAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESStopAction *stopAction</Declaration>
+			
+			
+			<Anchor>//api/name/stopAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/stopAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESStopAction *stopAction</Declaration>
+			
+			
+			<Anchor>//api/name/stopAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptAction/stopAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESStopAction *stopAction</Declaration>
+			
+			
+			<Anchor>//api/name/stopAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/setWorkmailAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESWorkmailAction *workmailAction</Declaration>
+			
+			
+			<Anchor>//api/name/workmailAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptAction/workmailAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESWorkmailAction *workmailAction</Declaration>
+			
+			
+			<Anchor>//api/name/workmailAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptAction/workmailAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESWorkmailAction *workmailAction</Declaration>
+			
+			
+			<Anchor>//api/name/workmailAction</Anchor>
+            <NodeRef refid="2134"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

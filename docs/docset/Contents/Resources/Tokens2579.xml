@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLexSpeechEncoding.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLexSpeechEncoding</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2579"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexSpeechEncodingOpus</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexSpeechEncodingOpus</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+            <NodeRef refid="2579"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexSpeechEncodingLPCM</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexSpeechEncodingLPCM</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+            <NodeRef refid="2579"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

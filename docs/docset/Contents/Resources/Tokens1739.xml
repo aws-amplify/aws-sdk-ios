@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionListStreamProcessorsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionListStreamProcessorsResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1739"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionListStreamProcessorsResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1739"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionListStreamProcessorsResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1739"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionListStreamProcessorsResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of stream processors. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1739"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionListStreamProcessorsResponse/setStreamProcessors:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of stream processors that you have created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionStreamProcessor*&gt; *streamProcessors</Declaration>
+			
+			
+			<Anchor>//api/name/streamProcessors</Anchor>
+            <NodeRef refid="1739"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionListStreamProcessorsResponse/streamProcessors</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of stream processors that you have created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionStreamProcessor*&gt; *streamProcessors</Declaration>
+			
+			
+			<Anchor>//api/name/streamProcessors</Anchor>
+            <NodeRef refid="1739"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionListStreamProcessorsResponse/streamProcessors</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of stream processors that you have created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionStreamProcessor*&gt; *streamProcessors</Declaration>
+			
+			
+			<Anchor>//api/name/streamProcessors</Anchor>
+            <NodeRef refid="1739"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTListThingsInThingGroupRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTListThingsInThingGroupRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1070"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingsInThingGroupRequest/setMaxResults:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return at one time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingsInThingGroupRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return at one time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListThingsInThingGroupRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return at one time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingsInThingGroupRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token used to get the next set of results, or &lt;b&gt;null&lt;/b&gt; if there are no additional results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingsInThingGroupRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token used to get the next set of results, or &lt;b&gt;null&lt;/b&gt; if there are no additional results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListThingsInThingGroupRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token used to get the next set of results, or &lt;b&gt;null&lt;/b&gt; if there are no additional results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingsInThingGroupRequest/setRecursive:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When true, list things in this thing group and in all child groups as well.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *recursive</Declaration>
+			
+			
+			<Anchor>//api/name/recursive</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingsInThingGroupRequest/recursive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When true, list things in this thing group and in all child groups as well.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *recursive</Declaration>
+			
+			
+			<Anchor>//api/name/recursive</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListThingsInThingGroupRequest/recursive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When true, list things in this thing group and in all child groups as well.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *recursive</Declaration>
+			
+			
+			<Anchor>//api/name/recursive</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingsInThingGroupRequest/setThingGroupName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing group name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/thingGroupName</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingsInThingGroupRequest/thingGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing group name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/thingGroupName</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListThingsInThingGroupRequest/thingGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing group name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/thingGroupName</Anchor>
+            <NodeRef refid="1070"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

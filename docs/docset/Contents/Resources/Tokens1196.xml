@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSGrantListEntry.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSGrantListEntry</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains information about an entry in a list of grants.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1196"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/setConstraints:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKMSGrantConstraints *constraints</Declaration>
+			
+			
+			<Anchor>//api/name/constraints</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/constraints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKMSGrantConstraints *constraints</Declaration>
+			
+			
+			<Anchor>//api/name/constraints</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGrantListEntry/constraints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of key-value pairs that must be present in the encryption context of certain subsequent operations that the grant allows.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKMSGrantConstraints *constraints</Declaration>
+			
+			
+			<Anchor>//api/name/constraints</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/setCreationDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date and time when the grant was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date and time when the grant was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGrantListEntry/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date and time when the grant was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/setGrantId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the grant.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantId</Declaration>
+			
+			
+			<Anchor>//api/name/grantId</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/grantId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the grant.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantId</Declaration>
+			
+			
+			<Anchor>//api/name/grantId</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGrantListEntry/grantId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the grant.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantId</Declaration>
+			
+			
+			<Anchor>//api/name/grantId</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/setGranteePrincipal:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that receives the grant&apos;s permissions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *granteePrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/granteePrincipal</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/granteePrincipal</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that receives the grant&apos;s permissions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *granteePrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/granteePrincipal</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGrantListEntry/granteePrincipal</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that receives the grant&apos;s permissions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *granteePrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/granteePrincipal</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/setIssuingAccount:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account under which the grant was issued.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *issuingAccount</Declaration>
+			
+			
+			<Anchor>//api/name/issuingAccount</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/issuingAccount</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account under which the grant was issued.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *issuingAccount</Declaration>
+			
+			
+			<Anchor>//api/name/issuingAccount</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGrantListEntry/issuingAccount</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account under which the grant was issued.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *issuingAccount</Declaration>
+			
+			
+			<Anchor>//api/name/issuingAccount</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/setKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the customer master key (CMK) to which the grant applies.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the customer master key (CMK) to which the grant applies.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGrantListEntry/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the customer master key (CMK) to which the grant applies.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The friendly name that identifies the grant. If a name was provided in the &lt;a&gt;CreateGrant&lt;/a&gt; request, that name is returned. Otherwise this value is null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The friendly name that identifies the grant. If a name was provided in the &lt;a&gt;CreateGrant&lt;/a&gt; request, that name is returned. Otherwise this value is null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGrantListEntry/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The friendly name that identifies the grant. If a name was provided in the &lt;a&gt;CreateGrant&lt;/a&gt; request, that name is returned. Otherwise this value is null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/setOperations:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of operations permitted by the grant.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *operations</Declaration>
+			
+			
+			<Anchor>//api/name/operations</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/operations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of operations permitted by the grant.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *operations</Declaration>
+			
+			
+			<Anchor>//api/name/operations</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGrantListEntry/operations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of operations permitted by the grant.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *operations</Declaration>
+			
+			
+			<Anchor>//api/name/operations</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/setRetiringPrincipal:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that can retire the grant.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *retiringPrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/retiringPrincipal</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGrantListEntry/retiringPrincipal</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that can retire the grant.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *retiringPrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/retiringPrincipal</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGrantListEntry/retiringPrincipal</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that can retire the grant.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *retiringPrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/retiringPrincipal</Anchor>
+            <NodeRef refid="1196"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

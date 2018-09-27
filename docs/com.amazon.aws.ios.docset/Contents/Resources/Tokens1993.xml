@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3SSES3.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3SSES3</TokenIdentifier>
+			<Abstract type="html">Specifies the use of SSE-S3 to encrypt delievered Inventory reports.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1993"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

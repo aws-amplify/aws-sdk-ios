@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendSentimentScore.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendSentimentScore</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the level of confidence that Amazon Comprehend has in the accuracy of its detection of sentiments.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="548"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendSentimentScore/setMixed:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;MIXED&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *mixed</Declaration>
+			
+			
+			<Anchor>//api/name/mixed</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendSentimentScore/mixed</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;MIXED&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *mixed</Declaration>
+			
+			
+			<Anchor>//api/name/mixed</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendSentimentScore/mixed</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;MIXED&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *mixed</Declaration>
+			
+			
+			<Anchor>//api/name/mixed</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendSentimentScore/setNegative:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;NEGATIVE&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *negative</Declaration>
+			
+			
+			<Anchor>//api/name/negative</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendSentimentScore/negative</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;NEGATIVE&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *negative</Declaration>
+			
+			
+			<Anchor>//api/name/negative</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendSentimentScore/negative</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;NEGATIVE&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *negative</Declaration>
+			
+			
+			<Anchor>//api/name/negative</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendSentimentScore/setNeutral:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;NEUTRAL&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *neutral</Declaration>
+			
+			
+			<Anchor>//api/name/neutral</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendSentimentScore/neutral</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;NEUTRAL&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *neutral</Declaration>
+			
+			
+			<Anchor>//api/name/neutral</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendSentimentScore/neutral</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;NEUTRAL&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *neutral</Declaration>
+			
+			
+			<Anchor>//api/name/neutral</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendSentimentScore/setPositive:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;POSITIVE&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *positive</Declaration>
+			
+			
+			<Anchor>//api/name/positive</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendSentimentScore/positive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;POSITIVE&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *positive</Declaration>
+			
+			
+			<Anchor>//api/name/positive</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendSentimentScore/positive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its detection of the &lt;code&gt;POSITIVE&lt;/code&gt; sentiment.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *positive</Declaration>
+			
+			
+			<Anchor>//api/name/positive</Anchor>
+            <NodeRef refid="548"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

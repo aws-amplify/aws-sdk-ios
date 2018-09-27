@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSKinesisShardIteratorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSKinesisShardIteratorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2553"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisShardIteratorTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisShardIteratorTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2553"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisShardIteratorTypeAtSequenceNumber</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisShardIteratorTypeAtSequenceNumber</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2553"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisShardIteratorTypeAfterSequenceNumber</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisShardIteratorTypeAfterSequenceNumber</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2553"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisShardIteratorTypeTrimHorizon</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisShardIteratorTypeTrimHorizon</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2553"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisShardIteratorTypeLatest</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisShardIteratorTypeLatest</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2553"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisShardIteratorTypeAtTimestamp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisShardIteratorTypeAtTimestamp</Declaration>
+            
+            <DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+            <NodeRef refid="2553"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

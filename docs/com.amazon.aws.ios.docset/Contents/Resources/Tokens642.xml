@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBPutItemInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBPutItemInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the input of a &lt;code&gt;PutItem&lt;/code&gt; operation.&lt;/p&gt;
+Required parameters: [TableName, Item]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="642"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/setConditionExpression:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A condition that must be satisfied in order for a conditional &lt;code&gt;PutItem&lt;/code&gt; operation to succeed.&lt;/p&gt;&lt;p&gt;An expression can contain any of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Functions: &lt;code&gt;attributeexists | attributenotexists | attributetype | contains | begins_with | size&lt;/code&gt;&lt;/p&gt;&lt;p&gt;These function names are case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Comparison operators: &lt;code&gt;= | &amp;amp;lt;&amp;amp;gt; | &amp;amp;lt; | &amp;amp;gt; | &amp;amp;lt;= | &amp;amp;gt;= | BETWEEN | IN &lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt; Logical operators: &lt;code&gt;AND | OR | NOT&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For more information on condition expressions, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *conditionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/conditionExpression</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/conditionExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A condition that must be satisfied in order for a conditional &lt;code&gt;PutItem&lt;/code&gt; operation to succeed.&lt;/p&gt;&lt;p&gt;An expression can contain any of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Functions: &lt;code&gt;attributeexists | attributenotexists | attributetype | contains | begins_with | size&lt;/code&gt;&lt;/p&gt;&lt;p&gt;These function names are case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Comparison operators: &lt;code&gt;= | &amp;amp;lt;&amp;amp;gt; | &amp;amp;lt; | &amp;amp;gt; | &amp;amp;lt;= | &amp;amp;gt;= | BETWEEN | IN &lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt; Logical operators: &lt;code&gt;AND | OR | NOT&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For more information on condition expressions, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *conditionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/conditionExpression</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutItemInput/conditionExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A condition that must be satisfied in order for a conditional &lt;code&gt;PutItem&lt;/code&gt; operation to succeed.&lt;/p&gt;&lt;p&gt;An expression can contain any of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Functions: &lt;code&gt;attributeexists | attributenotexists | attributetype | contains | begins_with | size&lt;/code&gt;&lt;/p&gt;&lt;p&gt;These function names are case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Comparison operators: &lt;code&gt;= | &amp;amp;lt;&amp;amp;gt; | &amp;amp;lt; | &amp;amp;gt; | &amp;amp;lt;= | &amp;amp;gt;= | BETWEEN | IN &lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt; Logical operators: &lt;code&gt;AND | OR | NOT&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For more information on condition expressions, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *conditionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/conditionExpression</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/setConditionalOperator:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see ConditionalOperator in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBConditionalOperator conditionalOperator</Declaration>
+			
+			
+			<Anchor>//api/name/conditionalOperator</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/conditionalOperator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see ConditionalOperator in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBConditionalOperator conditionalOperator</Declaration>
+			
+			
+			<Anchor>//api/name/conditionalOperator</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutItemInput/conditionalOperator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see ConditionalOperator in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBConditionalOperator conditionalOperator</Declaration>
+			
+			
+			<Anchor>//api/name/conditionalOperator</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/setExpected:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see Expected in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBExpectedAttributeValue*&gt; *expected</Declaration>
+			
+			
+			<Anchor>//api/name/expected</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/expected</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see Expected in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBExpectedAttributeValue*&gt; *expected</Declaration>
+			
+			
+			<Anchor>//api/name/expected</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutItemInput/expected</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see Expected in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBExpectedAttributeValue*&gt; *expected</Declaration>
+			
+			
+			<Anchor>//api/name/expected</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/setExpressionAttributeNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more substitution tokens for attribute names in an expression. The following are some use cases for using &lt;code&gt;ExpressionAttributeNames&lt;/code&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To access an attribute whose name conflicts with a DynamoDB reserved word.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To create a placeholder for repeating occurrences of an attribute name in an expression.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To prevent special characters in an attribute name from being misinterpreted in an expression.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;b&gt;#&lt;/b&gt; character in an expression to dereference an attribute name. For example, consider the following attribute name:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Percentile&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *expressionAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeNames</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/expressionAttributeNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more substitution tokens for attribute names in an expression. The following are some use cases for using &lt;code&gt;ExpressionAttributeNames&lt;/code&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To access an attribute whose name conflicts with a DynamoDB reserved word.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To create a placeholder for repeating occurrences of an attribute name in an expression.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To prevent special characters in an attribute name from being misinterpreted in an expression.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;b&gt;#&lt;/b&gt; character in an expression to dereference an attribute name. For example, consider the following attribute name:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Percentile&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *expressionAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeNames</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutItemInput/expressionAttributeNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more substitution tokens for attribute names in an expression. The following are some use cases for using &lt;code&gt;ExpressionAttributeNames&lt;/code&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To access an attribute whose name conflicts with a DynamoDB reserved word.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To create a placeholder for repeating occurrences of an attribute name in an expression.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To prevent special characters in an attribute name from being misinterpreted in an expression.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;b&gt;#&lt;/b&gt; character in an expression to dereference an attribute name. For example, consider the following attribute name:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Percentile&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *expressionAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeNames</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/setExpressionAttributeValues:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more values that can be substituted in an expression.&lt;/p&gt;&lt;p&gt;Use the &lt;b&gt;:&lt;/b&gt; (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the &lt;i&gt;ProductStatus&lt;/i&gt; attribute was one of the following: &lt;/p&gt;&lt;p&gt;&lt;code&gt;Available | Backordered | Discontinued&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You would first need to specify &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; as follows:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;}, &quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You could then use these values in an expression, such as this:&lt;/p&gt;&lt;p&gt;&lt;code&gt;ProductStatus IN (:avail, :back, :disc)&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on expression attribute values, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *expressionAttributeValues</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeValues</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/expressionAttributeValues</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more values that can be substituted in an expression.&lt;/p&gt;&lt;p&gt;Use the &lt;b&gt;:&lt;/b&gt; (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the &lt;i&gt;ProductStatus&lt;/i&gt; attribute was one of the following: &lt;/p&gt;&lt;p&gt;&lt;code&gt;Available | Backordered | Discontinued&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You would first need to specify &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; as follows:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;}, &quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You could then use these values in an expression, such as this:&lt;/p&gt;&lt;p&gt;&lt;code&gt;ProductStatus IN (:avail, :back, :disc)&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on expression attribute values, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *expressionAttributeValues</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeValues</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutItemInput/expressionAttributeValues</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more values that can be substituted in an expression.&lt;/p&gt;&lt;p&gt;Use the &lt;b&gt;:&lt;/b&gt; (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the &lt;i&gt;ProductStatus&lt;/i&gt; attribute was one of the following: &lt;/p&gt;&lt;p&gt;&lt;code&gt;Available | Backordered | Discontinued&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You would first need to specify &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; as follows:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;}, &quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You could then use these values in an expression, such as this:&lt;/p&gt;&lt;p&gt;&lt;code&gt;ProductStatus IN (:avail, :back, :disc)&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on expression attribute values, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *expressionAttributeValues</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeValues</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/setItem:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.&lt;/p&gt;&lt;p&gt;You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.&lt;/p&gt;&lt;p&gt;If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table&apos;s attribute definition.&lt;/p&gt;&lt;p&gt;For more information about primary keys, see Primary Key in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;&lt;p&gt;Each element in the &lt;code&gt;Item&lt;/code&gt; map is an &lt;code&gt;AttributeValue&lt;/code&gt; object.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *item</Declaration>
+			
+			
+			<Anchor>//api/name/item</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/item</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.&lt;/p&gt;&lt;p&gt;You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.&lt;/p&gt;&lt;p&gt;If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table&apos;s attribute definition.&lt;/p&gt;&lt;p&gt;For more information about primary keys, see Primary Key in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;&lt;p&gt;Each element in the &lt;code&gt;Item&lt;/code&gt; map is an &lt;code&gt;AttributeValue&lt;/code&gt; object.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *item</Declaration>
+			
+			
+			<Anchor>//api/name/item</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutItemInput/item</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.&lt;/p&gt;&lt;p&gt;You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.&lt;/p&gt;&lt;p&gt;If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table&apos;s attribute definition.&lt;/p&gt;&lt;p&gt;For more information about primary keys, see Primary Key in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;&lt;p&gt;Each element in the &lt;code&gt;Item&lt;/code&gt; map is an &lt;code&gt;AttributeValue&lt;/code&gt; object.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *item</Declaration>
+			
+			
+			<Anchor>//api/name/item</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/setReturnConsumedCapacity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the level of detail about provisioned throughput consumption that is returned in the response:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INDEXES&lt;/code&gt; - The response includes the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation, together with &lt;code&gt;ConsumedCapacity&lt;/code&gt; for each table and secondary index that was accessed.&lt;/p&gt;&lt;p&gt;Note that some operations, such as &lt;code&gt;GetItem&lt;/code&gt; and &lt;code&gt;BatchGetItem&lt;/code&gt;, do not access any indexes at all. In these cases, specifying &lt;code&gt;INDEXES&lt;/code&gt; will only return &lt;code&gt;ConsumedCapacity&lt;/code&gt; information for table(s).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;TOTAL&lt;/code&gt; - The response includes only the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - No &lt;code&gt;ConsumedCapacity&lt;/code&gt; details are included in the response.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/returnConsumedCapacity</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/returnConsumedCapacity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the level of detail about provisioned throughput consumption that is returned in the response:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INDEXES&lt;/code&gt; - The response includes the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation, together with &lt;code&gt;ConsumedCapacity&lt;/code&gt; for each table and secondary index that was accessed.&lt;/p&gt;&lt;p&gt;Note that some operations, such as &lt;code&gt;GetItem&lt;/code&gt; and &lt;code&gt;BatchGetItem&lt;/code&gt;, do not access any indexes at all. In these cases, specifying &lt;code&gt;INDEXES&lt;/code&gt; will only return &lt;code&gt;ConsumedCapacity&lt;/code&gt; information for table(s).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;TOTAL&lt;/code&gt; - The response includes only the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - No &lt;code&gt;ConsumedCapacity&lt;/code&gt; details are included in the response.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/returnConsumedCapacity</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutItemInput/returnConsumedCapacity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the level of detail about provisioned throughput consumption that is returned in the response:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INDEXES&lt;/code&gt; - The response includes the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation, together with &lt;code&gt;ConsumedCapacity&lt;/code&gt; for each table and secondary index that was accessed.&lt;/p&gt;&lt;p&gt;Note that some operations, such as &lt;code&gt;GetItem&lt;/code&gt; and &lt;code&gt;BatchGetItem&lt;/code&gt;, do not access any indexes at all. In these cases, specifying &lt;code&gt;INDEXES&lt;/code&gt; will only return &lt;code&gt;ConsumedCapacity&lt;/code&gt; information for table(s).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;TOTAL&lt;/code&gt; - The response includes only the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - No &lt;code&gt;ConsumedCapacity&lt;/code&gt; details are included in the response.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/returnConsumedCapacity</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/setReturnItemCollectionMetrics:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines whether item collection metrics are returned. If set to &lt;code&gt;SIZE&lt;/code&gt;, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to &lt;code&gt;NONE&lt;/code&gt; (the default), no statistics are returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/returnItemCollectionMetrics</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/returnItemCollectionMetrics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines whether item collection metrics are returned. If set to &lt;code&gt;SIZE&lt;/code&gt;, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to &lt;code&gt;NONE&lt;/code&gt; (the default), no statistics are returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/returnItemCollectionMetrics</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutItemInput/returnItemCollectionMetrics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines whether item collection metrics are returned. If set to &lt;code&gt;SIZE&lt;/code&gt;, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to &lt;code&gt;NONE&lt;/code&gt; (the default), no statistics are returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/returnItemCollectionMetrics</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/setReturnValues:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use &lt;code&gt;ReturnValues&lt;/code&gt; if you want to get the item attributes as they appeared before they were updated with the &lt;code&gt;PutItem&lt;/code&gt; request. For &lt;code&gt;PutItem&lt;/code&gt;, the valid values are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - If &lt;code&gt;ReturnValues&lt;/code&gt; is not specified, or if its value is &lt;code&gt;NONE&lt;/code&gt;, then nothing is returned. (This setting is the default for &lt;code&gt;ReturnValues&lt;/code&gt;.)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLOLD&lt;/code&gt; - If &lt;code&gt;PutItem&lt;/code&gt; overwrote an attribute name-value pair, then the content of the old item is returned.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;note&gt;&lt;p&gt;The &lt;code&gt;ReturnValues&lt;/code&gt; parameter is used by several DynamoDB operations; however, &lt;code&gt;PutItem&lt;/code&gt; does not recognize any values other than &lt;code&gt;NONE&lt;/code&gt; or &lt;code&gt;ALLOLD&lt;/code&gt;.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnValue returnValues</Declaration>
+			
+			
+			<Anchor>//api/name/returnValues</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/returnValues</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use &lt;code&gt;ReturnValues&lt;/code&gt; if you want to get the item attributes as they appeared before they were updated with the &lt;code&gt;PutItem&lt;/code&gt; request. For &lt;code&gt;PutItem&lt;/code&gt;, the valid values are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - If &lt;code&gt;ReturnValues&lt;/code&gt; is not specified, or if its value is &lt;code&gt;NONE&lt;/code&gt;, then nothing is returned. (This setting is the default for &lt;code&gt;ReturnValues&lt;/code&gt;.)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLOLD&lt;/code&gt; - If &lt;code&gt;PutItem&lt;/code&gt; overwrote an attribute name-value pair, then the content of the old item is returned.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;note&gt;&lt;p&gt;The &lt;code&gt;ReturnValues&lt;/code&gt; parameter is used by several DynamoDB operations; however, &lt;code&gt;PutItem&lt;/code&gt; does not recognize any values other than &lt;code&gt;NONE&lt;/code&gt; or &lt;code&gt;ALLOLD&lt;/code&gt;.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnValue returnValues</Declaration>
+			
+			
+			<Anchor>//api/name/returnValues</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutItemInput/returnValues</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use &lt;code&gt;ReturnValues&lt;/code&gt; if you want to get the item attributes as they appeared before they were updated with the &lt;code&gt;PutItem&lt;/code&gt; request. For &lt;code&gt;PutItem&lt;/code&gt;, the valid values are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - If &lt;code&gt;ReturnValues&lt;/code&gt; is not specified, or if its value is &lt;code&gt;NONE&lt;/code&gt;, then nothing is returned. (This setting is the default for &lt;code&gt;ReturnValues&lt;/code&gt;.)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLOLD&lt;/code&gt; - If &lt;code&gt;PutItem&lt;/code&gt; overwrote an attribute name-value pair, then the content of the old item is returned.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;note&gt;&lt;p&gt;The &lt;code&gt;ReturnValues&lt;/code&gt; parameter is used by several DynamoDB operations; however, &lt;code&gt;PutItem&lt;/code&gt; does not recognize any values other than &lt;code&gt;NONE&lt;/code&gt; or &lt;code&gt;ALLOLD&lt;/code&gt;.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnValue returnValues</Declaration>
+			
+			
+			<Anchor>//api/name/returnValues</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/setTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table to contain the item.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPutItemInput/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table to contain the item.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPutItemInput/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table to contain the item.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="642"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

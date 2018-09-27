@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSCreateGrantRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSCreateGrantRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1167"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/setConstraints:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see Encryption Context in the &lt;i&gt;AWS Key Management Service Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKMSGrantConstraints *constraints</Declaration>
+			
+			
+			<Anchor>//api/name/constraints</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/constraints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see Encryption Context in the &lt;i&gt;AWS Key Management Service Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKMSGrantConstraints *constraints</Declaration>
+			
+			
+			<Anchor>//api/name/constraints</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSCreateGrantRequest/constraints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A structure that you can use to allow certain operations in the grant only when the desired encryption context is present. For more information about encryption context, see Encryption Context in the &lt;i&gt;AWS Key Management Service Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKMSGrantConstraints *constraints</Declaration>
+			
+			
+			<Anchor>//api/name/constraints</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/setGrantTokens:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of grant tokens.&lt;/p&gt;&lt;p&gt;For more information, see Grant Tokens in the &lt;i&gt;AWS Key Management Service Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *grantTokens</Declaration>
+			
+			
+			<Anchor>//api/name/grantTokens</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/grantTokens</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of grant tokens.&lt;/p&gt;&lt;p&gt;For more information, see Grant Tokens in the &lt;i&gt;AWS Key Management Service Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *grantTokens</Declaration>
+			
+			
+			<Anchor>//api/name/grantTokens</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSCreateGrantRequest/grantTokens</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of grant tokens.&lt;/p&gt;&lt;p&gt;For more information, see Grant Tokens in the &lt;i&gt;AWS Key Management Service Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *grantTokens</Declaration>
+			
+			
+			<Anchor>//api/name/grantTokens</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/setGranteePrincipal:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that is given permission to perform the operations that the grant permits.&lt;/p&gt;&lt;p&gt;To specify the principal, use the AWS Identity and Access Management (IAM) in the Example ARNs section of the &lt;i&gt;AWS General Reference&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *granteePrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/granteePrincipal</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/granteePrincipal</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that is given permission to perform the operations that the grant permits.&lt;/p&gt;&lt;p&gt;To specify the principal, use the AWS Identity and Access Management (IAM) in the Example ARNs section of the &lt;i&gt;AWS General Reference&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *granteePrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/granteePrincipal</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSCreateGrantRequest/granteePrincipal</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that is given permission to perform the operations that the grant permits.&lt;/p&gt;&lt;p&gt;To specify the principal, use the AWS Identity and Access Management (IAM) in the Example ARNs section of the &lt;i&gt;AWS General Reference&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *granteePrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/granteePrincipal</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/setKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the customer master key (CMK) that the grant applies to.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the customer master key (CMK) that the grant applies to.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSCreateGrantRequest/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the customer master key (CMK) that the grant applies to.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate grants when retrying this request.&lt;/p&gt;&lt;p&gt;When this value is absent, all &lt;code&gt;CreateGrant&lt;/code&gt; requests result in a new grant with a unique &lt;code&gt;GrantId&lt;/code&gt; even if all the supplied parameters are identical. This can result in unintended duplicates when you retry the &lt;code&gt;CreateGrant&lt;/code&gt; request.&lt;/p&gt;&lt;p&gt;When this value is present, you can retry a &lt;code&gt;CreateGrant&lt;/code&gt; request with identical parameters; if the grant already exists, the original &lt;code&gt;GrantId&lt;/code&gt; is returned without creating a new grant. Note that the returned grant token is unique with every &lt;code&gt;CreateGrant&lt;/code&gt; request, even when a duplicate &lt;code&gt;GrantId&lt;/code&gt; is returned. All grant tokens obtained in this way can be used interchangeably.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate grants when retrying this request.&lt;/p&gt;&lt;p&gt;When this value is absent, all &lt;code&gt;CreateGrant&lt;/code&gt; requests result in a new grant with a unique &lt;code&gt;GrantId&lt;/code&gt; even if all the supplied parameters are identical. This can result in unintended duplicates when you retry the &lt;code&gt;CreateGrant&lt;/code&gt; request.&lt;/p&gt;&lt;p&gt;When this value is present, you can retry a &lt;code&gt;CreateGrant&lt;/code&gt; request with identical parameters; if the grant already exists, the original &lt;code&gt;GrantId&lt;/code&gt; is returned without creating a new grant. Note that the returned grant token is unique with every &lt;code&gt;CreateGrant&lt;/code&gt; request, even when a duplicate &lt;code&gt;GrantId&lt;/code&gt; is returned. All grant tokens obtained in this way can be used interchangeably.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSCreateGrantRequest/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A friendly name for identifying the grant. Use this value to prevent the unintended creation of duplicate grants when retrying this request.&lt;/p&gt;&lt;p&gt;When this value is absent, all &lt;code&gt;CreateGrant&lt;/code&gt; requests result in a new grant with a unique &lt;code&gt;GrantId&lt;/code&gt; even if all the supplied parameters are identical. This can result in unintended duplicates when you retry the &lt;code&gt;CreateGrant&lt;/code&gt; request.&lt;/p&gt;&lt;p&gt;When this value is present, you can retry a &lt;code&gt;CreateGrant&lt;/code&gt; request with identical parameters; if the grant already exists, the original &lt;code&gt;GrantId&lt;/code&gt; is returned without creating a new grant. Note that the returned grant token is unique with every &lt;code&gt;CreateGrant&lt;/code&gt; request, even when a duplicate &lt;code&gt;GrantId&lt;/code&gt; is returned. All grant tokens obtained in this way can be used interchangeably.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/setOperations:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of operations that the grant permits.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *operations</Declaration>
+			
+			
+			<Anchor>//api/name/operations</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/operations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of operations that the grant permits.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *operations</Declaration>
+			
+			
+			<Anchor>//api/name/operations</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSCreateGrantRequest/operations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of operations that the grant permits.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *operations</Declaration>
+			
+			
+			<Anchor>//api/name/operations</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/setRetiringPrincipal:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that is given permission to retire the grant by using &lt;a&gt;RetireGrant&lt;/a&gt; operation.&lt;/p&gt;&lt;p&gt;To specify the principal, use the AWS Identity and Access Management (IAM) in the Example ARNs section of the &lt;i&gt;AWS General Reference&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *retiringPrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/retiringPrincipal</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateGrantRequest/retiringPrincipal</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that is given permission to retire the grant by using &lt;a&gt;RetireGrant&lt;/a&gt; operation.&lt;/p&gt;&lt;p&gt;To specify the principal, use the AWS Identity and Access Management (IAM) in the Example ARNs section of the &lt;i&gt;AWS General Reference&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *retiringPrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/retiringPrincipal</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSCreateGrantRequest/retiringPrincipal</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The principal that is given permission to retire the grant by using &lt;a&gt;RetireGrant&lt;/a&gt; operation.&lt;/p&gt;&lt;p&gt;To specify the principal, use the AWS Identity and Access Management (IAM) in the Example ARNs section of the &lt;i&gt;AWS General Reference&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *retiringPrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/retiringPrincipal</Anchor>
+            <NodeRef refid="1167"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

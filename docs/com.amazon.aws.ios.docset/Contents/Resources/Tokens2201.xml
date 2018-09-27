@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSCheckIfPhoneNumberIsOptedOutInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCheckIfPhoneNumberIsOptedOutInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input for the &lt;code&gt;CheckIfPhoneNumberIsOptedOut&lt;/code&gt; action.&lt;/p&gt;
+Required parameters: [phoneNumber]</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2201"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSCheckIfPhoneNumberIsOptedOutInput/setPhoneNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The phone number for which you want to check the opt out status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *phoneNumber</Declaration>
+			
+			
+			<Anchor>//api/name/phoneNumber</Anchor>
+            <NodeRef refid="2201"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSCheckIfPhoneNumberIsOptedOutInput/phoneNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The phone number for which you want to check the opt out status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *phoneNumber</Declaration>
+			
+			
+			<Anchor>//api/name/phoneNumber</Anchor>
+            <NodeRef refid="2201"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSCheckIfPhoneNumberIsOptedOutInput/phoneNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The phone number for which you want to check the opt out status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *phoneNumber</Declaration>
+			
+			
+			<Anchor>//api/name/phoneNumber</Anchor>
+            <NodeRef refid="2201"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

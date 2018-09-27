@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESSNSAction.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESSNSAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS notifications. Amazon SNS notifications for all other actions simply provide information about the email. They do not include the email content itself.&lt;/p&gt;&lt;p&gt;If you own the Amazon SNS topic, you don&apos;t need to do anything to give Amazon SES permission to publish emails to it. However, if you don&apos;t own the Amazon SNS topic, you need to attach a policy to the topic to give Amazon SES permissions to access it. For information about giving permissions, see the Amazon SES Developer Guide.&lt;/p&gt;&lt;important&gt;&lt;p&gt;You can only publish emails that are 150 KB or less (including the header) to Amazon SNS. Larger emails will bounce. If you anticipate emails larger than 150 KB, use the S3 action instead.&lt;/p&gt;&lt;/important&gt;&lt;p&gt;For information about using a receipt rule to publish an Amazon SNS notification, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [TopicArn]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2144"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSNSAction/setEncoding:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESSNSActionEncoding encoding</Declaration>
+			
+			
+			<Anchor>//api/name/encoding</Anchor>
+            <NodeRef refid="2144"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSNSAction/encoding</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESSNSActionEncoding encoding</Declaration>
+			
+			
+			<Anchor>//api/name/encoding</Anchor>
+            <NodeRef refid="2144"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSNSAction/encoding</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESSNSActionEncoding encoding</Declaration>
+			
+			
+			<Anchor>//api/name/encoding</Anchor>
+            <NodeRef refid="2144"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSNSAction/setTopicArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2144"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSNSAction/topicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2144"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSNSAction/topicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2144"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

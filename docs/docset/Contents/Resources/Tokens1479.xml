@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointSession.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointSession</TokenIdentifier>
+			<Abstract type="html">The session object needs that the session client keeps track of, the session information is added to each event recorded.</Abstract>
+			<DeclaredIn>AWSPinpointSessionClient.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1479"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointSession/setStartTime:</TokenIdentifier>
+			<Abstract type="html">The start timestamp is populated when the client start the session.</Abstract>
+			<DeclaredIn>AWSPinpointSessionClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDate *startTime</Declaration>
+			
+			
+			<Anchor>//api/name/startTime</Anchor>
+            <NodeRef refid="1479"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointSession/startTime</TokenIdentifier>
+			<Abstract type="html">The start timestamp is populated when the client start the session.</Abstract>
+			<DeclaredIn>AWSPinpointSessionClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDate *startTime</Declaration>
+			
+			
+			<Anchor>//api/name/startTime</Anchor>
+            <NodeRef refid="1479"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointSession/startTime</TokenIdentifier>
+			<Abstract type="html">The start timestamp is populated when the client start the session.</Abstract>
+			<DeclaredIn>AWSPinpointSessionClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDate *startTime</Declaration>
+			
+			
+			<Anchor>//api/name/startTime</Anchor>
+            <NodeRef refid="1479"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointSession/setStopTime:</TokenIdentifier>
+			<Abstract type="html">The stop timestamp is polated when the client stops the session.</Abstract>
+			<DeclaredIn>AWSPinpointSessionClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDate *stopTime</Declaration>
+			
+			
+			<Anchor>//api/name/stopTime</Anchor>
+            <NodeRef refid="1479"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointSession/stopTime</TokenIdentifier>
+			<Abstract type="html">The stop timestamp is polated when the client stops the session.</Abstract>
+			<DeclaredIn>AWSPinpointSessionClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDate *stopTime</Declaration>
+			
+			
+			<Anchor>//api/name/stopTime</Anchor>
+            <NodeRef refid="1479"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointSession/stopTime</TokenIdentifier>
+			<Abstract type="html">The stop timestamp is polated when the client stops the session.</Abstract>
+			<DeclaredIn>AWSPinpointSessionClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSDate *stopTime</Declaration>
+			
+			
+			<Anchor>//api/name/stopTime</Anchor>
+            <NodeRef refid="1479"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointSession/setSessionId:</TokenIdentifier>
+			<Abstract type="html">The session id is populated when the client creates a new session.</Abstract>
+			<DeclaredIn>AWSPinpointSessionClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *sessionId</Declaration>
+			
+			
+			<Anchor>//api/name/sessionId</Anchor>
+            <NodeRef refid="1479"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointSession/sessionId</TokenIdentifier>
+			<Abstract type="html">The session id is populated when the client creates a new session.</Abstract>
+			<DeclaredIn>AWSPinpointSessionClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *sessionId</Declaration>
+			
+			
+			<Anchor>//api/name/sessionId</Anchor>
+            <NodeRef refid="1479"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointSession/sessionId</TokenIdentifier>
+			<Abstract type="html">The session id is populated when the client creates a new session.</Abstract>
+			<DeclaredIn>AWSPinpointSessionClient.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSString *sessionId</Declaration>
+			
+			
+			<Anchor>//api/name/sessionId</Anchor>
+            <NodeRef refid="1479"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

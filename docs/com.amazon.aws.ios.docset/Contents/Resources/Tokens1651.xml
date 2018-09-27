@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPollyListLexiconsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListLexiconsInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1651"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListLexiconsInput/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An opaque pagination token returned from previous &lt;code&gt;ListLexicons&lt;/code&gt; operation. If present, indicates where to continue the list of lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1651"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListLexiconsInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An opaque pagination token returned from previous &lt;code&gt;ListLexicons&lt;/code&gt; operation. If present, indicates where to continue the list of lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1651"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyListLexiconsInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An opaque pagination token returned from previous &lt;code&gt;ListLexicons&lt;/code&gt; operation. If present, indicates where to continue the list of lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1651"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

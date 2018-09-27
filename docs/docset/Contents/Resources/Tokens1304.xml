@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoUpdateDataRetentionInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoUpdateDataRetentionInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1304"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateDataRetentionInput/setCurrentVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the stream whose retention period you want to change. To get the version, call either the &lt;code&gt;DescribeStream&lt;/code&gt; or the &lt;code&gt;ListStreams&lt;/code&gt; API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *currentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/currentVersion</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateDataRetentionInput/currentVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the stream whose retention period you want to change. To get the version, call either the &lt;code&gt;DescribeStream&lt;/code&gt; or the &lt;code&gt;ListStreams&lt;/code&gt; API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *currentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/currentVersion</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUpdateDataRetentionInput/currentVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the stream whose retention period you want to change. To get the version, call either the &lt;code&gt;DescribeStream&lt;/code&gt; or the &lt;code&gt;ListStreams&lt;/code&gt; API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *currentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/currentVersion</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateDataRetentionInput/setDataRetentionChangeInHours:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retention period, in hours. The value you specify replaces the current value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dataRetentionChangeInHours</Declaration>
+			
+			
+			<Anchor>//api/name/dataRetentionChangeInHours</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateDataRetentionInput/dataRetentionChangeInHours</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retention period, in hours. The value you specify replaces the current value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dataRetentionChangeInHours</Declaration>
+			
+			
+			<Anchor>//api/name/dataRetentionChangeInHours</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUpdateDataRetentionInput/dataRetentionChangeInHours</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retention period, in hours. The value you specify replaces the current value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dataRetentionChangeInHours</Declaration>
+			
+			
+			<Anchor>//api/name/dataRetentionChangeInHours</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateDataRetentionInput/setOperation:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether you want to increase or decrease the retention period.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisVideoUpdateDataRetentionOperation operation</Declaration>
+			
+			
+			<Anchor>//api/name/operation</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateDataRetentionInput/operation</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether you want to increase or decrease the retention period.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisVideoUpdateDataRetentionOperation operation</Declaration>
+			
+			
+			<Anchor>//api/name/operation</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUpdateDataRetentionInput/operation</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether you want to increase or decrease the retention period.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisVideoUpdateDataRetentionOperation operation</Declaration>
+			
+			
+			<Anchor>//api/name/operation</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateDataRetentionInput/setStreamARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream whose retention period you want to change.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateDataRetentionInput/streamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream whose retention period you want to change.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUpdateDataRetentionInput/streamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream whose retention period you want to change.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateDataRetentionInput/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream whose retention period you want to change.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateDataRetentionInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream whose retention period you want to change.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUpdateDataRetentionInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream whose retention period you want to change.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1304"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

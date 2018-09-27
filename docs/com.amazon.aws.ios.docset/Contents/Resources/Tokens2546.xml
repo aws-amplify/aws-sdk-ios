@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSKMSOriginType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSKMSOriginType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2546"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSOriginTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSOriginTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2546"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSOriginTypeAwsKms</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSOriginTypeAwsKms</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2546"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSOriginTypeExternal</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSOriginTypeExternal</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2546"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

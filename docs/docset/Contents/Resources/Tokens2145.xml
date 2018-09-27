@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESSNSDestination.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESSNSDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.&lt;/p&gt;&lt;p&gt;Event destinations, such as Amazon SNS, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [TopicARN]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2145"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSNSDestination/setTopicARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon SNS topic that email sending events will be published to. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicARN</Declaration>
+			
+			
+			<Anchor>//api/name/topicARN</Anchor>
+            <NodeRef refid="2145"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSNSDestination/topicARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon SNS topic that email sending events will be published to. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicARN</Declaration>
+			
+			
+			<Anchor>//api/name/topicARN</Anchor>
+            <NodeRef refid="2145"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSNSDestination/topicARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon SNS topic that email sending events will be published to. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicARN</Declaration>
+			
+			
+			<Anchor>//api/name/topicARN</Anchor>
+            <NodeRef refid="2145"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

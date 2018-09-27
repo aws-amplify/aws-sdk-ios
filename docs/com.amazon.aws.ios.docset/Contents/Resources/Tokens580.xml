@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBCreateReplicaAction.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBCreateReplicaAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a replica to be added.&lt;/p&gt;
+Required parameters: [RegionName]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="580"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateReplicaAction/setRegionName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The region of the replica to be added.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *regionName</Declaration>
+			
+			
+			<Anchor>//api/name/regionName</Anchor>
+            <NodeRef refid="580"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateReplicaAction/regionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The region of the replica to be added.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *regionName</Declaration>
+			
+			
+			<Anchor>//api/name/regionName</Anchor>
+            <NodeRef refid="580"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCreateReplicaAction/regionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The region of the replica to be added.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *regionName</Declaration>
+			
+			
+			<Anchor>//api/name/regionName</Anchor>
+            <NodeRef refid="580"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

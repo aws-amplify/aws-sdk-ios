@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AWSIdentityProviderManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AWSIdentityProviderManager</TokenIdentifier>
+			<Abstract type="html">AWSIdentityProviderManager provides an interface for creating the logins dictionary for Amazon Cognito Identity.</Abstract>
+			<DeclaredIn>AWSIdentityProvider.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2388"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSIdentityProviderManager/logins</TokenIdentifier>
+			<Abstract type="html">Each entry in logins represents a single login with an identity provider. The key is the domain of the login provider (e.g. &apos;graph.facebook.com&apos;) and the value is the OAuth/OpenId Connect token that results from an authentication with that login provider.</Abstract>
+			<DeclaredIn>AWSIdentityProvider.h</DeclaredIn>
+			
+			<Declaration>- (AWSTask&lt;NSDictionary&lt;NSString*,NSString*&gt; *&gt; *)logins</Declaration>
+			
+			
+			<Anchor>//api/name/logins</Anchor>
+            <NodeRef refid="2388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSIdentityProviderManager/setCustomRoleArn:</TokenIdentifier>
+			<Abstract type="html">If the token contains the role arn and there are multiple roles, return the custom role to assume.  This is currently only supported for SAML identity providers.</Abstract>
+			<DeclaredIn>AWSIdentityProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *customRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/customRoleArn</Anchor>
+            <NodeRef refid="2388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSIdentityProviderManager/customRoleArn</TokenIdentifier>
+			<Abstract type="html">If the token contains the role arn and there are multiple roles, return the custom role to assume.  This is currently only supported for SAML identity providers.</Abstract>
+			<DeclaredIn>AWSIdentityProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *customRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/customRoleArn</Anchor>
+            <NodeRef refid="2388"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfp/AWSIdentityProviderManager/customRoleArn</TokenIdentifier>
+			<Abstract type="html">If the token contains the role arn and there are multiple roles, return the custom role to assume.  This is currently only supported for SAML identity providers.</Abstract>
+			<DeclaredIn>AWSIdentityProvider.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *customRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/customRoleArn</Anchor>
+            <NodeRef refid="2388"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

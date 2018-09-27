@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSComprehendEntityType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSComprehendEntityType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2459"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendEntityTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendEntityTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2459"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendEntityTypePerson</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendEntityTypePerson</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2459"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendEntityTypeLocation</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendEntityTypeLocation</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2459"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendEntityTypeOrganization</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendEntityTypeOrganization</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2459"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendEntityTypeCommercialItem</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendEntityTypeCommercialItem</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2459"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendEntityTypeEvent</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendEntityTypeEvent</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2459"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendEntityTypeDate</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendEntityTypeDate</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2459"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendEntityTypeQuantity</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendEntityTypeQuantity</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2459"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendEntityTypeTitle</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendEntityTypeTitle</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2459"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendEntityTypeOther</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendEntityTypeOther</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2459"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESSetIdentityDkimEnabledResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESSetIdentityDkimEnabledResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An empty element returned on a successful request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2162"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

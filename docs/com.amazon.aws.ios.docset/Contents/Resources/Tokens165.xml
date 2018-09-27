@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCloudWatchSetAlarmStateInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCloudWatchSetAlarmStateInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="165"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchSetAlarmStateInput/setAlarmName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the alarm. This name must be unique within the AWS account. The maximum length is 255 characters.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmName</Declaration>
+			
+			
+			<Anchor>//api/name/alarmName</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchSetAlarmStateInput/alarmName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the alarm. This name must be unique within the AWS account. The maximum length is 255 characters.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmName</Declaration>
+			
+			
+			<Anchor>//api/name/alarmName</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchSetAlarmStateInput/alarmName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the alarm. This name must be unique within the AWS account. The maximum length is 255 characters.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmName</Declaration>
+			
+			
+			<Anchor>//api/name/alarmName</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchSetAlarmStateInput/setStateReason:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason that this alarm is set to this specific state, in text format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *stateReason</Declaration>
+			
+			
+			<Anchor>//api/name/stateReason</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchSetAlarmStateInput/stateReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason that this alarm is set to this specific state, in text format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *stateReason</Declaration>
+			
+			
+			<Anchor>//api/name/stateReason</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchSetAlarmStateInput/stateReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason that this alarm is set to this specific state, in text format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *stateReason</Declaration>
+			
+			
+			<Anchor>//api/name/stateReason</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchSetAlarmStateInput/setStateReasonData:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason that this alarm is set to this specific state, in JSON format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *stateReasonData</Declaration>
+			
+			
+			<Anchor>//api/name/stateReasonData</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchSetAlarmStateInput/stateReasonData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason that this alarm is set to this specific state, in JSON format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *stateReasonData</Declaration>
+			
+			
+			<Anchor>//api/name/stateReasonData</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchSetAlarmStateInput/stateReasonData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason that this alarm is set to this specific state, in JSON format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *stateReasonData</Declaration>
+			
+			
+			<Anchor>//api/name/stateReasonData</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchSetAlarmStateInput/setStateValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStateValue stateValue</Declaration>
+			
+			
+			<Anchor>//api/name/stateValue</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchSetAlarmStateInput/stateValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStateValue stateValue</Declaration>
+			
+			
+			<Anchor>//api/name/stateValue</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchSetAlarmStateInput/stateValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStateValue stateValue</Declaration>
+			
+			
+			<Anchor>//api/name/stateValue</Anchor>
+            <NodeRef refid="165"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

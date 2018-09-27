@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendDetectDominantLanguageResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectDominantLanguageResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="534"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendDetectDominantLanguageResponse/setLanguages:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see Tags for Identifying Languages on the &lt;i&gt;IETF Tools&lt;/i&gt; web site.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendDominantLanguage*&gt; *languages</Declaration>
+			
+			
+			<Anchor>//api/name/languages</Anchor>
+            <NodeRef refid="534"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendDetectDominantLanguageResponse/languages</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see Tags for Identifying Languages on the &lt;i&gt;IETF Tools&lt;/i&gt; web site.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendDominantLanguage*&gt; *languages</Declaration>
+			
+			
+			<Anchor>//api/name/languages</Anchor>
+            <NodeRef refid="534"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendDetectDominantLanguageResponse/languages</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see Tags for Identifying Languages on the &lt;i&gt;IETF Tools&lt;/i&gt; web site.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendDominantLanguage*&gt; *languages</Declaration>
+			
+			
+			<Anchor>//api/name/languages</Anchor>
+            <NodeRef refid="534"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

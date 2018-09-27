@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESSetIdentityDkimEnabledRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESSetIdentityDkimEnabledRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For more information about setting up Easy DKIM, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [Identity, DkimEnabled]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2161"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetIdentityDkimEnabledRequest/setDkimEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets whether DKIM signing is enabled for an identity. Set to &lt;code&gt;true&lt;/code&gt; to enable DKIM signing for this identity; &lt;code&gt;false&lt;/code&gt; to disable it. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dkimEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/dkimEnabled</Anchor>
+            <NodeRef refid="2161"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetIdentityDkimEnabledRequest/dkimEnabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets whether DKIM signing is enabled for an identity. Set to &lt;code&gt;true&lt;/code&gt; to enable DKIM signing for this identity; &lt;code&gt;false&lt;/code&gt; to disable it. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dkimEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/dkimEnabled</Anchor>
+            <NodeRef refid="2161"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSetIdentityDkimEnabledRequest/dkimEnabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets whether DKIM signing is enabled for an identity. Set to &lt;code&gt;true&lt;/code&gt; to enable DKIM signing for this identity; &lt;code&gt;false&lt;/code&gt; to disable it. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *dkimEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/dkimEnabled</Anchor>
+            <NodeRef refid="2161"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetIdentityDkimEnabledRequest/setIdentity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity for which DKIM signing should be enabled or disabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identity</Declaration>
+			
+			
+			<Anchor>//api/name/identity</Anchor>
+            <NodeRef refid="2161"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESSetIdentityDkimEnabledRequest/identity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity for which DKIM signing should be enabled or disabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identity</Declaration>
+			
+			
+			<Anchor>//api/name/identity</Anchor>
+            <NodeRef refid="2161"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESSetIdentityDkimEnabledRequest/identity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity for which DKIM signing should be enabled or disabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identity</Declaration>
+			
+			
+			<Anchor>//api/name/identity</Anchor>
+            <NodeRef refid="2161"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

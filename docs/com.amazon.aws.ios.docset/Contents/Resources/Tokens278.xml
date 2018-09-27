@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderCodeDeliveryDetailsType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderCodeDeliveryDetailsType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code delivery details being returned from the server.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="278"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCodeDeliveryDetailsType/setAttributeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attribute name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeName</Declaration>
+			
+			
+			<Anchor>//api/name/attributeName</Anchor>
+            <NodeRef refid="278"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCodeDeliveryDetailsType/attributeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attribute name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeName</Declaration>
+			
+			
+			<Anchor>//api/name/attributeName</Anchor>
+            <NodeRef refid="278"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCodeDeliveryDetailsType/attributeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attribute name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeName</Declaration>
+			
+			
+			<Anchor>//api/name/attributeName</Anchor>
+            <NodeRef refid="278"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCodeDeliveryDetailsType/setDeliveryMedium:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The delivery medium (email message or phone number).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryMedium</Anchor>
+            <NodeRef refid="278"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCodeDeliveryDetailsType/deliveryMedium</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The delivery medium (email message or phone number).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryMedium</Anchor>
+            <NodeRef refid="278"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCodeDeliveryDetailsType/deliveryMedium</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The delivery medium (email message or phone number).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderDeliveryMediumType deliveryMedium</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryMedium</Anchor>
+            <NodeRef refid="278"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCodeDeliveryDetailsType/setDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination for the code delivery details.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="278"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCodeDeliveryDetailsType/destination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination for the code delivery details.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="278"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCodeDeliveryDetailsType/destination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination for the code delivery details.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="278"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

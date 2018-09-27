@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderUpdateUserAttributesRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderUpdateUserAttributesRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the request to update user attributes.&lt;/p&gt;
+Required parameters: [UserAttributes, AccessToken]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="433"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateUserAttributesRequest/setAccessToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token for the request to update user attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="433"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateUserAttributesRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token for the request to update user attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="433"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUpdateUserAttributesRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token for the request to update user attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="433"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateUserAttributesRequest/setUserAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of name-value pairs representing user attributes.&lt;/p&gt;&lt;p&gt;For custom attributes, you must prepend the &lt;code&gt;custom:&lt;/code&gt; prefix to the attribute name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *userAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/userAttributes</Anchor>
+            <NodeRef refid="433"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateUserAttributesRequest/userAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of name-value pairs representing user attributes.&lt;/p&gt;&lt;p&gt;For custom attributes, you must prepend the &lt;code&gt;custom:&lt;/code&gt; prefix to the attribute name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *userAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/userAttributes</Anchor>
+            <NodeRef refid="433"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUpdateUserAttributesRequest/userAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of name-value pairs representing user attributes.&lt;/p&gt;&lt;p&gt;For custom attributes, you must prepend the &lt;code&gt;custom:&lt;/code&gt; prefix to the attribute name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *userAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/userAttributes</Anchor>
+            <NodeRef refid="433"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

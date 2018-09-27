@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPollyListSpeechSynthesisTasksOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListSpeechSynthesisTasksOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1654"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListSpeechSynthesisTasksOutput/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1654"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListSpeechSynthesisTasksOutput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1654"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyListSpeechSynthesisTasksOutput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An opaque pagination token returned from the previous List operation in this request. If present, this indicates where to continue the listing.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1654"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListSpeechSynthesisTasksOutput/setSynthesisTasks:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPollySynthesisTask*&gt; *synthesisTasks</Declaration>
+			
+			
+			<Anchor>//api/name/synthesisTasks</Anchor>
+            <NodeRef refid="1654"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListSpeechSynthesisTasksOutput/synthesisTasks</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPollySynthesisTask*&gt; *synthesisTasks</Declaration>
+			
+			
+			<Anchor>//api/name/synthesisTasks</Anchor>
+            <NodeRef refid="1654"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyListSpeechSynthesisTasksOutput/synthesisTasks</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of SynthesisTask objects that provides information from the specified task in the list request, including output format, creation time, task status, and so on.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPollySynthesisTask*&gt; *synthesisTasks</Declaration>
+			
+			
+			<Anchor>//api/name/synthesisTasks</Anchor>
+            <NodeRef refid="1654"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

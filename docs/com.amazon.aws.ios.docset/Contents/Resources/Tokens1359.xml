@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaRemovePermissionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaRemovePermissionRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;
+Required parameters: [FunctionName, StatementId]</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1359"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaRemovePermissionRequest/setFunctionName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lambda function whose resource policy you want to remove a permission from.&lt;/p&gt;&lt;p&gt; You can specify a function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). AWS Lambda also allows you to specify a partial ARN (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaRemovePermissionRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lambda function whose resource policy you want to remove a permission from.&lt;/p&gt;&lt;p&gt; You can specify a function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). AWS Lambda also allows you to specify a partial ARN (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaRemovePermissionRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lambda function whose resource policy you want to remove a permission from.&lt;/p&gt;&lt;p&gt; You can specify a function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). AWS Lambda also allows you to specify a partial ARN (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaRemovePermissionRequest/setQualifier:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;You can specify this optional parameter to remove permission associated with a specific function version or function alias. If you don&apos;t specify this parameter, the API removes permission associated with the unqualified function ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *qualifier</Declaration>
+			
+			
+			<Anchor>//api/name/qualifier</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaRemovePermissionRequest/qualifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;You can specify this optional parameter to remove permission associated with a specific function version or function alias. If you don&apos;t specify this parameter, the API removes permission associated with the unqualified function ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *qualifier</Declaration>
+			
+			
+			<Anchor>//api/name/qualifier</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaRemovePermissionRequest/qualifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;You can specify this optional parameter to remove permission associated with a specific function version or function alias. If you don&apos;t specify this parameter, the API removes permission associated with the unqualified function ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *qualifier</Declaration>
+			
+			
+			<Anchor>//api/name/qualifier</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaRemovePermissionRequest/setRevisionId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An optional value you can use to ensure you are updating the latest update of the function version or alias. If the &lt;code&gt;RevisionID&lt;/code&gt; you pass doesn&apos;t match the latest &lt;code&gt;RevisionId&lt;/code&gt; of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias &lt;code&gt;RevisionID&lt;/code&gt; using either or .&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaRemovePermissionRequest/revisionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An optional value you can use to ensure you are updating the latest update of the function version or alias. If the &lt;code&gt;RevisionID&lt;/code&gt; you pass doesn&apos;t match the latest &lt;code&gt;RevisionId&lt;/code&gt; of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias &lt;code&gt;RevisionID&lt;/code&gt; using either or .&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaRemovePermissionRequest/revisionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An optional value you can use to ensure you are updating the latest update of the function version or alias. If the &lt;code&gt;RevisionID&lt;/code&gt; you pass doesn&apos;t match the latest &lt;code&gt;RevisionId&lt;/code&gt; of the function or alias, it will fail with an error message, advising you to retrieve the latest function version or alias &lt;code&gt;RevisionID&lt;/code&gt; using either or .&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaRemovePermissionRequest/setStatementId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Statement ID of the permission to remove.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statementId</Declaration>
+			
+			
+			<Anchor>//api/name/statementId</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaRemovePermissionRequest/statementId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Statement ID of the permission to remove.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statementId</Declaration>
+			
+			
+			<Anchor>//api/name/statementId</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaRemovePermissionRequest/statementId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Statement ID of the permission to remove.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statementId</Declaration>
+			
+			
+			<Anchor>//api/name/statementId</Anchor>
+            <NodeRef refid="1359"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

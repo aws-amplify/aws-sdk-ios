@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingEnterStandbyAnswer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingEnterStandbyAnswer</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="72"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEnterStandbyAnswer/setActivities:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The activities related to moving instances into &lt;code&gt;Standby&lt;/code&gt; mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingActivity*&gt; *activities</Declaration>
+			
+			
+			<Anchor>//api/name/activities</Anchor>
+            <NodeRef refid="72"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEnterStandbyAnswer/activities</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The activities related to moving instances into &lt;code&gt;Standby&lt;/code&gt; mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingActivity*&gt; *activities</Declaration>
+			
+			
+			<Anchor>//api/name/activities</Anchor>
+            <NodeRef refid="72"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingEnterStandbyAnswer/activities</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The activities related to moving instances into &lt;code&gt;Standby&lt;/code&gt; mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSAutoScalingActivity*&gt; *activities</Declaration>
+			
+			
+			<Anchor>//api/name/activities</Anchor>
+            <NodeRef refid="72"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

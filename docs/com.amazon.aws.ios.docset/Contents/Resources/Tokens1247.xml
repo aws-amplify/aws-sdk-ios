@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisListShardsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisListShardsInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1247"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsInput/setExclusiveStartShardId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the shard to start the list with. &lt;/p&gt;&lt;p&gt;If you don&apos;t specify this parameter, the default behavior is for &lt;code&gt;ListShards&lt;/code&gt; to list the shards starting with the first one in the stream.&lt;/p&gt;&lt;p&gt;You cannot specify this parameter if you specify &lt;code&gt;NextToken&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *exclusiveStartShardId</Declaration>
+			
+			
+			<Anchor>//api/name/exclusiveStartShardId</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsInput/exclusiveStartShardId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the shard to start the list with. &lt;/p&gt;&lt;p&gt;If you don&apos;t specify this parameter, the default behavior is for &lt;code&gt;ListShards&lt;/code&gt; to list the shards starting with the first one in the stream.&lt;/p&gt;&lt;p&gt;You cannot specify this parameter if you specify &lt;code&gt;NextToken&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *exclusiveStartShardId</Declaration>
+			
+			
+			<Anchor>//api/name/exclusiveStartShardId</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisListShardsInput/exclusiveStartShardId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the shard to start the list with. &lt;/p&gt;&lt;p&gt;If you don&apos;t specify this parameter, the default behavior is for &lt;code&gt;ListShards&lt;/code&gt; to list the shards starting with the first one in the stream.&lt;/p&gt;&lt;p&gt;You cannot specify this parameter if you specify &lt;code&gt;NextToken&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *exclusiveStartShardId</Declaration>
+			
+			
+			<Anchor>//api/name/exclusiveStartShardId</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsInput/setMaxResults:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of shards to return in a single call to &lt;code&gt;ListShards&lt;/code&gt;. The minimum value you can specify for this parameter is 1, and the maximum is 1,000, which is also the default.&lt;/p&gt;&lt;p&gt;When the number of shards to be listed is greater than the value of &lt;code&gt;MaxResults&lt;/code&gt;, the response contains a &lt;code&gt;NextToken&lt;/code&gt; value that you can use in a subsequent call to &lt;code&gt;ListShards&lt;/code&gt; to list the next set of shards.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsInput/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of shards to return in a single call to &lt;code&gt;ListShards&lt;/code&gt;. The minimum value you can specify for this parameter is 1, and the maximum is 1,000, which is also the default.&lt;/p&gt;&lt;p&gt;When the number of shards to be listed is greater than the value of &lt;code&gt;MaxResults&lt;/code&gt;, the response contains a &lt;code&gt;NextToken&lt;/code&gt; value that you can use in a subsequent call to &lt;code&gt;ListShards&lt;/code&gt; to list the next set of shards.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisListShardsInput/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of shards to return in a single call to &lt;code&gt;ListShards&lt;/code&gt;. The minimum value you can specify for this parameter is 1, and the maximum is 1,000, which is also the default.&lt;/p&gt;&lt;p&gt;When the number of shards to be listed is greater than the value of &lt;code&gt;MaxResults&lt;/code&gt;, the response contains a &lt;code&gt;NextToken&lt;/code&gt; value that you can use in a subsequent call to &lt;code&gt;ListShards&lt;/code&gt; to list the next set of shards.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsInput/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When the number of shards in the data stream is greater than the default value for the &lt;code&gt;MaxResults&lt;/code&gt; parameter, or if you explicitly specify a value for &lt;code&gt;MaxResults&lt;/code&gt; that is less than the number of shards in the data stream, the response includes a pagination token named &lt;code&gt;NextToken&lt;/code&gt;. You can specify this &lt;code&gt;NextToken&lt;/code&gt; value in a subsequent call to &lt;code&gt;ListShards&lt;/code&gt; to list the next set of shards.&lt;/p&gt;&lt;p&gt;Don&apos;t specify &lt;code&gt;StreamName&lt;/code&gt; or &lt;code&gt;StreamCreationTimestamp&lt;/code&gt; if you specify &lt;code&gt;NextToken&lt;/code&gt; because the latter unambiguously identifies the stream.&lt;/p&gt;&lt;p&gt;You can optionally specify a value for the &lt;code&gt;MaxResults&lt;/code&gt; parameter when you specify &lt;code&gt;NextToken&lt;/code&gt;. If you specify a &lt;code&gt;MaxResults&lt;/code&gt; value that is less than the number of shards that the operation returns if you don&apos;t specify &lt;code&gt;MaxResults&lt;/code&gt;, the response will contain a new &lt;code&gt;NextToken&lt;/code&gt; value. You can use the new &lt;code&gt;NextToken&lt;/code&gt; value in a subsequent call to the &lt;code&gt;ListShards&lt;/code&gt; operation.&lt;/p&gt;&lt;important&gt;&lt;p&gt;Tokens expire after 300 seconds. When you obtain a value for &lt;code&gt;NextToken&lt;/code&gt; in the response to a call to &lt;code&gt;ListShards&lt;/code&gt;, you have 300 seconds to use that value. If you specify an expired token in a call to &lt;code&gt;ListShards&lt;/code&gt;, you get &lt;code&gt;ExpiredNextTokenException&lt;/code&gt;.&lt;/p&gt;&lt;/important&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When the number of shards in the data stream is greater than the default value for the &lt;code&gt;MaxResults&lt;/code&gt; parameter, or if you explicitly specify a value for &lt;code&gt;MaxResults&lt;/code&gt; that is less than the number of shards in the data stream, the response includes a pagination token named &lt;code&gt;NextToken&lt;/code&gt;. You can specify this &lt;code&gt;NextToken&lt;/code&gt; value in a subsequent call to &lt;code&gt;ListShards&lt;/code&gt; to list the next set of shards.&lt;/p&gt;&lt;p&gt;Don&apos;t specify &lt;code&gt;StreamName&lt;/code&gt; or &lt;code&gt;StreamCreationTimestamp&lt;/code&gt; if you specify &lt;code&gt;NextToken&lt;/code&gt; because the latter unambiguously identifies the stream.&lt;/p&gt;&lt;p&gt;You can optionally specify a value for the &lt;code&gt;MaxResults&lt;/code&gt; parameter when you specify &lt;code&gt;NextToken&lt;/code&gt;. If you specify a &lt;code&gt;MaxResults&lt;/code&gt; value that is less than the number of shards that the operation returns if you don&apos;t specify &lt;code&gt;MaxResults&lt;/code&gt;, the response will contain a new &lt;code&gt;NextToken&lt;/code&gt; value. You can use the new &lt;code&gt;NextToken&lt;/code&gt; value in a subsequent call to the &lt;code&gt;ListShards&lt;/code&gt; operation.&lt;/p&gt;&lt;important&gt;&lt;p&gt;Tokens expire after 300 seconds. When you obtain a value for &lt;code&gt;NextToken&lt;/code&gt; in the response to a call to &lt;code&gt;ListShards&lt;/code&gt;, you have 300 seconds to use that value. If you specify an expired token in a call to &lt;code&gt;ListShards&lt;/code&gt;, you get &lt;code&gt;ExpiredNextTokenException&lt;/code&gt;.&lt;/p&gt;&lt;/important&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisListShardsInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When the number of shards in the data stream is greater than the default value for the &lt;code&gt;MaxResults&lt;/code&gt; parameter, or if you explicitly specify a value for &lt;code&gt;MaxResults&lt;/code&gt; that is less than the number of shards in the data stream, the response includes a pagination token named &lt;code&gt;NextToken&lt;/code&gt;. You can specify this &lt;code&gt;NextToken&lt;/code&gt; value in a subsequent call to &lt;code&gt;ListShards&lt;/code&gt; to list the next set of shards.&lt;/p&gt;&lt;p&gt;Don&apos;t specify &lt;code&gt;StreamName&lt;/code&gt; or &lt;code&gt;StreamCreationTimestamp&lt;/code&gt; if you specify &lt;code&gt;NextToken&lt;/code&gt; because the latter unambiguously identifies the stream.&lt;/p&gt;&lt;p&gt;You can optionally specify a value for the &lt;code&gt;MaxResults&lt;/code&gt; parameter when you specify &lt;code&gt;NextToken&lt;/code&gt;. If you specify a &lt;code&gt;MaxResults&lt;/code&gt; value that is less than the number of shards that the operation returns if you don&apos;t specify &lt;code&gt;MaxResults&lt;/code&gt;, the response will contain a new &lt;code&gt;NextToken&lt;/code&gt; value. You can use the new &lt;code&gt;NextToken&lt;/code&gt; value in a subsequent call to the &lt;code&gt;ListShards&lt;/code&gt; operation.&lt;/p&gt;&lt;important&gt;&lt;p&gt;Tokens expire after 300 seconds. When you obtain a value for &lt;code&gt;NextToken&lt;/code&gt; in the response to a call to &lt;code&gt;ListShards&lt;/code&gt;, you have 300 seconds to use that value. If you specify an expired token in a call to &lt;code&gt;ListShards&lt;/code&gt;, you get &lt;code&gt;ExpiredNextTokenException&lt;/code&gt;.&lt;/p&gt;&lt;/important&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsInput/setStreamCreationTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the shards for.&lt;/p&gt;&lt;p&gt;You cannot specify this parameter if you specify the &lt;code&gt;NextToken&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *streamCreationTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/streamCreationTimestamp</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsInput/streamCreationTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the shards for.&lt;/p&gt;&lt;p&gt;You cannot specify this parameter if you specify the &lt;code&gt;NextToken&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *streamCreationTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/streamCreationTimestamp</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisListShardsInput/streamCreationTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specify this input parameter to distinguish data streams that have the same name. For example, if you create a data stream and then delete it, and you later create another data stream with the same name, you can use this input parameter to specify which of the two streams you want to list the shards for.&lt;/p&gt;&lt;p&gt;You cannot specify this parameter if you specify the &lt;code&gt;NextToken&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *streamCreationTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/streamCreationTimestamp</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsInput/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the data stream whose shards you want to list. &lt;/p&gt;&lt;p&gt;You cannot specify this parameter if you specify the &lt;code&gt;NextToken&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the data stream whose shards you want to list. &lt;/p&gt;&lt;p&gt;You cannot specify this parameter if you specify the &lt;code&gt;NextToken&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisListShardsInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the data stream whose shards you want to list. &lt;/p&gt;&lt;p&gt;You cannot specify this parameter if you specify the &lt;code&gt;NextToken&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1247"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

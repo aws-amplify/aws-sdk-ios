@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionPersonDetail.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionPersonDetail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details about a person detected in a video analysis request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1744"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPersonDetail/setBoundingBox:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Bounding box around the detected person.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBoundingBox *boundingBox</Declaration>
+			
+			
+			<Anchor>//api/name/boundingBox</Anchor>
+            <NodeRef refid="1744"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPersonDetail/boundingBox</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Bounding box around the detected person.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBoundingBox *boundingBox</Declaration>
+			
+			
+			<Anchor>//api/name/boundingBox</Anchor>
+            <NodeRef refid="1744"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionPersonDetail/boundingBox</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Bounding box around the detected person.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBoundingBox *boundingBox</Declaration>
+			
+			
+			<Anchor>//api/name/boundingBox</Anchor>
+            <NodeRef refid="1744"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPersonDetail/setFace:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Face details for the detected person.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFaceDetail *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1744"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPersonDetail/face</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Face details for the detected person.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFaceDetail *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1744"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionPersonDetail/face</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Face details for the detected person.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFaceDetail *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1744"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPersonDetail/setIndex:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *index</Declaration>
+			
+			
+			<Anchor>//api/name/index</Anchor>
+            <NodeRef refid="1744"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPersonDetail/index</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *index</Declaration>
+			
+			
+			<Anchor>//api/name/index</Anchor>
+            <NodeRef refid="1744"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionPersonDetail/index</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifier for the person detected person within a video. Use to keep track of the person throughout the video. The identifier is not stored by Amazon Rekognition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *index</Declaration>
+			
+			
+			<Anchor>//api/name/index</Anchor>
+            <NodeRef refid="1744"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

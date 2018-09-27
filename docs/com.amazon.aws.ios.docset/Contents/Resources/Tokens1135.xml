@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTThingTypeDefinition.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTThingTypeDefinition</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The definition of the thing type, including thing type name and description.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1135"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingTypeDefinition/setThingTypeArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing type ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeArn</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeArn</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingTypeDefinition/thingTypeArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing type ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeArn</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeArn</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTThingTypeDefinition/thingTypeArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing type ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeArn</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeArn</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingTypeDefinition/setThingTypeMetadata:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTThingTypeMetadata *thingTypeMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeMetadata</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingTypeDefinition/thingTypeMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTThingTypeMetadata *thingTypeMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeMetadata</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTThingTypeDefinition/thingTypeMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ThingTypeMetadata contains additional information about the thing type including: creation date and time, a value indicating whether the thing type is deprecated, and a date and time when it was deprecated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTThingTypeMetadata *thingTypeMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeMetadata</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingTypeDefinition/setThingTypeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeName</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingTypeDefinition/thingTypeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeName</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTThingTypeDefinition/thingTypeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeName</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingTypeDefinition/setThingTypeProperties:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ThingTypeProperties for the thing type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTThingTypeProperties *thingTypeProperties</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeProperties</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingTypeDefinition/thingTypeProperties</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ThingTypeProperties for the thing type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTThingTypeProperties *thingTypeProperties</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeProperties</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTThingTypeDefinition/thingTypeProperties</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ThingTypeProperties for the thing type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTThingTypeProperties *thingTypeProperties</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeProperties</Anchor>
+            <NodeRef refid="1135"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

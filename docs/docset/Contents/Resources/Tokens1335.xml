@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaGetFunctionConfigurationRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetFunctionConfigurationRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;
+Required parameters: [FunctionName]</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1335"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaGetFunctionConfigurationRequest/setFunctionName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Lambda function for which you want to retrieve the configuration information.&lt;/p&gt;&lt;p&gt; You can specify a function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). AWS Lambda also allows you to specify a partial ARN (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1335"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaGetFunctionConfigurationRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Lambda function for which you want to retrieve the configuration information.&lt;/p&gt;&lt;p&gt; You can specify a function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). AWS Lambda also allows you to specify a partial ARN (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1335"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaGetFunctionConfigurationRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Lambda function for which you want to retrieve the configuration information.&lt;/p&gt;&lt;p&gt; You can specify a function name (for example, &lt;code&gt;Thumbnail&lt;/code&gt;) or you can specify Amazon Resource Name (ARN) of the function (for example, &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:ThumbNail&lt;/code&gt;). AWS Lambda also allows you to specify a partial ARN (for example, &lt;code&gt;account-id:Thumbnail&lt;/code&gt;). Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1335"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaGetFunctionConfigurationRequest/setQualifier:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Using this optional parameter you can specify a function version or an alias name. If you specify function version, the API uses qualified function ARN and returns information about the specific function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points.&lt;/p&gt;&lt;p&gt;If you don&apos;t specify this parameter, the API uses unqualified function ARN, and returns information about the &lt;code&gt;$LATEST&lt;/code&gt; function version.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *qualifier</Declaration>
+			
+			
+			<Anchor>//api/name/qualifier</Anchor>
+            <NodeRef refid="1335"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaGetFunctionConfigurationRequest/qualifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Using this optional parameter you can specify a function version or an alias name. If you specify function version, the API uses qualified function ARN and returns information about the specific function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points.&lt;/p&gt;&lt;p&gt;If you don&apos;t specify this parameter, the API uses unqualified function ARN, and returns information about the &lt;code&gt;$LATEST&lt;/code&gt; function version.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *qualifier</Declaration>
+			
+			
+			<Anchor>//api/name/qualifier</Anchor>
+            <NodeRef refid="1335"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaGetFunctionConfigurationRequest/qualifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Using this optional parameter you can specify a function version or an alias name. If you specify function version, the API uses qualified function ARN and returns information about the specific function version. If you specify an alias name, the API uses the alias ARN and returns information about the function version to which the alias points.&lt;/p&gt;&lt;p&gt;If you don&apos;t specify this parameter, the API uses unqualified function ARN, and returns information about the &lt;code&gt;$LATEST&lt;/code&gt; function version.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *qualifier</Declaration>
+			
+			
+			<Anchor>//api/name/qualifier</Anchor>
+            <NodeRef refid="1335"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

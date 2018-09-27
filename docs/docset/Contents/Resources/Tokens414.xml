@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderSmsMfaConfigType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderSmsMfaConfigType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS text message multi-factor authentication (MFA) configuration type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="414"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSmsMfaConfigType/setSmsAuthenticationMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS authentication message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *smsAuthenticationMessage</Declaration>
+			
+			
+			<Anchor>//api/name/smsAuthenticationMessage</Anchor>
+            <NodeRef refid="414"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSmsMfaConfigType/smsAuthenticationMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS authentication message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *smsAuthenticationMessage</Declaration>
+			
+			
+			<Anchor>//api/name/smsAuthenticationMessage</Anchor>
+            <NodeRef refid="414"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSmsMfaConfigType/smsAuthenticationMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS authentication message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *smsAuthenticationMessage</Declaration>
+			
+			
+			<Anchor>//api/name/smsAuthenticationMessage</Anchor>
+            <NodeRef refid="414"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSmsMfaConfigType/setSmsConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSmsConfigurationType *smsConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/smsConfiguration</Anchor>
+            <NodeRef refid="414"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSmsMfaConfigType/smsConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSmsConfigurationType *smsConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/smsConfiguration</Anchor>
+            <NodeRef refid="414"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSmsMfaConfigType/smsConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSmsConfigurationType *smsConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/smsConfiguration</Anchor>
+            <NodeRef refid="414"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

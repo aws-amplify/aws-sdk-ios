@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTDescribeJobResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTDescribeJobResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="959"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDescribeJobResponse/setDocumentSource:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An S3 link to the job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *documentSource</Declaration>
+			
+			
+			<Anchor>//api/name/documentSource</Anchor>
+            <NodeRef refid="959"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDescribeJobResponse/documentSource</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An S3 link to the job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *documentSource</Declaration>
+			
+			
+			<Anchor>//api/name/documentSource</Anchor>
+            <NodeRef refid="959"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDescribeJobResponse/documentSource</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An S3 link to the job document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *documentSource</Declaration>
+			
+			
+			<Anchor>//api/name/documentSource</Anchor>
+            <NodeRef refid="959"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDescribeJobResponse/setJob:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJob *job</Declaration>
+			
+			
+			<Anchor>//api/name/job</Anchor>
+            <NodeRef refid="959"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDescribeJobResponse/job</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJob *job</Declaration>
+			
+			
+			<Anchor>//api/name/job</Anchor>
+            <NodeRef refid="959"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDescribeJobResponse/job</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJob *job</Declaration>
+			
+			
+			<Anchor>//api/name/job</Anchor>
+            <NodeRef refid="959"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

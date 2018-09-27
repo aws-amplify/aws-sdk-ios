@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisPutRecordsRequestEntry.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisPutRecordsRequestEntry</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the output for &lt;code&gt;PutRecords&lt;/code&gt;.&lt;/p&gt;
+Required parameters: [Data, PartitionKey]</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1258"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsRequestEntry/setData:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1258"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsRequestEntry/data</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1258"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisPutRecordsRequestEntry/data</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data blob to put into the record, which is base64-encoded when the blob is serialized. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1258"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsRequestEntry/setExplicitHashKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *explicitHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/explicitHashKey</Anchor>
+            <NodeRef refid="1258"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsRequestEntry/explicitHashKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *explicitHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/explicitHashKey</Anchor>
+            <NodeRef refid="1258"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisPutRecordsRequestEntry/explicitHashKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The hash value used to determine explicitly the shard that the data record is assigned to by overriding the partition key hash.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *explicitHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/explicitHashKey</Anchor>
+            <NodeRef refid="1258"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsRequestEntry/setPartitionKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *partitionKey</Declaration>
+			
+			
+			<Anchor>//api/name/partitionKey</Anchor>
+            <NodeRef refid="1258"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsRequestEntry/partitionKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *partitionKey</Declaration>
+			
+			
+			<Anchor>//api/name/partitionKey</Anchor>
+            <NodeRef refid="1258"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisPutRecordsRequestEntry/partitionKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines which shard in the stream the data record is assigned to. Partition keys are Unicode strings with a maximum length limit of 256 characters for each key. Amazon Kinesis Data Streams uses the partition key as input to a hash function that maps the partition key and associated data to a specific shard. Specifically, an MD5 hash function is used to map partition keys to 128-bit integer values and to map associated data records to shards. As a result of this hashing mechanism, all data records with the same partition key map to the same shard within the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *partitionKey</Declaration>
+			
+			
+			<Anchor>//api/name/partitionKey</Anchor>
+            <NodeRef refid="1258"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

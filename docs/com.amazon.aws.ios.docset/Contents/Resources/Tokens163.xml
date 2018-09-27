@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCloudWatchPutMetricAlarmInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCloudWatchPutMetricAlarmInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="163"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setActionsEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether actions should be executed during any changes to the alarm state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *actionsEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/actionsEnabled</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/actionsEnabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether actions should be executed during any changes to the alarm state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *actionsEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/actionsEnabled</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/actionsEnabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether actions should be executed during any changes to the alarm state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *actionsEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/actionsEnabled</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setAlarmActions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The actions to execute when this alarm transitions to the &lt;code&gt;ALARM&lt;/code&gt; state from any other state. Each action is specified as an Amazon Resource Name (ARN).&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:stop&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:terminate&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:recover&lt;/code&gt; | &lt;code&gt;arn:aws:sns:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:&lt;i&gt;sns-topic-name&lt;/i&gt;&lt;/code&gt; | &lt;code&gt;arn:aws:autoscaling:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:scalingPolicy:&lt;i&gt;policy-id&lt;/i&gt;autoScalingGroupName/&lt;i&gt;group-friendly-name&lt;/i&gt;:policyName/&lt;i&gt;policy-friendly-name&lt;/i&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid Values (for use with IAM roles): &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Stop/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Terminate/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWS_EC2.InstanceId.Reboot/1.0&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *alarmActions</Declaration>
+			
+			
+			<Anchor>//api/name/alarmActions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/alarmActions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The actions to execute when this alarm transitions to the &lt;code&gt;ALARM&lt;/code&gt; state from any other state. Each action is specified as an Amazon Resource Name (ARN).&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:stop&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:terminate&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:recover&lt;/code&gt; | &lt;code&gt;arn:aws:sns:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:&lt;i&gt;sns-topic-name&lt;/i&gt;&lt;/code&gt; | &lt;code&gt;arn:aws:autoscaling:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:scalingPolicy:&lt;i&gt;policy-id&lt;/i&gt;autoScalingGroupName/&lt;i&gt;group-friendly-name&lt;/i&gt;:policyName/&lt;i&gt;policy-friendly-name&lt;/i&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid Values (for use with IAM roles): &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Stop/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Terminate/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWS_EC2.InstanceId.Reboot/1.0&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *alarmActions</Declaration>
+			
+			
+			<Anchor>//api/name/alarmActions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/alarmActions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The actions to execute when this alarm transitions to the &lt;code&gt;ALARM&lt;/code&gt; state from any other state. Each action is specified as an Amazon Resource Name (ARN).&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:stop&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:terminate&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:recover&lt;/code&gt; | &lt;code&gt;arn:aws:sns:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:&lt;i&gt;sns-topic-name&lt;/i&gt;&lt;/code&gt; | &lt;code&gt;arn:aws:autoscaling:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:scalingPolicy:&lt;i&gt;policy-id&lt;/i&gt;autoScalingGroupName/&lt;i&gt;group-friendly-name&lt;/i&gt;:policyName/&lt;i&gt;policy-friendly-name&lt;/i&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid Values (for use with IAM roles): &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Stop/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Terminate/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWS_EC2.InstanceId.Reboot/1.0&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *alarmActions</Declaration>
+			
+			
+			<Anchor>//api/name/alarmActions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setAlarmDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The description for the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmDescription</Declaration>
+			
+			
+			<Anchor>//api/name/alarmDescription</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/alarmDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The description for the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmDescription</Declaration>
+			
+			
+			<Anchor>//api/name/alarmDescription</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/alarmDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The description for the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmDescription</Declaration>
+			
+			
+			<Anchor>//api/name/alarmDescription</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setAlarmName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the alarm. This name must be unique within the AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmName</Declaration>
+			
+			
+			<Anchor>//api/name/alarmName</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/alarmName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the alarm. This name must be unique within the AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmName</Declaration>
+			
+			
+			<Anchor>//api/name/alarmName</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/alarmName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the alarm. This name must be unique within the AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmName</Declaration>
+			
+			
+			<Anchor>//api/name/alarmName</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setComparisonOperator:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchComparisonOperator comparisonOperator</Declaration>
+			
+			
+			<Anchor>//api/name/comparisonOperator</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/comparisonOperator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchComparisonOperator comparisonOperator</Declaration>
+			
+			
+			<Anchor>//api/name/comparisonOperator</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/comparisonOperator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The arithmetic operation to use when comparing the specified statistic and threshold. The specified statistic value is used as the first operand.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchComparisonOperator comparisonOperator</Declaration>
+			
+			
+			<Anchor>//api/name/comparisonOperator</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setDatapointsToAlarm:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an &quot;M out of N&quot; alarm. In that case, this value is the M. For more information, see Evaluating an Alarm in the &lt;i&gt;Amazon CloudWatch User Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *datapointsToAlarm</Declaration>
+			
+			
+			<Anchor>//api/name/datapointsToAlarm</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/datapointsToAlarm</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an &quot;M out of N&quot; alarm. In that case, this value is the M. For more information, see Evaluating an Alarm in the &lt;i&gt;Amazon CloudWatch User Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *datapointsToAlarm</Declaration>
+			
+			
+			<Anchor>//api/name/datapointsToAlarm</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/datapointsToAlarm</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of datapoints that must be breaching to trigger the alarm. This is used only if you are setting an &quot;M out of N&quot; alarm. In that case, this value is the M. For more information, see Evaluating an Alarm in the &lt;i&gt;Amazon CloudWatch User Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *datapointsToAlarm</Declaration>
+			
+			
+			<Anchor>//api/name/datapointsToAlarm</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setDimensions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The dimensions for the metric associated with the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCloudWatchDimension*&gt; *dimensions</Declaration>
+			
+			
+			<Anchor>//api/name/dimensions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/dimensions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The dimensions for the metric associated with the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCloudWatchDimension*&gt; *dimensions</Declaration>
+			
+			
+			<Anchor>//api/name/dimensions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/dimensions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The dimensions for the metric associated with the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCloudWatchDimension*&gt; *dimensions</Declaration>
+			
+			
+			<Anchor>//api/name/dimensions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setEvaluateLowSampleCountPercentile:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Used only for alarms based on percentiles. If you specify &lt;code&gt;ignore&lt;/code&gt;, the alarm state does not change during periods with too few data points to be statistically significant. If you specify &lt;code&gt;evaluate&lt;/code&gt; or omit this parameter, the alarm is always evaluated and possibly changes state no matter how many data points are available. For more information, see Percentile-Based CloudWatch Alarms and Low Data Samples.&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;evaluate | ignore&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *evaluateLowSampleCountPercentile</Declaration>
+			
+			
+			<Anchor>//api/name/evaluateLowSampleCountPercentile</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/evaluateLowSampleCountPercentile</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Used only for alarms based on percentiles. If you specify &lt;code&gt;ignore&lt;/code&gt;, the alarm state does not change during periods with too few data points to be statistically significant. If you specify &lt;code&gt;evaluate&lt;/code&gt; or omit this parameter, the alarm is always evaluated and possibly changes state no matter how many data points are available. For more information, see Percentile-Based CloudWatch Alarms and Low Data Samples.&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;evaluate | ignore&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *evaluateLowSampleCountPercentile</Declaration>
+			
+			
+			<Anchor>//api/name/evaluateLowSampleCountPercentile</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/evaluateLowSampleCountPercentile</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Used only for alarms based on percentiles. If you specify &lt;code&gt;ignore&lt;/code&gt;, the alarm state does not change during periods with too few data points to be statistically significant. If you specify &lt;code&gt;evaluate&lt;/code&gt; or omit this parameter, the alarm is always evaluated and possibly changes state no matter how many data points are available. For more information, see Percentile-Based CloudWatch Alarms and Low Data Samples.&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;evaluate | ignore&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *evaluateLowSampleCountPercentile</Declaration>
+			
+			
+			<Anchor>//api/name/evaluateLowSampleCountPercentile</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setEvaluationPeriods:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of periods over which data is compared to the specified threshold. If you are setting an alarm which requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an &quot;M out of N&quot; alarm, this value is the N.&lt;/p&gt;&lt;p&gt;An alarm&apos;s total current evaluation period can be no longer than one day, so this number multiplied by &lt;code&gt;Period&lt;/code&gt; cannot be more than 86,400 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *evaluationPeriods</Declaration>
+			
+			
+			<Anchor>//api/name/evaluationPeriods</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/evaluationPeriods</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of periods over which data is compared to the specified threshold. If you are setting an alarm which requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an &quot;M out of N&quot; alarm, this value is the N.&lt;/p&gt;&lt;p&gt;An alarm&apos;s total current evaluation period can be no longer than one day, so this number multiplied by &lt;code&gt;Period&lt;/code&gt; cannot be more than 86,400 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *evaluationPeriods</Declaration>
+			
+			
+			<Anchor>//api/name/evaluationPeriods</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/evaluationPeriods</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of periods over which data is compared to the specified threshold. If you are setting an alarm which requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an &quot;M out of N&quot; alarm, this value is the N.&lt;/p&gt;&lt;p&gt;An alarm&apos;s total current evaluation period can be no longer than one day, so this number multiplied by &lt;code&gt;Period&lt;/code&gt; cannot be more than 86,400 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *evaluationPeriods</Declaration>
+			
+			
+			<Anchor>//api/name/evaluationPeriods</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setExtendedStatistic:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100. When you call &lt;code&gt;PutMetricAlarm&lt;/code&gt;, you must specify either &lt;code&gt;Statistic&lt;/code&gt; or &lt;code&gt;ExtendedStatistic,&lt;/code&gt; but not both.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *extendedStatistic</Declaration>
+			
+			
+			<Anchor>//api/name/extendedStatistic</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/extendedStatistic</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100. When you call &lt;code&gt;PutMetricAlarm&lt;/code&gt;, you must specify either &lt;code&gt;Statistic&lt;/code&gt; or &lt;code&gt;ExtendedStatistic,&lt;/code&gt; but not both.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *extendedStatistic</Declaration>
+			
+			
+			<Anchor>//api/name/extendedStatistic</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/extendedStatistic</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100. When you call &lt;code&gt;PutMetricAlarm&lt;/code&gt;, you must specify either &lt;code&gt;Statistic&lt;/code&gt; or &lt;code&gt;ExtendedStatistic,&lt;/code&gt; but not both.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *extendedStatistic</Declaration>
+			
+			
+			<Anchor>//api/name/extendedStatistic</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setInsufficientDataActions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The actions to execute when this alarm transitions to the &lt;code&gt;INSUFFICIENTDATA&lt;/code&gt; state from any other state. Each action is specified as an Amazon Resource Name (ARN).&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:stop&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:terminate&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:recover&lt;/code&gt; | &lt;code&gt;arn:aws:sns:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:&lt;i&gt;sns-topic-name&lt;/i&gt;&lt;/code&gt; | &lt;code&gt;arn:aws:autoscaling:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:scalingPolicy:&lt;i&gt;policy-id&lt;/i&gt;autoScalingGroupName/&lt;i&gt;group-friendly-name&lt;/i&gt;:policyName/&lt;i&gt;policy-friendly-name&lt;/i&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid Values (for use with IAM roles): &lt;code&gt;&amp;amp;gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Stop/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Terminate/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Reboot/1.0&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *insufficientDataActions</Declaration>
+			
+			
+			<Anchor>//api/name/insufficientDataActions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/insufficientDataActions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The actions to execute when this alarm transitions to the &lt;code&gt;INSUFFICIENTDATA&lt;/code&gt; state from any other state. Each action is specified as an Amazon Resource Name (ARN).&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:stop&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:terminate&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:recover&lt;/code&gt; | &lt;code&gt;arn:aws:sns:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:&lt;i&gt;sns-topic-name&lt;/i&gt;&lt;/code&gt; | &lt;code&gt;arn:aws:autoscaling:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:scalingPolicy:&lt;i&gt;policy-id&lt;/i&gt;autoScalingGroupName/&lt;i&gt;group-friendly-name&lt;/i&gt;:policyName/&lt;i&gt;policy-friendly-name&lt;/i&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid Values (for use with IAM roles): &lt;code&gt;&amp;amp;gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Stop/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Terminate/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Reboot/1.0&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *insufficientDataActions</Declaration>
+			
+			
+			<Anchor>//api/name/insufficientDataActions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/insufficientDataActions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The actions to execute when this alarm transitions to the &lt;code&gt;INSUFFICIENTDATA&lt;/code&gt; state from any other state. Each action is specified as an Amazon Resource Name (ARN).&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:stop&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:terminate&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:recover&lt;/code&gt; | &lt;code&gt;arn:aws:sns:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:&lt;i&gt;sns-topic-name&lt;/i&gt;&lt;/code&gt; | &lt;code&gt;arn:aws:autoscaling:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:scalingPolicy:&lt;i&gt;policy-id&lt;/i&gt;autoScalingGroupName/&lt;i&gt;group-friendly-name&lt;/i&gt;:policyName/&lt;i&gt;policy-friendly-name&lt;/i&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid Values (for use with IAM roles): &lt;code&gt;&amp;amp;gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Stop/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Terminate/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Reboot/1.0&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *insufficientDataActions</Declaration>
+			
+			
+			<Anchor>//api/name/insufficientDataActions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setMetricName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the metric associated with the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricName</Declaration>
+			
+			
+			<Anchor>//api/name/metricName</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/metricName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the metric associated with the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricName</Declaration>
+			
+			
+			<Anchor>//api/name/metricName</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/metricName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the metric associated with the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricName</Declaration>
+			
+			
+			<Anchor>//api/name/metricName</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setNamespace:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The namespace for the metric associated with the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *namespace</Declaration>
+			
+			
+			<Anchor>//api/name/namespace</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/namespace</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The namespace for the metric associated with the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *namespace</Declaration>
+			
+			
+			<Anchor>//api/name/namespace</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/namespace</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The namespace for the metric associated with the alarm.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *namespace</Declaration>
+			
+			
+			<Anchor>//api/name/namespace</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setOKActions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The actions to execute when this alarm transitions to an &lt;code&gt;OK&lt;/code&gt; state from any other state. Each action is specified as an Amazon Resource Name (ARN).&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:stop&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:terminate&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:recover&lt;/code&gt; | &lt;code&gt;arn:aws:sns:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:&lt;i&gt;sns-topic-name&lt;/i&gt;&lt;/code&gt; | &lt;code&gt;arn:aws:autoscaling:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:scalingPolicy:&lt;i&gt;policy-id&lt;/i&gt;autoScalingGroupName/&lt;i&gt;group-friendly-name&lt;/i&gt;:policyName/&lt;i&gt;policy-friendly-name&lt;/i&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid Values (for use with IAM roles): &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Stop/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Terminate/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWS_EC2.InstanceId.Reboot/1.0&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *OKActions</Declaration>
+			
+			
+			<Anchor>//api/name/OKActions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/OKActions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The actions to execute when this alarm transitions to an &lt;code&gt;OK&lt;/code&gt; state from any other state. Each action is specified as an Amazon Resource Name (ARN).&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:stop&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:terminate&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:recover&lt;/code&gt; | &lt;code&gt;arn:aws:sns:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:&lt;i&gt;sns-topic-name&lt;/i&gt;&lt;/code&gt; | &lt;code&gt;arn:aws:autoscaling:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:scalingPolicy:&lt;i&gt;policy-id&lt;/i&gt;autoScalingGroupName/&lt;i&gt;group-friendly-name&lt;/i&gt;:policyName/&lt;i&gt;policy-friendly-name&lt;/i&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid Values (for use with IAM roles): &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Stop/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Terminate/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWS_EC2.InstanceId.Reboot/1.0&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *OKActions</Declaration>
+			
+			
+			<Anchor>//api/name/OKActions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/OKActions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The actions to execute when this alarm transitions to an &lt;code&gt;OK&lt;/code&gt; state from any other state. Each action is specified as an Amazon Resource Name (ARN).&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:stop&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:terminate&lt;/code&gt; | &lt;code&gt;arn:aws:automate:&lt;i&gt;region&lt;/i&gt;:ec2:recover&lt;/code&gt; | &lt;code&gt;arn:aws:sns:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:&lt;i&gt;sns-topic-name&lt;/i&gt;&lt;/code&gt; | &lt;code&gt;arn:aws:autoscaling:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:scalingPolicy:&lt;i&gt;policy-id&lt;/i&gt;autoScalingGroupName/&lt;i&gt;group-friendly-name&lt;/i&gt;:policyName/&lt;i&gt;policy-friendly-name&lt;/i&gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;Valid Values (for use with IAM roles): &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Stop/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWSEC2.InstanceId.Terminate/1.0&lt;/code&gt; | &lt;code&gt;arn:aws:swf:&lt;i&gt;region&lt;/i&gt;:&lt;i&gt;account-id&lt;/i&gt;:action/actions/AWS_EC2.InstanceId.Reboot/1.0&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *OKActions</Declaration>
+			
+			
+			<Anchor>//api/name/OKActions</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setPeriod:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The period, in seconds, over which the specified statistic is applied. Valid values are 10, 30, and any multiple of 60.&lt;/p&gt;&lt;p&gt;Be sure to specify 10 or 30 only for metrics that are stored by a &lt;code&gt;PutMetricData&lt;/code&gt; call with a &lt;code&gt;StorageResolution&lt;/code&gt; of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see Amazon CloudWatch Pricing.&lt;/p&gt;&lt;p&gt;An alarm&apos;s total current evaluation period can be no longer than one day, so &lt;code&gt;Period&lt;/code&gt; multiplied by &lt;code&gt;EvaluationPeriods&lt;/code&gt; cannot be more than 86,400 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *period</Declaration>
+			
+			
+			<Anchor>//api/name/period</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/period</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The period, in seconds, over which the specified statistic is applied. Valid values are 10, 30, and any multiple of 60.&lt;/p&gt;&lt;p&gt;Be sure to specify 10 or 30 only for metrics that are stored by a &lt;code&gt;PutMetricData&lt;/code&gt; call with a &lt;code&gt;StorageResolution&lt;/code&gt; of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see Amazon CloudWatch Pricing.&lt;/p&gt;&lt;p&gt;An alarm&apos;s total current evaluation period can be no longer than one day, so &lt;code&gt;Period&lt;/code&gt; multiplied by &lt;code&gt;EvaluationPeriods&lt;/code&gt; cannot be more than 86,400 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *period</Declaration>
+			
+			
+			<Anchor>//api/name/period</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/period</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The period, in seconds, over which the specified statistic is applied. Valid values are 10, 30, and any multiple of 60.&lt;/p&gt;&lt;p&gt;Be sure to specify 10 or 30 only for metrics that are stored by a &lt;code&gt;PutMetricData&lt;/code&gt; call with a &lt;code&gt;StorageResolution&lt;/code&gt; of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see Amazon CloudWatch Pricing.&lt;/p&gt;&lt;p&gt;An alarm&apos;s total current evaluation period can be no longer than one day, so &lt;code&gt;Period&lt;/code&gt; multiplied by &lt;code&gt;EvaluationPeriods&lt;/code&gt; cannot be more than 86,400 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *period</Declaration>
+			
+			
+			<Anchor>//api/name/period</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setStatistic:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use &lt;code&gt;ExtendedStatistic&lt;/code&gt;. When you call &lt;code&gt;PutMetricAlarm&lt;/code&gt;, you must specify either &lt;code&gt;Statistic&lt;/code&gt; or &lt;code&gt;ExtendedStatistic,&lt;/code&gt; but not both.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStatistic statistic</Declaration>
+			
+			
+			<Anchor>//api/name/statistic</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/statistic</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use &lt;code&gt;ExtendedStatistic&lt;/code&gt;. When you call &lt;code&gt;PutMetricAlarm&lt;/code&gt;, you must specify either &lt;code&gt;Statistic&lt;/code&gt; or &lt;code&gt;ExtendedStatistic,&lt;/code&gt; but not both.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStatistic statistic</Declaration>
+			
+			
+			<Anchor>//api/name/statistic</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/statistic</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use &lt;code&gt;ExtendedStatistic&lt;/code&gt;. When you call &lt;code&gt;PutMetricAlarm&lt;/code&gt;, you must specify either &lt;code&gt;Statistic&lt;/code&gt; or &lt;code&gt;ExtendedStatistic,&lt;/code&gt; but not both.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStatistic statistic</Declaration>
+			
+			
+			<Anchor>//api/name/statistic</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setThreshold:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value against which the specified statistic is compared.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *threshold</Declaration>
+			
+			
+			<Anchor>//api/name/threshold</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/threshold</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value against which the specified statistic is compared.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *threshold</Declaration>
+			
+			
+			<Anchor>//api/name/threshold</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/threshold</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value against which the specified statistic is compared.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *threshold</Declaration>
+			
+			
+			<Anchor>//api/name/threshold</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setTreatMissingData:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Sets how this alarm is to handle missing data points. If &lt;code&gt;TreatMissingData&lt;/code&gt; is omitted, the default behavior of &lt;code&gt;missing&lt;/code&gt; is used. For more information, see Configuring How CloudWatch Alarms Treats Missing Data.&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;breaching | notBreaching | ignore | missing&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatMissingData</Declaration>
+			
+			
+			<Anchor>//api/name/treatMissingData</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/treatMissingData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Sets how this alarm is to handle missing data points. If &lt;code&gt;TreatMissingData&lt;/code&gt; is omitted, the default behavior of &lt;code&gt;missing&lt;/code&gt; is used. For more information, see Configuring How CloudWatch Alarms Treats Missing Data.&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;breaching | notBreaching | ignore | missing&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatMissingData</Declaration>
+			
+			
+			<Anchor>//api/name/treatMissingData</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/treatMissingData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Sets how this alarm is to handle missing data points. If &lt;code&gt;TreatMissingData&lt;/code&gt; is omitted, the default behavior of &lt;code&gt;missing&lt;/code&gt; is used. For more information, see Configuring How CloudWatch Alarms Treats Missing Data.&lt;/p&gt;&lt;p&gt;Valid Values: &lt;code&gt;breaching | notBreaching | ignore | missing&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatMissingData</Declaration>
+			
+			
+			<Anchor>//api/name/treatMissingData</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/setUnit:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unit of measure for the statistic. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately.&lt;/p&gt;&lt;p&gt;If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise, the CloudWatch alarm can get stuck in the &lt;code&gt;INSUFFICIENT DATA&lt;/code&gt; state. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStandardUnit unit</Declaration>
+			
+			
+			<Anchor>//api/name/unit</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchPutMetricAlarmInput/unit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unit of measure for the statistic. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately.&lt;/p&gt;&lt;p&gt;If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise, the CloudWatch alarm can get stuck in the &lt;code&gt;INSUFFICIENT DATA&lt;/code&gt; state. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStandardUnit unit</Declaration>
+			
+			
+			<Anchor>//api/name/unit</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchPutMetricAlarmInput/unit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unit of measure for the statistic. For example, the units for the Amazon EC2 NetworkIn metric are Bytes because NetworkIn tracks the number of bytes that an instance receives on all network interfaces. You can also specify a unit when you create a custom metric. Units help provide conceptual meaning to your data. Metric data points that specify a unit of measure, such as Percent, are aggregated separately.&lt;/p&gt;&lt;p&gt;If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise, the CloudWatch alarm can get stuck in the &lt;code&gt;INSUFFICIENT DATA&lt;/code&gt; state. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStandardUnit unit</Declaration>
+			
+			
+			<Anchor>//api/name/unit</Anchor>
+            <NodeRef refid="163"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

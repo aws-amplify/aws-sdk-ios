@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoRecordMetadata.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoRecordMetadata</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+            
+			
+			<NodeRef refid="471"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/setRecordId:</TokenIdentifier>
+			<Abstract type="html">Record ID or name.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *recordId</Declaration>
+			
+			
+			<Anchor>//api/name/recordId</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/recordId</TokenIdentifier>
+			<Abstract type="html">Record ID or name.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *recordId</Declaration>
+			
+			
+			<Anchor>//api/name/recordId</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoRecordMetadata/recordId</TokenIdentifier>
+			<Abstract type="html">Record ID or name.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSString *recordId</Declaration>
+			
+			
+			<Anchor>//api/name/recordId</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/setLastModified:</TokenIdentifier>
+			<Abstract type="html">The last date the record was modified.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSDate *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/lastModified</TokenIdentifier>
+			<Abstract type="html">The last date the record was modified.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSDate *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoRecordMetadata/lastModified</TokenIdentifier>
+			<Abstract type="html">The last date the record was modified.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSDate *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/setLastModifiedBy:</TokenIdentifier>
+			<Abstract type="html">The ID of the client that last modified the record. Set in AWSCognitoConfig under the clientID property.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModifiedBy</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedBy</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/lastModifiedBy</TokenIdentifier>
+			<Abstract type="html">The ID of the client that last modified the record. Set in AWSCognitoConfig under the clientID property.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModifiedBy</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedBy</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoRecordMetadata/lastModifiedBy</TokenIdentifier>
+			<Abstract type="html">The ID of the client that last modified the record. Set in AWSCognitoConfig under the clientID property.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModifiedBy</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedBy</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/setDirty:</TokenIdentifier>
+			<Abstract type="html">Boolean indicating whether or not the record has updates/deletes that need to be synced with the server.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, getter=isDirty) BOOL dirty</Declaration>
+			
+			
+			<Anchor>//api/name/dirty</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/isDirty</TokenIdentifier>
+			<Abstract type="html">Boolean indicating whether or not the record has updates/deletes that need to be synced with the server.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, getter=isDirty) BOOL dirty</Declaration>
+			
+			
+			<Anchor>//api/name/dirty</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoRecordMetadata/dirty</TokenIdentifier>
+			<Abstract type="html">Boolean indicating whether or not the record has updates/deletes that need to be synced with the server.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, getter=isDirty) BOOL dirty</Declaration>
+			
+			
+			<Anchor>//api/name/dirty</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/setDirtyCount:</TokenIdentifier>
+			<Abstract type="html">Integer value indicating how many times the record has been written since the last sync.
+The value is 0 if the record has not been modified. The value is incremented by 1 each time the record is updated.
+The value is set to -1 when the record is marked as deleted from the local database.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) int64_t dirtyCount</Declaration>
+			
+			
+			<Anchor>//api/name/dirtyCount</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/dirtyCount</TokenIdentifier>
+			<Abstract type="html">Integer value indicating how many times the record has been written since the last sync.
+The value is 0 if the record has not been modified. The value is incremented by 1 each time the record is updated.
+The value is set to -1 when the record is marked as deleted from the local database.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) int64_t dirtyCount</Declaration>
+			
+			
+			<Anchor>//api/name/dirtyCount</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoRecordMetadata/dirtyCount</TokenIdentifier>
+			<Abstract type="html">Integer value indicating how many times the record has been written since the last sync.
+The value is 0 if the record has not been modified. The value is incremented by 1 each time the record is updated.
+The value is set to -1 when the record is marked as deleted from the local database.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) int64_t dirtyCount</Declaration>
+			
+			
+			<Anchor>//api/name/dirtyCount</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/setSyncCount:</TokenIdentifier>
+			<Abstract type="html">Integer value of the server sync count of the record.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) int64_t syncCount</Declaration>
+			
+			
+			<Anchor>//api/name/syncCount</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/syncCount</TokenIdentifier>
+			<Abstract type="html">Integer value of the server sync count of the record.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) int64_t syncCount</Declaration>
+			
+			
+			<Anchor>//api/name/syncCount</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoRecordMetadata/syncCount</TokenIdentifier>
+			<Abstract type="html">Integer value of the server sync count of the record.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) int64_t syncCount</Declaration>
+			
+			
+			<Anchor>//api/name/syncCount</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordMetadata/isEqualMetadata:</TokenIdentifier>
+			<Abstract type="html">Checks if the metadata matches.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)isEqualMetadata:(id)object</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>object</Name>
+					<Abstract type="html">The object to be compared to the receiver.
+May be nil, in which case this method returns NO.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">YES if the receiver and object have equal metadata, otherwise NO.</Abstract></ReturnValue>
+			<Anchor>//api/name/isEqualMetadata:</Anchor>
+            <NodeRef refid="471"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

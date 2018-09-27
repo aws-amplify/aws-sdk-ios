@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3CompleteMultipartUploadOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3CompleteMultipartUploadOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1805"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/setBucket:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/bucket</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CompleteMultipartUploadOutput/bucket</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/setETag:</TokenIdentifier>
+			<Abstract type="html">Entity tag of the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ETag</Declaration>
+			
+			
+			<Anchor>//api/name/ETag</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/ETag</TokenIdentifier>
+			<Abstract type="html">Entity tag of the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ETag</Declaration>
+			
+			
+			<Anchor>//api/name/ETag</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CompleteMultipartUploadOutput/ETag</TokenIdentifier>
+			<Abstract type="html">Entity tag of the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ETag</Declaration>
+			
+			
+			<Anchor>//api/name/ETag</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/setExpiration:</TokenIdentifier>
+			<Abstract type="html">If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *expiration</Declaration>
+			
+			
+			<Anchor>//api/name/expiration</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/expiration</TokenIdentifier>
+			<Abstract type="html">If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *expiration</Declaration>
+			
+			
+			<Anchor>//api/name/expiration</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CompleteMultipartUploadOutput/expiration</TokenIdentifier>
+			<Abstract type="html">If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *expiration</Declaration>
+			
+			
+			<Anchor>//api/name/expiration</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/setKey:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/key</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CompleteMultipartUploadOutput/key</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/setLocation:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *location</Declaration>
+			
+			
+			<Anchor>//api/name/location</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/location</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *location</Declaration>
+			
+			
+			<Anchor>//api/name/location</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CompleteMultipartUploadOutput/location</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *location</Declaration>
+			
+			
+			<Anchor>//api/name/location</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/setRequestCharged:</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/requestCharged</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CompleteMultipartUploadOutput/requestCharged</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/setSSEKMSKeyId:</TokenIdentifier>
+			<Abstract type="html">If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/SSEKMSKeyId</TokenIdentifier>
+			<Abstract type="html">If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CompleteMultipartUploadOutput/SSEKMSKeyId</TokenIdentifier>
+			<Abstract type="html">If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/setServerSideEncryption:</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/serverSideEncryption</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CompleteMultipartUploadOutput/serverSideEncryption</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/setVersionId:</TokenIdentifier>
+			<Abstract type="html">Version of the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *versionId</Declaration>
+			
+			
+			<Anchor>//api/name/versionId</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CompleteMultipartUploadOutput/versionId</TokenIdentifier>
+			<Abstract type="html">Version of the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *versionId</Declaration>
+			
+			
+			<Anchor>//api/name/versionId</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CompleteMultipartUploadOutput/versionId</TokenIdentifier>
+			<Abstract type="html">Version of the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *versionId</Declaration>
+			
+			
+			<Anchor>//api/name/versionId</Anchor>
+            <NodeRef refid="1805"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

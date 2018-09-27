@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBPointInTimeRecoverySpecification.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBPointInTimeRecoverySpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the settings used to enable point in time recovery.&lt;/p&gt;
+Required parameters: [PointInTimeRecoveryEnabled]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="638"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPointInTimeRecoverySpecification/setPointInTimeRecoveryEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *pointInTimeRecoveryEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/pointInTimeRecoveryEnabled</Anchor>
+            <NodeRef refid="638"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBPointInTimeRecoverySpecification/pointInTimeRecoveryEnabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *pointInTimeRecoveryEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/pointInTimeRecoveryEnabled</Anchor>
+            <NodeRef refid="638"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBPointInTimeRecoverySpecification/pointInTimeRecoveryEnabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *pointInTimeRecoveryEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/pointInTimeRecoveryEnabled</Anchor>
+            <NodeRef refid="638"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

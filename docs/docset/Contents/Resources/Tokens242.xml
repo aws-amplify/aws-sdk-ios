@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAdminInitiateAuthResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAdminInitiateAuthResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Initiates the authentication response, as an administrator.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="242"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminInitiateAuthResponse/setAuthenticationResult:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, &lt;code&gt;ChallengeName&lt;/code&gt;, &lt;code&gt;ChallengeParameters&lt;/code&gt;, and &lt;code&gt;Session&lt;/code&gt; are returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType *authenticationResult</Declaration>
+			
+			
+			<Anchor>//api/name/authenticationResult</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminInitiateAuthResponse/authenticationResult</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, &lt;code&gt;ChallengeName&lt;/code&gt;, &lt;code&gt;ChallengeParameters&lt;/code&gt;, and &lt;code&gt;Session&lt;/code&gt; are returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType *authenticationResult</Declaration>
+			
+			
+			<Anchor>//api/name/authenticationResult</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminInitiateAuthResponse/authenticationResult</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The result of the authentication response. This is only returned if the caller does not need to pass another challenge. If the caller does need to pass another challenge before it gets tokens, &lt;code&gt;ChallengeName&lt;/code&gt;, &lt;code&gt;ChallengeParameters&lt;/code&gt;, and &lt;code&gt;Session&lt;/code&gt; are returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType *authenticationResult</Declaration>
+			
+			
+			<Anchor>//api/name/authenticationResult</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminInitiateAuthResponse/setChallengeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the challenge which you are responding to with this call. This is returned to you in the &lt;code&gt;AdminInitiateAuth&lt;/code&gt; response if you need to pass another challenge.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MFASETUP&lt;/code&gt;: If MFA is required, users who do not have at least one of the MFA methods set up are presented with an &lt;code&gt;MFASETUP&lt;/code&gt; challenge. The user must set up at least one MFA type to continue to authenticate.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SELECTMFATYPE&lt;/code&gt;: Selects the MFA type. Valid MFA options are &lt;code&gt;SMSMFA&lt;/code&gt; for text SMS MFA, and &lt;code&gt;SOFTWARETOKENMFA&lt;/code&gt; for TOTP software token MFA.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SMSMFA&lt;/code&gt;: Next challenge is to supply an &lt;code&gt;SMSMFACODE&lt;/code&gt;, delivered via SMS.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;PASSWORDVERIFIER&lt;/code&gt;: Next challenge is to supply &lt;code&gt;PASSWORDCLAIMSIGNATURE&lt;/code&gt;, &lt;code&gt;PASSWORDCLAIMSECRETBLOCK&lt;/code&gt;, and &lt;code&gt;TIMESTAMP&lt;/code&gt; after the client-side SRP calculations.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CUSTOMCHALLENGE&lt;/code&gt;: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DEVICESRPAUTH&lt;/code&gt;: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DEVICEPASSWORDVERIFIER&lt;/code&gt;: Similar to &lt;code&gt;PASSWORDVERIFIER&lt;/code&gt;, but for devices only.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ADMINNOSRPAUTH&lt;/code&gt;: This is returned if you need to authenticate with &lt;code&gt;USERNAME&lt;/code&gt; and &lt;code&gt;PASSWORD&lt;/code&gt; directly. An app client must be enabled to use this flow.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWPASSWORDREQUIRED&lt;/code&gt;: For users which are required to change their passwords after successful first login. This challenge should be passed with &lt;code&gt;NEWPASSWORD&lt;/code&gt; and any other required attributes.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName</Declaration>
+			
+			
+			<Anchor>//api/name/challengeName</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminInitiateAuthResponse/challengeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the challenge which you are responding to with this call. This is returned to you in the &lt;code&gt;AdminInitiateAuth&lt;/code&gt; response if you need to pass another challenge.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MFASETUP&lt;/code&gt;: If MFA is required, users who do not have at least one of the MFA methods set up are presented with an &lt;code&gt;MFASETUP&lt;/code&gt; challenge. The user must set up at least one MFA type to continue to authenticate.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SELECTMFATYPE&lt;/code&gt;: Selects the MFA type. Valid MFA options are &lt;code&gt;SMSMFA&lt;/code&gt; for text SMS MFA, and &lt;code&gt;SOFTWARETOKENMFA&lt;/code&gt; for TOTP software token MFA.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SMSMFA&lt;/code&gt;: Next challenge is to supply an &lt;code&gt;SMSMFACODE&lt;/code&gt;, delivered via SMS.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;PASSWORDVERIFIER&lt;/code&gt;: Next challenge is to supply &lt;code&gt;PASSWORDCLAIMSIGNATURE&lt;/code&gt;, &lt;code&gt;PASSWORDCLAIMSECRETBLOCK&lt;/code&gt;, and &lt;code&gt;TIMESTAMP&lt;/code&gt; after the client-side SRP calculations.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CUSTOMCHALLENGE&lt;/code&gt;: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DEVICESRPAUTH&lt;/code&gt;: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DEVICEPASSWORDVERIFIER&lt;/code&gt;: Similar to &lt;code&gt;PASSWORDVERIFIER&lt;/code&gt;, but for devices only.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ADMINNOSRPAUTH&lt;/code&gt;: This is returned if you need to authenticate with &lt;code&gt;USERNAME&lt;/code&gt; and &lt;code&gt;PASSWORD&lt;/code&gt; directly. An app client must be enabled to use this flow.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWPASSWORDREQUIRED&lt;/code&gt;: For users which are required to change their passwords after successful first login. This challenge should be passed with &lt;code&gt;NEWPASSWORD&lt;/code&gt; and any other required attributes.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName</Declaration>
+			
+			
+			<Anchor>//api/name/challengeName</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminInitiateAuthResponse/challengeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the challenge which you are responding to with this call. This is returned to you in the &lt;code&gt;AdminInitiateAuth&lt;/code&gt; response if you need to pass another challenge.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MFASETUP&lt;/code&gt;: If MFA is required, users who do not have at least one of the MFA methods set up are presented with an &lt;code&gt;MFASETUP&lt;/code&gt; challenge. The user must set up at least one MFA type to continue to authenticate.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SELECTMFATYPE&lt;/code&gt;: Selects the MFA type. Valid MFA options are &lt;code&gt;SMSMFA&lt;/code&gt; for text SMS MFA, and &lt;code&gt;SOFTWARETOKENMFA&lt;/code&gt; for TOTP software token MFA.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SMSMFA&lt;/code&gt;: Next challenge is to supply an &lt;code&gt;SMSMFACODE&lt;/code&gt;, delivered via SMS.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;PASSWORDVERIFIER&lt;/code&gt;: Next challenge is to supply &lt;code&gt;PASSWORDCLAIMSIGNATURE&lt;/code&gt;, &lt;code&gt;PASSWORDCLAIMSECRETBLOCK&lt;/code&gt;, and &lt;code&gt;TIMESTAMP&lt;/code&gt; after the client-side SRP calculations.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CUSTOMCHALLENGE&lt;/code&gt;: This is returned if your custom authentication flow determines that the user should pass another challenge before tokens are issued.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DEVICESRPAUTH&lt;/code&gt;: If device tracking was enabled on your user pool and the previous challenges were passed, this challenge is returned so that Amazon Cognito can start tracking this device.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DEVICEPASSWORDVERIFIER&lt;/code&gt;: Similar to &lt;code&gt;PASSWORDVERIFIER&lt;/code&gt;, but for devices only.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ADMINNOSRPAUTH&lt;/code&gt;: This is returned if you need to authenticate with &lt;code&gt;USERNAME&lt;/code&gt; and &lt;code&gt;PASSWORD&lt;/code&gt; directly. An app client must be enabled to use this flow.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWPASSWORDREQUIRED&lt;/code&gt;: For users which are required to change their passwords after successful first login. This challenge should be passed with &lt;code&gt;NEWPASSWORD&lt;/code&gt; and any other required attributes.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName</Declaration>
+			
+			
+			<Anchor>//api/name/challengeName</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminInitiateAuthResponse/setChallengeParameters:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge parameters. These are returned to you in the &lt;code&gt;AdminInitiateAuth&lt;/code&gt; response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (&lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;All challenges require &lt;code&gt;USERNAME&lt;/code&gt; and &lt;code&gt;SECRETHASH&lt;/code&gt; (if applicable).&lt;/p&gt;&lt;p&gt;The value of the &lt;code&gt;USERIDFORSRP&lt;/code&gt; attribute will be the user&apos;s actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to &lt;code&gt;AdminInitiateAuth&lt;/code&gt;. This is because, in the &lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt; API &lt;code&gt;ChallengeResponses&lt;/code&gt;, the &lt;code&gt;USERNAME&lt;/code&gt; attribute cannot be an alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *challengeParameters</Declaration>
+			
+			
+			<Anchor>//api/name/challengeParameters</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminInitiateAuthResponse/challengeParameters</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge parameters. These are returned to you in the &lt;code&gt;AdminInitiateAuth&lt;/code&gt; response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (&lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;All challenges require &lt;code&gt;USERNAME&lt;/code&gt; and &lt;code&gt;SECRETHASH&lt;/code&gt; (if applicable).&lt;/p&gt;&lt;p&gt;The value of the &lt;code&gt;USERIDFORSRP&lt;/code&gt; attribute will be the user&apos;s actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to &lt;code&gt;AdminInitiateAuth&lt;/code&gt;. This is because, in the &lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt; API &lt;code&gt;ChallengeResponses&lt;/code&gt;, the &lt;code&gt;USERNAME&lt;/code&gt; attribute cannot be an alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *challengeParameters</Declaration>
+			
+			
+			<Anchor>//api/name/challengeParameters</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminInitiateAuthResponse/challengeParameters</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge parameters. These are returned to you in the &lt;code&gt;AdminInitiateAuth&lt;/code&gt; response if you need to pass another challenge. The responses in this parameter should be used to compute inputs to the next call (&lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;All challenges require &lt;code&gt;USERNAME&lt;/code&gt; and &lt;code&gt;SECRETHASH&lt;/code&gt; (if applicable).&lt;/p&gt;&lt;p&gt;The value of the &lt;code&gt;USERIDFORSRP&lt;/code&gt; attribute will be the user&apos;s actual username, not an alias (such as email address or phone number), even if you specified an alias in your call to &lt;code&gt;AdminInitiateAuth&lt;/code&gt;. This is because, in the &lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt; API &lt;code&gt;ChallengeResponses&lt;/code&gt;, the &lt;code&gt;USERNAME&lt;/code&gt; attribute cannot be an alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *challengeParameters</Declaration>
+			
+			
+			<Anchor>//api/name/challengeParameters</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminInitiateAuthResponse/setSession:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The session which should be passed both ways in challenge-response calls to the service. If &lt;code&gt;AdminInitiateAuth&lt;/code&gt; or &lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt; API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next &lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt; API call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *session</Declaration>
+			
+			
+			<Anchor>//api/name/session</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminInitiateAuthResponse/session</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The session which should be passed both ways in challenge-response calls to the service. If &lt;code&gt;AdminInitiateAuth&lt;/code&gt; or &lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt; API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next &lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt; API call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *session</Declaration>
+			
+			
+			<Anchor>//api/name/session</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminInitiateAuthResponse/session</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The session which should be passed both ways in challenge-response calls to the service. If &lt;code&gt;AdminInitiateAuth&lt;/code&gt; or &lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt; API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next &lt;code&gt;AdminRespondToAuthChallenge&lt;/code&gt; API call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *session</Declaration>
+			
+			
+			<Anchor>//api/name/session</Anchor>
+            <NodeRef refid="242"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

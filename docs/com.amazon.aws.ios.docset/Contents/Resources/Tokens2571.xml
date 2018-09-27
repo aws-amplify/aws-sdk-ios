@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLambdaRuntime.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLambdaRuntime</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2571"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeUnknown</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeNodejs</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeNodejs</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeNodejs43</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeNodejs43</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeNodejs610</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeNodejs610</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeNodejs810</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeNodejs810</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeJava8</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeJava8</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimePython27</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimePython27</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimePython36</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimePython36</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeDotnetcore10</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeDotnetcore10</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeDotnetcore20</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeDotnetcore20</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeDotnetcore21</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeDotnetcore21</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeNodejs43Edge</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeNodejs43Edge</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaRuntimeGo1X</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaRuntimeGo1X</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2571"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

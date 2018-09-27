@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionGetCelebrityRecognitionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionGetCelebrityRecognitionRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1713"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionRequest/setJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to &lt;code&gt;StartCelebrityRecognition&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionRequest/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to &lt;code&gt;StartCelebrityRecognition&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionRequest/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Job identifier for the required celebrity recognition analysis. You can get the job identifer from a call to &lt;code&gt;StartCelebrityRecognition&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionRequest/setMaxResults:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of results to return per paginated call. The largest value you can specify is 1000. If you specify a value greater than 1000, a maximum of 1000 results is returned. The default value is 1000.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the previous response was incomplete (because there is more recognized celebrities to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of celebrities. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionRequest/setSortBy:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sort to use for celebrities returned in &lt;code&gt;Celebrities&lt;/code&gt; field. Specify &lt;code&gt;ID&lt;/code&gt; to sort by the celebrity identifier, specify &lt;code&gt;TIMESTAMP&lt;/code&gt; to sort by the time the celebrity was recognized.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionCelebrityRecognitionSortBy sortBy</Declaration>
+			
+			
+			<Anchor>//api/name/sortBy</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionRequest/sortBy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sort to use for celebrities returned in &lt;code&gt;Celebrities&lt;/code&gt; field. Specify &lt;code&gt;ID&lt;/code&gt; to sort by the celebrity identifier, specify &lt;code&gt;TIMESTAMP&lt;/code&gt; to sort by the time the celebrity was recognized.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionCelebrityRecognitionSortBy sortBy</Declaration>
+			
+			
+			<Anchor>//api/name/sortBy</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionRequest/sortBy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sort to use for celebrities returned in &lt;code&gt;Celebrities&lt;/code&gt; field. Specify &lt;code&gt;ID&lt;/code&gt; to sort by the celebrity identifier, specify &lt;code&gt;TIMESTAMP&lt;/code&gt; to sort by the time the celebrity was recognized.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionCelebrityRecognitionSortBy sortBy</Declaration>
+			
+			
+			<Anchor>//api/name/sortBy</Anchor>
+            <NodeRef refid="1713"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

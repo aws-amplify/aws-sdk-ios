@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSSESBulkEmailStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSSESBulkEmailStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2686"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusSuccess</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusSuccess</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusMessageRejected</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusMessageRejected</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusMailFromDomainNotVerified</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusMailFromDomainNotVerified</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusConfigurationSetDoesNotExist</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusConfigurationSetDoesNotExist</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusTemplateDoesNotExist</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusTemplateDoesNotExist</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusAccountSuspended</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusAccountSuspended</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusAccountThrottled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusAccountThrottled</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusAccountDailyQuotaExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusAccountDailyQuotaExceeded</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusInvalidSendingPoolName</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusInvalidSendingPoolName</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusAccountSendingPaused</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusAccountSendingPaused</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusConfigurationSetSendingPaused</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusConfigurationSetSendingPaused</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusInvalidParameterValue</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusInvalidParameterValue</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusTransientFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusTransientFailure</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESBulkEmailStatusFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESBulkEmailStatusFailed</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2686"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

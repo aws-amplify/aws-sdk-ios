@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderCreateUserPoolDomainResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderCreateUserPoolDomainResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="299"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateUserPoolDomainResponse/setCloudFrontDomain:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudFrontDomain</Declaration>
+			
+			
+			<Anchor>//api/name/cloudFrontDomain</Anchor>
+            <NodeRef refid="299"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateUserPoolDomainResponse/cloudFrontDomain</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudFrontDomain</Declaration>
+			
+			
+			<Anchor>//api/name/cloudFrontDomain</Anchor>
+            <NodeRef refid="299"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateUserPoolDomainResponse/cloudFrontDomain</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudFrontDomain</Declaration>
+			
+			
+			<Anchor>//api/name/cloudFrontDomain</Anchor>
+            <NodeRef refid="299"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

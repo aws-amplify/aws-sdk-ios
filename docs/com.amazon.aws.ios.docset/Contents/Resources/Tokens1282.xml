@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoArchivedMediaHLSTimestampRange.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaHLSTimestampRange</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The start and end of the time stamp range for the requested media.&lt;/p&gt;&lt;p&gt;This value should not be present if &lt;code&gt;PlaybackType&lt;/code&gt; is &lt;code&gt;LIVE&lt;/code&gt;.&lt;/p&gt;&lt;note&gt;&lt;p&gt;The values in the &lt;code&gt;HLSTimestampRange&lt;/code&gt; are inclusive. Fragments that begin before the start time but continue past it, or fragments that begin before the end time but continue past it, are included in the session.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1282"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaHLSTimestampRange/setEndTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The end of the time stamp range for the requested media. This value must be within three hours of the specified &lt;code&gt;StartTimestamp&lt;/code&gt;, and it must be later than the &lt;code&gt;StartTimestamp&lt;/code&gt; value.&lt;/p&gt;&lt;p&gt;If &lt;code&gt;FragmentSelectorType&lt;/code&gt; for the request is &lt;code&gt;SERVER_TIMESTAMP&lt;/code&gt;, this value must be in the past.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;HLSTimestampRange&lt;/code&gt; value is specified, the &lt;code&gt;EndTimestamp&lt;/code&gt; value is required.&lt;/p&gt;&lt;note&gt;&lt;p&gt;This value is inclusive. The &lt;code&gt;EndTimestamp&lt;/code&gt; is compared to the (starting) time stamp of the fragment. Fragments that start before the &lt;code&gt;EndTimestamp&lt;/code&gt; value and continue past it are included in the session.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *endTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/endTimestamp</Anchor>
+            <NodeRef refid="1282"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaHLSTimestampRange/endTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The end of the time stamp range for the requested media. This value must be within three hours of the specified &lt;code&gt;StartTimestamp&lt;/code&gt;, and it must be later than the &lt;code&gt;StartTimestamp&lt;/code&gt; value.&lt;/p&gt;&lt;p&gt;If &lt;code&gt;FragmentSelectorType&lt;/code&gt; for the request is &lt;code&gt;SERVER_TIMESTAMP&lt;/code&gt;, this value must be in the past.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;HLSTimestampRange&lt;/code&gt; value is specified, the &lt;code&gt;EndTimestamp&lt;/code&gt; value is required.&lt;/p&gt;&lt;note&gt;&lt;p&gt;This value is inclusive. The &lt;code&gt;EndTimestamp&lt;/code&gt; is compared to the (starting) time stamp of the fragment. Fragments that start before the &lt;code&gt;EndTimestamp&lt;/code&gt; value and continue past it are included in the session.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *endTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/endTimestamp</Anchor>
+            <NodeRef refid="1282"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoArchivedMediaHLSTimestampRange/endTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The end of the time stamp range for the requested media. This value must be within three hours of the specified &lt;code&gt;StartTimestamp&lt;/code&gt;, and it must be later than the &lt;code&gt;StartTimestamp&lt;/code&gt; value.&lt;/p&gt;&lt;p&gt;If &lt;code&gt;FragmentSelectorType&lt;/code&gt; for the request is &lt;code&gt;SERVER_TIMESTAMP&lt;/code&gt;, this value must be in the past.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;HLSTimestampRange&lt;/code&gt; value is specified, the &lt;code&gt;EndTimestamp&lt;/code&gt; value is required.&lt;/p&gt;&lt;note&gt;&lt;p&gt;This value is inclusive. The &lt;code&gt;EndTimestamp&lt;/code&gt; is compared to the (starting) time stamp of the fragment. Fragments that start before the &lt;code&gt;EndTimestamp&lt;/code&gt; value and continue past it are included in the session.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *endTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/endTimestamp</Anchor>
+            <NodeRef refid="1282"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaHLSTimestampRange/setStartTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The start of the time stamp range for the requested media.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;HLSTimestampRange&lt;/code&gt; value is specified, the &lt;code&gt;StartTimestamp&lt;/code&gt; value is required.&lt;/p&gt;&lt;note&gt;&lt;p&gt;This value is inclusive. Fragments that start before the &lt;code&gt;StartingTimestamp&lt;/code&gt; and continue past it are included in the session.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/startTimestamp</Anchor>
+            <NodeRef refid="1282"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaHLSTimestampRange/startTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The start of the time stamp range for the requested media.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;HLSTimestampRange&lt;/code&gt; value is specified, the &lt;code&gt;StartTimestamp&lt;/code&gt; value is required.&lt;/p&gt;&lt;note&gt;&lt;p&gt;This value is inclusive. Fragments that start before the &lt;code&gt;StartingTimestamp&lt;/code&gt; and continue past it are included in the session.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/startTimestamp</Anchor>
+            <NodeRef refid="1282"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoArchivedMediaHLSTimestampRange/startTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The start of the time stamp range for the requested media.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;HLSTimestampRange&lt;/code&gt; value is specified, the &lt;code&gt;StartTimestamp&lt;/code&gt; value is required.&lt;/p&gt;&lt;note&gt;&lt;p&gt;This value is inclusive. Fragments that start before the &lt;code&gt;StartingTimestamp&lt;/code&gt; and continue past it are included in the session.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/startTimestamp</Anchor>
+            <NodeRef refid="1282"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

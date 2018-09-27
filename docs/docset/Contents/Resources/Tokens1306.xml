@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoUpdateStreamInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoUpdateStreamInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1306"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateStreamInput/setCurrentVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the stream whose metadata you want to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *currentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/currentVersion</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateStreamInput/currentVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the stream whose metadata you want to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *currentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/currentVersion</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUpdateStreamInput/currentVersion</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the stream whose metadata you want to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *currentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/currentVersion</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateStreamInput/setDeviceName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the device that is writing to the stream. &lt;/p&gt;&lt;note&gt;&lt;p&gt; In the current implementation, Kinesis Video Streams does not use this name. &lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceName</Declaration>
+			
+			
+			<Anchor>//api/name/deviceName</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateStreamInput/deviceName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the device that is writing to the stream. &lt;/p&gt;&lt;note&gt;&lt;p&gt; In the current implementation, Kinesis Video Streams does not use this name. &lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceName</Declaration>
+			
+			
+			<Anchor>//api/name/deviceName</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUpdateStreamInput/deviceName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the device that is writing to the stream. &lt;/p&gt;&lt;note&gt;&lt;p&gt; In the current implementation, Kinesis Video Streams does not use this name. &lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceName</Declaration>
+			
+			
+			<Anchor>//api/name/deviceName</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateStreamInput/setMediaType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The stream&apos;s media type. Use &lt;code&gt;MediaType&lt;/code&gt; to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see Naming Requirements.&lt;/p&gt;&lt;p&gt;To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify &lt;code&gt;video/h264&lt;/code&gt; as the &lt;code&gt;MediaType&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mediaType</Declaration>
+			
+			
+			<Anchor>//api/name/mediaType</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateStreamInput/mediaType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The stream&apos;s media type. Use &lt;code&gt;MediaType&lt;/code&gt; to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see Naming Requirements.&lt;/p&gt;&lt;p&gt;To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify &lt;code&gt;video/h264&lt;/code&gt; as the &lt;code&gt;MediaType&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mediaType</Declaration>
+			
+			
+			<Anchor>//api/name/mediaType</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUpdateStreamInput/mediaType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The stream&apos;s media type. Use &lt;code&gt;MediaType&lt;/code&gt; to specify the type of content that the stream contains to the consumers of the stream. For more information about media types, see Naming Requirements.&lt;/p&gt;&lt;p&gt;To play video on the console, you must specify the correct video type. For example, if the video in the stream is H.264, specify &lt;code&gt;video/h264&lt;/code&gt; as the &lt;code&gt;MediaType&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mediaType</Declaration>
+			
+			
+			<Anchor>//api/name/mediaType</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateStreamInput/setStreamARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the stream whose metadata you want to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateStreamInput/streamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the stream whose metadata you want to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUpdateStreamInput/streamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the stream whose metadata you want to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateStreamInput/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream whose metadata you want to update.&lt;/p&gt;&lt;p&gt;The stream name is an identifier for the stream, and must be unique for each account and region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUpdateStreamInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream whose metadata you want to update.&lt;/p&gt;&lt;p&gt;The stream name is an identifier for the stream, and must be unique for each account and region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUpdateStreamInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream whose metadata you want to update.&lt;/p&gt;&lt;p&gt;The stream name is an identifier for the stream, and must be unique for each account and region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1306"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

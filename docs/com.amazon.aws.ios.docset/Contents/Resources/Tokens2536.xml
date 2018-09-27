@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSJSONBuilderErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSJSONBuilderErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2536"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSJSONBuilderUnknownError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSJSONBuilderUnknownError</Declaration>
+            
+            <DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+            <NodeRef refid="2536"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSJSONBuilderDefinitionFileIsEmpty</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSJSONBuilderDefinitionFileIsEmpty</Declaration>
+            
+            <DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+            <NodeRef refid="2536"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSJSONBuilderUndefinedActionRule</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSJSONBuilderUndefinedActionRule</Declaration>
+            
+            <DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+            <NodeRef refid="2536"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSJSONBuilderInternalError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSJSONBuilderInternalError</Declaration>
+            
+            <DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+            <NodeRef refid="2536"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSJSONBuilderInvalidParameter</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSJSONBuilderInvalidParameter</Declaration>
+            
+            <DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+            <NodeRef refid="2536"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

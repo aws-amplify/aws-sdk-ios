@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderUpdateResourceServerResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderUpdateResourceServerResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="432"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateResourceServerResponse/setResourceServer:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The resource server.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderResourceServerType *resourceServer</Declaration>
+			
+			
+			<Anchor>//api/name/resourceServer</Anchor>
+            <NodeRef refid="432"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUpdateResourceServerResponse/resourceServer</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The resource server.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderResourceServerType *resourceServer</Declaration>
+			
+			
+			<Anchor>//api/name/resourceServer</Anchor>
+            <NodeRef refid="432"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUpdateResourceServerResponse/resourceServer</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The resource server.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderResourceServerType *resourceServer</Declaration>
+			
+			
+			<Anchor>//api/name/resourceServer</Anchor>
+            <NodeRef refid="432"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

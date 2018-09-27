@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPollyGetLexiconOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPollyGetLexiconOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1645"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyGetLexiconOutput/setLexicon:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lexicon object that provides name and the string content of the lexicon. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPollyLexicon *lexicon</Declaration>
+			
+			
+			<Anchor>//api/name/lexicon</Anchor>
+            <NodeRef refid="1645"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyGetLexiconOutput/lexicon</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lexicon object that provides name and the string content of the lexicon. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPollyLexicon *lexicon</Declaration>
+			
+			
+			<Anchor>//api/name/lexicon</Anchor>
+            <NodeRef refid="1645"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyGetLexiconOutput/lexicon</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lexicon object that provides name and the string content of the lexicon. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPollyLexicon *lexicon</Declaration>
+			
+			
+			<Anchor>//api/name/lexicon</Anchor>
+            <NodeRef refid="1645"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyGetLexiconOutput/setLexiconAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPollyLexiconAttributes *lexiconAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/lexiconAttributes</Anchor>
+            <NodeRef refid="1645"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyGetLexiconOutput/lexiconAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPollyLexiconAttributes *lexiconAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/lexiconAttributes</Anchor>
+            <NodeRef refid="1645"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyGetLexiconOutput/lexiconAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Metadata of the lexicon, including phonetic alphabetic used, language code, lexicon ARN, number of lexemes defined in the lexicon, and size of lexicon in bytes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPollyLexiconAttributes *lexiconAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/lexiconAttributes</Anchor>
+            <NodeRef refid="1645"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

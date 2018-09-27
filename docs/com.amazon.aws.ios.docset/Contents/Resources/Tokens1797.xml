@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3BucketLoggingStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3BucketLoggingStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1797"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3BucketLoggingStatus/setLoggingEnabled:</TokenIdentifier>
+			<Abstract type="html">Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LoggingEnabled *loggingEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/loggingEnabled</Anchor>
+            <NodeRef refid="1797"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3BucketLoggingStatus/loggingEnabled</TokenIdentifier>
+			<Abstract type="html">Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LoggingEnabled *loggingEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/loggingEnabled</Anchor>
+            <NodeRef refid="1797"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3BucketLoggingStatus/loggingEnabled</TokenIdentifier>
+			<Abstract type="html">Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LoggingEnabled *loggingEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/loggingEnabled</Anchor>
+            <NodeRef refid="1797"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

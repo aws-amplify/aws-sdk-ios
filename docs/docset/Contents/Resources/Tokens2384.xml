@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AWSCognitoUserPoolsSignInHandler.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AWSCognitoUserPoolsSignInHandler</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2384"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoUserPoolsSignInHandler/handleUserPoolSignInFlowStart</TokenIdentifier>
+			<Abstract type="html">This method is called when loginWithSignInProvider is called by AWSIdentityManager.
+This method should handle the input from the user and set the taskCompletionSource result required by Cognito Idp SDK.</Abstract>
+			<DeclaredIn>AWSCognitoUserPoolsSignInProvider.h</DeclaredIn>
+			
+			<Declaration>- (void)handleUserPoolSignInFlowStart</Declaration>
+			
+			
+			<Anchor>//api/name/handleUserPoolSignInFlowStart</Anchor>
+            <NodeRef refid="2384"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

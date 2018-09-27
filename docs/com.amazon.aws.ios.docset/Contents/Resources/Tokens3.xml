@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAPIGatewayResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAPIGatewayResponse</TokenIdentifier>
+			<Abstract type="html">The response object for a successful AWS API Gateway invocation using the invoke method.</Abstract>
+			<DeclaredIn>AWSAPIGatewayModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAPIGatewayResponse/setHeaders:</TokenIdentifier>
+			<Abstract type="html">The response headers received in NSURLResponse on invocation of an API.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSDictionary *headers</Declaration>
+			
+			
+			<Anchor>//api/name/headers</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAPIGatewayResponse/headers</TokenIdentifier>
+			<Abstract type="html">The response headers received in NSURLResponse on invocation of an API.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSDictionary *headers</Declaration>
+			
+			
+			<Anchor>//api/name/headers</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAPIGatewayResponse/headers</TokenIdentifier>
+			<Abstract type="html">The response headers received in NSURLResponse on invocation of an API.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSDictionary *headers</Declaration>
+			
+			
+			<Anchor>//api/name/headers</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAPIGatewayResponse/setResponseData:</TokenIdentifier>
+			<Abstract type="html">The response data received in NSURLResponse on invocation of an API.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, nullable) NSData *responseData</Declaration>
+			
+			
+			<Anchor>//api/name/responseData</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAPIGatewayResponse/responseData</TokenIdentifier>
+			<Abstract type="html">The response data received in NSURLResponse on invocation of an API.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, nullable) NSData *responseData</Declaration>
+			
+			
+			<Anchor>//api/name/responseData</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAPIGatewayResponse/responseData</TokenIdentifier>
+			<Abstract type="html">The response data received in NSURLResponse on invocation of an API.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, nullable) NSData *responseData</Declaration>
+			
+			
+			<Anchor>//api/name/responseData</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAPIGatewayResponse/setRawResponse:</TokenIdentifier>
+			<Abstract type="html">The Raw NSURLResponse received on an API invocation.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSURLResponse *rawResponse</Declaration>
+			
+			
+			<Anchor>//api/name/rawResponse</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAPIGatewayResponse/rawResponse</TokenIdentifier>
+			<Abstract type="html">The Raw NSURLResponse received on an API invocation.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSURLResponse *rawResponse</Declaration>
+			
+			
+			<Anchor>//api/name/rawResponse</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAPIGatewayResponse/rawResponse</TokenIdentifier>
+			<Abstract type="html">The Raw NSURLResponse received on an API invocation.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSURLResponse *rawResponse</Declaration>
+			
+			
+			<Anchor>//api/name/rawResponse</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAPIGatewayResponse/setStatusCode:</TokenIdentifier>
+			<Abstract type="html">The status code received in NSURLResponse on invocation of an API.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSInteger statusCode</Declaration>
+			
+			
+			<Anchor>//api/name/statusCode</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAPIGatewayResponse/statusCode</TokenIdentifier>
+			<Abstract type="html">The status code received in NSURLResponse on invocation of an API.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSInteger statusCode</Declaration>
+			
+			
+			<Anchor>//api/name/statusCode</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAPIGatewayResponse/statusCode</TokenIdentifier>
+			<Abstract type="html">The status code received in NSURLResponse on invocation of an API.</Abstract>
+			<DeclaredIn>AWSAPIGatewayClient.m</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) NSInteger statusCode</Declaration>
+			
+			
+			<Anchor>//api/name/statusCode</Anchor>
+            <NodeRef refid="3"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESBulkEmailDestination.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESBulkEmailDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array that contains one or more Destinations, as well as the tags and replacement data associated with each of those Destinations.&lt;/p&gt;
+Required parameters: [Destination]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2035"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBulkEmailDestination/setDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the destination of the message, consisting of To:, CC:, and BCC: fields.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Amazon SES does not support the SMTPUTF8 extension, as described in &lt;a href=&quot;https://tools.ietf.org/html/rfc6531&quot;&gt;RFC6531&lt;/a&gt;. For this reason, the &lt;i&gt;local part&lt;/i&gt; of a destination email address (the part of the email address that precedes the @ sign) may only contain RFC3492.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESDestination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="2035"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBulkEmailDestination/destination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the destination of the message, consisting of To:, CC:, and BCC: fields.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Amazon SES does not support the SMTPUTF8 extension, as described in &lt;a href=&quot;https://tools.ietf.org/html/rfc6531&quot;&gt;RFC6531&lt;/a&gt;. For this reason, the &lt;i&gt;local part&lt;/i&gt; of a destination email address (the part of the email address that precedes the @ sign) may only contain RFC3492.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESDestination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="2035"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESBulkEmailDestination/destination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the destination of the message, consisting of To:, CC:, and BCC: fields.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Amazon SES does not support the SMTPUTF8 extension, as described in &lt;a href=&quot;https://tools.ietf.org/html/rfc6531&quot;&gt;RFC6531&lt;/a&gt;. For this reason, the &lt;i&gt;local part&lt;/i&gt; of a destination email address (the part of the email address that precedes the @ sign) may only contain RFC3492.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESDestination *destination</Declaration>
+			
+			
+			<Anchor>//api/name/destination</Anchor>
+            <NodeRef refid="2035"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBulkEmailDestination/setReplacementTags:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tags, in the form of name/value pairs, to apply to an email that you send using &lt;code&gt;SendBulkTemplatedEmail&lt;/code&gt;. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESMessageTag*&gt; *replacementTags</Declaration>
+			
+			
+			<Anchor>//api/name/replacementTags</Anchor>
+            <NodeRef refid="2035"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBulkEmailDestination/replacementTags</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tags, in the form of name/value pairs, to apply to an email that you send using &lt;code&gt;SendBulkTemplatedEmail&lt;/code&gt;. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESMessageTag*&gt; *replacementTags</Declaration>
+			
+			
+			<Anchor>//api/name/replacementTags</Anchor>
+            <NodeRef refid="2035"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESBulkEmailDestination/replacementTags</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tags, in the form of name/value pairs, to apply to an email that you send using &lt;code&gt;SendBulkTemplatedEmail&lt;/code&gt;. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESMessageTag*&gt; *replacementTags</Declaration>
+			
+			
+			<Anchor>//api/name/replacementTags</Anchor>
+            <NodeRef refid="2035"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBulkEmailDestination/setReplacementTemplateData:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replacementTemplateData</Declaration>
+			
+			
+			<Anchor>//api/name/replacementTemplateData</Anchor>
+            <NodeRef refid="2035"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBulkEmailDestination/replacementTemplateData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replacementTemplateData</Declaration>
+			
+			
+			<Anchor>//api/name/replacementTemplateData</Anchor>
+            <NodeRef refid="2035"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESBulkEmailDestination/replacementTemplateData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replacementTemplateData</Declaration>
+			
+			
+			<Anchor>//api/name/replacementTemplateData</Anchor>
+            <NodeRef refid="2035"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

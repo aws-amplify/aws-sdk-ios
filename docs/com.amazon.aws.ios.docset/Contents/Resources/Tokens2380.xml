@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AWSCognitoIdentityPasswordAuthentication.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AWSCognitoIdentityPasswordAuthentication</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2380"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityPasswordAuthentication/getPasswordAuthenticationDetails:passwordAuthenticationCompletionSource:</TokenIdentifier>
+			<Abstract type="html">Obtain username and password from end user.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (void)getPasswordAuthenticationDetails:(AWSCognitoIdentityPasswordAuthenticationInput *)authenticationInput passwordAuthenticationCompletionSource:(AWSTaskCompletionSource&lt;AWSCognitoIdentityPasswordAuthenticationDetails*&gt; *)passwordAuthenticationCompletionSource</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>authenticationInput</Name>
+					<Abstract type="html">input details including last known username</Abstract>
+				</Parameter><Parameter>
+					<Name>passwordAuthenticationCompletionSource</Name>
+					<Abstract type="html">set passwordAuthenticationCompletionSource.result
+with the username and password received from the end user.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getPasswordAuthenticationDetails:passwordAuthenticationCompletionSource:</Anchor>
+            <NodeRef refid="2380"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityPasswordAuthentication/didCompletePasswordAuthenticationStepWithError:</TokenIdentifier>
+			<Abstract type="html">This step completed, usually either display an error to the end user or dismiss ui</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (void)didCompletePasswordAuthenticationStepWithError:(NSError *_Nullable)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>error</Name>
+					<Abstract type="html">the error if any that occured</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didCompletePasswordAuthenticationStepWithError:</Anchor>
+            <NodeRef refid="2380"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

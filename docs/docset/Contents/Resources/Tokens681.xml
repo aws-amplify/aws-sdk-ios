@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBUpdateItemInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBUpdateItemInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the input of an &lt;code&gt;UpdateItem&lt;/code&gt; operation.&lt;/p&gt;
+Required parameters: [TableName, Key]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="681"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setAttributeUpdates:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;UpdateExpression&lt;/code&gt; instead. For more information, see AttributeUpdates in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValueUpdate*&gt; *attributeUpdates</Declaration>
+			
+			
+			<Anchor>//api/name/attributeUpdates</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/attributeUpdates</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;UpdateExpression&lt;/code&gt; instead. For more information, see AttributeUpdates in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValueUpdate*&gt; *attributeUpdates</Declaration>
+			
+			
+			<Anchor>//api/name/attributeUpdates</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/attributeUpdates</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;UpdateExpression&lt;/code&gt; instead. For more information, see AttributeUpdates in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValueUpdate*&gt; *attributeUpdates</Declaration>
+			
+			
+			<Anchor>//api/name/attributeUpdates</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setConditionExpression:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A condition that must be satisfied in order for a conditional update to succeed.&lt;/p&gt;&lt;p&gt;An expression can contain any of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Functions: &lt;code&gt;attributeexists | attributenotexists | attributetype | contains | begins_with | size&lt;/code&gt;&lt;/p&gt;&lt;p&gt;These function names are case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Comparison operators: &lt;code&gt;= | &amp;amp;lt;&amp;amp;gt; | &amp;amp;lt; | &amp;amp;gt; | &amp;amp;lt;= | &amp;amp;gt;= | BETWEEN | IN &lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt; Logical operators: &lt;code&gt;AND | OR | NOT&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For more information on condition expressions, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *conditionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/conditionExpression</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/conditionExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A condition that must be satisfied in order for a conditional update to succeed.&lt;/p&gt;&lt;p&gt;An expression can contain any of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Functions: &lt;code&gt;attributeexists | attributenotexists | attributetype | contains | begins_with | size&lt;/code&gt;&lt;/p&gt;&lt;p&gt;These function names are case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Comparison operators: &lt;code&gt;= | &amp;amp;lt;&amp;amp;gt; | &amp;amp;lt; | &amp;amp;gt; | &amp;amp;lt;= | &amp;amp;gt;= | BETWEEN | IN &lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt; Logical operators: &lt;code&gt;AND | OR | NOT&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For more information on condition expressions, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *conditionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/conditionExpression</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/conditionExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A condition that must be satisfied in order for a conditional update to succeed.&lt;/p&gt;&lt;p&gt;An expression can contain any of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Functions: &lt;code&gt;attributeexists | attributenotexists | attributetype | contains | begins_with | size&lt;/code&gt;&lt;/p&gt;&lt;p&gt;These function names are case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Comparison operators: &lt;code&gt;= | &amp;amp;lt;&amp;amp;gt; | &amp;amp;lt; | &amp;amp;gt; | &amp;amp;lt;= | &amp;amp;gt;= | BETWEEN | IN &lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt; Logical operators: &lt;code&gt;AND | OR | NOT&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For more information on condition expressions, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *conditionExpression</Declaration>
+			
+			
+			<Anchor>//api/name/conditionExpression</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setConditionalOperator:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see ConditionalOperator in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBConditionalOperator conditionalOperator</Declaration>
+			
+			
+			<Anchor>//api/name/conditionalOperator</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/conditionalOperator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see ConditionalOperator in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBConditionalOperator conditionalOperator</Declaration>
+			
+			
+			<Anchor>//api/name/conditionalOperator</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/conditionalOperator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see ConditionalOperator in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBConditionalOperator conditionalOperator</Declaration>
+			
+			
+			<Anchor>//api/name/conditionalOperator</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setExpected:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see Expected in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBExpectedAttributeValue*&gt; *expected</Declaration>
+			
+			
+			<Anchor>//api/name/expected</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/expected</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see Expected in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBExpectedAttributeValue*&gt; *expected</Declaration>
+			
+			
+			<Anchor>//api/name/expected</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/expected</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This is a legacy parameter. Use &lt;code&gt;ConditionExpression&lt;/code&gt; instead. For more information, see Expected in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBExpectedAttributeValue*&gt; *expected</Declaration>
+			
+			
+			<Anchor>//api/name/expected</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setExpressionAttributeNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more substitution tokens for attribute names in an expression. The following are some use cases for using &lt;code&gt;ExpressionAttributeNames&lt;/code&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To access an attribute whose name conflicts with a DynamoDB reserved word.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To create a placeholder for repeating occurrences of an attribute name in an expression.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To prevent special characters in an attribute name from being misinterpreted in an expression.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;b&gt;#&lt;/b&gt; character in an expression to dereference an attribute name. For example, consider the following attribute name:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Percentile&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *expressionAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeNames</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/expressionAttributeNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more substitution tokens for attribute names in an expression. The following are some use cases for using &lt;code&gt;ExpressionAttributeNames&lt;/code&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To access an attribute whose name conflicts with a DynamoDB reserved word.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To create a placeholder for repeating occurrences of an attribute name in an expression.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To prevent special characters in an attribute name from being misinterpreted in an expression.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;b&gt;#&lt;/b&gt; character in an expression to dereference an attribute name. For example, consider the following attribute name:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Percentile&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *expressionAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeNames</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/expressionAttributeNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more substitution tokens for attribute names in an expression. The following are some use cases for using &lt;code&gt;ExpressionAttributeNames&lt;/code&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;To access an attribute whose name conflicts with a DynamoDB reserved word.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To create a placeholder for repeating occurrences of an attribute name in an expression.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;To prevent special characters in an attribute name from being misinterpreted in an expression.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Use the &lt;b&gt;#&lt;/b&gt; character in an expression to dereference an attribute name. For example, consider the following attribute name:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Percentile&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see Accessing Item Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *expressionAttributeNames</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeNames</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setExpressionAttributeValues:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more values that can be substituted in an expression.&lt;/p&gt;&lt;p&gt;Use the &lt;b&gt;:&lt;/b&gt; (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the &lt;i&gt;ProductStatus&lt;/i&gt; attribute was one of the following: &lt;/p&gt;&lt;p&gt;&lt;code&gt;Available | Backordered | Discontinued&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You would first need to specify &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; as follows:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;}, &quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You could then use these values in an expression, such as this:&lt;/p&gt;&lt;p&gt;&lt;code&gt;ProductStatus IN (:avail, :back, :disc)&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on expression attribute values, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *expressionAttributeValues</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeValues</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/expressionAttributeValues</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more values that can be substituted in an expression.&lt;/p&gt;&lt;p&gt;Use the &lt;b&gt;:&lt;/b&gt; (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the &lt;i&gt;ProductStatus&lt;/i&gt; attribute was one of the following: &lt;/p&gt;&lt;p&gt;&lt;code&gt;Available | Backordered | Discontinued&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You would first need to specify &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; as follows:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;}, &quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You could then use these values in an expression, such as this:&lt;/p&gt;&lt;p&gt;&lt;code&gt;ProductStatus IN (:avail, :back, :disc)&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on expression attribute values, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *expressionAttributeValues</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeValues</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/expressionAttributeValues</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more values that can be substituted in an expression.&lt;/p&gt;&lt;p&gt;Use the &lt;b&gt;:&lt;/b&gt; (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the &lt;i&gt;ProductStatus&lt;/i&gt; attribute was one of the following: &lt;/p&gt;&lt;p&gt;&lt;code&gt;Available | Backordered | Discontinued&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You would first need to specify &lt;code&gt;ExpressionAttributeValues&lt;/code&gt; as follows:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;:avail&quot;:{&quot;S&quot;:&quot;Available&quot;}, &quot;:back&quot;:{&quot;S&quot;:&quot;Backordered&quot;}, &quot;:disc&quot;:{&quot;S&quot;:&quot;Discontinued&quot;} }&lt;/code&gt;&lt;/p&gt;&lt;p&gt;You could then use these values in an expression, such as this:&lt;/p&gt;&lt;p&gt;&lt;code&gt;ProductStatus IN (:avail, :back, :disc)&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on expression attribute values, see Specifying Conditions in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *expressionAttributeValues</Declaration>
+			
+			
+			<Anchor>//api/name/expressionAttributeValues</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.&lt;/p&gt;&lt;p&gt;For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/key</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.&lt;/p&gt;&lt;p&gt;For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/key</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.&lt;/p&gt;&lt;p&gt;For the primary key, you must provide all of the attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for both the partition key and the sort key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setReturnConsumedCapacity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the level of detail about provisioned throughput consumption that is returned in the response:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INDEXES&lt;/code&gt; - The response includes the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation, together with &lt;code&gt;ConsumedCapacity&lt;/code&gt; for each table and secondary index that was accessed.&lt;/p&gt;&lt;p&gt;Note that some operations, such as &lt;code&gt;GetItem&lt;/code&gt; and &lt;code&gt;BatchGetItem&lt;/code&gt;, do not access any indexes at all. In these cases, specifying &lt;code&gt;INDEXES&lt;/code&gt; will only return &lt;code&gt;ConsumedCapacity&lt;/code&gt; information for table(s).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;TOTAL&lt;/code&gt; - The response includes only the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - No &lt;code&gt;ConsumedCapacity&lt;/code&gt; details are included in the response.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/returnConsumedCapacity</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/returnConsumedCapacity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the level of detail about provisioned throughput consumption that is returned in the response:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INDEXES&lt;/code&gt; - The response includes the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation, together with &lt;code&gt;ConsumedCapacity&lt;/code&gt; for each table and secondary index that was accessed.&lt;/p&gt;&lt;p&gt;Note that some operations, such as &lt;code&gt;GetItem&lt;/code&gt; and &lt;code&gt;BatchGetItem&lt;/code&gt;, do not access any indexes at all. In these cases, specifying &lt;code&gt;INDEXES&lt;/code&gt; will only return &lt;code&gt;ConsumedCapacity&lt;/code&gt; information for table(s).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;TOTAL&lt;/code&gt; - The response includes only the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - No &lt;code&gt;ConsumedCapacity&lt;/code&gt; details are included in the response.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/returnConsumedCapacity</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/returnConsumedCapacity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines the level of detail about provisioned throughput consumption that is returned in the response:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INDEXES&lt;/code&gt; - The response includes the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation, together with &lt;code&gt;ConsumedCapacity&lt;/code&gt; for each table and secondary index that was accessed.&lt;/p&gt;&lt;p&gt;Note that some operations, such as &lt;code&gt;GetItem&lt;/code&gt; and &lt;code&gt;BatchGetItem&lt;/code&gt;, do not access any indexes at all. In these cases, specifying &lt;code&gt;INDEXES&lt;/code&gt; will only return &lt;code&gt;ConsumedCapacity&lt;/code&gt; information for table(s).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;TOTAL&lt;/code&gt; - The response includes only the aggregate &lt;code&gt;ConsumedCapacity&lt;/code&gt; for the operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - No &lt;code&gt;ConsumedCapacity&lt;/code&gt; details are included in the response.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/returnConsumedCapacity</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setReturnItemCollectionMetrics:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines whether item collection metrics are returned. If set to &lt;code&gt;SIZE&lt;/code&gt;, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to &lt;code&gt;NONE&lt;/code&gt; (the default), no statistics are returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/returnItemCollectionMetrics</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/returnItemCollectionMetrics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines whether item collection metrics are returned. If set to &lt;code&gt;SIZE&lt;/code&gt;, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to &lt;code&gt;NONE&lt;/code&gt; (the default), no statistics are returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/returnItemCollectionMetrics</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/returnItemCollectionMetrics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines whether item collection metrics are returned. If set to &lt;code&gt;SIZE&lt;/code&gt;, the response includes statistics about item collections, if any, that were modified during the operation are returned in the response. If set to &lt;code&gt;NONE&lt;/code&gt; (the default), no statistics are returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/returnItemCollectionMetrics</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setReturnValues:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use &lt;code&gt;ReturnValues&lt;/code&gt; if you want to get the item attributes as they appear before or after they are updated. For &lt;code&gt;UpdateItem&lt;/code&gt;, the valid values are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - If &lt;code&gt;ReturnValues&lt;/code&gt; is not specified, or if its value is &lt;code&gt;NONE&lt;/code&gt;, then nothing is returned. (This setting is the default for &lt;code&gt;ReturnValues&lt;/code&gt;.)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLOLD&lt;/code&gt; - Returns all of the attributes of the item, as they appeared before the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATEDOLD&lt;/code&gt; - Returns only the updated attributes, as they appeared before the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLNEW&lt;/code&gt; - Returns all of the attributes of the item, as they appear after the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATEDNEW&lt;/code&gt; - Returns only the updated attributes, as they appear after the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.&lt;/p&gt;&lt;p&gt;The values returned are strongly consistent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnValue returnValues</Declaration>
+			
+			
+			<Anchor>//api/name/returnValues</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/returnValues</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use &lt;code&gt;ReturnValues&lt;/code&gt; if you want to get the item attributes as they appear before or after they are updated. For &lt;code&gt;UpdateItem&lt;/code&gt;, the valid values are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - If &lt;code&gt;ReturnValues&lt;/code&gt; is not specified, or if its value is &lt;code&gt;NONE&lt;/code&gt;, then nothing is returned. (This setting is the default for &lt;code&gt;ReturnValues&lt;/code&gt;.)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLOLD&lt;/code&gt; - Returns all of the attributes of the item, as they appeared before the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATEDOLD&lt;/code&gt; - Returns only the updated attributes, as they appeared before the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLNEW&lt;/code&gt; - Returns all of the attributes of the item, as they appear after the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATEDNEW&lt;/code&gt; - Returns only the updated attributes, as they appear after the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.&lt;/p&gt;&lt;p&gt;The values returned are strongly consistent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnValue returnValues</Declaration>
+			
+			
+			<Anchor>//api/name/returnValues</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/returnValues</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use &lt;code&gt;ReturnValues&lt;/code&gt; if you want to get the item attributes as they appear before or after they are updated. For &lt;code&gt;UpdateItem&lt;/code&gt;, the valid values are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt; - If &lt;code&gt;ReturnValues&lt;/code&gt; is not specified, or if its value is &lt;code&gt;NONE&lt;/code&gt;, then nothing is returned. (This setting is the default for &lt;code&gt;ReturnValues&lt;/code&gt;.)&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLOLD&lt;/code&gt; - Returns all of the attributes of the item, as they appeared before the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATEDOLD&lt;/code&gt; - Returns only the updated attributes, as they appeared before the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALLNEW&lt;/code&gt; - Returns all of the attributes of the item, as they appear after the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATEDNEW&lt;/code&gt; - Returns only the updated attributes, as they appear after the UpdateItem operation.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;There is no additional cost associated with requesting a return value aside from the small network and processing overhead of receiving a larger response. No read capacity units are consumed.&lt;/p&gt;&lt;p&gt;The values returned are strongly consistent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBReturnValue returnValues</Declaration>
+			
+			
+			<Anchor>//api/name/returnValues</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table containing the item to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table containing the item to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table containing the item to update.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/setUpdateExpression:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.&lt;/p&gt;&lt;p&gt;The following action values are available for &lt;code&gt;UpdateExpression&lt;/code&gt;.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SET&lt;/code&gt; - Adds one or more attributes and values to an item. If any of these attribute already exist, they are replaced by the new values. You can also use &lt;code&gt;SET&lt;/code&gt; to add or subtract from an attribute that is of type Number. For example: &lt;code&gt;SET myNum = myNum + :val&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;SET&lt;/code&gt; supports the following functions:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ifnotexists (path, operand)&lt;/code&gt; - if the item does not contain an attribute at the specified path, then &lt;code&gt;ifnotexists&lt;/code&gt; evaluates to operand; otherwise, it evaluates to path. You can use this function to avoid overwriting an attribute that may already be present in the item.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;list_append (operand, operand)&lt;/code&gt; - evaluates to a list with a new element added to it. You can append the new element to the start or the end of the list by reversing the order of the operands.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;These function names are case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;REMOVE&lt;/code&gt; - Removes one or more attributes from an item.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ADD&lt;/code&gt; - Adds the specified value to the item, if the attribute does not already exist. If the attribute does exist, then the behavior of &lt;code&gt;ADD&lt;/code&gt; depends on the data type of the attribute:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;If the existing attribute is a number, and if &lt;code&gt;Value&lt;/code&gt; is also a number, then &lt;code&gt;Value&lt;/code&gt; is mathematically added to the existing attribute. If &lt;code&gt;Value&lt;/code&gt; is a negative number, then it is subtracted from the existing attribute.&lt;/p&gt;&lt;note&gt;&lt;p&gt;If you use &lt;code&gt;ADD&lt;/code&gt; to increment or decrement a number value for an item that doesn&apos;t exist before the update, DynamoDB uses &lt;code&gt;0&lt;/code&gt; as the initial value.&lt;/p&gt;&lt;p&gt;Similarly, if you use &lt;code&gt;ADD&lt;/code&gt; for an existing item to increment or decrement an attribute value that doesn&apos;t exist before the update, DynamoDB uses &lt;code&gt;0&lt;/code&gt; as the initial value. For example, suppose that the item you want to update doesn&apos;t have an attribute named &lt;i&gt;itemcount&lt;/i&gt;, but you decide to &lt;code&gt;ADD&lt;/code&gt; the number &lt;code&gt;3&lt;/code&gt; to this attribute anyway. DynamoDB will create the &lt;i&gt;itemcount&lt;/i&gt; attribute, set its initial value to &lt;code&gt;0&lt;/code&gt;, and finally add &lt;code&gt;3&lt;/code&gt; to it. The result will be a new &lt;i&gt;itemcount&lt;/i&gt; attribute in the item, with a value of &lt;code&gt;3&lt;/code&gt;.&lt;/p&gt;&lt;/note&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;If the existing data type is a set and if &lt;code&gt;Value&lt;/code&gt; is also a set, then &lt;code&gt;Value&lt;/code&gt; is added to the existing set. For example, if the attribute value is the set &lt;code&gt;[1,2]&lt;/code&gt;, and the &lt;code&gt;ADD&lt;/code&gt; action specified &lt;code&gt;[3]&lt;/code&gt;, then the final attribute value is &lt;code&gt;[1,2,3]&lt;/code&gt;. An error occurs if an &lt;code&gt;ADD&lt;/code&gt; action is specified for a set attribute and the attribute type specified does not match the existing set type. &lt;/p&gt;&lt;p&gt;Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the &lt;code&gt;Value&lt;/code&gt; must also be a set of strings.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;important&gt;&lt;p&gt;The &lt;code&gt;ADD&lt;/code&gt; action only supports Number and set data types. In addition, &lt;code&gt;ADD&lt;/code&gt; can only be used on top-level attributes, not nested attributes.&lt;/p&gt;&lt;/important&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DELETE&lt;/code&gt; - Deletes an element from a set.&lt;/p&gt;&lt;p&gt;If a set of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set &lt;code&gt;[a,b,c]&lt;/code&gt; and the &lt;code&gt;DELETE&lt;/code&gt; action specifies &lt;code&gt;[a,c]&lt;/code&gt;, then the final attribute value is &lt;code&gt;[b]&lt;/code&gt;. Specifying an empty set is an error.&lt;/p&gt;&lt;important&gt;&lt;p&gt;The &lt;code&gt;DELETE&lt;/code&gt; action only supports set data types. In addition, &lt;code&gt;DELETE&lt;/code&gt; can only be used on top-level attributes, not nested attributes.&lt;/p&gt;&lt;/important&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;You can have many actions in a single expression, such as the following: &lt;code&gt;SET a=:value1, b=:value2 DELETE :value3, :value4, :value5&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on update expressions, see Modifying Items and Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *updateExpression</Declaration>
+			
+			
+			<Anchor>//api/name/updateExpression</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemInput/updateExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.&lt;/p&gt;&lt;p&gt;The following action values are available for &lt;code&gt;UpdateExpression&lt;/code&gt;.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SET&lt;/code&gt; - Adds one or more attributes and values to an item. If any of these attribute already exist, they are replaced by the new values. You can also use &lt;code&gt;SET&lt;/code&gt; to add or subtract from an attribute that is of type Number. For example: &lt;code&gt;SET myNum = myNum + :val&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;SET&lt;/code&gt; supports the following functions:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ifnotexists (path, operand)&lt;/code&gt; - if the item does not contain an attribute at the specified path, then &lt;code&gt;ifnotexists&lt;/code&gt; evaluates to operand; otherwise, it evaluates to path. You can use this function to avoid overwriting an attribute that may already be present in the item.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;list_append (operand, operand)&lt;/code&gt; - evaluates to a list with a new element added to it. You can append the new element to the start or the end of the list by reversing the order of the operands.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;These function names are case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;REMOVE&lt;/code&gt; - Removes one or more attributes from an item.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ADD&lt;/code&gt; - Adds the specified value to the item, if the attribute does not already exist. If the attribute does exist, then the behavior of &lt;code&gt;ADD&lt;/code&gt; depends on the data type of the attribute:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;If the existing attribute is a number, and if &lt;code&gt;Value&lt;/code&gt; is also a number, then &lt;code&gt;Value&lt;/code&gt; is mathematically added to the existing attribute. If &lt;code&gt;Value&lt;/code&gt; is a negative number, then it is subtracted from the existing attribute.&lt;/p&gt;&lt;note&gt;&lt;p&gt;If you use &lt;code&gt;ADD&lt;/code&gt; to increment or decrement a number value for an item that doesn&apos;t exist before the update, DynamoDB uses &lt;code&gt;0&lt;/code&gt; as the initial value.&lt;/p&gt;&lt;p&gt;Similarly, if you use &lt;code&gt;ADD&lt;/code&gt; for an existing item to increment or decrement an attribute value that doesn&apos;t exist before the update, DynamoDB uses &lt;code&gt;0&lt;/code&gt; as the initial value. For example, suppose that the item you want to update doesn&apos;t have an attribute named &lt;i&gt;itemcount&lt;/i&gt;, but you decide to &lt;code&gt;ADD&lt;/code&gt; the number &lt;code&gt;3&lt;/code&gt; to this attribute anyway. DynamoDB will create the &lt;i&gt;itemcount&lt;/i&gt; attribute, set its initial value to &lt;code&gt;0&lt;/code&gt;, and finally add &lt;code&gt;3&lt;/code&gt; to it. The result will be a new &lt;i&gt;itemcount&lt;/i&gt; attribute in the item, with a value of &lt;code&gt;3&lt;/code&gt;.&lt;/p&gt;&lt;/note&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;If the existing data type is a set and if &lt;code&gt;Value&lt;/code&gt; is also a set, then &lt;code&gt;Value&lt;/code&gt; is added to the existing set. For example, if the attribute value is the set &lt;code&gt;[1,2]&lt;/code&gt;, and the &lt;code&gt;ADD&lt;/code&gt; action specified &lt;code&gt;[3]&lt;/code&gt;, then the final attribute value is &lt;code&gt;[1,2,3]&lt;/code&gt;. An error occurs if an &lt;code&gt;ADD&lt;/code&gt; action is specified for a set attribute and the attribute type specified does not match the existing set type. &lt;/p&gt;&lt;p&gt;Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the &lt;code&gt;Value&lt;/code&gt; must also be a set of strings.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;important&gt;&lt;p&gt;The &lt;code&gt;ADD&lt;/code&gt; action only supports Number and set data types. In addition, &lt;code&gt;ADD&lt;/code&gt; can only be used on top-level attributes, not nested attributes.&lt;/p&gt;&lt;/important&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DELETE&lt;/code&gt; - Deletes an element from a set.&lt;/p&gt;&lt;p&gt;If a set of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set &lt;code&gt;[a,b,c]&lt;/code&gt; and the &lt;code&gt;DELETE&lt;/code&gt; action specifies &lt;code&gt;[a,c]&lt;/code&gt;, then the final attribute value is &lt;code&gt;[b]&lt;/code&gt;. Specifying an empty set is an error.&lt;/p&gt;&lt;important&gt;&lt;p&gt;The &lt;code&gt;DELETE&lt;/code&gt; action only supports set data types. In addition, &lt;code&gt;DELETE&lt;/code&gt; can only be used on top-level attributes, not nested attributes.&lt;/p&gt;&lt;/important&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;You can have many actions in a single expression, such as the following: &lt;code&gt;SET a=:value1, b=:value2 DELETE :value3, :value4, :value5&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on update expressions, see Modifying Items and Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *updateExpression</Declaration>
+			
+			
+			<Anchor>//api/name/updateExpression</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemInput/updateExpression</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.&lt;/p&gt;&lt;p&gt;The following action values are available for &lt;code&gt;UpdateExpression&lt;/code&gt;.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SET&lt;/code&gt; - Adds one or more attributes and values to an item. If any of these attribute already exist, they are replaced by the new values. You can also use &lt;code&gt;SET&lt;/code&gt; to add or subtract from an attribute that is of type Number. For example: &lt;code&gt;SET myNum = myNum + :val&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;SET&lt;/code&gt; supports the following functions:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ifnotexists (path, operand)&lt;/code&gt; - if the item does not contain an attribute at the specified path, then &lt;code&gt;ifnotexists&lt;/code&gt; evaluates to operand; otherwise, it evaluates to path. You can use this function to avoid overwriting an attribute that may already be present in the item.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;list_append (operand, operand)&lt;/code&gt; - evaluates to a list with a new element added to it. You can append the new element to the start or the end of the list by reversing the order of the operands.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;These function names are case-sensitive.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;REMOVE&lt;/code&gt; - Removes one or more attributes from an item.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ADD&lt;/code&gt; - Adds the specified value to the item, if the attribute does not already exist. If the attribute does exist, then the behavior of &lt;code&gt;ADD&lt;/code&gt; depends on the data type of the attribute:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;If the existing attribute is a number, and if &lt;code&gt;Value&lt;/code&gt; is also a number, then &lt;code&gt;Value&lt;/code&gt; is mathematically added to the existing attribute. If &lt;code&gt;Value&lt;/code&gt; is a negative number, then it is subtracted from the existing attribute.&lt;/p&gt;&lt;note&gt;&lt;p&gt;If you use &lt;code&gt;ADD&lt;/code&gt; to increment or decrement a number value for an item that doesn&apos;t exist before the update, DynamoDB uses &lt;code&gt;0&lt;/code&gt; as the initial value.&lt;/p&gt;&lt;p&gt;Similarly, if you use &lt;code&gt;ADD&lt;/code&gt; for an existing item to increment or decrement an attribute value that doesn&apos;t exist before the update, DynamoDB uses &lt;code&gt;0&lt;/code&gt; as the initial value. For example, suppose that the item you want to update doesn&apos;t have an attribute named &lt;i&gt;itemcount&lt;/i&gt;, but you decide to &lt;code&gt;ADD&lt;/code&gt; the number &lt;code&gt;3&lt;/code&gt; to this attribute anyway. DynamoDB will create the &lt;i&gt;itemcount&lt;/i&gt; attribute, set its initial value to &lt;code&gt;0&lt;/code&gt;, and finally add &lt;code&gt;3&lt;/code&gt; to it. The result will be a new &lt;i&gt;itemcount&lt;/i&gt; attribute in the item, with a value of &lt;code&gt;3&lt;/code&gt;.&lt;/p&gt;&lt;/note&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;If the existing data type is a set and if &lt;code&gt;Value&lt;/code&gt; is also a set, then &lt;code&gt;Value&lt;/code&gt; is added to the existing set. For example, if the attribute value is the set &lt;code&gt;[1,2]&lt;/code&gt;, and the &lt;code&gt;ADD&lt;/code&gt; action specified &lt;code&gt;[3]&lt;/code&gt;, then the final attribute value is &lt;code&gt;[1,2,3]&lt;/code&gt;. An error occurs if an &lt;code&gt;ADD&lt;/code&gt; action is specified for a set attribute and the attribute type specified does not match the existing set type. &lt;/p&gt;&lt;p&gt;Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the &lt;code&gt;Value&lt;/code&gt; must also be a set of strings.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;important&gt;&lt;p&gt;The &lt;code&gt;ADD&lt;/code&gt; action only supports Number and set data types. In addition, &lt;code&gt;ADD&lt;/code&gt; can only be used on top-level attributes, not nested attributes.&lt;/p&gt;&lt;/important&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DELETE&lt;/code&gt; - Deletes an element from a set.&lt;/p&gt;&lt;p&gt;If a set of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set &lt;code&gt;[a,b,c]&lt;/code&gt; and the &lt;code&gt;DELETE&lt;/code&gt; action specifies &lt;code&gt;[a,c]&lt;/code&gt;, then the final attribute value is &lt;code&gt;[b]&lt;/code&gt;. Specifying an empty set is an error.&lt;/p&gt;&lt;important&gt;&lt;p&gt;The &lt;code&gt;DELETE&lt;/code&gt; action only supports set data types. In addition, &lt;code&gt;DELETE&lt;/code&gt; can only be used on top-level attributes, not nested attributes.&lt;/p&gt;&lt;/important&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;You can have many actions in a single expression, such as the following: &lt;code&gt;SET a=:value1, b=:value2 DELETE :value3, :value4, :value5&lt;/code&gt;&lt;/p&gt;&lt;p&gt;For more information on update expressions, see Modifying Items and Attributes in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *updateExpression</Declaration>
+			
+			
+			<Anchor>//api/name/updateExpression</Anchor>
+            <NodeRef refid="681"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

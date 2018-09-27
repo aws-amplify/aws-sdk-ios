@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3PresignedURLErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3PresignedURLErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2664"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorAccessKeyIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorAccessKeyIsNil</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorSecretKeyIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorSecretKeyIsNil</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorBucketNameIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorBucketNameIsNil</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorKeyNameIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorKeyNameIsNil</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorInvalidExpiresDate</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorInvalidExpiresDate</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorUnsupportedHTTPVerbs</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorUnsupportedHTTPVerbs</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorEndpointIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorEndpointIsNil</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorInvalidServiceType</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorInvalidServiceType</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PreSignedURLErrorCredentialProviderIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PreSignedURLErrorCredentialProviderIsNil</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PreSignedURLErrorInternalError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PreSignedURLErrorInternalError</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorInvalidRequestParameters</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorInvalidRequestParameters</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorInvalidBucketName</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorInvalidBucketName</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PresignedURLErrorInvalidBucketNameForAccelerateModeEnabled</Declaration>
+            
+            <DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+            <NodeRef refid="2664"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

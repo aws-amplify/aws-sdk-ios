@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseKMSEncryptionConfig.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseKMSEncryptionConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes an encryption key for a destination in Amazon S3.&lt;/p&gt;
+Required parameters: [AWSKMSKeyARN]</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="799"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseKMSEncryptionConfig/setAWSKMSKeyARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region as the destination Amazon S3 bucket. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *AWSKMSKeyARN</Declaration>
+			
+			
+			<Anchor>//api/name/AWSKMSKeyARN</Anchor>
+            <NodeRef refid="799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseKMSEncryptionConfig/AWSKMSKeyARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region as the destination Amazon S3 bucket. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *AWSKMSKeyARN</Declaration>
+			
+			
+			<Anchor>//api/name/AWSKMSKeyARN</Anchor>
+            <NodeRef refid="799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseKMSEncryptionConfig/AWSKMSKeyARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS Region as the destination Amazon S3 bucket. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *AWSKMSKeyARN</Declaration>
+			
+			
+			<Anchor>//api/name/AWSKMSKeyARN</Anchor>
+            <NodeRef refid="799"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

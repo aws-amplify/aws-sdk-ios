@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTThingGroupProperties.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTThingGroupProperties</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Thing group properties.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1133"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingGroupProperties/setAttributePayload:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing group attributes in JSON format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTAttributePayload *attributePayload</Declaration>
+			
+			
+			<Anchor>//api/name/attributePayload</Anchor>
+            <NodeRef refid="1133"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingGroupProperties/attributePayload</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing group attributes in JSON format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTAttributePayload *attributePayload</Declaration>
+			
+			
+			<Anchor>//api/name/attributePayload</Anchor>
+            <NodeRef refid="1133"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTThingGroupProperties/attributePayload</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing group attributes in JSON format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTAttributePayload *attributePayload</Declaration>
+			
+			
+			<Anchor>//api/name/attributePayload</Anchor>
+            <NodeRef refid="1133"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingGroupProperties/setThingGroupDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing group description.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingGroupDescription</Declaration>
+			
+			
+			<Anchor>//api/name/thingGroupDescription</Anchor>
+            <NodeRef refid="1133"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTThingGroupProperties/thingGroupDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing group description.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingGroupDescription</Declaration>
+			
+			
+			<Anchor>//api/name/thingGroupDescription</Anchor>
+            <NodeRef refid="1133"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTThingGroupProperties/thingGroupDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The thing group description.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingGroupDescription</Declaration>
+			
+			
+			<Anchor>//api/name/thingGroupDescription</Anchor>
+            <NodeRef refid="1133"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1280"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput/setContentType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content type of the requested media.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentType</Declaration>
+			
+			
+			<Anchor>//api/name/contentType</Anchor>
+            <NodeRef refid="1280"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput/contentType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content type of the requested media.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentType</Declaration>
+			
+			
+			<Anchor>//api/name/contentType</Anchor>
+            <NodeRef refid="1280"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput/contentType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content type of the requested media.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentType</Declaration>
+			
+			
+			<Anchor>//api/name/contentType</Anchor>
+            <NodeRef refid="1280"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput/setPayload:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see PutMedia. The chunks that Kinesis Video Streams returns in the &lt;code&gt;GetMediaForFragmentList&lt;/code&gt; call also include the following additional Matroska (MKV) tags: &lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOFRAGMENTNUMBER - Fragment number returned in the chunk.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOSERVERSIDETIMESTAMP - Server-side time stamp of the fragment.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOPRODUCERSIDETIMESTAMP - Producer-side time stamp of the fragment.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The following tags will be included if an exception occurs:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOFRAGMENTNUMBER - The number of the fragment that threw the exception&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOEXCEPTIONERRORCODE - The integer code of the exception&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOEXCEPTION_MESSAGE - A text description of the exception&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *payload</Declaration>
+			
+			
+			<Anchor>//api/name/payload</Anchor>
+            <NodeRef refid="1280"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput/payload</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see PutMedia. The chunks that Kinesis Video Streams returns in the &lt;code&gt;GetMediaForFragmentList&lt;/code&gt; call also include the following additional Matroska (MKV) tags: &lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOFRAGMENTNUMBER - Fragment number returned in the chunk.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOSERVERSIDETIMESTAMP - Server-side time stamp of the fragment.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOPRODUCERSIDETIMESTAMP - Producer-side time stamp of the fragment.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The following tags will be included if an exception occurs:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOFRAGMENTNUMBER - The number of the fragment that threw the exception&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOEXCEPTIONERRORCODE - The integer code of the exception&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOEXCEPTION_MESSAGE - A text description of the exception&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *payload</Declaration>
+			
+			
+			<Anchor>//api/name/payload</Anchor>
+            <NodeRef refid="1280"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput/payload</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The payload that Kinesis Video Streams returns is a sequence of chunks from the specified stream. For information about the chunks, see PutMedia. The chunks that Kinesis Video Streams returns in the &lt;code&gt;GetMediaForFragmentList&lt;/code&gt; call also include the following additional Matroska (MKV) tags: &lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOFRAGMENTNUMBER - Fragment number returned in the chunk.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOSERVERSIDETIMESTAMP - Server-side time stamp of the fragment.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOPRODUCERSIDETIMESTAMP - Producer-side time stamp of the fragment.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The following tags will be included if an exception occurs:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOFRAGMENTNUMBER - The number of the fragment that threw the exception&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOEXCEPTIONERRORCODE - The integer code of the exception&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;AWSKINESISVIDEOEXCEPTION_MESSAGE - A text description of the exception&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *payload</Declaration>
+			
+			
+			<Anchor>//api/name/payload</Anchor>
+            <NodeRef refid="1280"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

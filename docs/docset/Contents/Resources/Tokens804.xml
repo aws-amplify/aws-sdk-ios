@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseListTagsForDeliveryStreamInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseListTagsForDeliveryStreamInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="804"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseListTagsForDeliveryStreamInput/setDeliveryStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the delivery stream whose tags you want to list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deliveryStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamName</Anchor>
+            <NodeRef refid="804"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseListTagsForDeliveryStreamInput/deliveryStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the delivery stream whose tags you want to list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deliveryStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamName</Anchor>
+            <NodeRef refid="804"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseListTagsForDeliveryStreamInput/deliveryStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the delivery stream whose tags you want to list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deliveryStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamName</Anchor>
+            <NodeRef refid="804"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseListTagsForDeliveryStreamInput/setExclusiveStartTagKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The key to use as the starting point for the list of tags. If you set this parameter, &lt;code&gt;ListTagsForDeliveryStream&lt;/code&gt; gets all tags that occur after &lt;code&gt;ExclusiveStartTagKey&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *exclusiveStartTagKey</Declaration>
+			
+			
+			<Anchor>//api/name/exclusiveStartTagKey</Anchor>
+            <NodeRef refid="804"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseListTagsForDeliveryStreamInput/exclusiveStartTagKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The key to use as the starting point for the list of tags. If you set this parameter, &lt;code&gt;ListTagsForDeliveryStream&lt;/code&gt; gets all tags that occur after &lt;code&gt;ExclusiveStartTagKey&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *exclusiveStartTagKey</Declaration>
+			
+			
+			<Anchor>//api/name/exclusiveStartTagKey</Anchor>
+            <NodeRef refid="804"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseListTagsForDeliveryStreamInput/exclusiveStartTagKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The key to use as the starting point for the list of tags. If you set this parameter, &lt;code&gt;ListTagsForDeliveryStream&lt;/code&gt; gets all tags that occur after &lt;code&gt;ExclusiveStartTagKey&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *exclusiveStartTagKey</Declaration>
+			
+			
+			<Anchor>//api/name/exclusiveStartTagKey</Anchor>
+            <NodeRef refid="804"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseListTagsForDeliveryStreamInput/setLimit:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of tags to return. If this number is less than the total number of tags associated with the delivery stream, &lt;code&gt;HasMoreTags&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt; in the response. To list additional tags, set &lt;code&gt;ExclusiveStartTagKey&lt;/code&gt; to the last key in the response. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="804"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseListTagsForDeliveryStreamInput/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of tags to return. If this number is less than the total number of tags associated with the delivery stream, &lt;code&gt;HasMoreTags&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt; in the response. To list additional tags, set &lt;code&gt;ExclusiveStartTagKey&lt;/code&gt; to the last key in the response. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="804"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseListTagsForDeliveryStreamInput/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of tags to return. If this number is less than the total number of tags associated with the delivery stream, &lt;code&gt;HasMoreTags&lt;/code&gt; is set to &lt;code&gt;true&lt;/code&gt; in the response. To list additional tags, set &lt;code&gt;ExclusiveStartTagKey&lt;/code&gt; to the last key in the response. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="804"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

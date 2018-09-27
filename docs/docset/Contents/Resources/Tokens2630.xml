@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSRekognitionLandmarkType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSRekognitionLandmarkType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2630"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeEyeLeft</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeEyeLeft</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeEyeRight</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeEyeRight</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeNose</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeNose</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeMouthLeft</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeMouthLeft</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeMouthRight</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeMouthRight</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeLeftEyeBrowLeft</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeLeftEyeBrowLeft</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeLeftEyeBrowRight</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeLeftEyeBrowRight</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeLeftEyeBrowUp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeLeftEyeBrowUp</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeRightEyeBrowLeft</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeRightEyeBrowLeft</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeRightEyeBrowRight</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeRightEyeBrowRight</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeRightEyeBrowUp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeRightEyeBrowUp</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeLeftEyeLeft</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeLeftEyeLeft</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeLeftEyeRight</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeLeftEyeRight</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeLeftEyeUp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeLeftEyeUp</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeLeftEyeDown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeLeftEyeDown</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeRightEyeLeft</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeRightEyeLeft</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeRightEyeRight</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeRightEyeRight</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeRightEyeUp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeRightEyeUp</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeRightEyeDown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeRightEyeDown</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeNoseLeft</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeNoseLeft</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeNoseRight</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeNoseRight</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeMouthUp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeMouthUp</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeMouthDown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeMouthDown</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeLeftPupil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeLeftPupil</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionLandmarkTypeRightPupil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionLandmarkTypeRightPupil</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2630"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

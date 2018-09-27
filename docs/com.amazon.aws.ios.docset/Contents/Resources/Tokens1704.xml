@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionFaceDetail.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionFaceDetail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Structure containing attributes of the face that the algorithm detected.&lt;/p&gt;&lt;p&gt;A &lt;code&gt;FaceDetail&lt;/code&gt; object contains either the default facial attributes or all facial attributes. The default attributes are &lt;code&gt;BoundingBox&lt;/code&gt;, &lt;code&gt;Confidence&lt;/code&gt;, &lt;code&gt;Landmarks&lt;/code&gt;, &lt;code&gt;Pose&lt;/code&gt;, and &lt;code&gt;Quality&lt;/code&gt;.&lt;/p&gt;&lt;p&gt; is the only Amazon Rekognition Video stored video operation that can return a &lt;code&gt;FaceDetail&lt;/code&gt; object with all attributes. To specify which attributes to return, use the &lt;code&gt;FaceAttributes&lt;/code&gt; input parameter for . The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations don&apos;t have a &lt;code&gt;FaceAttributes&lt;/code&gt; input parameter.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;GetCelebrityRecognition&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GetPersonTracking&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;GetFaceSearch&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;The Amazon Rekognition Image and operations can return all facial attributes. To specify which attributes to return, use the &lt;code&gt;Attributes&lt;/code&gt; input parameter for &lt;code&gt;DetectFaces&lt;/code&gt;. For &lt;code&gt;IndexFaces&lt;/code&gt;, use the &lt;code&gt;DetectAttributes&lt;/code&gt; input parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1704"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setAgeRange:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionAgeRange *ageRange</Declaration>
+			
+			
+			<Anchor>//api/name/ageRange</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/ageRange</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionAgeRange *ageRange</Declaration>
+			
+			
+			<Anchor>//api/name/ageRange</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/ageRange</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The estimated age range, in years, for the face. Low represents the lowest estimated age and High represents the highest estimated age.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionAgeRange *ageRange</Declaration>
+			
+			
+			<Anchor>//api/name/ageRange</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setBeard:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face has a beard, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBeard *beard</Declaration>
+			
+			
+			<Anchor>//api/name/beard</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/beard</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face has a beard, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBeard *beard</Declaration>
+			
+			
+			<Anchor>//api/name/beard</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/beard</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face has a beard, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBeard *beard</Declaration>
+			
+			
+			<Anchor>//api/name/beard</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setBoundingBox:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Bounding box of the face. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBoundingBox *boundingBox</Declaration>
+			
+			
+			<Anchor>//api/name/boundingBox</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/boundingBox</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Bounding box of the face. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBoundingBox *boundingBox</Declaration>
+			
+			
+			<Anchor>//api/name/boundingBox</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/boundingBox</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Bounding box of the face. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBoundingBox *boundingBox</Declaration>
+			
+			
+			<Anchor>//api/name/boundingBox</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setConfidence:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Confidence level that the bounding box contains a face (and not a different object such as a tree). Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setEmotions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The emotions detected on the face, and the confidence level in the determination. For example, HAPPY, SAD, and ANGRY. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionEmotion*&gt; *emotions</Declaration>
+			
+			
+			<Anchor>//api/name/emotions</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/emotions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The emotions detected on the face, and the confidence level in the determination. For example, HAPPY, SAD, and ANGRY. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionEmotion*&gt; *emotions</Declaration>
+			
+			
+			<Anchor>//api/name/emotions</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/emotions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The emotions detected on the face, and the confidence level in the determination. For example, HAPPY, SAD, and ANGRY. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionEmotion*&gt; *emotions</Declaration>
+			
+			
+			<Anchor>//api/name/emotions</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setEyeglasses:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionEyeglasses *eyeglasses</Declaration>
+			
+			
+			<Anchor>//api/name/eyeglasses</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/eyeglasses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionEyeglasses *eyeglasses</Declaration>
+			
+			
+			<Anchor>//api/name/eyeglasses</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/eyeglasses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face is wearing eye glasses, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionEyeglasses *eyeglasses</Declaration>
+			
+			
+			<Anchor>//api/name/eyeglasses</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setEyesOpen:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the eyes on the face are open, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionEyeOpen *eyesOpen</Declaration>
+			
+			
+			<Anchor>//api/name/eyesOpen</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/eyesOpen</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the eyes on the face are open, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionEyeOpen *eyesOpen</Declaration>
+			
+			
+			<Anchor>//api/name/eyesOpen</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/eyesOpen</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the eyes on the face are open, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionEyeOpen *eyesOpen</Declaration>
+			
+			
+			<Anchor>//api/name/eyesOpen</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setGender:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gender of the face and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionGender *gender</Declaration>
+			
+			
+			<Anchor>//api/name/gender</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/gender</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gender of the face and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionGender *gender</Declaration>
+			
+			
+			<Anchor>//api/name/gender</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/gender</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gender of the face and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionGender *gender</Declaration>
+			
+			
+			<Anchor>//api/name/gender</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setLandmarks:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates the location of landmarks on the face. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionLandmark*&gt; *landmarks</Declaration>
+			
+			
+			<Anchor>//api/name/landmarks</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/landmarks</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates the location of landmarks on the face. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionLandmark*&gt; *landmarks</Declaration>
+			
+			
+			<Anchor>//api/name/landmarks</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/landmarks</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates the location of landmarks on the face. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionLandmark*&gt; *landmarks</Declaration>
+			
+			
+			<Anchor>//api/name/landmarks</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setMouthOpen:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the mouth on the face is open, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionMouthOpen *mouthOpen</Declaration>
+			
+			
+			<Anchor>//api/name/mouthOpen</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/mouthOpen</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the mouth on the face is open, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionMouthOpen *mouthOpen</Declaration>
+			
+			
+			<Anchor>//api/name/mouthOpen</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/mouthOpen</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the mouth on the face is open, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionMouthOpen *mouthOpen</Declaration>
+			
+			
+			<Anchor>//api/name/mouthOpen</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setMustache:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face has a mustache, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionMustache *mustache</Declaration>
+			
+			
+			<Anchor>//api/name/mustache</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/mustache</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face has a mustache, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionMustache *mustache</Declaration>
+			
+			
+			<Anchor>//api/name/mustache</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/mustache</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face has a mustache, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionMustache *mustache</Declaration>
+			
+			
+			<Anchor>//api/name/mustache</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setPose:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionPose *pose</Declaration>
+			
+			
+			<Anchor>//api/name/pose</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/pose</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionPose *pose</Declaration>
+			
+			
+			<Anchor>//api/name/pose</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/pose</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionPose *pose</Declaration>
+			
+			
+			<Anchor>//api/name/pose</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setQuality:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies image brightness and sharpness. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImageQuality *quality</Declaration>
+			
+			
+			<Anchor>//api/name/quality</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/quality</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies image brightness and sharpness. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImageQuality *quality</Declaration>
+			
+			
+			<Anchor>//api/name/quality</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/quality</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies image brightness and sharpness. Default attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImageQuality *quality</Declaration>
+			
+			
+			<Anchor>//api/name/quality</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setSmile:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face is smiling, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionSmile *smile</Declaration>
+			
+			
+			<Anchor>//api/name/smile</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/smile</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face is smiling, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionSmile *smile</Declaration>
+			
+			
+			<Anchor>//api/name/smile</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/smile</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face is smiling, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionSmile *smile</Declaration>
+			
+			
+			<Anchor>//api/name/smile</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/setSunglasses:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionSunglasses *sunglasses</Declaration>
+			
+			
+			<Anchor>//api/name/sunglasses</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceDetail/sunglasses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionSunglasses *sunglasses</Declaration>
+			
+			
+			<Anchor>//api/name/sunglasses</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceDetail/sunglasses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether or not the face is wearing sunglasses, and the confidence level in the determination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionSunglasses *sunglasses</Declaration>
+			
+			
+			<Anchor>//api/name/sunglasses</Anchor>
+            <NodeRef refid="1704"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

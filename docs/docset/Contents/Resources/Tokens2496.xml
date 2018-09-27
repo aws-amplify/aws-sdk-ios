@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSFirehoseElasticsearchS3BackupMode.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSFirehoseElasticsearchS3BackupMode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2496"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseElasticsearchS3BackupModeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseElasticsearchS3BackupModeUnknown</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2496"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseElasticsearchS3BackupModeFailedDocumentsOnly</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseElasticsearchS3BackupModeFailedDocumentsOnly</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2496"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseElasticsearchS3BackupModeAllDocuments</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseElasticsearchS3BackupModeAllDocuments</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2496"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

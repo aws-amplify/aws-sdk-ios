@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingPutEventStreamRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingPutEventStreamRequest</TokenIdentifier>
+			<Abstract type="html">PutEventStream Request
+Required parameters: [ApplicationId, WriteEventStream]</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1594"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingPutEventStreamRequest/setApplicationId:</TokenIdentifier>
+			<Abstract type="html">ApplicationId</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1594"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingPutEventStreamRequest/applicationId</TokenIdentifier>
+			<Abstract type="html">ApplicationId</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1594"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingPutEventStreamRequest/applicationId</TokenIdentifier>
+			<Abstract type="html">ApplicationId</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1594"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingPutEventStreamRequest/setWriteEventStream:</TokenIdentifier>
+			<Abstract type="html">EventStream to write.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingWriteEventStream *writeEventStream</Declaration>
+			
+			
+			<Anchor>//api/name/writeEventStream</Anchor>
+            <NodeRef refid="1594"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingPutEventStreamRequest/writeEventStream</TokenIdentifier>
+			<Abstract type="html">EventStream to write.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingWriteEventStream *writeEventStream</Declaration>
+			
+			
+			<Anchor>//api/name/writeEventStream</Anchor>
+            <NodeRef refid="1594"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingPutEventStreamRequest/writeEventStream</TokenIdentifier>
+			<Abstract type="html">EventStream to write.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingWriteEventStream *writeEventStream</Declaration>
+			
+			
+			<Anchor>//api/name/writeEventStream</Anchor>
+            <NodeRef refid="1594"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

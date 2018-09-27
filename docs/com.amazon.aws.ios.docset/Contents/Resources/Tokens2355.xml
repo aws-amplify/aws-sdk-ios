@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSTranscribeSettings.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSTranscribeSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides optional settings for the &lt;code&gt;StartTranscriptionJob&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2355"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeSettings/setChannelIdentification:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription. &lt;/p&gt;&lt;p&gt;Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.&lt;/p&gt;&lt;p&gt;You can&apos;t set both &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; and &lt;code&gt;ChannelIdentification&lt;/code&gt; in the same request. If you set both, your request returns a &lt;code&gt;BadRequestException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *channelIdentification</Declaration>
+			
+			
+			<Anchor>//api/name/channelIdentification</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeSettings/channelIdentification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription. &lt;/p&gt;&lt;p&gt;Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.&lt;/p&gt;&lt;p&gt;You can&apos;t set both &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; and &lt;code&gt;ChannelIdentification&lt;/code&gt; in the same request. If you set both, your request returns a &lt;code&gt;BadRequestException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *channelIdentification</Declaration>
+			
+			
+			<Anchor>//api/name/channelIdentification</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeSettings/channelIdentification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Instructs Amazon Transcribe to process each audio channel separately and then merge the transcription output of each channel into a single transcription. &lt;/p&gt;&lt;p&gt;Amazon Transcribe also produces a transcription of each item detected on an audio channel, including the start time and end time of the item and alternative transcriptions of the item including the confidence that Amazon Transcribe has in the transcription.&lt;/p&gt;&lt;p&gt;You can&apos;t set both &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; and &lt;code&gt;ChannelIdentification&lt;/code&gt; in the same request. If you set both, your request returns a &lt;code&gt;BadRequestException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *channelIdentification</Declaration>
+			
+			
+			<Anchor>//api/name/channelIdentification</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeSettings/setMaxSpeakerLabels:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers will be identified as a single speaker. If you specify the &lt;code&gt;MaxSpeakerLabels&lt;/code&gt; field, you must set the &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; field to true.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxSpeakerLabels</Declaration>
+			
+			
+			<Anchor>//api/name/maxSpeakerLabels</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeSettings/maxSpeakerLabels</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers will be identified as a single speaker. If you specify the &lt;code&gt;MaxSpeakerLabels&lt;/code&gt; field, you must set the &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; field to true.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxSpeakerLabels</Declaration>
+			
+			
+			<Anchor>//api/name/maxSpeakerLabels</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeSettings/maxSpeakerLabels</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of speakers to identify in the input audio. If there are more speakers in the audio than this number, multiple speakers will be identified as a single speaker. If you specify the &lt;code&gt;MaxSpeakerLabels&lt;/code&gt; field, you must set the &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; field to true.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxSpeakerLabels</Declaration>
+			
+			
+			<Anchor>//api/name/maxSpeakerLabels</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeSettings/setShowSpeakerLabels:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; field to true, you must also set the maximum number of speaker labels &lt;code&gt;MaxSpeakerLabels&lt;/code&gt; field.&lt;/p&gt;&lt;p&gt;You can&apos;t set both &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; and &lt;code&gt;ChannelIdentification&lt;/code&gt; in the same request. If you set both, your request returns a &lt;code&gt;BadRequestException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *showSpeakerLabels</Declaration>
+			
+			
+			<Anchor>//api/name/showSpeakerLabels</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeSettings/showSpeakerLabels</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; field to true, you must also set the maximum number of speaker labels &lt;code&gt;MaxSpeakerLabels&lt;/code&gt; field.&lt;/p&gt;&lt;p&gt;You can&apos;t set both &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; and &lt;code&gt;ChannelIdentification&lt;/code&gt; in the same request. If you set both, your request returns a &lt;code&gt;BadRequestException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *showSpeakerLabels</Declaration>
+			
+			
+			<Anchor>//api/name/showSpeakerLabels</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeSettings/showSpeakerLabels</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Determines whether the transcription job uses speaker recognition to identify different speakers in the input audio. Speaker recognition labels individual speakers in the audio file. If you set the &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; field to true, you must also set the maximum number of speaker labels &lt;code&gt;MaxSpeakerLabels&lt;/code&gt; field.&lt;/p&gt;&lt;p&gt;You can&apos;t set both &lt;code&gt;ShowSpeakerLabels&lt;/code&gt; and &lt;code&gt;ChannelIdentification&lt;/code&gt; in the same request. If you set both, your request returns a &lt;code&gt;BadRequestException&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *showSpeakerLabels</Declaration>
+			
+			
+			<Anchor>//api/name/showSpeakerLabels</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeSettings/setVocabularyName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of a vocabulary to use when processing the transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vocabularyName</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyName</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeSettings/vocabularyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of a vocabulary to use when processing the transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vocabularyName</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyName</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeSettings/vocabularyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of a vocabulary to use when processing the transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vocabularyName</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyName</Anchor>
+            <NodeRef refid="2355"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

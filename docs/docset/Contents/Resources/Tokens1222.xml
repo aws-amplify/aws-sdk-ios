@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSUpdateAliasRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSUpdateAliasRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1222"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSUpdateAliasRequest/setAliasName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the name of the alias to be modified. The name must start with the word &quot;alias&quot; followed by a forward slash (alias/). Aliases that begin with &quot;alias/aws&quot; are reserved.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasName</Declaration>
+			
+			
+			<Anchor>//api/name/aliasName</Anchor>
+            <NodeRef refid="1222"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSUpdateAliasRequest/aliasName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the name of the alias to be modified. The name must start with the word &quot;alias&quot; followed by a forward slash (alias/). Aliases that begin with &quot;alias/aws&quot; are reserved.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasName</Declaration>
+			
+			
+			<Anchor>//api/name/aliasName</Anchor>
+            <NodeRef refid="1222"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSUpdateAliasRequest/aliasName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;String that contains the name of the alias to be modified. The name must start with the word &quot;alias&quot; followed by a forward slash (alias/). Aliases that begin with &quot;alias/aws&quot; are reserved.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *aliasName</Declaration>
+			
+			
+			<Anchor>//api/name/aliasName</Anchor>
+            <NodeRef refid="1222"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSUpdateAliasRequest/setTargetKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier of the customer master key to be mapped to the alias.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;To verify that the alias is mapped to the correct CMK, use &lt;a&gt;ListAliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/targetKeyId</Anchor>
+            <NodeRef refid="1222"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSUpdateAliasRequest/targetKeyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier of the customer master key to be mapped to the alias.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;To verify that the alias is mapped to the correct CMK, use &lt;a&gt;ListAliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/targetKeyId</Anchor>
+            <NodeRef refid="1222"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSUpdateAliasRequest/targetKeyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier of the customer master key to be mapped to the alias.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;To verify that the alias is mapped to the correct CMK, use &lt;a&gt;ListAliases&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/targetKeyId</Anchor>
+            <NodeRef refid="1222"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

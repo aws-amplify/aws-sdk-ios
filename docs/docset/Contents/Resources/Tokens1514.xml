@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingDeleteEmailChannelResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteEmailChannelResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1514"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDeleteEmailChannelResponse/setEmailChannelResponse:</TokenIdentifier>
+			<Abstract type="html">Email Channel Response.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEmailChannelResponse *emailChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/emailChannelResponse</Anchor>
+            <NodeRef refid="1514"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDeleteEmailChannelResponse/emailChannelResponse</TokenIdentifier>
+			<Abstract type="html">Email Channel Response.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEmailChannelResponse *emailChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/emailChannelResponse</Anchor>
+            <NodeRef refid="1514"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingDeleteEmailChannelResponse/emailChannelResponse</TokenIdentifier>
+			<Abstract type="html">Email Channel Response.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEmailChannelResponse *emailChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/emailChannelResponse</Anchor>
+            <NodeRef refid="1514"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

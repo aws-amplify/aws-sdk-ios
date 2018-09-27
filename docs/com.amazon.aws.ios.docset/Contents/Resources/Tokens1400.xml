@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsDescribeDestinationsRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeDestinationsRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1400"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeDestinationsRequest/setDestinationNamePrefix:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The prefix to match. If you don&apos;t specify a value, no prefix filter is applied.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/destinationNamePrefix</Anchor>
+            <NodeRef refid="1400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeDestinationsRequest/destinationNamePrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The prefix to match. If you don&apos;t specify a value, no prefix filter is applied.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/destinationNamePrefix</Anchor>
+            <NodeRef refid="1400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsDescribeDestinationsRequest/destinationNamePrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The prefix to match. If you don&apos;t specify a value, no prefix filter is applied.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/destinationNamePrefix</Anchor>
+            <NodeRef refid="1400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeDestinationsRequest/setLimit:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of items returned. If you don&apos;t specify a value, the default is up to 50 items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeDestinationsRequest/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of items returned. If you don&apos;t specify a value, the default is up to 50 items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsDescribeDestinationsRequest/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of items returned. If you don&apos;t specify a value, the default is up to 50 items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeDestinationsRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items to return. (You received this token from a previous call.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsDescribeDestinationsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items to return. (You received this token from a previous call.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsDescribeDestinationsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token for the next set of items to return. (You received this token from a previous call.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1400"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

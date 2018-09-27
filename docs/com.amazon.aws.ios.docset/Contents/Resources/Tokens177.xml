@@ -1,0 +1,1026 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentity.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentity</TokenIdentifier>
+			<Abstract type="html">&lt;fullname&gt;Amazon Cognito&lt;/fullname&gt;&lt;p&gt;Amazon Cognito is a web service that delivers scoped temporary credentials to mobile devices and other untrusted environments. Amazon Cognito uniquely identifies a device and supplies the user with a consistent identity over the lifetime of an application.&lt;/p&gt;&lt;p&gt;Using Amazon Cognito, you can enable authentication with one or more third-party identity providers (Facebook, Google, or Login with Amazon), and you can also choose to support unauthenticated access from your app. Cognito delivers a unique identifier for each user and acts as an OpenID token provider trusted by AWS Security Token Service (STS) to access temporary, limited-privilege AWS credentials.&lt;/p&gt;&lt;p&gt;To provide end-user credentials, first make an unsigned call to &lt;a&gt;GetId&lt;/a&gt;. If the end user is authenticated with one of the supported identity providers, set the &lt;code&gt;Logins&lt;/code&gt; map with the identity provider token. &lt;code&gt;GetId&lt;/code&gt; returns a unique identifier for the user.&lt;/p&gt;&lt;p&gt;Next, make an unsigned call to &lt;a&gt;GetCredentialsForIdentity&lt;/a&gt;. This call expects the same &lt;code&gt;Logins&lt;/code&gt; map as the &lt;code&gt;GetId&lt;/code&gt; call, as well as the &lt;code&gt;IdentityID&lt;/code&gt; originally returned by &lt;code&gt;GetId&lt;/code&gt;. Assuming your identity pool has been configured via the &lt;a&gt;SetIdentityPoolRoles&lt;/a&gt; operation, &lt;code&gt;GetCredentialsForIdentity&lt;/code&gt; will return AWS credentials for your use. If your pool has not been configured with &lt;code&gt;SetIdentityPoolRoles&lt;/code&gt;, or if you want to follow legacy flow, make an unsigned call to &lt;a&gt;GetOpenIdToken&lt;/a&gt;, which returns the OpenID token necessary to call STS and retrieve AWS credentials. This call expects the same &lt;code&gt;Logins&lt;/code&gt; map as the &lt;code&gt;GetId&lt;/code&gt; call, as well as the &lt;code&gt;IdentityID&lt;/code&gt; originally returned by &lt;code&gt;GetId&lt;/code&gt;. The token returned by &lt;code&gt;GetOpenIdToken&lt;/code&gt; can be passed to the STS operation AWS Mobile SDK Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="177"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentity/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSCognitoIdentity/defaultCognitoIdentity</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultCognitoIdentity</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultCognitoIdentity</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSCognitoIdentity/registerCognitoIdentityWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerCognitoIdentityWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerCognitoIdentityWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSCognitoIdentity/CognitoIdentityForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerCognitoIdentityWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)CognitoIdentityForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/CognitoIdentityForKey:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSCognitoIdentity/removeCognitoIdentityForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeCognitoIdentityForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeCognitoIdentityForKey:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/createIdentityPool:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account. The keys for &lt;code&gt;SupportedLoginProviders&lt;/code&gt; are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Facebook: &lt;code&gt;graph.facebook.com&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Google: &lt;code&gt;accounts.google.com&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Amazon: &lt;code&gt;www.amazon.com&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Twitter: &lt;code&gt;api.twitter.com&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Digits: &lt;code&gt;www.digits.com&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityCreateIdentityPoolInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityIdentityPool</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityIdentityPool*&gt; *)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateIdentityPool service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityIdentityPool. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorLimitExceeded.</Abstract></ReturnValue>
+			<Anchor>//api/name/createIdentityPool:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/createIdentityPool:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account. The keys for &lt;code&gt;SupportedLoginProviders&lt;/code&gt; are as follows:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Facebook: &lt;code&gt;graph.facebook.com&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Google: &lt;code&gt;accounts.google.com&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Amazon: &lt;code&gt;www.amazon.com&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Twitter: &lt;code&gt;api.twitter.com&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Digits: &lt;code&gt;www.digits.com&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityCreateIdentityPoolInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityIdentityPool</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityPool *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateIdentityPool service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorLimitExceeded.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createIdentityPool:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/deleteIdentities:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes identities from an identity pool. You can specify a list of 1-60 identities that you want to delete.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDeleteIdentitiesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDeleteIdentitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityDeleteIdentitiesResponse*&gt; *)deleteIdentities:(AWSCognitoIdentityDeleteIdentitiesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteIdentities service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityDeleteIdentitiesResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteIdentities:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/deleteIdentities:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes identities from an identity pool. You can specify a list of 1-60 identities that you want to delete.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDeleteIdentitiesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDeleteIdentitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteIdentities:(AWSCognitoIdentityDeleteIdentitiesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityDeleteIdentitiesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteIdentities service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteIdentities:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/deleteIdentityPool:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a user pool. Once a pool is deleted, users will not be able to authenticate with the pool.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDeleteIdentityPoolInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteIdentityPool:(AWSCognitoIdentityDeleteIdentityPoolInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteIdentityPool service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteIdentityPool:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/deleteIdentityPool:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a user pool. Once a pool is deleted, users will not be able to authenticate with the pool.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDeleteIdentityPoolInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteIdentityPool:(AWSCognitoIdentityDeleteIdentityPoolInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteIdentityPool service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteIdentityPool:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/describeIdentity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns metadata related to the given identity, including when the identity was created and any associated linked logins.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDescribeIdentityInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityIdentityDescription</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityIdentityDescription*&gt; *)describeIdentity:(AWSCognitoIdentityDescribeIdentityInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeIdentity service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityIdentityDescription. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeIdentity:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/describeIdentity:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns metadata related to the given identity, including when the identity was created and any associated linked logins.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDescribeIdentityInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityIdentityDescription</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeIdentity:(AWSCognitoIdentityDescribeIdentityInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityDescription *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeIdentity service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeIdentity:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/describeIdentityPool:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets details about a particular identity pool, including the pool name, ID description, creation date, and current number of users.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDescribeIdentityPoolInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityIdentityPool</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityIdentityPool*&gt; *)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeIdentityPool service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityIdentityPool. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeIdentityPool:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/describeIdentityPool:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets details about a particular identity pool, including the pool name, ID description, creation date, and current number of users.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityDescribeIdentityPoolInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityIdentityPool</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeIdentityPool:(AWSCognitoIdentityDescribeIdentityPoolInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityPool *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeIdentityPool service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeIdentityPool:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/getCredentialsForIdentity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns credentials for the provided identity ID. Any provided logins will be validated against supported login providers. If the token is for cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service with the appropriate role for the token.&lt;/p&gt;&lt;p&gt;This is a public API. You do not need any credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetCredentialsForIdentityInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetCredentialsForIdentityResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityGetCredentialsForIdentityResponse*&gt; *)getCredentialsForIdentity:(AWSCognitoIdentityGetCredentialsForIdentityInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCredentialsForIdentity service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityGetCredentialsForIdentityResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorExternalService.</Abstract></ReturnValue>
+			<Anchor>//api/name/getCredentialsForIdentity:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/getCredentialsForIdentity:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns credentials for the provided identity ID. Any provided logins will be validated against supported login providers. If the token is for cognito-identity.amazonaws.com, it will be passed through to AWS Security Token Service with the appropriate role for the token.&lt;/p&gt;&lt;p&gt;This is a public API. You do not need any credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetCredentialsForIdentityInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetCredentialsForIdentityResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getCredentialsForIdentity:(AWSCognitoIdentityGetCredentialsForIdentityInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetCredentialsForIdentityResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCredentialsForIdentity service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorExternalService.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getCredentialsForIdentity:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/getId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.&lt;/p&gt;&lt;p&gt;This is a public API. You do not need any credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetIdInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetIdResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityGetIdResponse*&gt; *)getId:(AWSCognitoIdentityGetIdInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetId service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityGetIdResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorLimitExceeded, AWSCognitoIdentityErrorExternalService.</Abstract></ReturnValue>
+			<Anchor>//api/name/getId:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/getId:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Generates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.&lt;/p&gt;&lt;p&gt;This is a public API. You do not need any credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetIdInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetIdResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getId:(AWSCognitoIdentityGetIdInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetIdResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetId service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorLimitExceeded, AWSCognitoIdentityErrorExternalService.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getId:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/getIdentityPoolRoles:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets the roles for an identity pool.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetIdentityPoolRolesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetIdentityPoolRolesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityGetIdentityPoolRolesResponse*&gt; *)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetIdentityPoolRoles service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityGetIdentityPoolRolesResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract></ReturnValue>
+			<Anchor>//api/name/getIdentityPoolRoles:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/getIdentityPoolRoles:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets the roles for an identity pool.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetIdentityPoolRolesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetIdentityPoolRolesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetIdentityPoolRolesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetIdentityPoolRoles service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getIdentityPoolRoles:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/getOpenIdToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by &lt;a&gt;GetId&lt;/a&gt;. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.&lt;/p&gt;&lt;p&gt;The OpenId token is valid for 15 minutes.&lt;/p&gt;&lt;p&gt;This is a public API. You do not need any credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetOpenIdTokenInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetOpenIdTokenResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityGetOpenIdTokenResponse*&gt; *)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetOpenIdToken service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityGetOpenIdTokenResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorExternalService.</Abstract></ReturnValue>
+			<Anchor>//api/name/getOpenIdToken:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/getOpenIdToken:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by &lt;a&gt;GetId&lt;/a&gt;. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.&lt;/p&gt;&lt;p&gt;The OpenId token is valid for 15 minutes.&lt;/p&gt;&lt;p&gt;This is a public API. You do not need any credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetOpenIdTokenInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetOpenIdTokenResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetOpenIdTokenResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetOpenIdToken service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorExternalService.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getOpenIdToken:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/getOpenIdTokenForDeveloperIdentity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Registers (or retrieves) a Cognito &lt;code&gt;IdentityId&lt;/code&gt; and an OpenID Connect token for a user authenticated by your backend authentication process. Supplying multiple logins will create an implicit linked account. You can only specify one developer provider as part of the &lt;code&gt;Logins&lt;/code&gt; map, which is linked to the identity pool. The developer provider is the &quot;domain&quot; by which Cognito will refer to your users.&lt;/p&gt;&lt;p&gt;You can use &lt;code&gt;GetOpenIdTokenForDeveloperIdentity&lt;/code&gt; to create a new identity and to link new logins (that is, user credentials issued by a public provider or developer provider) to an existing identity. When you want to create a new identity, the &lt;code&gt;IdentityId&lt;/code&gt; should be null. When you want to associate a new login with an existing authenticated/unauthenticated identity, you can do so by providing the existing &lt;code&gt;IdentityId&lt;/code&gt;. This API will create the identity in the specified &lt;code&gt;IdentityPoolId&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse*&gt; *)getOpenIdTokenForDeveloperIdentity:(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetOpenIdTokenForDeveloperIdentity service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered.</Abstract></ReturnValue>
+			<Anchor>//api/name/getOpenIdTokenForDeveloperIdentity:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/getOpenIdTokenForDeveloperIdentity:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Registers (or retrieves) a Cognito &lt;code&gt;IdentityId&lt;/code&gt; and an OpenID Connect token for a user authenticated by your backend authentication process. Supplying multiple logins will create an implicit linked account. You can only specify one developer provider as part of the &lt;code&gt;Logins&lt;/code&gt; map, which is linked to the identity pool. The developer provider is the &quot;domain&quot; by which Cognito will refer to your users.&lt;/p&gt;&lt;p&gt;You can use &lt;code&gt;GetOpenIdTokenForDeveloperIdentity&lt;/code&gt; to create a new identity and to link new logins (that is, user credentials issued by a public provider or developer provider) to an existing identity. When you want to create a new identity, the &lt;code&gt;IdentityId&lt;/code&gt; should be null. When you want to associate a new login with an existing authenticated/unauthenticated identity, you can do so by providing the existing &lt;code&gt;IdentityId&lt;/code&gt;. This API will create the identity in the specified &lt;code&gt;IdentityPoolId&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getOpenIdTokenForDeveloperIdentity:(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetOpenIdTokenForDeveloperIdentity service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getOpenIdTokenForDeveloperIdentity:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/listIdentities:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the identities in a pool.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityListIdentitiesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityListIdentitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityListIdentitiesResponse*&gt; *)listIdentities:(AWSCognitoIdentityListIdentitiesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListIdentities service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityListIdentitiesResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract></ReturnValue>
+			<Anchor>//api/name/listIdentities:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/listIdentities:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the identities in a pool.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityListIdentitiesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityListIdentitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listIdentities:(AWSCognitoIdentityListIdentitiesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityListIdentitiesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListIdentities service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listIdentities:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/listIdentityPools:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists all of the Cognito identity pools registered for your account.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityListIdentityPoolsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityListIdentityPoolsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityListIdentityPoolsResponse*&gt; *)listIdentityPools:(AWSCognitoIdentityListIdentityPoolsInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListIdentityPools service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityListIdentityPoolsResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract></ReturnValue>
+			<Anchor>//api/name/listIdentityPools:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/listIdentityPools:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists all of the Cognito identity pools registered for your account.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityListIdentityPoolsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityListIdentityPoolsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listIdentityPools:(AWSCognitoIdentityListIdentityPoolsInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityListIdentityPoolsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListIdentityPools service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listIdentityPools:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/lookupDeveloperIdentity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Retrieves the &lt;code&gt;IdentityID&lt;/code&gt; associated with a &lt;code&gt;DeveloperUserIdentifier&lt;/code&gt; or the list of &lt;code&gt;DeveloperUserIdentifier&lt;/code&gt;s associated with an &lt;code&gt;IdentityId&lt;/code&gt; for an existing identity. Either &lt;code&gt;IdentityID&lt;/code&gt; or &lt;code&gt;DeveloperUserIdentifier&lt;/code&gt; must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, &lt;code&gt;DeveloperUserIdentifier&lt;/code&gt; will be matched against &lt;code&gt;IdentityID&lt;/code&gt;. If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a &lt;code&gt;ResourceConflictException&lt;/code&gt; is thrown.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityLookupDeveloperIdentityInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityLookupDeveloperIdentityResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityLookupDeveloperIdentityResponse*&gt; *)lookupDeveloperIdentity:(AWSCognitoIdentityLookupDeveloperIdentityInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the LookupDeveloperIdentity service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityLookupDeveloperIdentityResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract></ReturnValue>
+			<Anchor>//api/name/lookupDeveloperIdentity:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/lookupDeveloperIdentity:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Retrieves the &lt;code&gt;IdentityID&lt;/code&gt; associated with a &lt;code&gt;DeveloperUserIdentifier&lt;/code&gt; or the list of &lt;code&gt;DeveloperUserIdentifier&lt;/code&gt;s associated with an &lt;code&gt;IdentityId&lt;/code&gt; for an existing identity. Either &lt;code&gt;IdentityID&lt;/code&gt; or &lt;code&gt;DeveloperUserIdentifier&lt;/code&gt; must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, &lt;code&gt;DeveloperUserIdentifier&lt;/code&gt; will be matched against &lt;code&gt;IdentityID&lt;/code&gt;. If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a &lt;code&gt;ResourceConflictException&lt;/code&gt; is thrown.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityLookupDeveloperIdentityInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityLookupDeveloperIdentityResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)lookupDeveloperIdentity:(AWSCognitoIdentityLookupDeveloperIdentityInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityLookupDeveloperIdentityResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the LookupDeveloperIdentity service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/lookupDeveloperIdentity:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/mergeDeveloperIdentities:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Merges two users having different &lt;code&gt;IdentityId&lt;/code&gt;s, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (&lt;code&gt;SourceUserIdentifier&lt;/code&gt;) with the &lt;code&gt;IdentityId&lt;/code&gt; of the &lt;code&gt;DestinationUserIdentifier&lt;/code&gt;. Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityMergeDeveloperIdentitiesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityMergeDeveloperIdentitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityMergeDeveloperIdentitiesResponse*&gt; *)mergeDeveloperIdentities:(AWSCognitoIdentityMergeDeveloperIdentitiesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the MergeDeveloperIdentities service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityMergeDeveloperIdentitiesResponse. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract></ReturnValue>
+			<Anchor>//api/name/mergeDeveloperIdentities:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/mergeDeveloperIdentities:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Merges two users having different &lt;code&gt;IdentityId&lt;/code&gt;s, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (&lt;code&gt;SourceUserIdentifier&lt;/code&gt;) with the &lt;code&gt;IdentityId&lt;/code&gt; of the &lt;code&gt;DestinationUserIdentifier&lt;/code&gt;. Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityMergeDeveloperIdentitiesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityMergeDeveloperIdentitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)mergeDeveloperIdentities:(AWSCognitoIdentityMergeDeveloperIdentitiesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityMergeDeveloperIdentitiesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the MergeDeveloperIdentities service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/mergeDeveloperIdentities:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/setIdentityPoolRoles:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets the roles for an identity pool. These roles are used when making calls to &lt;a&gt;GetCredentialsForIdentity&lt;/a&gt; action.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentitySetIdentityPoolRolesInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)setIdentityPoolRoles:(AWSCognitoIdentitySetIdentityPoolRolesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetIdentityPoolRoles service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorConcurrentModification.</Abstract></ReturnValue>
+			<Anchor>//api/name/setIdentityPoolRoles:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/setIdentityPoolRoles:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets the roles for an identity pool. These roles are used when making calls to &lt;a&gt;GetCredentialsForIdentity&lt;/a&gt; action.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentitySetIdentityPoolRolesInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)setIdentityPoolRoles:(AWSCognitoIdentitySetIdentityPoolRolesInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetIdentityPoolRoles service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorConcurrentModification.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setIdentityPoolRoles:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/unlinkDeveloperIdentity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unlinks a &lt;code&gt;DeveloperUserIdentifier&lt;/code&gt; from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityUnlinkDeveloperIdentityInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)unlinkDeveloperIdentity:(AWSCognitoIdentityUnlinkDeveloperIdentityInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UnlinkDeveloperIdentity service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract></ReturnValue>
+			<Anchor>//api/name/unlinkDeveloperIdentity:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/unlinkDeveloperIdentity:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unlinks a &lt;code&gt;DeveloperUserIdentifier&lt;/code&gt; from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityUnlinkDeveloperIdentityInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)unlinkDeveloperIdentity:(AWSCognitoIdentityUnlinkDeveloperIdentityInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UnlinkDeveloperIdentity service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/unlinkDeveloperIdentity:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/unlinkIdentity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.&lt;/p&gt;&lt;p&gt;This is a public API. You do not need any credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityUnlinkIdentityInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)unlinkIdentity:(AWSCognitoIdentityUnlinkIdentityInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UnlinkIdentity service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorExternalService.</Abstract></ReturnValue>
+			<Anchor>//api/name/unlinkIdentity:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/unlinkIdentity:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.&lt;/p&gt;&lt;p&gt;This is a public API. You do not need any credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityUnlinkIdentityInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)unlinkIdentity:(AWSCognitoIdentityUnlinkIdentityInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UnlinkIdentity service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorExternalService.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/unlinkIdentity:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/updateIdentityPool:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Updates a user pool.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityIdentityPool</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityIdentityPool</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSCognitoIdentityIdentityPool*&gt; *)updateIdentityPool:(AWSCognitoIdentityIdentityPool *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateIdentityPool service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSCognitoIdentityIdentityPool. On failed execution, task.error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorConcurrentModification, AWSCognitoIdentityErrorLimitExceeded.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateIdentityPool:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentity/updateIdentityPool:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Updates a user pool.&lt;/p&gt;&lt;p&gt;You must use AWS Developer credentials to call this API.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityIdentityPool</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityIdentityPool</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateIdentityPool:(AWSCognitoIdentityIdentityPool *)request completionHandler:(void ( ^ _Nullable ) ( AWSCognitoIdentityIdentityPool *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateIdentityPool service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSCognitoIdentityErrorDomain domain and the following error code: AWSCognitoIdentityErrorInvalidParameter, AWSCognitoIdentityErrorResourceNotFound, AWSCognitoIdentityErrorNotAuthorized, AWSCognitoIdentityErrorResourceConflict, AWSCognitoIdentityErrorTooManyRequests, AWSCognitoIdentityErrorInternalError, AWSCognitoIdentityErrorConcurrentModification, AWSCognitoIdentityErrorLimitExceeded.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateIdentityPool:completionHandler:</Anchor>
+            <NodeRef refid="177"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

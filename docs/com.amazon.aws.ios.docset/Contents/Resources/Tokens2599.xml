@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSPinpointTargetingChannelType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSPinpointTargetingChannelType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2599"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingChannelTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingChannelTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2599"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingChannelTypeGcm</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingChannelTypeGcm</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2599"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingChannelTypeApns</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingChannelTypeApns</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2599"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingChannelTypeApnsSandbox</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingChannelTypeApnsSandbox</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2599"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingChannelTypeAdm</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingChannelTypeAdm</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2599"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingChannelTypeSms</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingChannelTypeSms</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2599"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingChannelTypeEmail</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingChannelTypeEmail</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2599"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

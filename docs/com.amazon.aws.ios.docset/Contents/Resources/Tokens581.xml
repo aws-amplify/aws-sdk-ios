@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBCreateTableInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBCreateTableInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the input of a &lt;code&gt;CreateTable&lt;/code&gt; operation.&lt;/p&gt;
+Required parameters: [AttributeDefinitions, TableName, KeySchema, ProvisionedThroughput]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="581"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/setAttributeDefinitions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of attributes that describe the key schema for the table and indexes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBAttributeDefinition*&gt; *attributeDefinitions</Declaration>
+			
+			
+			<Anchor>//api/name/attributeDefinitions</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/attributeDefinitions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of attributes that describe the key schema for the table and indexes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBAttributeDefinition*&gt; *attributeDefinitions</Declaration>
+			
+			
+			<Anchor>//api/name/attributeDefinitions</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCreateTableInput/attributeDefinitions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of attributes that describe the key schema for the table and indexes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBAttributeDefinition*&gt; *attributeDefinitions</Declaration>
+			
+			
+			<Anchor>//api/name/attributeDefinitions</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/setGlobalSecondaryIndexes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;IndexName&lt;/code&gt; - The name of the global secondary index. Must be unique only for this table.&lt;/p&gt;&lt;p/&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KeySchema&lt;/code&gt; - Specifies the key schema for the global secondary index.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Projection&lt;/code&gt; - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ProjectionType&lt;/code&gt; - One of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYS_ONLY&lt;/code&gt; - Only the index and primary keys are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INCLUDE&lt;/code&gt; - Only the specified table attributes are projected into the index. The list of projected attributes are in &lt;code&gt;NonKeyAttributes&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALL&lt;/code&gt; - All of the table attributes are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NonKeyAttributes&lt;/code&gt; - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in &lt;code&gt;NonKeyAttributes&lt;/code&gt;, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ProvisionedThroughput&lt;/code&gt; - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBGlobalSecondaryIndex*&gt; *globalSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/globalSecondaryIndexes</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/globalSecondaryIndexes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;IndexName&lt;/code&gt; - The name of the global secondary index. Must be unique only for this table.&lt;/p&gt;&lt;p/&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KeySchema&lt;/code&gt; - Specifies the key schema for the global secondary index.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Projection&lt;/code&gt; - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ProjectionType&lt;/code&gt; - One of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYS_ONLY&lt;/code&gt; - Only the index and primary keys are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INCLUDE&lt;/code&gt; - Only the specified table attributes are projected into the index. The list of projected attributes are in &lt;code&gt;NonKeyAttributes&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALL&lt;/code&gt; - All of the table attributes are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NonKeyAttributes&lt;/code&gt; - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in &lt;code&gt;NonKeyAttributes&lt;/code&gt;, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ProvisionedThroughput&lt;/code&gt; - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBGlobalSecondaryIndex*&gt; *globalSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/globalSecondaryIndexes</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCreateTableInput/globalSecondaryIndexes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;IndexName&lt;/code&gt; - The name of the global secondary index. Must be unique only for this table.&lt;/p&gt;&lt;p/&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KeySchema&lt;/code&gt; - Specifies the key schema for the global secondary index.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Projection&lt;/code&gt; - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ProjectionType&lt;/code&gt; - One of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYS_ONLY&lt;/code&gt; - Only the index and primary keys are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INCLUDE&lt;/code&gt; - Only the specified table attributes are projected into the index. The list of projected attributes are in &lt;code&gt;NonKeyAttributes&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALL&lt;/code&gt; - All of the table attributes are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NonKeyAttributes&lt;/code&gt; - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in &lt;code&gt;NonKeyAttributes&lt;/code&gt;, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ProvisionedThroughput&lt;/code&gt; - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBGlobalSecondaryIndex*&gt; *globalSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/globalSecondaryIndexes</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/setKeySchema:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the attributes that make up the primary key for a table or an index. The attributes in &lt;code&gt;KeySchema&lt;/code&gt; must also be defined in the &lt;code&gt;AttributeDefinitions&lt;/code&gt; array. For more information, see Specifying the Primary Key in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBKeySchemaElement*&gt; *keySchema</Declaration>
+			
+			
+			<Anchor>//api/name/keySchema</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/keySchema</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the attributes that make up the primary key for a table or an index. The attributes in &lt;code&gt;KeySchema&lt;/code&gt; must also be defined in the &lt;code&gt;AttributeDefinitions&lt;/code&gt; array. For more information, see Specifying the Primary Key in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBKeySchemaElement*&gt; *keySchema</Declaration>
+			
+			
+			<Anchor>//api/name/keySchema</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCreateTableInput/keySchema</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the attributes that make up the primary key for a table or an index. The attributes in &lt;code&gt;KeySchema&lt;/code&gt; must also be defined in the &lt;code&gt;AttributeDefinitions&lt;/code&gt; array. For more information, see Specifying the Primary Key in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBKeySchemaElement*&gt; *keySchema</Declaration>
+			
+			
+			<Anchor>//api/name/keySchema</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/setLocalSecondaryIndexes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.&lt;/p&gt;&lt;p&gt;Each local secondary index in the array includes the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;IndexName&lt;/code&gt; - The name of the local secondary index. Must be unique only for this table.&lt;/p&gt;&lt;p/&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KeySchema&lt;/code&gt; - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Projection&lt;/code&gt; - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ProjectionType&lt;/code&gt; - One of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYS_ONLY&lt;/code&gt; - Only the index and primary keys are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INCLUDE&lt;/code&gt; - Only the specified table attributes are projected into the index. The list of projected attributes are in &lt;code&gt;NonKeyAttributes&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALL&lt;/code&gt; - All of the table attributes are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NonKeyAttributes&lt;/code&gt; - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in &lt;code&gt;NonKeyAttributes&lt;/code&gt;, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBLocalSecondaryIndex*&gt; *localSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/localSecondaryIndexes</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/localSecondaryIndexes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.&lt;/p&gt;&lt;p&gt;Each local secondary index in the array includes the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;IndexName&lt;/code&gt; - The name of the local secondary index. Must be unique only for this table.&lt;/p&gt;&lt;p/&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KeySchema&lt;/code&gt; - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Projection&lt;/code&gt; - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ProjectionType&lt;/code&gt; - One of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYS_ONLY&lt;/code&gt; - Only the index and primary keys are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INCLUDE&lt;/code&gt; - Only the specified table attributes are projected into the index. The list of projected attributes are in &lt;code&gt;NonKeyAttributes&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALL&lt;/code&gt; - All of the table attributes are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NonKeyAttributes&lt;/code&gt; - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in &lt;code&gt;NonKeyAttributes&lt;/code&gt;, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBLocalSecondaryIndex*&gt; *localSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/localSecondaryIndexes</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCreateTableInput/localSecondaryIndexes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.&lt;/p&gt;&lt;p&gt;Each local secondary index in the array includes the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;IndexName&lt;/code&gt; - The name of the local secondary index. Must be unique only for this table.&lt;/p&gt;&lt;p/&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KeySchema&lt;/code&gt; - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Projection&lt;/code&gt; - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ProjectionType&lt;/code&gt; - One of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYS_ONLY&lt;/code&gt; - Only the index and primary keys are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;INCLUDE&lt;/code&gt; - Only the specified table attributes are projected into the index. The list of projected attributes are in &lt;code&gt;NonKeyAttributes&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALL&lt;/code&gt; - All of the table attributes are projected into the index.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NonKeyAttributes&lt;/code&gt; - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in &lt;code&gt;NonKeyAttributes&lt;/code&gt;, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBLocalSecondaryIndex*&gt; *localSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/localSecondaryIndexes</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/setProvisionedThroughput:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the &lt;code&gt;UpdateTable&lt;/code&gt; operation.&lt;/p&gt;&lt;p&gt;For current minimum and maximum provisioned throughput values, see Limits in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput *provisionedThroughput</Declaration>
+			
+			
+			<Anchor>//api/name/provisionedThroughput</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/provisionedThroughput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the &lt;code&gt;UpdateTable&lt;/code&gt; operation.&lt;/p&gt;&lt;p&gt;For current minimum and maximum provisioned throughput values, see Limits in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput *provisionedThroughput</Declaration>
+			
+			
+			<Anchor>//api/name/provisionedThroughput</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCreateTableInput/provisionedThroughput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the &lt;code&gt;UpdateTable&lt;/code&gt; operation.&lt;/p&gt;&lt;p&gt;For current minimum and maximum provisioned throughput values, see Limits in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput *provisionedThroughput</Declaration>
+			
+			
+			<Anchor>//api/name/provisionedThroughput</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/setSSESpecification:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the settings used to enable server-side encryption.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBSSESpecification *SSESpecification</Declaration>
+			
+			
+			<Anchor>//api/name/SSESpecification</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/SSESpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the settings used to enable server-side encryption.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBSSESpecification *SSESpecification</Declaration>
+			
+			
+			<Anchor>//api/name/SSESpecification</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCreateTableInput/SSESpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the settings used to enable server-side encryption.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBSSESpecification *SSESpecification</Declaration>
+			
+			
+			<Anchor>//api/name/SSESpecification</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/setStreamSpecification:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The settings for DynamoDB Streams on the table. These settings consist of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;StreamEnabled&lt;/code&gt; - Indicates whether Streams is to be enabled (true) or disabled (false).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;StreamViewType&lt;/code&gt; - When an item in the table is modified, &lt;code&gt;StreamViewType&lt;/code&gt; determines what information is written to the table&apos;s stream. Valid values for &lt;code&gt;StreamViewType&lt;/code&gt; are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYSONLY&lt;/code&gt; - Only the key attributes of the modified item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWIMAGE&lt;/code&gt; - The entire item, as it appears after it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;OLDIMAGE&lt;/code&gt; - The entire item, as it appeared before it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWANDOLDIMAGES&lt;/code&gt; - Both the new and the old item images of the item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBStreamSpecification *streamSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/streamSpecification</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/streamSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The settings for DynamoDB Streams on the table. These settings consist of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;StreamEnabled&lt;/code&gt; - Indicates whether Streams is to be enabled (true) or disabled (false).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;StreamViewType&lt;/code&gt; - When an item in the table is modified, &lt;code&gt;StreamViewType&lt;/code&gt; determines what information is written to the table&apos;s stream. Valid values for &lt;code&gt;StreamViewType&lt;/code&gt; are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYSONLY&lt;/code&gt; - Only the key attributes of the modified item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWIMAGE&lt;/code&gt; - The entire item, as it appears after it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;OLDIMAGE&lt;/code&gt; - The entire item, as it appeared before it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWANDOLDIMAGES&lt;/code&gt; - Both the new and the old item images of the item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBStreamSpecification *streamSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/streamSpecification</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCreateTableInput/streamSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The settings for DynamoDB Streams on the table. These settings consist of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;StreamEnabled&lt;/code&gt; - Indicates whether Streams is to be enabled (true) or disabled (false).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;StreamViewType&lt;/code&gt; - When an item in the table is modified, &lt;code&gt;StreamViewType&lt;/code&gt; determines what information is written to the table&apos;s stream. Valid values for &lt;code&gt;StreamViewType&lt;/code&gt; are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYSONLY&lt;/code&gt; - Only the key attributes of the modified item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWIMAGE&lt;/code&gt; - The entire item, as it appears after it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;OLDIMAGE&lt;/code&gt; - The entire item, as it appeared before it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWANDOLDIMAGES&lt;/code&gt; - Both the new and the old item images of the item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBStreamSpecification *streamSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/streamSpecification</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/setTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table to create.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateTableInput/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table to create.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCreateTableInput/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table to create.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="581"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

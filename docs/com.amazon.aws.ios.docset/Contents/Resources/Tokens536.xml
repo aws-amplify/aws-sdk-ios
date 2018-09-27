@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendDetectEntitiesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendDetectEntitiesResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="536"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendDetectEntitiesResponse/setEntities:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. For a list of entity types, see &lt;a&gt;how-entities&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendEntity*&gt; *entities</Declaration>
+			
+			
+			<Anchor>//api/name/entities</Anchor>
+            <NodeRef refid="536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendDetectEntitiesResponse/entities</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. For a list of entity types, see &lt;a&gt;how-entities&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendEntity*&gt; *entities</Declaration>
+			
+			
+			<Anchor>//api/name/entities</Anchor>
+            <NodeRef refid="536"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendDetectEntitiesResponse/entities</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. For a list of entity types, see &lt;a&gt;how-entities&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendEntity*&gt; *entities</Declaration>
+			
+			
+			<Anchor>//api/name/entities</Anchor>
+            <NodeRef refid="536"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

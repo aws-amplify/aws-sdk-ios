@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingCampaignResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCampaignResponse</TokenIdentifier>
+			<Abstract type="html">Campaign definition</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1494"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setAdditionalTreatments:</TokenIdentifier>
+			<Abstract type="html">Treatments that are defined in addition to the default treatment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPinpointTargetingTreatmentResource*&gt; *additionalTreatments</Declaration>
+			
+			
+			<Anchor>//api/name/additionalTreatments</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/additionalTreatments</TokenIdentifier>
+			<Abstract type="html">Treatments that are defined in addition to the default treatment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPinpointTargetingTreatmentResource*&gt; *additionalTreatments</Declaration>
+			
+			
+			<Anchor>//api/name/additionalTreatments</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/additionalTreatments</TokenIdentifier>
+			<Abstract type="html">Treatments that are defined in addition to the default treatment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPinpointTargetingTreatmentResource*&gt; *additionalTreatments</Declaration>
+			
+			
+			<Anchor>//api/name/additionalTreatments</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setApplicationId:</TokenIdentifier>
+			<Abstract type="html">The ID of the application to which the campaign applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/applicationId</TokenIdentifier>
+			<Abstract type="html">The ID of the application to which the campaign applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/applicationId</TokenIdentifier>
+			<Abstract type="html">The ID of the application to which the campaign applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setCreationDate:</TokenIdentifier>
+			<Abstract type="html">The date the campaign was created in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/creationDate</TokenIdentifier>
+			<Abstract type="html">The date the campaign was created in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/creationDate</TokenIdentifier>
+			<Abstract type="html">The date the campaign was created in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setDefaultState:</TokenIdentifier>
+			<Abstract type="html">The status of the campaign&apos;s default treatment. Only present for A/B test campaigns.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignState *defaultState</Declaration>
+			
+			
+			<Anchor>//api/name/defaultState</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/defaultState</TokenIdentifier>
+			<Abstract type="html">The status of the campaign&apos;s default treatment. Only present for A/B test campaigns.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignState *defaultState</Declaration>
+			
+			
+			<Anchor>//api/name/defaultState</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/defaultState</TokenIdentifier>
+			<Abstract type="html">The status of the campaign&apos;s default treatment. Only present for A/B test campaigns.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignState *defaultState</Declaration>
+			
+			
+			<Anchor>//api/name/defaultState</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setDetail:</TokenIdentifier>
+			<Abstract type="html">A description of the campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/detail</TokenIdentifier>
+			<Abstract type="html">A description of the campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/detail</TokenIdentifier>
+			<Abstract type="html">A description of the campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setHoldoutPercent:</TokenIdentifier>
+			<Abstract type="html">The allocated percentage of end users who will not receive messages from this campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *holdoutPercent</Declaration>
+			
+			
+			<Anchor>//api/name/holdoutPercent</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/holdoutPercent</TokenIdentifier>
+			<Abstract type="html">The allocated percentage of end users who will not receive messages from this campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *holdoutPercent</Declaration>
+			
+			
+			<Anchor>//api/name/holdoutPercent</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/holdoutPercent</TokenIdentifier>
+			<Abstract type="html">The allocated percentage of end users who will not receive messages from this campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *holdoutPercent</Declaration>
+			
+			
+			<Anchor>//api/name/holdoutPercent</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">The unique campaign ID.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/identifier</TokenIdentifier>
+			<Abstract type="html">The unique campaign ID.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/identifier</TokenIdentifier>
+			<Abstract type="html">The unique campaign ID.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setIsPaused:</TokenIdentifier>
+			<Abstract type="html">Indicates whether the campaign is paused. A paused campaign does not send messages unless you resume it by setting IsPaused to false.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isPaused</Declaration>
+			
+			
+			<Anchor>//api/name/isPaused</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/isPaused</TokenIdentifier>
+			<Abstract type="html">Indicates whether the campaign is paused. A paused campaign does not send messages unless you resume it by setting IsPaused to false.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isPaused</Declaration>
+			
+			
+			<Anchor>//api/name/isPaused</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/isPaused</TokenIdentifier>
+			<Abstract type="html">Indicates whether the campaign is paused. A paused campaign does not send messages unless you resume it by setting IsPaused to false.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *isPaused</Declaration>
+			
+			
+			<Anchor>//api/name/isPaused</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setLastModifiedDate:</TokenIdentifier>
+			<Abstract type="html">The date the campaign was last updated in ISO 8601 format.	</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/lastModifiedDate</TokenIdentifier>
+			<Abstract type="html">The date the campaign was last updated in ISO 8601 format.	</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/lastModifiedDate</TokenIdentifier>
+			<Abstract type="html">The date the campaign was last updated in ISO 8601 format.	</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setLimits:</TokenIdentifier>
+			<Abstract type="html">The campaign limits settings.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignLimits *limits</Declaration>
+			
+			
+			<Anchor>//api/name/limits</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/limits</TokenIdentifier>
+			<Abstract type="html">The campaign limits settings.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignLimits *limits</Declaration>
+			
+			
+			<Anchor>//api/name/limits</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/limits</TokenIdentifier>
+			<Abstract type="html">The campaign limits settings.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignLimits *limits</Declaration>
+			
+			
+			<Anchor>//api/name/limits</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setMessageConfiguration:</TokenIdentifier>
+			<Abstract type="html">The message configuration settings.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingMessageConfiguration *messageConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/messageConfiguration</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/messageConfiguration</TokenIdentifier>
+			<Abstract type="html">The message configuration settings.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingMessageConfiguration *messageConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/messageConfiguration</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/messageConfiguration</TokenIdentifier>
+			<Abstract type="html">The message configuration settings.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingMessageConfiguration *messageConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/messageConfiguration</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setName:</TokenIdentifier>
+			<Abstract type="html">The custom name of the campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/name</TokenIdentifier>
+			<Abstract type="html">The custom name of the campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/name</TokenIdentifier>
+			<Abstract type="html">The custom name of the campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setSchedule:</TokenIdentifier>
+			<Abstract type="html">The campaign schedule.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSchedule *schedule</Declaration>
+			
+			
+			<Anchor>//api/name/schedule</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/schedule</TokenIdentifier>
+			<Abstract type="html">The campaign schedule.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSchedule *schedule</Declaration>
+			
+			
+			<Anchor>//api/name/schedule</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/schedule</TokenIdentifier>
+			<Abstract type="html">The campaign schedule.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSchedule *schedule</Declaration>
+			
+			
+			<Anchor>//api/name/schedule</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setSegmentId:</TokenIdentifier>
+			<Abstract type="html">The ID of the segment to which the campaign sends messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *segmentId</Declaration>
+			
+			
+			<Anchor>//api/name/segmentId</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/segmentId</TokenIdentifier>
+			<Abstract type="html">The ID of the segment to which the campaign sends messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *segmentId</Declaration>
+			
+			
+			<Anchor>//api/name/segmentId</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/segmentId</TokenIdentifier>
+			<Abstract type="html">The ID of the segment to which the campaign sends messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *segmentId</Declaration>
+			
+			
+			<Anchor>//api/name/segmentId</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setSegmentVersion:</TokenIdentifier>
+			<Abstract type="html">The version of the segment to which the campaign sends messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *segmentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/segmentVersion</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/segmentVersion</TokenIdentifier>
+			<Abstract type="html">The version of the segment to which the campaign sends messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *segmentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/segmentVersion</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/segmentVersion</TokenIdentifier>
+			<Abstract type="html">The version of the segment to which the campaign sends messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *segmentVersion</Declaration>
+			
+			
+			<Anchor>//api/name/segmentVersion</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setState:</TokenIdentifier>
+			<Abstract type="html">The campaign status.An A/B test campaign will have a status of COMPLETED only when all treatments have a status of COMPLETED.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignState *state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/state</TokenIdentifier>
+			<Abstract type="html">The campaign status.An A/B test campaign will have a status of COMPLETED only when all treatments have a status of COMPLETED.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignState *state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/state</TokenIdentifier>
+			<Abstract type="html">The campaign status.An A/B test campaign will have a status of COMPLETED only when all treatments have a status of COMPLETED.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingCampaignState *state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setTreatmentDescription:</TokenIdentifier>
+			<Abstract type="html">A custom description for the treatment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatmentDescription</Declaration>
+			
+			
+			<Anchor>//api/name/treatmentDescription</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/treatmentDescription</TokenIdentifier>
+			<Abstract type="html">A custom description for the treatment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatmentDescription</Declaration>
+			
+			
+			<Anchor>//api/name/treatmentDescription</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/treatmentDescription</TokenIdentifier>
+			<Abstract type="html">A custom description for the treatment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatmentDescription</Declaration>
+			
+			
+			<Anchor>//api/name/treatmentDescription</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setTreatmentName:</TokenIdentifier>
+			<Abstract type="html">The custom name of a variation of the campaign used for A/B testing.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatmentName</Declaration>
+			
+			
+			<Anchor>//api/name/treatmentName</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/treatmentName</TokenIdentifier>
+			<Abstract type="html">The custom name of a variation of the campaign used for A/B testing.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatmentName</Declaration>
+			
+			
+			<Anchor>//api/name/treatmentName</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/treatmentName</TokenIdentifier>
+			<Abstract type="html">The custom name of a variation of the campaign used for A/B testing.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatmentName</Declaration>
+			
+			
+			<Anchor>//api/name/treatmentName</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/setVersion:</TokenIdentifier>
+			<Abstract type="html">The campaign version number.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingCampaignResponse/version</TokenIdentifier>
+			<Abstract type="html">The campaign version number.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingCampaignResponse/version</TokenIdentifier>
+			<Abstract type="html">The campaign version number.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1494"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

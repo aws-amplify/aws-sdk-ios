@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESDescribeReceiptRuleRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESDescribeReceiptRuleRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to return the details of a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [RuleSetName, RuleName]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2083"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeReceiptRuleRequest/setRuleName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleName</Anchor>
+            <NodeRef refid="2083"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeReceiptRuleRequest/ruleName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleName</Anchor>
+            <NodeRef refid="2083"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDescribeReceiptRuleRequest/ruleName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleName</Anchor>
+            <NodeRef refid="2083"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeReceiptRuleRequest/setRuleSetName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule set that the receipt rule belongs to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleSetName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleSetName</Anchor>
+            <NodeRef refid="2083"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeReceiptRuleRequest/ruleSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule set that the receipt rule belongs to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleSetName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleSetName</Anchor>
+            <NodeRef refid="2083"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDescribeReceiptRuleRequest/ruleSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the receipt rule set that the receipt rule belongs to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleSetName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleSetName</Anchor>
+            <NodeRef refid="2083"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

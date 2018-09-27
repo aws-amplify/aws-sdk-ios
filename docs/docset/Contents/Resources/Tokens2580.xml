@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLexSpeechState.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLexSpeechState</TokenIdentifier>
+			<Abstract type="html">Constant synchronized lock string object used by releaseAudioSource method.
+Note that this should not used in any other place.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.m</DeclaredIn>
+            
+			
+			<NodeRef refid="2580"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexSpeechStateUninitialized</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexSpeechStateUninitialized</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.m</DeclaredIn>
+            
+            <NodeRef refid="2580"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexSpeechStateStarted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexSpeechStateStarted</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.m</DeclaredIn>
+            
+            <NodeRef refid="2580"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexSpeechStateEnded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexSpeechStateEnded</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.m</DeclaredIn>
+            
+            <NodeRef refid="2580"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

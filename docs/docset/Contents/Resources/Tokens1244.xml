@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisGetShardIteratorOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisGetShardIteratorOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the output for &lt;code&gt;GetShardIterator&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1244"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorOutput/setShardIterator:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardIterator</Declaration>
+			
+			
+			<Anchor>//api/name/shardIterator</Anchor>
+            <NodeRef refid="1244"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisGetShardIteratorOutput/shardIterator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardIterator</Declaration>
+			
+			
+			<Anchor>//api/name/shardIterator</Anchor>
+            <NodeRef refid="1244"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisGetShardIteratorOutput/shardIterator</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The position in the shard from which to start reading data records sequentially. A shard iterator specifies this position using the sequence number of a data record in a shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardIterator</Declaration>
+			
+			
+			<Anchor>//api/name/shardIterator</Anchor>
+            <NodeRef refid="1244"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

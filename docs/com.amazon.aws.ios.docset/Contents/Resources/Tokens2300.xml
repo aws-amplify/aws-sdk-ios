@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSTSAssumeRoleWithSAMLResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSTSAssumeRoleWithSAMLResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the response to a successful &lt;a&gt;AssumeRoleWithSAML&lt;/a&gt; request, including temporary AWS credentials that can be used to make AWS requests. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2300"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/setAssumedRoleUser:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifiers for the temporary security credentials that the operation returns.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSTSAssumedRoleUser *assumedRoleUser</Declaration>
+			
+			
+			<Anchor>//api/name/assumedRoleUser</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/assumedRoleUser</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifiers for the temporary security credentials that the operation returns.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSTSAssumedRoleUser *assumedRoleUser</Declaration>
+			
+			
+			<Anchor>//api/name/assumedRoleUser</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSAssumeRoleWithSAMLResponse/assumedRoleUser</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifiers for the temporary security credentials that the operation returns.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSTSAssumedRoleUser *assumedRoleUser</Declaration>
+			
+			
+			<Anchor>//api/name/assumedRoleUser</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/setAudience:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The value of the &lt;code&gt;Recipient&lt;/code&gt; attribute of the &lt;code&gt;SubjectConfirmationData&lt;/code&gt; element of the SAML assertion. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *audience</Declaration>
+			
+			
+			<Anchor>//api/name/audience</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/audience</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The value of the &lt;code&gt;Recipient&lt;/code&gt; attribute of the &lt;code&gt;SubjectConfirmationData&lt;/code&gt; element of the SAML assertion. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *audience</Declaration>
+			
+			
+			<Anchor>//api/name/audience</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSAssumeRoleWithSAMLResponse/audience</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The value of the &lt;code&gt;Recipient&lt;/code&gt; attribute of the &lt;code&gt;SubjectConfirmationData&lt;/code&gt; element of the SAML assertion. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *audience</Declaration>
+			
+			
+			<Anchor>//api/name/audience</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/setCredentials:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSTSCredentials *credentials</Declaration>
+			
+			
+			<Anchor>//api/name/credentials</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/credentials</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSTSCredentials *credentials</Declaration>
+			
+			
+			<Anchor>//api/name/credentials</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSAssumeRoleWithSAMLResponse/credentials</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The temporary security credentials, which include an access key ID, a secret access key, and a security (or session) token.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note:&lt;/b&gt; The size of the security token that STS APIs return is not fixed. We strongly recommend that you make no assumptions about the maximum size. As of this writing, the typical size is less than 4096 bytes, but that can vary. Also, future updates to AWS might require larger sizes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSTSCredentials *credentials</Declaration>
+			
+			
+			<Anchor>//api/name/credentials</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/setIssuer:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the &lt;code&gt;Issuer&lt;/code&gt; element of the SAML assertion.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *issuer</Declaration>
+			
+			
+			<Anchor>//api/name/issuer</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/issuer</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the &lt;code&gt;Issuer&lt;/code&gt; element of the SAML assertion.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *issuer</Declaration>
+			
+			
+			<Anchor>//api/name/issuer</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSAssumeRoleWithSAMLResponse/issuer</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the &lt;code&gt;Issuer&lt;/code&gt; element of the SAML assertion.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *issuer</Declaration>
+			
+			
+			<Anchor>//api/name/issuer</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/setNameQualifier:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A hash value based on the concatenation of the &lt;code&gt;Issuer&lt;/code&gt; response value, the AWS account ID, and the friendly name (the last part of the ARN) of the SAML provider in IAM. The combination of &lt;code&gt;NameQualifier&lt;/code&gt; and &lt;code&gt;Subject&lt;/code&gt; can be used to uniquely identify a federated user. &lt;/p&gt;&lt;p&gt;The following pseudocode shows how the hash value is calculated:&lt;/p&gt;&lt;p&gt;&lt;code&gt;BASE64 ( SHA1 ( &quot;https://example.com/saml&quot; + &quot;123456789012&quot; + &quot;/MySAMLIdP&quot; ) )&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nameQualifier</Declaration>
+			
+			
+			<Anchor>//api/name/nameQualifier</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/nameQualifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A hash value based on the concatenation of the &lt;code&gt;Issuer&lt;/code&gt; response value, the AWS account ID, and the friendly name (the last part of the ARN) of the SAML provider in IAM. The combination of &lt;code&gt;NameQualifier&lt;/code&gt; and &lt;code&gt;Subject&lt;/code&gt; can be used to uniquely identify a federated user. &lt;/p&gt;&lt;p&gt;The following pseudocode shows how the hash value is calculated:&lt;/p&gt;&lt;p&gt;&lt;code&gt;BASE64 ( SHA1 ( &quot;https://example.com/saml&quot; + &quot;123456789012&quot; + &quot;/MySAMLIdP&quot; ) )&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nameQualifier</Declaration>
+			
+			
+			<Anchor>//api/name/nameQualifier</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSAssumeRoleWithSAMLResponse/nameQualifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A hash value based on the concatenation of the &lt;code&gt;Issuer&lt;/code&gt; response value, the AWS account ID, and the friendly name (the last part of the ARN) of the SAML provider in IAM. The combination of &lt;code&gt;NameQualifier&lt;/code&gt; and &lt;code&gt;Subject&lt;/code&gt; can be used to uniquely identify a federated user. &lt;/p&gt;&lt;p&gt;The following pseudocode shows how the hash value is calculated:&lt;/p&gt;&lt;p&gt;&lt;code&gt;BASE64 ( SHA1 ( &quot;https://example.com/saml&quot; + &quot;123456789012&quot; + &quot;/MySAMLIdP&quot; ) )&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nameQualifier</Declaration>
+			
+			
+			<Anchor>//api/name/nameQualifier</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/setPackedPolicySize:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *packedPolicySize</Declaration>
+			
+			
+			<Anchor>//api/name/packedPolicySize</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/packedPolicySize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *packedPolicySize</Declaration>
+			
+			
+			<Anchor>//api/name/packedPolicySize</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSAssumeRoleWithSAMLResponse/packedPolicySize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A percentage value that indicates the size of the policy in packed form. The service rejects any policy with a packed size greater than 100 percent, which means the policy exceeded the allowed space.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *packedPolicySize</Declaration>
+			
+			
+			<Anchor>//api/name/packedPolicySize</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/setSubject:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the &lt;code&gt;NameID&lt;/code&gt; element in the &lt;code&gt;Subject&lt;/code&gt; element of the SAML assertion.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subject</Declaration>
+			
+			
+			<Anchor>//api/name/subject</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/subject</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the &lt;code&gt;NameID&lt;/code&gt; element in the &lt;code&gt;Subject&lt;/code&gt; element of the SAML assertion.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subject</Declaration>
+			
+			
+			<Anchor>//api/name/subject</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSAssumeRoleWithSAMLResponse/subject</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the &lt;code&gt;NameID&lt;/code&gt; element in the &lt;code&gt;Subject&lt;/code&gt; element of the SAML assertion.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subject</Declaration>
+			
+			
+			<Anchor>//api/name/subject</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/setSubjectType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The format of the name ID, as defined by the &lt;code&gt;Format&lt;/code&gt; attribute in the &lt;code&gt;NameID&lt;/code&gt; element of the SAML assertion. Typical examples of the format are &lt;code&gt;transient&lt;/code&gt; or &lt;code&gt;persistent&lt;/code&gt;. &lt;/p&gt;&lt;p&gt; If the format includes the prefix &lt;code&gt;urn:oasis:names:tc:SAML:2.0:nameid-format&lt;/code&gt;, that prefix is removed. For example, &lt;code&gt;urn:oasis:names:tc:SAML:2.0:nameid-format:transient&lt;/code&gt; is returned as &lt;code&gt;transient&lt;/code&gt;. If the format includes any other prefix, the format is returned with no modifications.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subjectType</Declaration>
+			
+			
+			<Anchor>//api/name/subjectType</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSAssumeRoleWithSAMLResponse/subjectType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The format of the name ID, as defined by the &lt;code&gt;Format&lt;/code&gt; attribute in the &lt;code&gt;NameID&lt;/code&gt; element of the SAML assertion. Typical examples of the format are &lt;code&gt;transient&lt;/code&gt; or &lt;code&gt;persistent&lt;/code&gt;. &lt;/p&gt;&lt;p&gt; If the format includes the prefix &lt;code&gt;urn:oasis:names:tc:SAML:2.0:nameid-format&lt;/code&gt;, that prefix is removed. For example, &lt;code&gt;urn:oasis:names:tc:SAML:2.0:nameid-format:transient&lt;/code&gt; is returned as &lt;code&gt;transient&lt;/code&gt;. If the format includes any other prefix, the format is returned with no modifications.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subjectType</Declaration>
+			
+			
+			<Anchor>//api/name/subjectType</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSAssumeRoleWithSAMLResponse/subjectType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The format of the name ID, as defined by the &lt;code&gt;Format&lt;/code&gt; attribute in the &lt;code&gt;NameID&lt;/code&gt; element of the SAML assertion. Typical examples of the format are &lt;code&gt;transient&lt;/code&gt; or &lt;code&gt;persistent&lt;/code&gt;. &lt;/p&gt;&lt;p&gt; If the format includes the prefix &lt;code&gt;urn:oasis:names:tc:SAML:2.0:nameid-format&lt;/code&gt;, that prefix is removed. For example, &lt;code&gt;urn:oasis:names:tc:SAML:2.0:nameid-format:transient&lt;/code&gt; is returned as &lt;code&gt;transient&lt;/code&gt;. If the format includes any other prefix, the format is returned with no modifications.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subjectType</Declaration>
+			
+			
+			<Anchor>//api/name/subjectType</Anchor>
+            <NodeRef refid="2300"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

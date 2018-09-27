@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionKinesisVideoStream.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionKinesisVideoStream</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis video stream stream that provides the source streaming video for a Amazon Rekognition Video stream processor. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1730"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionKinesisVideoStream/setArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the Kinesis video stream stream that streams the source video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *arn</Declaration>
+			
+			
+			<Anchor>//api/name/arn</Anchor>
+            <NodeRef refid="1730"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionKinesisVideoStream/arn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the Kinesis video stream stream that streams the source video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *arn</Declaration>
+			
+			
+			<Anchor>//api/name/arn</Anchor>
+            <NodeRef refid="1730"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionKinesisVideoStream/arn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the Kinesis video stream stream that streams the source video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *arn</Declaration>
+			
+			
+			<Anchor>//api/name/arn</Anchor>
+            <NodeRef refid="1730"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESTestRenderTemplateResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESTestRenderTemplateResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2177"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESTestRenderTemplateResponse/setRenderedTemplate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The complete MIME message rendered by applying the data in the TemplateData parameter to the template specified in the TemplateName parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *renderedTemplate</Declaration>
+			
+			
+			<Anchor>//api/name/renderedTemplate</Anchor>
+            <NodeRef refid="2177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESTestRenderTemplateResponse/renderedTemplate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The complete MIME message rendered by applying the data in the TemplateData parameter to the template specified in the TemplateName parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *renderedTemplate</Declaration>
+			
+			
+			<Anchor>//api/name/renderedTemplate</Anchor>
+            <NodeRef refid="2177"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESTestRenderTemplateResponse/renderedTemplate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The complete MIME message rendered by applying the data in the TemplateData parameter to the template specified in the TemplateName parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *renderedTemplate</Declaration>
+			
+			
+			<Anchor>//api/name/renderedTemplate</Anchor>
+            <NodeRef refid="2177"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

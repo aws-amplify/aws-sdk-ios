@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderStartUserImportJobResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderStartUserImportJobResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the response from the server to the request to start the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="418"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderStartUserImportJobResponse/setUserImportJob:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job object that represents the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserImportJobType *userImportJob</Declaration>
+			
+			
+			<Anchor>//api/name/userImportJob</Anchor>
+            <NodeRef refid="418"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderStartUserImportJobResponse/userImportJob</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job object that represents the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserImportJobType *userImportJob</Declaration>
+			
+			
+			<Anchor>//api/name/userImportJob</Anchor>
+            <NodeRef refid="418"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderStartUserImportJobResponse/userImportJob</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job object that represents the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserImportJobType *userImportJob</Declaration>
+			
+			
+			<Anchor>//api/name/userImportJob</Anchor>
+            <NodeRef refid="418"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingUpdateApnsSandboxChannelResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApnsSandboxChannelResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1617"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateApnsSandboxChannelResponse/setAPNSSandboxChannelResponse:</TokenIdentifier>
+			<Abstract type="html">Apple Development Push Notification Service channel definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSSandboxChannelResponse *APNSSandboxChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/APNSSandboxChannelResponse</Anchor>
+            <NodeRef refid="1617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateApnsSandboxChannelResponse/APNSSandboxChannelResponse</TokenIdentifier>
+			<Abstract type="html">Apple Development Push Notification Service channel definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSSandboxChannelResponse *APNSSandboxChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/APNSSandboxChannelResponse</Anchor>
+            <NodeRef refid="1617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingUpdateApnsSandboxChannelResponse/APNSSandboxChannelResponse</TokenIdentifier>
+			<Abstract type="html">Apple Development Push Notification Service channel definition.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingAPNSSandboxChannelResponse *APNSSandboxChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/APNSSandboxChannelResponse</Anchor>
+            <NodeRef refid="1617"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

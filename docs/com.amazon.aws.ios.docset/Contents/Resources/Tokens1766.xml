@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionStartLabelDetectionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionStartLabelDetectionRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1766"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartLabelDetectionRequest/setClientRequestToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Idempotent token used to identify the start request. If you use the same token with multiple &lt;code&gt;StartLabelDetection&lt;/code&gt; requests, the same &lt;code&gt;JobId&lt;/code&gt; is returned. Use &lt;code&gt;ClientRequestToken&lt;/code&gt; to prevent the same job from being accidently started more than once. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientRequestToken</Declaration>
+			
+			
+			<Anchor>//api/name/clientRequestToken</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartLabelDetectionRequest/clientRequestToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Idempotent token used to identify the start request. If you use the same token with multiple &lt;code&gt;StartLabelDetection&lt;/code&gt; requests, the same &lt;code&gt;JobId&lt;/code&gt; is returned. Use &lt;code&gt;ClientRequestToken&lt;/code&gt; to prevent the same job from being accidently started more than once. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientRequestToken</Declaration>
+			
+			
+			<Anchor>//api/name/clientRequestToken</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartLabelDetectionRequest/clientRequestToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Idempotent token used to identify the start request. If you use the same token with multiple &lt;code&gt;StartLabelDetection&lt;/code&gt; requests, the same &lt;code&gt;JobId&lt;/code&gt; is returned. Use &lt;code&gt;ClientRequestToken&lt;/code&gt; to prevent the same job from being accidently started more than once. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientRequestToken</Declaration>
+			
+			
+			<Anchor>//api/name/clientRequestToken</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartLabelDetectionRequest/setJobTag:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobTag</Declaration>
+			
+			
+			<Anchor>//api/name/jobTag</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartLabelDetectionRequest/jobTag</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobTag</Declaration>
+			
+			
+			<Anchor>//api/name/jobTag</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartLabelDetectionRequest/jobTag</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobTag</Declaration>
+			
+			
+			<Anchor>//api/name/jobTag</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartLabelDetectionRequest/setMinConfidence:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn&apos;t return any labels with a confidence level lower than this specified value.&lt;/p&gt;&lt;p&gt;If you don&apos;t specify &lt;code&gt;MinConfidence&lt;/code&gt;, the operation returns labels with confidence values greater than or equal to 50 percent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minConfidence</Declaration>
+			
+			
+			<Anchor>//api/name/minConfidence</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartLabelDetectionRequest/minConfidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn&apos;t return any labels with a confidence level lower than this specified value.&lt;/p&gt;&lt;p&gt;If you don&apos;t specify &lt;code&gt;MinConfidence&lt;/code&gt;, the operation returns labels with confidence values greater than or equal to 50 percent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minConfidence</Declaration>
+			
+			
+			<Anchor>//api/name/minConfidence</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartLabelDetectionRequest/minConfidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected label. Confidence represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn&apos;t return any labels with a confidence level lower than this specified value.&lt;/p&gt;&lt;p&gt;If you don&apos;t specify &lt;code&gt;MinConfidence&lt;/code&gt;, the operation returns labels with confidence values greater than or equal to 50 percent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *minConfidence</Declaration>
+			
+			
+			<Anchor>//api/name/minConfidence</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartLabelDetectionRequest/setNotificationChannel:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionNotificationChannel *notificationChannel</Declaration>
+			
+			
+			<Anchor>//api/name/notificationChannel</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartLabelDetectionRequest/notificationChannel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionNotificationChannel *notificationChannel</Declaration>
+			
+			
+			<Anchor>//api/name/notificationChannel</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartLabelDetectionRequest/notificationChannel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionNotificationChannel *notificationChannel</Declaration>
+			
+			
+			<Anchor>//api/name/notificationChannel</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartLabelDetectionRequest/setVideo:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideo *video</Declaration>
+			
+			
+			<Anchor>//api/name/video</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartLabelDetectionRequest/video</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideo *video</Declaration>
+			
+			
+			<Anchor>//api/name/video</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartLabelDetectionRequest/video</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The video in which you want to detect labels. The video must be stored in an Amazon S3 bucket.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideo *video</Declaration>
+			
+			
+			<Anchor>//api/name/video</Anchor>
+            <NodeRef refid="1766"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

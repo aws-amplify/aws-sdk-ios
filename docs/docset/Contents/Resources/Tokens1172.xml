@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSDecryptResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSDecryptResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1172"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSDecryptResponse/setKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the key used to perform the decryption. This value is returned if no errors are encountered during the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1172"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSDecryptResponse/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the key used to perform the decryption. This value is returned if no errors are encountered during the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1172"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSDecryptResponse/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the key used to perform the decryption. This value is returned if no errors are encountered during the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1172"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSDecryptResponse/setPlaintext:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *plaintext</Declaration>
+			
+			
+			<Anchor>//api/name/plaintext</Anchor>
+            <NodeRef refid="1172"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSDecryptResponse/plaintext</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *plaintext</Declaration>
+			
+			
+			<Anchor>//api/name/plaintext</Anchor>
+            <NodeRef refid="1172"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSDecryptResponse/plaintext</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Decrypted plaintext data. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *plaintext</Declaration>
+			
+			
+			<Anchor>//api/name/plaintext</Anchor>
+            <NodeRef refid="1172"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

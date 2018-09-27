@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="256"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/setSMSMfaSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS text message MFA settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSMSMfaSettingsType *SMSMfaSettings</Declaration>
+			
+			
+			<Anchor>//api/name/SMSMfaSettings</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/SMSMfaSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS text message MFA settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSMSMfaSettingsType *SMSMfaSettings</Declaration>
+			
+			
+			<Anchor>//api/name/SMSMfaSettings</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/SMSMfaSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The SMS text message MFA settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSMSMfaSettingsType *SMSMfaSettings</Declaration>
+			
+			
+			<Anchor>//api/name/SMSMfaSettings</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/setSoftwareTokenMfaSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time-based one-time password software token MFA settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType *softwareTokenMfaSettings</Declaration>
+			
+			
+			<Anchor>//api/name/softwareTokenMfaSettings</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/softwareTokenMfaSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time-based one-time password software token MFA settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType *softwareTokenMfaSettings</Declaration>
+			
+			
+			<Anchor>//api/name/softwareTokenMfaSettings</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/softwareTokenMfaSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time-based one-time password software token MFA settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType *softwareTokenMfaSettings</Declaration>
+			
+			
+			<Anchor>//api/name/softwareTokenMfaSettings</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/setUserPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/setUsername:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool username or alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/username</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool username or alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest/username</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool username or alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="256"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3LifecycleRuleFilter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3LifecycleRuleFilter</TokenIdentifier>
+			<Abstract type="html">The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1908"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRuleFilter/setAND:</TokenIdentifier>
+			<Abstract type="html">This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LifecycleRuleAndOperator *AND</Declaration>
+			
+			
+			<Anchor>//api/name/AND</Anchor>
+            <NodeRef refid="1908"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRuleFilter/AND</TokenIdentifier>
+			<Abstract type="html">This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LifecycleRuleAndOperator *AND</Declaration>
+			
+			
+			<Anchor>//api/name/AND</Anchor>
+            <NodeRef refid="1908"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRuleFilter/AND</TokenIdentifier>
+			<Abstract type="html">This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3LifecycleRuleAndOperator *AND</Declaration>
+			
+			
+			<Anchor>//api/name/AND</Anchor>
+            <NodeRef refid="1908"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRuleFilter/setPrefix:</TokenIdentifier>
+			<Abstract type="html">Prefix identifying one or more objects to which the rule applies.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1908"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRuleFilter/prefix</TokenIdentifier>
+			<Abstract type="html">Prefix identifying one or more objects to which the rule applies.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1908"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRuleFilter/prefix</TokenIdentifier>
+			<Abstract type="html">Prefix identifying one or more objects to which the rule applies.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="1908"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRuleFilter/setTag:</TokenIdentifier>
+			<Abstract type="html">This tag must exist in the object&apos;s tag set in order for the rule to apply.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Tag *tag</Declaration>
+			
+			
+			<Anchor>//api/name/tag</Anchor>
+            <NodeRef refid="1908"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LifecycleRuleFilter/tag</TokenIdentifier>
+			<Abstract type="html">This tag must exist in the object&apos;s tag set in order for the rule to apply.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Tag *tag</Declaration>
+			
+			
+			<Anchor>//api/name/tag</Anchor>
+            <NodeRef refid="1908"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LifecycleRuleFilter/tag</TokenIdentifier>
+			<Abstract type="html">This tag must exist in the object&apos;s tag set in order for the rule to apply.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3Tag *tag</Declaration>
+			
+			
+			<Anchor>//api/name/tag</Anchor>
+            <NodeRef refid="1908"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

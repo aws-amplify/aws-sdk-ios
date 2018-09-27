@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSIoTCannedAccessControlList.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSIoTCannedAccessControlList</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2517"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTCannedAccessControlListUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTCannedAccessControlListUnknown</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2517"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTCannedAccessControlListPrivate</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTCannedAccessControlListPrivate</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2517"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTCannedAccessControlListPublicRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTCannedAccessControlListPublicRead</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2517"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTCannedAccessControlListPublicReadWrite</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTCannedAccessControlListPublicReadWrite</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2517"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTCannedAccessControlListAwsExecRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTCannedAccessControlListAwsExecRead</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2517"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTCannedAccessControlListAuthenticatedRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTCannedAccessControlListAuthenticatedRead</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2517"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTCannedAccessControlListBucketOwnerRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTCannedAccessControlListBucketOwnerRead</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2517"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTCannedAccessControlListBucketOwnerFullControl</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTCannedAccessControlListBucketOwnerFullControl</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2517"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTCannedAccessControlListLogDeliveryWrite</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTCannedAccessControlListLogDeliveryWrite</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2517"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCloudWatchListDashboardsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCloudWatchListDashboardsInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="150"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchListDashboardsInput/setDashboardNamePrefix:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, &quot;.&quot;, &quot;-&quot;, and &quot;_&quot;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardNamePrefix</Anchor>
+            <NodeRef refid="150"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchListDashboardsInput/dashboardNamePrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, &quot;.&quot;, &quot;-&quot;, and &quot;_&quot;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardNamePrefix</Anchor>
+            <NodeRef refid="150"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchListDashboardsInput/dashboardNamePrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If you specify this parameter, only the dashboards with names starting with the specified string are listed. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, &quot;.&quot;, &quot;-&quot;, and &quot;_&quot;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardNamePrefix</Anchor>
+            <NodeRef refid="150"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchListDashboardsInput/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token returned by a previous call to indicate that there is more data available.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="150"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchListDashboardsInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token returned by a previous call to indicate that there is more data available.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="150"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchListDashboardsInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token returned by a previous call to indicate that there is more data available.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="150"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

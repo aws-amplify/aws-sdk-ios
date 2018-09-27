@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaPutFunctionConcurrencyRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaPutFunctionConcurrencyRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1358"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaPutFunctionConcurrencyRequest/setFunctionName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the function you are setting concurrent execution limits on. For more information, see &lt;a&gt;concurrent-executions&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1358"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaPutFunctionConcurrencyRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the function you are setting concurrent execution limits on. For more information, see &lt;a&gt;concurrent-executions&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1358"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaPutFunctionConcurrencyRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the function you are setting concurrent execution limits on. For more information, see &lt;a&gt;concurrent-executions&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1358"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaPutFunctionConcurrencyRequest/setReservedConcurrentExecutions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The concurrent execution limit reserved for this function. For more information, see &lt;a&gt;concurrent-executions&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *reservedConcurrentExecutions</Declaration>
+			
+			
+			<Anchor>//api/name/reservedConcurrentExecutions</Anchor>
+            <NodeRef refid="1358"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaPutFunctionConcurrencyRequest/reservedConcurrentExecutions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The concurrent execution limit reserved for this function. For more information, see &lt;a&gt;concurrent-executions&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *reservedConcurrentExecutions</Declaration>
+			
+			
+			<Anchor>//api/name/reservedConcurrentExecutions</Anchor>
+            <NodeRef refid="1358"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaPutFunctionConcurrencyRequest/reservedConcurrentExecutions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The concurrent execution limit reserved for this function. For more information, see &lt;a&gt;concurrent-executions&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *reservedConcurrentExecutions</Declaration>
+			
+			
+			<Anchor>//api/name/reservedConcurrentExecutions</Anchor>
+            <NodeRef refid="1358"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

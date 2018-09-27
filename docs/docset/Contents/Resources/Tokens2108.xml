@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESIdentityMailFromDomainAttributes.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESIdentityMailFromDomainAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the custom MAIL FROM domain attributes of a verified identity (email address or domain).&lt;/p&gt;
+Required parameters: [MailFromDomain, MailFromDomainStatus, BehaviorOnMXFailure]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2108"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESIdentityMailFromDomainAttributes/setBehaviorOnMXFailure:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The action that Amazon SES takes if it cannot successfully read the required MX record when you send an email. A value of &lt;code&gt;UseDefaultValue&lt;/code&gt; indicates that if Amazon SES cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as the MAIL FROM domain. A value of &lt;code&gt;RejectMessage&lt;/code&gt; indicates that if Amazon SES cannot read the required MX record, Amazon SES returns a &lt;code&gt;MailFromDomainNotVerified&lt;/code&gt; error and does not send the email.&lt;/p&gt;&lt;p&gt;The custom MAIL FROM setup states that result in this behavior are &lt;code&gt;Pending&lt;/code&gt;, &lt;code&gt;Failed&lt;/code&gt;, and &lt;code&gt;TemporaryFailure&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESBehaviorOnMXFailure behaviorOnMXFailure</Declaration>
+			
+			
+			<Anchor>//api/name/behaviorOnMXFailure</Anchor>
+            <NodeRef refid="2108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESIdentityMailFromDomainAttributes/behaviorOnMXFailure</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The action that Amazon SES takes if it cannot successfully read the required MX record when you send an email. A value of &lt;code&gt;UseDefaultValue&lt;/code&gt; indicates that if Amazon SES cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as the MAIL FROM domain. A value of &lt;code&gt;RejectMessage&lt;/code&gt; indicates that if Amazon SES cannot read the required MX record, Amazon SES returns a &lt;code&gt;MailFromDomainNotVerified&lt;/code&gt; error and does not send the email.&lt;/p&gt;&lt;p&gt;The custom MAIL FROM setup states that result in this behavior are &lt;code&gt;Pending&lt;/code&gt;, &lt;code&gt;Failed&lt;/code&gt;, and &lt;code&gt;TemporaryFailure&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESBehaviorOnMXFailure behaviorOnMXFailure</Declaration>
+			
+			
+			<Anchor>//api/name/behaviorOnMXFailure</Anchor>
+            <NodeRef refid="2108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESIdentityMailFromDomainAttributes/behaviorOnMXFailure</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The action that Amazon SES takes if it cannot successfully read the required MX record when you send an email. A value of &lt;code&gt;UseDefaultValue&lt;/code&gt; indicates that if Amazon SES cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as the MAIL FROM domain. A value of &lt;code&gt;RejectMessage&lt;/code&gt; indicates that if Amazon SES cannot read the required MX record, Amazon SES returns a &lt;code&gt;MailFromDomainNotVerified&lt;/code&gt; error and does not send the email.&lt;/p&gt;&lt;p&gt;The custom MAIL FROM setup states that result in this behavior are &lt;code&gt;Pending&lt;/code&gt;, &lt;code&gt;Failed&lt;/code&gt;, and &lt;code&gt;TemporaryFailure&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESBehaviorOnMXFailure behaviorOnMXFailure</Declaration>
+			
+			
+			<Anchor>//api/name/behaviorOnMXFailure</Anchor>
+            <NodeRef refid="2108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESIdentityMailFromDomainAttributes/setMailFromDomain:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The custom MAIL FROM domain that the identity is configured to use.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mailFromDomain</Declaration>
+			
+			
+			<Anchor>//api/name/mailFromDomain</Anchor>
+            <NodeRef refid="2108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESIdentityMailFromDomainAttributes/mailFromDomain</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The custom MAIL FROM domain that the identity is configured to use.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mailFromDomain</Declaration>
+			
+			
+			<Anchor>//api/name/mailFromDomain</Anchor>
+            <NodeRef refid="2108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESIdentityMailFromDomainAttributes/mailFromDomain</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The custom MAIL FROM domain that the identity is configured to use.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *mailFromDomain</Declaration>
+			
+			
+			<Anchor>//api/name/mailFromDomain</Anchor>
+            <NodeRef refid="2108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESIdentityMailFromDomainAttributes/setMailFromDomainStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The state that indicates whether Amazon SES has successfully read the MX record required for custom MAIL FROM domain setup. If the state is &lt;code&gt;Success&lt;/code&gt;, Amazon SES uses the specified custom MAIL FROM domain when the verified identity sends an email. All other states indicate that Amazon SES takes the action described by &lt;code&gt;BehaviorOnMXFailure&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESCustomMailFromStatus mailFromDomainStatus</Declaration>
+			
+			
+			<Anchor>//api/name/mailFromDomainStatus</Anchor>
+            <NodeRef refid="2108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESIdentityMailFromDomainAttributes/mailFromDomainStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The state that indicates whether Amazon SES has successfully read the MX record required for custom MAIL FROM domain setup. If the state is &lt;code&gt;Success&lt;/code&gt;, Amazon SES uses the specified custom MAIL FROM domain when the verified identity sends an email. All other states indicate that Amazon SES takes the action described by &lt;code&gt;BehaviorOnMXFailure&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESCustomMailFromStatus mailFromDomainStatus</Declaration>
+			
+			
+			<Anchor>//api/name/mailFromDomainStatus</Anchor>
+            <NodeRef refid="2108"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESIdentityMailFromDomainAttributes/mailFromDomainStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The state that indicates whether Amazon SES has successfully read the MX record required for custom MAIL FROM domain setup. If the state is &lt;code&gt;Success&lt;/code&gt;, Amazon SES uses the specified custom MAIL FROM domain when the verified identity sends an email. All other states indicate that Amazon SES takes the action described by &lt;code&gt;BehaviorOnMXFailure&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESCustomMailFromStatus mailFromDomainStatus</Declaration>
+			
+			
+			<Anchor>//api/name/mailFromDomainStatus</Anchor>
+            <NodeRef refid="2108"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

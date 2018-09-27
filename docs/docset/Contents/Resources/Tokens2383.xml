@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AWSCognitoIdentitySoftwareMfaSetupRequired.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AWSCognitoIdentitySoftwareMfaSetupRequired</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2383"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentitySoftwareMfaSetupRequired/getSoftwareMfaSetupDetails:softwareMfaSetupRequiredCompletionSource:</TokenIdentifier>
+			<Abstract type="html">Obtain information about end user&apos;s software mfa</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (void)getSoftwareMfaSetupDetails:(AWSCognitoIdentitySoftwareMfaSetupRequiredInput *)softwareMfaSetupInput softwareMfaSetupRequiredCompletionSource:(AWSTaskCompletionSource&lt;AWSCognitoIdentitySoftwareMfaSetupRequiredDetails*&gt; *)softwareMfaSetupRequiredCompletionSource</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>softwareMfaSetupInput</Name>
+					<Abstract type="html">contains secret code necessary for end user to configure their software mfa</Abstract>
+				</Parameter><Parameter>
+					<Name>softwareMfaSetupRequiredCompletionSource</Name>
+					<Abstract type="html">set softwareMfaSetupRequiredCompletionSource.result with the secret code and device name from the end user</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSoftwareMfaSetupDetails:softwareMfaSetupRequiredCompletionSource:</Anchor>
+            <NodeRef refid="2383"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentitySoftwareMfaSetupRequired/didCompleteMfaSetupStepWithError:</TokenIdentifier>
+			<Abstract type="html">This step completed, usually either display an error to the end user or dismiss ui</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (void)didCompleteMfaSetupStepWithError:(NSError *_Nullable)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>error</Name>
+					<Abstract type="html">the error if any that occured</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didCompleteMfaSetupStepWithError:</Anchor>
+            <NodeRef refid="2383"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

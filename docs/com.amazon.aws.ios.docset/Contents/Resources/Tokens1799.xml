@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3CORSRule.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3CORSRule</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1799"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CORSRule/setAllowedHeaders:</TokenIdentifier>
+			<Abstract type="html">Specifies which headers are allowed in a pre-flight OPTIONS request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/allowedHeaders</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CORSRule/allowedHeaders</TokenIdentifier>
+			<Abstract type="html">Specifies which headers are allowed in a pre-flight OPTIONS request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/allowedHeaders</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CORSRule/allowedHeaders</TokenIdentifier>
+			<Abstract type="html">Specifies which headers are allowed in a pre-flight OPTIONS request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/allowedHeaders</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CORSRule/setAllowedMethods:</TokenIdentifier>
+			<Abstract type="html">Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedMethods</Declaration>
+			
+			
+			<Anchor>//api/name/allowedMethods</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CORSRule/allowedMethods</TokenIdentifier>
+			<Abstract type="html">Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedMethods</Declaration>
+			
+			
+			<Anchor>//api/name/allowedMethods</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CORSRule/allowedMethods</TokenIdentifier>
+			<Abstract type="html">Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedMethods</Declaration>
+			
+			
+			<Anchor>//api/name/allowedMethods</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CORSRule/setAllowedOrigins:</TokenIdentifier>
+			<Abstract type="html">One or more origins you want customers to be able to access the bucket from.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedOrigins</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOrigins</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CORSRule/allowedOrigins</TokenIdentifier>
+			<Abstract type="html">One or more origins you want customers to be able to access the bucket from.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedOrigins</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOrigins</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CORSRule/allowedOrigins</TokenIdentifier>
+			<Abstract type="html">One or more origins you want customers to be able to access the bucket from.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedOrigins</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOrigins</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CORSRule/setExposeHeaders:</TokenIdentifier>
+			<Abstract type="html">One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *exposeHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/exposeHeaders</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CORSRule/exposeHeaders</TokenIdentifier>
+			<Abstract type="html">One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *exposeHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/exposeHeaders</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CORSRule/exposeHeaders</TokenIdentifier>
+			<Abstract type="html">One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *exposeHeaders</Declaration>
+			
+			
+			<Anchor>//api/name/exposeHeaders</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CORSRule/setMaxAgeSeconds:</TokenIdentifier>
+			<Abstract type="html">The time in seconds that your browser is to cache the preflight response for the specified resource.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxAgeSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/maxAgeSeconds</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CORSRule/maxAgeSeconds</TokenIdentifier>
+			<Abstract type="html">The time in seconds that your browser is to cache the preflight response for the specified resource.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxAgeSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/maxAgeSeconds</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CORSRule/maxAgeSeconds</TokenIdentifier>
+			<Abstract type="html">The time in seconds that your browser is to cache the preflight response for the specified resource.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxAgeSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/maxAgeSeconds</Anchor>
+            <NodeRef refid="1799"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSListResourceTagsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSListResourceTagsResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1210"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListResourceTagsResponse/setNextMarker:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When &lt;code&gt;Truncated&lt;/code&gt; is true, this element is present and contains the value to use for the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;&lt;p&gt;Do not assume or infer any information from this value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1210"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListResourceTagsResponse/nextMarker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When &lt;code&gt;Truncated&lt;/code&gt; is true, this element is present and contains the value to use for the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;&lt;p&gt;Do not assume or infer any information from this value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1210"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSListResourceTagsResponse/nextMarker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When &lt;code&gt;Truncated&lt;/code&gt; is true, this element is present and contains the value to use for the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;&lt;p&gt;Do not assume or infer any information from this value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1210"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListResourceTagsResponse/setTags:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tags. Each tag consists of a tag key and a tag value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKMSTag*&gt; *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="1210"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListResourceTagsResponse/tags</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tags. Each tag consists of a tag key and a tag value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKMSTag*&gt; *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="1210"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSListResourceTagsResponse/tags</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tags. Each tag consists of a tag key and a tag value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKMSTag*&gt; *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="1210"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListResourceTagsResponse/setTruncated:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the &lt;code&gt;NextMarker&lt;/code&gt; element in this response to the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *truncated</Declaration>
+			
+			
+			<Anchor>//api/name/truncated</Anchor>
+            <NodeRef refid="1210"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListResourceTagsResponse/truncated</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the &lt;code&gt;NextMarker&lt;/code&gt; element in this response to the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *truncated</Declaration>
+			
+			
+			<Anchor>//api/name/truncated</Anchor>
+            <NodeRef refid="1210"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSListResourceTagsResponse/truncated</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A flag that indicates whether there are more items in the list. When this value is true, the list in this response is truncated. To get more items, pass the value of the &lt;code&gt;NextMarker&lt;/code&gt; element in this response to the &lt;code&gt;Marker&lt;/code&gt; parameter in a subsequent request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *truncated</Declaration>
+			
+			
+			<Anchor>//api/name/truncated</Anchor>
+            <NodeRef refid="1210"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

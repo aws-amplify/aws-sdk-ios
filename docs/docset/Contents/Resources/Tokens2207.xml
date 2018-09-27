@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSCreatePlatformApplicationResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreatePlatformApplicationResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Response from CreatePlatformApplication action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2207"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSCreatePlatformApplicationResponse/setPlatformApplicationArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;PlatformApplicationArn is returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platformApplicationArn</Declaration>
+			
+			
+			<Anchor>//api/name/platformApplicationArn</Anchor>
+            <NodeRef refid="2207"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSCreatePlatformApplicationResponse/platformApplicationArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;PlatformApplicationArn is returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platformApplicationArn</Declaration>
+			
+			
+			<Anchor>//api/name/platformApplicationArn</Anchor>
+            <NodeRef refid="2207"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSCreatePlatformApplicationResponse/platformApplicationArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;PlatformApplicationArn is returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *platformApplicationArn</Declaration>
+			
+			
+			<Anchor>//api/name/platformApplicationArn</Anchor>
+            <NodeRef refid="2207"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsPutRetentionPolicyRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutRetentionPolicyRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1441"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsPutRetentionPolicyRequest/setLogGroupName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="1441"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsPutRetentionPolicyRequest/logGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="1441"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsPutRetentionPolicyRequest/logGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="1441"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsPutRetentionPolicyRequest/setRetentionInDays:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *retentionInDays</Declaration>
+			
+			
+			<Anchor>//api/name/retentionInDays</Anchor>
+            <NodeRef refid="1441"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsPutRetentionPolicyRequest/retentionInDays</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *retentionInDays</Declaration>
+			
+			
+			<Anchor>//api/name/retentionInDays</Anchor>
+            <NodeRef refid="1441"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsPutRetentionPolicyRequest/retentionInDays</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of days to retain the log events in the specified log group. Possible values are: 1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180, 365, 400, 545, 731, 1827, and 3653.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *retentionInDays</Declaration>
+			
+			
+			<Anchor>//api/name/retentionInDays</Anchor>
+            <NodeRef refid="1441"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

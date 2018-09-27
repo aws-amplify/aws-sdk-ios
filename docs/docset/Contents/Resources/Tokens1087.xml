@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTOutgoingCertificate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTOutgoingCertificate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A certificate that has been transferred but not yet accepted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1087"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/setCertificateArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateArn</Declaration>
+			
+			
+			<Anchor>//api/name/certificateArn</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/certificateArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateArn</Declaration>
+			
+			
+			<Anchor>//api/name/certificateArn</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTOutgoingCertificate/certificateArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateArn</Declaration>
+			
+			
+			<Anchor>//api/name/certificateArn</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/setCertificateId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateId</Declaration>
+			
+			
+			<Anchor>//api/name/certificateId</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/certificateId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateId</Declaration>
+			
+			
+			<Anchor>//api/name/certificateId</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTOutgoingCertificate/certificateId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateId</Declaration>
+			
+			
+			<Anchor>//api/name/certificateId</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/setCreationDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate creation date.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate creation date.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTOutgoingCertificate/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate creation date.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/setTransferDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer was initiated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *transferDate</Declaration>
+			
+			
+			<Anchor>//api/name/transferDate</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/transferDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer was initiated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *transferDate</Declaration>
+			
+			
+			<Anchor>//api/name/transferDate</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTOutgoingCertificate/transferDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the transfer was initiated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *transferDate</Declaration>
+			
+			
+			<Anchor>//api/name/transferDate</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/setTransferMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The transfer message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transferMessage</Declaration>
+			
+			
+			<Anchor>//api/name/transferMessage</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/transferMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The transfer message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transferMessage</Declaration>
+			
+			
+			<Anchor>//api/name/transferMessage</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTOutgoingCertificate/transferMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The transfer message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transferMessage</Declaration>
+			
+			
+			<Anchor>//api/name/transferMessage</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/setTransferredTo:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account to which the transfer was made.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transferredTo</Declaration>
+			
+			
+			<Anchor>//api/name/transferredTo</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTOutgoingCertificate/transferredTo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account to which the transfer was made.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transferredTo</Declaration>
+			
+			
+			<Anchor>//api/name/transferredTo</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTOutgoingCertificate/transferredTo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account to which the transfer was made.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transferredTo</Declaration>
+			
+			
+			<Anchor>//api/name/transferredTo</Anchor>
+            <NodeRef refid="1087"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

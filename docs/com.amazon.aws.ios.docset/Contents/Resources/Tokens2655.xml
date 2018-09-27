@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3MFADelete.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3MFADelete</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2655"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3MFADeleteUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3MFADeleteUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2655"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3MFADeleteEnabled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3MFADeleteEnabled</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2655"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3MFADeleteDisabled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3MFADeleteDisabled</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2655"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

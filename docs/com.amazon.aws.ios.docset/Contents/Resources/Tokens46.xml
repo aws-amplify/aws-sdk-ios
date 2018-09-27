@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="46"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer/setAutoScalingNotificationTypes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The notification types.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *autoScalingNotificationTypes</Declaration>
+			
+			
+			<Anchor>//api/name/autoScalingNotificationTypes</Anchor>
+            <NodeRef refid="46"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer/autoScalingNotificationTypes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The notification types.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *autoScalingNotificationTypes</Declaration>
+			
+			
+			<Anchor>//api/name/autoScalingNotificationTypes</Anchor>
+            <NodeRef refid="46"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer/autoScalingNotificationTypes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The notification types.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *autoScalingNotificationTypes</Declaration>
+			
+			
+			<Anchor>//api/name/autoScalingNotificationTypes</Anchor>
+            <NodeRef refid="46"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

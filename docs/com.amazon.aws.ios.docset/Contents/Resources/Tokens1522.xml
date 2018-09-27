@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingDeleteSmsChannelResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteSmsChannelResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1522"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDeleteSmsChannelResponse/setSMSChannelResponse:</TokenIdentifier>
+			<Abstract type="html">SMS Channel Response.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSMSChannelResponse *SMSChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/SMSChannelResponse</Anchor>
+            <NodeRef refid="1522"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingDeleteSmsChannelResponse/SMSChannelResponse</TokenIdentifier>
+			<Abstract type="html">SMS Channel Response.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSMSChannelResponse *SMSChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/SMSChannelResponse</Anchor>
+            <NodeRef refid="1522"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingDeleteSmsChannelResponse/SMSChannelResponse</TokenIdentifier>
+			<Abstract type="html">SMS Channel Response.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingSMSChannelResponse *SMSChannelResponse</Declaration>
+			
+			
+			<Anchor>//api/name/SMSChannelResponse</Anchor>
+            <NodeRef refid="1522"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

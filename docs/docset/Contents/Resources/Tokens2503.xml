@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSFirehoseParquetWriterVersion.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSFirehoseParquetWriterVersion</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2503"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseParquetWriterVersionUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseParquetWriterVersionUnknown</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2503"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseParquetWriterVersionV1</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseParquetWriterVersionV1</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2503"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseParquetWriterVersionV2</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseParquetWriterVersionV2</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2503"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

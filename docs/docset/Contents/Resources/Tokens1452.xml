@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSMachineLearningGetMLModelInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSMachineLearningGetMLModelInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1452"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMachineLearningGetMLModelInput/setMLModelId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID assigned to the &lt;code&gt;MLModel&lt;/code&gt; at creation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MLModelId</Declaration>
+			
+			
+			<Anchor>//api/name/MLModelId</Anchor>
+            <NodeRef refid="1452"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMachineLearningGetMLModelInput/MLModelId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID assigned to the &lt;code&gt;MLModel&lt;/code&gt; at creation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MLModelId</Declaration>
+			
+			
+			<Anchor>//api/name/MLModelId</Anchor>
+            <NodeRef refid="1452"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMachineLearningGetMLModelInput/MLModelId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID assigned to the &lt;code&gt;MLModel&lt;/code&gt; at creation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *MLModelId</Declaration>
+			
+			
+			<Anchor>//api/name/MLModelId</Anchor>
+            <NodeRef refid="1452"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMachineLearningGetMLModelInput/setVerbose:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the &lt;code&gt;GetMLModel&lt;/code&gt; operation should return &lt;code&gt;Recipe&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;If true, &lt;code&gt;Recipe&lt;/code&gt; is returned.&lt;/p&gt;&lt;p&gt;If false, &lt;code&gt;Recipe&lt;/code&gt; is not returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *verbose</Declaration>
+			
+			
+			<Anchor>//api/name/verbose</Anchor>
+            <NodeRef refid="1452"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMachineLearningGetMLModelInput/verbose</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the &lt;code&gt;GetMLModel&lt;/code&gt; operation should return &lt;code&gt;Recipe&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;If true, &lt;code&gt;Recipe&lt;/code&gt; is returned.&lt;/p&gt;&lt;p&gt;If false, &lt;code&gt;Recipe&lt;/code&gt; is not returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *verbose</Declaration>
+			
+			
+			<Anchor>//api/name/verbose</Anchor>
+            <NodeRef refid="1452"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMachineLearningGetMLModelInput/verbose</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the &lt;code&gt;GetMLModel&lt;/code&gt; operation should return &lt;code&gt;Recipe&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;If true, &lt;code&gt;Recipe&lt;/code&gt; is returned.&lt;/p&gt;&lt;p&gt;If false, &lt;code&gt;Recipe&lt;/code&gt; is not returned.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *verbose</Declaration>
+			
+			
+			<Anchor>//api/name/verbose</Anchor>
+            <NodeRef refid="1452"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

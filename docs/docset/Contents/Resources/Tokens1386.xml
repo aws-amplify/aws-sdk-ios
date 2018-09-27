@@ -1,0 +1,1749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogs.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogs</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.&lt;/p&gt;&lt;p&gt;You can use CloudWatch Logs to:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Monitor logs from EC2 instances in real-time&lt;/b&gt;: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold that you specify. CloudWatch Logs uses your log data for monitoring; so, no code changes are required. For example, you can monitor application logs for specific literal terms (such as &quot;NullReferenceException&quot;) or count the number of occurrences of a literal term at a particular position in log data (such as &quot;404&quot; status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a CloudWatch metric that you specify.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Monitor AWS CloudTrail logged events&lt;/b&gt;: You can create alarms in CloudWatch and receive notifications of particular API activity as captured by CloudTrail and use the notification to perform troubleshooting.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;b&gt;Archive log data&lt;/b&gt;: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1386"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogs/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLogs/defaultLogs</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultLogs</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultLogs</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLogs/registerLogsWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerLogsWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerLogsWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLogs/LogsForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerLogsWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)LogsForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/LogsForKey:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLogs/removeLogsForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeLogsForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeLogsForKey:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/associateKmsKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.&lt;/p&gt;&lt;p&gt;Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.&lt;/p&gt;&lt;p&gt;Note that it can take up to 5 minutes for this operation to take effect.&lt;/p&gt;&lt;p&gt;If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an &lt;code&gt;InvalidParameterException&lt;/code&gt; error. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsAssociateKmsKeyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)associateKmsKey:(AWSLogsAssociateKmsKeyRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the AssociateKmsKey service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/associateKmsKey:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/associateKmsKey:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.&lt;/p&gt;&lt;p&gt;Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.&lt;/p&gt;&lt;p&gt;Note that it can take up to 5 minutes for this operation to take effect.&lt;/p&gt;&lt;p&gt;If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an &lt;code&gt;InvalidParameterException&lt;/code&gt; error. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsAssociateKmsKeyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)associateKmsKey:(AWSLogsAssociateKmsKeyRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the AssociateKmsKey service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/associateKmsKey:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/cancelExportTask:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Cancels the specified export task.&lt;/p&gt;&lt;p&gt;The task must be in the &lt;code&gt;PENDING&lt;/code&gt; or &lt;code&gt;RUNNING&lt;/code&gt; state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsCancelExportTaskRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)cancelExportTask:(AWSLogsCancelExportTaskRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CancelExportTask service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorInvalidOperation, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/cancelExportTask:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/cancelExportTask:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Cancels the specified export task.&lt;/p&gt;&lt;p&gt;The task must be in the &lt;code&gt;PENDING&lt;/code&gt; or &lt;code&gt;RUNNING&lt;/code&gt; state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsCancelExportTaskRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)cancelExportTask:(AWSLogsCancelExportTaskRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CancelExportTask service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorInvalidOperation, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/cancelExportTask:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/createExportTask:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.&lt;/p&gt;&lt;p&gt;This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use &lt;a&gt;DescribeExportTasks&lt;/a&gt; to get the status of the export task. Each account can only have one active (&lt;code&gt;RUNNING&lt;/code&gt; or &lt;code&gt;PENDING&lt;/code&gt;) export task at a time. To cancel an export task, use &lt;a&gt;CancelExportTask&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsCreateExportTaskRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsCreateExportTaskResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsCreateExportTaskResponse*&gt; *)createExportTask:(AWSLogsCreateExportTaskRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateExportTask service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsCreateExportTaskResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorLimitExceeded, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable, AWSLogsErrorResourceNotFound, AWSLogsErrorResourceAlreadyExists.</Abstract></ReturnValue>
+			<Anchor>//api/name/createExportTask:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/createExportTask:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.&lt;/p&gt;&lt;p&gt;This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use &lt;a&gt;DescribeExportTasks&lt;/a&gt; to get the status of the export task. Each account can only have one active (&lt;code&gt;RUNNING&lt;/code&gt; or &lt;code&gt;PENDING&lt;/code&gt;) export task at a time. To cancel an export task, use &lt;a&gt;CancelExportTask&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsCreateExportTaskRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsCreateExportTaskResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createExportTask:(AWSLogsCreateExportTaskRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsCreateExportTaskResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateExportTask service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorLimitExceeded, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable, AWSLogsErrorResourceNotFound, AWSLogsErrorResourceAlreadyExists.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createExportTask:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/createLogGroup:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a log group with the specified name.&lt;/p&gt;&lt;p&gt;You can create up to 5000 log groups per account.&lt;/p&gt;&lt;p&gt;You must use the following guidelines when naming a log group:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Log group names must be unique within a region for an AWS account.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Log group names can be between 1 and 512 characters long.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Log group names consist of the following characters: a-z, A-Z, 0-9, &apos;_&apos; (underscore), &apos;-&apos; (hyphen), &apos;/&apos; (forward slash), and &apos;.&apos; (period).&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.&lt;/p&gt;&lt;p&gt;If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an &lt;code&gt;InvalidParameterException&lt;/code&gt; error. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsCreateLogGroupRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)createLogGroup:(AWSLogsCreateLogGroupRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateLogGroup service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceAlreadyExists, AWSLogsErrorLimitExceeded, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/createLogGroup:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/createLogGroup:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a log group with the specified name.&lt;/p&gt;&lt;p&gt;You can create up to 5000 log groups per account.&lt;/p&gt;&lt;p&gt;You must use the following guidelines when naming a log group:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Log group names must be unique within a region for an AWS account.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Log group names can be between 1 and 512 characters long.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Log group names consist of the following characters: a-z, A-Z, 0-9, &apos;_&apos; (underscore), &apos;-&apos; (hyphen), &apos;/&apos; (forward slash), and &apos;.&apos; (period).&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.&lt;/p&gt;&lt;p&gt;If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an &lt;code&gt;InvalidParameterException&lt;/code&gt; error. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsCreateLogGroupRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createLogGroup:(AWSLogsCreateLogGroupRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateLogGroup service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceAlreadyExists, AWSLogsErrorLimitExceeded, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createLogGroup:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/createLogStream:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a log stream for the specified log group.&lt;/p&gt;&lt;p&gt;There is no limit on the number of log streams that you can create for a log group.&lt;/p&gt;&lt;p&gt;You must use the following guidelines when naming a log stream:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Log stream names must be unique within the log group.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Log stream names can be between 1 and 512 characters long.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The &apos;:&apos; (colon) and &apos;*&apos; (asterisk) characters are not allowed.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsCreateLogStreamRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)createLogStream:(AWSLogsCreateLogStreamRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateLogStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceAlreadyExists, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/createLogStream:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/createLogStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a log stream for the specified log group.&lt;/p&gt;&lt;p&gt;There is no limit on the number of log streams that you can create for a log group.&lt;/p&gt;&lt;p&gt;You must use the following guidelines when naming a log stream:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Log stream names must be unique within the log group.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Log stream names can be between 1 and 512 characters long.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The &apos;:&apos; (colon) and &apos;*&apos; (asterisk) characters are not allowed.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsCreateLogStreamRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createLogStream:(AWSLogsCreateLogStreamRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateLogStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceAlreadyExists, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createLogStream:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified destination, and eventually disables all the subscription filters that publish to it. This operation does not delete the physical resource encapsulated by the destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteDestinationRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteDestination:(AWSLogsDeleteDestinationRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteDestination service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteDestination:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteDestination:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified destination, and eventually disables all the subscription filters that publish to it. This operation does not delete the physical resource encapsulated by the destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteDestinationRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteDestination:(AWSLogsDeleteDestinationRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteDestination service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteDestination:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteLogGroup:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified log group and permanently deletes all the archived log events associated with the log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteLogGroupRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteLogGroup:(AWSLogsDeleteLogGroupRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteLogGroup service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteLogGroup:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteLogGroup:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified log group and permanently deletes all the archived log events associated with the log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteLogGroupRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteLogGroup:(AWSLogsDeleteLogGroupRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteLogGroup service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteLogGroup:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteLogStream:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified log stream and permanently deletes all the archived log events associated with the log stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteLogStreamRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteLogStream:(AWSLogsDeleteLogStreamRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteLogStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteLogStream:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteLogStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified log stream and permanently deletes all the archived log events associated with the log stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteLogStreamRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteLogStream:(AWSLogsDeleteLogStreamRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteLogStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteLogStream:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteMetricFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified metric filter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteMetricFilterRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteMetricFilter:(AWSLogsDeleteMetricFilterRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteMetricFilter service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteMetricFilter:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteMetricFilter:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified metric filter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteMetricFilterRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteMetricFilter:(AWSLogsDeleteMetricFilterRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteMetricFilter service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteMetricFilter:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteResourcePolicy:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a resource policy from this account. This revokes the access of the identities in that policy to put log events to this account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteResourcePolicyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteResourcePolicy:(AWSLogsDeleteResourcePolicyRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteResourcePolicy service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteResourcePolicy:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteResourcePolicy:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a resource policy from this account. This revokes the access of the identities in that policy to put log events to this account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteResourcePolicyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteResourcePolicy:(AWSLogsDeleteResourcePolicyRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteResourcePolicy service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteResourcePolicy:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteRetentionPolicy:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified retention policy.&lt;/p&gt;&lt;p&gt;Log events do not expire if they belong to log groups without a retention policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteRetentionPolicyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteRetentionPolicy:(AWSLogsDeleteRetentionPolicyRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteRetentionPolicy service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteRetentionPolicy:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteRetentionPolicy:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified retention policy.&lt;/p&gt;&lt;p&gt;Log events do not expire if they belong to log groups without a retention policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteRetentionPolicyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteRetentionPolicy:(AWSLogsDeleteRetentionPolicyRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteRetentionPolicy service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteRetentionPolicy:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteSubscriptionFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified subscription filter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteSubscriptionFilterRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteSubscriptionFilter:(AWSLogsDeleteSubscriptionFilterRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteSubscriptionFilter service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteSubscriptionFilter:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/deleteSubscriptionFilter:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified subscription filter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDeleteSubscriptionFilterRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteSubscriptionFilter:(AWSLogsDeleteSubscriptionFilterRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteSubscriptionFilter service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteSubscriptionFilter:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeDestinations:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists all your destinations. The results are ASCII-sorted by destination name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeDestinationsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeDestinationsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsDescribeDestinationsResponse*&gt; *)describeDestinations:(AWSLogsDescribeDestinationsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeDestinations service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsDescribeDestinationsResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeDestinations:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeDestinations:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists all your destinations. The results are ASCII-sorted by destination name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeDestinationsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeDestinationsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeDestinations:(AWSLogsDescribeDestinationsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeDestinationsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeDestinations service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeDestinations:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeExportTasks:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeExportTasksRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeExportTasksResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsDescribeExportTasksResponse*&gt; *)describeExportTasks:(AWSLogsDescribeExportTasksRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeExportTasks service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsDescribeExportTasksResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeExportTasks:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeExportTasks:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the specified export tasks. You can list all your export tasks or filter the results based on task ID or task status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeExportTasksRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeExportTasksResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeExportTasks:(AWSLogsDescribeExportTasksRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeExportTasksResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeExportTasks service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeExportTasks:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeLogGroups:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the specified log groups. You can list all your log groups or filter the results by prefix. The results are ASCII-sorted by log group name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeLogGroupsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeLogGroupsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsDescribeLogGroupsResponse*&gt; *)describeLogGroups:(AWSLogsDescribeLogGroupsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeLogGroups service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsDescribeLogGroupsResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeLogGroups:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeLogGroups:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the specified log groups. You can list all your log groups or filter the results by prefix. The results are ASCII-sorted by log group name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeLogGroupsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeLogGroupsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeLogGroups:(AWSLogsDescribeLogGroupsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeLogGroupsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeLogGroups service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeLogGroups:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeLogStreams:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the log streams for the specified log group. You can list all the log streams or filter the results by prefix. You can also control how the results are ordered.&lt;/p&gt;&lt;p&gt;This operation has a limit of five transactions per second, after which transactions are throttled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeLogStreamsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeLogStreamsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsDescribeLogStreamsResponse*&gt; *)describeLogStreams:(AWSLogsDescribeLogStreamsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeLogStreams service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsDescribeLogStreamsResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeLogStreams:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeLogStreams:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the log streams for the specified log group. You can list all the log streams or filter the results by prefix. You can also control how the results are ordered.&lt;/p&gt;&lt;p&gt;This operation has a limit of five transactions per second, after which transactions are throttled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeLogStreamsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeLogStreamsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeLogStreams:(AWSLogsDescribeLogStreamsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeLogStreamsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeLogStreams service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeLogStreams:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeMetricFilters:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeMetricFiltersRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeMetricFiltersResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsDescribeMetricFiltersResponse*&gt; *)describeMetricFilters:(AWSLogsDescribeMetricFiltersRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeMetricFilters service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsDescribeMetricFiltersResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeMetricFilters:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeMetricFilters:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeMetricFiltersRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeMetricFiltersResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeMetricFilters:(AWSLogsDescribeMetricFiltersRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeMetricFiltersResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeMetricFilters service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeMetricFilters:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeResourcePolicies:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the resource policies in this account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeResourcePoliciesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeResourcePoliciesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsDescribeResourcePoliciesResponse*&gt; *)describeResourcePolicies:(AWSLogsDescribeResourcePoliciesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeResourcePolicies service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsDescribeResourcePoliciesResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeResourcePolicies:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeResourcePolicies:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the resource policies in this account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeResourcePoliciesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeResourcePoliciesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeResourcePolicies:(AWSLogsDescribeResourcePoliciesRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeResourcePoliciesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeResourcePolicies service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeResourcePolicies:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeSubscriptionFilters:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix. The results are ASCII-sorted by filter name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeSubscriptionFiltersRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeSubscriptionFiltersResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsDescribeSubscriptionFiltersResponse*&gt; *)describeSubscriptionFilters:(AWSLogsDescribeSubscriptionFiltersRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeSubscriptionFilters service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsDescribeSubscriptionFiltersResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeSubscriptionFilters:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/describeSubscriptionFilters:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix. The results are ASCII-sorted by filter name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeSubscriptionFiltersRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDescribeSubscriptionFiltersResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeSubscriptionFilters:(AWSLogsDescribeSubscriptionFiltersRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeSubscriptionFiltersResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeSubscriptionFilters service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeSubscriptionFilters:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/disassociateKmsKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Disassociates the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group.&lt;/p&gt;&lt;p&gt;After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.&lt;/p&gt;&lt;p&gt;Note that it can take up to 5 minutes for this operation to take effect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDisassociateKmsKeyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)disassociateKmsKey:(AWSLogsDisassociateKmsKeyRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DisassociateKmsKey service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/disassociateKmsKey:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/disassociateKmsKey:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Disassociates the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group.&lt;/p&gt;&lt;p&gt;After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.&lt;/p&gt;&lt;p&gt;Note that it can take up to 5 minutes for this operation to take effect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsDisassociateKmsKeyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)disassociateKmsKey:(AWSLogsDisassociateKmsKeyRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DisassociateKmsKey service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/disassociateKmsKey:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/filterLogEvents:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.&lt;/p&gt;&lt;p&gt;By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events), or all the events found within the time range that you specify. If the results include a token, then there are more log events available, and you can get additional results by specifying the token in a subsequent call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsFilterLogEventsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsFilterLogEventsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsFilterLogEventsResponse*&gt; *)filterLogEvents:(AWSLogsFilterLogEventsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the FilterLogEvents service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsFilterLogEventsResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/filterLogEvents:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/filterLogEvents:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.&lt;/p&gt;&lt;p&gt;By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events), or all the events found within the time range that you specify. If the results include a token, then there are more log events available, and you can get additional results by specifying the token in a subsequent call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsFilterLogEventsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsFilterLogEventsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)filterLogEvents:(AWSLogsFilterLogEventsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsFilterLogEventsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the FilterLogEvents service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/filterLogEvents:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/getLogEvents:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists log events from the specified log stream. You can list all the log events or filter using a time range.&lt;/p&gt;&lt;p&gt;By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). You can get additional log events by specifying one of the tokens in a subsequent call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsGetLogEventsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsGetLogEventsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsGetLogEventsResponse*&gt; *)getLogEvents:(AWSLogsGetLogEventsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetLogEvents service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsGetLogEventsResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/getLogEvents:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/getLogEvents:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists log events from the specified log stream. You can list all the log events or filter using a time range.&lt;/p&gt;&lt;p&gt;By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). You can get additional log events by specifying one of the tokens in a subsequent call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsGetLogEventsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsGetLogEventsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getLogEvents:(AWSLogsGetLogEventsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsGetLogEventsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetLogEvents service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getLogEvents:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/listTagsLogGroup:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the tags for the specified log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsListTagsLogGroupRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsListTagsLogGroupResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsListTagsLogGroupResponse*&gt; *)listTagsLogGroup:(AWSLogsListTagsLogGroupRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListTagsLogGroup service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsListTagsLogGroupResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/listTagsLogGroup:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/listTagsLogGroup:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the tags for the specified log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsListTagsLogGroupRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsListTagsLogGroupResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listTagsLogGroup:(AWSLogsListTagsLogGroupRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsListTagsLogGroupResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListTagsLogGroup service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listTagsLogGroup:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using &lt;a&gt;PutLogEvents&lt;/a&gt;. Currently, the only supported physical resource is a Kinesis stream belonging to the same account as the destination.&lt;/p&gt;&lt;p&gt;Through an access policy, a destination controls what is written to its Kinesis stream. By default, &lt;code&gt;PutDestination&lt;/code&gt; does not set any access policy with the destination, which means a cross-account user cannot call &lt;a&gt;PutSubscriptionFilter&lt;/a&gt; against this destination. To enable this, the destination owner must call &lt;a&gt;PutDestinationPolicy&lt;/a&gt; after &lt;code&gt;PutDestination&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutDestinationRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutDestinationResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsPutDestinationResponse*&gt; *)putDestination:(AWSLogsPutDestinationRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutDestination service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsPutDestinationResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/putDestination:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putDestination:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using &lt;a&gt;PutLogEvents&lt;/a&gt;. Currently, the only supported physical resource is a Kinesis stream belonging to the same account as the destination.&lt;/p&gt;&lt;p&gt;Through an access policy, a destination controls what is written to its Kinesis stream. By default, &lt;code&gt;PutDestination&lt;/code&gt; does not set any access policy with the destination, which means a cross-account user cannot call &lt;a&gt;PutSubscriptionFilter&lt;/a&gt; against this destination. To enable this, the destination owner must call &lt;a&gt;PutDestinationPolicy&lt;/a&gt; after &lt;code&gt;PutDestination&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutDestinationRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutDestinationResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putDestination:(AWSLogsPutDestinationRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsPutDestinationResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutDestination service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putDestination:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putDestinationPolicy:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates or updates an access policy associated with an existing destination. An access policy is an IAM policy document that is used to authorize claims to register a subscription filter against a given destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutDestinationPolicyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)putDestinationPolicy:(AWSLogsPutDestinationPolicyRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutDestinationPolicy service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/putDestinationPolicy:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putDestinationPolicy:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates or updates an access policy associated with an existing destination. An access policy is an IAM policy document that is used to authorize claims to register a subscription filter against a given destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutDestinationPolicyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putDestinationPolicy:(AWSLogsPutDestinationPolicyRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutDestinationPolicy service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putDestinationPolicy:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putLogEvents:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Uploads a batch of log events to the specified log stream.&lt;/p&gt;&lt;p&gt;You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using &lt;a&gt;DescribeLogStreams&lt;/a&gt;. If you call &lt;code&gt;PutLogEvents&lt;/code&gt; twice within a narrow time period using the same value for &lt;code&gt;sequenceToken&lt;/code&gt;, both calls may be successful, or one may be rejected.&lt;/p&gt;&lt;p&gt;The batch of events must satisfy the following constraints:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;None of the log events in the batch can be more than 2 hours in the future.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;None of the log events in the batch can be older than 14 days or the retention period of the log group.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The log events in the batch must be in chronological ordered by their time stamp. The time stamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) &lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The maximum number of log events in a batch is 10,000.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If a call to PutLogEvents returns &quot;UnrecognizedClientException&quot; the most likely cause is an invalid AWS access key ID or secret key. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutLogEventsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutLogEventsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsPutLogEventsResponse*&gt; *)putLogEvents:(AWSLogsPutLogEventsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutLogEvents service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsPutLogEventsResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorInvalidSequenceToken, AWSLogsErrorDataAlreadyAccepted, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable, AWSLogsErrorUnrecognizedClient.</Abstract></ReturnValue>
+			<Anchor>//api/name/putLogEvents:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putLogEvents:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Uploads a batch of log events to the specified log stream.&lt;/p&gt;&lt;p&gt;You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using &lt;a&gt;DescribeLogStreams&lt;/a&gt;. If you call &lt;code&gt;PutLogEvents&lt;/code&gt; twice within a narrow time period using the same value for &lt;code&gt;sequenceToken&lt;/code&gt;, both calls may be successful, or one may be rejected.&lt;/p&gt;&lt;p&gt;The batch of events must satisfy the following constraints:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;None of the log events in the batch can be more than 2 hours in the future.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;None of the log events in the batch can be older than 14 days or the retention period of the log group.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The log events in the batch must be in chronological ordered by their time stamp. The time stamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) &lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The maximum number of log events in a batch is 10,000.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;If a call to PutLogEvents returns &quot;UnrecognizedClientException&quot; the most likely cause is an invalid AWS access key ID or secret key. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutLogEventsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutLogEventsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putLogEvents:(AWSLogsPutLogEventsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsPutLogEventsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutLogEvents service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorInvalidSequenceToken, AWSLogsErrorDataAlreadyAccepted, AWSLogsErrorResourceNotFound, AWSLogsErrorServiceUnavailable, AWSLogsErrorUnrecognizedClient.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putLogEvents:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putMetricFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through &lt;a&gt;PutLogEvents&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;The maximum number of metric filters that can be associated with a log group is 100.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutMetricFilterRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)putMetricFilter:(AWSLogsPutMetricFilterRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutMetricFilter service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorLimitExceeded, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/putMetricFilter:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putMetricFilter:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through &lt;a&gt;PutLogEvents&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;The maximum number of metric filters that can be associated with a log group is 100.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutMetricFilterRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putMetricFilter:(AWSLogsPutMetricFilterRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutMetricFilter service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorLimitExceeded, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putMetricFilter:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putResourcePolicy:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates or updates a resource policy allowing other AWS services to put log events to this account, such as Amazon Route 53. An account can have up to 10 resource policies per region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutResourcePolicyRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutResourcePolicyResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsPutResourcePolicyResponse*&gt; *)putResourcePolicy:(AWSLogsPutResourcePolicyRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutResourcePolicy service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsPutResourcePolicyResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorLimitExceeded, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/putResourcePolicy:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putResourcePolicy:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates or updates a resource policy allowing other AWS services to put log events to this account, such as Amazon Route 53. An account can have up to 10 resource policies per region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutResourcePolicyRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutResourcePolicyResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putResourcePolicy:(AWSLogsPutResourcePolicyRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsPutResourcePolicyResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutResourcePolicy service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorLimitExceeded, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putResourcePolicy:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putRetentionPolicy:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets the retention of the specified log group. A retention policy allows you to configure the number of days for which to retain log events in the specified log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutRetentionPolicyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)putRetentionPolicy:(AWSLogsPutRetentionPolicyRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutRetentionPolicy service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/putRetentionPolicy:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putRetentionPolicy:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets the retention of the specified log group. A retention policy allows you to configure the number of days for which to retain log events in the specified log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutRetentionPolicyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putRetentionPolicy:(AWSLogsPutRetentionPolicyRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutRetentionPolicy service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putRetentionPolicy:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putSubscriptionFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through &lt;a&gt;PutLogEvents&lt;/a&gt; and have them delivered to a specific destination. Currently, the supported destinations are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;A logical destination that belongs to a different account, for cross-account delivery.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in &lt;code&gt;filterName&lt;/code&gt;. Otherwise, the call fails because you cannot associate a second filter with a log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutSubscriptionFilterRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)putSubscriptionFilter:(AWSLogsPutSubscriptionFilterRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutSubscriptionFilter service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorLimitExceeded, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/putSubscriptionFilter:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/putSubscriptionFilter:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through &lt;a&gt;PutLogEvents&lt;/a&gt; and have them delivered to a specific destination. Currently, the supported destinations are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;A logical destination that belongs to a different account, for cross-account delivery.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in &lt;code&gt;filterName&lt;/code&gt;. Otherwise, the call fails because you cannot associate a second filter with a log group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutSubscriptionFilterRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putSubscriptionFilter:(AWSLogsPutSubscriptionFilterRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutSubscriptionFilter service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorResourceNotFound, AWSLogsErrorOperationAborted, AWSLogsErrorLimitExceeded, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putSubscriptionFilter:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/tagLogGroup:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds or updates the specified tags for the specified log group.&lt;/p&gt;&lt;p&gt;To list the tags for a log group, use &lt;a&gt;ListTagsLogGroup&lt;/a&gt;. To remove tags, use &lt;a&gt;UntagLogGroup&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;For more information about tags, see Tag Log Groups in Amazon CloudWatch Logs in the &lt;i&gt;Amazon CloudWatch Logs User Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsTagLogGroupRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)tagLogGroup:(AWSLogsTagLogGroupRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the TagLogGroup service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorResourceNotFound, AWSLogsErrorInvalidParameter.</Abstract></ReturnValue>
+			<Anchor>//api/name/tagLogGroup:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/tagLogGroup:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds or updates the specified tags for the specified log group.&lt;/p&gt;&lt;p&gt;To list the tags for a log group, use &lt;a&gt;ListTagsLogGroup&lt;/a&gt;. To remove tags, use &lt;a&gt;UntagLogGroup&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;For more information about tags, see Tag Log Groups in Amazon CloudWatch Logs in the &lt;i&gt;Amazon CloudWatch Logs User Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsTagLogGroupRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)tagLogGroup:(AWSLogsTagLogGroupRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the TagLogGroup service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorResourceNotFound, AWSLogsErrorInvalidParameter.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/tagLogGroup:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/testMetricFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Tests the filter pattern of a metric filter against a sample of log event messages. You can use this operation to validate the correctness of a metric filter pattern.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsTestMetricFilterRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsTestMetricFilterResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLogsTestMetricFilterResponse*&gt; *)testMetricFilter:(AWSLogsTestMetricFilterRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the TestMetricFilter service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLogsTestMetricFilterResponse. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/testMetricFilter:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/testMetricFilter:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Tests the filter pattern of a metric filter against a sample of log event messages. You can use this operation to validate the correctness of a metric filter pattern.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsTestMetricFilterRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsTestMetricFilterResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)testMetricFilter:(AWSLogsTestMetricFilterRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLogsTestMetricFilterResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the TestMetricFilter service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorInvalidParameter, AWSLogsErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/testMetricFilter:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/untagLogGroup:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes the specified tags from the specified log group.&lt;/p&gt;&lt;p&gt;To list the tags for a log group, use &lt;a&gt;ListTagsLogGroup&lt;/a&gt;. To add tags, use &lt;a&gt;UntagLogGroup&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsUntagLogGroupRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)untagLogGroup:(AWSLogsUntagLogGroupRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UntagLogGroup service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorResourceNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/untagLogGroup:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogs/untagLogGroup:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes the specified tags from the specified log group.&lt;/p&gt;&lt;p&gt;To list the tags for a log group, use &lt;a&gt;ListTagsLogGroup&lt;/a&gt;. To add tags, use &lt;a&gt;UntagLogGroup&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLogsUntagLogGroupRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)untagLogGroup:(AWSLogsUntagLogGroupRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UntagLogGroup service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLogsErrorDomain domain and the following error code: AWSLogsErrorResourceNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/untagLogGroup:completionHandler:</Anchor>
+            <NodeRef refid="1386"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

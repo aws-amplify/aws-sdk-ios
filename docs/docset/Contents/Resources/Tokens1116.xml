@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTSnsAction.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTSnsAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes an action to publish to an Amazon SNS topic.&lt;/p&gt;
+Required parameters: [targetArn, roleArn]</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1116"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTSnsAction/setMessageFormat:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) The message format of the message to publish. Accepted values are &quot;JSON&quot; and &quot;RAW&quot;. The default value of the attribute is &quot;RAW&quot;. SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see http://docs.aws.amazon.com/sns/latest/dg/json-formats.html refer to their official documentation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTMessageFormat messageFormat</Declaration>
+			
+			
+			<Anchor>//api/name/messageFormat</Anchor>
+            <NodeRef refid="1116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTSnsAction/messageFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) The message format of the message to publish. Accepted values are &quot;JSON&quot; and &quot;RAW&quot;. The default value of the attribute is &quot;RAW&quot;. SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see http://docs.aws.amazon.com/sns/latest/dg/json-formats.html refer to their official documentation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTMessageFormat messageFormat</Declaration>
+			
+			
+			<Anchor>//api/name/messageFormat</Anchor>
+            <NodeRef refid="1116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTSnsAction/messageFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(Optional) The message format of the message to publish. Accepted values are &quot;JSON&quot; and &quot;RAW&quot;. The default value of the attribute is &quot;RAW&quot;. SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see http://docs.aws.amazon.com/sns/latest/dg/json-formats.html refer to their official documentation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTMessageFormat messageFormat</Declaration>
+			
+			
+			<Anchor>//api/name/messageFormat</Anchor>
+            <NodeRef refid="1116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTSnsAction/setRoleArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the IAM role that grants access.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTSnsAction/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the IAM role that grants access.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTSnsAction/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the IAM role that grants access.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTSnsAction/setTargetArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the SNS topic.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetArn</Declaration>
+			
+			
+			<Anchor>//api/name/targetArn</Anchor>
+            <NodeRef refid="1116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTSnsAction/targetArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the SNS topic.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetArn</Declaration>
+			
+			
+			<Anchor>//api/name/targetArn</Anchor>
+            <NodeRef refid="1116"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTSnsAction/targetArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the SNS topic.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetArn</Declaration>
+			
+			
+			<Anchor>//api/name/targetArn</Anchor>
+            <NodeRef refid="1116"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

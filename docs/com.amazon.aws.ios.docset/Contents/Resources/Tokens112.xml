@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingSetInstanceHealthQuery.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingSetInstanceHealthQuery</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="112"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingSetInstanceHealthQuery/setHealthStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The health status of the instance. Set to &lt;code&gt;Healthy&lt;/code&gt; if you want the instance to remain in service. Set to &lt;code&gt;Unhealthy&lt;/code&gt; if you want the instance to be out of service. Amazon EC2 Auto Scaling will terminate and replace the unhealthy instance.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *healthStatus</Declaration>
+			
+			
+			<Anchor>//api/name/healthStatus</Anchor>
+            <NodeRef refid="112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingSetInstanceHealthQuery/healthStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The health status of the instance. Set to &lt;code&gt;Healthy&lt;/code&gt; if you want the instance to remain in service. Set to &lt;code&gt;Unhealthy&lt;/code&gt; if you want the instance to be out of service. Amazon EC2 Auto Scaling will terminate and replace the unhealthy instance.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *healthStatus</Declaration>
+			
+			
+			<Anchor>//api/name/healthStatus</Anchor>
+            <NodeRef refid="112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingSetInstanceHealthQuery/healthStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The health status of the instance. Set to &lt;code&gt;Healthy&lt;/code&gt; if you want the instance to remain in service. Set to &lt;code&gt;Unhealthy&lt;/code&gt; if you want the instance to be out of service. Amazon EC2 Auto Scaling will terminate and replace the unhealthy instance.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *healthStatus</Declaration>
+			
+			
+			<Anchor>//api/name/healthStatus</Anchor>
+            <NodeRef refid="112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingSetInstanceHealthQuery/setInstanceId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the instance.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *instanceId</Declaration>
+			
+			
+			<Anchor>//api/name/instanceId</Anchor>
+            <NodeRef refid="112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingSetInstanceHealthQuery/instanceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the instance.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *instanceId</Declaration>
+			
+			
+			<Anchor>//api/name/instanceId</Anchor>
+            <NodeRef refid="112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingSetInstanceHealthQuery/instanceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the instance.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *instanceId</Declaration>
+			
+			
+			<Anchor>//api/name/instanceId</Anchor>
+            <NodeRef refid="112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingSetInstanceHealthQuery/setShouldRespectGracePeriod:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the Auto Scaling group of the specified instance has a &lt;code&gt;HealthCheckGracePeriod&lt;/code&gt; specified for the group, by default, this call will respect the grace period. Set this to &lt;code&gt;False&lt;/code&gt;, if you do not want the call to respect the grace period associated with the group.&lt;/p&gt;&lt;p&gt;For more information, see the description of the health check grace period for &lt;a&gt;CreateAutoScalingGroup&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *shouldRespectGracePeriod</Declaration>
+			
+			
+			<Anchor>//api/name/shouldRespectGracePeriod</Anchor>
+            <NodeRef refid="112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingSetInstanceHealthQuery/shouldRespectGracePeriod</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the Auto Scaling group of the specified instance has a &lt;code&gt;HealthCheckGracePeriod&lt;/code&gt; specified for the group, by default, this call will respect the grace period. Set this to &lt;code&gt;False&lt;/code&gt;, if you do not want the call to respect the grace period associated with the group.&lt;/p&gt;&lt;p&gt;For more information, see the description of the health check grace period for &lt;a&gt;CreateAutoScalingGroup&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *shouldRespectGracePeriod</Declaration>
+			
+			
+			<Anchor>//api/name/shouldRespectGracePeriod</Anchor>
+            <NodeRef refid="112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingSetInstanceHealthQuery/shouldRespectGracePeriod</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the Auto Scaling group of the specified instance has a &lt;code&gt;HealthCheckGracePeriod&lt;/code&gt; specified for the group, by default, this call will respect the grace period. Set this to &lt;code&gt;False&lt;/code&gt;, if you do not want the call to respect the grace period associated with the group.&lt;/p&gt;&lt;p&gt;For more information, see the description of the health check grace period for &lt;a&gt;CreateAutoScalingGroup&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *shouldRespectGracePeriod</Declaration>
+			
+			
+			<Anchor>//api/name/shouldRespectGracePeriod</Anchor>
+            <NodeRef refid="112"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

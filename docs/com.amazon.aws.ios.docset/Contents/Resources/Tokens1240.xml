@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisEnhancedMonitoringOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisEnhancedMonitoringOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the output for &lt;a&gt;EnableEnhancedMonitoring&lt;/a&gt; and &lt;a&gt;DisableEnhancedMonitoring&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1240"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisEnhancedMonitoringOutput/setCurrentShardLevelMetrics:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the current state of the metrics that are in the enhanced state before the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *currentShardLevelMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/currentShardLevelMetrics</Anchor>
+            <NodeRef refid="1240"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisEnhancedMonitoringOutput/currentShardLevelMetrics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the current state of the metrics that are in the enhanced state before the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *currentShardLevelMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/currentShardLevelMetrics</Anchor>
+            <NodeRef refid="1240"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisEnhancedMonitoringOutput/currentShardLevelMetrics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the current state of the metrics that are in the enhanced state before the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *currentShardLevelMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/currentShardLevelMetrics</Anchor>
+            <NodeRef refid="1240"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisEnhancedMonitoringOutput/setDesiredShardLevelMetrics:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the list of all the metrics that would be in the enhanced state after the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *desiredShardLevelMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/desiredShardLevelMetrics</Anchor>
+            <NodeRef refid="1240"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisEnhancedMonitoringOutput/desiredShardLevelMetrics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the list of all the metrics that would be in the enhanced state after the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *desiredShardLevelMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/desiredShardLevelMetrics</Anchor>
+            <NodeRef refid="1240"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisEnhancedMonitoringOutput/desiredShardLevelMetrics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the list of all the metrics that would be in the enhanced state after the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *desiredShardLevelMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/desiredShardLevelMetrics</Anchor>
+            <NodeRef refid="1240"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisEnhancedMonitoringOutput/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Kinesis data stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1240"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisEnhancedMonitoringOutput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Kinesis data stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1240"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisEnhancedMonitoringOutput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the Kinesis data stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1240"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

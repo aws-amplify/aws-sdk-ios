@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSAutoScalingErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSAutoScalingErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2399"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2399"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingErrorAlreadyExists</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingErrorAlreadyExists</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2399"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingErrorInvalidNextToken</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingErrorInvalidNextToken</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2399"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingErrorLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingErrorLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2399"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingErrorResourceContention</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingErrorResourceContention</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2399"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingErrorResourceInUse</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingErrorResourceInUse</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2399"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingErrorScalingActivityInProgress</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingErrorScalingActivityInProgress</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2399"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingErrorServiceLinkedRoleFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingErrorServiceLinkedRoleFailure</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2399"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

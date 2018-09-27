@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingGCMChannelRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGCMChannelRequest</TokenIdentifier>
+			<Abstract type="html">Google Cloud Messaging credentials</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1540"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMChannelRequest/setApiKey:</TokenIdentifier>
+			<Abstract type="html">Platform credential API key from Google.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *apiKey</Declaration>
+			
+			
+			<Anchor>//api/name/apiKey</Anchor>
+            <NodeRef refid="1540"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMChannelRequest/apiKey</TokenIdentifier>
+			<Abstract type="html">Platform credential API key from Google.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *apiKey</Declaration>
+			
+			
+			<Anchor>//api/name/apiKey</Anchor>
+            <NodeRef refid="1540"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMChannelRequest/apiKey</TokenIdentifier>
+			<Abstract type="html">Platform credential API key from Google.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *apiKey</Declaration>
+			
+			
+			<Anchor>//api/name/apiKey</Anchor>
+            <NodeRef refid="1540"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMChannelRequest/setEnabled:</TokenIdentifier>
+			<Abstract type="html">If the channel is enabled for sending messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="1540"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMChannelRequest/enabled</TokenIdentifier>
+			<Abstract type="html">If the channel is enabled for sending messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="1540"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMChannelRequest/enabled</TokenIdentifier>
+			<Abstract type="html">If the channel is enabled for sending messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="1540"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionTextDetection.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionTextDetection</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a word or line of text detected by .&lt;/p&gt;&lt;p&gt;The &lt;code&gt;DetectedText&lt;/code&gt; field contains the text that Amazon Rekognition detected in the image. &lt;/p&gt;&lt;p&gt;Every word and line has an identifier (&lt;code&gt;Id&lt;/code&gt;). Each word belongs to a line and has a parent identifier (&lt;code&gt;ParentId&lt;/code&gt;) that identifies the line of text in which the word appears. The word &lt;code&gt;Id&lt;/code&gt; is also an index for the word within a line of words. &lt;/p&gt;&lt;p&gt;For more information, see Detecting Text in the Amazon Rekognition Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1779"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/setConfidence:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionTextDetection/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The confidence that Amazon Rekognition has in the accuracy of the detected text and the accuracy of the geometry points around the detected text.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/setDetectedText:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The word or line of text recognized by Amazon Rekognition. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detectedText</Declaration>
+			
+			
+			<Anchor>//api/name/detectedText</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/detectedText</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The word or line of text recognized by Amazon Rekognition. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detectedText</Declaration>
+			
+			
+			<Anchor>//api/name/detectedText</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionTextDetection/detectedText</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The word or line of text recognized by Amazon Rekognition. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detectedText</Declaration>
+			
+			
+			<Anchor>//api/name/detectedText</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/setGeometry:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The location of the detected text on the image. Includes an axis aligned coarse bounding box surrounding the text and a finer grain polygon for more accurate spatial information.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionGeometry *geometry</Declaration>
+			
+			
+			<Anchor>//api/name/geometry</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/geometry</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The location of the detected text on the image. Includes an axis aligned coarse bounding box surrounding the text and a finer grain polygon for more accurate spatial information.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionGeometry *geometry</Declaration>
+			
+			
+			<Anchor>//api/name/geometry</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionTextDetection/geometry</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The location of the detected text on the image. Includes an axis aligned coarse bounding box surrounding the text and a finer grain polygon for more accurate spatial information.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionGeometry *geometry</Declaration>
+			
+			
+			<Anchor>//api/name/geometry</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier for the detected text. The identifier is only unique for a single call to &lt;code&gt;DetectText&lt;/code&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/identifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier for the detected text. The identifier is only unique for a single call to &lt;code&gt;DetectText&lt;/code&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionTextDetection/identifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier for the detected text. The identifier is only unique for a single call to &lt;code&gt;DetectText&lt;/code&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/setParentId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Parent identifier for the detected text identified by the value of &lt;code&gt;ID&lt;/code&gt;. If the type of detected text is &lt;code&gt;LINE&lt;/code&gt;, the value of &lt;code&gt;ParentId&lt;/code&gt; is &lt;code&gt;Null&lt;/code&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *parentId</Declaration>
+			
+			
+			<Anchor>//api/name/parentId</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/parentId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Parent identifier for the detected text identified by the value of &lt;code&gt;ID&lt;/code&gt;. If the type of detected text is &lt;code&gt;LINE&lt;/code&gt;, the value of &lt;code&gt;ParentId&lt;/code&gt; is &lt;code&gt;Null&lt;/code&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *parentId</Declaration>
+			
+			
+			<Anchor>//api/name/parentId</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionTextDetection/parentId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Parent identifier for the detected text identified by the value of &lt;code&gt;ID&lt;/code&gt;. If the type of detected text is &lt;code&gt;LINE&lt;/code&gt;, the value of &lt;code&gt;ParentId&lt;/code&gt; is &lt;code&gt;Null&lt;/code&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *parentId</Declaration>
+			
+			
+			<Anchor>//api/name/parentId</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/setTypes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of text that was detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionTextTypes types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionTextDetection/types</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of text that was detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionTextTypes types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionTextDetection/types</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of text that was detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionTextTypes types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="1779"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

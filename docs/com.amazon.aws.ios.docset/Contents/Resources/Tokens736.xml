@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingDescribeTagsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingDescribeTagsInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the parameters for DescribeTags.&lt;/p&gt;
+Required parameters: [LoadBalancerNames]</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="736"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDescribeTagsInput/setLoadBalancerNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the load balancers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *loadBalancerNames</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerNames</Anchor>
+            <NodeRef refid="736"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDescribeTagsInput/loadBalancerNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the load balancers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *loadBalancerNames</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerNames</Anchor>
+            <NodeRef refid="736"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingDescribeTagsInput/loadBalancerNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the load balancers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *loadBalancerNames</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerNames</Anchor>
+            <NodeRef refid="736"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

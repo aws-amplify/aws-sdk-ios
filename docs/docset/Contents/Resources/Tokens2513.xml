@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSIoTAuthDecision.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSIoTAuthDecision</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2513"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTAuthDecisionUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTAuthDecisionUnknown</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2513"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTAuthDecisionAllowed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTAuthDecisionAllowed</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2513"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTAuthDecisionExplicitDeny</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTAuthDecisionExplicitDeny</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2513"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTAuthDecisionImplicitDeny</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTAuthDecisionImplicitDeny</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2513"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

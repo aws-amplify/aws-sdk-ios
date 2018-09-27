@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/InputType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/InputType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2721"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/InputTypeText</TokenIdentifier>
+            <Abstract type="html">text type enables generic text input *</Abstract>
+            <Declaration>InputTypeText</Declaration>
+            
+            <DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+            
+            <NodeRef refid="2721"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/InputTypePassword</TokenIdentifier>
+            <Abstract type="html">password type enables secure text input *</Abstract>
+            <Declaration>InputTypePassword</Declaration>
+            
+            <DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+            
+            <NodeRef refid="2721"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/InputTypeStaticText</TokenIdentifier>
+            <Abstract type="html">staticText hides place holder view and shows the input field by default *</Abstract>
+            <Declaration>InputTypeStaticText</Declaration>
+            
+            <DeclaredIn>AWSFormTableCell.h</DeclaredIn>
+            
+            <NodeRef refid="2721"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

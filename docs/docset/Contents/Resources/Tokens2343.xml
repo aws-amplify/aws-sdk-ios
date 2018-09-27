@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSTranscribeCreateVocabularyRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSTranscribeCreateVocabularyRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2343"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyRequest/setLanguageCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code of the vocabulary entries.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2343"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyRequest/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code of the vocabulary entries.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2343"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeCreateVocabularyRequest/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code of the vocabulary entries.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2343"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyRequest/setPhrases:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of strings that contains the vocabulary entries. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *phrases</Declaration>
+			
+			
+			<Anchor>//api/name/phrases</Anchor>
+            <NodeRef refid="2343"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyRequest/phrases</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of strings that contains the vocabulary entries. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *phrases</Declaration>
+			
+			
+			<Anchor>//api/name/phrases</Anchor>
+            <NodeRef refid="2343"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeCreateVocabularyRequest/phrases</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of strings that contains the vocabulary entries. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *phrases</Declaration>
+			
+			
+			<Anchor>//api/name/phrases</Anchor>
+            <NodeRef refid="2343"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyRequest/setVocabularyName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the vocabulary. The name must be unique within an AWS account. The name is case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vocabularyName</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyName</Anchor>
+            <NodeRef refid="2343"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyRequest/vocabularyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the vocabulary. The name must be unique within an AWS account. The name is case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vocabularyName</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyName</Anchor>
+            <NodeRef refid="2343"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeCreateVocabularyRequest/vocabularyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the vocabulary. The name must be unique within an AWS account. The name is case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vocabularyName</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyName</Anchor>
+            <NodeRef refid="2343"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

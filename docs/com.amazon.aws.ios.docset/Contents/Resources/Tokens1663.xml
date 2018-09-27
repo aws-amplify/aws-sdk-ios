@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPollySynthesizeSpeechURLBuilderRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPollySynthesizeSpeechURLBuilderRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1663"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/setLexiconNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of one or more lexicon names you want the service to apply during synthesis. For information about storing lexicons, see .&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *lexiconNames</Declaration>
+			
+			
+			<Anchor>//api/name/lexiconNames</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/lexiconNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of one or more lexicon names you want the service to apply during synthesis. For information about storing lexicons, see .&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *lexiconNames</Declaration>
+			
+			
+			<Anchor>//api/name/lexiconNames</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesizeSpeechURLBuilderRequest/lexiconNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of one or more lexicon names you want the service to apply during synthesis. For information about storing lexicons, see .&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *lexiconNames</Declaration>
+			
+			
+			<Anchor>//api/name/lexiconNames</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/setLanguageCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). &lt;/p&gt;&lt;p&gt;If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the DescribeVoices operation for the &lt;code&gt;LanguageCode&lt;/code&gt; parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). &lt;/p&gt;&lt;p&gt;If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the DescribeVoices operation for the &lt;code&gt;LanguageCode&lt;/code&gt; parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesizeSpeechURLBuilderRequest/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional language code for the Synthesize Speech request. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). &lt;/p&gt;&lt;p&gt;If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the DescribeVoices operation for the &lt;code&gt;LanguageCode&lt;/code&gt; parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/setSpeechMarkTypes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Input text to synthesize. If you specify &lt;code&gt;ssml&lt;/code&gt; as the &lt;code&gt;TextType&lt;/code&gt;, follow the SSML format for the input text. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *speechMarkTypes</Declaration>
+			
+			
+			<Anchor>//api/name/speechMarkTypes</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/speechMarkTypes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Input text to synthesize. If you specify &lt;code&gt;ssml&lt;/code&gt; as the &lt;code&gt;TextType&lt;/code&gt;, follow the SSML format for the input text. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *speechMarkTypes</Declaration>
+			
+			
+			<Anchor>//api/name/speechMarkTypes</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesizeSpeechURLBuilderRequest/speechMarkTypes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; Input text to synthesize. If you specify &lt;code&gt;ssml&lt;/code&gt; as the &lt;code&gt;TextType&lt;/code&gt;, follow the SSML format for the input text. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *speechMarkTypes</Declaration>
+			
+			
+			<Anchor>//api/name/speechMarkTypes</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/setOutputFormat:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Format to use for the resulting audio stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyOutputFormat outputFormat</Declaration>
+			
+			
+			<Anchor>//api/name/outputFormat</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/outputFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Format to use for the resulting audio stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyOutputFormat outputFormat</Declaration>
+			
+			
+			<Anchor>//api/name/outputFormat</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesizeSpeechURLBuilderRequest/outputFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Format to use for the resulting audio stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyOutputFormat outputFormat</Declaration>
+			
+			
+			<Anchor>//api/name/outputFormat</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/setSampleRate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The audio frequency specified in Hz. &lt;/p&gt;&lt;p&gt; The valid values for &lt;code&gt;mp3&lt;/code&gt; and &lt;code&gt;ogg_vorbis&lt;/code&gt; are &quot;8000&quot;, &quot;16000&quot;, and &quot;22050&quot;. The default value is 22050.&lt;/p&gt;&lt;p&gt;Valid values for &lt;code&gt;pcm&lt;/code&gt; are &quot;8000&quot; and &quot;16000&quot;. The default value is ???.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sampleRate</Declaration>
+			
+			
+			<Anchor>//api/name/sampleRate</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/sampleRate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The audio frequency specified in Hz. &lt;/p&gt;&lt;p&gt; The valid values for &lt;code&gt;mp3&lt;/code&gt; and &lt;code&gt;ogg_vorbis&lt;/code&gt; are &quot;8000&quot;, &quot;16000&quot;, and &quot;22050&quot;. The default value is 22050.&lt;/p&gt;&lt;p&gt;Valid values for &lt;code&gt;pcm&lt;/code&gt; are &quot;8000&quot; and &quot;16000&quot;. The default value is ???.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sampleRate</Declaration>
+			
+			
+			<Anchor>//api/name/sampleRate</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesizeSpeechURLBuilderRequest/sampleRate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The audio frequency specified in Hz. &lt;/p&gt;&lt;p&gt; The valid values for &lt;code&gt;mp3&lt;/code&gt; and &lt;code&gt;ogg_vorbis&lt;/code&gt; are &quot;8000&quot;, &quot;16000&quot;, and &quot;22050&quot;. The default value is 22050.&lt;/p&gt;&lt;p&gt;Valid values for &lt;code&gt;pcm&lt;/code&gt; are &quot;8000&quot; and &quot;16000&quot;. The default value is ???.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sampleRate</Declaration>
+			
+			
+			<Anchor>//api/name/sampleRate</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/setText:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Input text to synthesize. If you specify &lt;code&gt;ssml&lt;/code&gt; as the &lt;code&gt;TextType&lt;/code&gt;, follow the SSML format for the input text.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/text</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Input text to synthesize. If you specify &lt;code&gt;ssml&lt;/code&gt; as the &lt;code&gt;TextType&lt;/code&gt;, follow the SSML format for the input text.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesizeSpeechURLBuilderRequest/text</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Input text to synthesize. If you specify &lt;code&gt;ssml&lt;/code&gt; as the &lt;code&gt;TextType&lt;/code&gt;, follow the SSML format for the input text.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/setTextType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the input text is plain text or SSML. The default value is text. For more information about SSML, see &lt;a&gt;examples-ssml-input&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTextType textType</Declaration>
+			
+			
+			<Anchor>//api/name/textType</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/textType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the input text is plain text or SSML. The default value is text. For more information about SSML, see &lt;a&gt;examples-ssml-input&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTextType textType</Declaration>
+			
+			
+			<Anchor>//api/name/textType</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesizeSpeechURLBuilderRequest/textType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the input text is plain text or SSML. The default value is text. For more information about SSML, see &lt;a&gt;examples-ssml-input&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTextType textType</Declaration>
+			
+			
+			<Anchor>//api/name/textType</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/setVoiceId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyVoiceId voiceId</Declaration>
+			
+			
+			<Anchor>//api/name/voiceId</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/voiceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyVoiceId voiceId</Declaration>
+			
+			
+			<Anchor>//api/name/voiceId</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesizeSpeechURLBuilderRequest/voiceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Voice ID to use for the synthesis. You can get a list of available voice IDs by calling the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyVoiceId voiceId</Declaration>
+			
+			
+			<Anchor>//api/name/voiceId</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/setExpires:</TokenIdentifier>
+			<Abstract type="html">The time when the signature expires, specified as an NSDate object.</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *expires</Declaration>
+			
+			
+			<Anchor>//api/name/expires</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilderRequest/expires</TokenIdentifier>
+			<Abstract type="html">The time when the signature expires, specified as an NSDate object.</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *expires</Declaration>
+			
+			
+			<Anchor>//api/name/expires</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesizeSpeechURLBuilderRequest/expires</TokenIdentifier>
+			<Abstract type="html">The time when the signature expires, specified as an NSDate object.</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *expires</Declaration>
+			
+			
+			<Anchor>//api/name/expires</Anchor>
+            <NodeRef refid="1663"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

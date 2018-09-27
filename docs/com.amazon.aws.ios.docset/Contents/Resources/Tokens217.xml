@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAccountTakeoverActionsType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAccountTakeoverActionsType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Account takeover actions type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="217"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverActionsType/setHighAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Action to take for a high risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType *highAction</Declaration>
+			
+			
+			<Anchor>//api/name/highAction</Anchor>
+            <NodeRef refid="217"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverActionsType/highAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Action to take for a high risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType *highAction</Declaration>
+			
+			
+			<Anchor>//api/name/highAction</Anchor>
+            <NodeRef refid="217"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAccountTakeoverActionsType/highAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Action to take for a high risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType *highAction</Declaration>
+			
+			
+			<Anchor>//api/name/highAction</Anchor>
+            <NodeRef refid="217"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverActionsType/setLowAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Action to take for a low risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType *lowAction</Declaration>
+			
+			
+			<Anchor>//api/name/lowAction</Anchor>
+            <NodeRef refid="217"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverActionsType/lowAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Action to take for a low risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType *lowAction</Declaration>
+			
+			
+			<Anchor>//api/name/lowAction</Anchor>
+            <NodeRef refid="217"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAccountTakeoverActionsType/lowAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Action to take for a low risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType *lowAction</Declaration>
+			
+			
+			<Anchor>//api/name/lowAction</Anchor>
+            <NodeRef refid="217"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverActionsType/setMediumAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Action to take for a medium risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType *mediumAction</Declaration>
+			
+			
+			<Anchor>//api/name/mediumAction</Anchor>
+            <NodeRef refid="217"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverActionsType/mediumAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Action to take for a medium risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType *mediumAction</Declaration>
+			
+			
+			<Anchor>//api/name/mediumAction</Anchor>
+            <NodeRef refid="217"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAccountTakeoverActionsType/mediumAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Action to take for a medium risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverActionType *mediumAction</Declaration>
+			
+			
+			<Anchor>//api/name/mediumAction</Anchor>
+            <NodeRef refid="217"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

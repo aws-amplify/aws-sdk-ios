@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderSignUpRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderSignUpRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the request to register a user.&lt;/p&gt;
+Required parameters: [ClientId, Username, Password]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="411"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/setAnalyticsMetadata:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Pinpoint analytics metadata for collecting metrics for &lt;code&gt;SignUp&lt;/code&gt; calls.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType *analyticsMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsMetadata</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/analyticsMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Pinpoint analytics metadata for collecting metrics for &lt;code&gt;SignUp&lt;/code&gt; calls.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType *analyticsMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsMetadata</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSignUpRequest/analyticsMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Pinpoint analytics metadata for collecting metrics for &lt;code&gt;SignUp&lt;/code&gt; calls.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType *analyticsMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsMetadata</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/setClientId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the client associated with the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/clientId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the client associated with the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSignUpRequest/clientId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the client associated with the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/setPassword:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The password of the user you wish to register.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *password</Declaration>
+			
+			
+			<Anchor>//api/name/password</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/password</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The password of the user you wish to register.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *password</Declaration>
+			
+			
+			<Anchor>//api/name/password</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSignUpRequest/password</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The password of the user you wish to register.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *password</Declaration>
+			
+			
+			<Anchor>//api/name/password</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/setSecretHash:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *secretHash</Declaration>
+			
+			
+			<Anchor>//api/name/secretHash</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/secretHash</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *secretHash</Declaration>
+			
+			
+			<Anchor>//api/name/secretHash</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSignUpRequest/secretHash</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *secretHash</Declaration>
+			
+			
+			<Anchor>//api/name/secretHash</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/setUserAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of name-value pairs representing user attributes.&lt;/p&gt;&lt;p&gt;For custom attributes, you must prepend the &lt;code&gt;custom:&lt;/code&gt; prefix to the attribute name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *userAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/userAttributes</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/userAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of name-value pairs representing user attributes.&lt;/p&gt;&lt;p&gt;For custom attributes, you must prepend the &lt;code&gt;custom:&lt;/code&gt; prefix to the attribute name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *userAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/userAttributes</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSignUpRequest/userAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of name-value pairs representing user attributes.&lt;/p&gt;&lt;p&gt;For custom attributes, you must prepend the &lt;code&gt;custom:&lt;/code&gt; prefix to the attribute name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *userAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/userAttributes</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/setUserContextData:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contextual data such as the user&apos;s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType *userContextData</Declaration>
+			
+			
+			<Anchor>//api/name/userContextData</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/userContextData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contextual data such as the user&apos;s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType *userContextData</Declaration>
+			
+			
+			<Anchor>//api/name/userContextData</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSignUpRequest/userContextData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contextual data such as the user&apos;s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType *userContextData</Declaration>
+			
+			
+			<Anchor>//api/name/userContextData</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/setUsername:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user name of the user you wish to register.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/username</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user name of the user you wish to register.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSignUpRequest/username</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user name of the user you wish to register.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/setValidationData:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The validation data in the request to register a user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *validationData</Declaration>
+			
+			
+			<Anchor>//api/name/validationData</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSignUpRequest/validationData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The validation data in the request to register a user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *validationData</Declaration>
+			
+			
+			<Anchor>//api/name/validationData</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSignUpRequest/validationData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The validation data in the request to register a user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *validationData</Declaration>
+			
+			
+			<Anchor>//api/name/validationData</Anchor>
+            <NodeRef refid="411"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

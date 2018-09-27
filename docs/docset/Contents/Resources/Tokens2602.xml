@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSPinpointTargetingDuration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSPinpointTargetingDuration</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2602"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingDurationUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingDurationUnknown</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2602"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingDurationHr24</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingDurationHr24</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2602"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingDurationDay7</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingDurationDay7</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2602"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingDurationDay14</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingDurationDay14</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2602"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingDurationDay30</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingDurationDay30</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2602"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

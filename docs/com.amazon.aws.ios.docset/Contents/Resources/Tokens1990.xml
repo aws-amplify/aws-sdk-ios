@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3S3KeyFilter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3S3KeyFilter</TokenIdentifier>
+			<Abstract type="html">Container for object key name prefix and suffix filtering rules.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1990"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3KeyFilter/setFilterRules:</TokenIdentifier>
+			<Abstract type="html">A list of containers for key value pair that defines the criteria for the filter rule.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3FilterRule*&gt; *filterRules</Declaration>
+			
+			
+			<Anchor>//api/name/filterRules</Anchor>
+            <NodeRef refid="1990"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3S3KeyFilter/filterRules</TokenIdentifier>
+			<Abstract type="html">A list of containers for key value pair that defines the criteria for the filter rule.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3FilterRule*&gt; *filterRules</Declaration>
+			
+			
+			<Anchor>//api/name/filterRules</Anchor>
+            <NodeRef refid="1990"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3S3KeyFilter/filterRules</TokenIdentifier>
+			<Abstract type="html">A list of containers for key value pair that defines the criteria for the filter rule.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3FilterRule*&gt; *filterRules</Declaration>
+			
+			
+			<Anchor>//api/name/filterRules</Anchor>
+            <NodeRef refid="1990"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

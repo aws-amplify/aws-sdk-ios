@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3ObjectCannedACL.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3ObjectCannedACL</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2658"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ObjectCannedACLUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ObjectCannedACLUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2658"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ObjectCannedACLPrivate</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ObjectCannedACLPrivate</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2658"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ObjectCannedACLPublicRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ObjectCannedACLPublicRead</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2658"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ObjectCannedACLPublicReadWrite</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ObjectCannedACLPublicReadWrite</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2658"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ObjectCannedACLAuthenticatedRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ObjectCannedACLAuthenticatedRead</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2658"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ObjectCannedACLAwsExecRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ObjectCannedACLAwsExecRead</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2658"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ObjectCannedACLBucketOwnerRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ObjectCannedACLBucketOwnerRead</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2658"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ObjectCannedACLBucketOwnerFullControl</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ObjectCannedACLBucketOwnerFullControl</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2658"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

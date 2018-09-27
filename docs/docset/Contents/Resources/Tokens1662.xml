@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPollySynthesizeSpeechURLBuilder.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPollySynthesizeSpeechURLBuilder</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1662"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPollySynthesizeSpeechURLBuilder/defaultPollySynthesizeSpeechURLBuilder</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultPollySynthesizeSpeechURLBuilder</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultPollySynthesizeSpeechURLBuilder</Anchor>
+            <NodeRef refid="1662"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPollySynthesizeSpeechURLBuilder/registerPollySynthesizeSpeechURLBuilder:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerPollySynthesizeSpeechURLBuilder:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerPollySynthesizeSpeechURLBuilder:forKey:</Anchor>
+            <NodeRef refid="1662"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPollySynthesizeSpeechURLBuilder/PollySynthesizeSpeechURLBuilderForKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)PollySynthesizeSpeechURLBuilderForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/PollySynthesizeSpeechURLBuilderForKey:</Anchor>
+            <NodeRef refid="1662"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPollySynthesizeSpeechURLBuilder/removePollySynthesizeSpeechURLBuilderForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+			<Declaration>+ (void)removePollySynthesizeSpeechURLBuilderForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removePollySynthesizeSpeechURLBuilderForKey:</Anchor>
+            <NodeRef refid="1662"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesizeSpeechURLBuilder/getPreSignedURL:</TokenIdentifier>
+			<Abstract type="html">Build a time-limited pre-signed URL to synthesize speech from Amazon Polly, return nil if build process failed.</Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollySynthesizeSpeechURLBuilderRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;NSURL*&gt; *)getPreSignedURL:(AWSPollySynthesizeSpeechURLBuilderRequest *)getPreSignedURLRequest</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>preSignedURLRequest</Name>
+					<Abstract type="html">The AWSPollySynthesizeSpeechURLBuilderRequest that defines the parameters of the operation.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A pre-signed NSURL for the resource. return nil if any errors occured.</Abstract></ReturnValue>
+			<Anchor>//api/name/getPreSignedURL:</Anchor>
+            <NodeRef refid="1662"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

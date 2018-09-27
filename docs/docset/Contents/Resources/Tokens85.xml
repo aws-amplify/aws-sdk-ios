@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingLaunchTemplateSpecification.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingLaunchTemplateSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes a launch template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="85"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingLaunchTemplateSpecification/setLaunchTemplateId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the launch template. You must specify either a template ID or a template name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *launchTemplateId</Declaration>
+			
+			
+			<Anchor>//api/name/launchTemplateId</Anchor>
+            <NodeRef refid="85"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingLaunchTemplateSpecification/launchTemplateId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the launch template. You must specify either a template ID or a template name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *launchTemplateId</Declaration>
+			
+			
+			<Anchor>//api/name/launchTemplateId</Anchor>
+            <NodeRef refid="85"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingLaunchTemplateSpecification/launchTemplateId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the launch template. You must specify either a template ID or a template name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *launchTemplateId</Declaration>
+			
+			
+			<Anchor>//api/name/launchTemplateId</Anchor>
+            <NodeRef refid="85"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingLaunchTemplateSpecification/setLaunchTemplateName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the launch template. You must specify either a template name or a template ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *launchTemplateName</Declaration>
+			
+			
+			<Anchor>//api/name/launchTemplateName</Anchor>
+            <NodeRef refid="85"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingLaunchTemplateSpecification/launchTemplateName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the launch template. You must specify either a template name or a template ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *launchTemplateName</Declaration>
+			
+			
+			<Anchor>//api/name/launchTemplateName</Anchor>
+            <NodeRef refid="85"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingLaunchTemplateSpecification/launchTemplateName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the launch template. You must specify either a template name or a template ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *launchTemplateName</Declaration>
+			
+			
+			<Anchor>//api/name/launchTemplateName</Anchor>
+            <NodeRef refid="85"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingLaunchTemplateSpecification/setVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version number, &lt;code&gt;$Latest&lt;/code&gt;, or &lt;code&gt;$Default&lt;/code&gt;. If the value is &lt;code&gt;$Latest&lt;/code&gt;, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is &lt;code&gt;$Default&lt;/code&gt;, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is &lt;code&gt;$Default&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="85"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingLaunchTemplateSpecification/version</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version number, &lt;code&gt;$Latest&lt;/code&gt;, or &lt;code&gt;$Default&lt;/code&gt;. If the value is &lt;code&gt;$Latest&lt;/code&gt;, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is &lt;code&gt;$Default&lt;/code&gt;, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is &lt;code&gt;$Default&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="85"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingLaunchTemplateSpecification/version</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version number, &lt;code&gt;$Latest&lt;/code&gt;, or &lt;code&gt;$Default&lt;/code&gt;. If the value is &lt;code&gt;$Latest&lt;/code&gt;, Amazon EC2 Auto Scaling selects the latest version of the launch template when launching instances. If the value is &lt;code&gt;$Default&lt;/code&gt;, Amazon EC2 Auto Scaling selects the default version of the launch template when launching instances. The default value is &lt;code&gt;$Default&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="85"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

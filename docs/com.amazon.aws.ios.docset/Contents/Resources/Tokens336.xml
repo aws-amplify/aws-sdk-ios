@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderForgotPasswordRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderForgotPasswordRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the request to reset a user&apos;s password.&lt;/p&gt;
+Required parameters: [ClientId, Username]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="336"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordRequest/setAnalyticsMetadata:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Pinpoint analytics metadata for collecting metrics for &lt;code&gt;ForgotPassword&lt;/code&gt; calls.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType *analyticsMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsMetadata</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordRequest/analyticsMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Pinpoint analytics metadata for collecting metrics for &lt;code&gt;ForgotPassword&lt;/code&gt; calls.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType *analyticsMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsMetadata</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderForgotPasswordRequest/analyticsMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Pinpoint analytics metadata for collecting metrics for &lt;code&gt;ForgotPassword&lt;/code&gt; calls.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType *analyticsMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsMetadata</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordRequest/setClientId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the client associated with the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordRequest/clientId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the client associated with the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderForgotPasswordRequest/clientId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the client associated with the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordRequest/setSecretHash:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *secretHash</Declaration>
+			
+			
+			<Anchor>//api/name/secretHash</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordRequest/secretHash</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *secretHash</Declaration>
+			
+			
+			<Anchor>//api/name/secretHash</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderForgotPasswordRequest/secretHash</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A keyed-hash message authentication code (HMAC) calculated using the secret key of a user pool client and username plus the client ID in the message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *secretHash</Declaration>
+			
+			
+			<Anchor>//api/name/secretHash</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordRequest/setUserContextData:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contextual data such as the user&apos;s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType *userContextData</Declaration>
+			
+			
+			<Anchor>//api/name/userContextData</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordRequest/userContextData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contextual data such as the user&apos;s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType *userContextData</Declaration>
+			
+			
+			<Anchor>//api/name/userContextData</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderForgotPasswordRequest/userContextData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contextual data such as the user&apos;s device fingerprint, IP address, or location used for evaluating the risk of an unexpected event by Amazon Cognito advanced security.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserContextDataType *userContextData</Declaration>
+			
+			
+			<Anchor>//api/name/userContextData</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordRequest/setUsername:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user name of the user for whom you want to enter a code to reset a forgotten password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgotPasswordRequest/username</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user name of the user for whom you want to enter a code to reset a forgotten password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderForgotPasswordRequest/username</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user name of the user for whom you want to enter a code to reset a forgotten password.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="336"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

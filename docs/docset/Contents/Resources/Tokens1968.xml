@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3PutObjectRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3PutObjectRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1968"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setACL:</TokenIdentifier>
+			<Abstract type="html">The canned ACL to apply to the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ObjectCannedACL ACL</Declaration>
+			
+			
+			<Anchor>//api/name/ACL</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/ACL</TokenIdentifier>
+			<Abstract type="html">The canned ACL to apply to the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ObjectCannedACL ACL</Declaration>
+			
+			
+			<Anchor>//api/name/ACL</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/ACL</TokenIdentifier>
+			<Abstract type="html">The canned ACL to apply to the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ObjectCannedACL ACL</Declaration>
+			
+			
+			<Anchor>//api/name/ACL</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setBody:</TokenIdentifier>
+			<Abstract type="html">Object data.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id _Nullable body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/body</TokenIdentifier>
+			<Abstract type="html">Object data.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id _Nullable body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/body</TokenIdentifier>
+			<Abstract type="html">Object data.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) id _Nullable body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setBucket:</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to which the PUT operation was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/bucket</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to which the PUT operation was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/bucket</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to which the PUT operation was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setCacheControl:</TokenIdentifier>
+			<Abstract type="html">Specifies caching behavior along the request/reply chain.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cacheControl</Declaration>
+			
+			
+			<Anchor>//api/name/cacheControl</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/cacheControl</TokenIdentifier>
+			<Abstract type="html">Specifies caching behavior along the request/reply chain.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cacheControl</Declaration>
+			
+			
+			<Anchor>//api/name/cacheControl</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/cacheControl</TokenIdentifier>
+			<Abstract type="html">Specifies caching behavior along the request/reply chain.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cacheControl</Declaration>
+			
+			
+			<Anchor>//api/name/cacheControl</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setContentDisposition:</TokenIdentifier>
+			<Abstract type="html">Specifies presentational information for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentDisposition</Declaration>
+			
+			
+			<Anchor>//api/name/contentDisposition</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/contentDisposition</TokenIdentifier>
+			<Abstract type="html">Specifies presentational information for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentDisposition</Declaration>
+			
+			
+			<Anchor>//api/name/contentDisposition</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/contentDisposition</TokenIdentifier>
+			<Abstract type="html">Specifies presentational information for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentDisposition</Declaration>
+			
+			
+			<Anchor>//api/name/contentDisposition</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setContentEncoding:</TokenIdentifier>
+			<Abstract type="html">Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/contentEncoding</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/contentEncoding</TokenIdentifier>
+			<Abstract type="html">Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/contentEncoding</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/contentEncoding</TokenIdentifier>
+			<Abstract type="html">Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/contentEncoding</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setContentLanguage:</TokenIdentifier>
+			<Abstract type="html">The language the content is in.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentLanguage</Declaration>
+			
+			
+			<Anchor>//api/name/contentLanguage</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/contentLanguage</TokenIdentifier>
+			<Abstract type="html">The language the content is in.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentLanguage</Declaration>
+			
+			
+			<Anchor>//api/name/contentLanguage</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/contentLanguage</TokenIdentifier>
+			<Abstract type="html">The language the content is in.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentLanguage</Declaration>
+			
+			
+			<Anchor>//api/name/contentLanguage</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setContentLength:</TokenIdentifier>
+			<Abstract type="html">Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *contentLength</Declaration>
+			
+			
+			<Anchor>//api/name/contentLength</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/contentLength</TokenIdentifier>
+			<Abstract type="html">Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *contentLength</Declaration>
+			
+			
+			<Anchor>//api/name/contentLength</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/contentLength</TokenIdentifier>
+			<Abstract type="html">Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *contentLength</Declaration>
+			
+			
+			<Anchor>//api/name/contentLength</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setContentMD5:</TokenIdentifier>
+			<Abstract type="html">The base64-encoded 128-bit MD5 digest of the part data.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentMD5</Declaration>
+			
+			
+			<Anchor>//api/name/contentMD5</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/contentMD5</TokenIdentifier>
+			<Abstract type="html">The base64-encoded 128-bit MD5 digest of the part data.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentMD5</Declaration>
+			
+			
+			<Anchor>//api/name/contentMD5</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/contentMD5</TokenIdentifier>
+			<Abstract type="html">The base64-encoded 128-bit MD5 digest of the part data.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentMD5</Declaration>
+			
+			
+			<Anchor>//api/name/contentMD5</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setContentType:</TokenIdentifier>
+			<Abstract type="html">A standard MIME type describing the format of the object data.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentType</Declaration>
+			
+			
+			<Anchor>//api/name/contentType</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/contentType</TokenIdentifier>
+			<Abstract type="html">A standard MIME type describing the format of the object data.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentType</Declaration>
+			
+			
+			<Anchor>//api/name/contentType</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/contentType</TokenIdentifier>
+			<Abstract type="html">A standard MIME type describing the format of the object data.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *contentType</Declaration>
+			
+			
+			<Anchor>//api/name/contentType</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setExpires:</TokenIdentifier>
+			<Abstract type="html">The date and time at which the object is no longer cacheable.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *expires</Declaration>
+			
+			
+			<Anchor>//api/name/expires</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/expires</TokenIdentifier>
+			<Abstract type="html">The date and time at which the object is no longer cacheable.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *expires</Declaration>
+			
+			
+			<Anchor>//api/name/expires</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/expires</TokenIdentifier>
+			<Abstract type="html">The date and time at which the object is no longer cacheable.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *expires</Declaration>
+			
+			
+			<Anchor>//api/name/expires</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setGrantFullControl:</TokenIdentifier>
+			<Abstract type="html">Gives the grantee READ, READACP, and WRITEACP permissions on the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantFullControl</Declaration>
+			
+			
+			<Anchor>//api/name/grantFullControl</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/grantFullControl</TokenIdentifier>
+			<Abstract type="html">Gives the grantee READ, READACP, and WRITEACP permissions on the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantFullControl</Declaration>
+			
+			
+			<Anchor>//api/name/grantFullControl</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/grantFullControl</TokenIdentifier>
+			<Abstract type="html">Gives the grantee READ, READACP, and WRITEACP permissions on the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantFullControl</Declaration>
+			
+			
+			<Anchor>//api/name/grantFullControl</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setGrantRead:</TokenIdentifier>
+			<Abstract type="html">Allows grantee to read the object data and its metadata.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantRead</Declaration>
+			
+			
+			<Anchor>//api/name/grantRead</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/grantRead</TokenIdentifier>
+			<Abstract type="html">Allows grantee to read the object data and its metadata.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantRead</Declaration>
+			
+			
+			<Anchor>//api/name/grantRead</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/grantRead</TokenIdentifier>
+			<Abstract type="html">Allows grantee to read the object data and its metadata.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantRead</Declaration>
+			
+			
+			<Anchor>//api/name/grantRead</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setGrantReadACP:</TokenIdentifier>
+			<Abstract type="html">Allows grantee to read the object ACL.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantReadACP</Declaration>
+			
+			
+			<Anchor>//api/name/grantReadACP</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/grantReadACP</TokenIdentifier>
+			<Abstract type="html">Allows grantee to read the object ACL.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantReadACP</Declaration>
+			
+			
+			<Anchor>//api/name/grantReadACP</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/grantReadACP</TokenIdentifier>
+			<Abstract type="html">Allows grantee to read the object ACL.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantReadACP</Declaration>
+			
+			
+			<Anchor>//api/name/grantReadACP</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setGrantWriteACP:</TokenIdentifier>
+			<Abstract type="html">Allows grantee to write the ACL for the applicable object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantWriteACP</Declaration>
+			
+			
+			<Anchor>//api/name/grantWriteACP</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/grantWriteACP</TokenIdentifier>
+			<Abstract type="html">Allows grantee to write the ACL for the applicable object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantWriteACP</Declaration>
+			
+			
+			<Anchor>//api/name/grantWriteACP</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/grantWriteACP</TokenIdentifier>
+			<Abstract type="html">Allows grantee to write the ACL for the applicable object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantWriteACP</Declaration>
+			
+			
+			<Anchor>//api/name/grantWriteACP</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setKey:</TokenIdentifier>
+			<Abstract type="html">Object key for which the PUT operation was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/key</TokenIdentifier>
+			<Abstract type="html">Object key for which the PUT operation was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/key</TokenIdentifier>
+			<Abstract type="html">Object key for which the PUT operation was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setMetadata:</TokenIdentifier>
+			<Abstract type="html">A map of metadata to store with the object in S3.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/metadata</TokenIdentifier>
+			<Abstract type="html">A map of metadata to store with the object in S3.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/metadata</TokenIdentifier>
+			<Abstract type="html">A map of metadata to store with the object in S3.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setRequestPayer:</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/requestPayer</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/requestPayer</TokenIdentifier>
+			<Abstract type="html">Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestPayer requestPayer</Declaration>
+			
+			
+			<Anchor>//api/name/requestPayer</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setSSECustomerAlgorithm:</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use to when encrypting the object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/SSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use to when encrypting the object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/SSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">Specifies the algorithm to use to when encrypting the object (e.g., AES256).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setSSECustomerKey:</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKey</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/SSECustomerKey</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKey</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/SSECustomerKey</TokenIdentifier>
+			<Abstract type="html">Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-side​-encryption​-customer-algorithm header.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKey</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKey</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setSSECustomerKeyMD5:</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/SSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/SSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setSSEKMSKeyId:</TokenIdentifier>
+			<Abstract type="html">Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/SSEKMSKeyId</TokenIdentifier>
+			<Abstract type="html">Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/SSEKMSKeyId</TokenIdentifier>
+			<Abstract type="html">Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setServerSideEncryption:</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/serverSideEncryption</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/serverSideEncryption</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setStorageClass:</TokenIdentifier>
+			<Abstract type="html">The type of storage to use for the object. Defaults to &apos;STANDARD&apos;.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3StorageClass storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/storageClass</TokenIdentifier>
+			<Abstract type="html">The type of storage to use for the object. Defaults to &apos;STANDARD&apos;.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3StorageClass storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/storageClass</TokenIdentifier>
+			<Abstract type="html">The type of storage to use for the object. Defaults to &apos;STANDARD&apos;.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3StorageClass storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setTagging:</TokenIdentifier>
+			<Abstract type="html">The tag-set for the object. The tag-set must be encoded as URL Query parameters</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tagging</Declaration>
+			
+			
+			<Anchor>//api/name/tagging</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/tagging</TokenIdentifier>
+			<Abstract type="html">The tag-set for the object. The tag-set must be encoded as URL Query parameters</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tagging</Declaration>
+			
+			
+			<Anchor>//api/name/tagging</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/tagging</TokenIdentifier>
+			<Abstract type="html">The tag-set for the object. The tag-set must be encoded as URL Query parameters</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tagging</Declaration>
+			
+			
+			<Anchor>//api/name/tagging</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/setWebsiteRedirectLocation:</TokenIdentifier>
+			<Abstract type="html">If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *websiteRedirectLocation</Declaration>
+			
+			
+			<Anchor>//api/name/websiteRedirectLocation</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutObjectRequest/websiteRedirectLocation</TokenIdentifier>
+			<Abstract type="html">If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *websiteRedirectLocation</Declaration>
+			
+			
+			<Anchor>//api/name/websiteRedirectLocation</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutObjectRequest/websiteRedirectLocation</TokenIdentifier>
+			<Abstract type="html">If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *websiteRedirectLocation</Declaration>
+			
+			
+			<Anchor>//api/name/websiteRedirectLocation</Anchor>
+            <NodeRef refid="1968"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3SourceSelectionCriteria.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3SourceSelectionCriteria</TokenIdentifier>
+			<Abstract type="html">Container for filters that define which source objects should be replicated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2001"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3SourceSelectionCriteria/setSseKmsEncryptedObjects:</TokenIdentifier>
+			<Abstract type="html">Container for filter information of selection of KMS Encrypted S3 objects.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SseKmsEncryptedObjects *sseKmsEncryptedObjects</Declaration>
+			
+			
+			<Anchor>//api/name/sseKmsEncryptedObjects</Anchor>
+            <NodeRef refid="2001"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3SourceSelectionCriteria/sseKmsEncryptedObjects</TokenIdentifier>
+			<Abstract type="html">Container for filter information of selection of KMS Encrypted S3 objects.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SseKmsEncryptedObjects *sseKmsEncryptedObjects</Declaration>
+			
+			
+			<Anchor>//api/name/sseKmsEncryptedObjects</Anchor>
+            <NodeRef refid="2001"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3SourceSelectionCriteria/sseKmsEncryptedObjects</TokenIdentifier>
+			<Abstract type="html">Container for filter information of selection of KMS Encrypted S3 objects.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SseKmsEncryptedObjects *sseKmsEncryptedObjects</Declaration>
+			
+			
+			<Anchor>//api/name/sseKmsEncryptedObjects</Anchor>
+            <NodeRef refid="2001"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

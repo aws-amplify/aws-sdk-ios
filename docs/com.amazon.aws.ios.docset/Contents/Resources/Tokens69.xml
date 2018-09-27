@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingEbs.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingEbs</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes an Amazon EBS volume.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="69"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/setDeleteOnTermination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether the volume is deleted on instance termination. The default is &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *deleteOnTermination</Declaration>
+			
+			
+			<Anchor>//api/name/deleteOnTermination</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/deleteOnTermination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether the volume is deleted on instance termination. The default is &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *deleteOnTermination</Declaration>
+			
+			
+			<Anchor>//api/name/deleteOnTermination</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingEbs/deleteOnTermination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether the volume is deleted on instance termination. The default is &lt;code&gt;true&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *deleteOnTermination</Declaration>
+			
+			
+			<Anchor>//api/name/deleteOnTermination</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/setEncrypted:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether the volume should be encrypted. Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or an unencrypted volume from an encrypted snapshot. For more information, see Amazon EBS Encryption in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *encrypted</Declaration>
+			
+			
+			<Anchor>//api/name/encrypted</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/encrypted</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether the volume should be encrypted. Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or an unencrypted volume from an encrypted snapshot. For more information, see Amazon EBS Encryption in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *encrypted</Declaration>
+			
+			
+			<Anchor>//api/name/encrypted</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingEbs/encrypted</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether the volume should be encrypted. Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. Volumes that are created from encrypted snapshots are automatically encrypted. There is no way to create an encrypted volume from an unencrypted snapshot or an unencrypted volume from an encrypted snapshot. For more information, see Amazon EBS Encryption in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *encrypted</Declaration>
+			
+			
+			<Anchor>//api/name/encrypted</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/setIops:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of I/O operations per second (IOPS) to provision for the volume.&lt;/p&gt;&lt;p&gt;Constraint: Required when the volume type is &lt;code&gt;io1&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *iops</Declaration>
+			
+			
+			<Anchor>//api/name/iops</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/iops</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of I/O operations per second (IOPS) to provision for the volume.&lt;/p&gt;&lt;p&gt;Constraint: Required when the volume type is &lt;code&gt;io1&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *iops</Declaration>
+			
+			
+			<Anchor>//api/name/iops</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingEbs/iops</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of I/O operations per second (IOPS) to provision for the volume.&lt;/p&gt;&lt;p&gt;Constraint: Required when the volume type is &lt;code&gt;io1&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *iops</Declaration>
+			
+			
+			<Anchor>//api/name/iops</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/setSnapshotId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the snapshot.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *snapshotId</Declaration>
+			
+			
+			<Anchor>//api/name/snapshotId</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/snapshotId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the snapshot.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *snapshotId</Declaration>
+			
+			
+			<Anchor>//api/name/snapshotId</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingEbs/snapshotId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the snapshot.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *snapshotId</Declaration>
+			
+			
+			<Anchor>//api/name/snapshotId</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/setVolumeSize:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The volume size, in GiB. For &lt;code&gt;standard&lt;/code&gt; volumes, specify a value from 1 to 1,024. For &lt;code&gt;io1&lt;/code&gt; volumes, specify a value from 4 to 16,384. For &lt;code&gt;gp2&lt;/code&gt; volumes, specify a value from 1 to 16,384. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.&lt;/p&gt;&lt;p&gt;Default: If you create a volume from a snapshot and you don&apos;t specify a volume size, the default is the snapshot size.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *volumeSize</Declaration>
+			
+			
+			<Anchor>//api/name/volumeSize</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/volumeSize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The volume size, in GiB. For &lt;code&gt;standard&lt;/code&gt; volumes, specify a value from 1 to 1,024. For &lt;code&gt;io1&lt;/code&gt; volumes, specify a value from 4 to 16,384. For &lt;code&gt;gp2&lt;/code&gt; volumes, specify a value from 1 to 16,384. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.&lt;/p&gt;&lt;p&gt;Default: If you create a volume from a snapshot and you don&apos;t specify a volume size, the default is the snapshot size.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *volumeSize</Declaration>
+			
+			
+			<Anchor>//api/name/volumeSize</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingEbs/volumeSize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The volume size, in GiB. For &lt;code&gt;standard&lt;/code&gt; volumes, specify a value from 1 to 1,024. For &lt;code&gt;io1&lt;/code&gt; volumes, specify a value from 4 to 16,384. For &lt;code&gt;gp2&lt;/code&gt; volumes, specify a value from 1 to 16,384. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.&lt;/p&gt;&lt;p&gt;Default: If you create a volume from a snapshot and you don&apos;t specify a volume size, the default is the snapshot size.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *volumeSize</Declaration>
+			
+			
+			<Anchor>//api/name/volumeSize</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/setVolumeType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The volume type. For more information, see Amazon EBS Volume Types in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt;&lt;p&gt;Valid values: &lt;code&gt;standard&lt;/code&gt; | &lt;code&gt;io1&lt;/code&gt; | &lt;code&gt;gp2&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *volumeType</Declaration>
+			
+			
+			<Anchor>//api/name/volumeType</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingEbs/volumeType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The volume type. For more information, see Amazon EBS Volume Types in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt;&lt;p&gt;Valid values: &lt;code&gt;standard&lt;/code&gt; | &lt;code&gt;io1&lt;/code&gt; | &lt;code&gt;gp2&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *volumeType</Declaration>
+			
+			
+			<Anchor>//api/name/volumeType</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingEbs/volumeType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The volume type. For more information, see Amazon EBS Volume Types in the &lt;i&gt;Amazon Elastic Compute Cloud User Guide&lt;/i&gt;.&lt;/p&gt;&lt;p&gt;Valid values: &lt;code&gt;standard&lt;/code&gt; | &lt;code&gt;io1&lt;/code&gt; | &lt;code&gt;gp2&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *volumeType</Declaration>
+			
+			
+			<Anchor>//api/name/volumeType</Anchor>
+            <NodeRef refid="69"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

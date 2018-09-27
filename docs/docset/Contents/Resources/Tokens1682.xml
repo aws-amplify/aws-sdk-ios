@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionDeleteCollectionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionDeleteCollectionRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1682"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDeleteCollectionRequest/setCollectionId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the collection to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1682"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDeleteCollectionRequest/collectionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the collection to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1682"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDeleteCollectionRequest/collectionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the collection to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1682"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

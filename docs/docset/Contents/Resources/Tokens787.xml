@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseDestinationDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the destination for a delivery stream.&lt;/p&gt;
+Required parameters: [DestinationId]</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="787"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/setDestinationId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationId</Declaration>
+			
+			
+			<Anchor>//api/name/destinationId</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/destinationId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationId</Declaration>
+			
+			
+			<Anchor>//api/name/destinationId</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseDestinationDescription/destinationId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *destinationId</Declaration>
+			
+			
+			<Anchor>//api/name/destinationId</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/setElasticsearchDestinationDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Amazon ES.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchDestinationDescription *elasticsearchDestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/elasticsearchDestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/elasticsearchDestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Amazon ES.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchDestinationDescription *elasticsearchDestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/elasticsearchDestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseDestinationDescription/elasticsearchDestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Amazon ES.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchDestinationDescription *elasticsearchDestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/elasticsearchDestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/setExtendedS3DestinationDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseExtendedS3DestinationDescription *extendedS3DestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/extendedS3DestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/extendedS3DestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseExtendedS3DestinationDescription *extendedS3DestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/extendedS3DestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseDestinationDescription/extendedS3DestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseExtendedS3DestinationDescription *extendedS3DestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/extendedS3DestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/setRedshiftDestinationDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Amazon Redshift.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseRedshiftDestinationDescription *redshiftDestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/redshiftDestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/redshiftDestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Amazon Redshift.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseRedshiftDestinationDescription *redshiftDestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/redshiftDestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseDestinationDescription/redshiftDestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Amazon Redshift.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseRedshiftDestinationDescription *redshiftDestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/redshiftDestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/setS3DestinationDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;[Deprecated] The destination in Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationDescription *s3DestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/s3DestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/s3DestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;[Deprecated] The destination in Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationDescription *s3DestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/s3DestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseDestinationDescription/s3DestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;[Deprecated] The destination in Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationDescription *s3DestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/s3DestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/setSplunkDestinationDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Splunk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseSplunkDestinationDescription *splunkDestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/splunkDestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseDestinationDescription/splunkDestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Splunk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseSplunkDestinationDescription *splunkDestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/splunkDestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseDestinationDescription/splunkDestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination in Splunk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseSplunkDestinationDescription *splunkDestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/splunkDestinationDescription</Anchor>
+            <NodeRef refid="787"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

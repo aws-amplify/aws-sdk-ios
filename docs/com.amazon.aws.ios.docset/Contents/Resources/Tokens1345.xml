@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaInvokerInvocationRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaInvokerInvocationRequest</TokenIdentifier>
+			<Abstract type="html">AWSLambdaInvocationRequest</Abstract>
+			<DeclaredIn>AWSLambdaInvoker.h</DeclaredIn>
+            
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaInvocationRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<NodeRef refid="1345"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

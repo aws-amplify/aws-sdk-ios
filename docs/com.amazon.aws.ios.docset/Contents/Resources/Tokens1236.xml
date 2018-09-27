@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisDescribeStreamSummaryOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisDescribeStreamSummaryOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1236"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisDescribeStreamSummaryOutput/setStreamDescriptionSummary:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A &lt;a&gt;StreamDescriptionSummary&lt;/a&gt; containing information about the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKinesisStreamDescriptionSummary *streamDescriptionSummary</Declaration>
+			
+			
+			<Anchor>//api/name/streamDescriptionSummary</Anchor>
+            <NodeRef refid="1236"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisDescribeStreamSummaryOutput/streamDescriptionSummary</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A &lt;a&gt;StreamDescriptionSummary&lt;/a&gt; containing information about the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKinesisStreamDescriptionSummary *streamDescriptionSummary</Declaration>
+			
+			
+			<Anchor>//api/name/streamDescriptionSummary</Anchor>
+            <NodeRef refid="1236"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisDescribeStreamSummaryOutput/streamDescriptionSummary</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A &lt;a&gt;StreamDescriptionSummary&lt;/a&gt; containing information about the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKinesisStreamDescriptionSummary *streamDescriptionSummary</Declaration>
+			
+			
+			<Anchor>//api/name/streamDescriptionSummary</Anchor>
+            <NodeRef refid="1236"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

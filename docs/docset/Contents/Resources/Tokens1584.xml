@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingImportJobResource.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingImportJobResource</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1584"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/setDefineSegment:</TokenIdentifier>
+			<Abstract type="html">Sets whether the endpoints create a segment when they are imported.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *defineSegment</Declaration>
+			
+			
+			<Anchor>//api/name/defineSegment</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/defineSegment</TokenIdentifier>
+			<Abstract type="html">Sets whether the endpoints create a segment when they are imported.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *defineSegment</Declaration>
+			
+			
+			<Anchor>//api/name/defineSegment</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResource/defineSegment</TokenIdentifier>
+			<Abstract type="html">Sets whether the endpoints create a segment when they are imported.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *defineSegment</Declaration>
+			
+			
+			<Anchor>//api/name/defineSegment</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/setExternalId:</TokenIdentifier>
+			<Abstract type="html">A unique, custom ID assigned to the IAM role that restricts who can assume the role.	</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/externalId</TokenIdentifier>
+			<Abstract type="html">A unique, custom ID assigned to the IAM role that restricts who can assume the role.	</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResource/externalId</TokenIdentifier>
+			<Abstract type="html">A unique, custom ID assigned to the IAM role that restricts who can assume the role.	</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/setFormat:</TokenIdentifier>
+			<Abstract type="html">The format of the files that contain the endpoint definitions. Valid values: CSV, JSON</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/format</TokenIdentifier>
+			<Abstract type="html">The format of the files that contain the endpoint definitions. Valid values: CSV, JSON</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResource/format</TokenIdentifier>
+			<Abstract type="html">The format of the files that contain the endpoint definitions. Valid values: CSV, JSON</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingFormat format</Declaration>
+			
+			
+			<Anchor>//api/name/format</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/setRegisterEndpoints:</TokenIdentifier>
+			<Abstract type="html">Sets whether the endpoints are registered with Amazon Pinpoint when they are imported.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *registerEndpoints</Declaration>
+			
+			
+			<Anchor>//api/name/registerEndpoints</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/registerEndpoints</TokenIdentifier>
+			<Abstract type="html">Sets whether the endpoints are registered with Amazon Pinpoint when they are imported.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *registerEndpoints</Declaration>
+			
+			
+			<Anchor>//api/name/registerEndpoints</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResource/registerEndpoints</TokenIdentifier>
+			<Abstract type="html">Sets whether the endpoints are registered with Amazon Pinpoint when they are imported.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *registerEndpoints</Declaration>
+			
+			
+			<Anchor>//api/name/registerEndpoints</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/setRoleArn:</TokenIdentifier>
+			<Abstract type="html">The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that contains the endpoints to import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/roleArn</TokenIdentifier>
+			<Abstract type="html">The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that contains the endpoints to import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResource/roleArn</TokenIdentifier>
+			<Abstract type="html">The Amazon Resource Name (ARN) of an IAM role that grants Amazon Pinpoint access to the Amazon S3 location that contains the endpoints to import.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/setS3Url:</TokenIdentifier>
+			<Abstract type="html">A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file. The URL should follow this format: s3://bucket-name/folder-name/file-nameAmazon Pinpoint will import endpoints from this location and any subfolders it contains.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *s3Url</Declaration>
+			
+			
+			<Anchor>//api/name/s3Url</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/s3Url</TokenIdentifier>
+			<Abstract type="html">A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file. The URL should follow this format: s3://bucket-name/folder-name/file-nameAmazon Pinpoint will import endpoints from this location and any subfolders it contains.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *s3Url</Declaration>
+			
+			
+			<Anchor>//api/name/s3Url</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResource/s3Url</TokenIdentifier>
+			<Abstract type="html">A URL that points to the location within an Amazon S3 bucket that contains the endpoints to import. The location can be a folder or a single file. The URL should follow this format: s3://bucket-name/folder-name/file-nameAmazon Pinpoint will import endpoints from this location and any subfolders it contains.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *s3Url</Declaration>
+			
+			
+			<Anchor>//api/name/s3Url</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/setSegmentId:</TokenIdentifier>
+			<Abstract type="html">The ID of the segment to update if the import job is meant to update an existing segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *segmentId</Declaration>
+			
+			
+			<Anchor>//api/name/segmentId</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/segmentId</TokenIdentifier>
+			<Abstract type="html">The ID of the segment to update if the import job is meant to update an existing segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *segmentId</Declaration>
+			
+			
+			<Anchor>//api/name/segmentId</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResource/segmentId</TokenIdentifier>
+			<Abstract type="html">The ID of the segment to update if the import job is meant to update an existing segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *segmentId</Declaration>
+			
+			
+			<Anchor>//api/name/segmentId</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/setSegmentName:</TokenIdentifier>
+			<Abstract type="html">A custom name for the segment created by the import job. Use if DefineSegment is true.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *segmentName</Declaration>
+			
+			
+			<Anchor>//api/name/segmentName</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingImportJobResource/segmentName</TokenIdentifier>
+			<Abstract type="html">A custom name for the segment created by the import job. Use if DefineSegment is true.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *segmentName</Declaration>
+			
+			
+			<Anchor>//api/name/segmentName</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingImportJobResource/segmentName</TokenIdentifier>
+			<Abstract type="html">A custom name for the segment created by the import job. Use if DefineSegment is true.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *segmentName</Declaration>
+			
+			
+			<Anchor>//api/name/segmentName</Anchor>
+            <NodeRef refid="1584"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

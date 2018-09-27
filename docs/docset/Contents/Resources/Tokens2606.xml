@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSPinpointTargetingJobStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSPinpointTargetingJobStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2606"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingJobStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingJobStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2606"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingJobStatusCreated</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingJobStatusCreated</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2606"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingJobStatusInitializing</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingJobStatusInitializing</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2606"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingJobStatusProcessing</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingJobStatusProcessing</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2606"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingJobStatusCompleting</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingJobStatusCompleting</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2606"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingJobStatusCompleted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingJobStatusCompleted</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2606"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingJobStatusFailing</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingJobStatusFailing</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2606"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingJobStatusFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingJobStatusFailed</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2606"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTDeleteCertificateRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTDeleteCertificateRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input for the DeleteCertificate operation.&lt;/p&gt;
+Required parameters: [certificateId]</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="918"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDeleteCertificateRequest/setCertificateId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateId</Declaration>
+			
+			
+			<Anchor>//api/name/certificateId</Anchor>
+            <NodeRef refid="918"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDeleteCertificateRequest/certificateId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateId</Declaration>
+			
+			
+			<Anchor>//api/name/certificateId</Anchor>
+            <NodeRef refid="918"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDeleteCertificateRequest/certificateId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificateId</Declaration>
+			
+			
+			<Anchor>//api/name/certificateId</Anchor>
+            <NodeRef refid="918"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDeleteCertificateRequest/setForceDelete:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Forces a certificate request to be deleted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *forceDelete</Declaration>
+			
+			
+			<Anchor>//api/name/forceDelete</Anchor>
+            <NodeRef refid="918"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDeleteCertificateRequest/forceDelete</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Forces a certificate request to be deleted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *forceDelete</Declaration>
+			
+			
+			<Anchor>//api/name/forceDelete</Anchor>
+            <NodeRef refid="918"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDeleteCertificateRequest/forceDelete</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Forces a certificate request to be deleted.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *forceDelete</Declaration>
+			
+			
+			<Anchor>//api/name/forceDelete</Anchor>
+            <NodeRef refid="918"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

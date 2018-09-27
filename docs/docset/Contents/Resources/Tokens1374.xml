@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLexGenericAttachment.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLexGenericAttachment</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents an option rendered to the user when a prompt is shown. It could be an image, a button, a link, or text. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1374"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexGenericAttachment/setAttachmentLinkUrl:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of an attachment to the response card.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attachmentLinkUrl</Declaration>
+			
+			
+			<Anchor>//api/name/attachmentLinkUrl</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexGenericAttachment/attachmentLinkUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of an attachment to the response card.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attachmentLinkUrl</Declaration>
+			
+			
+			<Anchor>//api/name/attachmentLinkUrl</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexGenericAttachment/attachmentLinkUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of an attachment to the response card.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attachmentLinkUrl</Declaration>
+			
+			
+			<Anchor>//api/name/attachmentLinkUrl</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexGenericAttachment/setButtons:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of options to show to the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLexButton*&gt; *buttons</Declaration>
+			
+			
+			<Anchor>//api/name/buttons</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexGenericAttachment/buttons</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of options to show to the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLexButton*&gt; *buttons</Declaration>
+			
+			
+			<Anchor>//api/name/buttons</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexGenericAttachment/buttons</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of options to show to the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSLexButton*&gt; *buttons</Declaration>
+			
+			
+			<Anchor>//api/name/buttons</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexGenericAttachment/setImageUrl:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of an image that is displayed to the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imageUrl</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexGenericAttachment/imageUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of an image that is displayed to the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imageUrl</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexGenericAttachment/imageUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of an image that is displayed to the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imageUrl</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexGenericAttachment/setSubTitle:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subtitle shown below the title.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subTitle</Declaration>
+			
+			
+			<Anchor>//api/name/subTitle</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexGenericAttachment/subTitle</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subtitle shown below the title.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subTitle</Declaration>
+			
+			
+			<Anchor>//api/name/subTitle</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexGenericAttachment/subTitle</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subtitle shown below the title.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subTitle</Declaration>
+			
+			
+			<Anchor>//api/name/subTitle</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexGenericAttachment/setTitle:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The title of the option.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexGenericAttachment/title</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The title of the option.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexGenericAttachment/title</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The title of the option.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="1374"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

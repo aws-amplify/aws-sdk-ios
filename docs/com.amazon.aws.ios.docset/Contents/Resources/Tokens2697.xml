@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSSESSNSActionEncoding.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSSESSNSActionEncoding</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2697"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESSNSActionEncodingUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESSNSActionEncodingUnknown</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2697"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESSNSActionEncodingUtf8</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESSNSActionEncodingUtf8</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2697"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESSNSActionEncodingBase64</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESSNSActionEncodingBase64</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2697"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

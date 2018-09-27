@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSTranscribeListTranscriptionJobsRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSTranscribeListTranscriptionJobsRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2350"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListTranscriptionJobsRequest/setJobNameContains:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobNameContains</Declaration>
+			
+			
+			<Anchor>//api/name/jobNameContains</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListTranscriptionJobsRequest/jobNameContains</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobNameContains</Declaration>
+			
+			
+			<Anchor>//api/name/jobNameContains</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeListTranscriptionJobsRequest/jobNameContains</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobNameContains</Declaration>
+			
+			
+			<Anchor>//api/name/jobNameContains</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListTranscriptionJobsRequest/setMaxResults:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of jobs to return in the response. If there are fewer results in the list, this response contains only the actual results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListTranscriptionJobsRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of jobs to return in the response. If there are fewer results in the list, this response contains only the actual results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeListTranscriptionJobsRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of jobs to return in the response. If there are fewer results in the list, this response contains only the actual results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListTranscriptionJobsRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the result of the previous request to &lt;code&gt;ListTranscriptionJobs&lt;/code&gt; was truncated, include the &lt;code&gt;NextToken&lt;/code&gt; to fetch the next set of jobs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListTranscriptionJobsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the result of the previous request to &lt;code&gt;ListTranscriptionJobs&lt;/code&gt; was truncated, include the &lt;code&gt;NextToken&lt;/code&gt; to fetch the next set of jobs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeListTranscriptionJobsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the result of the previous request to &lt;code&gt;ListTranscriptionJobs&lt;/code&gt; was truncated, include the &lt;code&gt;NextToken&lt;/code&gt; to fetch the next set of jobs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListTranscriptionJobsRequest/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When specified, returns only transcription jobs with the specified status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListTranscriptionJobsRequest/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When specified, returns only transcription jobs with the specified status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeListTranscriptionJobsRequest/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When specified, returns only transcription jobs with the specified status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="2350"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

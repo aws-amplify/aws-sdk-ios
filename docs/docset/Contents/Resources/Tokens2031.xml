@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESAddHeaderAction.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESAddHeaderAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When included in a receipt rule, this action adds a header to the received email.&lt;/p&gt;&lt;p&gt;For information about adding a header using a receipt rule, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [HeaderName, HeaderValue]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2031"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESAddHeaderAction/setHeaderName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *headerName</Declaration>
+			
+			
+			<Anchor>//api/name/headerName</Anchor>
+            <NodeRef refid="2031"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESAddHeaderAction/headerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *headerName</Declaration>
+			
+			
+			<Anchor>//api/name/headerName</Anchor>
+            <NodeRef refid="2031"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESAddHeaderAction/headerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *headerName</Declaration>
+			
+			
+			<Anchor>//api/name/headerName</Anchor>
+            <NodeRef refid="2031"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESAddHeaderAction/setHeaderValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Must be less than 2048 characters, and must not contain newline characters (&quot;\r&quot; or &quot;\n&quot;).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *headerValue</Declaration>
+			
+			
+			<Anchor>//api/name/headerValue</Anchor>
+            <NodeRef refid="2031"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESAddHeaderAction/headerValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Must be less than 2048 characters, and must not contain newline characters (&quot;\r&quot; or &quot;\n&quot;).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *headerValue</Declaration>
+			
+			
+			<Anchor>//api/name/headerValue</Anchor>
+            <NodeRef refid="2031"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESAddHeaderAction/headerValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Must be less than 2048 characters, and must not contain newline characters (&quot;\r&quot; or &quot;\n&quot;).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *headerValue</Declaration>
+			
+			
+			<Anchor>//api/name/headerValue</Anchor>
+            <NodeRef refid="2031"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

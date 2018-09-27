@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESLambdaAction.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESLambdaAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).&lt;/p&gt;&lt;p&gt;To enable Amazon SES to call your AWS Lambda function or to publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [FunctionArn]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2112"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESLambdaAction/setFunctionArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:MyFunction&lt;/code&gt;. For more information about AWS Lambda, see the AWS Lambda Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionArn</Declaration>
+			
+			
+			<Anchor>//api/name/functionArn</Anchor>
+            <NodeRef refid="2112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESLambdaAction/functionArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:MyFunction&lt;/code&gt;. For more information about AWS Lambda, see the AWS Lambda Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionArn</Declaration>
+			
+			
+			<Anchor>//api/name/functionArn</Anchor>
+            <NodeRef refid="2112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESLambdaAction/functionArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is &lt;code&gt;arn:aws:lambda:us-west-2:account-id:function:MyFunction&lt;/code&gt;. For more information about AWS Lambda, see the AWS Lambda Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionArn</Declaration>
+			
+			
+			<Anchor>//api/name/functionArn</Anchor>
+            <NodeRef refid="2112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESLambdaAction/setInvocationType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The invocation type of the AWS Lambda function. An invocation type of &lt;code&gt;RequestResponse&lt;/code&gt; means that the execution of the function will immediately result in a response, and a value of &lt;code&gt;Event&lt;/code&gt; means that the function will be invoked asynchronously. The default value is &lt;code&gt;Event&lt;/code&gt;. For information about AWS Lambda invocation types, see the AWS Lambda Developer Guide.&lt;/p&gt;&lt;important&gt;&lt;p&gt;There is a 30-second timeout on &lt;code&gt;RequestResponse&lt;/code&gt; invocations. You should use &lt;code&gt;Event&lt;/code&gt; invocation in most cases. Use &lt;code&gt;RequestResponse&lt;/code&gt; only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.&lt;/p&gt;&lt;/important&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESInvocationType invocationType</Declaration>
+			
+			
+			<Anchor>//api/name/invocationType</Anchor>
+            <NodeRef refid="2112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESLambdaAction/invocationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The invocation type of the AWS Lambda function. An invocation type of &lt;code&gt;RequestResponse&lt;/code&gt; means that the execution of the function will immediately result in a response, and a value of &lt;code&gt;Event&lt;/code&gt; means that the function will be invoked asynchronously. The default value is &lt;code&gt;Event&lt;/code&gt;. For information about AWS Lambda invocation types, see the AWS Lambda Developer Guide.&lt;/p&gt;&lt;important&gt;&lt;p&gt;There is a 30-second timeout on &lt;code&gt;RequestResponse&lt;/code&gt; invocations. You should use &lt;code&gt;Event&lt;/code&gt; invocation in most cases. Use &lt;code&gt;RequestResponse&lt;/code&gt; only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.&lt;/p&gt;&lt;/important&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESInvocationType invocationType</Declaration>
+			
+			
+			<Anchor>//api/name/invocationType</Anchor>
+            <NodeRef refid="2112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESLambdaAction/invocationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The invocation type of the AWS Lambda function. An invocation type of &lt;code&gt;RequestResponse&lt;/code&gt; means that the execution of the function will immediately result in a response, and a value of &lt;code&gt;Event&lt;/code&gt; means that the function will be invoked asynchronously. The default value is &lt;code&gt;Event&lt;/code&gt;. For information about AWS Lambda invocation types, see the AWS Lambda Developer Guide.&lt;/p&gt;&lt;important&gt;&lt;p&gt;There is a 30-second timeout on &lt;code&gt;RequestResponse&lt;/code&gt; invocations. You should use &lt;code&gt;Event&lt;/code&gt; invocation in most cases. Use &lt;code&gt;RequestResponse&lt;/code&gt; only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.&lt;/p&gt;&lt;/important&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESInvocationType invocationType</Declaration>
+			
+			
+			<Anchor>//api/name/invocationType</Anchor>
+            <NodeRef refid="2112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESLambdaAction/setTopicArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESLambdaAction/topicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2112"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESLambdaAction/topicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2112"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

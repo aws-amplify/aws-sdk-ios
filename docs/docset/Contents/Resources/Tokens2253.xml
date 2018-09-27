@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSTopic.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSTopic</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A wrapper type for the topic&apos;s Amazon Resource Name (ARN). To retrieve a topic&apos;s attributes, use &lt;code&gt;GetTopicAttributes&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2253"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSTopic/setTopicArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The topic&apos;s ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2253"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSTopic/topicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The topic&apos;s ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2253"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSTopic/topicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The topic&apos;s ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2253"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

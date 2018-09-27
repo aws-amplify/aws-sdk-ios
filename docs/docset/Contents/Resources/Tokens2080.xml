@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESDescribeActiveReceiptRuleSetResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESDescribeActiveReceiptRuleSetResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the metadata and receipt rules for the receipt rule set that is currently active.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2080"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeActiveReceiptRuleSetResponse/setMetadata:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The metadata for the currently active receipt rule set. The metadata consists of the rule set name and a timestamp of when the rule set was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReceiptRuleSetMetadata *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+            <NodeRef refid="2080"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeActiveReceiptRuleSetResponse/metadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The metadata for the currently active receipt rule set. The metadata consists of the rule set name and a timestamp of when the rule set was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReceiptRuleSetMetadata *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+            <NodeRef refid="2080"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDescribeActiveReceiptRuleSetResponse/metadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The metadata for the currently active receipt rule set. The metadata consists of the rule set name and a timestamp of when the rule set was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReceiptRuleSetMetadata *metadata</Declaration>
+			
+			
+			<Anchor>//api/name/metadata</Anchor>
+            <NodeRef refid="2080"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeActiveReceiptRuleSetResponse/setRules:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The receipt rules that belong to the active rule set.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESReceiptRule*&gt; *rules</Declaration>
+			
+			
+			<Anchor>//api/name/rules</Anchor>
+            <NodeRef refid="2080"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeActiveReceiptRuleSetResponse/rules</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The receipt rules that belong to the active rule set.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESReceiptRule*&gt; *rules</Declaration>
+			
+			
+			<Anchor>//api/name/rules</Anchor>
+            <NodeRef refid="2080"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDescribeActiveReceiptRuleSetResponse/rules</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The receipt rules that belong to the active rule set.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESReceiptRule*&gt; *rules</Declaration>
+			
+			
+			<Anchor>//api/name/rules</Anchor>
+            <NodeRef refid="2080"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

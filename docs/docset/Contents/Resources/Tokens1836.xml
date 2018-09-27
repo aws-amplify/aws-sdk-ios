@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3Encryption.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3Encryption</TokenIdentifier>
+			<Abstract type="html">Describes the server-side encryption that will be applied to the restore results.
+Required parameters: [EncryptionType]</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1836"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Encryption/setEncryptionType:</TokenIdentifier>
+			<Abstract type="html">The server-side encryption algorithm used when storing job results in Amazon S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption encryptionType</Declaration>
+			
+			
+			<Anchor>//api/name/encryptionType</Anchor>
+            <NodeRef refid="1836"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Encryption/encryptionType</TokenIdentifier>
+			<Abstract type="html">The server-side encryption algorithm used when storing job results in Amazon S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption encryptionType</Declaration>
+			
+			
+			<Anchor>//api/name/encryptionType</Anchor>
+            <NodeRef refid="1836"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3Encryption/encryptionType</TokenIdentifier>
+			<Abstract type="html">The server-side encryption algorithm used when storing job results in Amazon S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption encryptionType</Declaration>
+			
+			
+			<Anchor>//api/name/encryptionType</Anchor>
+            <NodeRef refid="1836"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Encryption/setKMSContext:</TokenIdentifier>
+			<Abstract type="html">If the encryption type is aws:kms, this optional value can be used to specify the encryption context for the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSContext</Declaration>
+			
+			
+			<Anchor>//api/name/KMSContext</Anchor>
+            <NodeRef refid="1836"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Encryption/KMSContext</TokenIdentifier>
+			<Abstract type="html">If the encryption type is aws:kms, this optional value can be used to specify the encryption context for the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSContext</Declaration>
+			
+			
+			<Anchor>//api/name/KMSContext</Anchor>
+            <NodeRef refid="1836"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3Encryption/KMSContext</TokenIdentifier>
+			<Abstract type="html">If the encryption type is aws:kms, this optional value can be used to specify the encryption context for the restore results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSContext</Declaration>
+			
+			
+			<Anchor>//api/name/KMSContext</Anchor>
+            <NodeRef refid="1836"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Encryption/setKMSKeyId:</TokenIdentifier>
+			<Abstract type="html">If the encryption type is aws:kms, this optional value specifies the AWS KMS key ID to use for encryption of job results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/KMSKeyId</Anchor>
+            <NodeRef refid="1836"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Encryption/KMSKeyId</TokenIdentifier>
+			<Abstract type="html">If the encryption type is aws:kms, this optional value specifies the AWS KMS key ID to use for encryption of job results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/KMSKeyId</Anchor>
+            <NodeRef refid="1836"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3Encryption/KMSKeyId</TokenIdentifier>
+			<Abstract type="html">If the encryption type is aws:kms, this optional value specifies the AWS KMS key ID to use for encryption of job results.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/KMSKeyId</Anchor>
+            <NodeRef refid="1836"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

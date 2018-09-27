@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSFirehoseNoEncryptionConfig.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSFirehoseNoEncryptionConfig</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2499"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseNoEncryptionConfigUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseNoEncryptionConfigUnknown</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2499"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseNoEncryptionConfigNoEncryption</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseNoEncryptionConfigNoEncryption</Declaration>
+            
+            <DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+            <NodeRef refid="2499"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

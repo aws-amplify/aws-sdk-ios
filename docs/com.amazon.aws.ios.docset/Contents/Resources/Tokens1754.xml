@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionSearchFacesRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionSearchFacesRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1754"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesRequest/setCollectionId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the collection the face belongs to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesRequest/collectionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the collection the face belongs to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionSearchFacesRequest/collectionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the collection the face belongs to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesRequest/setFaceId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of a face to find matches for in the collection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceId</Declaration>
+			
+			
+			<Anchor>//api/name/faceId</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesRequest/faceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of a face to find matches for in the collection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceId</Declaration>
+			
+			
+			<Anchor>//api/name/faceId</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionSearchFacesRequest/faceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of a face to find matches for in the collection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceId</Declaration>
+			
+			
+			<Anchor>//api/name/faceId</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesRequest/setFaceMatchThreshold:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional value specifying the minimum confidence in the face match to return. For example, don&apos;t return any matches where confidence in matches is less than 70%.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *faceMatchThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/faceMatchThreshold</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesRequest/faceMatchThreshold</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional value specifying the minimum confidence in the face match to return. For example, don&apos;t return any matches where confidence in matches is less than 70%.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *faceMatchThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/faceMatchThreshold</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionSearchFacesRequest/faceMatchThreshold</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional value specifying the minimum confidence in the face match to return. For example, don&apos;t return any matches where confidence in matches is less than 70%.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *faceMatchThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/faceMatchThreshold</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesRequest/setMaxFaces:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxFaces</Declaration>
+			
+			
+			<Anchor>//api/name/maxFaces</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionSearchFacesRequest/maxFaces</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxFaces</Declaration>
+			
+			
+			<Anchor>//api/name/maxFaces</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionSearchFacesRequest/maxFaces</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Maximum number of faces to return. The operation returns the maximum number of faces with the highest confidence in the match.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxFaces</Declaration>
+			
+			
+			<Anchor>//api/name/maxFaces</Anchor>
+            <NodeRef refid="1754"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

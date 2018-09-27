@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSKinesisVideoArchivedMediaErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSKinesisVideoArchivedMediaErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2557"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2557"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaErrorClientLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaErrorClientLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2557"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaErrorInvalidArgument</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaErrorInvalidArgument</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2557"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaErrorInvalidCodecPrivateData</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaErrorInvalidCodecPrivateData</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2557"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaErrorMissingCodecPrivateData</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaErrorMissingCodecPrivateData</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2557"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaErrorNoDataRetention</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaErrorNoDataRetention</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2557"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaErrorNotAuthorized</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaErrorNotAuthorized</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2557"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaErrorResourceNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaErrorResourceNotFound</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2557"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKinesisVideoArchivedMediaErrorUnsupportedStreamMediaType</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKinesisVideoArchivedMediaErrorUnsupportedStreamMediaType</Declaration>
+            
+            <DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2557"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

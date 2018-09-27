@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESMessage.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the message to be sent, composed of a subject and a body.&lt;/p&gt;
+Required parameters: [Subject, Body]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2128"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESMessage/setBody:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The message body.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESBody *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="2128"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESMessage/body</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The message body.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESBody *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="2128"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESMessage/body</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The message body.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESBody *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="2128"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESMessage/setSubject:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subject of the message: A short summary of the content, which will appear in the recipient&apos;s inbox.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESContent *subject</Declaration>
+			
+			
+			<Anchor>//api/name/subject</Anchor>
+            <NodeRef refid="2128"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESMessage/subject</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subject of the message: A short summary of the content, which will appear in the recipient&apos;s inbox.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESContent *subject</Declaration>
+			
+			
+			<Anchor>//api/name/subject</Anchor>
+            <NodeRef refid="2128"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESMessage/subject</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subject of the message: A short summary of the content, which will appear in the recipient&apos;s inbox.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESContent *subject</Declaration>
+			
+			
+			<Anchor>//api/name/subject</Anchor>
+            <NodeRef refid="2128"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

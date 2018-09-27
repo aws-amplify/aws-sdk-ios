@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderDescribeResourceServerResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderDescribeResourceServerResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="316"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDescribeResourceServerResponse/setResourceServer:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The resource server.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderResourceServerType *resourceServer</Declaration>
+			
+			
+			<Anchor>//api/name/resourceServer</Anchor>
+            <NodeRef refid="316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDescribeResourceServerResponse/resourceServer</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The resource server.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderResourceServerType *resourceServer</Declaration>
+			
+			
+			<Anchor>//api/name/resourceServer</Anchor>
+            <NodeRef refid="316"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDescribeResourceServerResponse/resourceServer</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The resource server.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderResourceServerType *resourceServer</Declaration>
+			
+			
+			<Anchor>//api/name/resourceServer</Anchor>
+            <NodeRef refid="316"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

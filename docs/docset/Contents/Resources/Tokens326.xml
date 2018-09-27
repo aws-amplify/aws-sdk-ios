@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderDescribeUserPoolResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderDescribeUserPoolResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the response to describe the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="326"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDescribeUserPoolResponse/setUserPool:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The container of metadata returned by the server to describe the pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolType *userPool</Declaration>
+			
+			
+			<Anchor>//api/name/userPool</Anchor>
+            <NodeRef refid="326"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderDescribeUserPoolResponse/userPool</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The container of metadata returned by the server to describe the pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolType *userPool</Declaration>
+			
+			
+			<Anchor>//api/name/userPool</Anchor>
+            <NodeRef refid="326"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderDescribeUserPoolResponse/userPool</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The container of metadata returned by the server to describe the pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolType *userPool</Declaration>
+			
+			
+			<Anchor>//api/name/userPool</Anchor>
+            <NodeRef refid="326"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

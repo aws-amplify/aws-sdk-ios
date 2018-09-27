@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPollySynthesisTask.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPollySynthesisTask</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;SynthesisTask object that provides information about a speech synthesis task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1659"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setCreationTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Timestamp for the time the synthesis task was started.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationTime</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/creationTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Timestamp for the time the synthesis task was started.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationTime</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/creationTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Timestamp for the time the synthesis task was started.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationTime</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setLanguageCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). &lt;/p&gt;&lt;p&gt;If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the DescribeVoices operation for the &lt;code&gt;LanguageCode&lt;/code&gt; parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). &lt;/p&gt;&lt;p&gt;If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the DescribeVoices operation for the &lt;code&gt;LanguageCode&lt;/code&gt; parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Optional language code for a synthesis task. This is only necessary if using a bilingual voice, such as Aditi, which can be used for either Indian English (en-IN) or Hindi (hi-IN). &lt;/p&gt;&lt;p&gt;If a bilingual voice is used and no language code is specified, Amazon Polly will use the default language of the bilingual voice. The default language for any voice is the one returned by the DescribeVoices operation for the &lt;code&gt;LanguageCode&lt;/code&gt; parameter. For example, if no language code is specified, Aditi will use Indian English rather than Hindi.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setLexiconNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *lexiconNames</Declaration>
+			
+			
+			<Anchor>//api/name/lexiconNames</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/lexiconNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *lexiconNames</Declaration>
+			
+			
+			<Anchor>//api/name/lexiconNames</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/lexiconNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List of one or more pronunciation lexicon names you want the service to apply during synthesis. Lexicons are applied only if the language of the lexicon is the same as the language of the voice. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *lexiconNames</Declaration>
+			
+			
+			<Anchor>//api/name/lexiconNames</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setOutputFormat:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyOutputFormat outputFormat</Declaration>
+			
+			
+			<Anchor>//api/name/outputFormat</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/outputFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyOutputFormat outputFormat</Declaration>
+			
+			
+			<Anchor>//api/name/outputFormat</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/outputFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The format in which the returned output will be encoded. For audio stream, this will be mp3, ogg_vorbis, or pcm. For speech marks, this will be json. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyOutputFormat outputFormat</Declaration>
+			
+			
+			<Anchor>//api/name/outputFormat</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setOutputUri:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Pathway for the output speech file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *outputUri</Declaration>
+			
+			
+			<Anchor>//api/name/outputUri</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/outputUri</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Pathway for the output speech file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *outputUri</Declaration>
+			
+			
+			<Anchor>//api/name/outputUri</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/outputUri</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Pathway for the output speech file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *outputUri</Declaration>
+			
+			
+			<Anchor>//api/name/outputUri</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setRequestCharacters:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Number of billable characters synthesized.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requestCharacters</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharacters</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/requestCharacters</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Number of billable characters synthesized.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requestCharacters</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharacters</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/requestCharacters</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Number of billable characters synthesized.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *requestCharacters</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharacters</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setSampleRate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The audio frequency specified in Hz.&lt;/p&gt;&lt;p&gt;The valid values for mp3 and ogg_vorbis are &quot;8000&quot;, &quot;16000&quot;, and &quot;22050&quot;. The default value is &quot;22050&quot;.&lt;/p&gt;&lt;p&gt;Valid values for pcm are &quot;8000&quot; and &quot;16000&quot; The default value is &quot;16000&quot;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sampleRate</Declaration>
+			
+			
+			<Anchor>//api/name/sampleRate</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/sampleRate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The audio frequency specified in Hz.&lt;/p&gt;&lt;p&gt;The valid values for mp3 and ogg_vorbis are &quot;8000&quot;, &quot;16000&quot;, and &quot;22050&quot;. The default value is &quot;22050&quot;.&lt;/p&gt;&lt;p&gt;Valid values for pcm are &quot;8000&quot; and &quot;16000&quot; The default value is &quot;16000&quot;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sampleRate</Declaration>
+			
+			
+			<Anchor>//api/name/sampleRate</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/sampleRate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The audio frequency specified in Hz.&lt;/p&gt;&lt;p&gt;The valid values for mp3 and ogg_vorbis are &quot;8000&quot;, &quot;16000&quot;, and &quot;22050&quot;. The default value is &quot;22050&quot;.&lt;/p&gt;&lt;p&gt;Valid values for pcm are &quot;8000&quot; and &quot;16000&quot; The default value is &quot;16000&quot;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sampleRate</Declaration>
+			
+			
+			<Anchor>//api/name/sampleRate</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setSnsTopicArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *snsTopicArn</Declaration>
+			
+			
+			<Anchor>//api/name/snsTopicArn</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/snsTopicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *snsTopicArn</Declaration>
+			
+			
+			<Anchor>//api/name/snsTopicArn</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/snsTopicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN for the SNS topic optionally used for providing status notification for a speech synthesis task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *snsTopicArn</Declaration>
+			
+			
+			<Anchor>//api/name/snsTopicArn</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setSpeechMarkTypes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of speech marks returned for the input text.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *speechMarkTypes</Declaration>
+			
+			
+			<Anchor>//api/name/speechMarkTypes</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/speechMarkTypes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of speech marks returned for the input text.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *speechMarkTypes</Declaration>
+			
+			
+			<Anchor>//api/name/speechMarkTypes</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/speechMarkTypes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of speech marks returned for the input text.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *speechMarkTypes</Declaration>
+			
+			
+			<Anchor>//api/name/speechMarkTypes</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setTaskId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Polly generated identifier for a speech synthesis task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskId</Declaration>
+			
+			
+			<Anchor>//api/name/taskId</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/taskId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Polly generated identifier for a speech synthesis task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskId</Declaration>
+			
+			
+			<Anchor>//api/name/taskId</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/taskId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Polly generated identifier for a speech synthesis task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskId</Declaration>
+			
+			
+			<Anchor>//api/name/taskId</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setTaskStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Current status of the individual speech synthesis task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTaskStatus taskStatus</Declaration>
+			
+			
+			<Anchor>//api/name/taskStatus</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/taskStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Current status of the individual speech synthesis task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTaskStatus taskStatus</Declaration>
+			
+			
+			<Anchor>//api/name/taskStatus</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/taskStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Current status of the individual speech synthesis task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTaskStatus taskStatus</Declaration>
+			
+			
+			<Anchor>//api/name/taskStatus</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setTaskStatusReason:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Reason for the current status of a specific speech synthesis task, including errors if the task has failed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskStatusReason</Declaration>
+			
+			
+			<Anchor>//api/name/taskStatusReason</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/taskStatusReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Reason for the current status of a specific speech synthesis task, including errors if the task has failed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskStatusReason</Declaration>
+			
+			
+			<Anchor>//api/name/taskStatusReason</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/taskStatusReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Reason for the current status of a specific speech synthesis task, including errors if the task has failed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *taskStatusReason</Declaration>
+			
+			
+			<Anchor>//api/name/taskStatusReason</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setTextType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the input text is plain text or SSML. The default value is plain text. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTextType textType</Declaration>
+			
+			
+			<Anchor>//api/name/textType</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/textType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the input text is plain text or SSML. The default value is plain text. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTextType textType</Declaration>
+			
+			
+			<Anchor>//api/name/textType</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/textType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the input text is plain text or SSML. The default value is plain text. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyTextType textType</Declaration>
+			
+			
+			<Anchor>//api/name/textType</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/setVoiceId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Voice ID to use for the synthesis. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyVoiceId voiceId</Declaration>
+			
+			
+			<Anchor>//api/name/voiceId</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollySynthesisTask/voiceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Voice ID to use for the synthesis. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyVoiceId voiceId</Declaration>
+			
+			
+			<Anchor>//api/name/voiceId</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollySynthesisTask/voiceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Voice ID to use for the synthesis. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPollyVoiceId voiceId</Declaration>
+			
+			
+			<Anchor>//api/name/voiceId</Anchor>
+            <NodeRef refid="1659"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

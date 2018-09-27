@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingUpdateEndpointResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEndpointResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1625"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateEndpointResponse/setMessageBody:</TokenIdentifier>
+			<Abstract type="html">Simple message object.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingMessageBody *messageBody</Declaration>
+			
+			
+			<Anchor>//api/name/messageBody</Anchor>
+            <NodeRef refid="1625"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingUpdateEndpointResponse/messageBody</TokenIdentifier>
+			<Abstract type="html">Simple message object.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingMessageBody *messageBody</Declaration>
+			
+			
+			<Anchor>//api/name/messageBody</Anchor>
+            <NodeRef refid="1625"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingUpdateEndpointResponse/messageBody</TokenIdentifier>
+			<Abstract type="html">Simple message object.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingMessageBody *messageBody</Declaration>
+			
+			
+			<Anchor>//api/name/messageBody</Anchor>
+            <NodeRef refid="1625"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

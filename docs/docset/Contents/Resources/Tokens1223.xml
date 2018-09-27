@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSUpdateKeyDescriptionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSUpdateKeyDescriptionRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1223"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSUpdateKeyDescriptionRequest/setDetail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;New description for the CMK.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1223"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSUpdateKeyDescriptionRequest/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;New description for the CMK.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1223"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSUpdateKeyDescriptionRequest/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;New description for the CMK.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1223"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSUpdateKeyDescriptionRequest/setKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier for the customer master key (CMK).&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1223"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSUpdateKeyDescriptionRequest/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier for the customer master key (CMK).&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1223"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSUpdateKeyDescriptionRequest/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier for the customer master key (CMK).&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1223"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

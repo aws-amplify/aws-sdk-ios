@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingDescribeAccessPointsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingDescribeAccessPointsInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the parameters for DescribeLoadBalancers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="724"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDescribeAccessPointsInput/setLoadBalancerNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the load balancers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *loadBalancerNames</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerNames</Anchor>
+            <NodeRef refid="724"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDescribeAccessPointsInput/loadBalancerNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the load balancers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *loadBalancerNames</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerNames</Anchor>
+            <NodeRef refid="724"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingDescribeAccessPointsInput/loadBalancerNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the load balancers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *loadBalancerNames</Declaration>
+			
+			
+			<Anchor>//api/name/loadBalancerNames</Anchor>
+            <NodeRef refid="724"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDescribeAccessPointsInput/setMarker:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The marker for the next set of results. (You received this marker from a previous call.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+            <NodeRef refid="724"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDescribeAccessPointsInput/marker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The marker for the next set of results. (You received this marker from a previous call.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+            <NodeRef refid="724"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingDescribeAccessPointsInput/marker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The marker for the next set of results. (You received this marker from a previous call.)&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+            <NodeRef refid="724"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDescribeAccessPointsInput/setPageSize:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return with this call (a number from 1 to 400). The default is 400.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *pageSize</Declaration>
+			
+			
+			<Anchor>//api/name/pageSize</Anchor>
+            <NodeRef refid="724"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDescribeAccessPointsInput/pageSize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return with this call (a number from 1 to 400). The default is 400.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *pageSize</Declaration>
+			
+			
+			<Anchor>//api/name/pageSize</Anchor>
+            <NodeRef refid="724"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingDescribeAccessPointsInput/pageSize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return with this call (a number from 1 to 400). The default is 400.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *pageSize</Declaration>
+			
+			
+			<Anchor>//api/name/pageSize</Anchor>
+            <NodeRef refid="724"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

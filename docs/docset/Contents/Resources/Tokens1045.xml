@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTListPolicyPrincipalsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTListPolicyPrincipalsResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The output from the ListPolicyPrincipals operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1045"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListPolicyPrincipalsResponse/setNextMarker:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The marker for the next set of results, or null if there are no additional results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1045"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListPolicyPrincipalsResponse/nextMarker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The marker for the next set of results, or null if there are no additional results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1045"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListPolicyPrincipalsResponse/nextMarker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The marker for the next set of results, or null if there are no additional results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextMarker</Declaration>
+			
+			
+			<Anchor>//api/name/nextMarker</Anchor>
+            <NodeRef refid="1045"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListPolicyPrincipalsResponse/setPrincipals:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The descriptions of the principals.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *principals</Declaration>
+			
+			
+			<Anchor>//api/name/principals</Anchor>
+            <NodeRef refid="1045"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListPolicyPrincipalsResponse/principals</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The descriptions of the principals.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *principals</Declaration>
+			
+			
+			<Anchor>//api/name/principals</Anchor>
+            <NodeRef refid="1045"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListPolicyPrincipalsResponse/principals</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The descriptions of the principals.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *principals</Declaration>
+			
+			
+			<Anchor>//api/name/principals</Anchor>
+            <NodeRef refid="1045"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

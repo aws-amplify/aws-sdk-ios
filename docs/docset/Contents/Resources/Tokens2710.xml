@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSTranscribeErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSTranscribeErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2710"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranscribeErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranscribeErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+            <NodeRef refid="2710"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranscribeErrorBadRequest</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranscribeErrorBadRequest</Declaration>
+            
+            <DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+            <NodeRef refid="2710"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranscribeErrorConflict</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranscribeErrorConflict</Declaration>
+            
+            <DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+            <NodeRef refid="2710"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranscribeErrorInternalFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranscribeErrorInternalFailure</Declaration>
+            
+            <DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+            <NodeRef refid="2710"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranscribeErrorLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranscribeErrorLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+            <NodeRef refid="2710"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSTranscribeErrorNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSTranscribeErrorNotFound</Declaration>
+            
+            <DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+            <NodeRef refid="2710"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

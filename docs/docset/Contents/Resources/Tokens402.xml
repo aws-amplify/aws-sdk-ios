@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderSetRiskConfigurationResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderSetRiskConfigurationResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="402"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationResponse/setRiskConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The risk configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderRiskConfigurationType *riskConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/riskConfiguration</Anchor>
+            <NodeRef refid="402"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationResponse/riskConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The risk configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderRiskConfigurationType *riskConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/riskConfiguration</Anchor>
+            <NodeRef refid="402"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSetRiskConfigurationResponse/riskConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The risk configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderRiskConfigurationType *riskConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/riskConfiguration</Anchor>
+            <NodeRef refid="402"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

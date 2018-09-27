@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCloudWatchDescribeAlarmsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCloudWatchDescribeAlarmsInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="136"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/setActionPrefix:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The action name prefix.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *actionPrefix</Declaration>
+			
+			
+			<Anchor>//api/name/actionPrefix</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/actionPrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The action name prefix.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *actionPrefix</Declaration>
+			
+			
+			<Anchor>//api/name/actionPrefix</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchDescribeAlarmsInput/actionPrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The action name prefix.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *actionPrefix</Declaration>
+			
+			
+			<Anchor>//api/name/actionPrefix</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/setAlarmNamePrefix:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The alarm name prefix. If this parameter is specified, you cannot specify &lt;code&gt;AlarmNames&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/alarmNamePrefix</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/alarmNamePrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The alarm name prefix. If this parameter is specified, you cannot specify &lt;code&gt;AlarmNames&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/alarmNamePrefix</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchDescribeAlarmsInput/alarmNamePrefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The alarm name prefix. If this parameter is specified, you cannot specify &lt;code&gt;AlarmNames&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alarmNamePrefix</Declaration>
+			
+			
+			<Anchor>//api/name/alarmNamePrefix</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/setAlarmNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the alarms.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *alarmNames</Declaration>
+			
+			
+			<Anchor>//api/name/alarmNames</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/alarmNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the alarms.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *alarmNames</Declaration>
+			
+			
+			<Anchor>//api/name/alarmNames</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchDescribeAlarmsInput/alarmNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the alarms.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *alarmNames</Declaration>
+			
+			
+			<Anchor>//api/name/alarmNames</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/setMaxRecords:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of alarm descriptions to retrieve.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxRecords</Declaration>
+			
+			
+			<Anchor>//api/name/maxRecords</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/maxRecords</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of alarm descriptions to retrieve.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxRecords</Declaration>
+			
+			
+			<Anchor>//api/name/maxRecords</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchDescribeAlarmsInput/maxRecords</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of alarm descriptions to retrieve.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxRecords</Declaration>
+			
+			
+			<Anchor>//api/name/maxRecords</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token returned by a previous call to indicate that there is more data available.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token returned by a previous call to indicate that there is more data available.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchDescribeAlarmsInput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token returned by a previous call to indicate that there is more data available.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/setStateValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The state value to be used in matching alarms.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStateValue stateValue</Declaration>
+			
+			
+			<Anchor>//api/name/stateValue</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchDescribeAlarmsInput/stateValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The state value to be used in matching alarms.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStateValue stateValue</Declaration>
+			
+			
+			<Anchor>//api/name/stateValue</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchDescribeAlarmsInput/stateValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The state value to be used in matching alarms.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCloudWatchStateValue stateValue</Declaration>
+			
+			
+			<Anchor>//api/name/stateValue</Anchor>
+            <NodeRef refid="136"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

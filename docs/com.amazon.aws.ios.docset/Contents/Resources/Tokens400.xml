@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderSchemaAttributeType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderSchemaAttributeType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains information about the schema attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="400"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/setAttributeDataType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attribute data type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderAttributeDataType attributeDataType</Declaration>
+			
+			
+			<Anchor>//api/name/attributeDataType</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/attributeDataType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attribute data type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderAttributeDataType attributeDataType</Declaration>
+			
+			
+			<Anchor>//api/name/attributeDataType</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSchemaAttributeType/attributeDataType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attribute data type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderAttributeDataType attributeDataType</Declaration>
+			
+			
+			<Anchor>//api/name/attributeDataType</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/setDeveloperOnlyAttribute:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the attribute type is developer only.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *developerOnlyAttribute</Declaration>
+			
+			
+			<Anchor>//api/name/developerOnlyAttribute</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/developerOnlyAttribute</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the attribute type is developer only.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *developerOnlyAttribute</Declaration>
+			
+			
+			<Anchor>//api/name/developerOnlyAttribute</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSchemaAttributeType/developerOnlyAttribute</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the attribute type is developer only.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *developerOnlyAttribute</Declaration>
+			
+			
+			<Anchor>//api/name/developerOnlyAttribute</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/setVarying:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the value of the attribute can be changed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *varying</Declaration>
+			
+			
+			<Anchor>//api/name/varying</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/varying</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the value of the attribute can be changed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *varying</Declaration>
+			
+			
+			<Anchor>//api/name/varying</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSchemaAttributeType/varying</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the value of the attribute can be changed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *varying</Declaration>
+			
+			
+			<Anchor>//api/name/varying</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A schema attribute of the name type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A schema attribute of the name type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSchemaAttributeType/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A schema attribute of the name type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/setNumberAttributeConstraints:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the constraints for an attribute of the number type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNumberAttributeConstraintsType *numberAttributeConstraints</Declaration>
+			
+			
+			<Anchor>//api/name/numberAttributeConstraints</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/numberAttributeConstraints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the constraints for an attribute of the number type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNumberAttributeConstraintsType *numberAttributeConstraints</Declaration>
+			
+			
+			<Anchor>//api/name/numberAttributeConstraints</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSchemaAttributeType/numberAttributeConstraints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the constraints for an attribute of the number type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNumberAttributeConstraintsType *numberAttributeConstraints</Declaration>
+			
+			
+			<Anchor>//api/name/numberAttributeConstraints</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/setRequired:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *required</Declaration>
+			
+			
+			<Anchor>//api/name/required</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/required</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *required</Declaration>
+			
+			
+			<Anchor>//api/name/required</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSchemaAttributeType/required</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether a user pool attribute is required. If the attribute is required and the user does not provide a value, registration or sign-in will fail.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *required</Declaration>
+			
+			
+			<Anchor>//api/name/required</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/setStringAttributeConstraints:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the constraints for an attribute of the string type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderStringAttributeConstraintsType *stringAttributeConstraints</Declaration>
+			
+			
+			<Anchor>//api/name/stringAttributeConstraints</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSchemaAttributeType/stringAttributeConstraints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the constraints for an attribute of the string type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderStringAttributeConstraintsType *stringAttributeConstraints</Declaration>
+			
+			
+			<Anchor>//api/name/stringAttributeConstraints</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSchemaAttributeType/stringAttributeConstraints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the constraints for an attribute of the string type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderStringAttributeConstraintsType *stringAttributeConstraints</Declaration>
+			
+			
+			<Anchor>//api/name/stringAttributeConstraints</Anchor>
+            <NodeRef refid="400"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

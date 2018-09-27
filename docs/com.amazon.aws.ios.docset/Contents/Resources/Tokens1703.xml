@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionFace.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionFace</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1703"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/setAssociationScore:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *associationScore</Declaration>
+			
+			
+			<Anchor>//api/name/associationScore</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/associationScore</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *associationScore</Declaration>
+			
+			
+			<Anchor>//api/name/associationScore</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFace/associationScore</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *associationScore</Declaration>
+			
+			
+			<Anchor>//api/name/associationScore</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/setBoundingBox:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Bounding box of the face.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBoundingBox *boundingBox</Declaration>
+			
+			
+			<Anchor>//api/name/boundingBox</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/boundingBox</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Bounding box of the face.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBoundingBox *boundingBox</Declaration>
+			
+			
+			<Anchor>//api/name/boundingBox</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFace/boundingBox</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Bounding box of the face.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionBoundingBox *boundingBox</Declaration>
+			
+			
+			<Anchor>//api/name/boundingBox</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/setConfidence:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Confidence level that the bounding box contains a face (and not a different object such as a tree).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Confidence level that the bounding box contains a face (and not a different object such as a tree).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFace/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Confidence level that the bounding box contains a face (and not a different object such as a tree).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/setExternalImageId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifier that you assign to all the faces in the input image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalImageId</Declaration>
+			
+			
+			<Anchor>//api/name/externalImageId</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/externalImageId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifier that you assign to all the faces in the input image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalImageId</Declaration>
+			
+			
+			<Anchor>//api/name/externalImageId</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFace/externalImageId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifier that you assign to all the faces in the input image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalImageId</Declaration>
+			
+			
+			<Anchor>//api/name/externalImageId</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/setFaceId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier that Amazon Rekognition assigns to the face.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceId</Declaration>
+			
+			
+			<Anchor>//api/name/faceId</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/faceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier that Amazon Rekognition assigns to the face.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceId</Declaration>
+			
+			
+			<Anchor>//api/name/faceId</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFace/faceId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier that Amazon Rekognition assigns to the face.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *faceId</Declaration>
+			
+			
+			<Anchor>//api/name/faceId</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/setImageId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier that Amazon Rekognition assigns to the input image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageId</Declaration>
+			
+			
+			<Anchor>//api/name/imageId</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFace/imageId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier that Amazon Rekognition assigns to the input image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageId</Declaration>
+			
+			
+			<Anchor>//api/name/imageId</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFace/imageId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier that Amazon Rekognition assigns to the input image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageId</Declaration>
+			
+			
+			<Anchor>//api/name/imageId</Anchor>
+            <NodeRef refid="1703"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaEventSourceMappingConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaEventSourceMappingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes mapping between an Amazon Kinesis or DynamoDB stream or an Amazon SQS queue and a Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1327"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/setBatchSize:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *batchSize</Declaration>
+			
+			
+			<Anchor>//api/name/batchSize</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/batchSize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *batchSize</Declaration>
+			
+			
+			<Anchor>//api/name/batchSize</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaEventSourceMappingConfiguration/batchSize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The largest number of records that AWS Lambda will retrieve from your event source at the time of invoking your function. Your function receives an event with all the retrieved records.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *batchSize</Declaration>
+			
+			
+			<Anchor>//api/name/batchSize</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/setEventSourceArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon Kinesis or DynamoDB stream or the SQS queue that is the source of events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventSourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/eventSourceArn</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/eventSourceArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon Kinesis or DynamoDB stream or the SQS queue that is the source of events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventSourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/eventSourceArn</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaEventSourceMappingConfiguration/eventSourceArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon Kinesis or DynamoDB stream or the SQS queue that is the source of events.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventSourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/eventSourceArn</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/setFunctionArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Lambda function to invoke when AWS Lambda detects an event on the poll-based source.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionArn</Declaration>
+			
+			
+			<Anchor>//api/name/functionArn</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/functionArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Lambda function to invoke when AWS Lambda detects an event on the poll-based source.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionArn</Declaration>
+			
+			
+			<Anchor>//api/name/functionArn</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaEventSourceMappingConfiguration/functionArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Lambda function to invoke when AWS Lambda detects an event on the poll-based source.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionArn</Declaration>
+			
+			
+			<Anchor>//api/name/functionArn</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/setLastModified:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The UTC time string indicating the last time the event mapping was updated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/lastModified</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The UTC time string indicating the last time the event mapping was updated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaEventSourceMappingConfiguration/lastModified</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The UTC time string indicating the last time the event mapping was updated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/setLastProcessingResult:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The result of the last AWS Lambda invocation of your Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastProcessingResult</Declaration>
+			
+			
+			<Anchor>//api/name/lastProcessingResult</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/lastProcessingResult</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The result of the last AWS Lambda invocation of your Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastProcessingResult</Declaration>
+			
+			
+			<Anchor>//api/name/lastProcessingResult</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaEventSourceMappingConfiguration/lastProcessingResult</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The result of the last AWS Lambda invocation of your Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastProcessingResult</Declaration>
+			
+			
+			<Anchor>//api/name/lastProcessingResult</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/setState:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The state of the event source mapping. It can be &lt;code&gt;Creating&lt;/code&gt;, &lt;code&gt;Enabled&lt;/code&gt;, &lt;code&gt;Disabled&lt;/code&gt;, &lt;code&gt;Enabling&lt;/code&gt;, &lt;code&gt;Disabling&lt;/code&gt;, &lt;code&gt;Updating&lt;/code&gt;, or &lt;code&gt;Deleting&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/state</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The state of the event source mapping. It can be &lt;code&gt;Creating&lt;/code&gt;, &lt;code&gt;Enabled&lt;/code&gt;, &lt;code&gt;Disabled&lt;/code&gt;, &lt;code&gt;Enabling&lt;/code&gt;, &lt;code&gt;Disabling&lt;/code&gt;, &lt;code&gt;Updating&lt;/code&gt;, or &lt;code&gt;Deleting&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaEventSourceMappingConfiguration/state</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The state of the event source mapping. It can be &lt;code&gt;Creating&lt;/code&gt;, &lt;code&gt;Enabled&lt;/code&gt;, &lt;code&gt;Disabled&lt;/code&gt;, &lt;code&gt;Enabling&lt;/code&gt;, &lt;code&gt;Disabling&lt;/code&gt;, &lt;code&gt;Updating&lt;/code&gt;, or &lt;code&gt;Deleting&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/setStateTransitionReason:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason the event source mapping is in its current state. It is either user-requested or an AWS Lambda-initiated state transition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *stateTransitionReason</Declaration>
+			
+			
+			<Anchor>//api/name/stateTransitionReason</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/stateTransitionReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason the event source mapping is in its current state. It is either user-requested or an AWS Lambda-initiated state transition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *stateTransitionReason</Declaration>
+			
+			
+			<Anchor>//api/name/stateTransitionReason</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaEventSourceMappingConfiguration/stateTransitionReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason the event source mapping is in its current state. It is either user-requested or an AWS Lambda-initiated state transition.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *stateTransitionReason</Declaration>
+			
+			
+			<Anchor>//api/name/stateTransitionReason</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/setUUID:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS Lambda assigned opaque identifier for the mapping.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *UUID</Declaration>
+			
+			
+			<Anchor>//api/name/UUID</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEventSourceMappingConfiguration/UUID</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS Lambda assigned opaque identifier for the mapping.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *UUID</Declaration>
+			
+			
+			<Anchor>//api/name/UUID</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaEventSourceMappingConfiguration/UUID</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS Lambda assigned opaque identifier for the mapping.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *UUID</Declaration>
+			
+			
+			<Anchor>//api/name/UUID</Anchor>
+            <NodeRef refid="1327"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

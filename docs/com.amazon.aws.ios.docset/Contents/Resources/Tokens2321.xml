@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSimpleDBAttribute.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBAttribute</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;/p&gt;
+Required parameters: [Name, Value]</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2321"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBAttribute/setAlternateNameEncoding:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alternateNameEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/alternateNameEncoding</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBAttribute/alternateNameEncoding</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alternateNameEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/alternateNameEncoding</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBAttribute/alternateNameEncoding</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alternateNameEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/alternateNameEncoding</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBAttribute/setAlternateValueEncoding:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alternateValueEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/alternateValueEncoding</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBAttribute/alternateValueEncoding</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alternateValueEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/alternateValueEncoding</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBAttribute/alternateValueEncoding</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *alternateValueEncoding</Declaration>
+			
+			
+			<Anchor>//api/name/alternateValueEncoding</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBAttribute/setName:</TokenIdentifier>
+			<Abstract type="html">The name of the attribute.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBAttribute/name</TokenIdentifier>
+			<Abstract type="html">The name of the attribute.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBAttribute/name</TokenIdentifier>
+			<Abstract type="html">The name of the attribute.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBAttribute/setValue:</TokenIdentifier>
+			<Abstract type="html">The value of the attribute.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBAttribute/value</TokenIdentifier>
+			<Abstract type="html">The value of the attribute.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBAttribute/value</TokenIdentifier>
+			<Abstract type="html">The value of the attribute.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="2321"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

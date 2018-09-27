@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTJobExecutionSummaryForThing.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTJobExecutionSummaryForThing</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job execution summary for a thing.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1013"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecutionSummaryForThing/setJobExecutionSummary:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains a subset of information about a job execution.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJobExecutionSummary *jobExecutionSummary</Declaration>
+			
+			
+			<Anchor>//api/name/jobExecutionSummary</Anchor>
+            <NodeRef refid="1013"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecutionSummaryForThing/jobExecutionSummary</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains a subset of information about a job execution.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJobExecutionSummary *jobExecutionSummary</Declaration>
+			
+			
+			<Anchor>//api/name/jobExecutionSummary</Anchor>
+            <NodeRef refid="1013"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecutionSummaryForThing/jobExecutionSummary</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains a subset of information about a job execution.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTJobExecutionSummary *jobExecutionSummary</Declaration>
+			
+			
+			<Anchor>//api/name/jobExecutionSummary</Anchor>
+            <NodeRef refid="1013"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecutionSummaryForThing/setJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier you assigned to this job when it was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1013"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecutionSummaryForThing/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier you assigned to this job when it was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1013"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecutionSummaryForThing/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier you assigned to this job when it was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1013"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

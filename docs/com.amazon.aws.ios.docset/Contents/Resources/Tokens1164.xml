@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSCancelKeyDeletionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSCancelKeyDeletionRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1164"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCancelKeyDeletionRequest/setKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the customer master key (CMK) for which to cancel deletion.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1164"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCancelKeyDeletionRequest/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the customer master key (CMK) for which to cancel deletion.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1164"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSCancelKeyDeletionRequest/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier for the customer master key (CMK) for which to cancel deletion.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1164"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

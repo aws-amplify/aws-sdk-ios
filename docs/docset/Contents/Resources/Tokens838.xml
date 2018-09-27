@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseUntagDeliveryStreamInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseUntagDeliveryStreamInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="838"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseUntagDeliveryStreamInput/setDeliveryStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deliveryStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamName</Anchor>
+            <NodeRef refid="838"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseUntagDeliveryStreamInput/deliveryStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deliveryStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamName</Anchor>
+            <NodeRef refid="838"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseUntagDeliveryStreamInput/deliveryStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deliveryStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/deliveryStreamName</Anchor>
+            <NodeRef refid="838"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseUntagDeliveryStreamInput/setTagKeys:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tag keys. Each corresponding tag is removed from the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *tagKeys</Declaration>
+			
+			
+			<Anchor>//api/name/tagKeys</Anchor>
+            <NodeRef refid="838"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseUntagDeliveryStreamInput/tagKeys</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tag keys. Each corresponding tag is removed from the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *tagKeys</Declaration>
+			
+			
+			<Anchor>//api/name/tagKeys</Anchor>
+            <NodeRef refid="838"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseUntagDeliveryStreamInput/tagKeys</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of tag keys. Each corresponding tag is removed from the delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *tagKeys</Declaration>
+			
+			
+			<Anchor>//api/name/tagKeys</Anchor>
+            <NodeRef refid="838"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

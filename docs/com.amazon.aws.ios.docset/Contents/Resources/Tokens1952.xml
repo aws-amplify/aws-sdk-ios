@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3PutBucketInventoryConfigurationRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3PutBucketInventoryConfigurationRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1952"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutBucketInventoryConfigurationRequest/setBucket:</TokenIdentifier>
+			<Abstract type="html">The name of the bucket where the inventory configuration will be stored.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1952"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutBucketInventoryConfigurationRequest/bucket</TokenIdentifier>
+			<Abstract type="html">The name of the bucket where the inventory configuration will be stored.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1952"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutBucketInventoryConfigurationRequest/bucket</TokenIdentifier>
+			<Abstract type="html">The name of the bucket where the inventory configuration will be stored.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1952"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutBucketInventoryConfigurationRequest/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">The ID used to identify the inventory configuration.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1952"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutBucketInventoryConfigurationRequest/identifier</TokenIdentifier>
+			<Abstract type="html">The ID used to identify the inventory configuration.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1952"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutBucketInventoryConfigurationRequest/identifier</TokenIdentifier>
+			<Abstract type="html">The ID used to identify the inventory configuration.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1952"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutBucketInventoryConfigurationRequest/setInventoryConfiguration:</TokenIdentifier>
+			<Abstract type="html">Specifies the inventory configuration.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryConfiguration *inventoryConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/inventoryConfiguration</Anchor>
+            <NodeRef refid="1952"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PutBucketInventoryConfigurationRequest/inventoryConfiguration</TokenIdentifier>
+			<Abstract type="html">Specifies the inventory configuration.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryConfiguration *inventoryConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/inventoryConfiguration</Anchor>
+            <NodeRef refid="1952"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3PutBucketInventoryConfigurationRequest/inventoryConfiguration</TokenIdentifier>
+			<Abstract type="html">Specifies the inventory configuration.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3InventoryConfiguration *inventoryConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/inventoryConfiguration</Anchor>
+            <NodeRef refid="1952"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisSplitShardInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisSplitShardInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the input for &lt;code&gt;SplitShard&lt;/code&gt;.&lt;/p&gt;
+Required parameters: [StreamName, ShardToSplit, NewStartingHashKey]</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1265"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisSplitShardInput/setLatestStartingHashKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for &lt;code&gt;NewStartingHashKey&lt;/code&gt; must be in the range of hash keys being mapped into the shard. The &lt;code&gt;NewStartingHashKey&lt;/code&gt; hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *latestStartingHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/latestStartingHashKey</Anchor>
+            <NodeRef refid="1265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisSplitShardInput/latestStartingHashKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for &lt;code&gt;NewStartingHashKey&lt;/code&gt; must be in the range of hash keys being mapped into the shard. The &lt;code&gt;NewStartingHashKey&lt;/code&gt; hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *latestStartingHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/latestStartingHashKey</Anchor>
+            <NodeRef refid="1265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisSplitShardInput/latestStartingHashKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A hash key value for the starting hash key of one of the child shards created by the split. The hash key range for a given shard constitutes a set of ordered contiguous positive integers. The value for &lt;code&gt;NewStartingHashKey&lt;/code&gt; must be in the range of hash keys being mapped into the shard. The &lt;code&gt;NewStartingHashKey&lt;/code&gt; hash key value and all higher hash key values in hash key range are distributed to one of the child shards. All the lower hash key values in the range are distributed to the other child shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *latestStartingHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/latestStartingHashKey</Anchor>
+            <NodeRef refid="1265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisSplitShardInput/setShardToSplit:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The shard ID of the shard to split.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardToSplit</Declaration>
+			
+			
+			<Anchor>//api/name/shardToSplit</Anchor>
+            <NodeRef refid="1265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisSplitShardInput/shardToSplit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The shard ID of the shard to split.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardToSplit</Declaration>
+			
+			
+			<Anchor>//api/name/shardToSplit</Anchor>
+            <NodeRef refid="1265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisSplitShardInput/shardToSplit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The shard ID of the shard to split.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardToSplit</Declaration>
+			
+			
+			<Anchor>//api/name/shardToSplit</Anchor>
+            <NodeRef refid="1265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisSplitShardInput/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream for the shard split.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisSplitShardInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream for the shard split.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1265"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisSplitShardInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream for the shard split.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1265"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

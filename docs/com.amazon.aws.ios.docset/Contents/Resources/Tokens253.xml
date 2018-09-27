@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAdminResetUserPasswordResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAdminResetUserPasswordResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the response from the server to reset a user password as an administrator.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="253"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

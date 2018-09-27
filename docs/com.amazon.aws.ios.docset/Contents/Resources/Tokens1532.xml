@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingEndpointResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingEndpointResponse</TokenIdentifier>
+			<Abstract type="html">Endpoint response</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1532"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setAddress:</TokenIdentifier>
+			<Abstract type="html">The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *address</Declaration>
+			
+			
+			<Anchor>//api/name/address</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/address</TokenIdentifier>
+			<Abstract type="html">The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *address</Declaration>
+			
+			
+			<Anchor>//api/name/address</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/address</TokenIdentifier>
+			<Abstract type="html">The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *address</Declaration>
+			
+			
+			<Anchor>//api/name/address</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setApplicationId:</TokenIdentifier>
+			<Abstract type="html">The ID of the application associated with the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/applicationId</TokenIdentifier>
+			<Abstract type="html">The ID of the application associated with the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/applicationId</TokenIdentifier>
+			<Abstract type="html">The ID of the application associated with the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setAttributes:</TokenIdentifier>
+			<Abstract type="html">Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/attributes</TokenIdentifier>
+			<Abstract type="html">Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/attributes</TokenIdentifier>
+			<Abstract type="html">Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setChannelType:</TokenIdentifier>
+			<Abstract type="html">The channel type.Valid values: APNS, GCM</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingChannelType channelType</Declaration>
+			
+			
+			<Anchor>//api/name/channelType</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/channelType</TokenIdentifier>
+			<Abstract type="html">The channel type.Valid values: APNS, GCM</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingChannelType channelType</Declaration>
+			
+			
+			<Anchor>//api/name/channelType</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/channelType</TokenIdentifier>
+			<Abstract type="html">The channel type.Valid values: APNS, GCM</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingChannelType channelType</Declaration>
+			
+			
+			<Anchor>//api/name/channelType</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setCohortId:</TokenIdentifier>
+			<Abstract type="html">A number from 0 - 99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cohortId</Declaration>
+			
+			
+			<Anchor>//api/name/cohortId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/cohortId</TokenIdentifier>
+			<Abstract type="html">A number from 0 - 99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cohortId</Declaration>
+			
+			
+			<Anchor>//api/name/cohortId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/cohortId</TokenIdentifier>
+			<Abstract type="html">A number from 0 - 99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cohortId</Declaration>
+			
+			
+			<Anchor>//api/name/cohortId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setCreationDate:</TokenIdentifier>
+			<Abstract type="html">The last time the endpoint was created. Provided in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/creationDate</TokenIdentifier>
+			<Abstract type="html">The last time the endpoint was created. Provided in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/creationDate</TokenIdentifier>
+			<Abstract type="html">The last time the endpoint was created. Provided in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setDemographic:</TokenIdentifier>
+			<Abstract type="html">The endpoint demographic attributes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointDemographic *demographic</Declaration>
+			
+			
+			<Anchor>//api/name/demographic</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/demographic</TokenIdentifier>
+			<Abstract type="html">The endpoint demographic attributes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointDemographic *demographic</Declaration>
+			
+			
+			<Anchor>//api/name/demographic</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/demographic</TokenIdentifier>
+			<Abstract type="html">The endpoint demographic attributes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointDemographic *demographic</Declaration>
+			
+			
+			<Anchor>//api/name/demographic</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setEffectiveDate:</TokenIdentifier>
+			<Abstract type="html">The last time the endpoint was updated. Provided in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *effectiveDate</Declaration>
+			
+			
+			<Anchor>//api/name/effectiveDate</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/effectiveDate</TokenIdentifier>
+			<Abstract type="html">The last time the endpoint was updated. Provided in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *effectiveDate</Declaration>
+			
+			
+			<Anchor>//api/name/effectiveDate</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/effectiveDate</TokenIdentifier>
+			<Abstract type="html">The last time the endpoint was updated. Provided in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *effectiveDate</Declaration>
+			
+			
+			<Anchor>//api/name/effectiveDate</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setEndpointStatus:</TokenIdentifier>
+			<Abstract type="html">The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *endpointStatus</Declaration>
+			
+			
+			<Anchor>//api/name/endpointStatus</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/endpointStatus</TokenIdentifier>
+			<Abstract type="html">The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *endpointStatus</Declaration>
+			
+			
+			<Anchor>//api/name/endpointStatus</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/endpointStatus</TokenIdentifier>
+			<Abstract type="html">The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *endpointStatus</Declaration>
+			
+			
+			<Anchor>//api/name/endpointStatus</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it is unique compared to all other endpoints for the application.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/identifier</TokenIdentifier>
+			<Abstract type="html">The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it is unique compared to all other endpoints for the application.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/identifier</TokenIdentifier>
+			<Abstract type="html">The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it is unique compared to all other endpoints for the application.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setLocation:</TokenIdentifier>
+			<Abstract type="html">The endpoint location attributes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointLocation *location</Declaration>
+			
+			
+			<Anchor>//api/name/location</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/location</TokenIdentifier>
+			<Abstract type="html">The endpoint location attributes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointLocation *location</Declaration>
+			
+			
+			<Anchor>//api/name/location</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/location</TokenIdentifier>
+			<Abstract type="html">The endpoint location attributes.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointLocation *location</Declaration>
+			
+			
+			<Anchor>//api/name/location</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setMetrics:</TokenIdentifier>
+			<Abstract type="html">Custom metrics that your app reports to Amazon Pinpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *metrics</Declaration>
+			
+			
+			<Anchor>//api/name/metrics</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/metrics</TokenIdentifier>
+			<Abstract type="html">Custom metrics that your app reports to Amazon Pinpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *metrics</Declaration>
+			
+			
+			<Anchor>//api/name/metrics</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/metrics</TokenIdentifier>
+			<Abstract type="html">Custom metrics that your app reports to Amazon Pinpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *metrics</Declaration>
+			
+			
+			<Anchor>//api/name/metrics</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setOptOut:</TokenIdentifier>
+			<Abstract type="html">Indicates whether a user has opted out of receiving messages with one of the following values:ALL â€“ User receives all messages. NONE â€“ User receives no messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *optOut</Declaration>
+			
+			
+			<Anchor>//api/name/optOut</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/optOut</TokenIdentifier>
+			<Abstract type="html">Indicates whether a user has opted out of receiving messages with one of the following values:ALL â€“ User receives all messages. NONE â€“ User receives no messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *optOut</Declaration>
+			
+			
+			<Anchor>//api/name/optOut</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/optOut</TokenIdentifier>
+			<Abstract type="html">Indicates whether a user has opted out of receiving messages with one of the following values:ALL â€“ User receives all messages. NONE â€“ User receives no messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *optOut</Declaration>
+			
+			
+			<Anchor>//api/name/optOut</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setRequestId:</TokenIdentifier>
+			<Abstract type="html">The unique ID for the most recent request to update the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *requestId</Declaration>
+			
+			
+			<Anchor>//api/name/requestId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/requestId</TokenIdentifier>
+			<Abstract type="html">The unique ID for the most recent request to update the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *requestId</Declaration>
+			
+			
+			<Anchor>//api/name/requestId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/requestId</TokenIdentifier>
+			<Abstract type="html">The unique ID for the most recent request to update the endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *requestId</Declaration>
+			
+			
+			<Anchor>//api/name/requestId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setShardId:</TokenIdentifier>
+			<Abstract type="html">The ShardId of endpoint</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardId</Declaration>
+			
+			
+			<Anchor>//api/name/shardId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/shardId</TokenIdentifier>
+			<Abstract type="html">The ShardId of endpoint</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardId</Declaration>
+			
+			
+			<Anchor>//api/name/shardId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/shardId</TokenIdentifier>
+			<Abstract type="html">The ShardId of endpoint</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *shardId</Declaration>
+			
+			
+			<Anchor>//api/name/shardId</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/setUser:</TokenIdentifier>
+			<Abstract type="html">Custom user-specific attributes that your app reports to Amazon Pinpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointUser *user</Declaration>
+			
+			
+			<Anchor>//api/name/user</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingEndpointResponse/user</TokenIdentifier>
+			<Abstract type="html">Custom user-specific attributes that your app reports to Amazon Pinpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointUser *user</Declaration>
+			
+			
+			<Anchor>//api/name/user</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingEndpointResponse/user</TokenIdentifier>
+			<Abstract type="html">Custom user-specific attributes that your app reports to Amazon Pinpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSPinpointTargetingEndpointUser *user</Declaration>
+			
+			
+			<Anchor>//api/name/user</Anchor>
+            <NodeRef refid="1532"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

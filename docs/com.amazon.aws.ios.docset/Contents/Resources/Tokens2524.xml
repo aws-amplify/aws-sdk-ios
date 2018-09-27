@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSIoTJobExecutionStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSIoTJobExecutionStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2524"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobExecutionStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobExecutionStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2524"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobExecutionStatusQueued</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobExecutionStatusQueued</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2524"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobExecutionStatusInProgress</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobExecutionStatusInProgress</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2524"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobExecutionStatusSucceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobExecutionStatusSucceeded</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2524"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobExecutionStatusFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobExecutionStatusFailed</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2524"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobExecutionStatusRejected</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobExecutionStatusRejected</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2524"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobExecutionStatusRemoved</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobExecutionStatusRemoved</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2524"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTJobExecutionStatusCanceled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTJobExecutionStatusCanceled</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2524"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3ErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3ErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2644"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2644"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ErrorBucketAlreadyExists</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ErrorBucketAlreadyExists</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2644"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ErrorBucketAlreadyOwnedByYou</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ErrorBucketAlreadyOwnedByYou</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2644"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ErrorNoSuchBucket</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ErrorNoSuchBucket</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2644"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ErrorNoSuchKey</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ErrorNoSuchKey</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2644"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ErrorNoSuchUpload</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ErrorNoSuchUpload</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2644"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ErrorObjectAlreadyInActiveTier</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ErrorObjectAlreadyInActiveTier</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2644"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ErrorObjectNotInActiveTier</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ErrorObjectNotInActiveTier</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2644"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

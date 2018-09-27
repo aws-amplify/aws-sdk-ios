@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingDescribeAccountLimitsAnswer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingDescribeAccountLimitsAnswer</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="43"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAccountLimitsAnswer/setMaxNumberOfAutoScalingGroups:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of groups allowed for your AWS account. The default limit is 20 per region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxNumberOfAutoScalingGroups</Declaration>
+			
+			
+			<Anchor>//api/name/maxNumberOfAutoScalingGroups</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAccountLimitsAnswer/maxNumberOfAutoScalingGroups</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of groups allowed for your AWS account. The default limit is 20 per region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxNumberOfAutoScalingGroups</Declaration>
+			
+			
+			<Anchor>//api/name/maxNumberOfAutoScalingGroups</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingDescribeAccountLimitsAnswer/maxNumberOfAutoScalingGroups</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of groups allowed for your AWS account. The default limit is 20 per region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxNumberOfAutoScalingGroups</Declaration>
+			
+			
+			<Anchor>//api/name/maxNumberOfAutoScalingGroups</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAccountLimitsAnswer/setMaxNumberOfLaunchConfigurations:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of launch configurations allowed for your AWS account. The default limit is 100 per region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxNumberOfLaunchConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/maxNumberOfLaunchConfigurations</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAccountLimitsAnswer/maxNumberOfLaunchConfigurations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of launch configurations allowed for your AWS account. The default limit is 100 per region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxNumberOfLaunchConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/maxNumberOfLaunchConfigurations</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingDescribeAccountLimitsAnswer/maxNumberOfLaunchConfigurations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of launch configurations allowed for your AWS account. The default limit is 100 per region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxNumberOfLaunchConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/maxNumberOfLaunchConfigurations</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAccountLimitsAnswer/setNumberOfAutoScalingGroups:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current number of groups for your AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfAutoScalingGroups</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfAutoScalingGroups</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAccountLimitsAnswer/numberOfAutoScalingGroups</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current number of groups for your AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfAutoScalingGroups</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfAutoScalingGroups</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingDescribeAccountLimitsAnswer/numberOfAutoScalingGroups</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current number of groups for your AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfAutoScalingGroups</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfAutoScalingGroups</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAccountLimitsAnswer/setNumberOfLaunchConfigurations:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current number of launch configurations for your AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfLaunchConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfLaunchConfigurations</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingDescribeAccountLimitsAnswer/numberOfLaunchConfigurations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current number of launch configurations for your AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfLaunchConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfLaunchConfigurations</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingDescribeAccountLimitsAnswer/numberOfLaunchConfigurations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current number of launch configurations for your AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfLaunchConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfLaunchConfigurations</Anchor>
+            <NodeRef refid="43"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

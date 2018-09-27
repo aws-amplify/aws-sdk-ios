@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingGCMMessage.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGCMMessage</TokenIdentifier>
+			<Abstract type="html">GCM Message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1542"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setAction:</TokenIdentifier>
+			<Abstract type="html">The action that occurs if the user taps a push notification delivered by the campaign: OPENAPP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEPLINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user&apos;s device launches and opens a web page at the URL you specify. Possible values include: OPENAPP | DEEPLINK | URL</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingAction action</Declaration>
+			
+			
+			<Anchor>//api/name/action</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/action</TokenIdentifier>
+			<Abstract type="html">The action that occurs if the user taps a push notification delivered by the campaign: OPENAPP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEPLINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user&apos;s device launches and opens a web page at the URL you specify. Possible values include: OPENAPP | DEEPLINK | URL</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingAction action</Declaration>
+			
+			
+			<Anchor>//api/name/action</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/action</TokenIdentifier>
+			<Abstract type="html">The action that occurs if the user taps a push notification delivered by the campaign: OPENAPP - Your app launches, or it becomes the foreground app if it has been sent to the background. This is the default action. DEEPLINK - Uses deep linking features in iOS and Android to open your app and display a designated user interface within the app. URL - The default mobile browser on the user&apos;s device launches and opens a web page at the URL you specify. Possible values include: OPENAPP | DEEPLINK | URL</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingAction action</Declaration>
+			
+			
+			<Anchor>//api/name/action</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setBody:</TokenIdentifier>
+			<Abstract type="html">The message body of the notification, the email body or the text message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/body</TokenIdentifier>
+			<Abstract type="html">The message body of the notification, the email body or the text message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/body</TokenIdentifier>
+			<Abstract type="html">The message body of the notification, the email body or the text message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setCollapseKey:</TokenIdentifier>
+			<Abstract type="html">This parameter identifies a group of messages (e.g., with collapse_key: &quot;Updates Available&quot;) that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collapseKey</Declaration>
+			
+			
+			<Anchor>//api/name/collapseKey</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/collapseKey</TokenIdentifier>
+			<Abstract type="html">This parameter identifies a group of messages (e.g., with collapse_key: &quot;Updates Available&quot;) that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collapseKey</Declaration>
+			
+			
+			<Anchor>//api/name/collapseKey</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/collapseKey</TokenIdentifier>
+			<Abstract type="html">This parameter identifies a group of messages (e.g., with collapse_key: &quot;Updates Available&quot;) that can be collapsed, so that only the last message gets sent when delivery can be resumed. This is intended to avoid sending too many of the same messages when the device comes back online or becomes active.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collapseKey</Declaration>
+			
+			
+			<Anchor>//api/name/collapseKey</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setData:</TokenIdentifier>
+			<Abstract type="html">The data payload used for a silent push. This payload is added to the notifications&apos; data.pinpoint.jsonBody&apos; object</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/data</TokenIdentifier>
+			<Abstract type="html">The data payload used for a silent push. This payload is added to the notifications&apos; data.pinpoint.jsonBody&apos; object</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/data</TokenIdentifier>
+			<Abstract type="html">The data payload used for a silent push. This payload is added to the notifications&apos; data.pinpoint.jsonBody&apos; object</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setIconReference:</TokenIdentifier>
+			<Abstract type="html">The icon image name of the asset saved in your application.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *iconReference</Declaration>
+			
+			
+			<Anchor>//api/name/iconReference</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/iconReference</TokenIdentifier>
+			<Abstract type="html">The icon image name of the asset saved in your application.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *iconReference</Declaration>
+			
+			
+			<Anchor>//api/name/iconReference</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/iconReference</TokenIdentifier>
+			<Abstract type="html">The icon image name of the asset saved in your application.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *iconReference</Declaration>
+			
+			
+			<Anchor>//api/name/iconReference</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setImageIconUrl:</TokenIdentifier>
+			<Abstract type="html">The URL that points to an image used as the large icon to the notification content view.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageIconUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imageIconUrl</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/imageIconUrl</TokenIdentifier>
+			<Abstract type="html">The URL that points to an image used as the large icon to the notification content view.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageIconUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imageIconUrl</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/imageIconUrl</TokenIdentifier>
+			<Abstract type="html">The URL that points to an image used as the large icon to the notification content view.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageIconUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imageIconUrl</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setImageUrl:</TokenIdentifier>
+			<Abstract type="html">The URL that points to an image used in the push notification.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imageUrl</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/imageUrl</TokenIdentifier>
+			<Abstract type="html">The URL that points to an image used in the push notification.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imageUrl</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/imageUrl</TokenIdentifier>
+			<Abstract type="html">The URL that points to an image used in the push notification.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *imageUrl</Declaration>
+			
+			
+			<Anchor>//api/name/imageUrl</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setRawContent:</TokenIdentifier>
+			<Abstract type="html">The Raw JSON formatted string to be used as the payload. This value overrides the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rawContent</Declaration>
+			
+			
+			<Anchor>//api/name/rawContent</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/rawContent</TokenIdentifier>
+			<Abstract type="html">The Raw JSON formatted string to be used as the payload. This value overrides the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rawContent</Declaration>
+			
+			
+			<Anchor>//api/name/rawContent</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/rawContent</TokenIdentifier>
+			<Abstract type="html">The Raw JSON formatted string to be used as the payload. This value overrides the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *rawContent</Declaration>
+			
+			
+			<Anchor>//api/name/rawContent</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setRestrictedPackageName:</TokenIdentifier>
+			<Abstract type="html">This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *restrictedPackageName</Declaration>
+			
+			
+			<Anchor>//api/name/restrictedPackageName</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/restrictedPackageName</TokenIdentifier>
+			<Abstract type="html">This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *restrictedPackageName</Declaration>
+			
+			
+			<Anchor>//api/name/restrictedPackageName</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/restrictedPackageName</TokenIdentifier>
+			<Abstract type="html">This parameter specifies the package name of the application where the registration tokens must match in order to receive the message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *restrictedPackageName</Declaration>
+			
+			
+			<Anchor>//api/name/restrictedPackageName</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setSilentPush:</TokenIdentifier>
+			<Abstract type="html">Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *silentPush</Declaration>
+			
+			
+			<Anchor>//api/name/silentPush</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/silentPush</TokenIdentifier>
+			<Abstract type="html">Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *silentPush</Declaration>
+			
+			
+			<Anchor>//api/name/silentPush</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/silentPush</TokenIdentifier>
+			<Abstract type="html">Indicates if the message should display on the users device. Silent pushes can be used for Remote Configuration and Phone Home use cases.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *silentPush</Declaration>
+			
+			
+			<Anchor>//api/name/silentPush</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setSmallImageIconUrl:</TokenIdentifier>
+			<Abstract type="html">The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *smallImageIconUrl</Declaration>
+			
+			
+			<Anchor>//api/name/smallImageIconUrl</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/smallImageIconUrl</TokenIdentifier>
+			<Abstract type="html">The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *smallImageIconUrl</Declaration>
+			
+			
+			<Anchor>//api/name/smallImageIconUrl</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/smallImageIconUrl</TokenIdentifier>
+			<Abstract type="html">The URL that points to an image used as the small icon for the notification which will be used to represent the notification in the status bar and content view</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *smallImageIconUrl</Declaration>
+			
+			
+			<Anchor>//api/name/smallImageIconUrl</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setSound:</TokenIdentifier>
+			<Abstract type="html">Indicates a sound to play when the device receives the notification. Supports default, or the filename of a sound resource bundled in the app. Android sound files must reside in /res/raw/</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sound</Declaration>
+			
+			
+			<Anchor>//api/name/sound</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/sound</TokenIdentifier>
+			<Abstract type="html">Indicates a sound to play when the device receives the notification. Supports default, or the filename of a sound resource bundled in the app. Android sound files must reside in /res/raw/</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sound</Declaration>
+			
+			
+			<Anchor>//api/name/sound</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/sound</TokenIdentifier>
+			<Abstract type="html">Indicates a sound to play when the device receives the notification. Supports default, or the filename of a sound resource bundled in the app. Android sound files must reside in /res/raw/</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sound</Declaration>
+			
+			
+			<Anchor>//api/name/sound</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setSubstitutions:</TokenIdentifier>
+			<Abstract type="html">Default message substitutions. Can be overridden by individual address substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/substitutions</TokenIdentifier>
+			<Abstract type="html">Default message substitutions. Can be overridden by individual address substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/substitutions</TokenIdentifier>
+			<Abstract type="html">Default message substitutions. Can be overridden by individual address substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setTitle:</TokenIdentifier>
+			<Abstract type="html">The message title that displays above the message on the user&apos;s device.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/title</TokenIdentifier>
+			<Abstract type="html">The message title that displays above the message on the user&apos;s device.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/title</TokenIdentifier>
+			<Abstract type="html">The message title that displays above the message on the user&apos;s device.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *title</Declaration>
+			
+			
+			<Anchor>//api/name/title</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/setUrl:</TokenIdentifier>
+			<Abstract type="html">The URL to open in the user&apos;s mobile browser. Used if the value for Action is URL.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *url</Declaration>
+			
+			
+			<Anchor>//api/name/url</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingGCMMessage/url</TokenIdentifier>
+			<Abstract type="html">The URL to open in the user&apos;s mobile browser. Used if the value for Action is URL.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *url</Declaration>
+			
+			
+			<Anchor>//api/name/url</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingGCMMessage/url</TokenIdentifier>
+			<Abstract type="html">The URL to open in the user&apos;s mobile browser. Used if the value for Action is URL.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *url</Declaration>
+			
+			
+			<Anchor>//api/name/url</Anchor>
+            <NodeRef refid="1542"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

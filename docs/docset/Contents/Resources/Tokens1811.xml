@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3CreateBucketConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3CreateBucketConfiguration</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1811"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateBucketConfiguration/setLocationConstraint:</TokenIdentifier>
+			<Abstract type="html">Specifies the region where the bucket will be created. If you don&apos;t specify a region, the bucket will be created in US Standard.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3BucketLocationConstraint locationConstraint</Declaration>
+			
+			
+			<Anchor>//api/name/locationConstraint</Anchor>
+            <NodeRef refid="1811"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateBucketConfiguration/locationConstraint</TokenIdentifier>
+			<Abstract type="html">Specifies the region where the bucket will be created. If you don&apos;t specify a region, the bucket will be created in US Standard.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3BucketLocationConstraint locationConstraint</Declaration>
+			
+			
+			<Anchor>//api/name/locationConstraint</Anchor>
+            <NodeRef refid="1811"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateBucketConfiguration/locationConstraint</TokenIdentifier>
+			<Abstract type="html">Specifies the region where the bucket will be created. If you don&apos;t specify a region, the bucket will be created in US Standard.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3BucketLocationConstraint locationConstraint</Declaration>
+			
+			
+			<Anchor>//api/name/locationConstraint</Anchor>
+            <NodeRef refid="1811"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

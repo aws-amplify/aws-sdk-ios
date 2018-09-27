@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSRekognitionEmotionName.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSRekognitionEmotionName</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2624"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionEmotionNameUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionEmotionNameUnknown</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2624"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionEmotionNameHappy</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionEmotionNameHappy</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2624"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionEmotionNameSad</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionEmotionNameSad</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2624"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionEmotionNameAngry</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionEmotionNameAngry</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2624"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionEmotionNameConfused</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionEmotionNameConfused</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2624"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionEmotionNameDisgusted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionEmotionNameDisgusted</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2624"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionEmotionNameSurprised</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionEmotionNameSurprised</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2624"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionEmotionNameCalm</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionEmotionNameCalm</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2624"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

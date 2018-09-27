@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBCapacity.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBCapacity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the amount of provisioned throughput capacity consumed on a table or an index.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="571"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCapacity/setCapacityUnits:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The total number of capacity units consumed on a table or an index.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *capacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/capacityUnits</Anchor>
+            <NodeRef refid="571"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCapacity/capacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The total number of capacity units consumed on a table or an index.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *capacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/capacityUnits</Anchor>
+            <NodeRef refid="571"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCapacity/capacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The total number of capacity units consumed on a table or an index.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *capacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/capacityUnits</Anchor>
+            <NodeRef refid="571"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

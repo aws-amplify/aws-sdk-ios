@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaUntagResourceRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUntagResourceRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1363"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaUntagResourceRequest/setResource:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN (Amazon Resource Name) of the function. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *resource</Declaration>
+			
+			
+			<Anchor>//api/name/resource</Anchor>
+            <NodeRef refid="1363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaUntagResourceRequest/resource</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN (Amazon Resource Name) of the function. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *resource</Declaration>
+			
+			
+			<Anchor>//api/name/resource</Anchor>
+            <NodeRef refid="1363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaUntagResourceRequest/resource</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN (Amazon Resource Name) of the function. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *resource</Declaration>
+			
+			
+			<Anchor>//api/name/resource</Anchor>
+            <NodeRef refid="1363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaUntagResourceRequest/setTagKeys:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of tag keys to be deleted from the function. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *tagKeys</Declaration>
+			
+			
+			<Anchor>//api/name/tagKeys</Anchor>
+            <NodeRef refid="1363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaUntagResourceRequest/tagKeys</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of tag keys to be deleted from the function. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *tagKeys</Declaration>
+			
+			
+			<Anchor>//api/name/tagKeys</Anchor>
+            <NodeRef refid="1363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaUntagResourceRequest/tagKeys</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of tag keys to be deleted from the function. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *tagKeys</Declaration>
+			
+			
+			<Anchor>//api/name/tagKeys</Anchor>
+            <NodeRef refid="1363"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTDescribeIndexResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTDescribeIndexResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="955"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDescribeIndexResponse/setIndexName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The index name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="955"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDescribeIndexResponse/indexName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The index name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="955"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDescribeIndexResponse/indexName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The index name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="955"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDescribeIndexResponse/setIndexStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The index status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTIndexStatus indexStatus</Declaration>
+			
+			
+			<Anchor>//api/name/indexStatus</Anchor>
+            <NodeRef refid="955"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDescribeIndexResponse/indexStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The index status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTIndexStatus indexStatus</Declaration>
+			
+			
+			<Anchor>//api/name/indexStatus</Anchor>
+            <NodeRef refid="955"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDescribeIndexResponse/indexStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The index status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTIndexStatus indexStatus</Declaration>
+			
+			
+			<Anchor>//api/name/indexStatus</Anchor>
+            <NodeRef refid="955"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDescribeIndexResponse/setSchema:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains a value that specifies the type of indexing performed. Valid values are:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;REGISTRY – Your thing index will contain only registry data.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;REGISTRYANDSHADOW - Your thing index will contain registry and shadow data.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *schema</Declaration>
+			
+			
+			<Anchor>//api/name/schema</Anchor>
+            <NodeRef refid="955"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDescribeIndexResponse/schema</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains a value that specifies the type of indexing performed. Valid values are:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;REGISTRY – Your thing index will contain only registry data.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;REGISTRYANDSHADOW - Your thing index will contain registry and shadow data.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *schema</Declaration>
+			
+			
+			<Anchor>//api/name/schema</Anchor>
+            <NodeRef refid="955"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDescribeIndexResponse/schema</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains a value that specifies the type of indexing performed. Valid values are:&lt;/p&gt;&lt;ol&gt;&lt;li&gt;&lt;p&gt;REGISTRY – Your thing index will contain only registry data.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;REGISTRYANDSHADOW - Your thing index will contain registry and shadow data.&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *schema</Declaration>
+			
+			
+			<Anchor>//api/name/schema</Anchor>
+            <NodeRef refid="955"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

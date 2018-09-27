@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSTranscribeTranscriptionJobSummary.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSTranscribeTranscriptionJobSummary</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides a summary of information about a transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2360"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/setCompletionTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A timestamp that shows when the job was completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *completionTime</Declaration>
+			
+			
+			<Anchor>//api/name/completionTime</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/completionTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A timestamp that shows when the job was completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *completionTime</Declaration>
+			
+			
+			<Anchor>//api/name/completionTime</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeTranscriptionJobSummary/completionTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A timestamp that shows when the job was completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *completionTime</Declaration>
+			
+			
+			<Anchor>//api/name/completionTime</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/setCreationTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A timestamp that shows when the job was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationTime</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/creationTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A timestamp that shows when the job was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationTime</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeTranscriptionJobSummary/creationTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A timestamp that shows when the job was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationTime</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/setFailureReason:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the &lt;code&gt;TranscriptionJobStatus&lt;/code&gt; field is &lt;code&gt;FAILED&lt;/code&gt;, a description of the error.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureReason</Declaration>
+			
+			
+			<Anchor>//api/name/failureReason</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/failureReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the &lt;code&gt;TranscriptionJobStatus&lt;/code&gt; field is &lt;code&gt;FAILED&lt;/code&gt;, a description of the error.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureReason</Declaration>
+			
+			
+			<Anchor>//api/name/failureReason</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeTranscriptionJobSummary/failureReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the &lt;code&gt;TranscriptionJobStatus&lt;/code&gt; field is &lt;code&gt;FAILED&lt;/code&gt;, a description of the error.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureReason</Declaration>
+			
+			
+			<Anchor>//api/name/failureReason</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/setLanguageCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code for the input speech.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code for the input speech.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeTranscriptionJobSummary/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code for the input speech.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/setOutputLocationType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates the location of the output of the transcription job.&lt;/p&gt;&lt;p&gt;If the value is &lt;code&gt;CUSTOMERBUCKET&lt;/code&gt; then the location is the S3 bucket specified in the &lt;code&gt;outputBucketName&lt;/code&gt; field when the transcription job was started with the &lt;code&gt;StartTranscriptionJob&lt;/code&gt; operation.&lt;/p&gt;&lt;p&gt;If the value is &lt;code&gt;SERVICEBUCKET&lt;/code&gt; then the output is stored by Amazon Transcribe and can be retrieved using the URI in the &lt;code&gt;GetTranscriptionJob&lt;/code&gt; response&apos;s &lt;code&gt;TranscriptFileUri&lt;/code&gt; field.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeOutputLocationType outputLocationType</Declaration>
+			
+			
+			<Anchor>//api/name/outputLocationType</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/outputLocationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates the location of the output of the transcription job.&lt;/p&gt;&lt;p&gt;If the value is &lt;code&gt;CUSTOMERBUCKET&lt;/code&gt; then the location is the S3 bucket specified in the &lt;code&gt;outputBucketName&lt;/code&gt; field when the transcription job was started with the &lt;code&gt;StartTranscriptionJob&lt;/code&gt; operation.&lt;/p&gt;&lt;p&gt;If the value is &lt;code&gt;SERVICEBUCKET&lt;/code&gt; then the output is stored by Amazon Transcribe and can be retrieved using the URI in the &lt;code&gt;GetTranscriptionJob&lt;/code&gt; response&apos;s &lt;code&gt;TranscriptFileUri&lt;/code&gt; field.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeOutputLocationType outputLocationType</Declaration>
+			
+			
+			<Anchor>//api/name/outputLocationType</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeTranscriptionJobSummary/outputLocationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates the location of the output of the transcription job.&lt;/p&gt;&lt;p&gt;If the value is &lt;code&gt;CUSTOMERBUCKET&lt;/code&gt; then the location is the S3 bucket specified in the &lt;code&gt;outputBucketName&lt;/code&gt; field when the transcription job was started with the &lt;code&gt;StartTranscriptionJob&lt;/code&gt; operation.&lt;/p&gt;&lt;p&gt;If the value is &lt;code&gt;SERVICEBUCKET&lt;/code&gt; then the output is stored by Amazon Transcribe and can be retrieved using the URI in the &lt;code&gt;GetTranscriptionJob&lt;/code&gt; response&apos;s &lt;code&gt;TranscriptFileUri&lt;/code&gt; field.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeOutputLocationType outputLocationType</Declaration>
+			
+			
+			<Anchor>//api/name/outputLocationType</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/setTranscriptionJobName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transcriptionJobName</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobName</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/transcriptionJobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transcriptionJobName</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobName</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeTranscriptionJobSummary/transcriptionJobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the transcription job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transcriptionJobName</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobName</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/setTranscriptionJobStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the transcription job. When the status is &lt;code&gt;COMPLETED&lt;/code&gt;, use the &lt;code&gt;GetTranscriptionJob&lt;/code&gt; operation to get the results of the transcription.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus transcriptionJobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobStatus</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeTranscriptionJobSummary/transcriptionJobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the transcription job. When the status is &lt;code&gt;COMPLETED&lt;/code&gt;, use the &lt;code&gt;GetTranscriptionJob&lt;/code&gt; operation to get the results of the transcription.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus transcriptionJobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobStatus</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeTranscriptionJobSummary/transcriptionJobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the transcription job. When the status is &lt;code&gt;COMPLETED&lt;/code&gt;, use the &lt;code&gt;GetTranscriptionJob&lt;/code&gt; operation to get the results of the transcription.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus transcriptionJobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobStatus</Anchor>
+            <NodeRef refid="2360"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLambdaErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLambdaErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2565"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorCodeStorageExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorCodeStorageExceeded</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorEC2AccessDenied</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorEC2AccessDenied</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorEC2Throttled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorEC2Throttled</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorEC2Unexpected</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorEC2Unexpected</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorENILimitReached</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorENILimitReached</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorInvalidParameterValue</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorInvalidParameterValue</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorInvalidRequestContent</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorInvalidRequestContent</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorInvalidRuntime</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorInvalidRuntime</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorInvalidSecurityGroupID</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorInvalidSecurityGroupID</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorInvalidSubnetID</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorInvalidSubnetID</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorInvalidZipFile</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorInvalidZipFile</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorKMSAccessDenied</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorKMSAccessDenied</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorKMSDisabled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorKMSDisabled</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorKMSInvalidState</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorKMSInvalidState</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorKMSNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorKMSNotFound</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorPolicyLengthExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorPolicyLengthExceeded</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorPreconditionFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorPreconditionFailed</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorRequestTooLarge</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorRequestTooLarge</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorResourceConflict</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorResourceConflict</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorResourceInUse</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorResourceInUse</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorResourceNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorResourceNotFound</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorService</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorService</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorSubnetIPAddressLimitReached</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorSubnetIPAddressLimitReached</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorTooManyRequests</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorTooManyRequests</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaErrorUnsupportedMediaType</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaErrorUnsupportedMediaType</Declaration>
+            
+            <DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+            <NodeRef refid="2565"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

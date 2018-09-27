@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3NotificationConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3NotificationConfiguration</TokenIdentifier>
+			<Abstract type="html">Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1934"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3NotificationConfiguration/setLambdaFunctionConfigurations:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3LambdaFunctionConfiguration*&gt; *lambdaFunctionConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/lambdaFunctionConfigurations</Anchor>
+            <NodeRef refid="1934"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3NotificationConfiguration/lambdaFunctionConfigurations</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3LambdaFunctionConfiguration*&gt; *lambdaFunctionConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/lambdaFunctionConfigurations</Anchor>
+            <NodeRef refid="1934"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3NotificationConfiguration/lambdaFunctionConfigurations</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3LambdaFunctionConfiguration*&gt; *lambdaFunctionConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/lambdaFunctionConfigurations</Anchor>
+            <NodeRef refid="1934"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3NotificationConfiguration/setQueueConfigurations:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3QueueConfiguration*&gt; *queueConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/queueConfigurations</Anchor>
+            <NodeRef refid="1934"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3NotificationConfiguration/queueConfigurations</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3QueueConfiguration*&gt; *queueConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/queueConfigurations</Anchor>
+            <NodeRef refid="1934"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3NotificationConfiguration/queueConfigurations</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3QueueConfiguration*&gt; *queueConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/queueConfigurations</Anchor>
+            <NodeRef refid="1934"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3NotificationConfiguration/setTopicConfigurations:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3TopicConfiguration*&gt; *topicConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/topicConfigurations</Anchor>
+            <NodeRef refid="1934"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3NotificationConfiguration/topicConfigurations</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3TopicConfiguration*&gt; *topicConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/topicConfigurations</Anchor>
+            <NodeRef refid="1934"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3NotificationConfiguration/topicConfigurations</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3TopicConfiguration*&gt; *topicConfigurations</Declaration>
+			
+			
+			<Anchor>//api/name/topicConfigurations</Anchor>
+            <NodeRef refid="1934"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

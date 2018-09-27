@@ -1,0 +1,2364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargeting.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargeting</TokenIdentifier>
+			<Abstract type="html">/</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1481"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargeting/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPinpointTargeting/defaultPinpointTargeting</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultPinpointTargeting</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultPinpointTargeting</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPinpointTargeting/registerPinpointTargetingWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerPinpointTargetingWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerPinpointTargetingWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPinpointTargeting/PinpointTargetingForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerPinpointTargetingWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)PinpointTargetingForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/PinpointTargetingForKey:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPinpointTargeting/removePinpointTargetingForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+			<Declaration>+ (void)removePinpointTargetingForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removePinpointTargetingForKey:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/createCampaign:</TokenIdentifier>
+			<Abstract type="html">Creates or updates a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateCampaignRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateCampaignResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingCreateCampaignResponse*&gt; *)createCampaign:(AWSPinpointTargetingCreateCampaignRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateCampaign service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingCreateCampaignResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/createCampaign:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/createCampaign:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Creates or updates a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateCampaignRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateCampaignResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createCampaign:(AWSPinpointTargetingCreateCampaignRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingCreateCampaignResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateCampaign service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createCampaign:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/createImportJob:</TokenIdentifier>
+			<Abstract type="html">Creates or updates an import job.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateImportJobRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateImportJobResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingCreateImportJobResponse*&gt; *)createImportJob:(AWSPinpointTargetingCreateImportJobRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateImportJob service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingCreateImportJobResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/createImportJob:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/createImportJob:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Creates or updates an import job.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateImportJobRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateImportJobResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createImportJob:(AWSPinpointTargetingCreateImportJobRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingCreateImportJobResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateImportJob service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createImportJob:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/createSegment:</TokenIdentifier>
+			<Abstract type="html">Used to create or update a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateSegmentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateSegmentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingCreateSegmentResponse*&gt; *)createSegment:(AWSPinpointTargetingCreateSegmentRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateSegment service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingCreateSegmentResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/createSegment:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/createSegment:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Used to create or update a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateSegmentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingCreateSegmentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createSegment:(AWSPinpointTargetingCreateSegmentRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingCreateSegmentResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateSegment service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createSegment:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteApnsChannel:</TokenIdentifier>
+			<Abstract type="html">Deletes the APNs channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteApnsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteApnsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingDeleteApnsChannelResponse*&gt; *)deleteApnsChannel:(AWSPinpointTargetingDeleteApnsChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteApnsChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingDeleteApnsChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteApnsChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteApnsChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Deletes the APNs channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteApnsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteApnsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteApnsChannel:(AWSPinpointTargetingDeleteApnsChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingDeleteApnsChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteApnsChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteApnsChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteApnsSandboxChannel:</TokenIdentifier>
+			<Abstract type="html">Delete an APNS sandbox channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteApnsSandboxChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteApnsSandboxChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingDeleteApnsSandboxChannelResponse*&gt; *)deleteApnsSandboxChannel:(AWSPinpointTargetingDeleteApnsSandboxChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteApnsSandboxChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingDeleteApnsSandboxChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteApnsSandboxChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteApnsSandboxChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Delete an APNS sandbox channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteApnsSandboxChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteApnsSandboxChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteApnsSandboxChannel:(AWSPinpointTargetingDeleteApnsSandboxChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingDeleteApnsSandboxChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteApnsSandboxChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteApnsSandboxChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteCampaign:</TokenIdentifier>
+			<Abstract type="html">Deletes a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteCampaignRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteCampaignResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingDeleteCampaignResponse*&gt; *)deleteCampaign:(AWSPinpointTargetingDeleteCampaignRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteCampaign service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingDeleteCampaignResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteCampaign:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteCampaign:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Deletes a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteCampaignRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteCampaignResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteCampaign:(AWSPinpointTargetingDeleteCampaignRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingDeleteCampaignResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteCampaign service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteCampaign:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteEmailChannel:</TokenIdentifier>
+			<Abstract type="html">Delete an email channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteEmailChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteEmailChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingDeleteEmailChannelResponse*&gt; *)deleteEmailChannel:(AWSPinpointTargetingDeleteEmailChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteEmailChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingDeleteEmailChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteEmailChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteEmailChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Delete an email channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteEmailChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteEmailChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteEmailChannel:(AWSPinpointTargetingDeleteEmailChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingDeleteEmailChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteEmailChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteEmailChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteEventStream:</TokenIdentifier>
+			<Abstract type="html">Deletes the event stream for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteEventStreamRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteEventStreamResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingDeleteEventStreamResponse*&gt; *)deleteEventStream:(AWSPinpointTargetingDeleteEventStreamRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteEventStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingDeleteEventStreamResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteEventStream:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteEventStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Deletes the event stream for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteEventStreamRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteEventStreamResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteEventStream:(AWSPinpointTargetingDeleteEventStreamRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingDeleteEventStreamResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteEventStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteEventStream:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteGcmChannel:</TokenIdentifier>
+			<Abstract type="html">Deletes the GCM channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteGcmChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteGcmChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingDeleteGcmChannelResponse*&gt; *)deleteGcmChannel:(AWSPinpointTargetingDeleteGcmChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteGcmChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingDeleteGcmChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteGcmChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteGcmChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Deletes the GCM channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteGcmChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteGcmChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteGcmChannel:(AWSPinpointTargetingDeleteGcmChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingDeleteGcmChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteGcmChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteGcmChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteSegment:</TokenIdentifier>
+			<Abstract type="html">Deletes a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteSegmentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteSegmentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingDeleteSegmentResponse*&gt; *)deleteSegment:(AWSPinpointTargetingDeleteSegmentRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteSegment service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingDeleteSegmentResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteSegment:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteSegment:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Deletes a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteSegmentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteSegmentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteSegment:(AWSPinpointTargetingDeleteSegmentRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingDeleteSegmentResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteSegment service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteSegment:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteSmsChannel:</TokenIdentifier>
+			<Abstract type="html">Delete an SMS channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteSmsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteSmsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingDeleteSmsChannelResponse*&gt; *)deleteSmsChannel:(AWSPinpointTargetingDeleteSmsChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteSmsChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingDeleteSmsChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteSmsChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/deleteSmsChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Delete an SMS channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteSmsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingDeleteSmsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteSmsChannel:(AWSPinpointTargetingDeleteSmsChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingDeleteSmsChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteSmsChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteSmsChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getApnsChannel:</TokenIdentifier>
+			<Abstract type="html">Returns information about the APNs channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApnsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApnsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetApnsChannelResponse*&gt; *)getApnsChannel:(AWSPinpointTargetingGetApnsChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetApnsChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetApnsChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getApnsChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getApnsChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about the APNs channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApnsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApnsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getApnsChannel:(AWSPinpointTargetingGetApnsChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetApnsChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetApnsChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getApnsChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getApnsSandboxChannel:</TokenIdentifier>
+			<Abstract type="html">Get an APNS sandbox channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApnsSandboxChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApnsSandboxChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetApnsSandboxChannelResponse*&gt; *)getApnsSandboxChannel:(AWSPinpointTargetingGetApnsSandboxChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetApnsSandboxChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetApnsSandboxChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getApnsSandboxChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getApnsSandboxChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Get an APNS sandbox channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApnsSandboxChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApnsSandboxChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getApnsSandboxChannel:(AWSPinpointTargetingGetApnsSandboxChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetApnsSandboxChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetApnsSandboxChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getApnsSandboxChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getApplicationSettings:</TokenIdentifier>
+			<Abstract type="html">Used to request the settings for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApplicationSettingsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApplicationSettingsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetApplicationSettingsResponse*&gt; *)getApplicationSettings:(AWSPinpointTargetingGetApplicationSettingsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetApplicationSettings service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetApplicationSettingsResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getApplicationSettings:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getApplicationSettings:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Used to request the settings for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApplicationSettingsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetApplicationSettingsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getApplicationSettings:(AWSPinpointTargetingGetApplicationSettingsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetApplicationSettingsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetApplicationSettings service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getApplicationSettings:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getCampaign:</TokenIdentifier>
+			<Abstract type="html">Returns information about a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetCampaignResponse*&gt; *)getCampaign:(AWSPinpointTargetingGetCampaignRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCampaign service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetCampaignResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getCampaign:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getCampaign:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getCampaign:(AWSPinpointTargetingGetCampaignRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetCampaignResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCampaign service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getCampaign:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getCampaignActivities:</TokenIdentifier>
+			<Abstract type="html">Returns information about the activity performed by a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignActivitiesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignActivitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetCampaignActivitiesResponse*&gt; *)getCampaignActivities:(AWSPinpointTargetingGetCampaignActivitiesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCampaignActivities service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetCampaignActivitiesResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getCampaignActivities:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getCampaignActivities:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about the activity performed by a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignActivitiesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignActivitiesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getCampaignActivities:(AWSPinpointTargetingGetCampaignActivitiesRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetCampaignActivitiesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCampaignActivities service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getCampaignActivities:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getCampaignVersion:</TokenIdentifier>
+			<Abstract type="html">Returns information about a specific version of a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignVersionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignVersionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetCampaignVersionResponse*&gt; *)getCampaignVersion:(AWSPinpointTargetingGetCampaignVersionRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCampaignVersion service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetCampaignVersionResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getCampaignVersion:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getCampaignVersion:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about a specific version of a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignVersionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignVersionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getCampaignVersion:(AWSPinpointTargetingGetCampaignVersionRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetCampaignVersionResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCampaignVersion service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getCampaignVersion:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getCampaignVersions:</TokenIdentifier>
+			<Abstract type="html">Returns information about your campaign versions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignVersionsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignVersionsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetCampaignVersionsResponse*&gt; *)getCampaignVersions:(AWSPinpointTargetingGetCampaignVersionsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCampaignVersions service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetCampaignVersionsResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getCampaignVersions:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getCampaignVersions:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about your campaign versions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignVersionsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignVersionsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getCampaignVersions:(AWSPinpointTargetingGetCampaignVersionsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetCampaignVersionsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCampaignVersions service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getCampaignVersions:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getCampaigns:</TokenIdentifier>
+			<Abstract type="html">Returns information about your campaigns.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetCampaignsResponse*&gt; *)getCampaigns:(AWSPinpointTargetingGetCampaignsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCampaigns service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetCampaignsResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getCampaigns:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getCampaigns:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about your campaigns.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetCampaignsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getCampaigns:(AWSPinpointTargetingGetCampaignsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetCampaignsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetCampaigns service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getCampaigns:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getEmailChannel:</TokenIdentifier>
+			<Abstract type="html">Get an email channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEmailChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEmailChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetEmailChannelResponse*&gt; *)getEmailChannel:(AWSPinpointTargetingGetEmailChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetEmailChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetEmailChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getEmailChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getEmailChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Get an email channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEmailChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEmailChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getEmailChannel:(AWSPinpointTargetingGetEmailChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetEmailChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetEmailChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getEmailChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getEndpoint:</TokenIdentifier>
+			<Abstract type="html">Returns information about an endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEndpointRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEndpointResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetEndpointResponse*&gt; *)getEndpoint:(AWSPinpointTargetingGetEndpointRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetEndpoint service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetEndpointResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getEndpoint:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getEndpoint:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about an endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEndpointRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEndpointResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getEndpoint:(AWSPinpointTargetingGetEndpointRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetEndpointResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetEndpoint service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getEndpoint:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getEventStream:</TokenIdentifier>
+			<Abstract type="html">Returns the event stream for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEventStreamRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEventStreamResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetEventStreamResponse*&gt; *)getEventStream:(AWSPinpointTargetingGetEventStreamRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetEventStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetEventStreamResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getEventStream:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getEventStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns the event stream for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEventStreamRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetEventStreamResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getEventStream:(AWSPinpointTargetingGetEventStreamRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetEventStreamResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetEventStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getEventStream:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getGcmChannel:</TokenIdentifier>
+			<Abstract type="html">Returns information about the GCM channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetGcmChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetGcmChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetGcmChannelResponse*&gt; *)getGcmChannel:(AWSPinpointTargetingGetGcmChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetGcmChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetGcmChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getGcmChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getGcmChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about the GCM channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetGcmChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetGcmChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getGcmChannel:(AWSPinpointTargetingGetGcmChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetGcmChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetGcmChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getGcmChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getImportJob:</TokenIdentifier>
+			<Abstract type="html">Returns information about an import job.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetImportJobRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetImportJobResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetImportJobResponse*&gt; *)getImportJob:(AWSPinpointTargetingGetImportJobRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetImportJob service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetImportJobResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getImportJob:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getImportJob:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about an import job.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetImportJobRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetImportJobResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getImportJob:(AWSPinpointTargetingGetImportJobRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetImportJobResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetImportJob service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getImportJob:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getImportJobs:</TokenIdentifier>
+			<Abstract type="html">Returns information about your import jobs.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetImportJobsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetImportJobsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetImportJobsResponse*&gt; *)getImportJobs:(AWSPinpointTargetingGetImportJobsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetImportJobs service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetImportJobsResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getImportJobs:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getImportJobs:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about your import jobs.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetImportJobsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetImportJobsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getImportJobs:(AWSPinpointTargetingGetImportJobsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetImportJobsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetImportJobs service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getImportJobs:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSegment:</TokenIdentifier>
+			<Abstract type="html">Returns information about a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetSegmentResponse*&gt; *)getSegment:(AWSPinpointTargetingGetSegmentRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSegment service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetSegmentResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getSegment:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSegment:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getSegment:(AWSPinpointTargetingGetSegmentRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetSegmentResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSegment service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSegment:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSegmentImportJobs:</TokenIdentifier>
+			<Abstract type="html">Returns a list of import jobs for a specific segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentImportJobsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentImportJobsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetSegmentImportJobsResponse*&gt; *)getSegmentImportJobs:(AWSPinpointTargetingGetSegmentImportJobsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSegmentImportJobs service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetSegmentImportJobsResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getSegmentImportJobs:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSegmentImportJobs:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns a list of import jobs for a specific segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentImportJobsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentImportJobsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getSegmentImportJobs:(AWSPinpointTargetingGetSegmentImportJobsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetSegmentImportJobsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSegmentImportJobs service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSegmentImportJobs:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSegmentVersion:</TokenIdentifier>
+			<Abstract type="html">Returns information about a segment version.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentVersionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentVersionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetSegmentVersionResponse*&gt; *)getSegmentVersion:(AWSPinpointTargetingGetSegmentVersionRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSegmentVersion service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetSegmentVersionResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getSegmentVersion:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSegmentVersion:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about a segment version.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentVersionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentVersionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getSegmentVersion:(AWSPinpointTargetingGetSegmentVersionRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetSegmentVersionResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSegmentVersion service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSegmentVersion:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSegmentVersions:</TokenIdentifier>
+			<Abstract type="html">Returns information about your segment versions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentVersionsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentVersionsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetSegmentVersionsResponse*&gt; *)getSegmentVersions:(AWSPinpointTargetingGetSegmentVersionsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSegmentVersions service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetSegmentVersionsResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getSegmentVersions:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSegmentVersions:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Returns information about your segment versions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentVersionsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentVersionsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getSegmentVersions:(AWSPinpointTargetingGetSegmentVersionsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetSegmentVersionsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSegmentVersions service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSegmentVersions:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSegments:</TokenIdentifier>
+			<Abstract type="html">Used to get information about your segments.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetSegmentsResponse*&gt; *)getSegments:(AWSPinpointTargetingGetSegmentsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSegments service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetSegmentsResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getSegments:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSegments:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Used to get information about your segments.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSegmentsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getSegments:(AWSPinpointTargetingGetSegmentsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetSegmentsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSegments service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSegments:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSmsChannel:</TokenIdentifier>
+			<Abstract type="html">Get an SMS channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSmsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSmsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingGetSmsChannelResponse*&gt; *)getSmsChannel:(AWSPinpointTargetingGetSmsChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSmsChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingGetSmsChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getSmsChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/getSmsChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Get an SMS channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSmsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingGetSmsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getSmsChannel:(AWSPinpointTargetingGetSmsChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingGetSmsChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSmsChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSmsChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/putEventStream:</TokenIdentifier>
+			<Abstract type="html">Use to create or update the event stream for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingPutEventStreamRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingPutEventStreamResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingPutEventStreamResponse*&gt; *)putEventStream:(AWSPinpointTargetingPutEventStreamRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutEventStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingPutEventStreamResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/putEventStream:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/putEventStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Use to create or update the event stream for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingPutEventStreamRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingPutEventStreamResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putEventStream:(AWSPinpointTargetingPutEventStreamRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingPutEventStreamResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutEventStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putEventStream:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/putEvents:</TokenIdentifier>
+			<Abstract type="html">Use to submit events to Pinpoint into multiple regions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingEventsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingEventsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingEventsResponse*&gt; *)putEvents:(AWSPinpointTargetingEventsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutEvents service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingEventsResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorTooManyRequests, AWSPinpointTargetingErrorRequestEntityTooLarge, AWSPinpointTargetingErrorBadGateway, AWSPinpointTargetingErrorServiceUnavailable, AWSPinpointTargetingErrorRequestTimedOut, AWSPinpointTargetingErrorInternalServerError.</Abstract></ReturnValue>
+			<Anchor>//api/name/putEvents:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/putEvents:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Use to submit events to Pinpoint into multiple regions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingEventsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingEventsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putEvents:(AWSPinpointTargetingEventsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingEventsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutEvents service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorTooManyRequests, AWSPinpointTargetingErrorRequestEntityTooLarge, AWSPinpointTargetingErrorBadGateway, AWSPinpointTargetingErrorServiceUnavailable, AWSPinpointTargetingErrorRequestTimedOut, AWSPinpointTargetingErrorInternalServerError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putEvents:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/sendMessages:</TokenIdentifier>
+			<Abstract type="html">Send a batch of messages</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingSendMessagesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingSendMessagesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingSendMessagesResponse*&gt; *)sendMessages:(AWSPinpointTargetingSendMessagesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SendMessages service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingSendMessagesResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/sendMessages:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/sendMessages:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Send a batch of messages</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingSendMessagesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingSendMessagesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)sendMessages:(AWSPinpointTargetingSendMessagesRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingSendMessagesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SendMessages service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/sendMessages:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateApnsChannel:</TokenIdentifier>
+			<Abstract type="html">Use to update the APNs channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApnsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApnsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingUpdateApnsChannelResponse*&gt; *)updateApnsChannel:(AWSPinpointTargetingUpdateApnsChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateApnsChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingUpdateApnsChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateApnsChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateApnsChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Use to update the APNs channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApnsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApnsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateApnsChannel:(AWSPinpointTargetingUpdateApnsChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingUpdateApnsChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateApnsChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateApnsChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateApnsSandboxChannel:</TokenIdentifier>
+			<Abstract type="html">Update an APNS sandbox channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApnsSandboxChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApnsSandboxChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingUpdateApnsSandboxChannelResponse*&gt; *)updateApnsSandboxChannel:(AWSPinpointTargetingUpdateApnsSandboxChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateApnsSandboxChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingUpdateApnsSandboxChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateApnsSandboxChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateApnsSandboxChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Update an APNS sandbox channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApnsSandboxChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApnsSandboxChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateApnsSandboxChannel:(AWSPinpointTargetingUpdateApnsSandboxChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingUpdateApnsSandboxChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateApnsSandboxChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateApnsSandboxChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateApplicationSettings:</TokenIdentifier>
+			<Abstract type="html">Used to update the settings for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApplicationSettingsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApplicationSettingsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingUpdateApplicationSettingsResponse*&gt; *)updateApplicationSettings:(AWSPinpointTargetingUpdateApplicationSettingsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateApplicationSettings service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingUpdateApplicationSettingsResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateApplicationSettings:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateApplicationSettings:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Used to update the settings for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApplicationSettingsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateApplicationSettingsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateApplicationSettings:(AWSPinpointTargetingUpdateApplicationSettingsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingUpdateApplicationSettingsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateApplicationSettings service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateApplicationSettings:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateCampaign:</TokenIdentifier>
+			<Abstract type="html">Use to update a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateCampaignRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateCampaignResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingUpdateCampaignResponse*&gt; *)updateCampaign:(AWSPinpointTargetingUpdateCampaignRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateCampaign service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingUpdateCampaignResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateCampaign:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateCampaign:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Use to update a campaign.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateCampaignRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateCampaignResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateCampaign:(AWSPinpointTargetingUpdateCampaignRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingUpdateCampaignResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateCampaign service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateCampaign:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateEmailChannel:</TokenIdentifier>
+			<Abstract type="html">Update an email channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEmailChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEmailChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingUpdateEmailChannelResponse*&gt; *)updateEmailChannel:(AWSPinpointTargetingUpdateEmailChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateEmailChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingUpdateEmailChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateEmailChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateEmailChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Update an email channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEmailChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEmailChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateEmailChannel:(AWSPinpointTargetingUpdateEmailChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingUpdateEmailChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateEmailChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateEmailChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateEndpoint:</TokenIdentifier>
+			<Abstract type="html">Use to update an endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEndpointRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEndpointResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingUpdateEndpointResponse*&gt; *)updateEndpoint:(AWSPinpointTargetingUpdateEndpointRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateEndpoint service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingUpdateEndpointResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateEndpoint:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateEndpoint:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Use to update an endpoint.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEndpointRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEndpointResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateEndpoint:(AWSPinpointTargetingUpdateEndpointRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingUpdateEndpointResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateEndpoint service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateEndpoint:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateEndpointsBatch:</TokenIdentifier>
+			<Abstract type="html">Use to update a batch of endpoints.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEndpointsBatchRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEndpointsBatchResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingUpdateEndpointsBatchResponse*&gt; *)updateEndpointsBatch:(AWSPinpointTargetingUpdateEndpointsBatchRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateEndpointsBatch service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingUpdateEndpointsBatchResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateEndpointsBatch:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateEndpointsBatch:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Use to update a batch of endpoints.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEndpointsBatchRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateEndpointsBatchResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateEndpointsBatch:(AWSPinpointTargetingUpdateEndpointsBatchRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingUpdateEndpointsBatchResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateEndpointsBatch service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateEndpointsBatch:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateGcmChannel:</TokenIdentifier>
+			<Abstract type="html">Use to update the GCM channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateGcmChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateGcmChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingUpdateGcmChannelResponse*&gt; *)updateGcmChannel:(AWSPinpointTargetingUpdateGcmChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateGcmChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingUpdateGcmChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateGcmChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateGcmChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Use to update the GCM channel for an app.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateGcmChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateGcmChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateGcmChannel:(AWSPinpointTargetingUpdateGcmChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingUpdateGcmChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateGcmChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateGcmChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateSegment:</TokenIdentifier>
+			<Abstract type="html">Use to update a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateSegmentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateSegmentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingUpdateSegmentResponse*&gt; *)updateSegment:(AWSPinpointTargetingUpdateSegmentRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateSegment service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingUpdateSegmentResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateSegment:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateSegment:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Use to update a segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateSegmentRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateSegmentResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateSegment:(AWSPinpointTargetingUpdateSegmentRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingUpdateSegmentResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateSegment service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateSegment:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateSmsChannel:</TokenIdentifier>
+			<Abstract type="html">Update an SMS channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateSmsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateSmsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPinpointTargetingUpdateSmsChannelResponse*&gt; *)updateSmsChannel:(AWSPinpointTargetingUpdateSmsChannelRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateSmsChannel service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPinpointTargetingUpdateSmsChannelResponse. On failed execution, task.error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateSmsChannel:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargeting/updateSmsChannel:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Update an SMS channel</Abstract>
+			<DeclaredIn>AWSPinpointTargetingService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateSmsChannelRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingUpdateSmsChannelResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateSmsChannel:(AWSPinpointTargetingUpdateSmsChannelRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSPinpointTargetingUpdateSmsChannelResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateSmsChannel service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPinpointTargetingErrorDomain domain and the following error code: AWSPinpointTargetingErrorBadRequest, AWSPinpointTargetingErrorInternalServerError, AWSPinpointTargetingErrorForbidden, AWSPinpointTargetingErrorNotFound, AWSPinpointTargetingErrorMethodNotAllowed, AWSPinpointTargetingErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateSmsChannel:completionHandler:</Anchor>
+            <NodeRef refid="1481"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

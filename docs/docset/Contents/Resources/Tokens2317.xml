@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSignInManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSignInManager</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2317"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInManager/setLoggedIn:</TokenIdentifier>
+			<Abstract type="html">Indicates whether the user is signed-in or not.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, getter=isLoggedIn) BOOL loggedIn</Declaration>
+			
+			<ReturnValue><Abstract type="html">true if user is signed-in</Abstract></ReturnValue>
+			<Anchor>//api/name/loggedIn</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInManager/isLoggedIn</TokenIdentifier>
+			<Abstract type="html">Indicates whether the user is signed-in or not.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, getter=isLoggedIn) BOOL loggedIn</Declaration>
+			
+			<ReturnValue><Abstract type="html">true if user is signed-in</Abstract></ReturnValue>
+			<Anchor>//api/name/loggedIn</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInManager/loggedIn</TokenIdentifier>
+			<Abstract type="html">Indicates whether the user is signed-in or not.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, getter=isLoggedIn) BOOL loggedIn</Declaration>
+			
+			<ReturnValue><Abstract type="html">true if user is signed-in</Abstract></ReturnValue>
+			<Anchor>//api/name/loggedIn</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInManager/setDelegate:</TokenIdentifier>
+			<Abstract type="html">The delegate class to be called when a user attempts to login with a registered sign in provider.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;AWSSignInDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInManager/delegate</TokenIdentifier>
+			<Abstract type="html">The delegate class to be called when a user attempts to login with a registered sign in provider.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;AWSSignInDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInManager/delegate</TokenIdentifier>
+			<Abstract type="html">The delegate class to be called when a user attempts to login with a registered sign in provider.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, weak) id&lt;AWSSignInDelegate&gt; delegate</Declaration>
+			
+			
+			<Anchor>//api/name/delegate</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInManager/registerAWSSignInProvider:</TokenIdentifier>
+			<Abstract type="html">Registers the shared instance of sign in provider implementing AWSSignInProvider.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>- (void)registerAWSSignInProvider:(id&lt;AWSSignInProvider&gt;)signInProvider</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>signInProvider</Name>
+					<Abstract type="html">The shared instance of sign in provider implementing AWSSignInProvider protocol.
+*</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerAWSSignInProvider:</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInManager/logoutWithCompletionHandler:</TokenIdentifier>
+			<Abstract type="html">Signs the user out of whatever third party identity provider they used to sign in.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>- (void)logoutWithCompletionHandler:(void ( ^ ) ( id _Nullable result , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">used to callback application with async operation results</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/logoutWithCompletionHandler:</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInManager/loginWithSignInProviderKey:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Signs the user in with an identity provider. Note that even if User Sign-in is not
+enabled in the project, the user is still signed-in with the Guest type provider.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>- (void)loginWithSignInProviderKey:(NSString *)signInProviderKey completionHandler:(void ( ^ ) ( id _Nullable result , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>signInProviderKey</Name>
+					<Abstract type="html">the identifier key of sign in provider</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">used to callback application with async operation results</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loginWithSignInProviderKey:completionHandler:</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInManager/resumeSessionWithCompletionHandler:</TokenIdentifier>
+			<Abstract type="html">Attempts to resume session with the previous sign-in provider.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>- (void)resumeSessionWithCompletionHandler:(void ( ^ ) ( id _Nullable result , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">used to callback application with async operation results</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/resumeSessionWithCompletionHandler:</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInManager/interceptApplication:didFinishLaunchingWithOptions:</TokenIdentifier>
+			<Abstract type="html">Passes parameters used to launch the application to the current identity provider. For some
+third party providers, this completes the User Sign-in call flow, which used a browser to
+get information from the user, directly. The current sign-in provider will be set to nil if
+the sign-in provider is not registered using registerAWSSignInProvider:forKey method  of
+AWSSignInProviderFactory class.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)interceptApplication:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>application</Name>
+					<Abstract type="html">application</Abstract>
+				</Parameter><Parameter>
+					<Name>launchOptions</Name>
+					<Abstract type="html">options used to launch the application</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">true if this call handled the operation</Abstract></ReturnValue>
+			<Anchor>//api/name/interceptApplication:didFinishLaunchingWithOptions:</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInManager/interceptApplication:openURL:sourceApplication:annotation:</TokenIdentifier>
+			<Abstract type="html">Passes parameters used to launch the application to the current identity provider. For some
+third party providers, this completes the User Sign-in call flow, which used a browser to
+get information from the user, directly.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>- (BOOL)interceptApplication:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(nullable NSString *)sourceApplication annotation:(id)annotation</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>application</Name>
+					<Abstract type="html">application</Abstract>
+				</Parameter><Parameter>
+					<Name>url</Name>
+					<Abstract type="html">url used to open the application</Abstract>
+				</Parameter><Parameter>
+					<Name>sourceApplication</Name>
+					<Abstract type="html">source application</Abstract>
+				</Parameter><Parameter>
+					<Name>annotation</Name>
+					<Abstract type="html">annotation</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">true if this call handled the operation</Abstract></ReturnValue>
+			<Anchor>//api/name/interceptApplication:openURL:sourceApplication:annotation:</Anchor>
+            <NodeRef refid="2317"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

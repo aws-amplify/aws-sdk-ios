@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoSyncDescribeIdentityPoolUsageResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoSyncDescribeIdentityPoolUsageResponse</TokenIdentifier>
+			<Abstract type="html">Response to a successful DescribeIdentityPoolUsage request.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="485"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncDescribeIdentityPoolUsageResponse/setIdentityPoolUsage:</TokenIdentifier>
+			<Abstract type="html">Information about the usage of the identity pool.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoSyncIdentityPoolUsage *identityPoolUsage</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolUsage</Anchor>
+            <NodeRef refid="485"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncDescribeIdentityPoolUsageResponse/identityPoolUsage</TokenIdentifier>
+			<Abstract type="html">Information about the usage of the identity pool.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoSyncIdentityPoolUsage *identityPoolUsage</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolUsage</Anchor>
+            <NodeRef refid="485"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncDescribeIdentityPoolUsageResponse/identityPoolUsage</TokenIdentifier>
+			<Abstract type="html">Information about the usage of the identity pool.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoSyncIdentityPoolUsage *identityPoolUsage</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolUsage</Anchor>
+            <NodeRef refid="485"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

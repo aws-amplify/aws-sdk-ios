@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESDeleteReceiptFilterRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESDeleteReceiptFilterRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to delete an IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [FilterName]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2070"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDeleteReceiptFilterRequest/setFilterName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the IP address filter to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *filterName</Declaration>
+			
+			
+			<Anchor>//api/name/filterName</Anchor>
+            <NodeRef refid="2070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDeleteReceiptFilterRequest/filterName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the IP address filter to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *filterName</Declaration>
+			
+			
+			<Anchor>//api/name/filterName</Anchor>
+            <NodeRef refid="2070"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDeleteReceiptFilterRequest/filterName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the IP address filter to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *filterName</Declaration>
+			
+			
+			<Anchor>//api/name/filterName</Anchor>
+            <NodeRef refid="2070"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

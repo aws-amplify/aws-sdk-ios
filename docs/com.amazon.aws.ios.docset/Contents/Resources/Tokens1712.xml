@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionGetCelebrityInfoResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionGetCelebrityInfoResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1712"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityInfoResponse/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the celebrity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1712"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityInfoResponse/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the celebrity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1712"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityInfoResponse/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the celebrity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1712"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityInfoResponse/setUrls:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of URLs pointing to additional celebrity information. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *urls</Declaration>
+			
+			
+			<Anchor>//api/name/urls</Anchor>
+            <NodeRef refid="1712"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityInfoResponse/urls</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of URLs pointing to additional celebrity information. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *urls</Declaration>
+			
+			
+			<Anchor>//api/name/urls</Anchor>
+            <NodeRef refid="1712"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityInfoResponse/urls</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of URLs pointing to additional celebrity information. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *urls</Declaration>
+			
+			
+			<Anchor>//api/name/urls</Anchor>
+            <NodeRef refid="1712"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

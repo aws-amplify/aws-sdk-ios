@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderUserImportJobType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderUserImportJobType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user import job type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="440"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setCloudWatchLogsRoleArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see &quot;Creating the CloudWatch Logs IAM Role&quot; in the Amazon Cognito Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudWatchLogsRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLogsRoleArn</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/cloudWatchLogsRoleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see &quot;Creating the CloudWatch Logs IAM Role&quot; in the Amazon Cognito Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudWatchLogsRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLogsRoleArn</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/cloudWatchLogsRoleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role ARN for the Amazon CloudWatch Logging role for the user import job. For more information, see &quot;Creating the CloudWatch Logs IAM Role&quot; in the Amazon Cognito Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cloudWatchLogsRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLogsRoleArn</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setCompletionDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date when the user import job was completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *completionDate</Declaration>
+			
+			
+			<Anchor>//api/name/completionDate</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/completionDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date when the user import job was completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *completionDate</Declaration>
+			
+			
+			<Anchor>//api/name/completionDate</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/completionDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date when the user import job was completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *completionDate</Declaration>
+			
+			
+			<Anchor>//api/name/completionDate</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setCompletionMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The message returned when the user import job is completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *completionMessage</Declaration>
+			
+			
+			<Anchor>//api/name/completionMessage</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/completionMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The message returned when the user import job is completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *completionMessage</Declaration>
+			
+			
+			<Anchor>//api/name/completionMessage</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/completionMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The message returned when the user import job is completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *completionMessage</Declaration>
+			
+			
+			<Anchor>//api/name/completionMessage</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setCreationDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the user import job was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the user import job was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the user import job was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setFailedUsers:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of users that could not be imported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *failedUsers</Declaration>
+			
+			
+			<Anchor>//api/name/failedUsers</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/failedUsers</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of users that could not be imported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *failedUsers</Declaration>
+			
+			
+			<Anchor>//api/name/failedUsers</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/failedUsers</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of users that could not be imported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *failedUsers</Declaration>
+			
+			
+			<Anchor>//api/name/failedUsers</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setImportedUsers:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of users that were successfully imported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *importedUsers</Declaration>
+			
+			
+			<Anchor>//api/name/importedUsers</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/importedUsers</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of users that were successfully imported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *importedUsers</Declaration>
+			
+			
+			<Anchor>//api/name/importedUsers</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/importedUsers</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of users that were successfully imported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *importedUsers</Declaration>
+			
+			
+			<Anchor>//api/name/importedUsers</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job ID for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job ID for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job ID for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setJobName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job name for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/jobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job name for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/jobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job name for the user import job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setPreSignedUrl:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pre-signed URL to be used to upload the &lt;code&gt;.csv&lt;/code&gt; file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preSignedUrl</Declaration>
+			
+			
+			<Anchor>//api/name/preSignedUrl</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/preSignedUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pre-signed URL to be used to upload the &lt;code&gt;.csv&lt;/code&gt; file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preSignedUrl</Declaration>
+			
+			
+			<Anchor>//api/name/preSignedUrl</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/preSignedUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pre-signed URL to be used to upload the &lt;code&gt;.csv&lt;/code&gt; file.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preSignedUrl</Declaration>
+			
+			
+			<Anchor>//api/name/preSignedUrl</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setSkippedUsers:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of users that were skipped.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *skippedUsers</Declaration>
+			
+			
+			<Anchor>//api/name/skippedUsers</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/skippedUsers</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of users that were skipped.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *skippedUsers</Declaration>
+			
+			
+			<Anchor>//api/name/skippedUsers</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/skippedUsers</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of users that were skipped.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *skippedUsers</Declaration>
+			
+			
+			<Anchor>//api/name/skippedUsers</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setStartDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date when the user import job was started.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startDate</Declaration>
+			
+			
+			<Anchor>//api/name/startDate</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/startDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date when the user import job was started.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startDate</Declaration>
+			
+			
+			<Anchor>//api/name/startDate</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/startDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date when the user import job was started.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startDate</Declaration>
+			
+			
+			<Anchor>//api/name/startDate</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the user import job. One of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Created&lt;/code&gt; - The job was created but not started.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Pending&lt;/code&gt; - A transition state. You have started the job, but it has not begun importing users yet.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;InProgress&lt;/code&gt; - The job has started, and users are being imported.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Stopping&lt;/code&gt; - You have stopped the job, but the job has not stopped importing users yet.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Stopped&lt;/code&gt; - You have stopped the job, and the job has stopped importing users.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Succeeded&lt;/code&gt; - The job has completed successfully.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Failed&lt;/code&gt; - The job has stopped due to an error.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Expired&lt;/code&gt; - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderUserImportJobStatusType status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the user import job. One of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Created&lt;/code&gt; - The job was created but not started.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Pending&lt;/code&gt; - A transition state. You have started the job, but it has not begun importing users yet.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;InProgress&lt;/code&gt; - The job has started, and users are being imported.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Stopping&lt;/code&gt; - You have stopped the job, but the job has not stopped importing users yet.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Stopped&lt;/code&gt; - You have stopped the job, and the job has stopped importing users.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Succeeded&lt;/code&gt; - The job has completed successfully.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Failed&lt;/code&gt; - The job has stopped due to an error.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Expired&lt;/code&gt; - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderUserImportJobStatusType status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the user import job. One of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Created&lt;/code&gt; - The job was created but not started.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Pending&lt;/code&gt; - A transition state. You have started the job, but it has not begun importing users yet.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;InProgress&lt;/code&gt; - The job has started, and users are being imported.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Stopping&lt;/code&gt; - You have stopped the job, but the job has not stopped importing users yet.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Stopped&lt;/code&gt; - You have stopped the job, and the job has stopped importing users.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Succeeded&lt;/code&gt; - The job has completed successfully.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Failed&lt;/code&gt; - The job has stopped due to an error.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;Expired&lt;/code&gt; - You created a job, but did not start the job within 24-48 hours. All data associated with the job was deleted, and the job cannot be started.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderUserImportJobStatusType status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/setUserPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool that the users are being imported into.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserImportJobType/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool that the users are being imported into.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserImportJobType/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool that the users are being imported into.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="440"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

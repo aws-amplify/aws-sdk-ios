@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCognitoSyncErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCognitoSyncErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2455"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorAlreadyStreamed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorAlreadyStreamed</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorConcurrentModification</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorConcurrentModification</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorDuplicateRequest</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorDuplicateRequest</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorInternalError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorInternalError</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorInvalidConfiguration</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorInvalidConfiguration</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorInvalidLambdaFunctionOutput</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorInvalidLambdaFunctionOutput</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorInvalidParameter</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorInvalidParameter</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorLambdaThrottled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorLambdaThrottled</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorNotAuthorized</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorNotAuthorized</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorResourceConflict</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorResourceConflict</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorResourceNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorResourceNotFound</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoSyncErrorTooManyRequests</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoSyncErrorTooManyRequests</Declaration>
+            
+            <DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+            <NodeRef refid="2455"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLexInteractionKit.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLexInteractionKit</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1375"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLexInteractionKit/defaultInteractionKit</TokenIdentifier>
+			<Abstract type="html">Returns the singleton interactionKit client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultInteractionKit</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default interactionKit client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultInteractionKit</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLexInteractionKit/registerInteractionKitWithServiceConfiguration:interactionKitConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a InteractionKit client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerInteractionKitWithServiceConfiguration:(AWSServiceConfiguration *)configuration interactionKitConfiguration:(AWSLexInteractionKitConfig *)config forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerInteractionKitWithServiceConfiguration:interactionKitConfiguration:forKey:</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLexInteractionKit/interactionKitForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerLexWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)interactionKitForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/interactionKitForKey:</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLexInteractionKit/removeInteractionKitForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the interaction kit associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeInteractionKitForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeInteractionKitForKey:</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexInteractionKit/textInTextOut:</TokenIdentifier>
+			<Abstract type="html">Accepts a text input and responds back with a text output</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)textInTextOut:(NSString *)inputText</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>inputText</Name>
+					<Abstract type="html">The text input</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/textInTextOut:</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexInteractionKit/textInTextOut:sessionAttributes:</TokenIdentifier>
+			<Abstract type="html">Accets a text input and an optional sessionAttribute dictionary and responds back with a text output.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)textInTextOut:(NSString *)inputText sessionAttributes:(NSDictionary&lt;NSString*,NSString*&gt; *_Nullable)sessionAttributes</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>inputText</Name>
+					<Abstract type="html">The text input</Abstract>
+				</Parameter><Parameter>
+					<Name>sessionAttributes</Name>
+					<Abstract type="html">Optional Session attributes dictionary</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/textInTextOut:sessionAttributes:</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexInteractionKit/textInAudioOut:</TokenIdentifier>
+			<Abstract type="html">Accepts a text input and responds back with an audio response. the playback will begin automatically unless you have set autoplayback to false in the InteractionKitConfig.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)textInAudioOut:(NSString *)inputText</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>inputText</Name>
+					<Abstract type="html">The text input</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/textInAudioOut:</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexInteractionKit/textInAudioOut:sessionAttributes:</TokenIdentifier>
+			<Abstract type="html">Accepts a text input and an optional sessionAttribute dictionary and responds back with an audio response. The playback will begin automatically unless you have set autoplayback to false in the InteractionKitConfig.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)textInAudioOut:(NSString *)inputText sessionAttributes:(NSDictionary&lt;NSString*,NSString*&gt; *_Nullable)sessionAttributes</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>inputText</Name>
+					<Abstract type="html">The text input</Abstract>
+				</Parameter><Parameter>
+					<Name>sessionAttributes</Name>
+					<Abstract type="html">Optional Session attributes dictionary</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/textInAudioOut:sessionAttributes:</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexInteractionKit/audioInAudioOut</TokenIdentifier>
+			<Abstract type="html">Starts the microphone and listens to audio from the phone microphone and responds back with an audio response.The playback will begin automatically unless you have set autoplayback to false in the InteractionKitConfig.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)audioInAudioOut</Declaration>
+			
+			
+			<Anchor>//api/name/audioInAudioOut</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexInteractionKit/audioInAudioOutWithSessionAttributes:</TokenIdentifier>
+			<Abstract type="html">Starts the microphone and listens to audio from the phone microphone and responds back with an audio response.The playback will begin automatically unless you have set autoplayback to false in the InteractionKitConfig.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)audioInAudioOutWithSessionAttributes:(NSDictionary&lt;NSString*,NSString*&gt; *_Nullable)sessionAttributes</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>sessionAttributes</Name>
+					<Abstract type="html">Optional Session attributes dictionary</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/audioInAudioOutWithSessionAttributes:</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexInteractionKit/audioInTextOut</TokenIdentifier>
+			<Abstract type="html">Starts the microphone and listens to audio from the phone microphone and responds back with a text response.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)audioInTextOut</Declaration>
+			
+			
+			<Anchor>//api/name/audioInTextOut</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexInteractionKit/audioInTextOutWithSessionAttributes:</TokenIdentifier>
+			<Abstract type="html">Starts the microphone and listens to audio from the phone microphone and responds back with a text response.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)audioInTextOutWithSessionAttributes:(NSDictionary&lt;NSString*,NSString*&gt; *_Nullable)sessionAttributes</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>sessionAttributes</Name>
+					<Abstract type="html">Optional Session attributes dictionary</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/audioInTextOutWithSessionAttributes:</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexInteractionKit/cancel</TokenIdentifier>
+			<Abstract type="html">Cancels ongoing http call and stops listening to Microphone if Audio input was requested.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)cancel</Declaration>
+			
+			
+			<Anchor>//api/name/cancel</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexInteractionKit/releaseAudioSource</TokenIdentifier>
+			<Abstract type="html">Safely stop and release audioSource.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.m</DeclaredIn>
+			
+			<Declaration>- (void)releaseAudioSource</Declaration>
+			
+			
+			<Anchor>//api/name/releaseAudioSource</Anchor>
+            <NodeRef refid="1375"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

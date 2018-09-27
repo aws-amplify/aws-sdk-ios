@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKSReachableOperation.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKSReachableOperation</TokenIdentifier>
+			<Abstract type="html">A one-time operation to perform as soon as a host is deemed reachable.
+The operation will only be performed once, regardless of how many times a
+host becomes reachable.</Abstract>
+			<DeclaredIn>AWSKSReachability.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1225"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSKSReachableOperation/operationWithHost:allowWWAN:onReachabilityAchieved:</TokenIdentifier>
+			<Abstract type="html">Constructor. Returns nil if an initialization error occurs.</Abstract>
+			<DeclaredIn>AWSKSReachability.h</DeclaredIn>
+			
+			<Declaration>+ (AWSKSReachableOperation *)operationWithHost:(NSString *)hostname allowWWAN:(BOOL)allowWWAN onReachabilityAchieved:(dispatch_block_t)onReachabilityAchieved</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>hostname</Name>
+					<Abstract type="html">The name or IP address of the host to monitor. If nil or
+empty string, check reachability to the internet in general.
+If hostname is a URL string, it will use the host portion.</Abstract>
+				</Parameter><Parameter>
+					<Name>allowWWAN</Name>
+					<Abstract type="html">If NO, a WWAN-only connection is not enough to trigger
+this operation.</Abstract>
+				</Parameter><Parameter>
+					<Name>onReachabilityAchieved</Name>
+					<Abstract type="html">Invoke when the host becomes reachable.
+This will be invoked ONE TIME ONLY, no matter
+how many times reachability changes.
+Block will be invoked on the main thread.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/operationWithHost:allowWWAN:onReachabilityAchieved:</Anchor>
+            <NodeRef refid="1225"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSKSReachableOperation/operationWithReachability:allowWWAN:onReachabilityAchieved:</TokenIdentifier>
+			<Abstract type="html">Constructor. Returns nil if an initialization error occurs.</Abstract>
+			<DeclaredIn>AWSKSReachability.h</DeclaredIn>
+			
+			<Declaration>+ (AWSKSReachableOperation *)operationWithReachability:(AWSKSReachability *)reachability allowWWAN:(BOOL)allowWWAN onReachabilityAchieved:(dispatch_block_t)onReachabilityAchieved</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>reachability</Name>
+					<Abstract type="html">A reachability instance. Note: This object will overwrite
+the onReachabilityChanged property.</Abstract>
+				</Parameter><Parameter>
+					<Name>allowWWAN</Name>
+					<Abstract type="html">If NO, a WWAN-only connection is not enough to trigger
+this operation.</Abstract>
+				</Parameter><Parameter>
+					<Name>onReachabilityAchieved</Name>
+					<Abstract type="html">Invoke when the host becomes reachable.
+This will be invoked ONE TIME ONLY, no matter
+how many times reachability changes.
+Block will be invoked on the main thread.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/operationWithReachability:allowWWAN:onReachabilityAchieved:</Anchor>
+            <NodeRef refid="1225"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKSReachableOperation/initWithHost:allowWWAN:onReachabilityAchieved:</TokenIdentifier>
+			<Abstract type="html">Initializer. Returns nil if an initialization error occurs.</Abstract>
+			<DeclaredIn>AWSKSReachability.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithHost:(NSString *)hostname allowWWAN:(BOOL)allowWWAN onReachabilityAchieved:(dispatch_block_t)onReachabilityAchieved</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>hostname</Name>
+					<Abstract type="html">The name or IP address of the host to monitor. If nil or
+empty string, check reachability to the internet in general.
+If hostname is a URL string, it will use the host portion.</Abstract>
+				</Parameter><Parameter>
+					<Name>allowWWAN</Name>
+					<Abstract type="html">If NO, a WWAN-only connection is not enough to trigger
+this operation.</Abstract>
+				</Parameter><Parameter>
+					<Name>onReachabilityAchieved</Name>
+					<Abstract type="html">Invoke when the host becomes reachable.
+This will be invoked ONE TIME ONLY, no matter
+how many times reachability changes.
+Block will be invoked on the main thread.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithHost:allowWWAN:onReachabilityAchieved:</Anchor>
+            <NodeRef refid="1225"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKSReachableOperation/initWithReachability:allowWWAN:onReachabilityAchieved:</TokenIdentifier>
+			<Abstract type="html">Initializer. Returns nil if an initialization error occurs.</Abstract>
+			<DeclaredIn>AWSKSReachability.h</DeclaredIn>
+			
+			<Declaration>- (id)initWithReachability:(AWSKSReachability *)reachability allowWWAN:(BOOL)allowWWAN onReachabilityAchieved:(dispatch_block_t)onReachabilityAchieved</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>reachability</Name>
+					<Abstract type="html">A reachability instance. Note: This object will overwrite
+the onReachabilityChanged property.</Abstract>
+				</Parameter><Parameter>
+					<Name>allowWWAN</Name>
+					<Abstract type="html">If NO, a WWAN-only connection is not enough to trigger
+this operation.</Abstract>
+				</Parameter><Parameter>
+					<Name>onReachabilityAchieved</Name>
+					<Abstract type="html">Invoke when the host becomes reachable.
+This will be invoked ONE TIME ONLY, no matter
+how many times reachability changes.
+Block will be invoked on the main thread.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithReachability:allowWWAN:onReachabilityAchieved:</Anchor>
+            <NodeRef refid="1225"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKSReachableOperation/setReachability:</TokenIdentifier>
+			<Abstract type="html">Access to internal reachability instance. Use this to monitor for errors.</Abstract>
+			<DeclaredIn>AWSKSReachability.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, retain) AWSKSReachability *reachability</Declaration>
+			
+			
+			<Anchor>//api/name/reachability</Anchor>
+            <NodeRef refid="1225"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKSReachableOperation/reachability</TokenIdentifier>
+			<Abstract type="html">Access to internal reachability instance. Use this to monitor for errors.</Abstract>
+			<DeclaredIn>AWSKSReachability.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, retain) AWSKSReachability *reachability</Declaration>
+			
+			
+			<Anchor>//api/name/reachability</Anchor>
+            <NodeRef refid="1225"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKSReachableOperation/reachability</TokenIdentifier>
+			<Abstract type="html">Access to internal reachability instance. Use this to monitor for errors.</Abstract>
+			<DeclaredIn>AWSKSReachability.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly, retain) AWSKSReachability *reachability</Declaration>
+			
+			
+			<Anchor>//api/name/reachability</Anchor>
+            <NodeRef refid="1225"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

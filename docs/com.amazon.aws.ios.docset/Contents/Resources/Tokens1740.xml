@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionModerationLabel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionModerationLabel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides information about a single type of moderated content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1740"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionModerationLabel/setConfidence:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the confidence that Amazon Rekognition has that the label has been correctly identified.&lt;/p&gt;&lt;p&gt;If you don&apos;t specify the &lt;code&gt;MinConfidence&lt;/code&gt; parameter in the call to &lt;code&gt;DetectModerationLabels&lt;/code&gt;, the operation returns labels with a confidence value greater than or equal to 50 percent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1740"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionModerationLabel/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the confidence that Amazon Rekognition has that the label has been correctly identified.&lt;/p&gt;&lt;p&gt;If you don&apos;t specify the &lt;code&gt;MinConfidence&lt;/code&gt; parameter in the call to &lt;code&gt;DetectModerationLabels&lt;/code&gt;, the operation returns labels with a confidence value greater than or equal to 50 percent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1740"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionModerationLabel/confidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the confidence that Amazon Rekognition has that the label has been correctly identified.&lt;/p&gt;&lt;p&gt;If you don&apos;t specify the &lt;code&gt;MinConfidence&lt;/code&gt; parameter in the call to &lt;code&gt;DetectModerationLabels&lt;/code&gt;, the operation returns labels with a confidence value greater than or equal to 50 percent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *confidence</Declaration>
+			
+			
+			<Anchor>//api/name/confidence</Anchor>
+            <NodeRef refid="1740"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionModerationLabel/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The label name for the type of content detected in the image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1740"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionModerationLabel/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The label name for the type of content detected in the image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1740"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionModerationLabel/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The label name for the type of content detected in the image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1740"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionModerationLabel/setParentName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the parent label. Labels at the top-level of the hierarchy have the parent label &lt;code&gt;&quot;&quot;&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *parentName</Declaration>
+			
+			
+			<Anchor>//api/name/parentName</Anchor>
+            <NodeRef refid="1740"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionModerationLabel/parentName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the parent label. Labels at the top-level of the hierarchy have the parent label &lt;code&gt;&quot;&quot;&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *parentName</Declaration>
+			
+			
+			<Anchor>//api/name/parentName</Anchor>
+            <NodeRef refid="1740"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionModerationLabel/parentName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name for the parent label. Labels at the top-level of the hierarchy have the parent label &lt;code&gt;&quot;&quot;&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *parentName</Declaration>
+			
+			
+			<Anchor>//api/name/parentName</Anchor>
+            <NodeRef refid="1740"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

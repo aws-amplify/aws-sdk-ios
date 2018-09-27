@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBUpdateTimeToLiveInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBUpdateTimeToLiveInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the input of an &lt;code&gt;UpdateTimeToLive&lt;/code&gt; operation.&lt;/p&gt;
+Required parameters: [TableName, TimeToLiveSpecification]</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="685"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateTimeToLiveInput/setTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table to be configured.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="685"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateTimeToLiveInput/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table to be configured.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="685"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateTimeToLiveInput/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table to be configured.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="685"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateTimeToLiveInput/setTimeToLiveSpecification:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the settings used to enable or disable Time to Live for the specified table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBTimeToLiveSpecification *timeToLiveSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/timeToLiveSpecification</Anchor>
+            <NodeRef refid="685"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateTimeToLiveInput/timeToLiveSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the settings used to enable or disable Time to Live for the specified table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBTimeToLiveSpecification *timeToLiveSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/timeToLiveSpecification</Anchor>
+            <NodeRef refid="685"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateTimeToLiveInput/timeToLiveSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the settings used to enable or disable Time to Live for the specified table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBTimeToLiveSpecification *timeToLiveSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/timeToLiveSpecification</Anchor>
+            <NodeRef refid="685"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

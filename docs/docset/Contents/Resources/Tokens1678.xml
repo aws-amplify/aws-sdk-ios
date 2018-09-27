@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionCreateCollectionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionCreateCollectionRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1678"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateCollectionRequest/setCollectionId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID for the collection that you are creating.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1678"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCreateCollectionRequest/collectionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID for the collection that you are creating.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1678"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCreateCollectionRequest/collectionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID for the collection that you are creating.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1678"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

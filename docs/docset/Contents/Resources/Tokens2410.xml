@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCloudWatchStatistic.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCloudWatchStatistic</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2410"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCloudWatchStatisticUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCloudWatchStatisticUnknown</Declaration>
+            
+            <DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+            <NodeRef refid="2410"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCloudWatchStatisticSampleCount</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCloudWatchStatisticSampleCount</Declaration>
+            
+            <DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+            <NodeRef refid="2410"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCloudWatchStatisticAverage</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCloudWatchStatisticAverage</Declaration>
+            
+            <DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+            <NodeRef refid="2410"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCloudWatchStatisticSum</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCloudWatchStatisticSum</Declaration>
+            
+            <DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+            <NodeRef refid="2410"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCloudWatchStatisticMinimum</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCloudWatchStatisticMinimum</Declaration>
+            
+            <DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+            <NodeRef refid="2410"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCloudWatchStatisticMaximum</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCloudWatchStatisticMaximum</Declaration>
+            
+            <DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+            <NodeRef refid="2410"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

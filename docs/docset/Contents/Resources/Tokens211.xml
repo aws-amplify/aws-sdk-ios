@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityNewPasswordRequiredDetails.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityNewPasswordRequiredDetails</TokenIdentifier>
+			<Abstract type="html">When responding to a new password required challenge this encapsulates the end users&apos; new password and required attributes</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+            
+			
+			<NodeRef refid="211"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityNewPasswordRequiredDetails/setProposedPassword:</TokenIdentifier>
+			<Abstract type="html">The end user&apos;s new password</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nonnull) NSString *proposedPassword</Declaration>
+			
+			
+			<Anchor>//api/name/proposedPassword</Anchor>
+            <NodeRef refid="211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityNewPasswordRequiredDetails/proposedPassword</TokenIdentifier>
+			<Abstract type="html">The end user&apos;s new password</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nonnull) NSString *proposedPassword</Declaration>
+			
+			
+			<Anchor>//api/name/proposedPassword</Anchor>
+            <NodeRef refid="211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityNewPasswordRequiredDetails/proposedPassword</TokenIdentifier>
+			<Abstract type="html">The end user&apos;s new password</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nonnull) NSString *proposedPassword</Declaration>
+			
+			
+			<Anchor>//api/name/proposedPassword</Anchor>
+            <NodeRef refid="211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityNewPasswordRequiredDetails/setUserAttributes:</TokenIdentifier>
+			<Abstract type="html">Any attribute the end user is setting.  Values must be present for all
+required attributes.  Any other attributes are optional.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nullable) NSArray&lt;AWSCognitoIdentityUserAttributeType*&gt; *userAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/userAttributes</Anchor>
+            <NodeRef refid="211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityNewPasswordRequiredDetails/userAttributes</TokenIdentifier>
+			<Abstract type="html">Any attribute the end user is setting.  Values must be present for all
+required attributes.  Any other attributes are optional.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nullable) NSArray&lt;AWSCognitoIdentityUserAttributeType*&gt; *userAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/userAttributes</Anchor>
+            <NodeRef refid="211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityNewPasswordRequiredDetails/userAttributes</TokenIdentifier>
+			<Abstract type="html">Any attribute the end user is setting.  Values must be present for all
+required attributes.  Any other attributes are optional.</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, nullable) NSArray&lt;AWSCognitoIdentityUserAttributeType*&gt; *userAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/userAttributes</Anchor>
+            <NodeRef refid="211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityNewPasswordRequiredDetails/initWithProposedPassword:userAttributes:</TokenIdentifier>
+			<Abstract type="html">Initializer given a new password and map of user attributes to set
+*</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithProposedPassword:(NSString *)proposedPassword userAttributes:(NSDictionary&lt;NSString*,NSString*&gt; *)userAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/initWithProposedPassword:userAttributes:</Anchor>
+            <NodeRef refid="211"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

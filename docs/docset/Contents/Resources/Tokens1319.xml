@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaDeadLetterConfig.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaDeadLetterConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ). For more information, see &lt;a&gt;dlq&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1319"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaDeadLetterConfig/setTargetArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ). &lt;a&gt;dlq&lt;/a&gt;. For more information, see &lt;a&gt;dlq&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetArn</Declaration>
+			
+			
+			<Anchor>//api/name/targetArn</Anchor>
+            <NodeRef refid="1319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaDeadLetterConfig/targetArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ). &lt;a&gt;dlq&lt;/a&gt;. For more information, see &lt;a&gt;dlq&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetArn</Declaration>
+			
+			
+			<Anchor>//api/name/targetArn</Anchor>
+            <NodeRef refid="1319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaDeadLetterConfig/targetArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of an Amazon SQS queue or Amazon SNS topic you specify as your Dead Letter Queue (DLQ). &lt;a&gt;dlq&lt;/a&gt;. For more information, see &lt;a&gt;dlq&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetArn</Declaration>
+			
+			
+			<Anchor>//api/name/targetArn</Anchor>
+            <NodeRef refid="1319"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

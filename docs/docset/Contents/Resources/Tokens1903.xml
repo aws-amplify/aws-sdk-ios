@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3LambdaFunctionConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3LambdaFunctionConfiguration</TokenIdentifier>
+			<Abstract type="html">Container for specifying the AWS Lambda notification configuration.
+Required parameters: [LambdaFunctionArn, Events]</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1903"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LambdaFunctionConfiguration/setEvents:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LambdaFunctionConfiguration/events</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LambdaFunctionConfiguration/events</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LambdaFunctionConfiguration/setFilter:</TokenIdentifier>
+			<Abstract type="html">Container for object key name filtering rules. For information about key name filtering, go to Configuring Event Notifications in the Amazon Simple Storage Service Developer Guide.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3NotificationConfigurationFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LambdaFunctionConfiguration/filter</TokenIdentifier>
+			<Abstract type="html">Container for object key name filtering rules. For information about key name filtering, go to Configuring Event Notifications in the Amazon Simple Storage Service Developer Guide.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3NotificationConfigurationFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LambdaFunctionConfiguration/filter</TokenIdentifier>
+			<Abstract type="html">Container for object key name filtering rules. For information about key name filtering, go to Configuring Event Notifications in the Amazon Simple Storage Service Developer Guide.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3NotificationConfigurationFilter *filter</Declaration>
+			
+			
+			<Anchor>//api/name/filter</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LambdaFunctionConfiguration/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">Optional unique identifier for configurations in a notification configuration. If you don&apos;t provide one, Amazon S3 will assign an ID.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LambdaFunctionConfiguration/identifier</TokenIdentifier>
+			<Abstract type="html">Optional unique identifier for configurations in a notification configuration. If you don&apos;t provide one, Amazon S3 will assign an ID.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LambdaFunctionConfiguration/identifier</TokenIdentifier>
+			<Abstract type="html">Optional unique identifier for configurations in a notification configuration. If you don&apos;t provide one, Amazon S3 will assign an ID.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LambdaFunctionConfiguration/setLambdaFunctionArn:</TokenIdentifier>
+			<Abstract type="html">Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lambdaFunctionArn</Declaration>
+			
+			
+			<Anchor>//api/name/lambdaFunctionArn</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3LambdaFunctionConfiguration/lambdaFunctionArn</TokenIdentifier>
+			<Abstract type="html">Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lambdaFunctionArn</Declaration>
+			
+			
+			<Anchor>//api/name/lambdaFunctionArn</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3LambdaFunctionConfiguration/lambdaFunctionArn</TokenIdentifier>
+			<Abstract type="html">Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lambdaFunctionArn</Declaration>
+			
+			
+			<Anchor>//api/name/lambdaFunctionArn</Anchor>
+            <NodeRef refid="1903"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBCreateGlobalTableOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBCreateGlobalTableOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="579"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateGlobalTableOutput/setGlobalTableDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the details of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBGlobalTableDescription *globalTableDescription</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableDescription</Anchor>
+            <NodeRef refid="579"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBCreateGlobalTableOutput/globalTableDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the details of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBGlobalTableDescription *globalTableDescription</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableDescription</Anchor>
+            <NodeRef refid="579"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBCreateGlobalTableOutput/globalTableDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the details of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBGlobalTableDescription *globalTableDescription</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableDescription</Anchor>
+            <NodeRef refid="579"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

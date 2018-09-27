@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSSetSubscriptionAttributesInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetSubscriptionAttributesInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Input for SetSubscriptionAttributes action.&lt;/p&gt;
+Required parameters: [SubscriptionArn, AttributeName]</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2248"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSSetSubscriptionAttributesInput/setAttributeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the attribute you want to set. Only a subset of the subscriptions attributes are mutable.&lt;/p&gt;&lt;p&gt;Valid values: &lt;code&gt;DeliveryPolicy&lt;/code&gt; | &lt;code&gt;FilterPolicy&lt;/code&gt; | &lt;code&gt;RawMessageDelivery&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeName</Declaration>
+			
+			
+			<Anchor>//api/name/attributeName</Anchor>
+            <NodeRef refid="2248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSSetSubscriptionAttributesInput/attributeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the attribute you want to set. Only a subset of the subscriptions attributes are mutable.&lt;/p&gt;&lt;p&gt;Valid values: &lt;code&gt;DeliveryPolicy&lt;/code&gt; | &lt;code&gt;FilterPolicy&lt;/code&gt; | &lt;code&gt;RawMessageDelivery&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeName</Declaration>
+			
+			
+			<Anchor>//api/name/attributeName</Anchor>
+            <NodeRef refid="2248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSSetSubscriptionAttributesInput/attributeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the attribute you want to set. Only a subset of the subscriptions attributes are mutable.&lt;/p&gt;&lt;p&gt;Valid values: &lt;code&gt;DeliveryPolicy&lt;/code&gt; | &lt;code&gt;FilterPolicy&lt;/code&gt; | &lt;code&gt;RawMessageDelivery&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeName</Declaration>
+			
+			
+			<Anchor>//api/name/attributeName</Anchor>
+            <NodeRef refid="2248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSSetSubscriptionAttributesInput/setAttributeValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new value for the attribute in JSON format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeValue</Declaration>
+			
+			
+			<Anchor>//api/name/attributeValue</Anchor>
+            <NodeRef refid="2248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSSetSubscriptionAttributesInput/attributeValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new value for the attribute in JSON format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeValue</Declaration>
+			
+			
+			<Anchor>//api/name/attributeValue</Anchor>
+            <NodeRef refid="2248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSSetSubscriptionAttributesInput/attributeValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new value for the attribute in JSON format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *attributeValue</Declaration>
+			
+			
+			<Anchor>//api/name/attributeValue</Anchor>
+            <NodeRef refid="2248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSSetSubscriptionAttributesInput/setSubscriptionArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the subscription to modify.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subscriptionArn</Declaration>
+			
+			
+			<Anchor>//api/name/subscriptionArn</Anchor>
+            <NodeRef refid="2248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSSetSubscriptionAttributesInput/subscriptionArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the subscription to modify.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subscriptionArn</Declaration>
+			
+			
+			<Anchor>//api/name/subscriptionArn</Anchor>
+            <NodeRef refid="2248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSSetSubscriptionAttributesInput/subscriptionArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the subscription to modify.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subscriptionArn</Declaration>
+			
+			
+			<Anchor>//api/name/subscriptionArn</Anchor>
+            <NodeRef refid="2248"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

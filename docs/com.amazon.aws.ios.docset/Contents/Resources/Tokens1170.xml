@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSCreateKeyResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSCreateKeyResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1170"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateKeyResponse/setKeyMetadata:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Metadata associated with the CMK.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKMSKeyMetadata *keyMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/keyMetadata</Anchor>
+            <NodeRef refid="1170"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSCreateKeyResponse/keyMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Metadata associated with the CMK.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKMSKeyMetadata *keyMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/keyMetadata</Anchor>
+            <NodeRef refid="1170"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSCreateKeyResponse/keyMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Metadata associated with the CMK.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSKMSKeyMetadata *keyMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/keyMetadata</Anchor>
+            <NodeRef refid="1170"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

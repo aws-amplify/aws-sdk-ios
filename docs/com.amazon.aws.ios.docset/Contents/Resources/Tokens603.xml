@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBDescribeLimitsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBDescribeLimitsOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the output of a &lt;code&gt;DescribeLimits&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="603"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBDescribeLimitsOutput/setAccountMaxReadCapacityUnits:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum total read capacity units that your account allows you to provision across all of your tables in this region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *accountMaxReadCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/accountMaxReadCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBDescribeLimitsOutput/accountMaxReadCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum total read capacity units that your account allows you to provision across all of your tables in this region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *accountMaxReadCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/accountMaxReadCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBDescribeLimitsOutput/accountMaxReadCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum total read capacity units that your account allows you to provision across all of your tables in this region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *accountMaxReadCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/accountMaxReadCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBDescribeLimitsOutput/setAccountMaxWriteCapacityUnits:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum total write capacity units that your account allows you to provision across all of your tables in this region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *accountMaxWriteCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/accountMaxWriteCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBDescribeLimitsOutput/accountMaxWriteCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum total write capacity units that your account allows you to provision across all of your tables in this region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *accountMaxWriteCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/accountMaxWriteCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBDescribeLimitsOutput/accountMaxWriteCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum total write capacity units that your account allows you to provision across all of your tables in this region.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *accountMaxWriteCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/accountMaxWriteCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBDescribeLimitsOutput/setTableMaxReadCapacityUnits:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum read capacity units that your account allows you to provision for a new table that you are creating in this region, including the read capacity units provisioned for its global secondary indexes (GSIs).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tableMaxReadCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/tableMaxReadCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBDescribeLimitsOutput/tableMaxReadCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum read capacity units that your account allows you to provision for a new table that you are creating in this region, including the read capacity units provisioned for its global secondary indexes (GSIs).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tableMaxReadCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/tableMaxReadCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBDescribeLimitsOutput/tableMaxReadCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum read capacity units that your account allows you to provision for a new table that you are creating in this region, including the read capacity units provisioned for its global secondary indexes (GSIs).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tableMaxReadCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/tableMaxReadCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBDescribeLimitsOutput/setTableMaxWriteCapacityUnits:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tableMaxWriteCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/tableMaxWriteCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBDescribeLimitsOutput/tableMaxWriteCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tableMaxWriteCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/tableMaxWriteCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBDescribeLimitsOutput/tableMaxWriteCapacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *tableMaxWriteCapacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/tableMaxWriteCapacityUnits</Anchor>
+            <NodeRef refid="603"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

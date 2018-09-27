@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoArchivedMediaTimestampRange.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoArchivedMediaTimestampRange</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The range of time stamps for which to return fragments.&lt;/p&gt;
+Required parameters: [StartTimestamp, EndTimestamp]</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1285"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaTimestampRange/setEndTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ending time stamp in the range of time stamps for which to return fragments.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *endTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/endTimestamp</Anchor>
+            <NodeRef refid="1285"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaTimestampRange/endTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ending time stamp in the range of time stamps for which to return fragments.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *endTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/endTimestamp</Anchor>
+            <NodeRef refid="1285"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoArchivedMediaTimestampRange/endTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ending time stamp in the range of time stamps for which to return fragments.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *endTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/endTimestamp</Anchor>
+            <NodeRef refid="1285"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaTimestampRange/setStartTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The starting time stamp in the range of time stamps for which to return fragments.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/startTimestamp</Anchor>
+            <NodeRef refid="1285"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoArchivedMediaTimestampRange/startTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The starting time stamp in the range of time stamps for which to return fragments.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/startTimestamp</Anchor>
+            <NodeRef refid="1285"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoArchivedMediaTimestampRange/startTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The starting time stamp in the range of time stamps for which to return fragments.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoArchivedMediaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *startTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/startTimestamp</Anchor>
+            <NodeRef refid="1285"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSListSubscriptionsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListSubscriptionsResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Response for ListSubscriptions action&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2234"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListSubscriptionsResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Token to pass along to the next &lt;code&gt;ListSubscriptions&lt;/code&gt; request. This element is returned if there are more subscriptions to retrieve.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2234"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListSubscriptionsResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Token to pass along to the next &lt;code&gt;ListSubscriptions&lt;/code&gt; request. This element is returned if there are more subscriptions to retrieve.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2234"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSListSubscriptionsResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Token to pass along to the next &lt;code&gt;ListSubscriptions&lt;/code&gt; request. This element is returned if there are more subscriptions to retrieve.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2234"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListSubscriptionsResponse/setSubscriptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of subscriptions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSNSSubscription*&gt; *subscriptions</Declaration>
+			
+			
+			<Anchor>//api/name/subscriptions</Anchor>
+            <NodeRef refid="2234"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListSubscriptionsResponse/subscriptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of subscriptions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSNSSubscription*&gt; *subscriptions</Declaration>
+			
+			
+			<Anchor>//api/name/subscriptions</Anchor>
+            <NodeRef refid="2234"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSListSubscriptionsResponse/subscriptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of subscriptions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSNSSubscription*&gt; *subscriptions</Declaration>
+			
+			
+			<Anchor>//api/name/subscriptions</Anchor>
+            <NodeRef refid="2234"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

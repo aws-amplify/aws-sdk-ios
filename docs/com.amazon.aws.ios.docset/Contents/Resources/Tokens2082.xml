@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESDescribeConfigurationSetResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESDescribeConfigurationSetResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the details of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2082"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeConfigurationSetResponse/setConfigurationSet:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration set object associated with the specified configuration set.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESConfigurationSet *configurationSet</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSet</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeConfigurationSetResponse/configurationSet</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration set object associated with the specified configuration set.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESConfigurationSet *configurationSet</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSet</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDescribeConfigurationSetResponse/configurationSet</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration set object associated with the specified configuration set.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESConfigurationSet *configurationSet</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSet</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeConfigurationSetResponse/setEventDestinations:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of event destinations associated with the configuration set. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESEventDestination*&gt; *eventDestinations</Declaration>
+			
+			
+			<Anchor>//api/name/eventDestinations</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeConfigurationSetResponse/eventDestinations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of event destinations associated with the configuration set. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESEventDestination*&gt; *eventDestinations</Declaration>
+			
+			
+			<Anchor>//api/name/eventDestinations</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDescribeConfigurationSetResponse/eventDestinations</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of event destinations associated with the configuration set. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESEventDestination*&gt; *eventDestinations</Declaration>
+			
+			
+			<Anchor>//api/name/eventDestinations</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeConfigurationSetResponse/setReputationOptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that represents the reputation settings for the configuration set. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReputationOptions *reputationOptions</Declaration>
+			
+			
+			<Anchor>//api/name/reputationOptions</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeConfigurationSetResponse/reputationOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that represents the reputation settings for the configuration set. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReputationOptions *reputationOptions</Declaration>
+			
+			
+			<Anchor>//api/name/reputationOptions</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDescribeConfigurationSetResponse/reputationOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that represents the reputation settings for the configuration set. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESReputationOptions *reputationOptions</Declaration>
+			
+			
+			<Anchor>//api/name/reputationOptions</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeConfigurationSetResponse/setTrackingOptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the custom open and click tracking domain associated with the configuration set.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESTrackingOptions *trackingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/trackingOptions</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDescribeConfigurationSetResponse/trackingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the custom open and click tracking domain associated with the configuration set.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESTrackingOptions *trackingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/trackingOptions</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDescribeConfigurationSetResponse/trackingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the custom open and click tracking domain associated with the configuration set.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESTrackingOptions *trackingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/trackingOptions</Anchor>
+            <NodeRef refid="2082"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

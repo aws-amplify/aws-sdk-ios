@@ -1,0 +1,1620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNS.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNS</TokenIdentifier>
+			<Abstract type="html">&lt;fullname&gt;Amazon Simple Notification Service&lt;/fullname&gt;&lt;p&gt;Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build distributed web-enabled applications. Applications can use Amazon SNS to easily push real-time notification messages to interested subscribers over multiple delivery protocols. For more information about this product see Tools for Amazon Web Services. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2199"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNS/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSSNS/defaultSNS</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultSNS</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultSNS</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSSNS/registerSNSWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerSNSWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerSNSWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSSNS/SNSForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerSNSWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)SNSForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/SNSForKey:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSSNS/removeSNSForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeSNSForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeSNSForKey:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/addPermission:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds a statement to a topic&apos;s access control policy, granting access for the specified AWS accounts to the specified actions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSAddPermissionInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)addPermission:(AWSSNSAddPermissionInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the AddPermission service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/addPermission:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/addPermission:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds a statement to a topic&apos;s access control policy, granting access for the specified AWS accounts to the specified actions.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSAddPermissionInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)addPermission:(AWSSNSAddPermissionInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the AddPermission service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addPermission:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/checkIfPhoneNumberIsOptedOut:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Accepts a phone number and indicates whether the phone holder has opted out of receiving SMS messages from your account. You cannot send SMS messages to a number that is opted out.&lt;/p&gt;&lt;p&gt;To resume sending messages, you can opt in the number by using the &lt;code&gt;OptInPhoneNumber&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCheckIfPhoneNumberIsOptedOutInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCheckIfPhoneNumberIsOptedOutResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSCheckIfPhoneNumberIsOptedOutResponse*&gt; *)checkIfPhoneNumberIsOptedOut:(AWSSNSCheckIfPhoneNumberIsOptedOutInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CheckIfPhoneNumberIsOptedOut service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSCheckIfPhoneNumberIsOptedOutResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorThrottled, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorInvalidParameter.</Abstract></ReturnValue>
+			<Anchor>//api/name/checkIfPhoneNumberIsOptedOut:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/checkIfPhoneNumberIsOptedOut:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Accepts a phone number and indicates whether the phone holder has opted out of receiving SMS messages from your account. You cannot send SMS messages to a number that is opted out.&lt;/p&gt;&lt;p&gt;To resume sending messages, you can opt in the number by using the &lt;code&gt;OptInPhoneNumber&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCheckIfPhoneNumberIsOptedOutInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCheckIfPhoneNumberIsOptedOutResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)checkIfPhoneNumberIsOptedOut:(AWSSNSCheckIfPhoneNumberIsOptedOutInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSCheckIfPhoneNumberIsOptedOutResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CheckIfPhoneNumberIsOptedOut service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorThrottled, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorInvalidParameter.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/checkIfPhoneNumberIsOptedOut:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/confirmSubscription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Verifies an endpoint owner&apos;s intent to receive messages by validating the token sent to the endpoint by an earlier &lt;code&gt;Subscribe&lt;/code&gt; action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the &lt;code&gt;AuthenticateOnUnsubscribe&lt;/code&gt; flag is set to &quot;true&quot;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSConfirmSubscriptionInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSConfirmSubscriptionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSConfirmSubscriptionResponse*&gt; *)confirmSubscription:(AWSSNSConfirmSubscriptionInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ConfirmSubscription service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSConfirmSubscriptionResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorSubscriptionLimitExceeded, AWSSNSErrorInvalidParameter, AWSSNSErrorNotFound, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/confirmSubscription:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/confirmSubscription:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Verifies an endpoint owner&apos;s intent to receive messages by validating the token sent to the endpoint by an earlier &lt;code&gt;Subscribe&lt;/code&gt; action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the &lt;code&gt;AuthenticateOnUnsubscribe&lt;/code&gt; flag is set to &quot;true&quot;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSConfirmSubscriptionInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSConfirmSubscriptionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)confirmSubscription:(AWSSNSConfirmSubscriptionInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSConfirmSubscriptionResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ConfirmSubscription service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorSubscriptionLimitExceeded, AWSSNSErrorInvalidParameter, AWSSNSErrorNotFound, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/confirmSubscription:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/createPlatformApplication:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the &lt;code&gt;CreatePlatformApplication&lt;/code&gt; action. The PlatformPrincipal is received from the notification service. For APNS/APNSSANDBOX, PlatformPrincipal is &quot;SSL certificate&quot;. For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is &quot;client id&quot;. The PlatformCredential is also received from the notification service. For WNS, PlatformPrincipal is &quot;Package Security Identifier&quot;. For MPNS, PlatformPrincipal is &quot;TLS certificate&quot;. For Baidu, PlatformPrincipal is &quot;API key&quot;.&lt;/p&gt;&lt;p&gt;For APNS/APNSSANDBOX, PlatformCredential is &quot;private key&quot;. For GCM, PlatformCredential is &quot;API key&quot;. For ADM, PlatformCredential is &quot;client secret&quot;. For WNS, PlatformCredential is &quot;secret key&quot;. For MPNS, PlatformCredential is &quot;private key&quot;. For Baidu, PlatformCredential is &quot;secret key&quot;. The PlatformApplicationArn that is returned when using &lt;code&gt;CreatePlatformApplication&lt;/code&gt; is then used as an attribute for the &lt;code&gt;CreatePlatformEndpoint&lt;/code&gt; action. For more information, see Getting Started with WNS. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreatePlatformApplicationInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreatePlatformApplicationResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSCreatePlatformApplicationResponse*&gt; *)createPlatformApplication:(AWSSNSCreatePlatformApplicationInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreatePlatformApplication service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSCreatePlatformApplicationResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/createPlatformApplication:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/createPlatformApplication:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the &lt;code&gt;CreatePlatformApplication&lt;/code&gt; action. The PlatformPrincipal is received from the notification service. For APNS/APNSSANDBOX, PlatformPrincipal is &quot;SSL certificate&quot;. For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is &quot;client id&quot;. The PlatformCredential is also received from the notification service. For WNS, PlatformPrincipal is &quot;Package Security Identifier&quot;. For MPNS, PlatformPrincipal is &quot;TLS certificate&quot;. For Baidu, PlatformPrincipal is &quot;API key&quot;.&lt;/p&gt;&lt;p&gt;For APNS/APNSSANDBOX, PlatformCredential is &quot;private key&quot;. For GCM, PlatformCredential is &quot;API key&quot;. For ADM, PlatformCredential is &quot;client secret&quot;. For WNS, PlatformCredential is &quot;secret key&quot;. For MPNS, PlatformCredential is &quot;private key&quot;. For Baidu, PlatformCredential is &quot;secret key&quot;. The PlatformApplicationArn that is returned when using &lt;code&gt;CreatePlatformApplication&lt;/code&gt; is then used as an attribute for the &lt;code&gt;CreatePlatformEndpoint&lt;/code&gt; action. For more information, see Getting Started with WNS. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreatePlatformApplicationInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreatePlatformApplicationResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createPlatformApplication:(AWSSNSCreatePlatformApplicationInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSCreatePlatformApplicationResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreatePlatformApplication service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createPlatformApplication:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/createPlatformEndpoint:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM and APNS. &lt;code&gt;CreatePlatformEndpoint&lt;/code&gt; requires the PlatformApplicationArn that is returned from &lt;code&gt;CreatePlatformApplication&lt;/code&gt;. The EndpointArn that is returned when using &lt;code&gt;CreatePlatformEndpoint&lt;/code&gt; can then be used by the &lt;code&gt;Publish&lt;/code&gt; action to send a message to a mobile app or by the &lt;code&gt;Subscribe&lt;/code&gt; action for subscription to a topic. The &lt;code&gt;CreatePlatformEndpoint&lt;/code&gt; action is idempotent, so if the requester already owns an endpoint with the same device token and attributes, that endpoint&apos;s ARN is returned without creating a new endpoint. For more information, see Creating an Amazon SNS Endpoint for Baidu. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreatePlatformEndpointInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreateEndpointResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSCreateEndpointResponse*&gt; *)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreatePlatformEndpoint service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSCreateEndpointResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/createPlatformEndpoint:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/createPlatformEndpoint:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM and APNS. &lt;code&gt;CreatePlatformEndpoint&lt;/code&gt; requires the PlatformApplicationArn that is returned from &lt;code&gt;CreatePlatformApplication&lt;/code&gt;. The EndpointArn that is returned when using &lt;code&gt;CreatePlatformEndpoint&lt;/code&gt; can then be used by the &lt;code&gt;Publish&lt;/code&gt; action to send a message to a mobile app or by the &lt;code&gt;Subscribe&lt;/code&gt; action for subscription to a topic. The &lt;code&gt;CreatePlatformEndpoint&lt;/code&gt; action is idempotent, so if the requester already owns an endpoint with the same device token and attributes, that endpoint&apos;s ARN is returned without creating a new endpoint. For more information, see Creating an Amazon SNS Endpoint for Baidu. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreatePlatformEndpointInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreateEndpointResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSCreateEndpointResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreatePlatformEndpoint service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createPlatformEndpoint:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/createTopic:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see http://aws.amazon.com/sns. This action is idempotent, so if the requester already owns a topic with the specified name, that topic&apos;s ARN is returned without creating a new topic.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreateTopicInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreateTopicResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSCreateTopicResponse*&gt; *)createTopic:(AWSSNSCreateTopicInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateTopic service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSCreateTopicResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorTopicLimitExceeded, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/createTopic:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/createTopic:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see http://aws.amazon.com/sns. This action is idempotent, so if the requester already owns a topic with the specified name, that topic&apos;s ARN is returned without creating a new topic.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreateTopicInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSCreateTopicResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createTopic:(AWSSNSCreateTopicInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSCreateTopicResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateTopic service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorTopicLimitExceeded, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createTopic:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/deleteEndpoint:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;&lt;p&gt;When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSDeleteEndpointInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteEndpoint:(AWSSNSDeleteEndpointInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteEndpoint service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteEndpoint:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/deleteEndpoint:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;&lt;p&gt;When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSDeleteEndpointInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteEndpoint:(AWSSNSDeleteEndpointInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteEndpoint service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteEndpoint:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/deletePlatformApplication:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a platform application object for one of the supported push notification services, such as APNS and GCM. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSDeletePlatformApplicationInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deletePlatformApplication:(AWSSNSDeletePlatformApplicationInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeletePlatformApplication service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/deletePlatformApplication:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/deletePlatformApplication:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a platform application object for one of the supported push notification services, such as APNS and GCM. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSDeletePlatformApplicationInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deletePlatformApplication:(AWSSNSDeletePlatformApplicationInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeletePlatformApplication service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deletePlatformApplication:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/deleteTopic:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a topic and all its subscriptions. Deleting a topic might prevent some messages previously sent to the topic from being delivered to subscribers. This action is idempotent, so deleting a topic that does not exist does not result in an error.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSDeleteTopicInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteTopic:(AWSSNSDeleteTopicInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteTopic service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteTopic:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/deleteTopic:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a topic and all its subscriptions. Deleting a topic might prevent some messages previously sent to the topic from being delivered to subscribers. This action is idempotent, so deleting a topic that does not exist does not result in an error.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSDeleteTopicInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteTopic:(AWSSNSDeleteTopicInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteTopic service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteTopic:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/getEndpointAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM and APNS. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetEndpointAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetEndpointAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSGetEndpointAttributesResponse*&gt; *)getEndpointAttributes:(AWSSNSGetEndpointAttributesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetEndpointAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSGetEndpointAttributesResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/getEndpointAttributes:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/getEndpointAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM and APNS. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetEndpointAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetEndpointAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getEndpointAttributes:(AWSSNSGetEndpointAttributesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetEndpointAttributesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetEndpointAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getEndpointAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/getPlatformApplicationAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetPlatformApplicationAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetPlatformApplicationAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSGetPlatformApplicationAttributesResponse*&gt; *)getPlatformApplicationAttributes:(AWSSNSGetPlatformApplicationAttributesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetPlatformApplicationAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSGetPlatformApplicationAttributesResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/getPlatformApplicationAttributes:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/getPlatformApplicationAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetPlatformApplicationAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetPlatformApplicationAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getPlatformApplicationAttributes:(AWSSNSGetPlatformApplicationAttributesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetPlatformApplicationAttributesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetPlatformApplicationAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getPlatformApplicationAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/getSMSAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the settings for sending SMS messages from your account.&lt;/p&gt;&lt;p&gt;These settings are set with the &lt;code&gt;SetSMSAttributes&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetSMSAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetSMSAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSGetSMSAttributesResponse*&gt; *)getSMSAttributes:(AWSSNSGetSMSAttributesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSMSAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSGetSMSAttributesResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorThrottled, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorInvalidParameter.</Abstract></ReturnValue>
+			<Anchor>//api/name/getSMSAttributes:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/getSMSAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the settings for sending SMS messages from your account.&lt;/p&gt;&lt;p&gt;These settings are set with the &lt;code&gt;SetSMSAttributes&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetSMSAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetSMSAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getSMSAttributes:(AWSSNSGetSMSAttributesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetSMSAttributesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSMSAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorThrottled, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorInvalidParameter.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSMSAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/getSubscriptionAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns all of the properties of a subscription.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetSubscriptionAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetSubscriptionAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSGetSubscriptionAttributesResponse*&gt; *)getSubscriptionAttributes:(AWSSNSGetSubscriptionAttributesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSubscriptionAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSGetSubscriptionAttributesResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/getSubscriptionAttributes:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/getSubscriptionAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns all of the properties of a subscription.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetSubscriptionAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetSubscriptionAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getSubscriptionAttributes:(AWSSNSGetSubscriptionAttributesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetSubscriptionAttributesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSubscriptionAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSubscriptionAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/getTopicAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetTopicAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetTopicAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSGetTopicAttributesResponse*&gt; *)getTopicAttributes:(AWSSNSGetTopicAttributesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetTopicAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSGetTopicAttributesResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/getTopicAttributes:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/getTopicAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetTopicAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetTopicAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getTopicAttributes:(AWSSNSGetTopicAttributesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetTopicAttributesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetTopicAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getTopicAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listEndpointsByPlatformApplication:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for &lt;code&gt;ListEndpointsByPlatformApplication&lt;/code&gt; are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call &lt;code&gt;ListEndpointsByPlatformApplication&lt;/code&gt; again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;&lt;p&gt;This action is throttled at 30 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListEndpointsByPlatformApplicationInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListEndpointsByPlatformApplicationResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSListEndpointsByPlatformApplicationResponse*&gt; *)listEndpointsByPlatformApplication:(AWSSNSListEndpointsByPlatformApplicationInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListEndpointsByPlatformApplication service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSListEndpointsByPlatformApplicationResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/listEndpointsByPlatformApplication:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listEndpointsByPlatformApplication:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for &lt;code&gt;ListEndpointsByPlatformApplication&lt;/code&gt; are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call &lt;code&gt;ListEndpointsByPlatformApplication&lt;/code&gt; again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;&lt;p&gt;This action is throttled at 30 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListEndpointsByPlatformApplicationInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListEndpointsByPlatformApplicationResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listEndpointsByPlatformApplication:(AWSSNSListEndpointsByPlatformApplicationInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSListEndpointsByPlatformApplicationResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListEndpointsByPlatformApplication service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listEndpointsByPlatformApplication:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listPhoneNumbersOptedOut:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages to them.&lt;/p&gt;&lt;p&gt;The results for &lt;code&gt;ListPhoneNumbersOptedOut&lt;/code&gt; are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a &lt;code&gt;NextToken&lt;/code&gt; string will be returned. To receive the next page, you call &lt;code&gt;ListPhoneNumbersOptedOut&lt;/code&gt; again using the &lt;code&gt;NextToken&lt;/code&gt; string received from the previous call. When there are no more records to return, &lt;code&gt;NextToken&lt;/code&gt; will be null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListPhoneNumbersOptedOutInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListPhoneNumbersOptedOutResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSListPhoneNumbersOptedOutResponse*&gt; *)listPhoneNumbersOptedOut:(AWSSNSListPhoneNumbersOptedOutInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListPhoneNumbersOptedOut service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSListPhoneNumbersOptedOutResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorThrottled, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorInvalidParameter.</Abstract></ReturnValue>
+			<Anchor>//api/name/listPhoneNumbersOptedOut:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listPhoneNumbersOptedOut:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages to them.&lt;/p&gt;&lt;p&gt;The results for &lt;code&gt;ListPhoneNumbersOptedOut&lt;/code&gt; are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a &lt;code&gt;NextToken&lt;/code&gt; string will be returned. To receive the next page, you call &lt;code&gt;ListPhoneNumbersOptedOut&lt;/code&gt; again using the &lt;code&gt;NextToken&lt;/code&gt; string received from the previous call. When there are no more records to return, &lt;code&gt;NextToken&lt;/code&gt; will be null.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListPhoneNumbersOptedOutInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListPhoneNumbersOptedOutResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listPhoneNumbersOptedOut:(AWSSNSListPhoneNumbersOptedOutInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSListPhoneNumbersOptedOutResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListPhoneNumbersOptedOut service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorThrottled, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorInvalidParameter.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listPhoneNumbersOptedOut:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listPlatformApplications:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for &lt;code&gt;ListPlatformApplications&lt;/code&gt; are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call &lt;code&gt;ListPlatformApplications&lt;/code&gt; using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;&lt;p&gt;This action is throttled at 15 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListPlatformApplicationsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListPlatformApplicationsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSListPlatformApplicationsResponse*&gt; *)listPlatformApplications:(AWSSNSListPlatformApplicationsInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListPlatformApplications service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSListPlatformApplicationsResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/listPlatformApplications:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listPlatformApplications:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for &lt;code&gt;ListPlatformApplications&lt;/code&gt; are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call &lt;code&gt;ListPlatformApplications&lt;/code&gt; using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;&lt;p&gt;This action is throttled at 15 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListPlatformApplicationsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListPlatformApplicationsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listPlatformApplications:(AWSSNSListPlatformApplicationsInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSListPlatformApplicationsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListPlatformApplications service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listPlatformApplications:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listSubscriptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of the requester&apos;s subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a &lt;code&gt;NextToken&lt;/code&gt; is also returned. Use the &lt;code&gt;NextToken&lt;/code&gt; parameter in a new &lt;code&gt;ListSubscriptions&lt;/code&gt; call to get further results.&lt;/p&gt;&lt;p&gt;This action is throttled at 30 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListSubscriptionsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListSubscriptionsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSListSubscriptionsResponse*&gt; *)listSubscriptions:(AWSSNSListSubscriptionsInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListSubscriptions service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSListSubscriptionsResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/listSubscriptions:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listSubscriptions:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of the requester&apos;s subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a &lt;code&gt;NextToken&lt;/code&gt; is also returned. Use the &lt;code&gt;NextToken&lt;/code&gt; parameter in a new &lt;code&gt;ListSubscriptions&lt;/code&gt; call to get further results.&lt;/p&gt;&lt;p&gt;This action is throttled at 30 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListSubscriptionsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListSubscriptionsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listSubscriptions:(AWSSNSListSubscriptionsInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSListSubscriptionsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListSubscriptions service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listSubscriptions:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listSubscriptionsByTopic:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of the subscriptions to a specific topic. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a &lt;code&gt;NextToken&lt;/code&gt; is also returned. Use the &lt;code&gt;NextToken&lt;/code&gt; parameter in a new &lt;code&gt;ListSubscriptionsByTopic&lt;/code&gt; call to get further results.&lt;/p&gt;&lt;p&gt;This action is throttled at 30 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListSubscriptionsByTopicInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListSubscriptionsByTopicResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSListSubscriptionsByTopicResponse*&gt; *)listSubscriptionsByTopic:(AWSSNSListSubscriptionsByTopicInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListSubscriptionsByTopic service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSListSubscriptionsByTopicResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/listSubscriptionsByTopic:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listSubscriptionsByTopic:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of the subscriptions to a specific topic. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a &lt;code&gt;NextToken&lt;/code&gt; is also returned. Use the &lt;code&gt;NextToken&lt;/code&gt; parameter in a new &lt;code&gt;ListSubscriptionsByTopic&lt;/code&gt; call to get further results.&lt;/p&gt;&lt;p&gt;This action is throttled at 30 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListSubscriptionsByTopicInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListSubscriptionsByTopicResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listSubscriptionsByTopic:(AWSSNSListSubscriptionsByTopicInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSListSubscriptionsByTopicResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListSubscriptionsByTopic service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listSubscriptionsByTopic:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listTopics:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of the requester&apos;s topics. Each call returns a limited list of topics, up to 100. If there are more topics, a &lt;code&gt;NextToken&lt;/code&gt; is also returned. Use the &lt;code&gt;NextToken&lt;/code&gt; parameter in a new &lt;code&gt;ListTopics&lt;/code&gt; call to get further results.&lt;/p&gt;&lt;p&gt;This action is throttled at 30 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListTopicsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListTopicsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSListTopicsResponse*&gt; *)listTopics:(AWSSNSListTopicsInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListTopics service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSListTopicsResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/listTopics:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/listTopics:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of the requester&apos;s topics. Each call returns a limited list of topics, up to 100. If there are more topics, a &lt;code&gt;NextToken&lt;/code&gt; is also returned. Use the &lt;code&gt;NextToken&lt;/code&gt; parameter in a new &lt;code&gt;ListTopics&lt;/code&gt; call to get further results.&lt;/p&gt;&lt;p&gt;This action is throttled at 30 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListTopicsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListTopicsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listTopics:(AWSSNSListTopicsInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSListTopicsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListTopics service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listTopics:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/optInPhoneNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use this request to opt in a phone number that is opted out, which enables you to resume sending SMS messages to the number.&lt;/p&gt;&lt;p&gt;You can opt in a phone number only once every 30 days.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSOptInPhoneNumberInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSOptInPhoneNumberResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSOptInPhoneNumberResponse*&gt; *)optInPhoneNumber:(AWSSNSOptInPhoneNumberInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the OptInPhoneNumber service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSOptInPhoneNumberResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorThrottled, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorInvalidParameter.</Abstract></ReturnValue>
+			<Anchor>//api/name/optInPhoneNumber:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/optInPhoneNumber:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use this request to opt in a phone number that is opted out, which enables you to resume sending SMS messages to the number.&lt;/p&gt;&lt;p&gt;You can opt in a phone number only once every 30 days.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSOptInPhoneNumberInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSOptInPhoneNumberResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)optInPhoneNumber:(AWSSNSOptInPhoneNumberInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSOptInPhoneNumberResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the OptInPhoneNumber service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorThrottled, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorInvalidParameter.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/optInPhoneNumber:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/publish:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sends a message to an Amazon SNS topic or sends a text message (SMS message) directly to a phone number. &lt;/p&gt;&lt;p&gt;If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.&lt;/p&gt;&lt;p&gt;When a &lt;code&gt;messageId&lt;/code&gt; is returned, the message has been saved and Amazon SNS will attempt to deliver it shortly.&lt;/p&gt;&lt;p&gt;To use the &lt;code&gt;Publish&lt;/code&gt; action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the &lt;code&gt;CreatePlatformEndpoint&lt;/code&gt; action. &lt;/p&gt;&lt;p&gt;For more information about formatting messages, see Send Custom Platform-Specific Payloads in Messages to Mobile Devices. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSPublishInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSPublishResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSPublishResponse*&gt; *)publish:(AWSSNSPublishInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the Publish service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSPublishResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInvalidParameterValue, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorEndpointDisabled, AWSSNSErrorPlatformApplicationDisabled, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/publish:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/publish:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sends a message to an Amazon SNS topic or sends a text message (SMS message) directly to a phone number. &lt;/p&gt;&lt;p&gt;If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.&lt;/p&gt;&lt;p&gt;When a &lt;code&gt;messageId&lt;/code&gt; is returned, the message has been saved and Amazon SNS will attempt to deliver it shortly.&lt;/p&gt;&lt;p&gt;To use the &lt;code&gt;Publish&lt;/code&gt; action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the &lt;code&gt;CreatePlatformEndpoint&lt;/code&gt; action. &lt;/p&gt;&lt;p&gt;For more information about formatting messages, see Send Custom Platform-Specific Payloads in Messages to Mobile Devices. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSPublishInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSPublishResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)publish:(AWSSNSPublishInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSPublishResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the Publish service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInvalidParameterValue, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorEndpointDisabled, AWSSNSErrorPlatformApplicationDisabled, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/publish:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/removePermission:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes a statement from a topic&apos;s access control policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSRemovePermissionInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)removePermission:(AWSSNSRemovePermissionInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the RemovePermission service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/removePermission:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/removePermission:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes a statement from a topic&apos;s access control policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSRemovePermissionInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)removePermission:(AWSSNSRemovePermissionInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the RemovePermission service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removePermission:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setEndpointAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM and APNS. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetEndpointAttributesInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)setEndpointAttributes:(AWSSNSSetEndpointAttributesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetEndpointAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/setEndpointAttributes:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setEndpointAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM and APNS. For more information, see Using Amazon SNS Mobile Push Notifications. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetEndpointAttributesInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)setEndpointAttributes:(AWSSNSSetEndpointAttributesInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetEndpointAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setEndpointAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setPlatformApplicationAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see Using Amazon SNS Application Attributes for Message Delivery Status. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetPlatformApplicationAttributesInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)setPlatformApplicationAttributes:(AWSSNSSetPlatformApplicationAttributesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetPlatformApplicationAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/setPlatformApplicationAttributes:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setPlatformApplicationAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see Using Amazon SNS Application Attributes for Message Delivery Status. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetPlatformApplicationAttributesInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)setPlatformApplicationAttributes:(AWSSNSSetPlatformApplicationAttributesInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetPlatformApplicationAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setPlatformApplicationAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setSMSAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.&lt;/p&gt;&lt;p&gt;You can override some of these settings for a single message when you use the &lt;code&gt;Publish&lt;/code&gt; action with the &lt;code&gt;MessageAttributes.entry.N&lt;/code&gt; parameter. For more information, see Sending an SMS Message in the &lt;i&gt;Amazon SNS Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetSMSAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetSMSAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSSetSMSAttributesResponse*&gt; *)setSMSAttributes:(AWSSNSSetSMSAttributesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetSMSAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSSetSMSAttributesResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorThrottled, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/setSMSAttributes:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setSMSAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.&lt;/p&gt;&lt;p&gt;You can override some of these settings for a single message when you use the &lt;code&gt;Publish&lt;/code&gt; action with the &lt;code&gt;MessageAttributes.entry.N&lt;/code&gt; parameter. For more information, see Sending an SMS Message in the &lt;i&gt;Amazon SNS Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetSMSAttributesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetSMSAttributesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)setSMSAttributes:(AWSSNSSetSMSAttributesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSSetSMSAttributesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetSMSAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorThrottled, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setSMSAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setSubscriptionAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Allows a subscription owner to set an attribute of the subscription to a new value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetSubscriptionAttributesInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)setSubscriptionAttributes:(AWSSNSSetSubscriptionAttributesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetSubscriptionAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorFilterPolicyLimitExceeded, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/setSubscriptionAttributes:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setSubscriptionAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Allows a subscription owner to set an attribute of the subscription to a new value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetSubscriptionAttributesInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)setSubscriptionAttributes:(AWSSNSSetSubscriptionAttributesInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetSubscriptionAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorFilterPolicyLimitExceeded, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setSubscriptionAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setTopicAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Allows a topic owner to set an attribute of the topic to a new value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetTopicAttributesInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)setTopicAttributes:(AWSSNSSetTopicAttributesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetTopicAttributes service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/setTopicAttributes:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/setTopicAttributes:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Allows a topic owner to set an attribute of the topic to a new value.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSetTopicAttributesInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)setTopicAttributes:(AWSSNSSetTopicAttributesInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SetTopicAttributes service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/setTopicAttributes:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/subscribe:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Prepares to subscribe an endpoint by sending the endpoint a confirmation message. To actually create a subscription, the endpoint owner must call the &lt;code&gt;ConfirmSubscription&lt;/code&gt; action with the token from the confirmation message. Confirmation tokens are valid for three days.&lt;/p&gt;&lt;p&gt;This action is throttled at 100 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSubscribeInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSubscribeResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSSNSSubscribeResponse*&gt; *)subscribe:(AWSSNSSubscribeInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the Subscribe service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSSNSSubscribeResponse. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorSubscriptionLimitExceeded, AWSSNSErrorFilterPolicyLimitExceeded, AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract></ReturnValue>
+			<Anchor>//api/name/subscribe:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/subscribe:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Prepares to subscribe an endpoint by sending the endpoint a confirmation message. To actually create a subscription, the endpoint owner must call the &lt;code&gt;ConfirmSubscription&lt;/code&gt; action with the token from the confirmation message. Confirmation tokens are valid for three days.&lt;/p&gt;&lt;p&gt;This action is throttled at 100 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSubscribeInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSSubscribeResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)subscribe:(AWSSNSSubscribeInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSSNSSubscribeResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the Subscribe service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorSubscriptionLimitExceeded, AWSSNSErrorFilterPolicyLimitExceeded, AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorNotFound, AWSSNSErrorAuthorizationError.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/subscribe:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/unsubscribe:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic&apos;s owner can unsubscribe, and an AWS signature is required. If the &lt;code&gt;Unsubscribe&lt;/code&gt; call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the &lt;code&gt;Unsubscribe&lt;/code&gt; request was unintended.&lt;/p&gt;&lt;p&gt;This action is throttled at 100 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSUnsubscribeInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)unsubscribe:(AWSSNSUnsubscribeInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the Unsubscribe service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/unsubscribe:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNS/unsubscribe:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic&apos;s owner can unsubscribe, and an AWS signature is required. If the &lt;code&gt;Unsubscribe&lt;/code&gt; call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the &lt;code&gt;Unsubscribe&lt;/code&gt; request was unintended.&lt;/p&gt;&lt;p&gt;This action is throttled at 100 transactions per second (TPS).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSSNSUnsubscribeInput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)unsubscribe:(AWSSNSUnsubscribeInput *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the Unsubscribe service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSSNSErrorDomain domain and the following error code: AWSSNSErrorInvalidParameter, AWSSNSErrorInternalError, AWSSNSErrorAuthorizationError, AWSSNSErrorNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/unsubscribe:completionHandler:</Anchor>
+            <NodeRef refid="2199"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

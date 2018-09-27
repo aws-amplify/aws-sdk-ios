@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESBouncedRecipientInfo.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESBouncedRecipientInfo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Recipient-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.&lt;/p&gt;&lt;p&gt;For information about receiving email through Amazon SES, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [Recipient]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2034"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBouncedRecipientInfo/setBounceType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason for the bounce. You must provide either this parameter or &lt;code&gt;RecipientDsnFields&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESBounceType bounceType</Declaration>
+			
+			
+			<Anchor>//api/name/bounceType</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBouncedRecipientInfo/bounceType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason for the bounce. You must provide either this parameter or &lt;code&gt;RecipientDsnFields&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESBounceType bounceType</Declaration>
+			
+			
+			<Anchor>//api/name/bounceType</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESBouncedRecipientInfo/bounceType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The reason for the bounce. You must provide either this parameter or &lt;code&gt;RecipientDsnFields&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESBounceType bounceType</Declaration>
+			
+			
+			<Anchor>//api/name/bounceType</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBouncedRecipientInfo/setRecipient:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address of the recipient of the bounced email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recipient</Declaration>
+			
+			
+			<Anchor>//api/name/recipient</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBouncedRecipientInfo/recipient</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address of the recipient of the bounced email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recipient</Declaration>
+			
+			
+			<Anchor>//api/name/recipient</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESBouncedRecipientInfo/recipient</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address of the recipient of the bounced email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recipient</Declaration>
+			
+			
+			<Anchor>//api/name/recipient</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBouncedRecipientInfo/setRecipientArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recipientArn</Declaration>
+			
+			
+			<Anchor>//api/name/recipientArn</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBouncedRecipientInfo/recipientArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recipientArn</Declaration>
+			
+			
+			<Anchor>//api/name/recipientArn</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESBouncedRecipientInfo/recipientArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the Amazon SES Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *recipientArn</Declaration>
+			
+			
+			<Anchor>//api/name/recipientArn</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBouncedRecipientInfo/setRecipientDsnFields:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a &lt;code&gt;BounceType&lt;/code&gt;. You must provide either this parameter or &lt;code&gt;BounceType&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESRecipientDsnFields *recipientDsnFields</Declaration>
+			
+			
+			<Anchor>//api/name/recipientDsnFields</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBouncedRecipientInfo/recipientDsnFields</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a &lt;code&gt;BounceType&lt;/code&gt;. You must provide either this parameter or &lt;code&gt;BounceType&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESRecipientDsnFields *recipientDsnFields</Declaration>
+			
+			
+			<Anchor>//api/name/recipientDsnFields</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESBouncedRecipientInfo/recipientDsnFields</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a &lt;code&gt;BounceType&lt;/code&gt;. You must provide either this parameter or &lt;code&gt;BounceType&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESRecipientDsnFields *recipientDsnFields</Declaration>
+			
+			
+			<Anchor>//api/name/recipientDsnFields</Anchor>
+            <NodeRef refid="2034"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

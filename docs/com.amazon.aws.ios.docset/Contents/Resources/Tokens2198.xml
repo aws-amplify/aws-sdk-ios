@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESWorkmailAction.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESWorkmailAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). You will typically not use this action directly because Amazon WorkMail adds the rule automatically during its setup procedure.&lt;/p&gt;&lt;p&gt;For information using a receipt rule to call Amazon WorkMail, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [OrganizationArn]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2198"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESWorkmailAction/setOrganizationArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is &lt;code&gt;arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7&lt;/code&gt;. For information about Amazon WorkMail organizations, see the Amazon WorkMail Administrator Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *organizationArn</Declaration>
+			
+			
+			<Anchor>//api/name/organizationArn</Anchor>
+            <NodeRef refid="2198"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESWorkmailAction/organizationArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is &lt;code&gt;arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7&lt;/code&gt;. For information about Amazon WorkMail organizations, see the Amazon WorkMail Administrator Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *organizationArn</Declaration>
+			
+			
+			<Anchor>//api/name/organizationArn</Anchor>
+            <NodeRef refid="2198"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESWorkmailAction/organizationArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is &lt;code&gt;arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7&lt;/code&gt;. For information about Amazon WorkMail organizations, see the Amazon WorkMail Administrator Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *organizationArn</Declaration>
+			
+			
+			<Anchor>//api/name/organizationArn</Anchor>
+            <NodeRef refid="2198"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESWorkmailAction/setTopicArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2198"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESWorkmailAction/topicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2198"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESWorkmailAction/topicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is &lt;code&gt;arn:aws:sns:us-west-2:123456789012:MyTopic&lt;/code&gt;. For more information about Amazon SNS topics, see the Amazon SNS Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2198"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

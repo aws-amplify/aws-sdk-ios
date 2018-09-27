@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoRecordValue.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoRecordValue</TokenIdentifier>
+			<Abstract type="html">An object that encapsulates the record value.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+            
+			
+			<NodeRef refid="473"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordValue/setType:</TokenIdentifier>
+			<Abstract type="html">The type of the record value.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSCognitoRecordValueType type</Declaration>
+			
+			
+			<Anchor>//api/name/type</Anchor>
+            <NodeRef refid="473"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordValue/type</TokenIdentifier>
+			<Abstract type="html">The type of the record value.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSCognitoRecordValueType type</Declaration>
+			
+			
+			<Anchor>//api/name/type</Anchor>
+            <NodeRef refid="473"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoRecordValue/type</TokenIdentifier>
+			<Abstract type="html">The type of the record value.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, readonly) AWSCognitoRecordValueType type</Declaration>
+			
+			
+			<Anchor>//api/name/type</Anchor>
+            <NodeRef refid="473"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordValue/initWithString:</TokenIdentifier>
+			<Abstract type="html">Initializes a AWSCognitoRecordValue with the given string value.
+The type property is automatically set to AWSCognitoRecordValueTypeString.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithString:(NSString *)value</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>value</Name>
+					<Abstract type="html">The string value of the AWSCognitoRecordValue.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">The initialized instance</Abstract></ReturnValue>
+			<Anchor>//api/name/initWithString:</Anchor>
+            <NodeRef refid="473"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoRecordValue/string</TokenIdentifier>
+			<Abstract type="html">Returns the string value.</Abstract>
+			<DeclaredIn>AWSCognitoRecord.h</DeclaredIn>
+			
+			<Declaration>- (NSString *)string</Declaration>
+			
+			<ReturnValue><Abstract type="html">The string value stored by the record value object.</Abstract></ReturnValue>
+			<Anchor>//api/name/string</Anchor>
+            <NodeRef refid="473"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

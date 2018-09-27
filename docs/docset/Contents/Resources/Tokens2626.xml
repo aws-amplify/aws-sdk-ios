@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSRekognitionFaceAttributes.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSRekognitionFaceAttributes</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2626"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionFaceAttributesUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionFaceAttributesUnknown</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2626"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionFaceAttributesDefault</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionFaceAttributesDefault</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2626"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionFaceAttributesAll</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionFaceAttributesAll</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2626"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPolly.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPolly</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Amazon Polly is a web service that makes it easy to synthesize speech from text.&lt;/p&gt;&lt;p&gt;The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1639"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPolly/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPolly/defaultPolly</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultPolly</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultPolly</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPolly/registerPollyWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerPollyWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerPollyWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPolly/PollyForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerPollyWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)PollyForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/PollyForKey:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSPolly/removePollyForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+			<Declaration>+ (void)removePollyForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removePollyForKey:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/deleteLexicon:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the &lt;code&gt;GetLexicon&lt;/code&gt; or &lt;code&gt;ListLexicon&lt;/code&gt; APIs.&lt;/p&gt;&lt;p&gt;For more information, see Managing Lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyDeleteLexiconInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyDeleteLexiconOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPollyDeleteLexiconOutput*&gt; *)deleteLexicon:(AWSPollyDeleteLexiconInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteLexicon service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPollyDeleteLexiconOutput. On failed execution, task.error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorLexiconNotFound, AWSPollyErrorServiceFailure.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteLexicon:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/deleteLexicon:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified pronunciation lexicon stored in an AWS Region. A lexicon which has been deleted is not available for speech synthesis, nor is it possible to retrieve it using either the &lt;code&gt;GetLexicon&lt;/code&gt; or &lt;code&gt;ListLexicon&lt;/code&gt; APIs.&lt;/p&gt;&lt;p&gt;For more information, see Managing Lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyDeleteLexiconInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyDeleteLexiconOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteLexicon:(AWSPollyDeleteLexiconInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSPollyDeleteLexiconOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteLexicon service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorLexiconNotFound, AWSPollyErrorServiceFailure.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteLexicon:completionHandler:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/describeVoices:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the list of voices that are available for use when requesting speech synthesis. Each voice speaks a specified language, is either male or female, and is identified by an ID, which is the ASCII version of the voice name. &lt;/p&gt;&lt;p&gt;When synthesizing speech ( &lt;code&gt;SynthesizeSpeech&lt;/code&gt; ), you provide the voice ID for the voice you want from the list of voices returned by &lt;code&gt;DescribeVoices&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;For example, you want your news reader application to read news in a specific language, but giving a user the option to choose the voice. Using the &lt;code&gt;DescribeVoices&lt;/code&gt; operation you can provide the user with a list of available voices to select from.&lt;/p&gt;&lt;p&gt; You can optionally specify a language code to filter the available voices. For example, if you specify &lt;code&gt;en-US&lt;/code&gt;, the operation returns a list of all available US English voices. &lt;/p&gt;&lt;p&gt;This operation requires permissions to perform the &lt;code&gt;polly:DescribeVoices&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyDescribeVoicesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyDescribeVoicesOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPollyDescribeVoicesOutput*&gt; *)describeVoices:(AWSPollyDescribeVoicesInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeVoices service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPollyDescribeVoicesOutput. On failed execution, task.error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorInvalidNextToken, AWSPollyErrorServiceFailure.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeVoices:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/describeVoices:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the list of voices that are available for use when requesting speech synthesis. Each voice speaks a specified language, is either male or female, and is identified by an ID, which is the ASCII version of the voice name. &lt;/p&gt;&lt;p&gt;When synthesizing speech ( &lt;code&gt;SynthesizeSpeech&lt;/code&gt; ), you provide the voice ID for the voice you want from the list of voices returned by &lt;code&gt;DescribeVoices&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;For example, you want your news reader application to read news in a specific language, but giving a user the option to choose the voice. Using the &lt;code&gt;DescribeVoices&lt;/code&gt; operation you can provide the user with a list of available voices to select from.&lt;/p&gt;&lt;p&gt; You can optionally specify a language code to filter the available voices. For example, if you specify &lt;code&gt;en-US&lt;/code&gt;, the operation returns a list of all available US English voices. &lt;/p&gt;&lt;p&gt;This operation requires permissions to perform the &lt;code&gt;polly:DescribeVoices&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyDescribeVoicesInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyDescribeVoicesOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeVoices:(AWSPollyDescribeVoicesInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSPollyDescribeVoicesOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeVoices service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorInvalidNextToken, AWSPollyErrorServiceFailure.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeVoices:completionHandler:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/getLexicon:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see Managing Lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyGetLexiconInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyGetLexiconOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPollyGetLexiconOutput*&gt; *)getLexicon:(AWSPollyGetLexiconInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetLexicon service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPollyGetLexiconOutput. On failed execution, task.error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorLexiconNotFound, AWSPollyErrorServiceFailure.</Abstract></ReturnValue>
+			<Anchor>//api/name/getLexicon:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/getLexicon:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the content of the specified pronunciation lexicon stored in an AWS Region. For more information, see Managing Lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyGetLexiconInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyGetLexiconOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getLexicon:(AWSPollyGetLexiconInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSPollyGetLexiconOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetLexicon service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorLexiconNotFound, AWSPollyErrorServiceFailure.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getLexicon:completionHandler:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/getSpeechSynthesisTask:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyGetSpeechSynthesisTaskInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyGetSpeechSynthesisTaskOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPollyGetSpeechSynthesisTaskOutput*&gt; *)getSpeechSynthesisTask:(AWSPollyGetSpeechSynthesisTaskInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSpeechSynthesisTask service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPollyGetSpeechSynthesisTaskOutput. On failed execution, task.error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorInvalidTaskId, AWSPollyErrorServiceFailure, AWSPollyErrorSynthesisTaskNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/getSpeechSynthesisTask:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/getSpeechSynthesisTask:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyGetSpeechSynthesisTaskInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyGetSpeechSynthesisTaskOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getSpeechSynthesisTask:(AWSPollyGetSpeechSynthesisTaskInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSPollyGetSpeechSynthesisTaskOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetSpeechSynthesisTask service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorInvalidTaskId, AWSPollyErrorServiceFailure, AWSPollyErrorSynthesisTaskNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSpeechSynthesisTask:completionHandler:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/listLexicons:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see Managing Lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListLexiconsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListLexiconsOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPollyListLexiconsOutput*&gt; *)listLexicons:(AWSPollyListLexiconsInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListLexicons service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPollyListLexiconsOutput. On failed execution, task.error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorInvalidNextToken, AWSPollyErrorServiceFailure.</Abstract></ReturnValue>
+			<Anchor>//api/name/listLexicons:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/listLexicons:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see Managing Lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListLexiconsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListLexiconsOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listLexicons:(AWSPollyListLexiconsInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSPollyListLexiconsOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListLexicons service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorInvalidNextToken, AWSPollyErrorServiceFailure.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listLexicons:completionHandler:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/listSpeechSynthesisTasks:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListSpeechSynthesisTasksInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListSpeechSynthesisTasksOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPollyListSpeechSynthesisTasksOutput*&gt; *)listSpeechSynthesisTasks:(AWSPollyListSpeechSynthesisTasksInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListSpeechSynthesisTasks service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPollyListSpeechSynthesisTasksOutput. On failed execution, task.error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorInvalidNextToken, AWSPollyErrorServiceFailure.</Abstract></ReturnValue>
+			<Anchor>//api/name/listSpeechSynthesisTasks:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/listSpeechSynthesisTasks:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListSpeechSynthesisTasksInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListSpeechSynthesisTasksOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listSpeechSynthesisTasks:(AWSPollyListSpeechSynthesisTasksInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSPollyListSpeechSynthesisTasksOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListSpeechSynthesisTasks service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorInvalidNextToken, AWSPollyErrorServiceFailure.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listSpeechSynthesisTasks:completionHandler:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/putLexicon:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.&lt;/p&gt;&lt;p&gt;For more information, see Managing Lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyPutLexiconInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyPutLexiconOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPollyPutLexiconOutput*&gt; *)putLexicon:(AWSPollyPutLexiconInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutLexicon service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPollyPutLexiconOutput. On failed execution, task.error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorInvalidLexicon, AWSPollyErrorUnsupportedPlsAlphabet, AWSPollyErrorUnsupportedPlsLanguage, AWSPollyErrorLexiconSizeExceeded, AWSPollyErrorMaxLexemeLengthExceeded, AWSPollyErrorMaxLexiconsNumberExceeded, AWSPollyErrorServiceFailure.</Abstract></ReturnValue>
+			<Anchor>//api/name/putLexicon:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/putLexicon:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.&lt;/p&gt;&lt;p&gt;For more information, see Managing Lexicons.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyPutLexiconInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyPutLexiconOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putLexicon:(AWSPollyPutLexiconInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSPollyPutLexiconOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutLexicon service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorInvalidLexicon, AWSPollyErrorUnsupportedPlsAlphabet, AWSPollyErrorUnsupportedPlsLanguage, AWSPollyErrorLexiconSizeExceeded, AWSPollyErrorMaxLexemeLengthExceeded, AWSPollyErrorMaxLexiconsNumberExceeded, AWSPollyErrorServiceFailure.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putLexicon:completionHandler:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/startSpeechSynthesisTask:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Allows the creation of an asynchronous synthesis task, by starting a new &lt;code&gt;SpeechSynthesisTask&lt;/code&gt;. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyStartSpeechSynthesisTaskInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyStartSpeechSynthesisTaskOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPollyStartSpeechSynthesisTaskOutput*&gt; *)startSpeechSynthesisTask:(AWSPollyStartSpeechSynthesisTaskInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the StartSpeechSynthesisTask service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPollyStartSpeechSynthesisTaskOutput. On failed execution, task.error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorTextLengthExceeded, AWSPollyErrorInvalidS3Bucket, AWSPollyErrorInvalidS3Key, AWSPollyErrorInvalidSampleRate, AWSPollyErrorInvalidSnsTopicArn, AWSPollyErrorInvalidSsml, AWSPollyErrorLexiconNotFound, AWSPollyErrorServiceFailure, AWSPollyErrorMarksNotSupportedForFormat, AWSPollyErrorSsmlMarksNotSupportedForTextType, AWSPollyErrorLanguageNotSupported.</Abstract></ReturnValue>
+			<Anchor>//api/name/startSpeechSynthesisTask:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/startSpeechSynthesisTask:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Allows the creation of an asynchronous synthesis task, by starting a new &lt;code&gt;SpeechSynthesisTask&lt;/code&gt;. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyStartSpeechSynthesisTaskInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollyStartSpeechSynthesisTaskOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)startSpeechSynthesisTask:(AWSPollyStartSpeechSynthesisTaskInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSPollyStartSpeechSynthesisTaskOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the StartSpeechSynthesisTask service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorTextLengthExceeded, AWSPollyErrorInvalidS3Bucket, AWSPollyErrorInvalidS3Key, AWSPollyErrorInvalidSampleRate, AWSPollyErrorInvalidSnsTopicArn, AWSPollyErrorInvalidSsml, AWSPollyErrorLexiconNotFound, AWSPollyErrorServiceFailure, AWSPollyErrorMarksNotSupportedForFormat, AWSPollyErrorSsmlMarksNotSupportedForTextType, AWSPollyErrorLanguageNotSupported.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/startSpeechSynthesisTask:completionHandler:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/synthesizeSpeech:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see How it Works.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollySynthesizeSpeechInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollySynthesizeSpeechOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSPollySynthesizeSpeechOutput*&gt; *)synthesizeSpeech:(AWSPollySynthesizeSpeechInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SynthesizeSpeech service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSPollySynthesizeSpeechOutput. On failed execution, task.error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorTextLengthExceeded, AWSPollyErrorInvalidSampleRate, AWSPollyErrorInvalidSsml, AWSPollyErrorLexiconNotFound, AWSPollyErrorServiceFailure, AWSPollyErrorMarksNotSupportedForFormat, AWSPollyErrorSsmlMarksNotSupportedForTextType, AWSPollyErrorLanguageNotSupported.</Abstract></ReturnValue>
+			<Anchor>//api/name/synthesizeSpeech:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPolly/synthesizeSpeech:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see How it Works.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollySynthesizeSpeechInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSPollySynthesizeSpeechOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)synthesizeSpeech:(AWSPollySynthesizeSpeechInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSPollySynthesizeSpeechOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the SynthesizeSpeech service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSPollyErrorDomain domain and the following error code: AWSPollyErrorTextLengthExceeded, AWSPollyErrorInvalidSampleRate, AWSPollyErrorInvalidSsml, AWSPollyErrorLexiconNotFound, AWSPollyErrorServiceFailure, AWSPollyErrorMarksNotSupportedForFormat, AWSPollyErrorSsmlMarksNotSupportedForTextType, AWSPollyErrorLanguageNotSupported.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/synthesizeSpeech:completionHandler:</Anchor>
+            <NodeRef refid="1639"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

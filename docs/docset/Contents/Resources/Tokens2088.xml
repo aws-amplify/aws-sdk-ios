@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESEventDestination.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESEventDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains information about the event destination that the specified email sending events will be published to.&lt;/p&gt;&lt;note&gt;&lt;p&gt;When you create or update an event destination, you must provide one, and only one, destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose or Amazon Simple Notification Service (Amazon SNS).&lt;/p&gt;&lt;/note&gt;&lt;p&gt;Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [Name, MatchingEventTypes]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2088"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/setCloudWatchDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESCloudWatchDestination *cloudWatchDestination</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchDestination</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/cloudWatchDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESCloudWatchDestination *cloudWatchDestination</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchDestination</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESEventDestination/cloudWatchDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESCloudWatchDestination *cloudWatchDestination</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchDestination</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/setEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to &lt;code&gt;true&lt;/code&gt; to enable publishing to this destination; set to &lt;code&gt;false&lt;/code&gt; to prevent publishing to this destination. The default value is &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to &lt;code&gt;true&lt;/code&gt; to enable publishing to this destination; set to &lt;code&gt;false&lt;/code&gt; to prevent publishing to this destination. The default value is &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESEventDestination/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to &lt;code&gt;true&lt;/code&gt; to enable publishing to this destination; set to &lt;code&gt;false&lt;/code&gt; to prevent publishing to this destination. The default value is &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/setKinesisFirehoseDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESKinesisFirehoseDestination *kinesisFirehoseDestination</Declaration>
+			
+			
+			<Anchor>//api/name/kinesisFirehoseDestination</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/kinesisFirehoseDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESKinesisFirehoseDestination *kinesisFirehoseDestination</Declaration>
+			
+			
+			<Anchor>//api/name/kinesisFirehoseDestination</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESEventDestination/kinesisFirehoseDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESKinesisFirehoseDestination *kinesisFirehoseDestination</Declaration>
+			
+			
+			<Anchor>//api/name/kinesisFirehoseDestination</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/setMatchingEventTypes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of email sending events to publish to the event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *matchingEventTypes</Declaration>
+			
+			
+			<Anchor>//api/name/matchingEventTypes</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/matchingEventTypes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of email sending events to publish to the event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *matchingEventTypes</Declaration>
+			
+			
+			<Anchor>//api/name/matchingEventTypes</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESEventDestination/matchingEventTypes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of email sending events to publish to the event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *matchingEventTypes</Declaration>
+			
+			
+			<Anchor>//api/name/matchingEventTypes</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the event destination. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the event destination. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESEventDestination/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the event destination. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/setSNSDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESSNSDestination *SNSDestination</Declaration>
+			
+			
+			<Anchor>//api/name/SNSDestination</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESEventDestination/SNSDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESSNSDestination *SNSDestination</Declaration>
+			
+			
+			<Anchor>//api/name/SNSDestination</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESEventDestination/SNSDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESSNSDestination *SNSDestination</Declaration>
+			
+			
+			<Anchor>//api/name/SNSDestination</Anchor>
+            <NodeRef refid="2088"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

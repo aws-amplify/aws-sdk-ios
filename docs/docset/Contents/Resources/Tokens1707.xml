@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionFaceRecord.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionFaceRecord</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Object containing both the face metadata (stored in the back-end database) and facial attributes that are detected but aren&apos;t stored in the database.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1707"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceRecord/setFace:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFace *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1707"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceRecord/face</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFace *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1707"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceRecord/face</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the face properties such as the bounding box, face ID, image ID of the input image, and external image ID that you assigned. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFace *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1707"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceRecord/setFaceDetail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Structure containing attributes of the face that the algorithm detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFaceDetail *faceDetail</Declaration>
+			
+			
+			<Anchor>//api/name/faceDetail</Anchor>
+            <NodeRef refid="1707"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionFaceRecord/faceDetail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Structure containing attributes of the face that the algorithm detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFaceDetail *faceDetail</Declaration>
+			
+			
+			<Anchor>//api/name/faceDetail</Anchor>
+            <NodeRef refid="1707"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionFaceRecord/faceDetail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Structure containing attributes of the face that the algorithm detected.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionFaceDetail *faceDetail</Declaration>
+			
+			
+			<Anchor>//api/name/faceDetail</Anchor>
+            <NodeRef refid="1707"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

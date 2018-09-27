@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityPasswordAuthenticationInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityPasswordAuthenticationInput</TokenIdentifier>
+			<Abstract type="html">When interactive sign in is initiated, this encapsulates the last known username</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+            
+			
+			<NodeRef refid="214"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

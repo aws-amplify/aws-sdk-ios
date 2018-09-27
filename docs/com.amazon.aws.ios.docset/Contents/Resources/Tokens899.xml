@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTCreateThingRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTCreateThingRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input for the CreateThing operation.&lt;/p&gt;
+Required parameters: [thingName]</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="899"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateThingRequest/setAttributePayload:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;string2\&quot;}}&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTAttributePayload *attributePayload</Declaration>
+			
+			
+			<Anchor>//api/name/attributePayload</Anchor>
+            <NodeRef refid="899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateThingRequest/attributePayload</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;string2\&quot;}}&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTAttributePayload *attributePayload</Declaration>
+			
+			
+			<Anchor>//api/name/attributePayload</Anchor>
+            <NodeRef refid="899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateThingRequest/attributePayload</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The attribute payload, which consists of up to three name/value pairs in a JSON document. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt;{\&quot;attributes\&quot;:{\&quot;string1\&quot;:\&quot;string2\&quot;}}&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTAttributePayload *attributePayload</Declaration>
+			
+			
+			<Anchor>//api/name/attributePayload</Anchor>
+            <NodeRef refid="899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateThingRequest/setThingName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing to create.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingName</Declaration>
+			
+			
+			<Anchor>//api/name/thingName</Anchor>
+            <NodeRef refid="899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateThingRequest/thingName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing to create.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingName</Declaration>
+			
+			
+			<Anchor>//api/name/thingName</Anchor>
+            <NodeRef refid="899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateThingRequest/thingName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing to create.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingName</Declaration>
+			
+			
+			<Anchor>//api/name/thingName</Anchor>
+            <NodeRef refid="899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateThingRequest/setThingTypeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing type associated with the new thing.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeName</Anchor>
+            <NodeRef refid="899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateThingRequest/thingTypeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing type associated with the new thing.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeName</Anchor>
+            <NodeRef refid="899"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateThingRequest/thingTypeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the thing type associated with the new thing.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *thingTypeName</Declaration>
+			
+			
+			<Anchor>//api/name/thingTypeName</Anchor>
+            <NodeRef refid="899"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

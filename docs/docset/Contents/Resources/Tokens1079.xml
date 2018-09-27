@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTLogTargetConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTLogTargetConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The target configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1079"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTLogTargetConfiguration/setLogLevel:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The logging level.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTLogLevel logLevel</Declaration>
+			
+			
+			<Anchor>//api/name/logLevel</Anchor>
+            <NodeRef refid="1079"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTLogTargetConfiguration/logLevel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The logging level.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTLogLevel logLevel</Declaration>
+			
+			
+			<Anchor>//api/name/logLevel</Anchor>
+            <NodeRef refid="1079"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTLogTargetConfiguration/logLevel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The logging level.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTLogLevel logLevel</Declaration>
+			
+			
+			<Anchor>//api/name/logLevel</Anchor>
+            <NodeRef refid="1079"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTLogTargetConfiguration/setLogTarget:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A log target&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTLogTarget *logTarget</Declaration>
+			
+			
+			<Anchor>//api/name/logTarget</Anchor>
+            <NodeRef refid="1079"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTLogTargetConfiguration/logTarget</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A log target&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTLogTarget *logTarget</Declaration>
+			
+			
+			<Anchor>//api/name/logTarget</Anchor>
+            <NodeRef refid="1079"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTLogTargetConfiguration/logTarget</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A log target&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSIoTLogTarget *logTarget</Declaration>
+			
+			
+			<Anchor>//api/name/logTarget</Anchor>
+            <NodeRef refid="1079"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

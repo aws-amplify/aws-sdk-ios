@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionStartFaceSearchRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionStartFaceSearchRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1764"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/setClientRequestToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Idempotent token used to identify the start request. If you use the same token with multiple &lt;code&gt;StartFaceSearch&lt;/code&gt; requests, the same &lt;code&gt;JobId&lt;/code&gt; is returned. Use &lt;code&gt;ClientRequestToken&lt;/code&gt; to prevent the same job from being accidently started more than once. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientRequestToken</Declaration>
+			
+			
+			<Anchor>//api/name/clientRequestToken</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/clientRequestToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Idempotent token used to identify the start request. If you use the same token with multiple &lt;code&gt;StartFaceSearch&lt;/code&gt; requests, the same &lt;code&gt;JobId&lt;/code&gt; is returned. Use &lt;code&gt;ClientRequestToken&lt;/code&gt; to prevent the same job from being accidently started more than once. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientRequestToken</Declaration>
+			
+			
+			<Anchor>//api/name/clientRequestToken</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartFaceSearchRequest/clientRequestToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Idempotent token used to identify the start request. If you use the same token with multiple &lt;code&gt;StartFaceSearch&lt;/code&gt; requests, the same &lt;code&gt;JobId&lt;/code&gt; is returned. Use &lt;code&gt;ClientRequestToken&lt;/code&gt; to prevent the same job from being accidently started more than once. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientRequestToken</Declaration>
+			
+			
+			<Anchor>//api/name/clientRequestToken</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/setCollectionId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the collection that contains the faces you want to search for.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/collectionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the collection that contains the faces you want to search for.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartFaceSearchRequest/collectionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID of the collection that contains the faces you want to search for.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/setEnablePersonTracking:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enablePersonTracking</Declaration>
+			
+			
+			<Anchor>//api/name/enablePersonTracking</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/enablePersonTracking</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enablePersonTracking</Declaration>
+			
+			
+			<Anchor>//api/name/enablePersonTracking</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartFaceSearchRequest/enablePersonTracking</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enablePersonTracking</Declaration>
+			
+			
+			<Anchor>//api/name/enablePersonTracking</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/setFaceMatchThreshold:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum confidence in the person match to return. For example, don&apos;t return any matches where confidence in matches is less than 70%. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *faceMatchThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/faceMatchThreshold</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/faceMatchThreshold</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum confidence in the person match to return. For example, don&apos;t return any matches where confidence in matches is less than 70%. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *faceMatchThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/faceMatchThreshold</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartFaceSearchRequest/faceMatchThreshold</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum confidence in the person match to return. For example, don&apos;t return any matches where confidence in matches is less than 70%. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *faceMatchThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/faceMatchThreshold</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/setJobTag:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobTag</Declaration>
+			
+			
+			<Anchor>//api/name/jobTag</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/jobTag</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobTag</Declaration>
+			
+			
+			<Anchor>//api/name/jobTag</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartFaceSearchRequest/jobTag</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobTag</Declaration>
+			
+			
+			<Anchor>//api/name/jobTag</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/setNotificationChannel:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionNotificationChannel *notificationChannel</Declaration>
+			
+			
+			<Anchor>//api/name/notificationChannel</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/notificationChannel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionNotificationChannel *notificationChannel</Declaration>
+			
+			
+			<Anchor>//api/name/notificationChannel</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartFaceSearchRequest/notificationChannel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionNotificationChannel *notificationChannel</Declaration>
+			
+			
+			<Anchor>//api/name/notificationChannel</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/setVideo:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The video you want to search. The video must be stored in an Amazon S3 bucket. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideo *video</Declaration>
+			
+			
+			<Anchor>//api/name/video</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceSearchRequest/video</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The video you want to search. The video must be stored in an Amazon S3 bucket. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideo *video</Declaration>
+			
+			
+			<Anchor>//api/name/video</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartFaceSearchRequest/video</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The video you want to search. The video must be stored in an Amazon S3 bucket. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideo *video</Declaration>
+			
+			
+			<Anchor>//api/name/video</Anchor>
+            <NodeRef refid="1764"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

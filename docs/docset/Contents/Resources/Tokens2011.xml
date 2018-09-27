@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3TopicConfigurationDeprecated.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3TopicConfigurationDeprecated</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2011"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TopicConfigurationDeprecated/setEvent:</TokenIdentifier>
+			<Abstract type="html">Bucket event for which to send notifications.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Event event</Declaration>
+			
+			
+			<Anchor>//api/name/event</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TopicConfigurationDeprecated/event</TokenIdentifier>
+			<Abstract type="html">Bucket event for which to send notifications.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Event event</Declaration>
+			
+			
+			<Anchor>//api/name/event</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3TopicConfigurationDeprecated/event</TokenIdentifier>
+			<Abstract type="html">Bucket event for which to send notifications.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Event event</Declaration>
+			
+			
+			<Anchor>//api/name/event</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TopicConfigurationDeprecated/setEvents:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TopicConfigurationDeprecated/events</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3TopicConfigurationDeprecated/events</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TopicConfigurationDeprecated/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">Optional unique identifier for configurations in a notification configuration. If you don&apos;t provide one, Amazon S3 will assign an ID.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TopicConfigurationDeprecated/identifier</TokenIdentifier>
+			<Abstract type="html">Optional unique identifier for configurations in a notification configuration. If you don&apos;t provide one, Amazon S3 will assign an ID.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3TopicConfigurationDeprecated/identifier</TokenIdentifier>
+			<Abstract type="html">Optional unique identifier for configurations in a notification configuration. If you don&apos;t provide one, Amazon S3 will assign an ID.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TopicConfigurationDeprecated/setTopic:</TokenIdentifier>
+			<Abstract type="html">Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topic</Declaration>
+			
+			
+			<Anchor>//api/name/topic</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TopicConfigurationDeprecated/topic</TokenIdentifier>
+			<Abstract type="html">Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topic</Declaration>
+			
+			
+			<Anchor>//api/name/topic</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3TopicConfigurationDeprecated/topic</TokenIdentifier>
+			<Abstract type="html">Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topic</Declaration>
+			
+			
+			<Anchor>//api/name/topic</Anchor>
+            <NodeRef refid="2011"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

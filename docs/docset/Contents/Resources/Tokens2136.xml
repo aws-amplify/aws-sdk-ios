@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESReceiptIpFilter.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESReceiptIpFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.&lt;/p&gt;&lt;p&gt;For information about setting up IP address filters, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [Policy, Cidr]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2136"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptIpFilter/setCidr:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see &lt;a href=&quot;https://tools.ietf.org/html/rfc2317&quot;&gt;RFC 2317&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cidr</Declaration>
+			
+			
+			<Anchor>//api/name/cidr</Anchor>
+            <NodeRef refid="2136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptIpFilter/cidr</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see &lt;a href=&quot;https://tools.ietf.org/html/rfc2317&quot;&gt;RFC 2317&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cidr</Declaration>
+			
+			
+			<Anchor>//api/name/cidr</Anchor>
+            <NodeRef refid="2136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptIpFilter/cidr</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see &lt;a href=&quot;https://tools.ietf.org/html/rfc2317&quot;&gt;RFC 2317&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *cidr</Declaration>
+			
+			
+			<Anchor>//api/name/cidr</Anchor>
+            <NodeRef refid="2136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptIpFilter/setPolicy:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether to block or allow incoming mail from the specified IP addresses.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESReceiptFilterPolicy policy</Declaration>
+			
+			
+			<Anchor>//api/name/policy</Anchor>
+            <NodeRef refid="2136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESReceiptIpFilter/policy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether to block or allow incoming mail from the specified IP addresses.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESReceiptFilterPolicy policy</Declaration>
+			
+			
+			<Anchor>//api/name/policy</Anchor>
+            <NodeRef refid="2136"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESReceiptIpFilter/policy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether to block or allow incoming mail from the specified IP addresses.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESReceiptFilterPolicy policy</Declaration>
+			
+			
+			<Anchor>//api/name/policy</Anchor>
+            <NodeRef refid="2136"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

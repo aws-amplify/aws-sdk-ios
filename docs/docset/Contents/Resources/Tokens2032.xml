@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESBody.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESBody</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the body of the message. You can specify text, HTML, or both. If you use both, then the message should display correctly in the widest variety of email clients.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2032"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBody/setHtml:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESContent *html</Declaration>
+			
+			
+			<Anchor>//api/name/html</Anchor>
+            <NodeRef refid="2032"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBody/html</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESContent *html</Declaration>
+			
+			
+			<Anchor>//api/name/html</Anchor>
+            <NodeRef refid="2032"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESBody/html</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESContent *html</Declaration>
+			
+			
+			<Anchor>//api/name/html</Anchor>
+            <NodeRef refid="2032"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBody/setText:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESContent *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="2032"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESBody/text</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESContent *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="2032"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESBody/text</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESContent *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="2032"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

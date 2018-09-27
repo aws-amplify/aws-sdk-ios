@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionPoint.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionPoint</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The X and Y coordinates of a point on an image. The X and Y values returned are ratios of the overall image size. For example, if the input image is 700x200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.&lt;/p&gt;&lt;p&gt;An array of &lt;code&gt;Point&lt;/code&gt; objects, &lt;code&gt;Polygon&lt;/code&gt;, is returned by . &lt;code&gt;Polygon&lt;/code&gt; represents a fine-grained polygon around detected text. For more information, see Geometry in the Amazon Rekognition Developer Guide. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1747"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPoint/setX:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the X coordinate for a point on a &lt;code&gt;Polygon&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *X</Declaration>
+			
+			
+			<Anchor>//api/name/X</Anchor>
+            <NodeRef refid="1747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPoint/X</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the X coordinate for a point on a &lt;code&gt;Polygon&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *X</Declaration>
+			
+			
+			<Anchor>//api/name/X</Anchor>
+            <NodeRef refid="1747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionPoint/X</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the X coordinate for a point on a &lt;code&gt;Polygon&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *X</Declaration>
+			
+			
+			<Anchor>//api/name/X</Anchor>
+            <NodeRef refid="1747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPoint/setY:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the Y coordinate for a point on a &lt;code&gt;Polygon&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *Y</Declaration>
+			
+			
+			<Anchor>//api/name/Y</Anchor>
+            <NodeRef refid="1747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPoint/Y</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the Y coordinate for a point on a &lt;code&gt;Polygon&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *Y</Declaration>
+			
+			
+			<Anchor>//api/name/Y</Anchor>
+            <NodeRef refid="1747"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionPoint/Y</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value of the Y coordinate for a point on a &lt;code&gt;Polygon&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *Y</Declaration>
+			
+			
+			<Anchor>//api/name/Y</Anchor>
+            <NodeRef refid="1747"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

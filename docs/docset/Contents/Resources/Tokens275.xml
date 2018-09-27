@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderChallengeResponseType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderChallengeResponseType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge response type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="275"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderChallengeResponseType/setChallengeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge name&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeName challengeName</Declaration>
+			
+			
+			<Anchor>//api/name/challengeName</Anchor>
+            <NodeRef refid="275"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderChallengeResponseType/challengeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge name&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeName challengeName</Declaration>
+			
+			
+			<Anchor>//api/name/challengeName</Anchor>
+            <NodeRef refid="275"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderChallengeResponseType/challengeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge name&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeName challengeName</Declaration>
+			
+			
+			<Anchor>//api/name/challengeName</Anchor>
+            <NodeRef refid="275"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderChallengeResponseType/setChallengeResponse:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeResponse challengeResponse</Declaration>
+			
+			
+			<Anchor>//api/name/challengeResponse</Anchor>
+            <NodeRef refid="275"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderChallengeResponseType/challengeResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeResponse challengeResponse</Declaration>
+			
+			
+			<Anchor>//api/name/challengeResponse</Anchor>
+            <NodeRef refid="275"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderChallengeResponseType/challengeResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderChallengeResponse challengeResponse</Declaration>
+			
+			
+			<Anchor>//api/name/challengeResponse</Anchor>
+            <NodeRef refid="275"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

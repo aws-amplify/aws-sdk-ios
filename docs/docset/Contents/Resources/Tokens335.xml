@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderForgetDeviceRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderForgetDeviceRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the request to forget the device.&lt;/p&gt;
+Required parameters: [DeviceKey]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="335"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgetDeviceRequest/setAccessToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token for the forgotten device request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="335"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgetDeviceRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token for the forgotten device request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="335"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderForgetDeviceRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token for the forgotten device request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="335"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgetDeviceRequest/setDeviceKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The device key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceKey</Declaration>
+			
+			
+			<Anchor>//api/name/deviceKey</Anchor>
+            <NodeRef refid="335"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderForgetDeviceRequest/deviceKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The device key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceKey</Declaration>
+			
+			
+			<Anchor>//api/name/deviceKey</Anchor>
+            <NodeRef refid="335"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderForgetDeviceRequest/deviceKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The device key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *deviceKey</Declaration>
+			
+			
+			<Anchor>//api/name/deviceKey</Anchor>
+            <NodeRef refid="335"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

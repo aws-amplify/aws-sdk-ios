@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingPredefinedMetricSpecification.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingPredefinedMetricSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Configures a predefined metric for a target tracking policy.&lt;/p&gt;
+Required parameters: [PredefinedMetricType]</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="96"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingPredefinedMetricSpecification/setPredefinedMetricType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The metric type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSAutoScalingMetricType predefinedMetricType</Declaration>
+			
+			
+			<Anchor>//api/name/predefinedMetricType</Anchor>
+            <NodeRef refid="96"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingPredefinedMetricSpecification/predefinedMetricType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The metric type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSAutoScalingMetricType predefinedMetricType</Declaration>
+			
+			
+			<Anchor>//api/name/predefinedMetricType</Anchor>
+            <NodeRef refid="96"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingPredefinedMetricSpecification/predefinedMetricType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The metric type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSAutoScalingMetricType predefinedMetricType</Declaration>
+			
+			
+			<Anchor>//api/name/predefinedMetricType</Anchor>
+            <NodeRef refid="96"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingPredefinedMetricSpecification/setResourceLabel:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies the resource associated with the metric type. The following predefined metrics are available:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ASGAverageCPUUtilization&lt;/code&gt; - average CPU utilization of the Auto Scaling group&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ASGAverageNetworkIn&lt;/code&gt; - average number of bytes received on all network interfaces by the Auto Scaling group&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ASGAverageNetworkOut&lt;/code&gt; - average number of bytes sent out on all network interfaces by the Auto Scaling group&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALBRequestCountPerTarget&lt;/code&gt; - number of requests completed per target in an Application Load Balancer target group&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For predefined metric types &lt;code&gt;ASGAverageCPUUtilization&lt;/code&gt;, &lt;code&gt;ASGAverageNetworkIn&lt;/code&gt;, and &lt;code&gt;ASGAverageNetworkOut&lt;/code&gt;, the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type &lt;code&gt;ALBRequestCountPerTarget&lt;/code&gt;, the parameter must be specified in the format: &lt;code&gt;app/&lt;i&gt;load-balancer-name&lt;/i&gt;/&lt;i&gt;load-balancer-id&lt;/i&gt;/targetgroup/&lt;i&gt;target-group-name&lt;/i&gt;/&lt;i&gt;target-group-id&lt;/i&gt;&lt;/code&gt;, where &lt;code&gt;app/&lt;i&gt;load-balancer-name&lt;/i&gt;/&lt;i&gt;load-balancer-id&lt;/i&gt;&lt;/code&gt; is the final portion of the load balancer ARN, and &lt;code&gt;targetgroup/&lt;i&gt;target-group-name&lt;/i&gt;/&lt;i&gt;target-group-id&lt;/i&gt;&lt;/code&gt; is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *resourceLabel</Declaration>
+			
+			
+			<Anchor>//api/name/resourceLabel</Anchor>
+            <NodeRef refid="96"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingPredefinedMetricSpecification/resourceLabel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies the resource associated with the metric type. The following predefined metrics are available:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ASGAverageCPUUtilization&lt;/code&gt; - average CPU utilization of the Auto Scaling group&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ASGAverageNetworkIn&lt;/code&gt; - average number of bytes received on all network interfaces by the Auto Scaling group&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ASGAverageNetworkOut&lt;/code&gt; - average number of bytes sent out on all network interfaces by the Auto Scaling group&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALBRequestCountPerTarget&lt;/code&gt; - number of requests completed per target in an Application Load Balancer target group&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For predefined metric types &lt;code&gt;ASGAverageCPUUtilization&lt;/code&gt;, &lt;code&gt;ASGAverageNetworkIn&lt;/code&gt;, and &lt;code&gt;ASGAverageNetworkOut&lt;/code&gt;, the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type &lt;code&gt;ALBRequestCountPerTarget&lt;/code&gt;, the parameter must be specified in the format: &lt;code&gt;app/&lt;i&gt;load-balancer-name&lt;/i&gt;/&lt;i&gt;load-balancer-id&lt;/i&gt;/targetgroup/&lt;i&gt;target-group-name&lt;/i&gt;/&lt;i&gt;target-group-id&lt;/i&gt;&lt;/code&gt;, where &lt;code&gt;app/&lt;i&gt;load-balancer-name&lt;/i&gt;/&lt;i&gt;load-balancer-id&lt;/i&gt;&lt;/code&gt; is the final portion of the load balancer ARN, and &lt;code&gt;targetgroup/&lt;i&gt;target-group-name&lt;/i&gt;/&lt;i&gt;target-group-id&lt;/i&gt;&lt;/code&gt; is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *resourceLabel</Declaration>
+			
+			
+			<Anchor>//api/name/resourceLabel</Anchor>
+            <NodeRef refid="96"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingPredefinedMetricSpecification/resourceLabel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies the resource associated with the metric type. The following predefined metrics are available:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ASGAverageCPUUtilization&lt;/code&gt; - average CPU utilization of the Auto Scaling group&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ASGAverageNetworkIn&lt;/code&gt; - average number of bytes received on all network interfaces by the Auto Scaling group&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ASGAverageNetworkOut&lt;/code&gt; - average number of bytes sent out on all network interfaces by the Auto Scaling group&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ALBRequestCountPerTarget&lt;/code&gt; - number of requests completed per target in an Application Load Balancer target group&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;For predefined metric types &lt;code&gt;ASGAverageCPUUtilization&lt;/code&gt;, &lt;code&gt;ASGAverageNetworkIn&lt;/code&gt;, and &lt;code&gt;ASGAverageNetworkOut&lt;/code&gt;, the parameter must not be specified as the resource associated with the metric type is the Auto Scaling group. For predefined metric type &lt;code&gt;ALBRequestCountPerTarget&lt;/code&gt;, the parameter must be specified in the format: &lt;code&gt;app/&lt;i&gt;load-balancer-name&lt;/i&gt;/&lt;i&gt;load-balancer-id&lt;/i&gt;/targetgroup/&lt;i&gt;target-group-name&lt;/i&gt;/&lt;i&gt;target-group-id&lt;/i&gt;&lt;/code&gt;, where &lt;code&gt;app/&lt;i&gt;load-balancer-name&lt;/i&gt;/&lt;i&gt;load-balancer-id&lt;/i&gt;&lt;/code&gt; is the final portion of the load balancer ARN, and &lt;code&gt;targetgroup/&lt;i&gt;target-group-name&lt;/i&gt;/&lt;i&gt;target-group-id&lt;/i&gt;&lt;/code&gt; is the final portion of the target group ARN. The target group must be attached to the Auto Scaling group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *resourceLabel</Declaration>
+			
+			
+			<Anchor>//api/name/resourceLabel</Anchor>
+            <NodeRef refid="96"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

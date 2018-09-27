@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsResourcePolicy.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsResourcePolicy</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A policy enabling one or more entities to put logs to a log group in this account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1444"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsResourcePolicy/setLastUpdatedTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *lastUpdatedTime</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdatedTime</Anchor>
+            <NodeRef refid="1444"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsResourcePolicy/lastUpdatedTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *lastUpdatedTime</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdatedTime</Anchor>
+            <NodeRef refid="1444"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsResourcePolicy/lastUpdatedTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *lastUpdatedTime</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdatedTime</Anchor>
+            <NodeRef refid="1444"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsResourcePolicy/setPolicyDocument:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The details of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyDocument</Declaration>
+			
+			
+			<Anchor>//api/name/policyDocument</Anchor>
+            <NodeRef refid="1444"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsResourcePolicy/policyDocument</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The details of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyDocument</Declaration>
+			
+			
+			<Anchor>//api/name/policyDocument</Anchor>
+            <NodeRef refid="1444"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsResourcePolicy/policyDocument</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The details of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyDocument</Declaration>
+			
+			
+			<Anchor>//api/name/policyDocument</Anchor>
+            <NodeRef refid="1444"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsResourcePolicy/setPolicyName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the resource policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="1444"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsResourcePolicy/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the resource policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="1444"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsResourcePolicy/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the resource policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="1444"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

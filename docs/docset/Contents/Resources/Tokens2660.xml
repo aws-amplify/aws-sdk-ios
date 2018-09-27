@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3ObjectVersionStorageClass.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3ObjectVersionStorageClass</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2660"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ObjectVersionStorageClassUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ObjectVersionStorageClassUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2660"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3ObjectVersionStorageClassStandard</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3ObjectVersionStorageClassStandard</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2660"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

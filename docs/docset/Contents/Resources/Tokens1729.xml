@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionKinesisDataStream.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionKinesisDataStream</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Kinesis data stream Amazon Rekognition to which the analysis results of a Amazon Rekognition stream processor are streamed. For more information, see CreateStreamProcessor in the Amazon Rekognition Developer Guide.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1729"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionKinesisDataStream/setArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the output Amazon Kinesis Data Streams stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *arn</Declaration>
+			
+			
+			<Anchor>//api/name/arn</Anchor>
+            <NodeRef refid="1729"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionKinesisDataStream/arn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the output Amazon Kinesis Data Streams stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *arn</Declaration>
+			
+			
+			<Anchor>//api/name/arn</Anchor>
+            <NodeRef refid="1729"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionKinesisDataStream/arn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the output Amazon Kinesis Data Streams stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *arn</Declaration>
+			
+			
+			<Anchor>//api/name/arn</Anchor>
+            <NodeRef refid="1729"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

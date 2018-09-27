@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESGetCustomVerificationEmailTemplateResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESGetCustomVerificationEmailTemplateResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content of the custom verification email template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2092"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/setFailureRedirectionURL:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureRedirectionURL</Declaration>
+			
+			
+			<Anchor>//api/name/failureRedirectionURL</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/failureRedirectionURL</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureRedirectionURL</Declaration>
+			
+			
+			<Anchor>//api/name/failureRedirectionURL</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESGetCustomVerificationEmailTemplateResponse/failureRedirectionURL</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL that the recipient of the verification email is sent to if his or her address is not successfully verified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureRedirectionURL</Declaration>
+			
+			
+			<Anchor>//api/name/failureRedirectionURL</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/setFromEmailAddress:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that the custom verification email is sent from.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *fromEmailAddress</Declaration>
+			
+			
+			<Anchor>//api/name/fromEmailAddress</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/fromEmailAddress</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that the custom verification email is sent from.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *fromEmailAddress</Declaration>
+			
+			
+			<Anchor>//api/name/fromEmailAddress</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESGetCustomVerificationEmailTemplateResponse/fromEmailAddress</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that the custom verification email is sent from.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *fromEmailAddress</Declaration>
+			
+			
+			<Anchor>//api/name/fromEmailAddress</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/setSuccessRedirectionURL:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL that the recipient of the verification email is sent to if his or her address is successfully verified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *successRedirectionURL</Declaration>
+			
+			
+			<Anchor>//api/name/successRedirectionURL</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/successRedirectionURL</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL that the recipient of the verification email is sent to if his or her address is successfully verified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *successRedirectionURL</Declaration>
+			
+			
+			<Anchor>//api/name/successRedirectionURL</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESGetCustomVerificationEmailTemplateResponse/successRedirectionURL</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL that the recipient of the verification email is sent to if his or her address is successfully verified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *successRedirectionURL</Declaration>
+			
+			
+			<Anchor>//api/name/successRedirectionURL</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/setTemplateContent:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content of the custom verification email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateContent</Declaration>
+			
+			
+			<Anchor>//api/name/templateContent</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/templateContent</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content of the custom verification email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateContent</Declaration>
+			
+			
+			<Anchor>//api/name/templateContent</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESGetCustomVerificationEmailTemplateResponse/templateContent</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The content of the custom verification email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateContent</Declaration>
+			
+			
+			<Anchor>//api/name/templateContent</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/setTemplateName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the custom verification email template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateName</Declaration>
+			
+			
+			<Anchor>//api/name/templateName</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/templateName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the custom verification email template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateName</Declaration>
+			
+			
+			<Anchor>//api/name/templateName</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESGetCustomVerificationEmailTemplateResponse/templateName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the custom verification email template.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateName</Declaration>
+			
+			
+			<Anchor>//api/name/templateName</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/setTemplateSubject:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subject line of the custom verification email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateSubject</Declaration>
+			
+			
+			<Anchor>//api/name/templateSubject</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetCustomVerificationEmailTemplateResponse/templateSubject</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subject line of the custom verification email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateSubject</Declaration>
+			
+			
+			<Anchor>//api/name/templateSubject</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESGetCustomVerificationEmailTemplateResponse/templateSubject</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subject line of the custom verification email.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateSubject</Declaration>
+			
+			
+			<Anchor>//api/name/templateSubject</Anchor>
+            <NodeRef refid="2092"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

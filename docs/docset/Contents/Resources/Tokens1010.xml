@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTJobExecutionStatusDetails.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTJobExecutionStatusDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details of the job execution status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1010"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecutionStatusDetails/setDetailsMap:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job execution status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *detailsMap</Declaration>
+			
+			
+			<Anchor>//api/name/detailsMap</Anchor>
+            <NodeRef refid="1010"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTJobExecutionStatusDetails/detailsMap</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job execution status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *detailsMap</Declaration>
+			
+			
+			<Anchor>//api/name/detailsMap</Anchor>
+            <NodeRef refid="1010"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTJobExecutionStatusDetails/detailsMap</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The job execution status.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *detailsMap</Declaration>
+			
+			
+			<Anchor>//api/name/detailsMap</Anchor>
+            <NodeRef refid="1010"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

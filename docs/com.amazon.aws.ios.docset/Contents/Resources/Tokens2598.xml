@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSPinpointTargetingCampaignStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSPinpointTargetingCampaignStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2598"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingCampaignStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingCampaignStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2598"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingCampaignStatusScheduled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingCampaignStatusScheduled</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2598"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingCampaignStatusExecuting</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingCampaignStatusExecuting</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2598"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingCampaignStatusPendingNextRun</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingCampaignStatusPendingNextRun</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2598"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingCampaignStatusCompleted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingCampaignStatusCompleted</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2598"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPinpointTargetingCampaignStatusPaused</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPinpointTargetingCampaignStatusPaused</Declaration>
+            
+            <DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2598"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

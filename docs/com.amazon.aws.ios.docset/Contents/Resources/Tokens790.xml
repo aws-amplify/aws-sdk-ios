@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseElasticsearchDestinationDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseElasticsearchDestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination description in Amazon ES.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="790"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setBufferingHints:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The buffering options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchBufferingHints *bufferingHints</Declaration>
+			
+			
+			<Anchor>//api/name/bufferingHints</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/bufferingHints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The buffering options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchBufferingHints *bufferingHints</Declaration>
+			
+			
+			<Anchor>//api/name/bufferingHints</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/bufferingHints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The buffering options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchBufferingHints *bufferingHints</Declaration>
+			
+			
+			<Anchor>//api/name/bufferingHints</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setCloudWatchLoggingOptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/cloudWatchLoggingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/cloudWatchLoggingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setDomainARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon ES domain. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *domainARN</Declaration>
+			
+			
+			<Anchor>//api/name/domainARN</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/domainARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon ES domain. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *domainARN</Declaration>
+			
+			
+			<Anchor>//api/name/domainARN</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/domainARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the Amazon ES domain. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *domainARN</Declaration>
+			
+			
+			<Anchor>//api/name/domainARN</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setIndexName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/indexName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/indexName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *indexName</Declaration>
+			
+			
+			<Anchor>//api/name/indexName</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setIndexRotationPeriod:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index rotation period&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod</Declaration>
+			
+			
+			<Anchor>//api/name/indexRotationPeriod</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/indexRotationPeriod</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index rotation period&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod</Declaration>
+			
+			
+			<Anchor>//api/name/indexRotationPeriod</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/indexRotationPeriod</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch index rotation period&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod</Declaration>
+			
+			
+			<Anchor>//api/name/indexRotationPeriod</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setProcessingConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/processingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/processingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setRetryOptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon ES retry options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchRetryOptions *retryOptions</Declaration>
+			
+			
+			<Anchor>//api/name/retryOptions</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/retryOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon ES retry options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchRetryOptions *retryOptions</Declaration>
+			
+			
+			<Anchor>//api/name/retryOptions</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/retryOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon ES retry options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseElasticsearchRetryOptions *retryOptions</Declaration>
+			
+			
+			<Anchor>//api/name/retryOptions</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setRoleARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS credentials. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/roleARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS credentials. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/roleARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS credentials. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setS3BackupMode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 backup mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/s3BackupMode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 backup mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/s3BackupMode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 backup mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseElasticsearchS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setS3DestinationDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationDescription *s3DestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/s3DestinationDescription</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/s3DestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationDescription *s3DestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/s3DestinationDescription</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/s3DestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 destination.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationDescription *s3DestinationDescription</Declaration>
+			
+			
+			<Anchor>//api/name/s3DestinationDescription</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/setTypeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch type name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *typeName</Declaration>
+			
+			
+			<Anchor>//api/name/typeName</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseElasticsearchDestinationDescription/typeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch type name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *typeName</Declaration>
+			
+			
+			<Anchor>//api/name/typeName</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseElasticsearchDestinationDescription/typeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Elasticsearch type name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *typeName</Declaration>
+			
+			
+			<Anchor>//api/name/typeName</Anchor>
+            <NodeRef refid="790"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

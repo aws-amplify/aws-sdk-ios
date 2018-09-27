@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSSQSMessageSystemAttributeName.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSSQSMessageSystemAttributeName</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2703"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSQSMessageSystemAttributeNameUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSQSMessageSystemAttributeNameUnknown</Declaration>
+            
+            <DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2703"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSQSMessageSystemAttributeNameSenderId</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSQSMessageSystemAttributeNameSenderId</Declaration>
+            
+            <DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2703"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSQSMessageSystemAttributeNameSentTimestamp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSQSMessageSystemAttributeNameSentTimestamp</Declaration>
+            
+            <DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2703"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSQSMessageSystemAttributeNameApproximateReceiveCount</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSQSMessageSystemAttributeNameApproximateReceiveCount</Declaration>
+            
+            <DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2703"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSQSMessageSystemAttributeNameApproximateFirstReceiveTimestamp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSQSMessageSystemAttributeNameApproximateFirstReceiveTimestamp</Declaration>
+            
+            <DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2703"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSQSMessageSystemAttributeNameSequenceNumber</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSQSMessageSystemAttributeNameSequenceNumber</Declaration>
+            
+            <DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2703"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSQSMessageSystemAttributeNameMessageDeduplicationId</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSQSMessageSystemAttributeNameMessageDeduplicationId</Declaration>
+            
+            <DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2703"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSQSMessageSystemAttributeNameMessageGroupId</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSQSMessageSystemAttributeNameMessageGroupId</Declaration>
+            
+            <DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2703"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

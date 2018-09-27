@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLogLevel.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLogLevel</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLogging.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2582"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogLevelUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogLevelUnknown</Declaration>
+            
+            <DeclaredIn>AWSLogging.h</DeclaredIn>
+            
+            <NodeRef refid="2582"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogLevelNone</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogLevelNone</Declaration>
+            
+            <DeclaredIn>AWSLogging.h</DeclaredIn>
+            
+            <NodeRef refid="2582"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogLevelError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogLevelError</Declaration>
+            
+            <DeclaredIn>AWSLogging.h</DeclaredIn>
+            
+            <NodeRef refid="2582"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogLevelWarn</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogLevelWarn</Declaration>
+            
+            <DeclaredIn>AWSLogging.h</DeclaredIn>
+            
+            <NodeRef refid="2582"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogLevelInfo</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogLevelInfo</Declaration>
+            
+            <DeclaredIn>AWSLogging.h</DeclaredIn>
+            
+            <NodeRef refid="2582"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogLevelDebug</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogLevelDebug</Declaration>
+            
+            <DeclaredIn>AWSLogging.h</DeclaredIn>
+            
+            <NodeRef refid="2582"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLogLevelVerbose</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLogLevelVerbose</Declaration>
+            
+            <DeclaredIn>AWSLogging.h</DeclaredIn>
+            
+            <NodeRef refid="2582"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

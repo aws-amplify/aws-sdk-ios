@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaCreateFunctionRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaCreateFunctionRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;
+Required parameters: [FunctionName, Runtime, Role, Handler, Code]</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1318"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code for the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaFunctionCode *code</Declaration>
+			
+			
+			<Anchor>//api/name/code</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/code</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code for the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaFunctionCode *code</Declaration>
+			
+			
+			<Anchor>//api/name/code</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/code</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code for the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaFunctionCode *code</Declaration>
+			
+			
+			<Anchor>//api/name/code</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setDeadLetterConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see &lt;a&gt;dlq&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaDeadLetterConfig *deadLetterConfig</Declaration>
+			
+			
+			<Anchor>//api/name/deadLetterConfig</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/deadLetterConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see &lt;a&gt;dlq&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaDeadLetterConfig *deadLetterConfig</Declaration>
+			
+			
+			<Anchor>//api/name/deadLetterConfig</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/deadLetterConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see &lt;a&gt;dlq&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaDeadLetterConfig *deadLetterConfig</Declaration>
+			
+			
+			<Anchor>//api/name/deadLetterConfig</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setDetail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A short, user-defined function description. Lambda does not use this value. Assign a meaningful description as you see fit.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A short, user-defined function description. Lambda does not use this value. Assign a meaningful description as you see fit.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A short, user-defined function description. Lambda does not use this value. Assign a meaningful description as you see fit.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setEnvironment:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your environment&apos;s configuration settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaEnvironment *environment</Declaration>
+			
+			
+			<Anchor>//api/name/environment</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/environment</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your environment&apos;s configuration settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaEnvironment *environment</Declaration>
+			
+			
+			<Anchor>//api/name/environment</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/environment</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your environment&apos;s configuration settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaEnvironment *environment</Declaration>
+			
+			
+			<Anchor>//api/name/environment</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setFunctionName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the &lt;a&gt;ListFunctions&lt;/a&gt; API. Function names are used to specify functions to other AWS Lambda API operations, such as &lt;a&gt;Invoke&lt;/a&gt;. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the &lt;a&gt;ListFunctions&lt;/a&gt; API. Function names are used to specify functions to other AWS Lambda API operations, such as &lt;a&gt;Invoke&lt;/a&gt;. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name you want to assign to the function you are uploading. The function names appear in the console and are returned in the &lt;a&gt;ListFunctions&lt;/a&gt; API. Function names are used to specify functions to other AWS Lambda API operations, such as &lt;a&gt;Invoke&lt;/a&gt;. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function within your code that Lambda calls to begin execution. For Node.js, it is the &lt;i&gt;module-name&lt;/i&gt;.&lt;i&gt;export&lt;/i&gt; value in your function. For Java, it can be codepackage.class-name::handler&lt;/code&gt; or codepackage.class-name&lt;/code&gt;. For more information, see Lambda Function Handler (Java). &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *handler</Declaration>
+			
+			
+			<Anchor>//api/name/handler</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/handler</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function within your code that Lambda calls to begin execution. For Node.js, it is the &lt;i&gt;module-name&lt;/i&gt;.&lt;i&gt;export&lt;/i&gt; value in your function. For Java, it can be codepackage.class-name::handler&lt;/code&gt; or codepackage.class-name&lt;/code&gt;. For more information, see Lambda Function Handler (Java). &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *handler</Declaration>
+			
+			
+			<Anchor>//api/name/handler</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/handler</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function within your code that Lambda calls to begin execution. For Node.js, it is the &lt;i&gt;module-name&lt;/i&gt;.&lt;i&gt;export&lt;/i&gt; value in your function. For Java, it can be codepackage.class-name::handler&lt;/code&gt; or codepackage.class-name&lt;/code&gt;. For more information, see Lambda Function Handler (Java). &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *handler</Declaration>
+			
+			
+			<Anchor>//api/name/handler</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setKMSKeyArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&apos;s environment variables. If not provided, AWS Lambda will use a default service key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSKeyArn</Declaration>
+			
+			
+			<Anchor>//api/name/KMSKeyArn</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/KMSKeyArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&apos;s environment variables. If not provided, AWS Lambda will use a default service key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSKeyArn</Declaration>
+			
+			
+			<Anchor>//api/name/KMSKeyArn</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/KMSKeyArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&apos;s environment variables. If not provided, AWS Lambda will use a default service key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSKeyArn</Declaration>
+			
+			
+			<Anchor>//api/name/KMSKeyArn</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setMemorySize:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *memorySize</Declaration>
+			
+			
+			<Anchor>//api/name/memorySize</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/memorySize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *memorySize</Declaration>
+			
+			
+			<Anchor>//api/name/memorySize</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/memorySize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of memory, in MB, your Lambda function is given. Lambda uses this memory size to infer the amount of CPU and memory allocated to your function. Your function use-case determines your CPU and memory requirements. For example, a database operation might need less memory compared to an image processing function. The default value is 128 MB. The value must be a multiple of 64 MB.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *memorySize</Declaration>
+			
+			
+			<Anchor>//api/name/memorySize</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setPublish:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *publish</Declaration>
+			
+			
+			<Anchor>//api/name/publish</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/publish</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *publish</Declaration>
+			
+			
+			<Anchor>//api/name/publish</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/publish</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;This boolean parameter can be used to request AWS Lambda to create the Lambda function and publish a version as an atomic operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *publish</Declaration>
+			
+			
+			<Anchor>//api/name/publish</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setRole:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see AWS Lambda: How it Works. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *role</Declaration>
+			
+			
+			<Anchor>//api/name/role</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/role</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see AWS Lambda: How it Works. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *role</Declaration>
+			
+			
+			<Anchor>//api/name/role</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/role</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources. For more information, see AWS Lambda: How it Works. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *role</Declaration>
+			
+			
+			<Anchor>//api/name/role</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setRuntime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The runtime environment for the Lambda function you are uploading.&lt;/p&gt;&lt;p&gt;To use the Python runtime v3.6, set the value to &quot;python3.6&quot;. To use the Python runtime v2.7, set the value to &quot;python2.7&quot;. To use the Node.js runtime v6.10, set the value to &quot;nodejs6.10&quot;. To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use the .NET Core runtime v1.0, set the value to &quot;dotnetcore1.0&quot;. To use the .NET Core runtime v2.0, set the value to &quot;dotnetcore2.0&quot;.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLambdaRuntime runtime</Declaration>
+			
+			
+			<Anchor>//api/name/runtime</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/runtime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The runtime environment for the Lambda function you are uploading.&lt;/p&gt;&lt;p&gt;To use the Python runtime v3.6, set the value to &quot;python3.6&quot;. To use the Python runtime v2.7, set the value to &quot;python2.7&quot;. To use the Node.js runtime v6.10, set the value to &quot;nodejs6.10&quot;. To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use the .NET Core runtime v1.0, set the value to &quot;dotnetcore1.0&quot;. To use the .NET Core runtime v2.0, set the value to &quot;dotnetcore2.0&quot;.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLambdaRuntime runtime</Declaration>
+			
+			
+			<Anchor>//api/name/runtime</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/runtime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The runtime environment for the Lambda function you are uploading.&lt;/p&gt;&lt;p&gt;To use the Python runtime v3.6, set the value to &quot;python3.6&quot;. To use the Python runtime v2.7, set the value to &quot;python2.7&quot;. To use the Node.js runtime v6.10, set the value to &quot;nodejs6.10&quot;. To use the Node.js runtime v4.3, set the value to &quot;nodejs4.3&quot;. To use the .NET Core runtime v1.0, set the value to &quot;dotnetcore1.0&quot;. To use the .NET Core runtime v2.0, set the value to &quot;dotnetcore2.0&quot;.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Node v0.10.42 is currently marked as deprecated. You must migrate existing functions to the newer Node.js runtime versions available on AWS Lambda (nodejs4.3 or nodejs6.10) as soon as possible. Failure to do so will result in an invalid parameter error being returned. Note that you will have to follow this procedure for each region that contains functions written in the Node v0.10.42 runtime.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLambdaRuntime runtime</Declaration>
+			
+			
+			<Anchor>//api/name/runtime</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setTags:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of tags (key-value pairs) assigned to the new function. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/tags</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of tags (key-value pairs) assigned to the new function. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/tags</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The list of tags (key-value pairs) assigned to the new function. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *tags</Declaration>
+			
+			
+			<Anchor>//api/name/tags</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setTimeout:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timeout</Declaration>
+			
+			
+			<Anchor>//api/name/timeout</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/timeout</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timeout</Declaration>
+			
+			
+			<Anchor>//api/name/timeout</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/timeout</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timeout</Declaration>
+			
+			
+			<Anchor>//api/name/timeout</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setTracingConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your function&apos;s tracing settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaTracingConfig *tracingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/tracingConfig</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/tracingConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your function&apos;s tracing settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaTracingConfig *tracingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/tracingConfig</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/tracingConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your function&apos;s tracing settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaTracingConfig *tracingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/tracingConfig</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/setVpcConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaVpcConfig *vpcConfig</Declaration>
+			
+			
+			<Anchor>//api/name/vpcConfig</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaCreateFunctionRequest/vpcConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaVpcConfig *vpcConfig</Declaration>
+			
+			
+			<Anchor>//api/name/vpcConfig</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaCreateFunctionRequest/vpcConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaVpcConfig *vpcConfig</Declaration>
+			
+			
+			<Anchor>//api/name/vpcConfig</Anchor>
+            <NodeRef refid="1318"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

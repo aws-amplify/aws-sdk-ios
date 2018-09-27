@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsPutResourcePolicyRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsPutResourcePolicyRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1439"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsPutResourcePolicyRequest/setPolicyDocument:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.&lt;/p&gt;&lt;p&gt;The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace &quot;logArn&quot; with the ARN of your CloudWatch Logs resource, such as a log group or log stream.&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;Route53LogsToCloudWatchLogs&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [ &quot;route53.amazonaws.com&quot; ] }, &quot;Action&quot;:&quot;logs:PutLogEvents&quot;, &quot;Resource&quot;: &quot;logArn&quot; } ] } &lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyDocument</Declaration>
+			
+			
+			<Anchor>//api/name/policyDocument</Anchor>
+            <NodeRef refid="1439"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsPutResourcePolicyRequest/policyDocument</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.&lt;/p&gt;&lt;p&gt;The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace &quot;logArn&quot; with the ARN of your CloudWatch Logs resource, such as a log group or log stream.&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;Route53LogsToCloudWatchLogs&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [ &quot;route53.amazonaws.com&quot; ] }, &quot;Action&quot;:&quot;logs:PutLogEvents&quot;, &quot;Resource&quot;: &quot;logArn&quot; } ] } &lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyDocument</Declaration>
+			
+			
+			<Anchor>//api/name/policyDocument</Anchor>
+            <NodeRef refid="1439"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsPutResourcePolicyRequest/policyDocument</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.&lt;/p&gt;&lt;p&gt;The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace &quot;logArn&quot; with the ARN of your CloudWatch Logs resource, such as a log group or log stream.&lt;/p&gt;&lt;p&gt;&lt;code&gt;{ &quot;Version&quot;: &quot;2012-10-17&quot;, &quot;Statement&quot;: [ { &quot;Sid&quot;: &quot;Route53LogsToCloudWatchLogs&quot;, &quot;Effect&quot;: &quot;Allow&quot;, &quot;Principal&quot;: { &quot;Service&quot;: [ &quot;route53.amazonaws.com&quot; ] }, &quot;Action&quot;:&quot;logs:PutLogEvents&quot;, &quot;Resource&quot;: &quot;logArn&quot; } ] } &lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyDocument</Declaration>
+			
+			
+			<Anchor>//api/name/policyDocument</Anchor>
+            <NodeRef refid="1439"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsPutResourcePolicyRequest/setPolicyName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the new policy. This parameter is required.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="1439"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsPutResourcePolicyRequest/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the new policy. This parameter is required.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="1439"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsPutResourcePolicyRequest/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the new policy. This parameter is required.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="1439"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

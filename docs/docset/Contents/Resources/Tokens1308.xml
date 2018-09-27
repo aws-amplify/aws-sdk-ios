@@ -1,0 +1,1632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambda.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambda</TokenIdentifier>
+			<Abstract type="html">&lt;fullname&gt;AWS Lambda&lt;/fullname&gt;&lt;p&gt;&lt;b&gt;Overview&lt;/b&gt;&lt;/p&gt;&lt;p&gt;This is the &lt;i&gt;AWS Lambda API Reference&lt;/i&gt;. The AWS Lambda Developer Guide provides additional information. For the service overview, see AWS Lambda: How it Works in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1308"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambda/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLambda/defaultLambda</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultLambda</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultLambda</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLambda/registerLambdaWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerLambdaWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerLambdaWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLambda/LambdaForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerLambdaWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)LambdaForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/LambdaForKey:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLambda/removeLambdaForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeLambdaForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeLambdaForKey:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/addPermission:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds a permission to the resource policy associated with the specified AWS Lambda function. You use resource policies to grant permissions to event sources that use &lt;i&gt;push&lt;/i&gt; model. In a &lt;i&gt;push&lt;/i&gt; model, event sources (such as Amazon S3 and custom applications) invoke your Lambda function. Each permission you add to the resource policy allows an event source, permission to invoke the Lambda function. &lt;/p&gt;&lt;p&gt;For information about the push model, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:AddPermission&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAddPermissionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAddPermissionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaAddPermissionResponse*&gt; *)addPermission:(AWSLambdaAddPermissionRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the AddPermission service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaAddPermissionResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorResourceConflict, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorPolicyLengthExceeded, AWSLambdaErrorTooManyRequests, AWSLambdaErrorPreconditionFailed.</Abstract></ReturnValue>
+			<Anchor>//api/name/addPermission:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/addPermission:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds a permission to the resource policy associated with the specified AWS Lambda function. You use resource policies to grant permissions to event sources that use &lt;i&gt;push&lt;/i&gt; model. In a &lt;i&gt;push&lt;/i&gt; model, event sources (such as Amazon S3 and custom applications) invoke your Lambda function. Each permission you add to the resource policy allows an event source, permission to invoke the Lambda function. &lt;/p&gt;&lt;p&gt;For information about the push model, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:AddPermission&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAddPermissionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAddPermissionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)addPermission:(AWSLambdaAddPermissionRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaAddPermissionResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the AddPermission service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorResourceConflict, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorPolicyLengthExceeded, AWSLambdaErrorTooManyRequests, AWSLambdaErrorPreconditionFailed.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addPermission:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/createAlias:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates an alias that points to the specified Lambda function version. For more information, see Introduction to AWS Lambda Aliases.&lt;/p&gt;&lt;p&gt;Alias names are unique for a given function. This requires permission for the lambda:CreateAlias action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaCreateAliasRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAliasConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaAliasConfiguration*&gt; *)createAlias:(AWSLambdaCreateAliasRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateAlias service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaAliasConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorResourceConflict, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/createAlias:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/createAlias:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates an alias that points to the specified Lambda function version. For more information, see Introduction to AWS Lambda Aliases.&lt;/p&gt;&lt;p&gt;Alias names are unique for a given function. This requires permission for the lambda:CreateAlias action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaCreateAliasRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAliasConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createAlias:(AWSLambdaCreateAliasRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaAliasConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateAlias service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorResourceConflict, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createAlias:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/createEventSourceMapping:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies a poll-based event source for a Lambda function. It can be either an Amazon Kinesis or DynamoDB stream, or an Amazon SQS queue. AWS Lambda invokes the specified function when records are posted to the event source.&lt;/p&gt;&lt;p&gt;This association between a poll-based source and a Lambda function is called the event source mapping.&lt;/p&gt;&lt;p&gt;You provide mapping information (for example, which stream or SQS queue to read from and which Lambda function to invoke) in the request body.&lt;/p&gt;&lt;p&gt;Amazon Kinesis or DynamoDB stream event sources can be associated with multiple AWS Lambda functions and a given Lambda function can be associated with multiple AWS event sources. For Amazon SQS, you can configure multiple queues as event sources for a single Lambda function, but an SQS queue can be mapped only to a single Lambda function.&lt;/p&gt;&lt;p&gt;If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:CreateEventSourceMapping&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaCreateEventSourceMappingRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaEventSourceMappingConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaEventSourceMappingConfiguration*&gt; *)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateEventSourceMapping service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaEventSourceMappingConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorResourceConflict, AWSLambdaErrorTooManyRequests, AWSLambdaErrorResourceNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/createEventSourceMapping:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/createEventSourceMapping:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies a poll-based event source for a Lambda function. It can be either an Amazon Kinesis or DynamoDB stream, or an Amazon SQS queue. AWS Lambda invokes the specified function when records are posted to the event source.&lt;/p&gt;&lt;p&gt;This association between a poll-based source and a Lambda function is called the event source mapping.&lt;/p&gt;&lt;p&gt;You provide mapping information (for example, which stream or SQS queue to read from and which Lambda function to invoke) in the request body.&lt;/p&gt;&lt;p&gt;Amazon Kinesis or DynamoDB stream event sources can be associated with multiple AWS Lambda functions and a given Lambda function can be associated with multiple AWS event sources. For Amazon SQS, you can configure multiple queues as event sources for a single Lambda function, but an SQS queue can be mapped only to a single Lambda function.&lt;/p&gt;&lt;p&gt;If you are using versioning, you can specify a specific function version or an alias via the function name parameter. For more information about versioning, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:CreateEventSourceMapping&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaCreateEventSourceMappingRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaEventSourceMappingConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaEventSourceMappingConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateEventSourceMapping service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorResourceConflict, AWSLambdaErrorTooManyRequests, AWSLambdaErrorResourceNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createEventSourceMapping:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/createFunction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a new Lambda function. The function metadata is created from the request parameters, and the code for the function is provided by a .zip file in the request body. If the function name already exists, the operation will fail. Note that the function name is case-sensitive.&lt;/p&gt;&lt;p&gt; If you are using versioning, you can also publish a version of the Lambda function you are creating using the &lt;code&gt;Publish&lt;/code&gt; parameter. For more information about versioning, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:CreateFunction&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaCreateFunctionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaFunctionConfiguration*&gt; *)createFunction:(AWSLambdaCreateFunctionRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateFunction service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaFunctionConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorResourceNotFound, AWSLambdaErrorResourceConflict, AWSLambdaErrorTooManyRequests, AWSLambdaErrorCodeStorageExceeded.</Abstract></ReturnValue>
+			<Anchor>//api/name/createFunction:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/createFunction:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a new Lambda function. The function metadata is created from the request parameters, and the code for the function is provided by a .zip file in the request body. If the function name already exists, the operation will fail. Note that the function name is case-sensitive.&lt;/p&gt;&lt;p&gt; If you are using versioning, you can also publish a version of the Lambda function you are creating using the &lt;code&gt;Publish&lt;/code&gt; parameter. For more information about versioning, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:CreateFunction&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaCreateFunctionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createFunction:(AWSLambdaCreateFunctionRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaFunctionConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateFunction service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorResourceNotFound, AWSLambdaErrorResourceConflict, AWSLambdaErrorTooManyRequests, AWSLambdaErrorCodeStorageExceeded.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createFunction:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/deleteAlias:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified Lambda function alias. For more information, see Introduction to AWS Lambda Aliases.&lt;/p&gt;&lt;p&gt;This requires permission for the lambda:DeleteAlias action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaDeleteAliasRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteAlias:(AWSLambdaDeleteAliasRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteAlias service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteAlias:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/deleteAlias:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified Lambda function alias. For more information, see Introduction to AWS Lambda Aliases.&lt;/p&gt;&lt;p&gt;This requires permission for the lambda:DeleteAlias action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaDeleteAliasRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteAlias:(AWSLambdaDeleteAliasRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteAlias service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteAlias:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/deleteEventSourceMapping:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes an event source mapping. This means AWS Lambda will no longer invoke the function for events in the associated source.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:DeleteEventSourceMapping&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaDeleteEventSourceMappingRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaEventSourceMappingConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaEventSourceMappingConfiguration*&gt; *)deleteEventSourceMapping:(AWSLambdaDeleteEventSourceMappingRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteEventSourceMapping service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaEventSourceMappingConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorResourceInUse.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteEventSourceMapping:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/deleteEventSourceMapping:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes an event source mapping. This means AWS Lambda will no longer invoke the function for events in the associated source.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:DeleteEventSourceMapping&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaDeleteEventSourceMappingRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaEventSourceMappingConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteEventSourceMapping:(AWSLambdaDeleteEventSourceMappingRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaEventSourceMappingConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteEventSourceMapping service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorResourceInUse.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteEventSourceMapping:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/deleteFunction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified Lambda function code and configuration.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature and you don&apos;t specify a function version in your &lt;code&gt;DeleteFunction&lt;/code&gt; request, AWS Lambda will delete the function, including all its versions, and any aliases pointing to the function versions. To delete a specific function version, you must provide the function version via the &lt;code&gt;Qualifier&lt;/code&gt; parameter. For information about function versioning, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;When you delete a function the associated resource policy is also deleted. You will need to delete the event source mappings explicitly.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:DeleteFunction&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaDeleteFunctionRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteFunction:(AWSLambdaDeleteFunctionRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteFunction service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorResourceConflict.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteFunction:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/deleteFunction:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes the specified Lambda function code and configuration.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature and you don&apos;t specify a function version in your &lt;code&gt;DeleteFunction&lt;/code&gt; request, AWS Lambda will delete the function, including all its versions, and any aliases pointing to the function versions. To delete a specific function version, you must provide the function version via the &lt;code&gt;Qualifier&lt;/code&gt; parameter. For information about function versioning, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;When you delete a function the associated resource policy is also deleted. You will need to delete the event source mappings explicitly.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:DeleteFunction&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaDeleteFunctionRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteFunction:(AWSLambdaDeleteFunctionRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteFunction service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorResourceConflict.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteFunction:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/deleteFunctionConcurrency:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes concurrent execution limits from this function. For more information, see &lt;a&gt;concurrent-executions&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaDeleteFunctionConcurrencyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)deleteFunctionConcurrency:(AWSLambdaDeleteFunctionConcurrencyRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteFunctionConcurrency service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteFunctionConcurrency:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/deleteFunctionConcurrency:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes concurrent execution limits from this function. For more information, see &lt;a&gt;concurrent-executions&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaDeleteFunctionConcurrencyRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteFunctionConcurrency:(AWSLambdaDeleteFunctionConcurrencyRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteFunctionConcurrency service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteFunctionConcurrency:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getAccountSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a customer&apos;s account settings.&lt;/p&gt;&lt;p&gt;You can use this operation to retrieve Lambda limits information, such as code size and concurrency limits. For more information about limits, see AWS Lambda Limits. You can also retrieve resource usage statistics, such as code storage usage and function count.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetAccountSettingsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetAccountSettingsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaGetAccountSettingsResponse*&gt; *)getAccountSettings:(AWSLambdaGetAccountSettingsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetAccountSettings service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaGetAccountSettingsResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorTooManyRequests, AWSLambdaErrorService.</Abstract></ReturnValue>
+			<Anchor>//api/name/getAccountSettings:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getAccountSettings:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a customer&apos;s account settings.&lt;/p&gt;&lt;p&gt;You can use this operation to retrieve Lambda limits information, such as code size and concurrency limits. For more information about limits, see AWS Lambda Limits. You can also retrieve resource usage statistics, such as code storage usage and function count.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetAccountSettingsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetAccountSettingsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getAccountSettings:(AWSLambdaGetAccountSettingsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaGetAccountSettingsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetAccountSettings service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorTooManyRequests, AWSLambdaErrorService.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getAccountSettings:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getAlias:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the specified alias information such as the alias ARN, description, and function version it is pointing to. For more information, see Introduction to AWS Lambda Aliases.&lt;/p&gt;&lt;p&gt;This requires permission for the &lt;code&gt;lambda:GetAlias&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetAliasRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAliasConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaAliasConfiguration*&gt; *)getAlias:(AWSLambdaGetAliasRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetAlias service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaAliasConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getAlias:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getAlias:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the specified alias information such as the alias ARN, description, and function version it is pointing to. For more information, see Introduction to AWS Lambda Aliases.&lt;/p&gt;&lt;p&gt;This requires permission for the &lt;code&gt;lambda:GetAlias&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetAliasRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAliasConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getAlias:(AWSLambdaGetAliasRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaAliasConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetAlias service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getAlias:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getEventSourceMapping:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns configuration information for the specified event source mapping (see &lt;a&gt;CreateEventSourceMapping&lt;/a&gt;).&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:GetEventSourceMapping&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetEventSourceMappingRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaEventSourceMappingConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaEventSourceMappingConfiguration*&gt; *)getEventSourceMapping:(AWSLambdaGetEventSourceMappingRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetEventSourceMapping service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaEventSourceMappingConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/getEventSourceMapping:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getEventSourceMapping:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns configuration information for the specified event source mapping (see &lt;a&gt;CreateEventSourceMapping&lt;/a&gt;).&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:GetEventSourceMapping&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetEventSourceMappingRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaEventSourceMappingConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getEventSourceMapping:(AWSLambdaGetEventSourceMappingRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaEventSourceMappingConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetEventSourceMapping service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getEventSourceMapping:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getFunction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the configuration information of the Lambda function and a presigned URL link to the .zip file you uploaded with &lt;a&gt;CreateFunction&lt;/a&gt; so you can download the .zip file. Note that the URL is valid for up to 10 minutes. The configuration information is the same information you provided as parameters when uploading the function.&lt;/p&gt;&lt;p&gt;Using the optional &lt;code&gt;Qualifier&lt;/code&gt; parameter, you can specify a specific function version for which you want this information. If you don&apos;t specify this parameter, the API uses unqualified function ARN which return information about the &lt;code&gt;$LATEST&lt;/code&gt; version of the Lambda function. For more information, see AWS Lambda Function Versioning and Aliases.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:GetFunction&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetFunctionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetFunctionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaGetFunctionResponse*&gt; *)getFunction:(AWSLambdaGetFunctionRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetFunction service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaGetFunctionResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue.</Abstract></ReturnValue>
+			<Anchor>//api/name/getFunction:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getFunction:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the configuration information of the Lambda function and a presigned URL link to the .zip file you uploaded with &lt;a&gt;CreateFunction&lt;/a&gt; so you can download the .zip file. Note that the URL is valid for up to 10 minutes. The configuration information is the same information you provided as parameters when uploading the function.&lt;/p&gt;&lt;p&gt;Using the optional &lt;code&gt;Qualifier&lt;/code&gt; parameter, you can specify a specific function version for which you want this information. If you don&apos;t specify this parameter, the API uses unqualified function ARN which return information about the &lt;code&gt;$LATEST&lt;/code&gt; version of the Lambda function. For more information, see AWS Lambda Function Versioning and Aliases.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:GetFunction&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetFunctionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetFunctionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getFunction:(AWSLambdaGetFunctionRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaGetFunctionResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetFunction service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getFunction:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getFunctionConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the configuration information of the Lambda function. This the same information you provided as parameters when uploading the function by using &lt;a&gt;CreateFunction&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, you can retrieve this information for a specific function version by using the optional &lt;code&gt;Qualifier&lt;/code&gt; parameter and specifying the function version or alias that points to it. If you don&apos;t provide it, the API returns information about the $LATEST version of the function. For more information about versioning, see AWS Lambda Function Versioning and Aliases.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:GetFunctionConfiguration&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetFunctionConfigurationRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaFunctionConfiguration*&gt; *)getFunctionConfiguration:(AWSLambdaGetFunctionConfigurationRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetFunctionConfiguration service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaFunctionConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue.</Abstract></ReturnValue>
+			<Anchor>//api/name/getFunctionConfiguration:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getFunctionConfiguration:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the configuration information of the Lambda function. This the same information you provided as parameters when uploading the function by using &lt;a&gt;CreateFunction&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, you can retrieve this information for a specific function version by using the optional &lt;code&gt;Qualifier&lt;/code&gt; parameter and specifying the function version or alias that points to it. If you don&apos;t provide it, the API returns information about the $LATEST version of the function. For more information about versioning, see AWS Lambda Function Versioning and Aliases.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:GetFunctionConfiguration&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetFunctionConfigurationRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getFunctionConfiguration:(AWSLambdaGetFunctionConfigurationRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaFunctionConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetFunctionConfiguration service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getFunctionConfiguration:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getPolicy:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the resource policy associated with the specified Lambda function.&lt;/p&gt;&lt;p&gt; If you are using the versioning feature, you can get the resource policy associated with the specific Lambda function version or alias by specifying the version or alias name using the &lt;code&gt;Qualifier&lt;/code&gt; parameter. For more information about versioning, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;You need permission for the &lt;code&gt;lambda:GetPolicy action.&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetPolicyRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetPolicyResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaGetPolicyResponse*&gt; *)getPolicy:(AWSLambdaGetPolicyRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetPolicy service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaGetPolicyResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue.</Abstract></ReturnValue>
+			<Anchor>//api/name/getPolicy:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/getPolicy:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the resource policy associated with the specified Lambda function.&lt;/p&gt;&lt;p&gt; If you are using the versioning feature, you can get the resource policy associated with the specific Lambda function version or alias by specifying the version or alias name using the &lt;code&gt;Qualifier&lt;/code&gt; parameter. For more information about versioning, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;You need permission for the &lt;code&gt;lambda:GetPolicy action.&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetPolicyRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaGetPolicyResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)getPolicy:(AWSLambdaGetPolicyRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaGetPolicyResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the GetPolicy service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getPolicy:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/invoke:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Invokes a specific Lambda function. For an example, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:InvokeFunction&lt;/code&gt; action.&lt;/p&gt;&lt;note&gt;&lt;p&gt;The &lt;code&gt;TooManyRequestsException&lt;/code&gt; noted below will return the following: &lt;code&gt;ConcurrentInvocationLimitExceeded&lt;/code&gt; will be returned if you have no functions with reserved concurrency and have exceeded your account concurrent limit or if a function without reserved concurrency exceeds the account&apos;s unreserved concurrency limit. &lt;code&gt;ReservedFunctionConcurrentInvocationLimitExceeded&lt;/code&gt; will be returned when a function with reserved concurrency exceeds its configured concurrency limit. &lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaInvocationRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaInvocationResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaInvocationResponse*&gt; *)invoke:(AWSLambdaInvocationRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the Invoke service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaInvocationResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidRequestContent, AWSLambdaErrorRequestTooLarge, AWSLambdaErrorUnsupportedMediaType, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorEC2Unexpected, AWSLambdaErrorSubnetIPAddressLimitReached, AWSLambdaErrorENILimitReached, AWSLambdaErrorEC2Throttled, AWSLambdaErrorEC2AccessDenied, AWSLambdaErrorInvalidSubnetID, AWSLambdaErrorInvalidSecurityGroupID, AWSLambdaErrorInvalidZipFile, AWSLambdaErrorKMSDisabled, AWSLambdaErrorKMSInvalidState, AWSLambdaErrorKMSAccessDenied, AWSLambdaErrorKMSNotFound, AWSLambdaErrorInvalidRuntime.</Abstract></ReturnValue>
+			<Anchor>//api/name/invoke:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/invoke:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Invokes a specific Lambda function. For an example, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:InvokeFunction&lt;/code&gt; action.&lt;/p&gt;&lt;note&gt;&lt;p&gt;The &lt;code&gt;TooManyRequestsException&lt;/code&gt; noted below will return the following: &lt;code&gt;ConcurrentInvocationLimitExceeded&lt;/code&gt; will be returned if you have no functions with reserved concurrency and have exceeded your account concurrent limit or if a function without reserved concurrency exceeds the account&apos;s unreserved concurrency limit. &lt;code&gt;ReservedFunctionConcurrentInvocationLimitExceeded&lt;/code&gt; will be returned when a function with reserved concurrency exceeds its configured concurrency limit. &lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaInvocationRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaInvocationResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)invoke:(AWSLambdaInvocationRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaInvocationResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the Invoke service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidRequestContent, AWSLambdaErrorRequestTooLarge, AWSLambdaErrorUnsupportedMediaType, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorEC2Unexpected, AWSLambdaErrorSubnetIPAddressLimitReached, AWSLambdaErrorENILimitReached, AWSLambdaErrorEC2Throttled, AWSLambdaErrorEC2AccessDenied, AWSLambdaErrorInvalidSubnetID, AWSLambdaErrorInvalidSecurityGroupID, AWSLambdaErrorInvalidZipFile, AWSLambdaErrorKMSDisabled, AWSLambdaErrorKMSInvalidState, AWSLambdaErrorKMSAccessDenied, AWSLambdaErrorKMSNotFound, AWSLambdaErrorInvalidRuntime.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/invoke:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/invokeAsync:</TokenIdentifier>
+			<Abstract type="html">&lt;important&gt;&lt;p&gt;This API is deprecated. We recommend you use &lt;code&gt;Invoke&lt;/code&gt; API (see &lt;a&gt;Invoke&lt;/a&gt;).&lt;/p&gt;&lt;/important&gt;&lt;p&gt;Submits an invocation request to AWS Lambda. Upon receiving the request, Lambda executes the specified function asynchronously. To see the logs generated by the Lambda function execution, see the CloudWatch Logs console.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:InvokeFunction&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaInvokeAsyncRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaInvokeAsyncResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaInvokeAsyncResponse*&gt; *)invokeAsync:(AWSLambdaInvokeAsyncRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the InvokeAsync service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaInvokeAsyncResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidRequestContent, AWSLambdaErrorInvalidRuntime.</Abstract></ReturnValue>
+			<Anchor>//api/name/invokeAsync:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/invokeAsync:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;important&gt;&lt;p&gt;This API is deprecated. We recommend you use &lt;code&gt;Invoke&lt;/code&gt; API (see &lt;a&gt;Invoke&lt;/a&gt;).&lt;/p&gt;&lt;/important&gt;&lt;p&gt;Submits an invocation request to AWS Lambda. Upon receiving the request, Lambda executes the specified function asynchronously. To see the logs generated by the Lambda function execution, see the CloudWatch Logs console.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:InvokeFunction&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaInvokeAsyncRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaInvokeAsyncResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)invokeAsync:(AWSLambdaInvokeAsyncRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaInvokeAsyncResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the InvokeAsync service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidRequestContent, AWSLambdaErrorInvalidRuntime.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/invokeAsync:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/listAliases:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns list of aliases created for a Lambda function. For each alias, the response includes information such as the alias ARN, description, alias name, and the function version to which it points. For more information, see Introduction to AWS Lambda Aliases.&lt;/p&gt;&lt;p&gt;This requires permission for the lambda:ListAliases action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListAliasesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListAliasesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaListAliasesResponse*&gt; *)listAliases:(AWSLambdaListAliasesRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListAliases service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaListAliasesResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/listAliases:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/listAliases:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns list of aliases created for a Lambda function. For each alias, the response includes information such as the alias ARN, description, alias name, and the function version to which it points. For more information, see Introduction to AWS Lambda Aliases.&lt;/p&gt;&lt;p&gt;This requires permission for the lambda:ListAliases action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListAliasesRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListAliasesResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listAliases:(AWSLambdaListAliasesRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaListAliasesResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListAliases service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listAliases:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/listEventSourceMappings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of event source mappings you created using the &lt;code&gt;CreateEventSourceMapping&lt;/code&gt; (see &lt;a&gt;CreateEventSourceMapping&lt;/a&gt;). &lt;/p&gt;&lt;p&gt;For each mapping, the API returns configuration information. You can optionally specify filters to retrieve specific event source mappings.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, you can get list of event source mappings for a specific Lambda function version or an alias as described in the &lt;code&gt;FunctionName&lt;/code&gt; parameter. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:ListEventSourceMappings&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListEventSourceMappingsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListEventSourceMappingsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaListEventSourceMappingsResponse*&gt; *)listEventSourceMappings:(AWSLambdaListEventSourceMappingsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListEventSourceMappings service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaListEventSourceMappingsResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/listEventSourceMappings:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/listEventSourceMappings:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of event source mappings you created using the &lt;code&gt;CreateEventSourceMapping&lt;/code&gt; (see &lt;a&gt;CreateEventSourceMapping&lt;/a&gt;). &lt;/p&gt;&lt;p&gt;For each mapping, the API returns configuration information. You can optionally specify filters to retrieve specific event source mappings.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, you can get list of event source mappings for a specific Lambda function version or an alias as described in the &lt;code&gt;FunctionName&lt;/code&gt; parameter. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:ListEventSourceMappings&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListEventSourceMappingsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListEventSourceMappingsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listEventSourceMappings:(AWSLambdaListEventSourceMappingsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaListEventSourceMappingsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListEventSourceMappings service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listEventSourceMappings:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/listFunctions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of your Lambda functions. For each function, the response includes the function configuration information. You must use &lt;a&gt;GetFunction&lt;/a&gt; to retrieve the code for your function.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:ListFunctions&lt;/code&gt; action.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, you can list all of your functions or only &lt;code&gt;$LATEST&lt;/code&gt; versions. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListFunctionsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListFunctionsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaListFunctionsResponse*&gt; *)listFunctions:(AWSLambdaListFunctionsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListFunctions service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaListFunctionsResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue.</Abstract></ReturnValue>
+			<Anchor>//api/name/listFunctions:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/listFunctions:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of your Lambda functions. For each function, the response includes the function configuration information. You must use &lt;a&gt;GetFunction&lt;/a&gt; to retrieve the code for your function.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:ListFunctions&lt;/code&gt; action.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, you can list all of your functions or only &lt;code&gt;$LATEST&lt;/code&gt; versions. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListFunctionsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListFunctionsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listFunctions:(AWSLambdaListFunctionsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaListFunctionsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListFunctions service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorTooManyRequests, AWSLambdaErrorInvalidParameterValue.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listFunctions:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/listTags:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of tags assigned to a function when supplied the function ARN (Amazon Resource Name). For more information on Tagging, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListTagsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListTagsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaListTagsResponse*&gt; *)listTags:(AWSLambdaListTagsRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListTags service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaListTagsResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/listTags:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/listTags:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns a list of tags assigned to a function when supplied the function ARN (Amazon Resource Name). For more information on Tagging, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListTagsRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListTagsResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listTags:(AWSLambdaListTagsRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaListTagsResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListTags service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listTags:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/listVersionsByFunction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List all versions of a function. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListVersionsByFunctionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListVersionsByFunctionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaListVersionsByFunctionResponse*&gt; *)listVersionsByFunction:(AWSLambdaListVersionsByFunctionRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListVersionsByFunction service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaListVersionsByFunctionResponse. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/listVersionsByFunction:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/listVersionsByFunction:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;List all versions of a function. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListVersionsByFunctionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaListVersionsByFunctionResponse</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listVersionsByFunction:(AWSLambdaListVersionsByFunctionRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaListVersionsByFunctionResponse *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListVersionsByFunction service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listVersionsByFunction:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/publishVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Publishes a version of your function from the current snapshot of $LATEST. That is, AWS Lambda takes a snapshot of the function code and configuration information from $LATEST and publishes a new version. The code and configuration cannot be modified after publication. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaPublishVersionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaFunctionConfiguration*&gt; *)publishVersion:(AWSLambdaPublishVersionRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PublishVersion service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaFunctionConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorCodeStorageExceeded, AWSLambdaErrorPreconditionFailed.</Abstract></ReturnValue>
+			<Anchor>//api/name/publishVersion:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/publishVersion:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Publishes a version of your function from the current snapshot of $LATEST. That is, AWS Lambda takes a snapshot of the function code and configuration information from $LATEST and publishes a new version. The code and configuration cannot be modified after publication. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaPublishVersionRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)publishVersion:(AWSLambdaPublishVersionRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaFunctionConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PublishVersion service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorCodeStorageExceeded, AWSLambdaErrorPreconditionFailed.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/publishVersion:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/putFunctionConcurrency:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets a limit on the number of concurrent executions available to this function. It is a subset of your account&apos;s total concurrent execution limit per region. Note that Lambda automatically reserves a buffer of 100 concurrent executions for functions without any reserved concurrency limit. This means if your account limit is 1000, you have a total of 900 available to allocate to individual functions. For more information, see &lt;a&gt;concurrent-executions&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaPutFunctionConcurrencyRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaConcurrency</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaConcurrency*&gt; *)putFunctionConcurrency:(AWSLambdaPutFunctionConcurrencyRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutFunctionConcurrency service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaConcurrency. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/putFunctionConcurrency:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/putFunctionConcurrency:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sets a limit on the number of concurrent executions available to this function. It is a subset of your account&apos;s total concurrent execution limit per region. Note that Lambda automatically reserves a buffer of 100 concurrent executions for functions without any reserved concurrency limit. This means if your account limit is 1000, you have a total of 900 available to allocate to individual functions. For more information, see &lt;a&gt;concurrent-executions&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaPutFunctionConcurrencyRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaConcurrency</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putFunctionConcurrency:(AWSLambdaPutFunctionConcurrencyRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaConcurrency *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutFunctionConcurrency service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorResourceNotFound, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putFunctionConcurrency:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/removePermission:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;You can remove individual permissions from an resource policy associated with a Lambda function by providing a statement ID that you provided when you added the permission.&lt;/p&gt;&lt;p&gt;If you are using versioning, the permissions you remove are specific to the Lambda function version or alias you specify in the &lt;code&gt;AddPermission&lt;/code&gt; request via the &lt;code&gt;Qualifier&lt;/code&gt; parameter. For more information about versioning, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;Note that removal of a permission will cause an active event source to lose permission to the function.&lt;/p&gt;&lt;p&gt;You need permission for the &lt;code&gt;lambda:RemovePermission&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaRemovePermissionRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)removePermission:(AWSLambdaRemovePermissionRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the RemovePermission service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorPreconditionFailed.</Abstract></ReturnValue>
+			<Anchor>//api/name/removePermission:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/removePermission:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;You can remove individual permissions from an resource policy associated with a Lambda function by providing a statement ID that you provided when you added the permission.&lt;/p&gt;&lt;p&gt;If you are using versioning, the permissions you remove are specific to the Lambda function version or alias you specify in the &lt;code&gt;AddPermission&lt;/code&gt; request via the &lt;code&gt;Qualifier&lt;/code&gt; parameter. For more information about versioning, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;Note that removal of a permission will cause an active event source to lose permission to the function.&lt;/p&gt;&lt;p&gt;You need permission for the &lt;code&gt;lambda:RemovePermission&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaRemovePermissionRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)removePermission:(AWSLambdaRemovePermissionRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the RemovePermission service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorPreconditionFailed.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removePermission:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/tagResource:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda function ARN (Amazon Resource Name). If a key is specified without a value, Lambda creates a tag with the specified key and a value of null. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaTagResourceRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)tagResource:(AWSLambdaTagResourceRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the TagResource service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/tagResource:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/tagResource:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a list of tags (key-value pairs) on the Lambda function. Requires the Lambda function ARN (Amazon Resource Name). If a key is specified without a value, Lambda creates a tag with the specified key and a value of null. For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaTagResourceRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)tagResource:(AWSLambdaTagResourceRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the TagResource service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/tagResource:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/untagResource:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name). For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUntagResourceRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask *)untagResource:(AWSLambdaUntagResourceRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UntagResource service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will be nil. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract></ReturnValue>
+			<Anchor>//api/name/untagResource:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/untagResource:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes tags from a Lambda function. Requires the function ARN (Amazon Resource Name). For more information, see Tagging Lambda Functions in the &lt;b&gt;AWS Lambda Developer Guide&lt;/b&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUntagResourceRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)untagResource:(AWSLambdaUntagResourceRequest *)request completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UntagResource service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/untagResource:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/updateAlias:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Using this API you can update the function version to which the alias points and the alias description. For more information, see Introduction to AWS Lambda Aliases.&lt;/p&gt;&lt;p&gt;This requires permission for the lambda:UpdateAlias action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUpdateAliasRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAliasConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaAliasConfiguration*&gt; *)updateAlias:(AWSLambdaUpdateAliasRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateAlias service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaAliasConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorPreconditionFailed.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateAlias:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/updateAlias:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Using this API you can update the function version to which the alias points and the alias description. For more information, see Introduction to AWS Lambda Aliases.&lt;/p&gt;&lt;p&gt;This requires permission for the lambda:UpdateAlias action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUpdateAliasRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaAliasConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateAlias:(AWSLambdaUpdateAliasRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaAliasConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateAlias service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorPreconditionFailed.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateAlias:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/updateEventSourceMapping:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;You can update an event source mapping. This is useful if you want to change the parameters of the existing mapping without losing your position in the stream. You can change which function will receive the stream records, but to change the stream itself, you must create a new mapping.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, you can update the event source mapping to map to a specific Lambda function version or alias as described in the &lt;code&gt;FunctionName&lt;/code&gt; parameter. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;If you disable the event source mapping, AWS Lambda stops polling. If you enable again, it will resume polling from the time it had stopped polling, so you don&apos;t lose processing of any records. However, if you delete event source mapping and create it again, it will reset.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:UpdateEventSourceMapping&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUpdateEventSourceMappingRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaEventSourceMappingConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaEventSourceMappingConfiguration*&gt; *)updateEventSourceMapping:(AWSLambdaUpdateEventSourceMappingRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateEventSourceMapping service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaEventSourceMappingConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorResourceConflict, AWSLambdaErrorResourceInUse.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateEventSourceMapping:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/updateEventSourceMapping:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;You can update an event source mapping. This is useful if you want to change the parameters of the existing mapping without losing your position in the stream. You can change which function will receive the stream records, but to change the stream itself, you must create a new mapping.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, you can update the event source mapping to map to a specific Lambda function version or alias as described in the &lt;code&gt;FunctionName&lt;/code&gt; parameter. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;If you disable the event source mapping, AWS Lambda stops polling. If you enable again, it will resume polling from the time it had stopped polling, so you don&apos;t lose processing of any records. However, if you delete event source mapping and create it again, it will reset.&lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:UpdateEventSourceMapping&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUpdateEventSourceMappingRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaEventSourceMappingConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateEventSourceMapping:(AWSLambdaUpdateEventSourceMappingRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaEventSourceMappingConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateEventSourceMapping service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorResourceConflict, AWSLambdaErrorResourceInUse.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateEventSourceMapping:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/updateFunctionCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Updates the code for the specified Lambda function. This operation must only be used on an existing Lambda function and cannot be used to update the function configuration.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, note this API will always update the $LATEST version of your Lambda function. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:UpdateFunctionCode&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUpdateFunctionCodeRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaFunctionConfiguration*&gt; *)updateFunctionCode:(AWSLambdaUpdateFunctionCodeRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateFunctionCode service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaFunctionConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorCodeStorageExceeded, AWSLambdaErrorPreconditionFailed.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateFunctionCode:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/updateFunctionCode:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Updates the code for the specified Lambda function. This operation must only be used on an existing Lambda function and cannot be used to update the function configuration.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, note this API will always update the $LATEST version of your Lambda function. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:UpdateFunctionCode&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUpdateFunctionCodeRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateFunctionCode:(AWSLambdaUpdateFunctionCodeRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaFunctionConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateFunctionCode service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorCodeStorageExceeded, AWSLambdaErrorPreconditionFailed.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateFunctionCode:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/updateFunctionConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Updates the configuration parameters for the specified Lambda function by using the values provided in the request. You provide only the parameters you want to change. This operation must only be used on an existing Lambda function and cannot be used to update the function&apos;s code.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, note this API will always update the $LATEST version of your Lambda function. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:UpdateFunctionConfiguration&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUpdateFunctionConfigurationRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSLambdaFunctionConfiguration*&gt; *)updateFunctionConfiguration:(AWSLambdaUpdateFunctionConfigurationRequest *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateFunctionConfiguration service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSLambdaFunctionConfiguration. On failed execution, task.error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorResourceConflict, AWSLambdaErrorPreconditionFailed.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateFunctionConfiguration:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambda/updateFunctionConfiguration:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Updates the configuration parameters for the specified Lambda function by using the values provided in the request. You provide only the parameters you want to change. This operation must only be used on an existing Lambda function and cannot be used to update the function&apos;s code.&lt;/p&gt;&lt;p&gt;If you are using the versioning feature, note this API will always update the $LATEST version of your Lambda function. For information about the versioning feature, see AWS Lambda Function Versioning and Aliases. &lt;/p&gt;&lt;p&gt;This operation requires permission for the &lt;code&gt;lambda:UpdateFunctionConfiguration&lt;/code&gt; action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaUpdateFunctionConfigurationRequest</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateFunctionConfiguration:(AWSLambdaUpdateFunctionConfigurationRequest *)request completionHandler:(void ( ^ _Nullable ) ( AWSLambdaFunctionConfiguration *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateFunctionConfiguration service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSLambdaErrorDomain domain and the following error code: AWSLambdaErrorService, AWSLambdaErrorResourceNotFound, AWSLambdaErrorInvalidParameterValue, AWSLambdaErrorTooManyRequests, AWSLambdaErrorResourceConflict, AWSLambdaErrorPreconditionFailed.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateFunctionConfiguration:completionHandler:</Anchor>
+            <NodeRef refid="1308"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

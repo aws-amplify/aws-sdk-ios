@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaEnvironment.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaEnvironment</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your environment&apos;s configuration settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1324"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEnvironment/setVariables:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The key-value pairs that represent your environment&apos;s configuration settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *variables</Declaration>
+			
+			
+			<Anchor>//api/name/variables</Anchor>
+            <NodeRef refid="1324"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaEnvironment/variables</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The key-value pairs that represent your environment&apos;s configuration settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *variables</Declaration>
+			
+			
+			<Anchor>//api/name/variables</Anchor>
+            <NodeRef refid="1324"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaEnvironment/variables</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The key-value pairs that represent your environment&apos;s configuration settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *variables</Declaration>
+			
+			
+			<Anchor>//api/name/variables</Anchor>
+            <NodeRef refid="1324"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

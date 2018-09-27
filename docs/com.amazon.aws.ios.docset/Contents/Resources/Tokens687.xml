@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBWriteRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBWriteRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents an operation to perform - either &lt;code&gt;DeleteItem&lt;/code&gt; or &lt;code&gt;PutItem&lt;/code&gt;. You can only request one of these operations, not both, in a single &lt;code&gt;WriteRequest&lt;/code&gt;. If you do need to perform both of these operations, you will need to provide two separate &lt;code&gt;WriteRequest&lt;/code&gt; objects.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="687"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBWriteRequest/setDeleteRequest:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A request to perform a &lt;code&gt;DeleteItem&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBDeleteRequest *deleteRequest</Declaration>
+			
+			
+			<Anchor>//api/name/deleteRequest</Anchor>
+            <NodeRef refid="687"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBWriteRequest/deleteRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A request to perform a &lt;code&gt;DeleteItem&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBDeleteRequest *deleteRequest</Declaration>
+			
+			
+			<Anchor>//api/name/deleteRequest</Anchor>
+            <NodeRef refid="687"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBWriteRequest/deleteRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A request to perform a &lt;code&gt;DeleteItem&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBDeleteRequest *deleteRequest</Declaration>
+			
+			
+			<Anchor>//api/name/deleteRequest</Anchor>
+            <NodeRef refid="687"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBWriteRequest/setPutRequest:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A request to perform a &lt;code&gt;PutItem&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBPutRequest *putRequest</Declaration>
+			
+			
+			<Anchor>//api/name/putRequest</Anchor>
+            <NodeRef refid="687"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBWriteRequest/putRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A request to perform a &lt;code&gt;PutItem&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBPutRequest *putRequest</Declaration>
+			
+			
+			<Anchor>//api/name/putRequest</Anchor>
+            <NodeRef refid="687"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBWriteRequest/putRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A request to perform a &lt;code&gt;PutItem&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBPutRequest *putRequest</Declaration>
+			
+			
+			<Anchor>//api/name/putRequest</Anchor>
+            <NodeRef refid="687"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

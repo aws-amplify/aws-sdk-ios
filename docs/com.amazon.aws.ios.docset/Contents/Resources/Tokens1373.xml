@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLexButton.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLexButton</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents an option to be shown on the client platform (Facebook, Slack, etc.)&lt;/p&gt;
+Required parameters: [text, value]</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1373"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexButton/setText:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Text that is visible to the user on the button.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="1373"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexButton/text</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Text that is visible to the user on the button.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="1373"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexButton/text</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Text that is visible to the user on the button.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *text</Declaration>
+			
+			
+			<Anchor>//api/name/text</Anchor>
+            <NodeRef refid="1373"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexButton/setValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value sent to Amazon Lex when a user chooses the button. For example, consider button text &quot;NYC.&quot; When the user chooses the button, the value sent can be &quot;New York City.&quot;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="1373"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexButton/value</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value sent to Amazon Lex when a user chooses the button. For example, consider button text &quot;NYC.&quot; When the user chooses the button, the value sent can be &quot;New York City.&quot;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="1373"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexButton/value</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value sent to Amazon Lex when a user chooses the button. For example, consider button text &quot;NYC.&quot; When the user chooses the button, the value sent can be &quot;New York City.&quot;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLexModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="1373"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

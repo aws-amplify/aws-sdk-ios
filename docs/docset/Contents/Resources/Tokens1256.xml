@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisPutRecordsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisPutRecordsInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A &lt;code&gt;PutRecords&lt;/code&gt; request.&lt;/p&gt;
+Required parameters: [Records, StreamName]</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1256"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsInput/setRecords:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The records associated with the request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKinesisPutRecordsRequestEntry*&gt; *records</Declaration>
+			
+			
+			<Anchor>//api/name/records</Anchor>
+            <NodeRef refid="1256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsInput/records</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The records associated with the request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKinesisPutRecordsRequestEntry*&gt; *records</Declaration>
+			
+			
+			<Anchor>//api/name/records</Anchor>
+            <NodeRef refid="1256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisPutRecordsInput/records</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The records associated with the request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKinesisPutRecordsRequestEntry*&gt; *records</Declaration>
+			
+			
+			<Anchor>//api/name/records</Anchor>
+            <NodeRef refid="1256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsInput/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The stream name associated with the request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisPutRecordsInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The stream name associated with the request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1256"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisPutRecordsInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The stream name associated with the request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1256"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

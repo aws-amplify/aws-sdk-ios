@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSTranscribeListVocabulariesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSTranscribeListVocabulariesResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2353"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListVocabulariesResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &lt;code&gt;ListVocabularies&lt;/code&gt; operation returns a page of vocabularies at a time. The maximum size of the page is set by the &lt;code&gt;MaxResults&lt;/code&gt; parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the &lt;code&gt;NextPage&lt;/code&gt; token. Include the token in the next request to the &lt;code&gt;ListVocabularies&lt;/code&gt; operation to return in the next page of jobs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListVocabulariesResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &lt;code&gt;ListVocabularies&lt;/code&gt; operation returns a page of vocabularies at a time. The maximum size of the page is set by the &lt;code&gt;MaxResults&lt;/code&gt; parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the &lt;code&gt;NextPage&lt;/code&gt; token. Include the token in the next request to the &lt;code&gt;ListVocabularies&lt;/code&gt; operation to return in the next page of jobs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeListVocabulariesResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &lt;code&gt;ListVocabularies&lt;/code&gt; operation returns a page of vocabularies at a time. The maximum size of the page is set by the &lt;code&gt;MaxResults&lt;/code&gt; parameter. If there are more jobs in the list than the page size, Amazon Transcribe returns the &lt;code&gt;NextPage&lt;/code&gt; token. Include the token in the next request to the &lt;code&gt;ListVocabularies&lt;/code&gt; operation to return in the next page of jobs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListVocabulariesResponse/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The requested vocabulary state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="2353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListVocabulariesResponse/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The requested vocabulary state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="2353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeListVocabulariesResponse/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The requested vocabulary state.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="2353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListVocabulariesResponse/setVocabularies:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of objects that describe the vocabularies that match the search criteria in the request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSTranscribeVocabularyInfo*&gt; *vocabularies</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularies</Anchor>
+            <NodeRef refid="2353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeListVocabulariesResponse/vocabularies</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of objects that describe the vocabularies that match the search criteria in the request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSTranscribeVocabularyInfo*&gt; *vocabularies</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularies</Anchor>
+            <NodeRef refid="2353"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeListVocabulariesResponse/vocabularies</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of objects that describe the vocabularies that match the search criteria in the request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSTranscribeVocabularyInfo*&gt; *vocabularies</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularies</Anchor>
+            <NodeRef refid="2353"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

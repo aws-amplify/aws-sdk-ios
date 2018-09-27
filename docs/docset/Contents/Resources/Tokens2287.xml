@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSQSSendMessageBatchRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSQSSendMessageBatchRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;
+Required parameters: [QueueUrl, Entries]</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2287"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchRequest/setEntries:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of &lt;code&gt;&lt;a&gt;SendMessageBatchRequestEntry&lt;/a&gt;&lt;/code&gt; items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSSendMessageBatchRequestEntry*&gt; *entries</Declaration>
+			
+			
+			<Anchor>//api/name/entries</Anchor>
+            <NodeRef refid="2287"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchRequest/entries</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of &lt;code&gt;&lt;a&gt;SendMessageBatchRequestEntry&lt;/a&gt;&lt;/code&gt; items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSSendMessageBatchRequestEntry*&gt; *entries</Declaration>
+			
+			
+			<Anchor>//api/name/entries</Anchor>
+            <NodeRef refid="2287"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSSendMessageBatchRequest/entries</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of &lt;code&gt;&lt;a&gt;SendMessageBatchRequestEntry&lt;/a&gt;&lt;/code&gt; items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSSendMessageBatchRequestEntry*&gt; *entries</Declaration>
+			
+			
+			<Anchor>//api/name/entries</Anchor>
+            <NodeRef refid="2287"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchRequest/setQueueUrl:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of the Amazon SQS queue to which batched messages are sent.&lt;/p&gt;&lt;p&gt;Queue URLs are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueUrl</Declaration>
+			
+			
+			<Anchor>//api/name/queueUrl</Anchor>
+            <NodeRef refid="2287"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSSendMessageBatchRequest/queueUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of the Amazon SQS queue to which batched messages are sent.&lt;/p&gt;&lt;p&gt;Queue URLs are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueUrl</Declaration>
+			
+			
+			<Anchor>//api/name/queueUrl</Anchor>
+            <NodeRef refid="2287"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSSendMessageBatchRequest/queueUrl</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The URL of the Amazon SQS queue to which batched messages are sent.&lt;/p&gt;&lt;p&gt;Queue URLs are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueUrl</Declaration>
+			
+			
+			<Anchor>//api/name/queueUrl</Anchor>
+            <NodeRef refid="2287"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

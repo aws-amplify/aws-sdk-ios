@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3ChunkedEncodingInputStream.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3ChunkedEncodingInputStream</TokenIdentifier>
+			<Abstract type="html">A subclass of NSInputStream that wraps an input stream and adds
+signature of chunk data.</Abstract>
+			<DeclaredIn>AWSSignature.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1802"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3ChunkedEncodingInputStream/initWithInputStream:date:scope:kSigning:headerSignature:</TokenIdentifier>
+			<Abstract type="html">Initialize the input stream with date, scope, signing key and signature
+of request headers.</Abstract>
+			<DeclaredIn>AWSSignature.h</DeclaredIn>
+			
+			<Declaration>- (instancetype)initWithInputStream:(NSInputStream *)stream date:(NSDate *)date scope:(NSString *)scope kSigning:(NSData *)kSigning headerSignature:(NSString *)headerSignature</Declaration>
+			
+			
+			<Anchor>//api/name/initWithInputStream:date:scope:kSigning:headerSignature:</Anchor>
+            <NodeRef refid="1802"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSS3ChunkedEncodingInputStream/computeContentLengthForChunkedData:</TokenIdentifier>
+			<Abstract type="html">Computes new content length after data being chunked encoded.</Abstract>
+			<DeclaredIn>AWSSignature.h</DeclaredIn>
+			
+			<Declaration>+ (NSUInteger)computeContentLengthForChunkedData:(NSUInteger)dataLength</Declaration>
+			
+			
+			<Anchor>//api/name/computeContentLengthForChunkedData:</Anchor>
+            <NodeRef refid="1802"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSS3ChunkedEncodingInputStream/oneChunkedDataSize:</TokenIdentifier>
+			<Abstract type="html">Computes the size of one data chunk</Abstract>
+			<DeclaredIn>AWSSignature.m</DeclaredIn>
+			
+			<Declaration>+ (NSUInteger)oneChunkedDataSize:(NSUInteger)dataLength</Declaration>
+			
+			
+			<Anchor>//api/name/oneChunkedDataSize:</Anchor>
+            <NodeRef refid="1802"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

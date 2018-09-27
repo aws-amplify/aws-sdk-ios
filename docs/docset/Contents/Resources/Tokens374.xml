@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderListUserImportJobsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderListUserImportJobsResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the response from the server to the request to list the user import jobs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="374"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListUserImportJobsResponse/setPaginationToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier that can be used to return the next set of user import jobs in the list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *paginationToken</Declaration>
+			
+			
+			<Anchor>//api/name/paginationToken</Anchor>
+            <NodeRef refid="374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListUserImportJobsResponse/paginationToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier that can be used to return the next set of user import jobs in the list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *paginationToken</Declaration>
+			
+			
+			<Anchor>//api/name/paginationToken</Anchor>
+            <NodeRef refid="374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderListUserImportJobsResponse/paginationToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier that can be used to return the next set of user import jobs in the list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *paginationToken</Declaration>
+			
+			
+			<Anchor>//api/name/paginationToken</Anchor>
+            <NodeRef refid="374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListUserImportJobsResponse/setUserImportJobs:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user import jobs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderUserImportJobType*&gt; *userImportJobs</Declaration>
+			
+			
+			<Anchor>//api/name/userImportJobs</Anchor>
+            <NodeRef refid="374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderListUserImportJobsResponse/userImportJobs</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user import jobs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderUserImportJobType*&gt; *userImportJobs</Declaration>
+			
+			
+			<Anchor>//api/name/userImportJobs</Anchor>
+            <NodeRef refid="374"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderListUserImportJobsResponse/userImportJobs</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user import jobs.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderUserImportJobType*&gt; *userImportJobs</Declaration>
+			
+			
+			<Anchor>//api/name/userImportJobs</Anchor>
+            <NodeRef refid="374"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

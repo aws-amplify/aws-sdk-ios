@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionCompareFacesMatch.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionCompareFacesMatch</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides information about a face in a target image that matches the source image face analysed by &lt;code&gt;CompareFaces&lt;/code&gt;. The &lt;code&gt;Face&lt;/code&gt; property contains the bounding box of the face in the target image. The &lt;code&gt;Similarity&lt;/code&gt; property is the confidence that the source image face matches the face in the bounding box.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1672"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCompareFacesMatch/setFace:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides face metadata (bounding box and confidence that the bounding box actually contains a face).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionComparedFace *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1672"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCompareFacesMatch/face</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides face metadata (bounding box and confidence that the bounding box actually contains a face).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionComparedFace *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1672"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCompareFacesMatch/face</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides face metadata (bounding box and confidence that the bounding box actually contains a face).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionComparedFace *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1672"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCompareFacesMatch/setSimilarity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Level of confidence that the faces match.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *similarity</Declaration>
+			
+			
+			<Anchor>//api/name/similarity</Anchor>
+            <NodeRef refid="1672"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCompareFacesMatch/similarity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Level of confidence that the faces match.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *similarity</Declaration>
+			
+			
+			<Anchor>//api/name/similarity</Anchor>
+            <NodeRef refid="1672"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCompareFacesMatch/similarity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Level of confidence that the faces match.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *similarity</Declaration>
+			
+			
+			<Anchor>//api/name/similarity</Anchor>
+            <NodeRef refid="1672"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogsFilteredLogEvent.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogsFilteredLogEvent</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a matched event.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1421"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilteredLogEvent/setEventId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the event.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventId</Declaration>
+			
+			
+			<Anchor>//api/name/eventId</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilteredLogEvent/eventId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the event.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventId</Declaration>
+			
+			
+			<Anchor>//api/name/eventId</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsFilteredLogEvent/eventId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the event.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventId</Declaration>
+			
+			
+			<Anchor>//api/name/eventId</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilteredLogEvent/setIngestionTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *ingestionTime</Declaration>
+			
+			
+			<Anchor>//api/name/ingestionTime</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilteredLogEvent/ingestionTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *ingestionTime</Declaration>
+			
+			
+			<Anchor>//api/name/ingestionTime</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsFilteredLogEvent/ingestionTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *ingestionTime</Declaration>
+			
+			
+			<Anchor>//api/name/ingestionTime</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilteredLogEvent/setLogStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log stream this event belongs to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamName</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilteredLogEvent/logStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log stream this event belongs to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamName</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsFilteredLogEvent/logStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the log stream this event belongs to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamName</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilteredLogEvent/setMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data contained in the log event.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilteredLogEvent/message</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data contained in the log event.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsFilteredLogEvent/message</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data contained in the log event.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *message</Declaration>
+			
+			
+			<Anchor>//api/name/message</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilteredLogEvent/setTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogsFilteredLogEvent/timestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogsFilteredLogEvent/timestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLogsModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1421"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

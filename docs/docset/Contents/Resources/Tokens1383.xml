@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLexVoiceButton.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLexVoiceButton</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1383"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButton/setAnimateOnImageSwitching:</TokenIdentifier>
+			<Abstract type="html">Enable push transition animation when image switch between microphone and listen image. Default is NO.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL animateOnImageSwitching</Declaration>
+			
+			
+			<Anchor>//api/name/animateOnImageSwitching</Anchor>
+            <NodeRef refid="1383"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButton/animateOnImageSwitching</TokenIdentifier>
+			<Abstract type="html">Enable push transition animation when image switch between microphone and listen image. Default is NO.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL animateOnImageSwitching</Declaration>
+			
+			
+			<Anchor>//api/name/animateOnImageSwitching</Anchor>
+            <NodeRef refid="1383"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButton/animateOnImageSwitching</TokenIdentifier>
+			<Abstract type="html">Enable push transition animation when image switch between microphone and listen image. Default is NO.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) BOOL animateOnImageSwitching</Declaration>
+			
+			
+			<Anchor>//api/name/animateOnImageSwitching</Anchor>
+            <NodeRef refid="1383"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButton/setMicrophoneImageColor:</TokenIdentifier>
+			<Abstract type="html">Set color for microphone image. Default is nil.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) UIColor *microphoneImageColor</Declaration>
+			
+			
+			<Anchor>//api/name/microphoneImageColor</Anchor>
+            <NodeRef refid="1383"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButton/microphoneImageColor</TokenIdentifier>
+			<Abstract type="html">Set color for microphone image. Default is nil.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) UIColor *microphoneImageColor</Declaration>
+			
+			
+			<Anchor>//api/name/microphoneImageColor</Anchor>
+            <NodeRef refid="1383"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButton/microphoneImageColor</TokenIdentifier>
+			<Abstract type="html">Set color for microphone image. Default is nil.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) UIColor *microphoneImageColor</Declaration>
+			
+			
+			<Anchor>//api/name/microphoneImageColor</Anchor>
+            <NodeRef refid="1383"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButton/setLexImageColor:</TokenIdentifier>
+			<Abstract type="html">Set color for inactive microphone image. Default is light grey.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) UIColor *lexImageColor</Declaration>
+			
+			
+			<Anchor>//api/name/lexImageColor</Anchor>
+            <NodeRef refid="1383"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButton/lexImageColor</TokenIdentifier>
+			<Abstract type="html">Set color for inactive microphone image. Default is light grey.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) UIColor *lexImageColor</Declaration>
+			
+			
+			<Anchor>//api/name/lexImageColor</Anchor>
+            <NodeRef refid="1383"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexVoiceButton/lexImageColor</TokenIdentifier>
+			<Abstract type="html">Set color for inactive microphone image. Default is light grey.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) UIColor *lexImageColor</Declaration>
+			
+			
+			<Anchor>//api/name/lexImageColor</Anchor>
+            <NodeRef refid="1383"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexVoiceButton/setButtonImage:imageTintColor:animated:</TokenIdentifier>
+			<Abstract type="html">Set image and tintClor for imageButton.</Abstract>
+			<DeclaredIn>AWSLexVoiceButton.m</DeclaredIn>
+			
+			<Declaration>- (void)setButtonImage:(UIImage *)image imageTintColor:(UIColor *)color animated:(BOOL)animated</Declaration>
+			
+			
+			<Anchor>//api/name/setButtonImage:imageTintColor:animated:</Anchor>
+            <NodeRef refid="1383"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

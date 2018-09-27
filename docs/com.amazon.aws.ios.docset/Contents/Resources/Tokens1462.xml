@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSMobileAnalyticsERSPutEventsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSMobileAnalyticsERSPutEventsInput</TokenIdentifier>
+			<Abstract type="html">Describes a set of events
+Required parameters: [events, clientContext]</Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1462"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSPutEventsInput/setClientContext:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientContext</Declaration>
+			
+			
+			<Anchor>//api/name/clientContext</Anchor>
+            <NodeRef refid="1462"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSPutEventsInput/clientContext</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientContext</Declaration>
+			
+			
+			<Anchor>//api/name/clientContext</Anchor>
+            <NodeRef refid="1462"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMobileAnalyticsERSPutEventsInput/clientContext</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientContext</Declaration>
+			
+			
+			<Anchor>//api/name/clientContext</Anchor>
+            <NodeRef refid="1462"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSPutEventsInput/setEvents:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSMobileAnalyticsERSEvent*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1462"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSMobileAnalyticsERSPutEventsInput/events</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSMobileAnalyticsERSEvent*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1462"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSMobileAnalyticsERSPutEventsInput/events</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMobileAnalyticsERSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSMobileAnalyticsERSEvent*&gt; *events</Declaration>
+			
+			
+			<Anchor>//api/name/events</Anchor>
+            <NodeRef refid="1462"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

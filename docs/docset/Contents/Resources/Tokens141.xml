@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCloudWatchEnableAlarmActionsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCloudWatchEnableAlarmActionsInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="141"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchEnableAlarmActionsInput/setAlarmNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the alarms.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *alarmNames</Declaration>
+			
+			
+			<Anchor>//api/name/alarmNames</Anchor>
+            <NodeRef refid="141"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchEnableAlarmActionsInput/alarmNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the alarms.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *alarmNames</Declaration>
+			
+			
+			<Anchor>//api/name/alarmNames</Anchor>
+            <NodeRef refid="141"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchEnableAlarmActionsInput/alarmNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the alarms.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *alarmNames</Declaration>
+			
+			
+			<Anchor>//api/name/alarmNames</Anchor>
+            <NodeRef refid="141"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

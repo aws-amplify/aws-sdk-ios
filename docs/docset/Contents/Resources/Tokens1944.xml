@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3PreSignedURLBuilder.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3PreSignedURLBuilder</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1944"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSS3PreSignedURLBuilder/defaultS3PreSignedURLBuilder</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultS3PreSignedURLBuilder</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultS3PreSignedURLBuilder</Anchor>
+            <NodeRef refid="1944"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSS3PreSignedURLBuilder/registerS3PreSignedURLBuilderWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerS3PreSignedURLBuilderWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerS3PreSignedURLBuilderWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="1944"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSS3PreSignedURLBuilder/S3PreSignedURLBuilderForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerS3PreSignedURLBuilderWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)S3PreSignedURLBuilderForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/S3PreSignedURLBuilderForKey:</Anchor>
+            <NodeRef refid="1944"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSS3PreSignedURLBuilder/removeS3PreSignedURLBuilderForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeS3PreSignedURLBuilderForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeS3PreSignedURLBuilderForKey:</Anchor>
+            <NodeRef refid="1944"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3PreSignedURLBuilder/getPreSignedURL:</TokenIdentifier>
+			<Abstract type="html">Build a time-limited pre-signed URL to get object from S3, return nil if build process failed.</Abstract>
+			<DeclaredIn>AWSS3PreSignedURL.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSS3GetPreSignedURLRequest</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;NSURL*&gt; *)getPreSignedURL:(AWSS3GetPreSignedURLRequest *)getPreSignedURLRequest</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>getPreSignedURLRequest</Name>
+					<Abstract type="html">The AWSS3PreSignedURLRequest that defines the parameters of the operation.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">A pre-signed NSURL for the resource. return nil if any errors occured.</Abstract></ReturnValue>
+			<Anchor>//api/name/getPreSignedURL:</Anchor>
+            <NodeRef refid="1944"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

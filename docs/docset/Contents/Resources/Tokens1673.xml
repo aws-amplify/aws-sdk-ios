@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionCompareFacesRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionCompareFacesRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1673"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCompareFacesRequest/setSimilarityThreshold:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum level of confidence in the face matches that a match must meet to be included in the &lt;code&gt;FaceMatches&lt;/code&gt; array.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *similarityThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/similarityThreshold</Anchor>
+            <NodeRef refid="1673"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCompareFacesRequest/similarityThreshold</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum level of confidence in the face matches that a match must meet to be included in the &lt;code&gt;FaceMatches&lt;/code&gt; array.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *similarityThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/similarityThreshold</Anchor>
+            <NodeRef refid="1673"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCompareFacesRequest/similarityThreshold</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The minimum level of confidence in the face matches that a match must meet to be included in the &lt;code&gt;FaceMatches&lt;/code&gt; array.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *similarityThreshold</Declaration>
+			
+			
+			<Anchor>//api/name/similarityThreshold</Anchor>
+            <NodeRef refid="1673"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCompareFacesRequest/setSourceImage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImage *sourceImage</Declaration>
+			
+			
+			<Anchor>//api/name/sourceImage</Anchor>
+            <NodeRef refid="1673"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCompareFacesRequest/sourceImage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImage *sourceImage</Declaration>
+			
+			
+			<Anchor>//api/name/sourceImage</Anchor>
+            <NodeRef refid="1673"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCompareFacesRequest/sourceImage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImage *sourceImage</Declaration>
+			
+			
+			<Anchor>//api/name/sourceImage</Anchor>
+            <NodeRef refid="1673"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCompareFacesRequest/setTargetImage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The target image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImage *targetImage</Declaration>
+			
+			
+			<Anchor>//api/name/targetImage</Anchor>
+            <NodeRef refid="1673"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCompareFacesRequest/targetImage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The target image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImage *targetImage</Declaration>
+			
+			
+			<Anchor>//api/name/targetImage</Anchor>
+            <NodeRef refid="1673"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCompareFacesRequest/targetImage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The target image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImage *targetImage</Declaration>
+			
+			
+			<Anchor>//api/name/targetImage</Anchor>
+            <NodeRef refid="1673"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

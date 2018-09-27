@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSComprehendErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSComprehendErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2460"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2460"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendErrorBatchSizeLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendErrorBatchSizeLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2460"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendErrorInternalServer</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendErrorInternalServer</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2460"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendErrorInvalidFilter</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendErrorInvalidFilter</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2460"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendErrorInvalidRequest</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendErrorInvalidRequest</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2460"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendErrorJobNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendErrorJobNotFound</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2460"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendErrorTextSizeLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendErrorTextSizeLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2460"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendErrorTooManyRequests</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendErrorTooManyRequests</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2460"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSComprehendErrorUnsupportedLanguage</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSComprehendErrorUnsupportedLanguage</Declaration>
+            
+            <DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+            <NodeRef refid="2460"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

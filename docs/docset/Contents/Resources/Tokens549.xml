@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendStartTopicsDetectionJobRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendStartTopicsDetectionJobRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="549"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/setClientRequestToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientRequestToken</Declaration>
+			
+			
+			<Anchor>//api/name/clientRequestToken</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/clientRequestToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientRequestToken</Declaration>
+			
+			
+			<Anchor>//api/name/clientRequestToken</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendStartTopicsDetectionJobRequest/clientRequestToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier for the request. If you do not set the client request token, Amazon Comprehend generates one.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientRequestToken</Declaration>
+			
+			
+			<Anchor>//api/name/clientRequestToken</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/setDataAccessRoleArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dataAccessRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/dataAccessRoleArn</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/dataAccessRoleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dataAccessRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/dataAccessRoleArn</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendStartTopicsDetectionJobRequest/dataAccessRoleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dataAccessRoleArn</Declaration>
+			
+			
+			<Anchor>//api/name/dataAccessRoleArn</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/setInputDataConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the format and location of the input data for the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendInputDataConfig *inputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/inputDataConfig</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/inputDataConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the format and location of the input data for the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendInputDataConfig *inputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/inputDataConfig</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendStartTopicsDetectionJobRequest/inputDataConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the format and location of the input data for the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendInputDataConfig *inputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/inputDataConfig</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/setJobName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/jobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendStartTopicsDetectionJobRequest/jobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobName</Declaration>
+			
+			
+			<Anchor>//api/name/jobName</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/setNumberOfTopics:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of topics to detect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfTopics</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfTopics</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/numberOfTopics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of topics to detect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfTopics</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfTopics</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendStartTopicsDetectionJobRequest/numberOfTopics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The number of topics to detect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *numberOfTopics</Declaration>
+			
+			
+			<Anchor>//api/name/numberOfTopics</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/setOutputDataConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies where to send the output files.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendOutputDataConfig *outputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/outputDataConfig</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendStartTopicsDetectionJobRequest/outputDataConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies where to send the output files.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendOutputDataConfig *outputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/outputDataConfig</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendStartTopicsDetectionJobRequest/outputDataConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies where to send the output files.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendOutputDataConfig *outputDataConfig</Declaration>
+			
+			
+			<Anchor>//api/name/outputDataConfig</Anchor>
+            <NodeRef refid="549"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

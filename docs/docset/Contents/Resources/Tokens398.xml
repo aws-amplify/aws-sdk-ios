@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderRiskExceptionConfigurationType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderRiskExceptionConfigurationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The type of the configuration to override the risk decision.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="398"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderRiskExceptionConfigurationType/setBlockedIPRangeList:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *blockedIPRangeList</Declaration>
+			
+			
+			<Anchor>//api/name/blockedIPRangeList</Anchor>
+            <NodeRef refid="398"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderRiskExceptionConfigurationType/blockedIPRangeList</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *blockedIPRangeList</Declaration>
+			
+			
+			<Anchor>//api/name/blockedIPRangeList</Anchor>
+            <NodeRef refid="398"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderRiskExceptionConfigurationType/blockedIPRangeList</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Overrides the risk decision to always block the pre-authentication requests. The IP range is in CIDR notation: a compact representation of an IP address and its associated routing prefix.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *blockedIPRangeList</Declaration>
+			
+			
+			<Anchor>//api/name/blockedIPRangeList</Anchor>
+            <NodeRef refid="398"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderRiskExceptionConfigurationType/setSkippedIPRangeList:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *skippedIPRangeList</Declaration>
+			
+			
+			<Anchor>//api/name/skippedIPRangeList</Anchor>
+            <NodeRef refid="398"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderRiskExceptionConfigurationType/skippedIPRangeList</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *skippedIPRangeList</Declaration>
+			
+			
+			<Anchor>//api/name/skippedIPRangeList</Anchor>
+            <NodeRef refid="398"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderRiskExceptionConfigurationType/skippedIPRangeList</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Risk detection is not performed on the IP addresses in the range list. The IP range is in CIDR notation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *skippedIPRangeList</Declaration>
+			
+			
+			<Anchor>//api/name/skippedIPRangeList</Anchor>
+            <NodeRef refid="398"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

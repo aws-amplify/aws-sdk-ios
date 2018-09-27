@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderCreateIdentityProviderRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderCreateIdentityProviderRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="290"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/setAttributeMapping:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A mapping of identity provider attributes to standard and custom user pool attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *attributeMapping</Declaration>
+			
+			
+			<Anchor>//api/name/attributeMapping</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/attributeMapping</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A mapping of identity provider attributes to standard and custom user pool attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *attributeMapping</Declaration>
+			
+			
+			<Anchor>//api/name/attributeMapping</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateIdentityProviderRequest/attributeMapping</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A mapping of identity provider attributes to standard and custom user pool attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *attributeMapping</Declaration>
+			
+			
+			<Anchor>//api/name/attributeMapping</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/setIdpIdentifiers:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of identity provider identifiers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *idpIdentifiers</Declaration>
+			
+			
+			<Anchor>//api/name/idpIdentifiers</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/idpIdentifiers</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of identity provider identifiers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *idpIdentifiers</Declaration>
+			
+			
+			<Anchor>//api/name/idpIdentifiers</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateIdentityProviderRequest/idpIdentifiers</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of identity provider identifiers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *idpIdentifiers</Declaration>
+			
+			
+			<Anchor>//api/name/idpIdentifiers</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/setProviderDetails:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity provider details, such as &lt;code&gt;MetadataURL&lt;/code&gt; and &lt;code&gt;MetadataFile&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *providerDetails</Declaration>
+			
+			
+			<Anchor>//api/name/providerDetails</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/providerDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity provider details, such as &lt;code&gt;MetadataURL&lt;/code&gt; and &lt;code&gt;MetadataFile&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *providerDetails</Declaration>
+			
+			
+			<Anchor>//api/name/providerDetails</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateIdentityProviderRequest/providerDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity provider details, such as &lt;code&gt;MetadataURL&lt;/code&gt; and &lt;code&gt;MetadataFile&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *providerDetails</Declaration>
+			
+			
+			<Anchor>//api/name/providerDetails</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/setProviderName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity provider name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *providerName</Declaration>
+			
+			
+			<Anchor>//api/name/providerName</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/providerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity provider name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *providerName</Declaration>
+			
+			
+			<Anchor>//api/name/providerName</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateIdentityProviderRequest/providerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity provider name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *providerName</Declaration>
+			
+			
+			<Anchor>//api/name/providerName</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/setProviderType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity provider type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderIdentityProviderTypeType providerType</Declaration>
+			
+			
+			<Anchor>//api/name/providerType</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/providerType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity provider type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderIdentityProviderTypeType providerType</Declaration>
+			
+			
+			<Anchor>//api/name/providerType</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateIdentityProviderRequest/providerType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identity provider type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderIdentityProviderTypeType providerType</Declaration>
+			
+			
+			<Anchor>//api/name/providerType</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/setUserPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateIdentityProviderRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateIdentityProviderRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="290"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

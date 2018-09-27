@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSEC2ParamBuilderErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSEC2ParamBuilderErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2490"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSEC2ParamBuilderUnknownError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSEC2ParamBuilderUnknownError</Declaration>
+            
+            <DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+            <NodeRef refid="2490"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSEC2ParamBuilderDefinitionFileIsEmpty</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSEC2ParamBuilderDefinitionFileIsEmpty</Declaration>
+            
+            <DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+            <NodeRef refid="2490"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSEC2ParamBuilderUndefinedActionRule</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSEC2ParamBuilderUndefinedActionRule</Declaration>
+            
+            <DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+            <NodeRef refid="2490"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSEC2ParamBuilderInternalError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSEC2ParamBuilderInternalError</Declaration>
+            
+            <DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+            <NodeRef refid="2490"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSEC2ParamBuilderInvalidParameter</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSEC2ParamBuilderInvalidParameter</Declaration>
+            
+            <DeclaredIn>AWSSerialization.h</DeclaredIn>
+            
+            <NodeRef refid="2490"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderCreateUserPoolClientResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderCreateUserPoolClientResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the response from the server to create a user pool client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="297"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateUserPoolClientResponse/setUserPoolClient:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool client that was just created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolClientType *userPoolClient</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolClient</Anchor>
+            <NodeRef refid="297"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderCreateUserPoolClientResponse/userPoolClient</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool client that was just created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolClientType *userPoolClient</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolClient</Anchor>
+            <NodeRef refid="297"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderCreateUserPoolClientResponse/userPoolClient</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool client that was just created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderUserPoolClientType *userPoolClient</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolClient</Anchor>
+            <NodeRef refid="297"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionCelebrity.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionCelebrity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides information about a celebrity recognized by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1669"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCelebrity/setFace:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides information about the celebrity&apos;s face, such as its location on the image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionComparedFace *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCelebrity/face</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides information about the celebrity&apos;s face, such as its location on the image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionComparedFace *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCelebrity/face</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Provides information about the celebrity&apos;s face, such as its location on the image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionComparedFace *face</Declaration>
+			
+			
+			<Anchor>//api/name/face</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCelebrity/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier for the celebrity. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCelebrity/identifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier for the celebrity. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCelebrity/identifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A unique identifier for the celebrity. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCelebrity/setMatchConfidence:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The confidence, in percentage, that Rekognition has that the recognized face is the celebrity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *matchConfidence</Declaration>
+			
+			
+			<Anchor>//api/name/matchConfidence</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCelebrity/matchConfidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The confidence, in percentage, that Rekognition has that the recognized face is the celebrity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *matchConfidence</Declaration>
+			
+			
+			<Anchor>//api/name/matchConfidence</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCelebrity/matchConfidence</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The confidence, in percentage, that Rekognition has that the recognized face is the celebrity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *matchConfidence</Declaration>
+			
+			
+			<Anchor>//api/name/matchConfidence</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCelebrity/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the celebrity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCelebrity/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the celebrity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCelebrity/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the celebrity.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCelebrity/setUrls:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *urls</Declaration>
+			
+			
+			<Anchor>//api/name/urls</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionCelebrity/urls</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *urls</Declaration>
+			
+			
+			<Anchor>//api/name/urls</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionCelebrity/urls</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of URLs pointing to additional information about the celebrity. If there is no additional information about the celebrity, this list is empty.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *urls</Declaration>
+			
+			
+			<Anchor>//api/name/urls</Anchor>
+            <NodeRef refid="1669"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

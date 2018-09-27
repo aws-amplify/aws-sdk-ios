@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLogger.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLogger</TokenIdentifier>
+			<Abstract type="html">AWSLogger is an utility class that handles logging to the console. Changing log levels during development may make debugging easier. You can change the log level by importing AWSCore.h and calling:</Abstract>
+			<DeclaredIn>AWSLogging.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1385"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogger/setLogLevel:</TokenIdentifier>
+			<Abstract type="html">The log level setting. The default value is Debug.</Abstract>
+			<DeclaredIn>AWSLogging.h</DeclaredIn>
+			
+			<Declaration>@property (atomic, assign) AWSLogLevel logLevel</Declaration>
+			
+			
+			<Anchor>//api/name/logLevel</Anchor>
+            <NodeRef refid="1385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogger/logLevel</TokenIdentifier>
+			<Abstract type="html">The log level setting. The default value is Debug.</Abstract>
+			<DeclaredIn>AWSLogging.h</DeclaredIn>
+			
+			<Declaration>@property (atomic, assign) AWSLogLevel logLevel</Declaration>
+			
+			
+			<Anchor>//api/name/logLevel</Anchor>
+            <NodeRef refid="1385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLogger/logLevel</TokenIdentifier>
+			<Abstract type="html">The log level setting. The default value is Debug.</Abstract>
+			<DeclaredIn>AWSLogging.h</DeclaredIn>
+			
+			<Declaration>@property (atomic, assign) AWSLogLevel logLevel</Declaration>
+			
+			
+			<Anchor>//api/name/logLevel</Anchor>
+            <NodeRef refid="1385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSLogger/defaultLogger</TokenIdentifier>
+			<Abstract type="html">Returns the shared logger object.</Abstract>
+			<DeclaredIn>AWSLogging.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultLogger</Declaration>
+			
+			<ReturnValue><Abstract type="html">The shared logger object.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultLogger</Anchor>
+            <NodeRef refid="1385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLogger/log:format:</TokenIdentifier>
+			<Abstract type="html">Prints out the formatted logs to the console. You can use the following predefined shorthand methods instead:</Abstract>
+			<DeclaredIn>AWSLogging.h</DeclaredIn>
+			
+			<Declaration>- (void)log:(AWSLogLevel)logLevel format:(NSString *)fmt, ...</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>logLevel</Name>
+					<Abstract type="html">The level of this log.</Abstract>
+				</Parameter><Parameter>
+					<Name>fmt</Name>
+					<Abstract type="html">The formatted string to log.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/log:format:</Anchor>
+            <NodeRef refid="1385"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

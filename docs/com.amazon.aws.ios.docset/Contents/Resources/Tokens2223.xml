@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSGetTopicAttributesInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetTopicAttributesInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Input for GetTopicAttributes action.&lt;/p&gt;
+Required parameters: [TopicArn]</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2223"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSGetTopicAttributesInput/setTopicArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the topic whose properties you want to get.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2223"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSGetTopicAttributesInput/topicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the topic whose properties you want to get.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2223"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSGetTopicAttributesInput/topicArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the topic whose properties you want to get.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *topicArn</Declaration>
+			
+			
+			<Anchor>//api/name/topicArn</Anchor>
+            <NodeRef refid="2223"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

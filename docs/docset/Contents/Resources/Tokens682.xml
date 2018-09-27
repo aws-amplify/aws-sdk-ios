@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBUpdateItemOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBUpdateItemOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the output of an &lt;code&gt;UpdateItem&lt;/code&gt; operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="682"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemOutput/setAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of attribute values as they appear before or after the &lt;code&gt;UpdateItem&lt;/code&gt; operation, as determined by the &lt;code&gt;ReturnValues&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;Attributes&lt;/code&gt; map is only present if &lt;code&gt;ReturnValues&lt;/code&gt; was specified as something other than &lt;code&gt;NONE&lt;/code&gt; in the request. Each element represents one attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="682"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemOutput/attributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of attribute values as they appear before or after the &lt;code&gt;UpdateItem&lt;/code&gt; operation, as determined by the &lt;code&gt;ReturnValues&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;Attributes&lt;/code&gt; map is only present if &lt;code&gt;ReturnValues&lt;/code&gt; was specified as something other than &lt;code&gt;NONE&lt;/code&gt; in the request. Each element represents one attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="682"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemOutput/attributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A map of attribute values as they appear before or after the &lt;code&gt;UpdateItem&lt;/code&gt; operation, as determined by the &lt;code&gt;ReturnValues&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;Attributes&lt;/code&gt; map is only present if &lt;code&gt;ReturnValues&lt;/code&gt; was specified as something other than &lt;code&gt;NONE&lt;/code&gt; in the request. Each element represents one attribute.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBAttributeValue*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="682"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemOutput/setConsumedCapacity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The capacity units consumed by the &lt;code&gt;UpdateItem&lt;/code&gt; operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. &lt;code&gt;ConsumedCapacity&lt;/code&gt; is only returned if the &lt;code&gt;ReturnConsumedCapacity&lt;/code&gt; parameter was specified. For more information, see Provisioned Throughput in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBConsumedCapacity *consumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/consumedCapacity</Anchor>
+            <NodeRef refid="682"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemOutput/consumedCapacity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The capacity units consumed by the &lt;code&gt;UpdateItem&lt;/code&gt; operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. &lt;code&gt;ConsumedCapacity&lt;/code&gt; is only returned if the &lt;code&gt;ReturnConsumedCapacity&lt;/code&gt; parameter was specified. For more information, see Provisioned Throughput in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBConsumedCapacity *consumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/consumedCapacity</Anchor>
+            <NodeRef refid="682"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemOutput/consumedCapacity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The capacity units consumed by the &lt;code&gt;UpdateItem&lt;/code&gt; operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. &lt;code&gt;ConsumedCapacity&lt;/code&gt; is only returned if the &lt;code&gt;ReturnConsumedCapacity&lt;/code&gt; parameter was specified. For more information, see Provisioned Throughput in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBConsumedCapacity *consumedCapacity</Declaration>
+			
+			
+			<Anchor>//api/name/consumedCapacity</Anchor>
+            <NodeRef refid="682"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemOutput/setItemCollectionMetrics:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about item collections, if any, that were affected by the &lt;code&gt;UpdateItem&lt;/code&gt; operation. &lt;code&gt;ItemCollectionMetrics&lt;/code&gt; is only returned if the &lt;code&gt;ReturnItemCollectionMetrics&lt;/code&gt; parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.&lt;/p&gt;&lt;p&gt;Each &lt;code&gt;ItemCollectionMetrics&lt;/code&gt; element consists of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ItemCollectionKey&lt;/code&gt; - The partition key value of the item collection. This is the same as the partition key value of the item itself.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SizeEstimateRangeGB&lt;/code&gt; - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.&lt;/p&gt;&lt;p&gt;The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBItemCollectionMetrics *itemCollectionMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/itemCollectionMetrics</Anchor>
+            <NodeRef refid="682"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateItemOutput/itemCollectionMetrics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about item collections, if any, that were affected by the &lt;code&gt;UpdateItem&lt;/code&gt; operation. &lt;code&gt;ItemCollectionMetrics&lt;/code&gt; is only returned if the &lt;code&gt;ReturnItemCollectionMetrics&lt;/code&gt; parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.&lt;/p&gt;&lt;p&gt;Each &lt;code&gt;ItemCollectionMetrics&lt;/code&gt; element consists of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ItemCollectionKey&lt;/code&gt; - The partition key value of the item collection. This is the same as the partition key value of the item itself.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SizeEstimateRangeGB&lt;/code&gt; - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.&lt;/p&gt;&lt;p&gt;The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBItemCollectionMetrics *itemCollectionMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/itemCollectionMetrics</Anchor>
+            <NodeRef refid="682"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateItemOutput/itemCollectionMetrics</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about item collections, if any, that were affected by the &lt;code&gt;UpdateItem&lt;/code&gt; operation. &lt;code&gt;ItemCollectionMetrics&lt;/code&gt; is only returned if the &lt;code&gt;ReturnItemCollectionMetrics&lt;/code&gt; parameter was specified. If the table does not have any local secondary indexes, this information is not returned in the response.&lt;/p&gt;&lt;p&gt;Each &lt;code&gt;ItemCollectionMetrics&lt;/code&gt; element consists of:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ItemCollectionKey&lt;/code&gt; - The partition key value of the item collection. This is the same as the partition key value of the item itself.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SizeEstimateRangeGB&lt;/code&gt; - An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.&lt;/p&gt;&lt;p&gt;The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBItemCollectionMetrics *itemCollectionMetrics</Declaration>
+			
+			
+			<Anchor>//api/name/itemCollectionMetrics</Anchor>
+            <NodeRef refid="682"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

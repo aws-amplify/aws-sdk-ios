@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBRestoreTableFromBackupInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBRestoreTableFromBackupInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="656"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreTableFromBackupInput/setBackupArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN associated with the backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *backupArn</Declaration>
+			
+			
+			<Anchor>//api/name/backupArn</Anchor>
+            <NodeRef refid="656"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreTableFromBackupInput/backupArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN associated with the backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *backupArn</Declaration>
+			
+			
+			<Anchor>//api/name/backupArn</Anchor>
+            <NodeRef refid="656"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBRestoreTableFromBackupInput/backupArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN associated with the backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *backupArn</Declaration>
+			
+			
+			<Anchor>//api/name/backupArn</Anchor>
+            <NodeRef refid="656"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreTableFromBackupInput/setTargetTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the new table to which the backup must be restored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetTableName</Declaration>
+			
+			
+			<Anchor>//api/name/targetTableName</Anchor>
+            <NodeRef refid="656"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBRestoreTableFromBackupInput/targetTableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the new table to which the backup must be restored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetTableName</Declaration>
+			
+			
+			<Anchor>//api/name/targetTableName</Anchor>
+            <NodeRef refid="656"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBRestoreTableFromBackupInput/targetTableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the new table to which the backup must be restored.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *targetTableName</Declaration>
+			
+			
+			<Anchor>//api/name/targetTableName</Anchor>
+            <NodeRef refid="656"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

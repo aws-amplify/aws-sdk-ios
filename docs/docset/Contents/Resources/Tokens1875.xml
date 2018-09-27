@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3GetBucketWebsiteOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3GetBucketWebsiteOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1875"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketWebsiteOutput/setErrorDocument:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3ErrorDocument *errorDocument</Declaration>
+			
+			
+			<Anchor>//api/name/errorDocument</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketWebsiteOutput/errorDocument</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3ErrorDocument *errorDocument</Declaration>
+			
+			
+			<Anchor>//api/name/errorDocument</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GetBucketWebsiteOutput/errorDocument</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3ErrorDocument *errorDocument</Declaration>
+			
+			
+			<Anchor>//api/name/errorDocument</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketWebsiteOutput/setIndexDocument:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3IndexDocument *indexDocument</Declaration>
+			
+			
+			<Anchor>//api/name/indexDocument</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketWebsiteOutput/indexDocument</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3IndexDocument *indexDocument</Declaration>
+			
+			
+			<Anchor>//api/name/indexDocument</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GetBucketWebsiteOutput/indexDocument</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3IndexDocument *indexDocument</Declaration>
+			
+			
+			<Anchor>//api/name/indexDocument</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketWebsiteOutput/setRedirectAllRequestsTo:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3RedirectAllRequestsTo *redirectAllRequestsTo</Declaration>
+			
+			
+			<Anchor>//api/name/redirectAllRequestsTo</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketWebsiteOutput/redirectAllRequestsTo</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3RedirectAllRequestsTo *redirectAllRequestsTo</Declaration>
+			
+			
+			<Anchor>//api/name/redirectAllRequestsTo</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GetBucketWebsiteOutput/redirectAllRequestsTo</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3RedirectAllRequestsTo *redirectAllRequestsTo</Declaration>
+			
+			
+			<Anchor>//api/name/redirectAllRequestsTo</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketWebsiteOutput/setRoutingRules:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3RoutingRule*&gt; *routingRules</Declaration>
+			
+			
+			<Anchor>//api/name/routingRules</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GetBucketWebsiteOutput/routingRules</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3RoutingRule*&gt; *routingRules</Declaration>
+			
+			
+			<Anchor>//api/name/routingRules</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GetBucketWebsiteOutput/routingRules</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3RoutingRule*&gt; *routingRules</Declaration>
+			
+			
+			<Anchor>//api/name/routingRules</Anchor>
+            <NodeRef refid="1875"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

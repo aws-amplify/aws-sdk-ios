@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisSequenceNumberRange.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisSequenceNumberRange</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The range of possible sequence numbers for the shard.&lt;/p&gt;
+Required parameters: [StartingSequenceNumber]</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1263"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisSequenceNumberRange/setEndingSequenceNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *endingSequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/endingSequenceNumber</Anchor>
+            <NodeRef refid="1263"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisSequenceNumberRange/endingSequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *endingSequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/endingSequenceNumber</Anchor>
+            <NodeRef refid="1263"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisSequenceNumberRange/endingSequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ending sequence number for the range. Shards that are in the OPEN state have an ending sequence number of &lt;code&gt;null&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *endingSequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/endingSequenceNumber</Anchor>
+            <NodeRef refid="1263"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisSequenceNumberRange/setStartingSequenceNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The starting sequence number for the range.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startingSequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/startingSequenceNumber</Anchor>
+            <NodeRef refid="1263"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisSequenceNumberRange/startingSequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The starting sequence number for the range.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startingSequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/startingSequenceNumber</Anchor>
+            <NodeRef refid="1263"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisSequenceNumberRange/startingSequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The starting sequence number for the range.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startingSequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/startingSequenceNumber</Anchor>
+            <NodeRef refid="1263"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

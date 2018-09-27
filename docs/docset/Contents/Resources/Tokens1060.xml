@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTListThingGroupsRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTListThingGroupsRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1060"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingGroupsRequest/setMaxResults:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return at one time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingGroupsRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return at one time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListThingGroupsRequest/maxResults</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The maximum number of results to return at one time.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *maxResults</Declaration>
+			
+			
+			<Anchor>//api/name/maxResults</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingGroupsRequest/setNamePrefixFilter:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A filter that limits the results to those with the specified name prefix.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *namePrefixFilter</Declaration>
+			
+			
+			<Anchor>//api/name/namePrefixFilter</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingGroupsRequest/namePrefixFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A filter that limits the results to those with the specified name prefix.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *namePrefixFilter</Declaration>
+			
+			
+			<Anchor>//api/name/namePrefixFilter</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListThingGroupsRequest/namePrefixFilter</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A filter that limits the results to those with the specified name prefix.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *namePrefixFilter</Declaration>
+			
+			
+			<Anchor>//api/name/namePrefixFilter</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingGroupsRequest/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token used to get the next set of results, or &lt;b&gt;null&lt;/b&gt; if there are no additional results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingGroupsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token used to get the next set of results, or &lt;b&gt;null&lt;/b&gt; if there are no additional results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListThingGroupsRequest/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The token used to get the next set of results, or &lt;b&gt;null&lt;/b&gt; if there are no additional results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingGroupsRequest/setParentGroup:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A filter that limits the results to those with the specified parent group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *parentGroup</Declaration>
+			
+			
+			<Anchor>//api/name/parentGroup</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingGroupsRequest/parentGroup</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A filter that limits the results to those with the specified parent group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *parentGroup</Declaration>
+			
+			
+			<Anchor>//api/name/parentGroup</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListThingGroupsRequest/parentGroup</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A filter that limits the results to those with the specified parent group.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *parentGroup</Declaration>
+			
+			
+			<Anchor>//api/name/parentGroup</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingGroupsRequest/setRecursive:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If true, return child groups as well.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *recursive</Declaration>
+			
+			
+			<Anchor>//api/name/recursive</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTListThingGroupsRequest/recursive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If true, return child groups as well.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *recursive</Declaration>
+			
+			
+			<Anchor>//api/name/recursive</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTListThingGroupsRequest/recursive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If true, return child groups as well.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *recursive</Declaration>
+			
+			
+			<Anchor>//api/name/recursive</Anchor>
+            <NodeRef refid="1060"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

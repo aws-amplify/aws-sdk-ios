@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AWSCognitoIdentitySelectMfa.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AWSCognitoIdentitySelectMfa</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2382"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentitySelectMfa/getSelectMfaDetails:selectMfaCompletionSource:</TokenIdentifier>
+			<Abstract type="html">Obtain which mfa end user wants to provide</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (void)getSelectMfaDetails:(AWSCognitoIdentitySelectMfaInput *)selectMfaInput selectMfaCompletionSource:(AWSTaskCompletionSource&lt;AWSCognitoIdentitySelectMfaDetails*&gt; *)selectMfaCompletionSource</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>selectMfaInput</Name>
+					<Abstract type="html">contains which mfas are available</Abstract>
+				</Parameter><Parameter>
+					<Name>selectMfaCompletionSource</Name>
+					<Abstract type="html">set selectMfaCompletionSource.result with the mfa end user picked</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/getSelectMfaDetails:selectMfaCompletionSource:</Anchor>
+            <NodeRef refid="2382"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentitySelectMfa/didCompleteSelectMfaStepWithError:</TokenIdentifier>
+			<Abstract type="html">This step completed, usually either display an error to the end user or dismiss ui</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (void)didCompleteSelectMfaStepWithError:(NSError *_Nullable)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>error</Name>
+					<Abstract type="html">the error if any that occured</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/didCompleteSelectMfaStepWithError:</Anchor>
+            <NodeRef refid="2382"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

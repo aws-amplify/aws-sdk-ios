@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSImportKeyMaterialRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSImportKeyMaterialRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1197"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSImportKeyMaterialRequest/setEncryptedKeyMaterial:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encrypted key material to import. It must be encrypted with the public key that you received in the response to a previous &lt;a&gt;GetParametersForImport&lt;/a&gt; request, using the wrapping algorithm that you specified in that request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *encryptedKeyMaterial</Declaration>
+			
+			
+			<Anchor>//api/name/encryptedKeyMaterial</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSImportKeyMaterialRequest/encryptedKeyMaterial</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encrypted key material to import. It must be encrypted with the public key that you received in the response to a previous &lt;a&gt;GetParametersForImport&lt;/a&gt; request, using the wrapping algorithm that you specified in that request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *encryptedKeyMaterial</Declaration>
+			
+			
+			<Anchor>//api/name/encryptedKeyMaterial</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSImportKeyMaterialRequest/encryptedKeyMaterial</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encrypted key material to import. It must be encrypted with the public key that you received in the response to a previous &lt;a&gt;GetParametersForImport&lt;/a&gt; request, using the wrapping algorithm that you specified in that request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *encryptedKeyMaterial</Declaration>
+			
+			
+			<Anchor>//api/name/encryptedKeyMaterial</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSImportKeyMaterialRequest/setExpirationModel:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the key material expires. The default is &lt;code&gt;KEYMATERIALEXPIRES&lt;/code&gt;, in which case you must include the &lt;code&gt;ValidTo&lt;/code&gt; parameter. When this parameter is set to &lt;code&gt;KEYMATERIALDOESNOTEXPIRE&lt;/code&gt;, you must omit the &lt;code&gt;ValidTo&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKMSExpirationModelType expirationModel</Declaration>
+			
+			
+			<Anchor>//api/name/expirationModel</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSImportKeyMaterialRequest/expirationModel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the key material expires. The default is &lt;code&gt;KEYMATERIALEXPIRES&lt;/code&gt;, in which case you must include the &lt;code&gt;ValidTo&lt;/code&gt; parameter. When this parameter is set to &lt;code&gt;KEYMATERIALDOESNOTEXPIRE&lt;/code&gt;, you must omit the &lt;code&gt;ValidTo&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKMSExpirationModelType expirationModel</Declaration>
+			
+			
+			<Anchor>//api/name/expirationModel</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSImportKeyMaterialRequest/expirationModel</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the key material expires. The default is &lt;code&gt;KEYMATERIALEXPIRES&lt;/code&gt;, in which case you must include the &lt;code&gt;ValidTo&lt;/code&gt; parameter. When this parameter is set to &lt;code&gt;KEYMATERIALDOESNOTEXPIRE&lt;/code&gt;, you must omit the &lt;code&gt;ValidTo&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKMSExpirationModelType expirationModel</Declaration>
+			
+			
+			<Anchor>//api/name/expirationModel</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSImportKeyMaterialRequest/setImportToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The import token that you received in the response to a previous &lt;a&gt;GetParametersForImport&lt;/a&gt; request. It must be from the same response that contained the public key that you used to encrypt the key material.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *importToken</Declaration>
+			
+			
+			<Anchor>//api/name/importToken</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSImportKeyMaterialRequest/importToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The import token that you received in the response to a previous &lt;a&gt;GetParametersForImport&lt;/a&gt; request. It must be from the same response that contained the public key that you used to encrypt the key material.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *importToken</Declaration>
+			
+			
+			<Anchor>//api/name/importToken</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSImportKeyMaterialRequest/importToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The import token that you received in the response to a previous &lt;a&gt;GetParametersForImport&lt;/a&gt; request. It must be from the same response that contained the public key that you used to encrypt the key material.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *importToken</Declaration>
+			
+			
+			<Anchor>//api/name/importToken</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSImportKeyMaterialRequest/setKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the CMK to import the key material into. The CMK&apos;s &lt;code&gt;Origin&lt;/code&gt; must be &lt;code&gt;EXTERNAL&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSImportKeyMaterialRequest/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the CMK to import the key material into. The CMK&apos;s &lt;code&gt;Origin&lt;/code&gt; must be &lt;code&gt;EXTERNAL&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSImportKeyMaterialRequest/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier of the CMK to import the key material into. The CMK&apos;s &lt;code&gt;Origin&lt;/code&gt; must be &lt;code&gt;EXTERNAL&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;Specify the key ID or the Amazon Resource Name (ARN) of the CMK.&lt;/p&gt;&lt;p&gt;For example:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Key ID: &lt;code&gt;1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Key ARN: &lt;code&gt;arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;To get the key ID and key ARN for a CMK, use &lt;a&gt;ListKeys&lt;/a&gt; or &lt;a&gt;DescribeKey&lt;/a&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSImportKeyMaterialRequest/setValidTo:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the &lt;code&gt;ExpirationModel&lt;/code&gt; parameter is set to &lt;code&gt;KEYMATERIALDOESNOTEXPIRE&lt;/code&gt;. Otherwise it is required.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *validTo</Declaration>
+			
+			
+			<Anchor>//api/name/validTo</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSImportKeyMaterialRequest/validTo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the &lt;code&gt;ExpirationModel&lt;/code&gt; parameter is set to &lt;code&gt;KEYMATERIALDOESNOTEXPIRE&lt;/code&gt;. Otherwise it is required.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *validTo</Declaration>
+			
+			
+			<Anchor>//api/name/validTo</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSImportKeyMaterialRequest/validTo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the CMK becomes unusable. You must omit this parameter when the &lt;code&gt;ExpirationModel&lt;/code&gt; parameter is set to &lt;code&gt;KEYMATERIALDOESNOTEXPIRE&lt;/code&gt;. Otherwise it is required.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *validTo</Declaration>
+			
+			
+			<Anchor>//api/name/validTo</Anchor>
+            <NodeRef refid="1197"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

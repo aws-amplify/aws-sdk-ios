@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingRemoveTagsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingRemoveTagsOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the output of RemoveTags.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="762"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

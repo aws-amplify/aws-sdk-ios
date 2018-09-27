@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingSMSMessage.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingSMSMessage</TokenIdentifier>
+			<Abstract type="html">SMS Message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1600"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSMSMessage/setBody:</TokenIdentifier>
+			<Abstract type="html">The message body of the notification, the email body or the text message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSMSMessage/body</TokenIdentifier>
+			<Abstract type="html">The message body of the notification, the email body or the text message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSMSMessage/body</TokenIdentifier>
+			<Abstract type="html">The message body of the notification, the email body or the text message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *body</Declaration>
+			
+			
+			<Anchor>//api/name/body</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSMSMessage/setMessageType:</TokenIdentifier>
+			<Abstract type="html">Is this a transaction priority message or lower priority.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingMessageType messageType</Declaration>
+			
+			
+			<Anchor>//api/name/messageType</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSMSMessage/messageType</TokenIdentifier>
+			<Abstract type="html">Is this a transaction priority message or lower priority.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingMessageType messageType</Declaration>
+			
+			
+			<Anchor>//api/name/messageType</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSMSMessage/messageType</TokenIdentifier>
+			<Abstract type="html">Is this a transaction priority message or lower priority.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingMessageType messageType</Declaration>
+			
+			
+			<Anchor>//api/name/messageType</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSMSMessage/setSenderId:</TokenIdentifier>
+			<Abstract type="html">Sender ID of sent message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *senderId</Declaration>
+			
+			
+			<Anchor>//api/name/senderId</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSMSMessage/senderId</TokenIdentifier>
+			<Abstract type="html">Sender ID of sent message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *senderId</Declaration>
+			
+			
+			<Anchor>//api/name/senderId</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSMSMessage/senderId</TokenIdentifier>
+			<Abstract type="html">Sender ID of sent message.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *senderId</Declaration>
+			
+			
+			<Anchor>//api/name/senderId</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSMSMessage/setSubstitutions:</TokenIdentifier>
+			<Abstract type="html">Default message substitutions. Can be overridden by individual address substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingSMSMessage/substitutions</TokenIdentifier>
+			<Abstract type="html">Default message substitutions. Can be overridden by individual address substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingSMSMessage/substitutions</TokenIdentifier>
+			<Abstract type="html">Default message substitutions. Can be overridden by individual address substitutions.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSArray&lt;NSString*&gt; *&gt; *substitutions</Declaration>
+			
+			
+			<Anchor>//api/name/substitutions</Anchor>
+            <NodeRef refid="1600"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

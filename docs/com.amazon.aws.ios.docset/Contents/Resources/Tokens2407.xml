@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCloudWatchScanBy.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCloudWatchScanBy</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2407"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCloudWatchScanByUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCloudWatchScanByUnknown</Declaration>
+            
+            <DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+            <NodeRef refid="2407"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCloudWatchScanByTimestampDescending</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCloudWatchScanByTimestampDescending</Declaration>
+            
+            <DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+            <NodeRef refid="2407"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCloudWatchScanByTimestampAscending</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCloudWatchScanByTimestampAscending</Declaration>
+            
+            <DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+            <NodeRef refid="2407"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTCreateKeysAndCertificateRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTCreateKeysAndCertificateRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input for the CreateKeysAndCertificate operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="885"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateKeysAndCertificateRequest/setSetAsActive:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the certificate is active.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *setAsActive</Declaration>
+			
+			
+			<Anchor>//api/name/setAsActive</Anchor>
+            <NodeRef refid="885"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTCreateKeysAndCertificateRequest/setAsActive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the certificate is active.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *setAsActive</Declaration>
+			
+			
+			<Anchor>//api/name/setAsActive</Anchor>
+            <NodeRef refid="885"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTCreateKeysAndCertificateRequest/setAsActive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the certificate is active.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *setAsActive</Declaration>
+			
+			
+			<Anchor>//api/name/setAsActive</Anchor>
+            <NodeRef refid="885"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

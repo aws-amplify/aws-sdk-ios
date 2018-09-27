@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisRecord.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisRecord</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unit of data of the Kinesis data stream, which is composed of a sequence number, a partition key, and a data blob.&lt;/p&gt;
+Required parameters: [SequenceNumber, Data, PartitionKey]</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1260"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisRecord/setApproximateArrivalTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The approximate time that the record was inserted into the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *approximateArrivalTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/approximateArrivalTimestamp</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisRecord/approximateArrivalTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The approximate time that the record was inserted into the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *approximateArrivalTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/approximateArrivalTimestamp</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisRecord/approximateArrivalTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The approximate time that the record was inserted into the stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *approximateArrivalTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/approximateArrivalTimestamp</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisRecord/setData:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data blob. The data in the blob is both opaque and immutable to Kinesis Data Streams, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisRecord/data</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data blob. The data in the blob is both opaque and immutable to Kinesis Data Streams, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisRecord/data</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data blob. The data in the blob is both opaque and immutable to Kinesis Data Streams, which does not inspect, interpret, or change the data in the blob in any way. When the data blob (the payload before base64-encoding) is added to the partition key size, the total size must not exceed the maximum record size (1 MB).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisRecord/setEncryptionType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encryption type used on the record. This parameter can be one of the following values:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt;: Do not encrypt the records in the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KMS&lt;/code&gt;: Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisEncryptionType encryptionType</Declaration>
+			
+			
+			<Anchor>//api/name/encryptionType</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisRecord/encryptionType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encryption type used on the record. This parameter can be one of the following values:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt;: Do not encrypt the records in the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KMS&lt;/code&gt;: Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisEncryptionType encryptionType</Declaration>
+			
+			
+			<Anchor>//api/name/encryptionType</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisRecord/encryptionType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encryption type used on the record. This parameter can be one of the following values:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NONE&lt;/code&gt;: Do not encrypt the records in the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KMS&lt;/code&gt;: Use server-side encryption on the records in the stream using a customer-managed AWS KMS key.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSKinesisEncryptionType encryptionType</Declaration>
+			
+			
+			<Anchor>//api/name/encryptionType</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisRecord/setPartitionKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies which shard in the stream the data record is assigned to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *partitionKey</Declaration>
+			
+			
+			<Anchor>//api/name/partitionKey</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisRecord/partitionKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies which shard in the stream the data record is assigned to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *partitionKey</Declaration>
+			
+			
+			<Anchor>//api/name/partitionKey</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisRecord/partitionKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies which shard in the stream the data record is assigned to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *partitionKey</Declaration>
+			
+			
+			<Anchor>//api/name/partitionKey</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisRecord/setSequenceNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier of the record within its shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/sequenceNumber</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisRecord/sequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier of the record within its shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/sequenceNumber</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisRecord/sequenceNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier of the record within its shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sequenceNumber</Declaration>
+			
+			
+			<Anchor>//api/name/sequenceNumber</Anchor>
+            <NodeRef refid="1260"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

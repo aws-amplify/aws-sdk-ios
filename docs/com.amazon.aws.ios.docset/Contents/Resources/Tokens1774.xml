@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionStreamProcessor.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionStreamProcessor</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that recognizes faces in a streaming video. An Amazon Rekognition stream processor is created by a call to . The request parameters for &lt;code&gt;CreateStreamProcessor&lt;/code&gt; describe the Kinesis video stream source for the streaming video, face recognition parameters, and where to stream the analysis resullts. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1774"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStreamProcessor/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the Amazon Rekognition stream processor. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1774"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStreamProcessor/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the Amazon Rekognition stream processor. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1774"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStreamProcessor/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the Amazon Rekognition stream processor. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1774"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStreamProcessor/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Current status of the Amazon Rekognition stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionStreamProcessorStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1774"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStreamProcessor/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Current status of the Amazon Rekognition stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionStreamProcessorStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1774"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStreamProcessor/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Current status of the Amazon Rekognition stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionStreamProcessorStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1774"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderSetRiskConfigurationRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderSetRiskConfigurationRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="401"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationRequest/setAccountTakeoverRiskConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The account takeover risk configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType *accountTakeoverRiskConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/accountTakeoverRiskConfiguration</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationRequest/accountTakeoverRiskConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The account takeover risk configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType *accountTakeoverRiskConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/accountTakeoverRiskConfiguration</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSetRiskConfigurationRequest/accountTakeoverRiskConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The account takeover risk configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAccountTakeoverRiskConfigurationType *accountTakeoverRiskConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/accountTakeoverRiskConfiguration</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationRequest/setClientId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The app client ID. If &lt;code&gt;ClientId&lt;/code&gt; is null, then the risk configuration is mapped to &lt;code&gt;userPoolId&lt;/code&gt;. When the client ID is null, the same risk configuration is applied to all the clients in the userPool.&lt;/p&gt;&lt;p&gt;Otherwise, &lt;code&gt;ClientId&lt;/code&gt; is mapped to the client. When the client ID is not null, the user pool configuration is overridden and the risk configuration for the client is used instead.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationRequest/clientId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The app client ID. If &lt;code&gt;ClientId&lt;/code&gt; is null, then the risk configuration is mapped to &lt;code&gt;userPoolId&lt;/code&gt;. When the client ID is null, the same risk configuration is applied to all the clients in the userPool.&lt;/p&gt;&lt;p&gt;Otherwise, &lt;code&gt;ClientId&lt;/code&gt; is mapped to the client. When the client ID is not null, the user pool configuration is overridden and the risk configuration for the client is used instead.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSetRiskConfigurationRequest/clientId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The app client ID. If &lt;code&gt;ClientId&lt;/code&gt; is null, then the risk configuration is mapped to &lt;code&gt;userPoolId&lt;/code&gt;. When the client ID is null, the same risk configuration is applied to all the clients in the userPool.&lt;/p&gt;&lt;p&gt;Otherwise, &lt;code&gt;ClientId&lt;/code&gt; is mapped to the client. When the client ID is not null, the user pool configuration is overridden and the risk configuration for the client is used instead.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationRequest/setCompromisedCredentialsRiskConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The compromised credentials risk configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType *compromisedCredentialsRiskConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/compromisedCredentialsRiskConfiguration</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationRequest/compromisedCredentialsRiskConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The compromised credentials risk configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType *compromisedCredentialsRiskConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/compromisedCredentialsRiskConfiguration</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSetRiskConfigurationRequest/compromisedCredentialsRiskConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The compromised credentials risk configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCompromisedCredentialsRiskConfigurationType *compromisedCredentialsRiskConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/compromisedCredentialsRiskConfiguration</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationRequest/setRiskExceptionConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration to override the risk decision.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderRiskExceptionConfigurationType *riskExceptionConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/riskExceptionConfiguration</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationRequest/riskExceptionConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration to override the risk decision.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderRiskExceptionConfigurationType *riskExceptionConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/riskExceptionConfiguration</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSetRiskConfigurationRequest/riskExceptionConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration to override the risk decision.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderRiskExceptionConfigurationType *riskExceptionConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/riskExceptionConfiguration</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationRequest/setUserPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderSetRiskConfigurationRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderSetRiskConfigurationRequest/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="401"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

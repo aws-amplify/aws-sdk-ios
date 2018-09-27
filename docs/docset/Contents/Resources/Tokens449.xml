@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderVerifySoftwareTokenRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderVerifySoftwareTokenRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="449"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/setAccessToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/accessToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The access token.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *accessToken</Declaration>
+			
+			
+			<Anchor>//api/name/accessToken</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/setFriendlyDeviceName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The friendly device name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *friendlyDeviceName</Declaration>
+			
+			
+			<Anchor>//api/name/friendlyDeviceName</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/friendlyDeviceName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The friendly device name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *friendlyDeviceName</Declaration>
+			
+			
+			<Anchor>//api/name/friendlyDeviceName</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/friendlyDeviceName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The friendly device name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *friendlyDeviceName</Declaration>
+			
+			
+			<Anchor>//api/name/friendlyDeviceName</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/setSession:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The session which should be passed both ways in challenge-response calls to the service.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *session</Declaration>
+			
+			
+			<Anchor>//api/name/session</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/session</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The session which should be passed both ways in challenge-response calls to the service.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *session</Declaration>
+			
+			
+			<Anchor>//api/name/session</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/session</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The session which should be passed both ways in challenge-response calls to the service.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *session</Declaration>
+			
+			
+			<Anchor>//api/name/session</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/setUserCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The one time password computed using the secret code returned by &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userCode</Declaration>
+			
+			
+			<Anchor>//api/name/userCode</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/userCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The one time password computed using the secret code returned by &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userCode</Declaration>
+			
+			
+			<Anchor>//api/name/userCode</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderVerifySoftwareTokenRequest/userCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The one time password computed using the secret code returned by &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userCode</Declaration>
+			
+			
+			<Anchor>//api/name/userCode</Anchor>
+            <NodeRef refid="449"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSRekognitionPersonTrackingSortBy.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSRekognitionPersonTrackingSortBy</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2632"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionPersonTrackingSortByUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionPersonTrackingSortByUnknown</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2632"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionPersonTrackingSortByIndex</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionPersonTrackingSortByIndex</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2632"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRekognitionPersonTrackingSortByTimestamp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSRekognitionPersonTrackingSortByTimestamp</Declaration>
+            
+            <DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+            <NodeRef refid="2632"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

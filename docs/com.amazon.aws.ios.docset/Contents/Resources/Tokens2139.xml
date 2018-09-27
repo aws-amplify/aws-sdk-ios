@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESRecipientDsnFields.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESRecipientDsnFields</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Recipient-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.&lt;/p&gt;&lt;p&gt;For information about receiving email through Amazon SES, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [Action, Status]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2139"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/setAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by RFC 3464.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESDsnAction action</Declaration>
+			
+			
+			<Anchor>//api/name/action</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/action</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by RFC 3464.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESDsnAction action</Declaration>
+			
+			
+			<Anchor>//api/name/action</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESRecipientDsnFields/action</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by RFC 3464.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESDsnAction action</Declaration>
+			
+			
+			<Anchor>//api/name/action</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/setDiagnosticCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An extended explanation of what went wrong; this is usually an SMTP response. See RFC 3463 for the correct formatting of this parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *diagnosticCode</Declaration>
+			
+			
+			<Anchor>//api/name/diagnosticCode</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/diagnosticCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An extended explanation of what went wrong; this is usually an SMTP response. See RFC 3463 for the correct formatting of this parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *diagnosticCode</Declaration>
+			
+			
+			<Anchor>//api/name/diagnosticCode</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESRecipientDsnFields/diagnosticCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An extended explanation of what went wrong; this is usually an SMTP response. See RFC 3463 for the correct formatting of this parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *diagnosticCode</Declaration>
+			
+			
+			<Anchor>//api/name/diagnosticCode</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/setExtensionFields:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Additional X-headers to include in the DSN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESExtensionField*&gt; *extensionFields</Declaration>
+			
+			
+			<Anchor>//api/name/extensionFields</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/extensionFields</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Additional X-headers to include in the DSN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESExtensionField*&gt; *extensionFields</Declaration>
+			
+			
+			<Anchor>//api/name/extensionFields</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESRecipientDsnFields/extensionFields</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Additional X-headers to include in the DSN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESExtensionField*&gt; *extensionFields</Declaration>
+			
+			
+			<Anchor>//api/name/extensionFields</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/setFinalRecipient:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that the message was ultimately delivered to. This corresponds to the &lt;code&gt;Final-Recipient&lt;/code&gt; in the DSN. If not specified, &lt;code&gt;FinalRecipient&lt;/code&gt; will be set to the &lt;code&gt;Recipient&lt;/code&gt; specified in the &lt;code&gt;BouncedRecipientInfo&lt;/code&gt; structure. Either &lt;code&gt;FinalRecipient&lt;/code&gt; or the recipient in &lt;code&gt;BouncedRecipientInfo&lt;/code&gt; must be a recipient of the original bounced message.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Do not prepend the &lt;code&gt;FinalRecipient&lt;/code&gt; email address with &lt;code&gt;rfc 822;&lt;/code&gt;, as described in RFC 3798.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *finalRecipient</Declaration>
+			
+			
+			<Anchor>//api/name/finalRecipient</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/finalRecipient</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that the message was ultimately delivered to. This corresponds to the &lt;code&gt;Final-Recipient&lt;/code&gt; in the DSN. If not specified, &lt;code&gt;FinalRecipient&lt;/code&gt; will be set to the &lt;code&gt;Recipient&lt;/code&gt; specified in the &lt;code&gt;BouncedRecipientInfo&lt;/code&gt; structure. Either &lt;code&gt;FinalRecipient&lt;/code&gt; or the recipient in &lt;code&gt;BouncedRecipientInfo&lt;/code&gt; must be a recipient of the original bounced message.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Do not prepend the &lt;code&gt;FinalRecipient&lt;/code&gt; email address with &lt;code&gt;rfc 822;&lt;/code&gt;, as described in RFC 3798.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *finalRecipient</Declaration>
+			
+			
+			<Anchor>//api/name/finalRecipient</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESRecipientDsnFields/finalRecipient</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that the message was ultimately delivered to. This corresponds to the &lt;code&gt;Final-Recipient&lt;/code&gt; in the DSN. If not specified, &lt;code&gt;FinalRecipient&lt;/code&gt; will be set to the &lt;code&gt;Recipient&lt;/code&gt; specified in the &lt;code&gt;BouncedRecipientInfo&lt;/code&gt; structure. Either &lt;code&gt;FinalRecipient&lt;/code&gt; or the recipient in &lt;code&gt;BouncedRecipientInfo&lt;/code&gt; must be a recipient of the original bounced message.&lt;/p&gt;&lt;note&gt;&lt;p&gt;Do not prepend the &lt;code&gt;FinalRecipient&lt;/code&gt; email address with &lt;code&gt;rfc 822;&lt;/code&gt;, as described in RFC 3798.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *finalRecipient</Declaration>
+			
+			
+			<Anchor>//api/name/finalRecipient</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/setLastAttemptDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time the final delivery attempt was made, in RFC 822 date-time format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastAttemptDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastAttemptDate</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/lastAttemptDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time the final delivery attempt was made, in RFC 822 date-time format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastAttemptDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastAttemptDate</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESRecipientDsnFields/lastAttemptDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time the final delivery attempt was made, in RFC 822 date-time format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastAttemptDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastAttemptDate</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/setRemoteMta:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The MTA to which the remote MTA attempted to deliver the message, formatted as specified in RFC 3464 (&lt;code&gt;mta-name-type; mta-name&lt;/code&gt;). This parameter typically applies only to propagating synchronous bounces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *remoteMta</Declaration>
+			
+			
+			<Anchor>//api/name/remoteMta</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/remoteMta</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The MTA to which the remote MTA attempted to deliver the message, formatted as specified in RFC 3464 (&lt;code&gt;mta-name-type; mta-name&lt;/code&gt;). This parameter typically applies only to propagating synchronous bounces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *remoteMta</Declaration>
+			
+			
+			<Anchor>//api/name/remoteMta</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESRecipientDsnFields/remoteMta</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The MTA to which the remote MTA attempted to deliver the message, formatted as specified in RFC 3464 (&lt;code&gt;mta-name-type; mta-name&lt;/code&gt;). This parameter typically applies only to propagating synchronous bounces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *remoteMta</Declaration>
+			
+			
+			<Anchor>//api/name/remoteMta</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status code that indicates what went wrong. This is required by RFC 3464.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESRecipientDsnFields/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status code that indicates what went wrong. This is required by RFC 3464.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESRecipientDsnFields/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status code that indicates what went wrong. This is required by RFC 3464.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="2139"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

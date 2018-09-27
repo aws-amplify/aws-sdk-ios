@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3Remove.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3Remove</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1976"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Remove/setObjects:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3ObjectIdentifier*&gt; *objects</Declaration>
+			
+			
+			<Anchor>//api/name/objects</Anchor>
+            <NodeRef refid="1976"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Remove/objects</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3ObjectIdentifier*&gt; *objects</Declaration>
+			
+			
+			<Anchor>//api/name/objects</Anchor>
+            <NodeRef refid="1976"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3Remove/objects</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSS3ObjectIdentifier*&gt; *objects</Declaration>
+			
+			
+			<Anchor>//api/name/objects</Anchor>
+            <NodeRef refid="1976"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Remove/setQuiet:</TokenIdentifier>
+			<Abstract type="html">Element to enable quiet mode for the request. When you add this element, you must set its value to true.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *quiet</Declaration>
+			
+			
+			<Anchor>//api/name/quiet</Anchor>
+            <NodeRef refid="1976"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3Remove/quiet</TokenIdentifier>
+			<Abstract type="html">Element to enable quiet mode for the request. When you add this element, you must set its value to true.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *quiet</Declaration>
+			
+			
+			<Anchor>//api/name/quiet</Anchor>
+            <NodeRef refid="1976"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3Remove/quiet</TokenIdentifier>
+			<Abstract type="html">Element to enable quiet mode for the request. When you add this element, you must set its value to true.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *quiet</Declaration>
+			
+			
+			<Anchor>//api/name/quiet</Anchor>
+            <NodeRef refid="1976"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

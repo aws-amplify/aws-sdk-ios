@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESListReceiptFiltersResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESListReceiptFiltersResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of IP address filters that exist under your AWS account.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2122"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListReceiptFiltersResponse/setFilters:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of IP address filter data structures, which each consist of a name, an IP address range, and whether to allow or block mail from it.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESReceiptFilter*&gt; *filters</Declaration>
+			
+			
+			<Anchor>//api/name/filters</Anchor>
+            <NodeRef refid="2122"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESListReceiptFiltersResponse/filters</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of IP address filter data structures, which each consist of a name, an IP address range, and whether to allow or block mail from it.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESReceiptFilter*&gt; *filters</Declaration>
+			
+			
+			<Anchor>//api/name/filters</Anchor>
+            <NodeRef refid="2122"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESListReceiptFiltersResponse/filters</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of IP address filter data structures, which each consist of a name, an IP address range, and whether to allow or block mail from it.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSESReceiptFilter*&gt; *filters</Declaration>
+			
+			
+			<Anchor>//api/name/filters</Anchor>
+            <NodeRef refid="2122"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

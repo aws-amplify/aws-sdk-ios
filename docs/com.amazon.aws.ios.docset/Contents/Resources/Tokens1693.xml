@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionDetectFacesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionDetectFacesResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1693"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDetectFacesResponse/setFaceDetails:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details of each face found in the image. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFaceDetail*&gt; *faceDetails</Declaration>
+			
+			
+			<Anchor>//api/name/faceDetails</Anchor>
+            <NodeRef refid="1693"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDetectFacesResponse/faceDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details of each face found in the image. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFaceDetail*&gt; *faceDetails</Declaration>
+			
+			
+			<Anchor>//api/name/faceDetails</Anchor>
+            <NodeRef refid="1693"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDetectFacesResponse/faceDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details of each face found in the image. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFaceDetail*&gt; *faceDetails</Declaration>
+			
+			
+			<Anchor>//api/name/faceDetails</Anchor>
+            <NodeRef refid="1693"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDetectFacesResponse/setOrientationCorrection:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct image orientation. The bounding box coordinates returned in &lt;code&gt;FaceDetails&lt;/code&gt; represent face locations before the image orientation is corrected. &lt;/p&gt;&lt;note&gt;&lt;p&gt;If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image&apos;s orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of &lt;code&gt;OrientationCorrection&lt;/code&gt; is null and the &lt;code&gt;FaceDetails&lt;/code&gt; bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don&apos;t contain Exif metadata.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection</Declaration>
+			
+			
+			<Anchor>//api/name/orientationCorrection</Anchor>
+            <NodeRef refid="1693"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDetectFacesResponse/orientationCorrection</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct image orientation. The bounding box coordinates returned in &lt;code&gt;FaceDetails&lt;/code&gt; represent face locations before the image orientation is corrected. &lt;/p&gt;&lt;note&gt;&lt;p&gt;If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image&apos;s orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of &lt;code&gt;OrientationCorrection&lt;/code&gt; is null and the &lt;code&gt;FaceDetails&lt;/code&gt; bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don&apos;t contain Exif metadata.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection</Declaration>
+			
+			
+			<Anchor>//api/name/orientationCorrection</Anchor>
+            <NodeRef refid="1693"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDetectFacesResponse/orientationCorrection</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct image orientation. The bounding box coordinates returned in &lt;code&gt;FaceDetails&lt;/code&gt; represent face locations before the image orientation is corrected. &lt;/p&gt;&lt;note&gt;&lt;p&gt;If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image&apos;s orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of &lt;code&gt;OrientationCorrection&lt;/code&gt; is null and the &lt;code&gt;FaceDetails&lt;/code&gt; bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don&apos;t contain Exif metadata.&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection</Declaration>
+			
+			
+			<Anchor>//api/name/orientationCorrection</Anchor>
+            <NodeRef refid="1693"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

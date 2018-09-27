@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderNotifyEmailType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderNotifyEmailType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The notify email type.&lt;/p&gt;
+Required parameters: [Subject]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="386"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyEmailType/setHtmlBody:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The HTML body.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *htmlBody</Declaration>
+			
+			
+			<Anchor>//api/name/htmlBody</Anchor>
+            <NodeRef refid="386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyEmailType/htmlBody</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The HTML body.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *htmlBody</Declaration>
+			
+			
+			<Anchor>//api/name/htmlBody</Anchor>
+            <NodeRef refid="386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNotifyEmailType/htmlBody</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The HTML body.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *htmlBody</Declaration>
+			
+			
+			<Anchor>//api/name/htmlBody</Anchor>
+            <NodeRef refid="386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyEmailType/setSubject:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subject.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subject</Declaration>
+			
+			
+			<Anchor>//api/name/subject</Anchor>
+            <NodeRef refid="386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyEmailType/subject</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subject.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subject</Declaration>
+			
+			
+			<Anchor>//api/name/subject</Anchor>
+            <NodeRef refid="386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNotifyEmailType/subject</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The subject.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *subject</Declaration>
+			
+			
+			<Anchor>//api/name/subject</Anchor>
+            <NodeRef refid="386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyEmailType/setTextBody:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The text body.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *textBody</Declaration>
+			
+			
+			<Anchor>//api/name/textBody</Anchor>
+            <NodeRef refid="386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyEmailType/textBody</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The text body.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *textBody</Declaration>
+			
+			
+			<Anchor>//api/name/textBody</Anchor>
+            <NodeRef refid="386"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNotifyEmailType/textBody</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The text body.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *textBody</Declaration>
+			
+			
+			<Anchor>//api/name/textBody</Anchor>
+            <NodeRef refid="386"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3GlacierJobParameters.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3GlacierJobParameters</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1886"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GlacierJobParameters/setTier:</TokenIdentifier>
+			<Abstract type="html">Glacier retrieval tier at which the restore will be processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Tier tier</Declaration>
+			
+			
+			<Anchor>//api/name/tier</Anchor>
+            <NodeRef refid="1886"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3GlacierJobParameters/tier</TokenIdentifier>
+			<Abstract type="html">Glacier retrieval tier at which the restore will be processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Tier tier</Declaration>
+			
+			
+			<Anchor>//api/name/tier</Anchor>
+            <NodeRef refid="1886"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3GlacierJobParameters/tier</TokenIdentifier>
+			<Abstract type="html">Glacier retrieval tier at which the restore will be processed.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3Tier tier</Declaration>
+			
+			
+			<Anchor>//api/name/tier</Anchor>
+            <NodeRef refid="1886"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

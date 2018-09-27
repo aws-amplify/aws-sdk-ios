@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSimpleDBListDomainsResult.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSimpleDBListDomainsResult</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2334"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBListDomainsResult/setDomainNames:</TokenIdentifier>
+			<Abstract type="html">A list of domain names that match the expression.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *domainNames</Declaration>
+			
+			
+			<Anchor>//api/name/domainNames</Anchor>
+            <NodeRef refid="2334"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBListDomainsResult/domainNames</TokenIdentifier>
+			<Abstract type="html">A list of domain names that match the expression.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *domainNames</Declaration>
+			
+			
+			<Anchor>//api/name/domainNames</Anchor>
+            <NodeRef refid="2334"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBListDomainsResult/domainNames</TokenIdentifier>
+			<Abstract type="html">A list of domain names that match the expression.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *domainNames</Declaration>
+			
+			
+			<Anchor>//api/name/domainNames</Anchor>
+            <NodeRef refid="2334"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBListDomainsResult/setNextToken:</TokenIdentifier>
+			<Abstract type="html">An opaque token indicating that there are more domains than the specified &lt;code&gt;MaxNumberOfDomains&lt;/code&gt; still available.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2334"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSimpleDBListDomainsResult/nextToken</TokenIdentifier>
+			<Abstract type="html">An opaque token indicating that there are more domains than the specified &lt;code&gt;MaxNumberOfDomains&lt;/code&gt; still available.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2334"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSimpleDBListDomainsResult/nextToken</TokenIdentifier>
+			<Abstract type="html">An opaque token indicating that there are more domains than the specified &lt;code&gt;MaxNumberOfDomains&lt;/code&gt; still available.</Abstract>
+			<DeclaredIn>AWSSimpleDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2334"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

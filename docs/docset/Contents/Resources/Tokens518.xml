@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendBatchDetectDominantLanguageItemResult.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectDominantLanguageItemResult</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="518"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectDominantLanguageItemResult/setIndex:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The zero-based index of the document in the input list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *index</Declaration>
+			
+			
+			<Anchor>//api/name/index</Anchor>
+            <NodeRef refid="518"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectDominantLanguageItemResult/index</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The zero-based index of the document in the input list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *index</Declaration>
+			
+			
+			<Anchor>//api/name/index</Anchor>
+            <NodeRef refid="518"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendBatchDetectDominantLanguageItemResult/index</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The zero-based index of the document in the input list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *index</Declaration>
+			
+			
+			<Anchor>//api/name/index</Anchor>
+            <NodeRef refid="518"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectDominantLanguageItemResult/setLanguages:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more &lt;a&gt;DominantLanguage&lt;/a&gt; objects describing the dominant languages in the document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendDominantLanguage*&gt; *languages</Declaration>
+			
+			
+			<Anchor>//api/name/languages</Anchor>
+            <NodeRef refid="518"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectDominantLanguageItemResult/languages</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more &lt;a&gt;DominantLanguage&lt;/a&gt; objects describing the dominant languages in the document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendDominantLanguage*&gt; *languages</Declaration>
+			
+			
+			<Anchor>//api/name/languages</Anchor>
+            <NodeRef refid="518"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendBatchDetectDominantLanguageItemResult/languages</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;One or more &lt;a&gt;DominantLanguage&lt;/a&gt; objects describing the dominant languages in the document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSComprehendDominantLanguage*&gt; *languages</Declaration>
+			
+			
+			<Anchor>//api/name/languages</Anchor>
+            <NodeRef refid="518"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoConflict.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoConflict</TokenIdentifier>
+			<Abstract type="html">An object that encapsulates a conflicting record where both
+the local and remote have been modified since the last synchronization.</Abstract>
+			<DeclaredIn>AWSCognitoConflict.h</DeclaredIn>
+            
+			
+			<NodeRef refid="172"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoConflict/resolveWithLocalRecord</TokenIdentifier>
+			<Abstract type="html">Create a AWSCognitoResolvedConflict object with the value of the
+local record.</Abstract>
+			<DeclaredIn>AWSCognitoConflict.h</DeclaredIn>
+			
+			<Declaration>- (AWSCognitoResolvedConflict *)resolveWithLocalRecord</Declaration>
+			
+			<ReturnValue><Abstract type="html">AWSCognitoResolvedConflict object using local value</Abstract></ReturnValue>
+			<Anchor>//api/name/resolveWithLocalRecord</Anchor>
+            <NodeRef refid="172"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoConflict/resolveWithRemoteRecord</TokenIdentifier>
+			<Abstract type="html">Create a AWSCognitoResolvedConflict object with the value of the
+remote (cloud) record.</Abstract>
+			<DeclaredIn>AWSCognitoConflict.h</DeclaredIn>
+			
+			<Declaration>- (AWSCognitoResolvedConflict *)resolveWithRemoteRecord</Declaration>
+			
+			<ReturnValue><Abstract type="html">AWSCognitoResolvedConflict object using remote (cloud) value</Abstract></ReturnValue>
+			<Anchor>//api/name/resolveWithRemoteRecord</Anchor>
+            <NodeRef refid="172"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoConflict/resolveWithValue:</TokenIdentifier>
+			<Abstract type="html">Create a AWSCognitoResolvedConflict object with a custom value that
+is neither the local nor remote value.</Abstract>
+			<DeclaredIn>AWSCognitoConflict.h</DeclaredIn>
+			
+			<Declaration>- (AWSCognitoResolvedConflict *)resolveWithValue:(NSString *)value</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>value</Name>
+					<Abstract type="html">the value to use to resolve the conflict</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">AWSCognitoResolvedConflict object using passed value</Abstract></ReturnValue>
+			<Anchor>//api/name/resolveWithValue:</Anchor>
+            <NodeRef refid="172"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

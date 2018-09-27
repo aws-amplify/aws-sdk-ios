@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESGetIdentityDkimAttributesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESGetIdentityDkimAttributesResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this response also contains the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published.&lt;/p&gt;
+Required parameters: [DkimAttributes]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2094"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetIdentityDkimAttributesResponse/setDkimAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The DKIM attributes for an email address or a domain.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSSESIdentityDkimAttributes*&gt; *dkimAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/dkimAttributes</Anchor>
+            <NodeRef refid="2094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESGetIdentityDkimAttributesResponse/dkimAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The DKIM attributes for an email address or a domain.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSSESIdentityDkimAttributes*&gt; *dkimAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/dkimAttributes</Anchor>
+            <NodeRef refid="2094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESGetIdentityDkimAttributesResponse/dkimAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The DKIM attributes for an email address or a domain.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSSESIdentityDkimAttributes*&gt; *dkimAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/dkimAttributes</Anchor>
+            <NodeRef refid="2094"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3NoncurrentVersionTransition.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3NoncurrentVersionTransition</TokenIdentifier>
+			<Abstract type="html">Container for the transition rule that describes when noncurrent objects transition to the STANDARDIA, ONEZONEIA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARDIA, ONEZONEIA or GLACIER storage class at a specific period in the object&apos;s lifetime.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1933"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3NoncurrentVersionTransition/setNoncurrentDays:</TokenIdentifier>
+			<Abstract type="html">Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see How Amazon S3 Calculates When an Object Became Noncurrent in the Amazon Simple Storage Service Developer Guide.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *noncurrentDays</Declaration>
+			
+			
+			<Anchor>//api/name/noncurrentDays</Anchor>
+            <NodeRef refid="1933"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3NoncurrentVersionTransition/noncurrentDays</TokenIdentifier>
+			<Abstract type="html">Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see How Amazon S3 Calculates When an Object Became Noncurrent in the Amazon Simple Storage Service Developer Guide.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *noncurrentDays</Declaration>
+			
+			
+			<Anchor>//api/name/noncurrentDays</Anchor>
+            <NodeRef refid="1933"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3NoncurrentVersionTransition/noncurrentDays</TokenIdentifier>
+			<Abstract type="html">Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see How Amazon S3 Calculates When an Object Became Noncurrent in the Amazon Simple Storage Service Developer Guide.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *noncurrentDays</Declaration>
+			
+			
+			<Anchor>//api/name/noncurrentDays</Anchor>
+            <NodeRef refid="1933"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3NoncurrentVersionTransition/setStorageClass:</TokenIdentifier>
+			<Abstract type="html">The class of storage used to store the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3TransitionStorageClass storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+            <NodeRef refid="1933"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3NoncurrentVersionTransition/storageClass</TokenIdentifier>
+			<Abstract type="html">The class of storage used to store the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3TransitionStorageClass storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+            <NodeRef refid="1933"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3NoncurrentVersionTransition/storageClass</TokenIdentifier>
+			<Abstract type="html">The class of storage used to store the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3TransitionStorageClass storageClass</Declaration>
+			
+			
+			<Anchor>//api/name/storageClass</Anchor>
+            <NodeRef refid="1933"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESDeleteCustomVerificationEmailTemplateRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESDeleteCustomVerificationEmailTemplateRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to delete an existing custom verification email template.&lt;/p&gt;
+Required parameters: [TemplateName]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2065"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDeleteCustomVerificationEmailTemplateRequest/setTemplateName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the custom verification email template that you want to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateName</Declaration>
+			
+			
+			<Anchor>//api/name/templateName</Anchor>
+            <NodeRef refid="2065"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDeleteCustomVerificationEmailTemplateRequest/templateName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the custom verification email template that you want to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateName</Declaration>
+			
+			
+			<Anchor>//api/name/templateName</Anchor>
+            <NodeRef refid="2065"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDeleteCustomVerificationEmailTemplateRequest/templateName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the custom verification email template that you want to delete.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *templateName</Declaration>
+			
+			
+			<Anchor>//api/name/templateName</Anchor>
+            <NodeRef refid="2065"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

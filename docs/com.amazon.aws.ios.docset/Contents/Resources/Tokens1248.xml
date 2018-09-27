@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisListShardsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisListShardsOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1248"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsOutput/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When the number of shards in the data stream is greater than the default value for the &lt;code&gt;MaxResults&lt;/code&gt; parameter, or if you explicitly specify a value for &lt;code&gt;MaxResults&lt;/code&gt; that is less than the number of shards in the data stream, the response includes a pagination token named &lt;code&gt;NextToken&lt;/code&gt;. You can specify this &lt;code&gt;NextToken&lt;/code&gt; value in a subsequent call to &lt;code&gt;ListShards&lt;/code&gt; to list the next set of shards. For more information about the use of this pagination token when calling the &lt;code&gt;ListShards&lt;/code&gt; operation, see &lt;a&gt;ListShardsInput$NextToken&lt;/a&gt;.&lt;/p&gt;&lt;important&gt;&lt;p&gt;Tokens expire after 300 seconds. When you obtain a value for &lt;code&gt;NextToken&lt;/code&gt; in the response to a call to &lt;code&gt;ListShards&lt;/code&gt;, you have 300 seconds to use that value. If you specify an expired token in a call to &lt;code&gt;ListShards&lt;/code&gt;, you get &lt;code&gt;ExpiredNextTokenException&lt;/code&gt;.&lt;/p&gt;&lt;/important&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsOutput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When the number of shards in the data stream is greater than the default value for the &lt;code&gt;MaxResults&lt;/code&gt; parameter, or if you explicitly specify a value for &lt;code&gt;MaxResults&lt;/code&gt; that is less than the number of shards in the data stream, the response includes a pagination token named &lt;code&gt;NextToken&lt;/code&gt;. You can specify this &lt;code&gt;NextToken&lt;/code&gt; value in a subsequent call to &lt;code&gt;ListShards&lt;/code&gt; to list the next set of shards. For more information about the use of this pagination token when calling the &lt;code&gt;ListShards&lt;/code&gt; operation, see &lt;a&gt;ListShardsInput$NextToken&lt;/a&gt;.&lt;/p&gt;&lt;important&gt;&lt;p&gt;Tokens expire after 300 seconds. When you obtain a value for &lt;code&gt;NextToken&lt;/code&gt; in the response to a call to &lt;code&gt;ListShards&lt;/code&gt;, you have 300 seconds to use that value. If you specify an expired token in a call to &lt;code&gt;ListShards&lt;/code&gt;, you get &lt;code&gt;ExpiredNextTokenException&lt;/code&gt;.&lt;/p&gt;&lt;/important&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisListShardsOutput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;When the number of shards in the data stream is greater than the default value for the &lt;code&gt;MaxResults&lt;/code&gt; parameter, or if you explicitly specify a value for &lt;code&gt;MaxResults&lt;/code&gt; that is less than the number of shards in the data stream, the response includes a pagination token named &lt;code&gt;NextToken&lt;/code&gt;. You can specify this &lt;code&gt;NextToken&lt;/code&gt; value in a subsequent call to &lt;code&gt;ListShards&lt;/code&gt; to list the next set of shards. For more information about the use of this pagination token when calling the &lt;code&gt;ListShards&lt;/code&gt; operation, see &lt;a&gt;ListShardsInput$NextToken&lt;/a&gt;.&lt;/p&gt;&lt;important&gt;&lt;p&gt;Tokens expire after 300 seconds. When you obtain a value for &lt;code&gt;NextToken&lt;/code&gt; in the response to a call to &lt;code&gt;ListShards&lt;/code&gt;, you have 300 seconds to use that value. If you specify an expired token in a call to &lt;code&gt;ListShards&lt;/code&gt;, you get &lt;code&gt;ExpiredNextTokenException&lt;/code&gt;.&lt;/p&gt;&lt;/important&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsOutput/setShards:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard&apos;s parent, and the shard that&apos;s adjacent to the shard&apos;s parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKinesisShard*&gt; *shards</Declaration>
+			
+			
+			<Anchor>//api/name/shards</Anchor>
+            <NodeRef refid="1248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisListShardsOutput/shards</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard&apos;s parent, and the shard that&apos;s adjacent to the shard&apos;s parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKinesisShard*&gt; *shards</Declaration>
+			
+			
+			<Anchor>//api/name/shards</Anchor>
+            <NodeRef refid="1248"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisListShardsOutput/shards</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of JSON objects. Each object represents one shard and specifies the IDs of the shard, the shard&apos;s parent, and the shard that&apos;s adjacent to the shard&apos;s parent. Each object also contains the starting and ending hash keys and the starting and ending sequence numbers for the shard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSKinesisShard*&gt; *shards</Declaration>
+			
+			
+			<Anchor>//api/name/shards</Anchor>
+            <NodeRef refid="1248"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

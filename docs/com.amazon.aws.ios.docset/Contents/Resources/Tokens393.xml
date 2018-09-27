@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderResourceServerScopeType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderResourceServerScopeType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A resource server scope.&lt;/p&gt;
+Required parameters: [ScopeName, ScopeDescription]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="393"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderResourceServerScopeType/setScopeDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A description of the scope.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *scopeDescription</Declaration>
+			
+			
+			<Anchor>//api/name/scopeDescription</Anchor>
+            <NodeRef refid="393"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderResourceServerScopeType/scopeDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A description of the scope.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *scopeDescription</Declaration>
+			
+			
+			<Anchor>//api/name/scopeDescription</Anchor>
+            <NodeRef refid="393"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderResourceServerScopeType/scopeDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A description of the scope.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *scopeDescription</Declaration>
+			
+			
+			<Anchor>//api/name/scopeDescription</Anchor>
+            <NodeRef refid="393"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderResourceServerScopeType/setScopeName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the scope.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *scopeName</Declaration>
+			
+			
+			<Anchor>//api/name/scopeName</Anchor>
+            <NodeRef refid="393"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderResourceServerScopeType/scopeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the scope.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *scopeName</Declaration>
+			
+			
+			<Anchor>//api/name/scopeName</Anchor>
+            <NodeRef refid="393"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderResourceServerScopeType/scopeName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the scope.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *scopeName</Declaration>
+			
+			
+			<Anchor>//api/name/scopeName</Anchor>
+            <NodeRef refid="393"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLexAudioPlayer.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLexAudioPlayer</TokenIdentifier>
+			<Abstract type="html">Wrapper to AVAudioPLayer class.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1371"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioPlayer/setErrorBlock:</TokenIdentifier>
+			<Abstract type="html">Set it to handle error.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) void ( ^ ) ( NSError *error ) errorBlock</Declaration>
+			
+			
+			<Anchor>//api/name/errorBlock</Anchor>
+            <NodeRef refid="1371"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioPlayer/errorBlock</TokenIdentifier>
+			<Abstract type="html">Set it to handle error.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) void ( ^ ) ( NSError *error ) errorBlock</Declaration>
+			
+			
+			<Anchor>//api/name/errorBlock</Anchor>
+            <NodeRef refid="1371"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexAudioPlayer/errorBlock</TokenIdentifier>
+			<Abstract type="html">Set it to handle error.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) void ( ^ ) ( NSError *error ) errorBlock</Declaration>
+			
+			
+			<Anchor>//api/name/errorBlock</Anchor>
+            <NodeRef refid="1371"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioPlayer/setCompletionBlock:</TokenIdentifier>
+			<Abstract type="html">Set it to handle successful audio play.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) void ( ^ ) ( void ) completionBlock</Declaration>
+			
+			
+			<Anchor>//api/name/completionBlock</Anchor>
+            <NodeRef refid="1371"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioPlayer/completionBlock</TokenIdentifier>
+			<Abstract type="html">Set it to handle successful audio play.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) void ( ^ ) ( void ) completionBlock</Declaration>
+			
+			
+			<Anchor>//api/name/completionBlock</Anchor>
+            <NodeRef refid="1371"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexAudioPlayer/completionBlock</TokenIdentifier>
+			<Abstract type="html">Set it to handle successful audio play.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) void ( ^ ) ( void ) completionBlock</Declaration>
+			
+			
+			<Anchor>//api/name/completionBlock</Anchor>
+            <NodeRef refid="1371"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioPlayer/setPreparedBlock:</TokenIdentifier>
+			<Abstract type="html">Set it to handle when audio has been prepared to play.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) void ( ^ ) ( void ) preparedBlock</Declaration>
+			
+			
+			<Anchor>//api/name/preparedBlock</Anchor>
+            <NodeRef refid="1371"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioPlayer/preparedBlock</TokenIdentifier>
+			<Abstract type="html">Set it to handle when audio has been prepared to play.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) void ( ^ ) ( void ) preparedBlock</Declaration>
+			
+			
+			<Anchor>//api/name/preparedBlock</Anchor>
+            <NodeRef refid="1371"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLexAudioPlayer/preparedBlock</TokenIdentifier>
+			<Abstract type="html">Set it to handle when audio has been prepared to play.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic) void ( ^ ) ( void ) preparedBlock</Declaration>
+			
+			
+			<Anchor>//api/name/preparedBlock</Anchor>
+            <NodeRef refid="1371"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLexAudioPlayer/start</TokenIdentifier>
+			<Abstract type="html">Start playing sound.</Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+			
+			<Declaration>- (void)start</Declaration>
+			
+			
+			<Anchor>//api/name/start</Anchor>
+            <NodeRef refid="1371"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

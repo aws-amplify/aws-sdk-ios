@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderResendConfirmationCodeResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderResendConfirmationCodeResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The response from the server when the Amazon Cognito Your User Pools service makes the request to resend a confirmation code.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="392"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderResendConfirmationCodeResponse/setCodeDeliveryDetails:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code delivery details returned by the server in response to the request to resend the confirmation code.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType *codeDeliveryDetails</Declaration>
+			
+			
+			<Anchor>//api/name/codeDeliveryDetails</Anchor>
+            <NodeRef refid="392"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderResendConfirmationCodeResponse/codeDeliveryDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code delivery details returned by the server in response to the request to resend the confirmation code.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType *codeDeliveryDetails</Declaration>
+			
+			
+			<Anchor>//api/name/codeDeliveryDetails</Anchor>
+            <NodeRef refid="392"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderResendConfirmationCodeResponse/codeDeliveryDetails</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The code delivery details returned by the server in response to the request to resend the confirmation code.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderCodeDeliveryDetailsType *codeDeliveryDetails</Declaration>
+			
+			
+			<Anchor>//api/name/codeDeliveryDetails</Anchor>
+            <NodeRef refid="392"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

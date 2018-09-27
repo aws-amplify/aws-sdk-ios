@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSIoTDataErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSIoTDataErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2519"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorConflict</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorConflict</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorInternalFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorInternalFailure</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorInvalidRequest</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorInvalidRequest</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorMethodNotAllowed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorMethodNotAllowed</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorRequestEntityTooLarge</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorRequestEntityTooLarge</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorResourceNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorResourceNotFound</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorServiceUnavailable</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorServiceUnavailable</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorThrottling</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorThrottling</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorUnauthorized</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorUnauthorized</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTDataErrorUnsupportedDocumentEncoding</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTDataErrorUnsupportedDocumentEncoding</Declaration>
+            
+            <DeclaredIn>AWSIoTDataModel.h</DeclaredIn>
+            
+            <NodeRef refid="2519"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

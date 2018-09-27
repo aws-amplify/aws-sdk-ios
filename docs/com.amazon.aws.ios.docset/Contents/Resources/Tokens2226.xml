@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSListEndpointsByPlatformApplicationResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListEndpointsByPlatformApplicationResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Response for ListEndpointsByPlatformApplication action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2226"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListEndpointsByPlatformApplicationResponse/setEndpoints:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Endpoints returned for ListEndpointsByPlatformApplication action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSNSEndpoint*&gt; *endpoints</Declaration>
+			
+			
+			<Anchor>//api/name/endpoints</Anchor>
+            <NodeRef refid="2226"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListEndpointsByPlatformApplicationResponse/endpoints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Endpoints returned for ListEndpointsByPlatformApplication action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSNSEndpoint*&gt; *endpoints</Declaration>
+			
+			
+			<Anchor>//api/name/endpoints</Anchor>
+            <NodeRef refid="2226"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSListEndpointsByPlatformApplicationResponse/endpoints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Endpoints returned for ListEndpointsByPlatformApplication action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSNSEndpoint*&gt; *endpoints</Declaration>
+			
+			
+			<Anchor>//api/name/endpoints</Anchor>
+            <NodeRef refid="2226"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListEndpointsByPlatformApplicationResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2226"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListEndpointsByPlatformApplicationResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2226"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSListEndpointsByPlatformApplicationResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2226"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

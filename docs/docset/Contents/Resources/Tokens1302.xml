@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisVideoUntagStreamInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisVideoUntagStreamInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1302"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUntagStreamInput/setStreamARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream that you want to remove tags from.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1302"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUntagStreamInput/streamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream that you want to remove tags from.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1302"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUntagStreamInput/streamARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the stream that you want to remove tags from.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamARN</Declaration>
+			
+			
+			<Anchor>//api/name/streamARN</Anchor>
+            <NodeRef refid="1302"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUntagStreamInput/setStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream that you want to remove tags from.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1302"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUntagStreamInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream that you want to remove tags from.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1302"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUntagStreamInput/streamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the stream that you want to remove tags from.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamName</Declaration>
+			
+			
+			<Anchor>//api/name/streamName</Anchor>
+            <NodeRef refid="1302"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUntagStreamInput/setTagKeyList:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of the keys of the tags that you want to remove.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *tagKeyList</Declaration>
+			
+			
+			<Anchor>//api/name/tagKeyList</Anchor>
+            <NodeRef refid="1302"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisVideoUntagStreamInput/tagKeyList</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of the keys of the tags that you want to remove.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *tagKeyList</Declaration>
+			
+			
+			<Anchor>//api/name/tagKeyList</Anchor>
+            <NodeRef refid="1302"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisVideoUntagStreamInput/tagKeyList</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of the keys of the tags that you want to remove.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisVideoModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *tagKeyList</Declaration>
+			
+			
+			<Anchor>//api/name/tagKeyList</Anchor>
+            <NodeRef refid="1302"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

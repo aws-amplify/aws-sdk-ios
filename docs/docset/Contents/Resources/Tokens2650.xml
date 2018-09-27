@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3InventoryFormat.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3InventoryFormat</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2650"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3InventoryFormatUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3InventoryFormatUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2650"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3InventoryFormatCsv</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3InventoryFormatCsv</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2650"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3InventoryFormatOrc</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3InventoryFormatOrc</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2650"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

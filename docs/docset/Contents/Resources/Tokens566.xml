@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBBackupSummary.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBBackupSummary</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains details for the backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="566"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/setBackupArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN associated with the backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *backupArn</Declaration>
+			
+			
+			<Anchor>//api/name/backupArn</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/backupArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN associated with the backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *backupArn</Declaration>
+			
+			
+			<Anchor>//api/name/backupArn</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBBackupSummary/backupArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN associated with the backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *backupArn</Declaration>
+			
+			
+			<Anchor>//api/name/backupArn</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/setBackupCreationDateTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time at which the backup was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *backupCreationDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/backupCreationDateTime</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/backupCreationDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time at which the backup was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *backupCreationDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/backupCreationDateTime</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBBackupSummary/backupCreationDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time at which the backup was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *backupCreationDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/backupCreationDateTime</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/setBackupExpiryDateTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time at which the automatic on-demand backup created by DynamoDB will expire. This &lt;code&gt;SYSTEM&lt;/code&gt; on-demand backup expires automatically 35 days after its creation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *backupExpiryDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/backupExpiryDateTime</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/backupExpiryDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time at which the automatic on-demand backup created by DynamoDB will expire. This &lt;code&gt;SYSTEM&lt;/code&gt; on-demand backup expires automatically 35 days after its creation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *backupExpiryDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/backupExpiryDateTime</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBBackupSummary/backupExpiryDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Time at which the automatic on-demand backup created by DynamoDB will expire. This &lt;code&gt;SYSTEM&lt;/code&gt; on-demand backup expires automatically 35 days after its creation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *backupExpiryDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/backupExpiryDateTime</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/setBackupName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the specified backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *backupName</Declaration>
+			
+			
+			<Anchor>//api/name/backupName</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/backupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the specified backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *backupName</Declaration>
+			
+			
+			<Anchor>//api/name/backupName</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBBackupSummary/backupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the specified backup.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *backupName</Declaration>
+			
+			
+			<Anchor>//api/name/backupName</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/setBackupSizeBytes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Size of the backup in bytes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *backupSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/backupSizeBytes</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/backupSizeBytes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Size of the backup in bytes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *backupSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/backupSizeBytes</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBBackupSummary/backupSizeBytes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Size of the backup in bytes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *backupSizeBytes</Declaration>
+			
+			
+			<Anchor>//api/name/backupSizeBytes</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/setBackupStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Backup can be in one of the following states: CREATING, ACTIVE, DELETED.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBBackupStatus backupStatus</Declaration>
+			
+			
+			<Anchor>//api/name/backupStatus</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/backupStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Backup can be in one of the following states: CREATING, ACTIVE, DELETED.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBBackupStatus backupStatus</Declaration>
+			
+			
+			<Anchor>//api/name/backupStatus</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBBackupSummary/backupStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Backup can be in one of the following states: CREATING, ACTIVE, DELETED.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBBackupStatus backupStatus</Declaration>
+			
+			
+			<Anchor>//api/name/backupStatus</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/setBackupType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;BackupType:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;USER&lt;/code&gt; - On-demand backup created by you.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SYSTEM&lt;/code&gt; - On-demand backup automatically created by DynamoDB.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBBackupType backupType</Declaration>
+			
+			
+			<Anchor>//api/name/backupType</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/backupType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;BackupType:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;USER&lt;/code&gt; - On-demand backup created by you.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SYSTEM&lt;/code&gt; - On-demand backup automatically created by DynamoDB.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBBackupType backupType</Declaration>
+			
+			
+			<Anchor>//api/name/backupType</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBBackupSummary/backupType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;BackupType:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;USER&lt;/code&gt; - On-demand backup created by you.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;SYSTEM&lt;/code&gt; - On-demand backup automatically created by DynamoDB.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBBackupType backupType</Declaration>
+			
+			
+			<Anchor>//api/name/backupType</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/setTableArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN associated with the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableArn</Declaration>
+			
+			
+			<Anchor>//api/name/tableArn</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/tableArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN associated with the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableArn</Declaration>
+			
+			
+			<Anchor>//api/name/tableArn</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBBackupSummary/tableArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN associated with the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableArn</Declaration>
+			
+			
+			<Anchor>//api/name/tableArn</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/setTableId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier for the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableId</Declaration>
+			
+			
+			<Anchor>//api/name/tableId</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/tableId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier for the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableId</Declaration>
+			
+			
+			<Anchor>//api/name/tableId</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBBackupSummary/tableId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier for the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableId</Declaration>
+			
+			
+			<Anchor>//api/name/tableId</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/setTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBBackupSummary/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBBackupSummary/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="566"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

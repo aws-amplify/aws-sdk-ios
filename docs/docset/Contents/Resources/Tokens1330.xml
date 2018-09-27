@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaFunctionConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaFunctionConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A complex type that describes function metadata.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1330"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setCodeSha256:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;It is the SHA256 hash of your function deployment package.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *codeSha256</Declaration>
+			
+			
+			<Anchor>//api/name/codeSha256</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/codeSha256</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;It is the SHA256 hash of your function deployment package.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *codeSha256</Declaration>
+			
+			
+			<Anchor>//api/name/codeSha256</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/codeSha256</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;It is the SHA256 hash of your function deployment package.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *codeSha256</Declaration>
+			
+			
+			<Anchor>//api/name/codeSha256</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setCodeSize:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The size, in bytes, of the function .zip file you uploaded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *codeSize</Declaration>
+			
+			
+			<Anchor>//api/name/codeSize</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/codeSize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The size, in bytes, of the function .zip file you uploaded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *codeSize</Declaration>
+			
+			
+			<Anchor>//api/name/codeSize</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/codeSize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The size, in bytes, of the function .zip file you uploaded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *codeSize</Declaration>
+			
+			
+			<Anchor>//api/name/codeSize</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setDeadLetterConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see &lt;a&gt;dlq&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaDeadLetterConfig *deadLetterConfig</Declaration>
+			
+			
+			<Anchor>//api/name/deadLetterConfig</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/deadLetterConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see &lt;a&gt;dlq&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaDeadLetterConfig *deadLetterConfig</Declaration>
+			
+			
+			<Anchor>//api/name/deadLetterConfig</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/deadLetterConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains the target ARN (Amazon Resource Name) of an Amazon SQS queue or Amazon SNS topic. For more information, see &lt;a&gt;dlq&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaDeadLetterConfig *deadLetterConfig</Declaration>
+			
+			
+			<Anchor>//api/name/deadLetterConfig</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setDetail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user-provided description.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user-provided description.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/detail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user-provided description.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *detail</Declaration>
+			
+			
+			<Anchor>//api/name/detail</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setEnvironment:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your environment&apos;s configuration settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaEnvironmentResponse *environment</Declaration>
+			
+			
+			<Anchor>//api/name/environment</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/environment</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your environment&apos;s configuration settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaEnvironmentResponse *environment</Declaration>
+			
+			
+			<Anchor>//api/name/environment</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/environment</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your environment&apos;s configuration settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaEnvironmentResponse *environment</Declaration>
+			
+			
+			<Anchor>//api/name/environment</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setFunctionArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) assigned to the function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionArn</Declaration>
+			
+			
+			<Anchor>//api/name/functionArn</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/functionArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) assigned to the function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionArn</Declaration>
+			
+			
+			<Anchor>//api/name/functionArn</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/functionArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) assigned to the function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionArn</Declaration>
+			
+			
+			<Anchor>//api/name/functionArn</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setFunctionName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the function. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the function. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/functionName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the function. Note that the length constraint applies only to the ARN. If you specify only the function name, it is limited to 64 characters in length.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *functionName</Declaration>
+			
+			
+			<Anchor>//api/name/functionName</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function Lambda calls to begin executing your function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *handler</Declaration>
+			
+			
+			<Anchor>//api/name/handler</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/handler</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function Lambda calls to begin executing your function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *handler</Declaration>
+			
+			
+			<Anchor>//api/name/handler</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/handler</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function Lambda calls to begin executing your function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *handler</Declaration>
+			
+			
+			<Anchor>//api/name/handler</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setKMSKeyArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&apos;s environment variables. If empty, it means you are using the AWS Lambda default service key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSKeyArn</Declaration>
+			
+			
+			<Anchor>//api/name/KMSKeyArn</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/KMSKeyArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&apos;s environment variables. If empty, it means you are using the AWS Lambda default service key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSKeyArn</Declaration>
+			
+			
+			<Anchor>//api/name/KMSKeyArn</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/KMSKeyArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the KMS key used to encrypt your function&apos;s environment variables. If empty, it means you are using the AWS Lambda default service key.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *KMSKeyArn</Declaration>
+			
+			
+			<Anchor>//api/name/KMSKeyArn</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setLastModified:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see Date and Time Formats.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/lastModified</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see Date and Time Formats.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/lastModified</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time stamp of the last time you updated the function. The time stamp is conveyed as a string complying with ISO-8601 in this way YYYY-MM-DDThh:mm:ssTZD (e.g., 1997-07-16T19:20:30+01:00). For more information, see Date and Time Formats.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *lastModified</Declaration>
+			
+			
+			<Anchor>//api/name/lastModified</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setMasterArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the ARN (Amazon Resource Name) of the master function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *masterArn</Declaration>
+			
+			
+			<Anchor>//api/name/masterArn</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/masterArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the ARN (Amazon Resource Name) of the master function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *masterArn</Declaration>
+			
+			
+			<Anchor>//api/name/masterArn</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/masterArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Returns the ARN (Amazon Resource Name) of the master function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *masterArn</Declaration>
+			
+			
+			<Anchor>//api/name/masterArn</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setMemorySize:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *memorySize</Declaration>
+			
+			
+			<Anchor>//api/name/memorySize</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/memorySize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *memorySize</Declaration>
+			
+			
+			<Anchor>//api/name/memorySize</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/memorySize</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The memory size, in MB, you configured for the function. Must be a multiple of 64 MB.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *memorySize</Declaration>
+			
+			
+			<Anchor>//api/name/memorySize</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setRevisionId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the latest updated revision of the function or alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/revisionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the latest updated revision of the function or alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/revisionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the latest updated revision of the function or alias.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *revisionId</Declaration>
+			
+			
+			<Anchor>//api/name/revisionId</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setRole:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *role</Declaration>
+			
+			
+			<Anchor>//api/name/role</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/role</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *role</Declaration>
+			
+			
+			<Anchor>//api/name/role</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/role</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when it executes your function to access any other Amazon Web Services (AWS) resources.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *role</Declaration>
+			
+			
+			<Anchor>//api/name/role</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setRuntime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The runtime environment for the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLambdaRuntime runtime</Declaration>
+			
+			
+			<Anchor>//api/name/runtime</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/runtime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The runtime environment for the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLambdaRuntime runtime</Declaration>
+			
+			
+			<Anchor>//api/name/runtime</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/runtime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The runtime environment for the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSLambdaRuntime runtime</Declaration>
+			
+			
+			<Anchor>//api/name/runtime</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setTimeout:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timeout</Declaration>
+			
+			
+			<Anchor>//api/name/timeout</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/timeout</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timeout</Declaration>
+			
+			
+			<Anchor>//api/name/timeout</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/timeout</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The function execution time at which Lambda should terminate the function. Because the execution time has cost implications, we recommend you set this value based on your expected execution time. The default is 3 seconds.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timeout</Declaration>
+			
+			
+			<Anchor>//api/name/timeout</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setTracingConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your function&apos;s tracing settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaTracingConfigResponse *tracingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/tracingConfig</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/tracingConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your function&apos;s tracing settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaTracingConfigResponse *tracingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/tracingConfig</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/tracingConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The parent object that contains your function&apos;s tracing settings.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaTracingConfigResponse *tracingConfig</Declaration>
+			
+			
+			<Anchor>//api/name/tracingConfig</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setVersion:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/version</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/version</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The version of the Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *version</Declaration>
+			
+			
+			<Anchor>//api/name/version</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/setVpcConfig:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;VPC configuration associated with your Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaVpcConfigResponse *vpcConfig</Declaration>
+			
+			
+			<Anchor>//api/name/vpcConfig</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaFunctionConfiguration/vpcConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;VPC configuration associated with your Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaVpcConfigResponse *vpcConfig</Declaration>
+			
+			
+			<Anchor>//api/name/vpcConfig</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaFunctionConfiguration/vpcConfig</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;VPC configuration associated with your Lambda function.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSLambdaVpcConfigResponse *vpcConfig</Declaration>
+			
+			
+			<Anchor>//api/name/vpcConfig</Anchor>
+            <NodeRef refid="1330"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

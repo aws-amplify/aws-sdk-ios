@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESCreateConfigurationSetEventDestinationRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESCreateConfigurationSetEventDestinationRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to create a configuration set event destination. A configuration set event destination, which can be either Amazon CloudWatch or Amazon Kinesis Firehose, describes an AWS service in which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [ConfigurationSetName, EventDestination]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2043"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESCreateConfigurationSetEventDestinationRequest/setConfigurationSetName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set that the event destination should be associated with.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2043"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESCreateConfigurationSetEventDestinationRequest/configurationSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set that the event destination should be associated with.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2043"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESCreateConfigurationSetEventDestinationRequest/configurationSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set that the event destination should be associated with.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2043"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESCreateConfigurationSetEventDestinationRequest/setEventDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that describes the AWS service that email sending event information will be published to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESEventDestination *eventDestination</Declaration>
+			
+			
+			<Anchor>//api/name/eventDestination</Anchor>
+            <NodeRef refid="2043"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESCreateConfigurationSetEventDestinationRequest/eventDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that describes the AWS service that email sending event information will be published to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESEventDestination *eventDestination</Declaration>
+			
+			
+			<Anchor>//api/name/eventDestination</Anchor>
+            <NodeRef refid="2043"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESCreateConfigurationSetEventDestinationRequest/eventDestination</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An object that describes the AWS service that email sending event information will be published to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSSESEventDestination *eventDestination</Declaration>
+			
+			
+			<Anchor>//api/name/eventDestination</Anchor>
+            <NodeRef refid="2043"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLambdaInvokerErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLambdaInvokerErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLambdaInvoker.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2569"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaInvokerErrorTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaInvokerErrorTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSLambdaInvoker.h</DeclaredIn>
+            
+            <NodeRef refid="2569"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLambdaInvokerErrorTypeFunctionError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLambdaInvokerErrorTypeFunctionError</Declaration>
+            
+            <DeclaredIn>AWSLambdaInvoker.h</DeclaredIn>
+            
+            <NodeRef refid="2569"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

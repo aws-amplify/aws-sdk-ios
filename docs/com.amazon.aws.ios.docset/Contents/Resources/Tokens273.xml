@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAuthEventType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAuthEventType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The authentication event type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="273"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/setChallengeResponses:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge responses.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderChallengeResponseType*&gt; *challengeResponses</Declaration>
+			
+			
+			<Anchor>//api/name/challengeResponses</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/challengeResponses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge responses.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderChallengeResponseType*&gt; *challengeResponses</Declaration>
+			
+			
+			<Anchor>//api/name/challengeResponses</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAuthEventType/challengeResponses</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The challenge responses.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderChallengeResponseType*&gt; *challengeResponses</Declaration>
+			
+			
+			<Anchor>//api/name/challengeResponses</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/setCreationDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The creation date&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The creation date&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAuthEventType/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The creation date&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/setEventContextData:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderEventContextDataType *eventContextData</Declaration>
+			
+			
+			<Anchor>//api/name/eventContextData</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/eventContextData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderEventContextDataType *eventContextData</Declaration>
+			
+			
+			<Anchor>//api/name/eventContextData</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAuthEventType/eventContextData</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user context data captured at the time of an event request. It provides additional information about the client from which event the request is received.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderEventContextDataType *eventContextData</Declaration>
+			
+			
+			<Anchor>//api/name/eventContextData</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/setEventFeedback:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A flag specifying the user feedback captured at the time of an event request is good or bad. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderEventFeedbackType *eventFeedback</Declaration>
+			
+			
+			<Anchor>//api/name/eventFeedback</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/eventFeedback</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A flag specifying the user feedback captured at the time of an event request is good or bad. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderEventFeedbackType *eventFeedback</Declaration>
+			
+			
+			<Anchor>//api/name/eventFeedback</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAuthEventType/eventFeedback</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A flag specifying the user feedback captured at the time of an event request is good or bad. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderEventFeedbackType *eventFeedback</Declaration>
+			
+			
+			<Anchor>//api/name/eventFeedback</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/setEventId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventId</Declaration>
+			
+			
+			<Anchor>//api/name/eventId</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/eventId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventId</Declaration>
+			
+			
+			<Anchor>//api/name/eventId</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAuthEventType/eventId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *eventId</Declaration>
+			
+			
+			<Anchor>//api/name/eventId</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/setEventResponse:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderEventResponseType eventResponse</Declaration>
+			
+			
+			<Anchor>//api/name/eventResponse</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/eventResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderEventResponseType eventResponse</Declaration>
+			
+			
+			<Anchor>//api/name/eventResponse</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAuthEventType/eventResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderEventResponseType eventResponse</Declaration>
+			
+			
+			<Anchor>//api/name/eventResponse</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/setEventRisk:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderEventRiskType *eventRisk</Declaration>
+			
+			
+			<Anchor>//api/name/eventRisk</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/eventRisk</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderEventRiskType *eventRisk</Declaration>
+			
+			
+			<Anchor>//api/name/eventRisk</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAuthEventType/eventRisk</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderEventRiskType *eventRisk</Declaration>
+			
+			
+			<Anchor>//api/name/eventRisk</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/setEventType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderEventType eventType</Declaration>
+			
+			
+			<Anchor>//api/name/eventType</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAuthEventType/eventType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderEventType eventType</Declaration>
+			
+			
+			<Anchor>//api/name/eventType</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAuthEventType/eventType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderEventType eventType</Declaration>
+			
+			
+			<Anchor>//api/name/eventType</Anchor>
+            <NodeRef refid="273"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

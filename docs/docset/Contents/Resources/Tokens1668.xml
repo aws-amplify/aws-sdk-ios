@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionBoundingBox.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionBoundingBox</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Identifies the bounding box around the object, face or text. The &lt;code&gt;left&lt;/code&gt; (x-coordinate) and &lt;code&gt;top&lt;/code&gt; (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). &lt;/p&gt;&lt;p&gt;The &lt;code&gt;top&lt;/code&gt; and &lt;code&gt;left&lt;/code&gt; values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a &lt;code&gt;left&lt;/code&gt; value of 0.5 (350/700) and a &lt;code&gt;top&lt;/code&gt; value of 0.25 (50/200).&lt;/p&gt;&lt;p&gt;The &lt;code&gt;width&lt;/code&gt; and &lt;code&gt;height&lt;/code&gt; values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. &lt;/p&gt;&lt;note&gt;&lt;p&gt; The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the &lt;code&gt;left&lt;/code&gt; or &lt;code&gt;top&lt;/code&gt; values. &lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1668"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionBoundingBox/setHeight:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Height of the bounding box as a ratio of the overall image height.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionBoundingBox/height</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Height of the bounding box as a ratio of the overall image height.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionBoundingBox/height</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Height of the bounding box as a ratio of the overall image height.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *height</Declaration>
+			
+			
+			<Anchor>//api/name/height</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionBoundingBox/setLeft:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Left coordinate of the bounding box as a ratio of overall image width.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *left</Declaration>
+			
+			
+			<Anchor>//api/name/left</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionBoundingBox/left</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Left coordinate of the bounding box as a ratio of overall image width.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *left</Declaration>
+			
+			
+			<Anchor>//api/name/left</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionBoundingBox/left</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Left coordinate of the bounding box as a ratio of overall image width.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *left</Declaration>
+			
+			
+			<Anchor>//api/name/left</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionBoundingBox/setTop:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Top coordinate of the bounding box as a ratio of overall image height.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *top</Declaration>
+			
+			
+			<Anchor>//api/name/top</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionBoundingBox/top</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Top coordinate of the bounding box as a ratio of overall image height.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *top</Declaration>
+			
+			
+			<Anchor>//api/name/top</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionBoundingBox/top</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Top coordinate of the bounding box as a ratio of overall image height.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *top</Declaration>
+			
+			
+			<Anchor>//api/name/top</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionBoundingBox/setWidth:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Width of the bounding box as a ratio of the overall image width.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionBoundingBox/width</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Width of the bounding box as a ratio of the overall image width.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionBoundingBox/width</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Width of the bounding box as a ratio of the overall image width.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *width</Declaration>
+			
+			
+			<Anchor>//api/name/width</Anchor>
+            <NodeRef refid="1668"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

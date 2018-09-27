@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3BucketLogsPermission.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3BucketLogsPermission</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2640"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3BucketLogsPermissionUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3BucketLogsPermissionUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2640"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3BucketLogsPermissionFullControl</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3BucketLogsPermissionFullControl</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2640"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3BucketLogsPermissionRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3BucketLogsPermissionRead</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2640"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3BucketLogsPermissionWrite</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3BucketLogsPermissionWrite</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2640"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3SseKmsEncryptedObjectsStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3SseKmsEncryptedObjectsStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2673"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3SseKmsEncryptedObjectsStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3SseKmsEncryptedObjectsStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2673"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3SseKmsEncryptedObjectsStatusEnabled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3SseKmsEncryptedObjectsStatusEnabled</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2673"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3SseKmsEncryptedObjectsStatusDisabled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3SseKmsEncryptedObjectsStatusDisabled</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2673"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

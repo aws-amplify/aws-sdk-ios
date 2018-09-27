@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingCreateAccessPointOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingCreateAccessPointOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the output for CreateLoadBalancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="706"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingCreateAccessPointOutput/setDNSName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The DNS name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *DNSName</Declaration>
+			
+			
+			<Anchor>//api/name/DNSName</Anchor>
+            <NodeRef refid="706"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingCreateAccessPointOutput/DNSName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The DNS name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *DNSName</Declaration>
+			
+			
+			<Anchor>//api/name/DNSName</Anchor>
+            <NodeRef refid="706"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingCreateAccessPointOutput/DNSName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The DNS name of the load balancer.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *DNSName</Declaration>
+			
+			
+			<Anchor>//api/name/DNSName</Anchor>
+            <NodeRef refid="706"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

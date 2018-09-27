@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTRegisterCertificateRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTRegisterCertificateRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input to the RegisterCertificate operation.&lt;/p&gt;
+Required parameters: [certificatePem]</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1094"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRegisterCertificateRequest/setCaCertificatePem:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CA certificate used to sign the device certificate being registered.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *caCertificatePem</Declaration>
+			
+			
+			<Anchor>//api/name/caCertificatePem</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRegisterCertificateRequest/caCertificatePem</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CA certificate used to sign the device certificate being registered.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *caCertificatePem</Declaration>
+			
+			
+			<Anchor>//api/name/caCertificatePem</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTRegisterCertificateRequest/caCertificatePem</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CA certificate used to sign the device certificate being registered.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *caCertificatePem</Declaration>
+			
+			
+			<Anchor>//api/name/caCertificatePem</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRegisterCertificateRequest/setCertificatePem:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate data, in PEM format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificatePem</Declaration>
+			
+			
+			<Anchor>//api/name/certificatePem</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRegisterCertificateRequest/certificatePem</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate data, in PEM format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificatePem</Declaration>
+			
+			
+			<Anchor>//api/name/certificatePem</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTRegisterCertificateRequest/certificatePem</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The certificate data, in PEM format.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *certificatePem</Declaration>
+			
+			
+			<Anchor>//api/name/certificatePem</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRegisterCertificateRequest/setSetAsActive:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A boolean value that specifies if the CA certificate is set to active.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *setAsActive</Declaration>
+			
+			
+			<Anchor>//api/name/setAsActive</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRegisterCertificateRequest/setAsActive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A boolean value that specifies if the CA certificate is set to active.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *setAsActive</Declaration>
+			
+			
+			<Anchor>//api/name/setAsActive</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTRegisterCertificateRequest/setAsActive</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A boolean value that specifies if the CA certificate is set to active.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *setAsActive</Declaration>
+			
+			
+			<Anchor>//api/name/setAsActive</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRegisterCertificateRequest/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the register certificate request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTCertificateStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTRegisterCertificateRequest/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the register certificate request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTCertificateStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTRegisterCertificateRequest/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The status of the register certificate request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSIoTCertificateStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1094"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

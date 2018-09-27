@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSIoTOTAUpdateStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSIoTOTAUpdateStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2531"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTOTAUpdateStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTOTAUpdateStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2531"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTOTAUpdateStatusCreatePending</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTOTAUpdateStatusCreatePending</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2531"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTOTAUpdateStatusCreateInProgress</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTOTAUpdateStatusCreateInProgress</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2531"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTOTAUpdateStatusCreateComplete</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTOTAUpdateStatusCreateComplete</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2531"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSIoTOTAUpdateStatusCreateFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSIoTOTAUpdateStatusCreateFailed</Declaration>
+            
+            <DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+            <NodeRef refid="2531"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

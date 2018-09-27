@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionIndexFacesRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionIndexFacesRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1727"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionIndexFacesRequest/setCollectionId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of an existing collection to which you want to add the faces that are detected in the input images.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionIndexFacesRequest/collectionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of an existing collection to which you want to add the faces that are detected in the input images.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionIndexFacesRequest/collectionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of an existing collection to which you want to add the faces that are detected in the input images.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *collectionId</Declaration>
+			
+			
+			<Anchor>//api/name/collectionId</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionIndexFacesRequest/setDetectionAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don&apos;t specify a value for &lt;code&gt;Attributes&lt;/code&gt; or if you specify &lt;code&gt;[&quot;DEFAULT&quot;]&lt;/code&gt;, the API returns the following subset of facial attributes: &lt;code&gt;BoundingBox&lt;/code&gt;, &lt;code&gt;Confidence&lt;/code&gt;, &lt;code&gt;Pose&lt;/code&gt;, &lt;code&gt;Quality&lt;/code&gt; and &lt;code&gt;Landmarks&lt;/code&gt;. If you provide &lt;code&gt;[&quot;ALL&quot;]&lt;/code&gt;, all facial attributes are returned but the operation will take longer to complete.&lt;/p&gt;&lt;p&gt;If you provide both, &lt;code&gt;[&quot;ALL&quot;, &quot;DEFAULT&quot;]&lt;/code&gt;, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *detectionAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/detectionAttributes</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionIndexFacesRequest/detectionAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don&apos;t specify a value for &lt;code&gt;Attributes&lt;/code&gt; or if you specify &lt;code&gt;[&quot;DEFAULT&quot;]&lt;/code&gt;, the API returns the following subset of facial attributes: &lt;code&gt;BoundingBox&lt;/code&gt;, &lt;code&gt;Confidence&lt;/code&gt;, &lt;code&gt;Pose&lt;/code&gt;, &lt;code&gt;Quality&lt;/code&gt; and &lt;code&gt;Landmarks&lt;/code&gt;. If you provide &lt;code&gt;[&quot;ALL&quot;]&lt;/code&gt;, all facial attributes are returned but the operation will take longer to complete.&lt;/p&gt;&lt;p&gt;If you provide both, &lt;code&gt;[&quot;ALL&quot;, &quot;DEFAULT&quot;]&lt;/code&gt;, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *detectionAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/detectionAttributes</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionIndexFacesRequest/detectionAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don&apos;t specify a value for &lt;code&gt;Attributes&lt;/code&gt; or if you specify &lt;code&gt;[&quot;DEFAULT&quot;]&lt;/code&gt;, the API returns the following subset of facial attributes: &lt;code&gt;BoundingBox&lt;/code&gt;, &lt;code&gt;Confidence&lt;/code&gt;, &lt;code&gt;Pose&lt;/code&gt;, &lt;code&gt;Quality&lt;/code&gt; and &lt;code&gt;Landmarks&lt;/code&gt;. If you provide &lt;code&gt;[&quot;ALL&quot;]&lt;/code&gt;, all facial attributes are returned but the operation will take longer to complete.&lt;/p&gt;&lt;p&gt;If you provide both, &lt;code&gt;[&quot;ALL&quot;, &quot;DEFAULT&quot;]&lt;/code&gt;, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *detectionAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/detectionAttributes</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionIndexFacesRequest/setExternalImageId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID you want to assign to all the faces detected in the image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalImageId</Declaration>
+			
+			
+			<Anchor>//api/name/externalImageId</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionIndexFacesRequest/externalImageId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID you want to assign to all the faces detected in the image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalImageId</Declaration>
+			
+			
+			<Anchor>//api/name/externalImageId</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionIndexFacesRequest/externalImageId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ID you want to assign to all the faces detected in the image.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalImageId</Declaration>
+			
+			
+			<Anchor>//api/name/externalImageId</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionIndexFacesRequest/setImage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImage *image</Declaration>
+			
+			
+			<Anchor>//api/name/image</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionIndexFacesRequest/image</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImage *image</Declaration>
+			
+			
+			<Anchor>//api/name/image</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionIndexFacesRequest/image</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionImage *image</Declaration>
+			
+			
+			<Anchor>//api/name/image</Anchor>
+            <NodeRef refid="1727"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

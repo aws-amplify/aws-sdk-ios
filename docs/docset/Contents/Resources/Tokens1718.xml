@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionGetFaceDetectionResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionGetFaceDetectionResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1718"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/setBillableDurationSeconds:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *billableDurationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/billableDurationSeconds</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/billableDurationSeconds</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *billableDurationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/billableDurationSeconds</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionResponse/billableDurationSeconds</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *billableDurationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/billableDurationSeconds</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/setErrorCode:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/errorCode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionResponse/errorCode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/setFaces:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of faces detected in the video. Each element contains a detected face&apos;s details and the time, in milliseconds from the start of the video, the face was detected. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFaceDetection*&gt; *faces</Declaration>
+			
+			
+			<Anchor>//api/name/faces</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/faces</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of faces detected in the video. Each element contains a detected face&apos;s details and the time, in milliseconds from the start of the video, the face was detected. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFaceDetection*&gt; *faces</Declaration>
+			
+			
+			<Anchor>//api/name/faces</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionResponse/faces</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An array of faces detected in the video. Each element contains a detected face&apos;s details and the time, in milliseconds from the start of the video, the face was detected. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionFaceDetection*&gt; *faces</Declaration>
+			
+			
+			<Anchor>//api/name/faces</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/setJobStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the face detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/jobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the face detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionResponse/jobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the face detection job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition returns this token that you can use in the subsequent request to retrieve the next set of faces. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/setStatusMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the job fails, &lt;code&gt;StatusMessage&lt;/code&gt; provides a descriptive error message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/statusMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the job fails, &lt;code&gt;StatusMessage&lt;/code&gt; provides a descriptive error message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionResponse/statusMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the job fails, &lt;code&gt;StatusMessage&lt;/code&gt; provides a descriptive error message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/setVideoMetadata:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a video that Amazon Rekognition Video analyzed. &lt;code&gt;Videometadata&lt;/code&gt; is returned in every page of paginated responses from a Amazon Rekognition video operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideoMetadata *videoMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/videoMetadata</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/videoMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a video that Amazon Rekognition Video analyzed. &lt;code&gt;Videometadata&lt;/code&gt; is returned in every page of paginated responses from a Amazon Rekognition video operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideoMetadata *videoMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/videoMetadata</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionResponse/videoMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a video that Amazon Rekognition Video analyzed. &lt;code&gt;Videometadata&lt;/code&gt; is returned in every page of paginated responses from a Amazon Rekognition video operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideoMetadata *videoMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/videoMetadata</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/setWarnings:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionWarning*&gt; *warnings</Declaration>
+			
+			
+			<Anchor>//api/name/warnings</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetFaceDetectionResponse/warnings</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionWarning*&gt; *warnings</Declaration>
+			
+			
+			<Anchor>//api/name/warnings</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetFaceDetectionResponse/warnings</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionWarning*&gt; *warnings</Declaration>
+			
+			
+			<Anchor>//api/name/warnings</Anchor>
+            <NodeRef refid="1718"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

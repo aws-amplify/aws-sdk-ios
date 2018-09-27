@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionGetCelebrityRecognitionResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionGetCelebrityRecognitionResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1714"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/setBillableDurationSeconds:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *billableDurationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/billableDurationSeconds</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/billableDurationSeconds</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *billableDurationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/billableDurationSeconds</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionResponse/billableDurationSeconds</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *billableDurationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/billableDurationSeconds</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/setCelebrities:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Array of celebrities recognized in the video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionCelebrityRecognition*&gt; *celebrities</Declaration>
+			
+			
+			<Anchor>//api/name/celebrities</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/celebrities</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Array of celebrities recognized in the video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionCelebrityRecognition*&gt; *celebrities</Declaration>
+			
+			
+			<Anchor>//api/name/celebrities</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionResponse/celebrities</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Array of celebrities recognized in the video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionCelebrityRecognition*&gt; *celebrities</Declaration>
+			
+			
+			<Anchor>//api/name/celebrities</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/setErrorCode:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/errorCode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionResponse/errorCode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *errorCode</Declaration>
+			
+			
+			<Anchor>//api/name/errorCode</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/setJobStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the celebrity recognition job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/jobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the celebrity recognition job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionResponse/jobStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current status of the celebrity recognition job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus</Declaration>
+			
+			
+			<Anchor>//api/name/jobStatus</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of celebrities.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/setStatusMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the job fails, &lt;code&gt;StatusMessage&lt;/code&gt; provides a descriptive error message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/statusMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the job fails, &lt;code&gt;StatusMessage&lt;/code&gt; provides a descriptive error message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionResponse/statusMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the job fails, &lt;code&gt;StatusMessage&lt;/code&gt; provides a descriptive error message.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/setVideoMetadata:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a video that Amazon Rekognition Video analyzed. &lt;code&gt;Videometadata&lt;/code&gt; is returned in every page of paginated responses from a Amazon Rekognition Video operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideoMetadata *videoMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/videoMetadata</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/videoMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a video that Amazon Rekognition Video analyzed. &lt;code&gt;Videometadata&lt;/code&gt; is returned in every page of paginated responses from a Amazon Rekognition Video operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideoMetadata *videoMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/videoMetadata</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionResponse/videoMetadata</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about a video that Amazon Rekognition Video analyzed. &lt;code&gt;Videometadata&lt;/code&gt; is returned in every page of paginated responses from a Amazon Rekognition Video operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionVideoMetadata *videoMetadata</Declaration>
+			
+			
+			<Anchor>//api/name/videoMetadata</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/setWarnings:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionWarning*&gt; *warnings</Declaration>
+			
+			
+			<Anchor>//api/name/warnings</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionGetCelebrityRecognitionResponse/warnings</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionWarning*&gt; *warnings</Declaration>
+			
+			
+			<Anchor>//api/name/warnings</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionGetCelebrityRecognitionResponse/warnings</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSRekognitionWarning*&gt; *warnings</Declaration>
+			
+			
+			<Anchor>//api/name/warnings</Anchor>
+            <NodeRef refid="1714"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

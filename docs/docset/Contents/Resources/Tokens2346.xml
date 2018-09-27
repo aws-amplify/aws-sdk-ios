@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSTranscribeGetTranscriptionJobRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSTranscribeGetTranscriptionJobRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2346"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeGetTranscriptionJobRequest/setTranscriptionJobName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transcriptionJobName</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobName</Anchor>
+            <NodeRef refid="2346"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeGetTranscriptionJobRequest/transcriptionJobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transcriptionJobName</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobName</Anchor>
+            <NodeRef refid="2346"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeGetTranscriptionJobRequest/transcriptionJobName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the job.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *transcriptionJobName</Declaration>
+			
+			
+			<Anchor>//api/name/transcriptionJobName</Anchor>
+            <NodeRef refid="2346"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

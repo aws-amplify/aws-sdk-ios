@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSQSDeleteMessageBatchResult.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSQSDeleteMessageBatchResult</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;For each message in the batch, the response contains a &lt;code&gt;&lt;a&gt;DeleteMessageBatchResultEntry&lt;/a&gt;&lt;/code&gt; tag if the message is deleted or a &lt;code&gt;&lt;a&gt;BatchResultErrorEntry&lt;/a&gt;&lt;/code&gt; tag if the message can&apos;t be deleted.&lt;/p&gt;
+Required parameters: [Successful, Failed]</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2267"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSDeleteMessageBatchResult/setFailed:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of &lt;code&gt;&lt;a&gt;BatchResultErrorEntry&lt;/a&gt;&lt;/code&gt; items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSBatchResultErrorEntry*&gt; *failed</Declaration>
+			
+			
+			<Anchor>//api/name/failed</Anchor>
+            <NodeRef refid="2267"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSDeleteMessageBatchResult/failed</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of &lt;code&gt;&lt;a&gt;BatchResultErrorEntry&lt;/a&gt;&lt;/code&gt; items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSBatchResultErrorEntry*&gt; *failed</Declaration>
+			
+			
+			<Anchor>//api/name/failed</Anchor>
+            <NodeRef refid="2267"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSDeleteMessageBatchResult/failed</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of &lt;code&gt;&lt;a&gt;BatchResultErrorEntry&lt;/a&gt;&lt;/code&gt; items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSBatchResultErrorEntry*&gt; *failed</Declaration>
+			
+			
+			<Anchor>//api/name/failed</Anchor>
+            <NodeRef refid="2267"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSDeleteMessageBatchResult/setSuccessful:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of &lt;code&gt;&lt;a&gt;DeleteMessageBatchResultEntry&lt;/a&gt;&lt;/code&gt; items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSDeleteMessageBatchResultEntry*&gt; *successful</Declaration>
+			
+			
+			<Anchor>//api/name/successful</Anchor>
+            <NodeRef refid="2267"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSDeleteMessageBatchResult/successful</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of &lt;code&gt;&lt;a&gt;DeleteMessageBatchResultEntry&lt;/a&gt;&lt;/code&gt; items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSDeleteMessageBatchResultEntry*&gt; *successful</Declaration>
+			
+			
+			<Anchor>//api/name/successful</Anchor>
+            <NodeRef refid="2267"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSDeleteMessageBatchResult/successful</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of &lt;code&gt;&lt;a&gt;DeleteMessageBatchResultEntry&lt;/a&gt;&lt;/code&gt; items.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSQSDeleteMessageBatchResultEntry*&gt; *successful</Declaration>
+			
+			
+			<Anchor>//api/name/successful</Anchor>
+            <NodeRef refid="2267"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

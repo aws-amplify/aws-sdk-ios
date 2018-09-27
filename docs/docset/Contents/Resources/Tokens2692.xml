@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSSESEventType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSSESEventType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2692"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESEventTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESEventTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2692"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESEventTypeSend</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESEventTypeSend</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2692"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESEventTypeReject</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESEventTypeReject</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2692"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESEventTypeBounce</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESEventTypeBounce</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2692"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESEventTypeComplaint</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESEventTypeComplaint</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2692"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESEventTypeDelivery</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESEventTypeDelivery</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2692"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESEventTypeOpen</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESEventTypeOpen</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2692"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESEventTypeClick</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESEventTypeClick</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2692"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSSESEventTypeRenderingFailure</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSSESEventTypeRenderingFailure</Declaration>
+            
+            <DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+            <NodeRef refid="2692"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

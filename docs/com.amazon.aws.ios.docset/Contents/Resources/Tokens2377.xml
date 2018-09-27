@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AWSCognitoIdentityInteractiveAuthenticationDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AWSCognitoIdentityInteractiveAuthenticationDelegate</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2377"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityInteractiveAuthenticationDelegate/startPasswordAuthentication</TokenIdentifier>
+			<Abstract type="html">Initialize ui to prompt end user for username and password</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (id&lt;AWSCognitoIdentityPasswordAuthentication&gt;)startPasswordAuthentication</Declaration>
+			
+			
+			<Anchor>//api/name/startPasswordAuthentication</Anchor>
+            <NodeRef refid="2377"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityInteractiveAuthenticationDelegate/startMultiFactorAuthentication</TokenIdentifier>
+			<Abstract type="html">Initialize ui to prompt end user for multifactor authentication code</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (id&lt;AWSCognitoIdentityMultiFactorAuthentication&gt;)startMultiFactorAuthentication</Declaration>
+			
+			
+			<Anchor>//api/name/startMultiFactorAuthentication</Anchor>
+            <NodeRef refid="2377"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityInteractiveAuthenticationDelegate/startRememberDevice</TokenIdentifier>
+			<Abstract type="html">Initialize ui to prompt end user to remember this device</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (id&lt;AWSCognitoIdentityRememberDevice&gt;)startRememberDevice</Declaration>
+			
+			
+			<Anchor>//api/name/startRememberDevice</Anchor>
+            <NodeRef refid="2377"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityInteractiveAuthenticationDelegate/startNewPasswordRequired</TokenIdentifier>
+			<Abstract type="html">Initialize ui to prompt end user to set a new password and specify profile information as part of sign in</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (id&lt;AWSCognitoIdentityNewPasswordRequired&gt;)startNewPasswordRequired</Declaration>
+			
+			
+			<Anchor>//api/name/startNewPasswordRequired</Anchor>
+            <NodeRef refid="2377"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityInteractiveAuthenticationDelegate/startCustomAuthentication</TokenIdentifier>
+			<Abstract type="html">Initialize ui to prompt end user for custom authentication flow</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (id&lt;AWSCognitoIdentityCustomAuthentication&gt;)startCustomAuthentication</Declaration>
+			
+			
+			<Anchor>//api/name/startCustomAuthentication</Anchor>
+            <NodeRef refid="2377"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityInteractiveAuthenticationDelegate/startSoftwareMfaSetupRequired</TokenIdentifier>
+			<Abstract type="html">Initialize ui to prompt end user to setup a software mfa token</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (id&lt;AWSCognitoIdentitySoftwareMfaSetupRequired&gt;)startSoftwareMfaSetupRequired</Declaration>
+			
+			
+			<Anchor>//api/name/startSoftwareMfaSetupRequired</Anchor>
+            <NodeRef refid="2377"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSCognitoIdentityInteractiveAuthenticationDelegate/startSelectMfa</TokenIdentifier>
+			<Abstract type="html">Initialize ui to prompt end user to pick desired mfa</Abstract>
+			<DeclaredIn>AWSCognitoIdentityUserPool.h</DeclaredIn>
+			
+			<Declaration>- (id&lt;AWSCognitoIdentitySelectMfa&gt;)startSelectMfa</Declaration>
+			
+			
+			<Anchor>//api/name/startSelectMfa</Anchor>
+            <NodeRef refid="2377"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

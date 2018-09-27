@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKinesisHashKeyRange.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKinesisHashKeyRange</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The range of possible hash key values for the shard, which is a set of ordered contiguous positive integers.&lt;/p&gt;
+Required parameters: [StartingHashKey, EndingHashKey]</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1245"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisHashKeyRange/setEndingHashKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ending hash key of the hash key range.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *endingHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/endingHashKey</Anchor>
+            <NodeRef refid="1245"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisHashKeyRange/endingHashKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ending hash key of the hash key range.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *endingHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/endingHashKey</Anchor>
+            <NodeRef refid="1245"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisHashKeyRange/endingHashKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ending hash key of the hash key range.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *endingHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/endingHashKey</Anchor>
+            <NodeRef refid="1245"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisHashKeyRange/setStartingHashKey:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The starting hash key of the hash key range.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startingHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/startingHashKey</Anchor>
+            <NodeRef refid="1245"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKinesisHashKeyRange/startingHashKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The starting hash key of the hash key range.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startingHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/startingHashKey</Anchor>
+            <NodeRef refid="1245"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKinesisHashKeyRange/startingHashKey</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The starting hash key of the hash key range.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKinesisModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *startingHashKey</Declaration>
+			
+			
+			<Anchor>//api/name/startingHashKey</Anchor>
+            <NodeRef refid="1245"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

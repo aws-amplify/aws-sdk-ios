@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESIdentityVerificationAttributes.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESIdentityVerificationAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the verification attributes of a single identity.&lt;/p&gt;
+Required parameters: [VerificationStatus]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2110"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESIdentityVerificationAttributes/setVerificationStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The verification status of the identity: &quot;Pending&quot;, &quot;Success&quot;, &quot;Failed&quot;, or &quot;TemporaryFailure&quot;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESVerificationStatus verificationStatus</Declaration>
+			
+			
+			<Anchor>//api/name/verificationStatus</Anchor>
+            <NodeRef refid="2110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESIdentityVerificationAttributes/verificationStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The verification status of the identity: &quot;Pending&quot;, &quot;Success&quot;, &quot;Failed&quot;, or &quot;TemporaryFailure&quot;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESVerificationStatus verificationStatus</Declaration>
+			
+			
+			<Anchor>//api/name/verificationStatus</Anchor>
+            <NodeRef refid="2110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESIdentityVerificationAttributes/verificationStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The verification status of the identity: &quot;Pending&quot;, &quot;Success&quot;, &quot;Failed&quot;, or &quot;TemporaryFailure&quot;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSSESVerificationStatus verificationStatus</Declaration>
+			
+			
+			<Anchor>//api/name/verificationStatus</Anchor>
+            <NodeRef refid="2110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESIdentityVerificationAttributes/setVerificationToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The verification token for a domain identity. Null for email address identities.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *verificationToken</Declaration>
+			
+			
+			<Anchor>//api/name/verificationToken</Anchor>
+            <NodeRef refid="2110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESIdentityVerificationAttributes/verificationToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The verification token for a domain identity. Null for email address identities.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *verificationToken</Declaration>
+			
+			
+			<Anchor>//api/name/verificationToken</Anchor>
+            <NodeRef refid="2110"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESIdentityVerificationAttributes/verificationToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The verification token for a domain identity. Null for email address identities.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *verificationToken</Declaration>
+			
+			
+			<Anchor>//api/name/verificationToken</Anchor>
+            <NodeRef refid="2110"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

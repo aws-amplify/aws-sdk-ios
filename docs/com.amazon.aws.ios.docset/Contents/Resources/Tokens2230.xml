@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSListPlatformApplicationsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSListPlatformApplicationsResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Response for ListPlatformApplications action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2230"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListPlatformApplicationsResponse/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2230"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListPlatformApplicationsResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2230"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSListPlatformApplicationsResponse/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;NextToken string is returned when calling ListPlatformApplications action if additional records are available after the first page results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="2230"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListPlatformApplicationsResponse/setPlatformApplications:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Platform applications returned when calling ListPlatformApplications action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSNSPlatformApplication*&gt; *platformApplications</Declaration>
+			
+			
+			<Anchor>//api/name/platformApplications</Anchor>
+            <NodeRef refid="2230"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSListPlatformApplicationsResponse/platformApplications</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Platform applications returned when calling ListPlatformApplications action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSNSPlatformApplication*&gt; *platformApplications</Declaration>
+			
+			
+			<Anchor>//api/name/platformApplications</Anchor>
+            <NodeRef refid="2230"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSListPlatformApplicationsResponse/platformApplications</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Platform applications returned when calling ListPlatformApplications action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSSNSPlatformApplication*&gt; *platformApplications</Declaration>
+			
+			
+			<Anchor>//api/name/platformApplications</Anchor>
+            <NodeRef refid="2230"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

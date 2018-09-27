@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3TransferManager.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3TransferManager</TokenIdentifier>
+			<Abstract type="html">High level utility for managing transfers to Amazon S3. S3TransferManager provides a simple API for uploading and downloading content to Amazon S3, and makes extensive use of Amazon S3 multipart uploads to achieve enhanced throughput, performance and reliability.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2012"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSS3TransferManager/defaultS3TransferManager</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultS3TransferManager</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultS3TransferManager</Anchor>
+            <NodeRef refid="2012"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSS3TransferManager/registerS3TransferManagerWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerS3TransferManagerWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerS3TransferManagerWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="2012"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSS3TransferManager/S3TransferManagerForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerS3TransferManagerWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)S3TransferManagerForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/S3TransferManagerForKey:</Anchor>
+            <NodeRef refid="2012"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSS3TransferManager/removeS3TransferManagerForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeS3TransferManagerForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeS3TransferManagerForKey:</Anchor>
+            <NodeRef refid="2012"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TransferManager/upload:</TokenIdentifier>
+			<Abstract type="html">Schedules a new transfer to upload data to Amazon S3.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+			
+			<Declaration>- (AWSTask *)upload:(AWSS3TransferManagerUploadRequest *)uploadRequest</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>uploadRequest</Name>
+					<Abstract type="html">The upload request.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">AWSTask.</Abstract></ReturnValue>
+			<Anchor>//api/name/upload:</Anchor>
+            <NodeRef refid="2012"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TransferManager/download:</TokenIdentifier>
+			<Abstract type="html">Schedules a new transfer to download data from Amazon S3 and save it to the specified file.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+			
+			<Declaration>- (AWSTask *)download:(AWSS3TransferManagerDownloadRequest *)downloadRequest</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>downloadRequest</Name>
+					<Abstract type="html">The download request.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">AWSTask.</Abstract></ReturnValue>
+			<Anchor>//api/name/download:</Anchor>
+            <NodeRef refid="2012"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TransferManager/cancelAll</TokenIdentifier>
+			<Abstract type="html">Cancels all of the upload and download requests.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+			
+			<Declaration>- (AWSTask *)cancelAll</Declaration>
+			
+			<ReturnValue><Abstract type="html">AWSTask.</Abstract></ReturnValue>
+			<Anchor>//api/name/cancelAll</Anchor>
+            <NodeRef refid="2012"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TransferManager/pauseAll</TokenIdentifier>
+			<Abstract type="html">Pauses all of the upload and download requests.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+			
+			<Declaration>- (AWSTask *)pauseAll</Declaration>
+			
+			<ReturnValue><Abstract type="html">AWSTask.</Abstract></ReturnValue>
+			<Anchor>//api/name/pauseAll</Anchor>
+            <NodeRef refid="2012"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TransferManager/resumeAll:</TokenIdentifier>
+			<Abstract type="html">Resumes all of the upload and download requests.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+			
+			<Declaration>- (AWSTask *)resumeAll:(AWSS3TransferManagerResumeAllBlock)block</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>block</Name>
+					<Abstract type="html">The block to optionally re-set the progress blocks to the requests.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">AWSTask.</Abstract></ReturnValue>
+			<Anchor>//api/name/resumeAll:</Anchor>
+            <NodeRef refid="2012"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TransferManager/clearCache</TokenIdentifier>
+			<Abstract type="html">Clears the local cache.</Abstract>
+			<DeclaredIn>AWSS3TransferManager.h</DeclaredIn>
+			
+			<Declaration>- (AWSTask *)clearCache</Declaration>
+			
+			<ReturnValue><Abstract type="html">AWSTask.</Abstract></ReturnValue>
+			<Anchor>//api/name/clearCache</Anchor>
+            <NodeRef refid="2012"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBDescribeLimitsInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBDescribeLimitsInput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the input of a &lt;code&gt;DescribeLimits&lt;/code&gt; operation. Has no content.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="602"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSMachineLearningDetailsAttributes.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSMachineLearningDetailsAttributes</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2587"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningDetailsAttributesUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningDetailsAttributesUnknown</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2587"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningDetailsAttributesPredictiveModelType</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningDetailsAttributesPredictiveModelType</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2587"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningDetailsAttributesAlgorithm</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningDetailsAttributesAlgorithm</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2587"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

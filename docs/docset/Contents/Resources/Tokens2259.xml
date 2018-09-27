@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSQSChangeMessageVisibilityBatchRequestEntry.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSQSChangeMessageVisibilityBatchRequestEntry</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Encloses a receipt handle and an entry id for each message in &lt;code&gt;&lt;a&gt;ChangeMessageVisibilityBatch&lt;/a&gt;.&lt;/code&gt;&lt;/p&gt;&lt;important&gt;&lt;p&gt;All of the following list parameters must be prefixed with &lt;code&gt;ChangeMessageVisibilityBatchRequestEntry.n&lt;/code&gt;, where &lt;code&gt;n&lt;/code&gt; is an integer value starting with &lt;code&gt;1&lt;/code&gt;. For example, a parameter list for this action might look like this:&lt;/p&gt;&lt;/important&gt;&lt;p&gt;&lt;code&gt;&amp;amp;amp;amp;ChangeMessageVisibilityBatchRequestEntry.1.Id=changevisibilitymsg2&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;&amp;amp;amp;amp;ChangeMessageVisibilityBatchRequestEntry.1.ReceiptHandle=&amp;amp;lt;replaceable&amp;amp;gt;YourReceipt_Handle&amp;amp;lt;/replaceable&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;&amp;amp;amp;amp;ChangeMessageVisibilityBatchRequestEntry.1.VisibilityTimeout=45&lt;/code&gt;&lt;/p&gt;
+Required parameters: [Id, ReceiptHandle]</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2259"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSChangeMessageVisibilityBatchRequestEntry/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier for this particular receipt handle used to communicate the result.&lt;/p&gt;&lt;note&gt;&lt;p&gt;The &lt;code&gt;Id&lt;/code&gt;s of a batch request need to be unique within a request&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSChangeMessageVisibilityBatchRequestEntry/identifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier for this particular receipt handle used to communicate the result.&lt;/p&gt;&lt;note&gt;&lt;p&gt;The &lt;code&gt;Id&lt;/code&gt;s of a batch request need to be unique within a request&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSChangeMessageVisibilityBatchRequestEntry/identifier</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;An identifier for this particular receipt handle used to communicate the result.&lt;/p&gt;&lt;note&gt;&lt;p&gt;The &lt;code&gt;Id&lt;/code&gt;s of a batch request need to be unique within a request&lt;/p&gt;&lt;/note&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="2259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSChangeMessageVisibilityBatchRequestEntry/setReceiptHandle:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A receipt handle.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *receiptHandle</Declaration>
+			
+			
+			<Anchor>//api/name/receiptHandle</Anchor>
+            <NodeRef refid="2259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSChangeMessageVisibilityBatchRequestEntry/receiptHandle</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A receipt handle.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *receiptHandle</Declaration>
+			
+			
+			<Anchor>//api/name/receiptHandle</Anchor>
+            <NodeRef refid="2259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSChangeMessageVisibilityBatchRequestEntry/receiptHandle</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A receipt handle.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *receiptHandle</Declaration>
+			
+			
+			<Anchor>//api/name/receiptHandle</Anchor>
+            <NodeRef refid="2259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSChangeMessageVisibilityBatchRequestEntry/setVisibilityTimeout:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new value (in seconds) for the message&apos;s visibility timeout.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *visibilityTimeout</Declaration>
+			
+			
+			<Anchor>//api/name/visibilityTimeout</Anchor>
+            <NodeRef refid="2259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSChangeMessageVisibilityBatchRequestEntry/visibilityTimeout</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new value (in seconds) for the message&apos;s visibility timeout.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *visibilityTimeout</Declaration>
+			
+			
+			<Anchor>//api/name/visibilityTimeout</Anchor>
+            <NodeRef refid="2259"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSChangeMessageVisibilityBatchRequestEntry/visibilityTimeout</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The new value (in seconds) for the message&apos;s visibility timeout.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *visibilityTimeout</Declaration>
+			
+			
+			<Anchor>//api/name/visibilityTimeout</Anchor>
+            <NodeRef refid="2259"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

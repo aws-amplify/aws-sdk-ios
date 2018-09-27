@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3TransferUtilityDownloadTask.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3TransferUtilityDownloadTask</TokenIdentifier>
+			<Abstract type="html">The task object to represent a download task.</Abstract>
+			<DeclaredIn>AWSS3TransferUtilityTasks.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2016"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TransferUtilityDownloadTask/setCompletionHandler:</TokenIdentifier>
+			<Abstract type="html">set completion handler for task
+*</Abstract>
+			<DeclaredIn>AWSS3TransferUtilityTasks.h</DeclaredIn>
+			
+			<Declaration>- (void)setCompletionHandler:(AWSS3TransferUtilityDownloadCompletionHandlerBlock)completionHandler</Declaration>
+			
+			
+			<Anchor>//api/name/setCompletionHandler:</Anchor>
+            <NodeRef refid="2016"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TransferUtilityDownloadTask/setProgressBlock:</TokenIdentifier>
+			<Abstract type="html">Set the progress Block</Abstract>
+			<DeclaredIn>AWSS3TransferUtilityTasks.h</DeclaredIn>
+			
+			<Declaration>- (void)setProgressBlock:(AWSS3TransferUtilityProgressBlock)progressBlock</Declaration>
+			
+			
+			<Anchor>//api/name/setProgressBlock:</Anchor>
+            <NodeRef refid="2016"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3TransferUtilityDownloadTask/cancel</TokenIdentifier>
+			<Abstract type="html">Cancels the task.</Abstract>
+			<DeclaredIn>AWSS3TransferUtilityTasks.m</DeclaredIn>
+			
+			<Declaration>- (void)cancel</Declaration>
+			
+			
+			<Anchor>//api/name/cancel</Anchor>
+            <NodeRef refid="2016"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

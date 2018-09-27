@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3BucketCannedACL.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3BucketCannedACL</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2638"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3BucketCannedACLUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3BucketCannedACLUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2638"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3BucketCannedACLPrivate</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3BucketCannedACLPrivate</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2638"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3BucketCannedACLPublicRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3BucketCannedACLPublicRead</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2638"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3BucketCannedACLPublicReadWrite</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3BucketCannedACLPublicReadWrite</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2638"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3BucketCannedACLAuthenticatedRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3BucketCannedACLAuthenticatedRead</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2638"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

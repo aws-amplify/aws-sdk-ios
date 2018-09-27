@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCognitoIdentityRoleMappingType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCognitoIdentityRoleMappingType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2451"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityRoleMappingTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityRoleMappingTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2451"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityRoleMappingTypeToken</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityRoleMappingTypeToken</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2451"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityRoleMappingTypeRules</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityRoleMappingTypeRules</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2451"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

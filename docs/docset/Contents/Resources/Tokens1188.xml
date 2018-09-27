@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSGenerateRandomResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSGenerateRandomResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1188"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGenerateRandomResponse/setPlaintext:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *plaintext</Declaration>
+			
+			
+			<Anchor>//api/name/plaintext</Anchor>
+            <NodeRef refid="1188"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSGenerateRandomResponse/plaintext</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *plaintext</Declaration>
+			
+			
+			<Anchor>//api/name/plaintext</Anchor>
+            <NodeRef refid="1188"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSGenerateRandomResponse/plaintext</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The random byte string. When you use the HTTP API or the AWS CLI, the value is Base64-encoded. Otherwise, it is not encoded.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSData *plaintext</Declaration>
+			
+			
+			<Anchor>//api/name/plaintext</Anchor>
+            <NodeRef refid="1188"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

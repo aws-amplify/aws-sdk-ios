@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTIotAnalyticsAction.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTIotAnalyticsAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Sends messge data to an AWS IoT Analytics channel.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1007"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTIotAnalyticsAction/setChannelArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(deprecated) The ARN of the IoT Analytics channel to which message data will be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *channelArn</Declaration>
+			
+			
+			<Anchor>//api/name/channelArn</Anchor>
+            <NodeRef refid="1007"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTIotAnalyticsAction/channelArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(deprecated) The ARN of the IoT Analytics channel to which message data will be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *channelArn</Declaration>
+			
+			
+			<Anchor>//api/name/channelArn</Anchor>
+            <NodeRef refid="1007"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTIotAnalyticsAction/channelArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;(deprecated) The ARN of the IoT Analytics channel to which message data will be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *channelArn</Declaration>
+			
+			
+			<Anchor>//api/name/channelArn</Anchor>
+            <NodeRef refid="1007"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTIotAnalyticsAction/setChannelName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the IoT Analytics channel to which message data will be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *channelName</Declaration>
+			
+			
+			<Anchor>//api/name/channelName</Anchor>
+            <NodeRef refid="1007"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTIotAnalyticsAction/channelName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the IoT Analytics channel to which message data will be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *channelName</Declaration>
+			
+			
+			<Anchor>//api/name/channelName</Anchor>
+            <NodeRef refid="1007"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTIotAnalyticsAction/channelName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the IoT Analytics channel to which message data will be sent.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *channelName</Declaration>
+			
+			
+			<Anchor>//api/name/channelName</Anchor>
+            <NodeRef refid="1007"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTIotAnalyticsAction/setRoleArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1007"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTIotAnalyticsAction/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1007"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTIotAnalyticsAction/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the role which has a policy that grants IoT Analytics permission to send message data via IoT Analytics (iotanalytics:BatchPutMessage).&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1007"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

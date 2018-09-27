@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSRegionType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSRegionType</TokenIdentifier>
+			<Abstract type="html">Enums for AWS regions.</Abstract>
+			<DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2620"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionUnknown</TokenIdentifier>
+            <Abstract type="html">Unknown Region
+     </Abstract>
+            <Declaration>AWSRegionUnknown</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionUSEast1</TokenIdentifier>
+            <Abstract type="html">US East (N. Virginia)
+     </Abstract>
+            <Declaration>AWSRegionUSEast1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionUSEast2</TokenIdentifier>
+            <Abstract type="html">US East (Ohio)
+     </Abstract>
+            <Declaration>AWSRegionUSEast2</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionUSWest1</TokenIdentifier>
+            <Abstract type="html">US West (N. California)
+     </Abstract>
+            <Declaration>AWSRegionUSWest1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionUSWest2</TokenIdentifier>
+            <Abstract type="html">US West (Oregon)
+     </Abstract>
+            <Declaration>AWSRegionUSWest2</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionEUWest1</TokenIdentifier>
+            <Abstract type="html">EU (Ireland)
+     </Abstract>
+            <Declaration>AWSRegionEUWest1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionEUWest2</TokenIdentifier>
+            <Abstract type="html">EU (London)
+     </Abstract>
+            <Declaration>AWSRegionEUWest2</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionEUCentral1</TokenIdentifier>
+            <Abstract type="html">EU (Frankfurt)
+     </Abstract>
+            <Declaration>AWSRegionEUCentral1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionAPSoutheast1</TokenIdentifier>
+            <Abstract type="html">Asia Pacific (Singapore)
+     </Abstract>
+            <Declaration>AWSRegionAPSoutheast1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionAPNortheast1</TokenIdentifier>
+            <Abstract type="html">Asia Pacific (Tokyo)
+     </Abstract>
+            <Declaration>AWSRegionAPNortheast1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionAPNortheast2</TokenIdentifier>
+            <Abstract type="html">Asia Pacific (Seoul)
+     </Abstract>
+            <Declaration>AWSRegionAPNortheast2</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionAPSoutheast2</TokenIdentifier>
+            <Abstract type="html">Asia Pacific (Sydney)
+     </Abstract>
+            <Declaration>AWSRegionAPSoutheast2</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionAPSouth1</TokenIdentifier>
+            <Abstract type="html">Asia Pacific (Mumbai)
+     </Abstract>
+            <Declaration>AWSRegionAPSouth1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionSAEast1</TokenIdentifier>
+            <Abstract type="html">South America (Sao Paulo)
+     </Abstract>
+            <Declaration>AWSRegionSAEast1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionCNNorth1</TokenIdentifier>
+            <Abstract type="html">China (Beijing)
+     </Abstract>
+            <Declaration>AWSRegionCNNorth1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionCACentral1</TokenIdentifier>
+            <Abstract type="html">Canada (Central)
+     </Abstract>
+            <Declaration>AWSRegionCACentral1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionUSGovWest1</TokenIdentifier>
+            <Abstract type="html">AWS GovCloud (US)
+     </Abstract>
+            <Declaration>AWSRegionUSGovWest1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionCNNorthWest1</TokenIdentifier>
+            <Abstract type="html">China (Ningxia)
+     </Abstract>
+            <Declaration>AWSRegionCNNorthWest1</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSRegionEUWest3</TokenIdentifier>
+            <Abstract type="html">EU (Paris)
+     </Abstract>
+            <Declaration>AWSRegionEUWest3</Declaration>
+            
+            <DeclaredIn>AWSServiceEnum.h</DeclaredIn>
+            
+            <NodeRef refid="2620"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

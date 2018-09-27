@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBUpdateGlobalTableSettingsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBUpdateGlobalTableSettingsOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="680"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateGlobalTableSettingsOutput/setGlobalTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableName</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableName</Anchor>
+            <NodeRef refid="680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateGlobalTableSettingsOutput/globalTableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableName</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableName</Anchor>
+            <NodeRef refid="680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateGlobalTableSettingsOutput/globalTableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableName</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableName</Anchor>
+            <NodeRef refid="680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateGlobalTableSettingsOutput/setReplicaSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The region specific settings for the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaSettingsDescription*&gt; *replicaSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaSettings</Anchor>
+            <NodeRef refid="680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBUpdateGlobalTableSettingsOutput/replicaSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The region specific settings for the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaSettingsDescription*&gt; *replicaSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaSettings</Anchor>
+            <NodeRef refid="680"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBUpdateGlobalTableSettingsOutput/replicaSettings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The region specific settings for the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaSettingsDescription*&gt; *replicaSettings</Declaration>
+			
+			
+			<Anchor>//api/name/replicaSettings</Anchor>
+            <NodeRef refid="680"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

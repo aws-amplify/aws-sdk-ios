@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoSyncRecordPatch.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoSyncRecordPatch</TokenIdentifier>
+			<Abstract type="html">An update operation for a record.
+Required parameters: [Op, Key, SyncCount]</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="504"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncRecordPatch/setDeviceLastModifiedDate:</TokenIdentifier>
+			<Abstract type="html">The last modified date of the client device.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *deviceLastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/deviceLastModifiedDate</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncRecordPatch/deviceLastModifiedDate</TokenIdentifier>
+			<Abstract type="html">The last modified date of the client device.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *deviceLastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/deviceLastModifiedDate</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncRecordPatch/deviceLastModifiedDate</TokenIdentifier>
+			<Abstract type="html">The last modified date of the client device.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *deviceLastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/deviceLastModifiedDate</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncRecordPatch/setKey:</TokenIdentifier>
+			<Abstract type="html">The key associated with the record patch.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncRecordPatch/key</TokenIdentifier>
+			<Abstract type="html">The key associated with the record patch.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncRecordPatch/key</TokenIdentifier>
+			<Abstract type="html">The key associated with the record patch.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncRecordPatch/setOp:</TokenIdentifier>
+			<Abstract type="html">An operation, either replace or remove.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoSyncOperation op</Declaration>
+			
+			
+			<Anchor>//api/name/op</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncRecordPatch/op</TokenIdentifier>
+			<Abstract type="html">An operation, either replace or remove.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoSyncOperation op</Declaration>
+			
+			
+			<Anchor>//api/name/op</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncRecordPatch/op</TokenIdentifier>
+			<Abstract type="html">An operation, either replace or remove.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoSyncOperation op</Declaration>
+			
+			
+			<Anchor>//api/name/op</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncRecordPatch/setSyncCount:</TokenIdentifier>
+			<Abstract type="html">Last known server sync count for this record. Set to 0 if unknown.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *syncCount</Declaration>
+			
+			
+			<Anchor>//api/name/syncCount</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncRecordPatch/syncCount</TokenIdentifier>
+			<Abstract type="html">Last known server sync count for this record. Set to 0 if unknown.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *syncCount</Declaration>
+			
+			
+			<Anchor>//api/name/syncCount</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncRecordPatch/syncCount</TokenIdentifier>
+			<Abstract type="html">Last known server sync count for this record. Set to 0 if unknown.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *syncCount</Declaration>
+			
+			
+			<Anchor>//api/name/syncCount</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncRecordPatch/setValue:</TokenIdentifier>
+			<Abstract type="html">The value associated with the record patch.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncRecordPatch/value</TokenIdentifier>
+			<Abstract type="html">The value associated with the record patch.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncRecordPatch/value</TokenIdentifier>
+			<Abstract type="html">The value associated with the record patch.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *value</Declaration>
+			
+			
+			<Anchor>//api/name/value</Anchor>
+            <NodeRef refid="504"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

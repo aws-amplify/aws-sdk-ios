@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBGlobalTableDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBGlobalTableDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains details about the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="617"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBGlobalTableDescription/setCreationDateTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The creation time of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationDateTime</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBGlobalTableDescription/creationDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The creation time of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationDateTime</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBGlobalTableDescription/creationDateTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The creation time of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDateTime</Declaration>
+			
+			
+			<Anchor>//api/name/creationDateTime</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBGlobalTableDescription/setGlobalTableArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableArn</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableArn</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBGlobalTableDescription/globalTableArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableArn</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableArn</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBGlobalTableDescription/globalTableArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The unique identifier of the global table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableArn</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableArn</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBGlobalTableDescription/setGlobalTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The global table name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableName</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableName</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBGlobalTableDescription/globalTableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The global table name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableName</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableName</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBGlobalTableDescription/globalTableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The global table name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *globalTableName</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableName</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBGlobalTableDescription/setGlobalTableStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current state of the global table:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CREATING&lt;/code&gt; - The global table is being created.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATING&lt;/code&gt; - The global table is being updated.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DELETING&lt;/code&gt; - The global table is being deleted.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ACTIVE&lt;/code&gt; - The global table is ready for use.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBGlobalTableStatus globalTableStatus</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableStatus</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBGlobalTableDescription/globalTableStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current state of the global table:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CREATING&lt;/code&gt; - The global table is being created.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATING&lt;/code&gt; - The global table is being updated.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DELETING&lt;/code&gt; - The global table is being deleted.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ACTIVE&lt;/code&gt; - The global table is ready for use.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBGlobalTableStatus globalTableStatus</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableStatus</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBGlobalTableDescription/globalTableStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The current state of the global table:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;CREATING&lt;/code&gt; - The global table is being created.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;UPDATING&lt;/code&gt; - The global table is being updated.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;DELETING&lt;/code&gt; - The global table is being deleted.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;ACTIVE&lt;/code&gt; - The global table is ready for use.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBGlobalTableStatus globalTableStatus</Declaration>
+			
+			
+			<Anchor>//api/name/globalTableStatus</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBGlobalTableDescription/setReplicationGroup:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The regions where the global table has replicas.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaDescription*&gt; *replicationGroup</Declaration>
+			
+			
+			<Anchor>//api/name/replicationGroup</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBGlobalTableDescription/replicationGroup</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The regions where the global table has replicas.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaDescription*&gt; *replicationGroup</Declaration>
+			
+			
+			<Anchor>//api/name/replicationGroup</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBGlobalTableDescription/replicationGroup</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The regions where the global table has replicas.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSDynamoDBReplicaDescription*&gt; *replicationGroup</Declaration>
+			
+			
+			<Anchor>//api/name/replicationGroup</Anchor>
+            <NodeRef refid="617"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

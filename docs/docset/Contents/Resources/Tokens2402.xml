@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSAutoScalingMetricType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSAutoScalingMetricType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2402"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingMetricTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingMetricTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2402"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingMetricTypeASGAverageCPUUtilization</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingMetricTypeASGAverageCPUUtilization</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2402"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingMetricTypeASGAverageNetworkIn</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingMetricTypeASGAverageNetworkIn</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2402"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingMetricTypeASGAverageNetworkOut</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingMetricTypeASGAverageNetworkOut</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2402"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSAutoScalingMetricTypeALBRequestCountPerTarget</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSAutoScalingMetricTypeALBRequestCountPerTarget</Declaration>
+            
+            <DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+            <NodeRef refid="2402"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

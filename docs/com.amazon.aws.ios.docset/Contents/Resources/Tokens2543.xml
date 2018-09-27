@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSKMSKeyManagerType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSKMSKeyManagerType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2543"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSKeyManagerTypeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSKeyManagerTypeUnknown</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2543"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSKeyManagerTypeAws</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSKeyManagerTypeAws</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2543"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSKeyManagerTypeCustomer</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSKeyManagerTypeCustomer</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2543"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

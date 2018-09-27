@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESCreateReceiptRuleSetRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESCreateReceiptRuleSetRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to create an empty receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the Amazon SES Developer Guide.&lt;/p&gt;
+Required parameters: [RuleSetName]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2054"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESCreateReceiptRuleSetRequest/setRuleSetName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the rule set to create. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Start and end with a letter or number.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleSetName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleSetName</Anchor>
+            <NodeRef refid="2054"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESCreateReceiptRuleSetRequest/ruleSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the rule set to create. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Start and end with a letter or number.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleSetName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleSetName</Anchor>
+            <NodeRef refid="2054"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESCreateReceiptRuleSetRequest/ruleSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the rule set to create. The name must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Start and end with a letter or number.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Contain less than 64 characters.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleSetName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleSetName</Anchor>
+            <NodeRef refid="2054"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

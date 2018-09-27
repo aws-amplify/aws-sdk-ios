@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSTranscribeCreateVocabularyResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSTranscribeCreateVocabularyResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2344"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyResponse/setFailureReason:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the &lt;code&gt;VocabularyState&lt;/code&gt; field is &lt;code&gt;FAILED&lt;/code&gt;, this field contains information about why the job failed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureReason</Declaration>
+			
+			
+			<Anchor>//api/name/failureReason</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyResponse/failureReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the &lt;code&gt;VocabularyState&lt;/code&gt; field is &lt;code&gt;FAILED&lt;/code&gt;, this field contains information about why the job failed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureReason</Declaration>
+			
+			
+			<Anchor>//api/name/failureReason</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeCreateVocabularyResponse/failureReason</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If the &lt;code&gt;VocabularyState&lt;/code&gt; field is &lt;code&gt;FAILED&lt;/code&gt;, this field contains information about why the job failed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureReason</Declaration>
+			
+			
+			<Anchor>//api/name/failureReason</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyResponse/setLanguageCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code of the vocabulary entries.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyResponse/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code of the vocabulary entries.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeCreateVocabularyResponse/languageCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The language code of the vocabulary entries.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode</Declaration>
+			
+			
+			<Anchor>//api/name/languageCode</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyResponse/setLastModifiedTime:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date and time that the vocabulary was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedTime</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedTime</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyResponse/lastModifiedTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date and time that the vocabulary was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedTime</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedTime</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeCreateVocabularyResponse/lastModifiedTime</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date and time that the vocabulary was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedTime</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedTime</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyResponse/setVocabularyName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the vocabulary.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vocabularyName</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyName</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyResponse/vocabularyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the vocabulary.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vocabularyName</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyName</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeCreateVocabularyResponse/vocabularyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the vocabulary.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *vocabularyName</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyName</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyResponse/setVocabularyState:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The processing state of the vocabulary. When the &lt;code&gt;VocabularyState&lt;/code&gt; field contains &lt;code&gt;READY&lt;/code&gt; the vocabulary is ready to be used in a &lt;code&gt;StartTranscriptionJob&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeVocabularyState vocabularyState</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyState</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSTranscribeCreateVocabularyResponse/vocabularyState</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The processing state of the vocabulary. When the &lt;code&gt;VocabularyState&lt;/code&gt; field contains &lt;code&gt;READY&lt;/code&gt; the vocabulary is ready to be used in a &lt;code&gt;StartTranscriptionJob&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeVocabularyState vocabularyState</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyState</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSTranscribeCreateVocabularyResponse/vocabularyState</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The processing state of the vocabulary. When the &lt;code&gt;VocabularyState&lt;/code&gt; field contains &lt;code&gt;READY&lt;/code&gt; the vocabulary is ready to be used in a &lt;code&gt;StartTranscriptionJob&lt;/code&gt; request.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSTranscribeModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSTranscribeVocabularyState vocabularyState</Declaration>
+			
+			
+			<Anchor>//api/name/vocabularyState</Anchor>
+            <NodeRef refid="2344"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

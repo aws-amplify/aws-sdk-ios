@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSS3Permission.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSS3Permission</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2663"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PermissionUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PermissionUnknown</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2663"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PermissionFullControl</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PermissionFullControl</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2663"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PermissionWrite</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PermissionWrite</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2663"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PermissionWriteAcp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PermissionWriteAcp</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2663"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PermissionRead</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PermissionRead</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2663"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSS3PermissionReadAcp</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSS3PermissionReadAcp</Declaration>
+            
+            <DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+            <NodeRef refid="2663"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

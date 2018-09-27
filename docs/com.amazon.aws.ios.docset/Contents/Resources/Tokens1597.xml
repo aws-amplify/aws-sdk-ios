@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingRecencyDimension.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingRecencyDimension</TokenIdentifier>
+			<Abstract type="html">Define how a segment based on recency of use.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1597"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingRecencyDimension/setDuration:</TokenIdentifier>
+			<Abstract type="html">The length of time during which users have been active or inactive with your app. Valid values: HR24, DAY7, DAY14, DAY30</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingDuration duration</Declaration>
+			
+			
+			<Anchor>//api/name/duration</Anchor>
+            <NodeRef refid="1597"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingRecencyDimension/duration</TokenIdentifier>
+			<Abstract type="html">The length of time during which users have been active or inactive with your app. Valid values: HR24, DAY7, DAY14, DAY30</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingDuration duration</Declaration>
+			
+			
+			<Anchor>//api/name/duration</Anchor>
+            <NodeRef refid="1597"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingRecencyDimension/duration</TokenIdentifier>
+			<Abstract type="html">The length of time during which users have been active or inactive with your app. Valid values: HR24, DAY7, DAY14, DAY30</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingDuration duration</Declaration>
+			
+			
+			<Anchor>//api/name/duration</Anchor>
+            <NodeRef refid="1597"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingRecencyDimension/setRecencyType:</TokenIdentifier>
+			<Abstract type="html">The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in the segment. INACTIVE - Users who have not used your app within the specified duration are included in the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingRecencyType recencyType</Declaration>
+			
+			
+			<Anchor>//api/name/recencyType</Anchor>
+            <NodeRef refid="1597"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingRecencyDimension/recencyType</TokenIdentifier>
+			<Abstract type="html">The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in the segment. INACTIVE - Users who have not used your app within the specified duration are included in the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingRecencyType recencyType</Declaration>
+			
+			
+			<Anchor>//api/name/recencyType</Anchor>
+            <NodeRef refid="1597"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingRecencyDimension/recencyType</TokenIdentifier>
+			<Abstract type="html">The recency dimension type: ACTIVE - Users who have used your app within the specified duration are included in the segment. INACTIVE - Users who have not used your app within the specified duration are included in the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSPinpointTargetingRecencyType recencyType</Declaration>
+			
+			
+			<Anchor>//api/name/recencyType</Anchor>
+            <NodeRef refid="1597"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

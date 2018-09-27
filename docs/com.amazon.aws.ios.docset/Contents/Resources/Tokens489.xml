@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoSyncGetBulkPublishDetailsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoSyncGetBulkPublishDetailsResponse</TokenIdentifier>
+			<Abstract type="html">The output for the GetBulkPublishDetails operation.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="489"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncGetBulkPublishDetailsResponse/setBulkPublishCompleteTime:</TokenIdentifier>
+			<Abstract type="html">If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *bulkPublishCompleteTime</Declaration>
+			
+			
+			<Anchor>//api/name/bulkPublishCompleteTime</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncGetBulkPublishDetailsResponse/bulkPublishCompleteTime</TokenIdentifier>
+			<Abstract type="html">If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *bulkPublishCompleteTime</Declaration>
+			
+			
+			<Anchor>//api/name/bulkPublishCompleteTime</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncGetBulkPublishDetailsResponse/bulkPublishCompleteTime</TokenIdentifier>
+			<Abstract type="html">If BulkPublishStatus is SUCCEEDED, the time the last bulk publish operation completed.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *bulkPublishCompleteTime</Declaration>
+			
+			
+			<Anchor>//api/name/bulkPublishCompleteTime</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncGetBulkPublishDetailsResponse/setBulkPublishStartTime:</TokenIdentifier>
+			<Abstract type="html">The date/time at which the last bulk publish was initiated.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *bulkPublishStartTime</Declaration>
+			
+			
+			<Anchor>//api/name/bulkPublishStartTime</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncGetBulkPublishDetailsResponse/bulkPublishStartTime</TokenIdentifier>
+			<Abstract type="html">The date/time at which the last bulk publish was initiated.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *bulkPublishStartTime</Declaration>
+			
+			
+			<Anchor>//api/name/bulkPublishStartTime</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncGetBulkPublishDetailsResponse/bulkPublishStartTime</TokenIdentifier>
+			<Abstract type="html">The date/time at which the last bulk publish was initiated.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *bulkPublishStartTime</Declaration>
+			
+			
+			<Anchor>//api/name/bulkPublishStartTime</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncGetBulkPublishDetailsResponse/setBulkPublishStatus:</TokenIdentifier>
+			<Abstract type="html">Status of the last bulk publish operation, valid values are: &lt;p&gt;NOTSTARTED - No bulk publish has been requested for this identity pool&lt;/p&gt;&lt;p&gt;INPROGRESS - Data is being published to the configured stream&lt;/p&gt;&lt;p&gt;SUCCEEDED - All data for the identity pool has been published to the configured stream&lt;/p&gt;&lt;p&gt;FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoSyncBulkPublishStatus bulkPublishStatus</Declaration>
+			
+			
+			<Anchor>//api/name/bulkPublishStatus</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncGetBulkPublishDetailsResponse/bulkPublishStatus</TokenIdentifier>
+			<Abstract type="html">Status of the last bulk publish operation, valid values are: &lt;p&gt;NOTSTARTED - No bulk publish has been requested for this identity pool&lt;/p&gt;&lt;p&gt;INPROGRESS - Data is being published to the configured stream&lt;/p&gt;&lt;p&gt;SUCCEEDED - All data for the identity pool has been published to the configured stream&lt;/p&gt;&lt;p&gt;FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoSyncBulkPublishStatus bulkPublishStatus</Declaration>
+			
+			
+			<Anchor>//api/name/bulkPublishStatus</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncGetBulkPublishDetailsResponse/bulkPublishStatus</TokenIdentifier>
+			<Abstract type="html">Status of the last bulk publish operation, valid values are: &lt;p&gt;NOTSTARTED - No bulk publish has been requested for this identity pool&lt;/p&gt;&lt;p&gt;INPROGRESS - Data is being published to the configured stream&lt;/p&gt;&lt;p&gt;SUCCEEDED - All data for the identity pool has been published to the configured stream&lt;/p&gt;&lt;p&gt;FAILED - Some portion of the data has failed to publish, check FailureMessage for the cause.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoSyncBulkPublishStatus bulkPublishStatus</Declaration>
+			
+			
+			<Anchor>//api/name/bulkPublishStatus</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncGetBulkPublishDetailsResponse/setFailureMessage:</TokenIdentifier>
+			<Abstract type="html">If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureMessage</Declaration>
+			
+			
+			<Anchor>//api/name/failureMessage</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncGetBulkPublishDetailsResponse/failureMessage</TokenIdentifier>
+			<Abstract type="html">If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureMessage</Declaration>
+			
+			
+			<Anchor>//api/name/failureMessage</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncGetBulkPublishDetailsResponse/failureMessage</TokenIdentifier>
+			<Abstract type="html">If BulkPublishStatus is FAILED this field will contain the error message that caused the bulk publish to fail.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *failureMessage</Declaration>
+			
+			
+			<Anchor>//api/name/failureMessage</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncGetBulkPublishDetailsResponse/setIdentityPoolId:</TokenIdentifier>
+			<Abstract type="html">A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncGetBulkPublishDetailsResponse/identityPoolId</TokenIdentifier>
+			<Abstract type="html">A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncGetBulkPublishDetailsResponse/identityPoolId</TokenIdentifier>
+			<Abstract type="html">A name-spaced GUID (for example, us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon Cognito. GUID generation is unique within a region.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identityPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/identityPoolId</Anchor>
+            <NodeRef refid="489"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

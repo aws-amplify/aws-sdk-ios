@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingTargetTrackingConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingTargetTrackingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a target tracking policy configuration.&lt;/p&gt;
+Required parameters: [TargetValue]</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="120"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingTargetTrackingConfiguration/setCustomizedMetricSpecification:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A customized metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSAutoScalingCustomizedMetricSpecification *customizedMetricSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/customizedMetricSpecification</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingTargetTrackingConfiguration/customizedMetricSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A customized metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSAutoScalingCustomizedMetricSpecification *customizedMetricSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/customizedMetricSpecification</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingTargetTrackingConfiguration/customizedMetricSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A customized metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSAutoScalingCustomizedMetricSpecification *customizedMetricSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/customizedMetricSpecification</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingTargetTrackingConfiguration/setDisableScaleIn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether scale in by the target tracking policy is disabled. If scale in is disabled, the target tracking policy won&apos;t remove instances from the Auto Scaling group. Otherwise, the target tracking policy can remove instances from the Auto Scaling group. The default is disabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *disableScaleIn</Declaration>
+			
+			
+			<Anchor>//api/name/disableScaleIn</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingTargetTrackingConfiguration/disableScaleIn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether scale in by the target tracking policy is disabled. If scale in is disabled, the target tracking policy won&apos;t remove instances from the Auto Scaling group. Otherwise, the target tracking policy can remove instances from the Auto Scaling group. The default is disabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *disableScaleIn</Declaration>
+			
+			
+			<Anchor>//api/name/disableScaleIn</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingTargetTrackingConfiguration/disableScaleIn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether scale in by the target tracking policy is disabled. If scale in is disabled, the target tracking policy won&apos;t remove instances from the Auto Scaling group. Otherwise, the target tracking policy can remove instances from the Auto Scaling group. The default is disabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *disableScaleIn</Declaration>
+			
+			
+			<Anchor>//api/name/disableScaleIn</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingTargetTrackingConfiguration/setPredefinedMetricSpecification:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A predefined metric. You can specify either a predefined metric or a customized metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSAutoScalingPredefinedMetricSpecification *predefinedMetricSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/predefinedMetricSpecification</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingTargetTrackingConfiguration/predefinedMetricSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A predefined metric. You can specify either a predefined metric or a customized metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSAutoScalingPredefinedMetricSpecification *predefinedMetricSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/predefinedMetricSpecification</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingTargetTrackingConfiguration/predefinedMetricSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A predefined metric. You can specify either a predefined metric or a customized metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSAutoScalingPredefinedMetricSpecification *predefinedMetricSpecification</Declaration>
+			
+			
+			<Anchor>//api/name/predefinedMetricSpecification</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingTargetTrackingConfiguration/setTargetValue:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The target value for the metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *targetValue</Declaration>
+			
+			
+			<Anchor>//api/name/targetValue</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingTargetTrackingConfiguration/targetValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The target value for the metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *targetValue</Declaration>
+			
+			
+			<Anchor>//api/name/targetValue</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingTargetTrackingConfiguration/targetValue</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The target value for the metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *targetValue</Declaration>
+			
+			
+			<Anchor>//api/name/targetValue</Anchor>
+            <NodeRef refid="120"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

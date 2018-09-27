@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAutoScalingMetricGranularityType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAutoScalingMetricGranularityType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes a granularity of a metric.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="92"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingMetricGranularityType/setGranularity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The granularity. The only valid value is &lt;code&gt;1Minute&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *granularity</Declaration>
+			
+			
+			<Anchor>//api/name/granularity</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAutoScalingMetricGranularityType/granularity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The granularity. The only valid value is &lt;code&gt;1Minute&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *granularity</Declaration>
+			
+			
+			<Anchor>//api/name/granularity</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSAutoScalingMetricGranularityType/granularity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The granularity. The only valid value is &lt;code&gt;1Minute&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSAutoScalingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *granularity</Declaration>
+			
+			
+			<Anchor>//api/name/granularity</Anchor>
+            <NodeRef refid="92"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

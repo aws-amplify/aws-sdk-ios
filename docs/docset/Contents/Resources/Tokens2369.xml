@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSUserPoolsUIOperations.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSUserPoolsUIOperations</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSignInViewController.m</DeclaredIn>
+            
+			
+			<NodeRef refid="2369"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSUserPoolsUIOperations/initWithAuthUIConfiguration:</TokenIdentifier>
+			<Abstract type="html">Initialize UserPools with AuthUIConfiguration</Abstract>
+			<DeclaredIn>AWSSignInViewController.m</DeclaredIn>
+			
+			<Declaration>- (id)initWithAuthUIConfiguration:(AWSAuthUIConfiguration *)configuration</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">AWSUIConfiguration
+*</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithAuthUIConfiguration:</Anchor>
+            <NodeRef refid="2369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSUserPoolsUIOperations/loginWithUserName:password:navigationController:completionHandler:</TokenIdentifier>
+			<Abstract type="html">Perform UserPools Login with username, password, completionhandler
+and the navigation controller of the application</Abstract>
+			<DeclaredIn>AWSSignInViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)loginWithUserName:(NSString *)userName password:(NSString *)password navigationController:(UINavigationController *)navController completionHandler:(void ( ^ ) ( id _Nullable result , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>userName</Name>
+					<Abstract type="html">Username</Abstract>
+				</Parameter><Parameter>
+					<Name>password</Name>
+					<Abstract type="html">Password</Abstract>
+				</Parameter><Parameter>
+					<Name>navController</Name>
+					<Abstract type="html">NavigationController of the application&apos;s ViewController</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">Callback to the application&apos;s ViewController
+*</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/loginWithUserName:password:navigationController:completionHandler:</Anchor>
+            <NodeRef refid="2369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSUserPoolsUIOperations/pushSignUpVCFromNavigationController:</TokenIdentifier>
+			<Abstract type="html">Push SignUp ViewController from NavigationController</Abstract>
+			<DeclaredIn>AWSSignInViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)pushSignUpVCFromNavigationController:(UINavigationController *)navController</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>navController</Name>
+					<Abstract type="html">NavigationController of the application&apos;s ViewController
+*</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/pushSignUpVCFromNavigationController:</Anchor>
+            <NodeRef refid="2369"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSUserPoolsUIOperations/pushForgotPasswordVCFromNavigationController:</TokenIdentifier>
+			<Abstract type="html">Push ForgotPassword ViewController from NavigationController</Abstract>
+			<DeclaredIn>AWSSignInViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)pushForgotPasswordVCFromNavigationController:(UINavigationController *)navController</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>navController</Name>
+					<Abstract type="html">NavigationController of the application&apos;s ViewController
+*</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/pushForgotPasswordVCFromNavigationController:</Anchor>
+            <NodeRef refid="2369"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

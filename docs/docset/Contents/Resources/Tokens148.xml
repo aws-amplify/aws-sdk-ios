@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCloudWatchGetMetricWidgetImageInput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCloudWatchGetMetricWidgetImageInput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="148"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchGetMetricWidgetImageInput/setMetricWidget:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A JSON string that defines the bitmap graph to be retrieved. The string includes the metrics to include in the graph, statistics, annotations, title, axis limits, and so on. You can include only one &lt;code&gt;MetricWidget&lt;/code&gt; parameter in each &lt;code&gt;GetMetricWidgetImage&lt;/code&gt; call.&lt;/p&gt;&lt;p&gt;For more information about the syntax of &lt;code&gt;MetricWidget&lt;/code&gt; see &lt;a&gt;CloudWatch-Metric-Widget-Structure&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;If any metric on the graph could not load all the requested data points, an orange triangle with an exclamation point appears next to the graph legend.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricWidget</Declaration>
+			
+			
+			<Anchor>//api/name/metricWidget</Anchor>
+            <NodeRef refid="148"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchGetMetricWidgetImageInput/metricWidget</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A JSON string that defines the bitmap graph to be retrieved. The string includes the metrics to include in the graph, statistics, annotations, title, axis limits, and so on. You can include only one &lt;code&gt;MetricWidget&lt;/code&gt; parameter in each &lt;code&gt;GetMetricWidgetImage&lt;/code&gt; call.&lt;/p&gt;&lt;p&gt;For more information about the syntax of &lt;code&gt;MetricWidget&lt;/code&gt; see &lt;a&gt;CloudWatch-Metric-Widget-Structure&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;If any metric on the graph could not load all the requested data points, an orange triangle with an exclamation point appears next to the graph legend.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricWidget</Declaration>
+			
+			
+			<Anchor>//api/name/metricWidget</Anchor>
+            <NodeRef refid="148"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchGetMetricWidgetImageInput/metricWidget</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A JSON string that defines the bitmap graph to be retrieved. The string includes the metrics to include in the graph, statistics, annotations, title, axis limits, and so on. You can include only one &lt;code&gt;MetricWidget&lt;/code&gt; parameter in each &lt;code&gt;GetMetricWidgetImage&lt;/code&gt; call.&lt;/p&gt;&lt;p&gt;For more information about the syntax of &lt;code&gt;MetricWidget&lt;/code&gt; see &lt;a&gt;CloudWatch-Metric-Widget-Structure&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;If any metric on the graph could not load all the requested data points, an orange triangle with an exclamation point appears next to the graph legend.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *metricWidget</Declaration>
+			
+			
+			<Anchor>//api/name/metricWidget</Anchor>
+            <NodeRef refid="148"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchGetMetricWidgetImageInput/setOutputFormat:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The format of the resulting image. Only PNG images are supported.&lt;/p&gt;&lt;p&gt;The default is &lt;code&gt;png&lt;/code&gt;. If you specify &lt;code&gt;png&lt;/code&gt;, the API returns an HTTP response with the content-type set to &lt;code&gt;text/xml&lt;/code&gt;. The image data is in a &lt;code&gt;MetricWidgetImage&lt;/code&gt; field. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;GetMetricWidgetImageResponse xmlns=&quot;http://monitoring.amazonaws.com/doc/2010-08-01/&quot;&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;GetMetricWidgetImageResult&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;MetricWidgetImage&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;/MetricWidgetImage&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;/GetMetricWidgetImageResult&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;ResponseMetadata&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;RequestId&amp;amp;gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b&amp;amp;lt;/RequestId&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;/ResponseMetadata&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;&amp;amp;lt;/GetMetricWidgetImageResponse&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;The &lt;code&gt;image/png&lt;/code&gt; setting is intended only for custom HTTP requests. For most use cases, and all actions using an AWS SDK, you should use &lt;code&gt;png&lt;/code&gt;. If you specify &lt;code&gt;image/png&lt;/code&gt;, the HTTP response has a content-type set to &lt;code&gt;image/png&lt;/code&gt;, and the body of the response is a PNG image. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *outputFormat</Declaration>
+			
+			
+			<Anchor>//api/name/outputFormat</Anchor>
+            <NodeRef refid="148"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchGetMetricWidgetImageInput/outputFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The format of the resulting image. Only PNG images are supported.&lt;/p&gt;&lt;p&gt;The default is &lt;code&gt;png&lt;/code&gt;. If you specify &lt;code&gt;png&lt;/code&gt;, the API returns an HTTP response with the content-type set to &lt;code&gt;text/xml&lt;/code&gt;. The image data is in a &lt;code&gt;MetricWidgetImage&lt;/code&gt; field. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;GetMetricWidgetImageResponse xmlns=&quot;http://monitoring.amazonaws.com/doc/2010-08-01/&quot;&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;GetMetricWidgetImageResult&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;MetricWidgetImage&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;/MetricWidgetImage&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;/GetMetricWidgetImageResult&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;ResponseMetadata&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;RequestId&amp;amp;gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b&amp;amp;lt;/RequestId&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;/ResponseMetadata&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;&amp;amp;lt;/GetMetricWidgetImageResponse&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;The &lt;code&gt;image/png&lt;/code&gt; setting is intended only for custom HTTP requests. For most use cases, and all actions using an AWS SDK, you should use &lt;code&gt;png&lt;/code&gt;. If you specify &lt;code&gt;image/png&lt;/code&gt;, the HTTP response has a content-type set to &lt;code&gt;image/png&lt;/code&gt;, and the body of the response is a PNG image. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *outputFormat</Declaration>
+			
+			
+			<Anchor>//api/name/outputFormat</Anchor>
+            <NodeRef refid="148"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchGetMetricWidgetImageInput/outputFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The format of the resulting image. Only PNG images are supported.&lt;/p&gt;&lt;p&gt;The default is &lt;code&gt;png&lt;/code&gt;. If you specify &lt;code&gt;png&lt;/code&gt;, the API returns an HTTP response with the content-type set to &lt;code&gt;text/xml&lt;/code&gt;. The image data is in a &lt;code&gt;MetricWidgetImage&lt;/code&gt; field. For example:&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;GetMetricWidgetImageResponse xmlns=&quot;http://monitoring.amazonaws.com/doc/2010-08-01/&quot;&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;GetMetricWidgetImageResult&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;MetricWidgetImage&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; iVBORw0KGgoAAAANSUhEUgAAAlgAAAGQEAYAAAAip...&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;/MetricWidgetImage&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;/GetMetricWidgetImageResult&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;ResponseMetadata&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;RequestId&amp;amp;gt;6f0d4192-4d42-11e8-82c1-f539a07e0e3b&amp;amp;lt;/RequestId&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt; &amp;amp;lt;/ResponseMetadata&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;&lt;code&gt;&amp;amp;lt;/GetMetricWidgetImageResponse&amp;amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;p&gt;The &lt;code&gt;image/png&lt;/code&gt; setting is intended only for custom HTTP requests. For most use cases, and all actions using an AWS SDK, you should use &lt;code&gt;png&lt;/code&gt;. If you specify &lt;code&gt;image/png&lt;/code&gt;, the HTTP response has a content-type set to &lt;code&gt;image/png&lt;/code&gt;, and the body of the response is a PNG image. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *outputFormat</Declaration>
+			
+			
+			<Anchor>//api/name/outputFormat</Anchor>
+            <NodeRef refid="148"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

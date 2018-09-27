@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSKMSErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSKMSErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2540"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorAlreadyExists</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorAlreadyExists</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorDependencyTimeout</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorDependencyTimeout</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorDisabled</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorDisabled</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorExpiredImportToken</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorExpiredImportToken</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorIncorrectKeyMaterial</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorIncorrectKeyMaterial</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorInvalidAliasName</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorInvalidAliasName</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorInvalidArn</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorInvalidArn</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorInvalidCiphertext</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorInvalidCiphertext</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorInvalidGrantId</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorInvalidGrantId</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorInvalidGrantToken</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorInvalidGrantToken</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorInvalidImportToken</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorInvalidImportToken</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorInvalidKeyUsage</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorInvalidKeyUsage</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorInvalidMarker</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorInvalidMarker</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorKMSInternal</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorKMSInternal</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorKMSInvalidState</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorKMSInvalidState</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorKeyUnavailable</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorKeyUnavailable</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorMalformedPolicyDocument</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorMalformedPolicyDocument</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorNotFound</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorTag</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorTag</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSKMSErrorUnsupportedOperation</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSKMSErrorUnsupportedOperation</Declaration>
+            
+            <DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+            <NodeRef refid="2540"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

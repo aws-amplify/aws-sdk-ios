@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the output of DeleteLoadBalancerPolicy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="721"/>
+		</Token>
+		
+		
+        
+        
+	</File>
+</Tokens>

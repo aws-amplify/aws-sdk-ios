@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the output of DescribeLoadBalancerPolicyTypes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="735"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput/setPolicyTypeDescriptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the policy types.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingPolicyTypeDescription*&gt; *policyTypeDescriptions</Declaration>
+			
+			
+			<Anchor>//api/name/policyTypeDescriptions</Anchor>
+            <NodeRef refid="735"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput/policyTypeDescriptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the policy types.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingPolicyTypeDescription*&gt; *policyTypeDescriptions</Declaration>
+			
+			
+			<Anchor>//api/name/policyTypeDescriptions</Anchor>
+            <NodeRef refid="735"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput/policyTypeDescriptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the policy types.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSElasticLoadBalancingPolicyTypeDescription*&gt; *policyTypeDescriptions</Declaration>
+			
+			
+			<Anchor>//api/name/policyTypeDescriptions</Anchor>
+            <NodeRef refid="735"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

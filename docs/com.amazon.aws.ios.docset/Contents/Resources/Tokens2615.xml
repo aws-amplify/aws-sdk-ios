@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSPollySynthesizeSpeechURLBuilderErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSPollySynthesizeSpeechURLBuilderErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2615"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollySynthesizeSpeechURLBuilderErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollySynthesizeSpeechURLBuilderErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+            <NodeRef refid="2615"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollySynthesizeSpeechURLBuilderAccessKeyIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollySynthesizeSpeechURLBuilderAccessKeyIsNil</Declaration>
+            
+            <DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+            <NodeRef refid="2615"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollySynthesizeSpeechURLBuilderSecretKeyIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollySynthesizeSpeechURLBuilderSecretKeyIsNil</Declaration>
+            
+            <DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+            <NodeRef refid="2615"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollySynthesizeSpeechURLBuilderEndpointIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollySynthesizeSpeechURLBuilderEndpointIsNil</Declaration>
+            
+            <DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+            <NodeRef refid="2615"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollySynthesizeSpeechURLBuilderInvalidExpiresDate</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollySynthesizeSpeechURLBuilderInvalidExpiresDate</Declaration>
+            
+            <DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+            <NodeRef refid="2615"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollySynthesizeSpeechURLBuilderErrorInvalidServiceType</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollySynthesizeSpeechURLBuilderErrorInvalidServiceType</Declaration>
+            
+            <DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+            <NodeRef refid="2615"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollySynthesizeSpeechURLBuilderCredentialProviderIsNil</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollySynthesizeSpeechURLBuilderCredentialProviderIsNil</Declaration>
+            
+            <DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+            <NodeRef refid="2615"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSPollySynthesizeSpeechURLBuilderInternalError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSPollySynthesizeSpeechURLBuilderInternalError</Declaration>
+            
+            <DeclaredIn>AWSPollySynthesizeSpeechURLBuilder.h</DeclaredIn>
+            
+            <NodeRef refid="2615"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

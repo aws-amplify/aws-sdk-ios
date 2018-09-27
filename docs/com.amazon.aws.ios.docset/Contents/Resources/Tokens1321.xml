@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSLambdaDeleteEventSourceMappingRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSLambdaDeleteEventSourceMappingRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;
+Required parameters: [UUID]</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1321"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaDeleteEventSourceMappingRequest/setUUID:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event source mapping ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *UUID</Declaration>
+			
+			
+			<Anchor>//api/name/UUID</Anchor>
+            <NodeRef refid="1321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSLambdaDeleteEventSourceMappingRequest/UUID</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event source mapping ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *UUID</Declaration>
+			
+			
+			<Anchor>//api/name/UUID</Anchor>
+            <NodeRef refid="1321"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSLambdaDeleteEventSourceMappingRequest/UUID</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event source mapping ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSLambdaModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *UUID</Declaration>
+			
+			
+			<Anchor>//api/name/UUID</Anchor>
+            <NodeRef refid="1321"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

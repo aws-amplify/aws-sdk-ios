@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseRecorder.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseRecorder</TokenIdentifier>
+			<Abstract type="html">  The AWSFirehoseRecorder is a high level client meant for storing put record requests on the user&apos;s device. This allows developers to retain requests when the device is offline. It can also increase performance and battery efficiency since the Wi-Fi or cell network does not need to be woken up as frequently.</Abstract>
+			<DeclaredIn>AWSFirehoseRecorder.h</DeclaredIn>
+            
+			
+			<NodeRef refid="819"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSFirehoseRecorder/defaultFirehoseRecorder</TokenIdentifier>
+			<Abstract type="html">Returns a shared instance of this service client using [AWSServiceManager defaultServiceManager].defaultServiceConfiguration. When defaultServiceConfiguration is not set, this method returns nil.</Abstract>
+			<DeclaredIn>AWSFirehoseRecorder.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultFirehoseRecorder</Declaration>
+			
+			<ReturnValue><Abstract type="html">A shared instance of this service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultFirehoseRecorder</Anchor>
+            <NodeRef refid="819"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSFirehoseRecorder/registerFirehoseRecorderWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSFirehoseRecorder.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerFirehoseRecorderWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerFirehoseRecorderWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="819"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSFirehoseRecorder/FirehoseRecorderForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerFirehoseWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSFirehoseRecorder.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)FirehoseRecorderForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/FirehoseRecorderForKey:</Anchor>
+            <NodeRef refid="819"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSFirehoseRecorder/removeFirehoseRecorderForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSFirehoseRecorder.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeFirehoseRecorderForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeFirehoseRecorderForKey:</Anchor>
+            <NodeRef refid="819"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

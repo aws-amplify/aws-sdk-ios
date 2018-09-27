@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPinpointTargetingActivityResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPinpointTargetingActivityResponse</TokenIdentifier>
+			<Abstract type="html">Activity definition</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1488"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setApplicationId:</TokenIdentifier>
+			<Abstract type="html">The ID of the application to which the campaign applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/applicationId</TokenIdentifier>
+			<Abstract type="html">The ID of the application to which the campaign applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/applicationId</TokenIdentifier>
+			<Abstract type="html">The ID of the application to which the campaign applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setCampaignId:</TokenIdentifier>
+			<Abstract type="html">The ID of the campaign to which the activity applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *campaignId</Declaration>
+			
+			
+			<Anchor>//api/name/campaignId</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/campaignId</TokenIdentifier>
+			<Abstract type="html">The ID of the campaign to which the activity applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *campaignId</Declaration>
+			
+			
+			<Anchor>//api/name/campaignId</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/campaignId</TokenIdentifier>
+			<Abstract type="html">The ID of the campaign to which the activity applies.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *campaignId</Declaration>
+			
+			
+			<Anchor>//api/name/campaignId</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setEnd:</TokenIdentifier>
+			<Abstract type="html">The actual time the activity was marked CANCELLED or COMPLETED. Provided in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *end</Declaration>
+			
+			
+			<Anchor>//api/name/end</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/end</TokenIdentifier>
+			<Abstract type="html">The actual time the activity was marked CANCELLED or COMPLETED. Provided in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *end</Declaration>
+			
+			
+			<Anchor>//api/name/end</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/end</TokenIdentifier>
+			<Abstract type="html">The actual time the activity was marked CANCELLED or COMPLETED. Provided in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *end</Declaration>
+			
+			
+			<Anchor>//api/name/end</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setIdentifier:</TokenIdentifier>
+			<Abstract type="html">The unique activity ID.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/identifier</TokenIdentifier>
+			<Abstract type="html">The unique activity ID.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/identifier</TokenIdentifier>
+			<Abstract type="html">The unique activity ID.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *identifier</Declaration>
+			
+			
+			<Anchor>//api/name/identifier</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setResult:</TokenIdentifier>
+			<Abstract type="html">Indicates whether the activity succeeded.Valid values: SUCCESS, FAIL</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *result</Declaration>
+			
+			
+			<Anchor>//api/name/result</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/result</TokenIdentifier>
+			<Abstract type="html">Indicates whether the activity succeeded.Valid values: SUCCESS, FAIL</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *result</Declaration>
+			
+			
+			<Anchor>//api/name/result</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/result</TokenIdentifier>
+			<Abstract type="html">Indicates whether the activity succeeded.Valid values: SUCCESS, FAIL</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *result</Declaration>
+			
+			
+			<Anchor>//api/name/result</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setScheduledStart:</TokenIdentifier>
+			<Abstract type="html">The scheduled start time for the activity in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *scheduledStart</Declaration>
+			
+			
+			<Anchor>//api/name/scheduledStart</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/scheduledStart</TokenIdentifier>
+			<Abstract type="html">The scheduled start time for the activity in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *scheduledStart</Declaration>
+			
+			
+			<Anchor>//api/name/scheduledStart</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/scheduledStart</TokenIdentifier>
+			<Abstract type="html">The scheduled start time for the activity in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *scheduledStart</Declaration>
+			
+			
+			<Anchor>//api/name/scheduledStart</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setStart:</TokenIdentifier>
+			<Abstract type="html">The actual start time of the activity in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *start</Declaration>
+			
+			
+			<Anchor>//api/name/start</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/start</TokenIdentifier>
+			<Abstract type="html">The actual start time of the activity in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *start</Declaration>
+			
+			
+			<Anchor>//api/name/start</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/start</TokenIdentifier>
+			<Abstract type="html">The actual start time of the activity in ISO 8601 format.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *start</Declaration>
+			
+			
+			<Anchor>//api/name/start</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setState:</TokenIdentifier>
+			<Abstract type="html">The state of the activity.Valid values: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, COMPLETED</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/state</TokenIdentifier>
+			<Abstract type="html">The state of the activity.Valid values: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, COMPLETED</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/state</TokenIdentifier>
+			<Abstract type="html">The state of the activity.Valid values: PENDING, INITIALIZING, RUNNING, PAUSED, CANCELLED, COMPLETED</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setSuccessfulEndpointCount:</TokenIdentifier>
+			<Abstract type="html">The total number of endpoints to which the campaign successfully delivered messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *successfulEndpointCount</Declaration>
+			
+			
+			<Anchor>//api/name/successfulEndpointCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/successfulEndpointCount</TokenIdentifier>
+			<Abstract type="html">The total number of endpoints to which the campaign successfully delivered messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *successfulEndpointCount</Declaration>
+			
+			
+			<Anchor>//api/name/successfulEndpointCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/successfulEndpointCount</TokenIdentifier>
+			<Abstract type="html">The total number of endpoints to which the campaign successfully delivered messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *successfulEndpointCount</Declaration>
+			
+			
+			<Anchor>//api/name/successfulEndpointCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setTimezonesCompletedCount:</TokenIdentifier>
+			<Abstract type="html">The total number of timezones completed.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timezonesCompletedCount</Declaration>
+			
+			
+			<Anchor>//api/name/timezonesCompletedCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/timezonesCompletedCount</TokenIdentifier>
+			<Abstract type="html">The total number of timezones completed.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timezonesCompletedCount</Declaration>
+			
+			
+			<Anchor>//api/name/timezonesCompletedCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/timezonesCompletedCount</TokenIdentifier>
+			<Abstract type="html">The total number of timezones completed.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timezonesCompletedCount</Declaration>
+			
+			
+			<Anchor>//api/name/timezonesCompletedCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setTimezonesTotalCount:</TokenIdentifier>
+			<Abstract type="html">The total number of unique timezones present in the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timezonesTotalCount</Declaration>
+			
+			
+			<Anchor>//api/name/timezonesTotalCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/timezonesTotalCount</TokenIdentifier>
+			<Abstract type="html">The total number of unique timezones present in the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timezonesTotalCount</Declaration>
+			
+			
+			<Anchor>//api/name/timezonesTotalCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/timezonesTotalCount</TokenIdentifier>
+			<Abstract type="html">The total number of unique timezones present in the segment.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timezonesTotalCount</Declaration>
+			
+			
+			<Anchor>//api/name/timezonesTotalCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setTotalEndpointCount:</TokenIdentifier>
+			<Abstract type="html">The total number of endpoints to which the campaign attempts to deliver messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalEndpointCount</Declaration>
+			
+			
+			<Anchor>//api/name/totalEndpointCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/totalEndpointCount</TokenIdentifier>
+			<Abstract type="html">The total number of endpoints to which the campaign attempts to deliver messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalEndpointCount</Declaration>
+			
+			
+			<Anchor>//api/name/totalEndpointCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/totalEndpointCount</TokenIdentifier>
+			<Abstract type="html">The total number of endpoints to which the campaign attempts to deliver messages.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *totalEndpointCount</Declaration>
+			
+			
+			<Anchor>//api/name/totalEndpointCount</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/setTreatmentId:</TokenIdentifier>
+			<Abstract type="html">The ID of a variation of the campaign used for A/B testing.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatmentId</Declaration>
+			
+			
+			<Anchor>//api/name/treatmentId</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPinpointTargetingActivityResponse/treatmentId</TokenIdentifier>
+			<Abstract type="html">The ID of a variation of the campaign used for A/B testing.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatmentId</Declaration>
+			
+			
+			<Anchor>//api/name/treatmentId</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPinpointTargetingActivityResponse/treatmentId</TokenIdentifier>
+			<Abstract type="html">The ID of a variation of the campaign used for A/B testing.</Abstract>
+			<DeclaredIn>AWSPinpointTargetingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *treatmentId</Declaration>
+			
+			
+			<Anchor>//api/name/treatmentId</Anchor>
+            <NodeRef refid="1488"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSNSGetPlatformApplicationAttributesResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSNSGetPlatformApplicationAttributesResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Response for GetPlatformApplicationAttributes action.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2218"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSGetPlatformApplicationAttributesResponse/setAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Attributes include the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventEndpointCreated&lt;/code&gt; -- Topic ARN to which EndpointCreated event notifications should be sent.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventEndpointDeleted&lt;/code&gt; -- Topic ARN to which EndpointDeleted event notifications should be sent.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventEndpointUpdated&lt;/code&gt; -- Topic ARN to which EndpointUpdate event notifications should be sent.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventDeliveryFailure&lt;/code&gt; -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application&apos;s endpoints.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="2218"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSNSGetPlatformApplicationAttributesResponse/attributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Attributes include the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventEndpointCreated&lt;/code&gt; -- Topic ARN to which EndpointCreated event notifications should be sent.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventEndpointDeleted&lt;/code&gt; -- Topic ARN to which EndpointDeleted event notifications should be sent.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventEndpointUpdated&lt;/code&gt; -- Topic ARN to which EndpointUpdate event notifications should be sent.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventDeliveryFailure&lt;/code&gt; -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application&apos;s endpoints.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="2218"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSNSGetPlatformApplicationAttributesResponse/attributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Attributes include the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventEndpointCreated&lt;/code&gt; -- Topic ARN to which EndpointCreated event notifications should be sent.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventEndpointDeleted&lt;/code&gt; -- Topic ARN to which EndpointDeleted event notifications should be sent.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventEndpointUpdated&lt;/code&gt; -- Topic ARN to which EndpointUpdate event notifications should be sent.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;EventDeliveryFailure&lt;/code&gt; -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application&apos;s endpoints.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSSNSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="2218"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3CreateMultipartUploadOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3CreateMultipartUploadOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1814"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/setAbortDate:</TokenIdentifier>
+			<Abstract type="html">Date when multipart upload will become eligible for abort operation by lifecycle.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *abortDate</Declaration>
+			
+			
+			<Anchor>//api/name/abortDate</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/abortDate</TokenIdentifier>
+			<Abstract type="html">Date when multipart upload will become eligible for abort operation by lifecycle.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *abortDate</Declaration>
+			
+			
+			<Anchor>//api/name/abortDate</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateMultipartUploadOutput/abortDate</TokenIdentifier>
+			<Abstract type="html">Date when multipart upload will become eligible for abort operation by lifecycle.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *abortDate</Declaration>
+			
+			
+			<Anchor>//api/name/abortDate</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/setAbortRuleId:</TokenIdentifier>
+			<Abstract type="html">Id of the lifecycle rule that makes a multipart upload eligible for abort operation.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *abortRuleId</Declaration>
+			
+			
+			<Anchor>//api/name/abortRuleId</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/abortRuleId</TokenIdentifier>
+			<Abstract type="html">Id of the lifecycle rule that makes a multipart upload eligible for abort operation.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *abortRuleId</Declaration>
+			
+			
+			<Anchor>//api/name/abortRuleId</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateMultipartUploadOutput/abortRuleId</TokenIdentifier>
+			<Abstract type="html">Id of the lifecycle rule that makes a multipart upload eligible for abort operation.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *abortRuleId</Declaration>
+			
+			
+			<Anchor>//api/name/abortRuleId</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/setBucket:</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to which the multipart upload was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/bucket</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to which the multipart upload was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateMultipartUploadOutput/bucket</TokenIdentifier>
+			<Abstract type="html">Name of the bucket to which the multipart upload was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucket</Declaration>
+			
+			
+			<Anchor>//api/name/bucket</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/setKey:</TokenIdentifier>
+			<Abstract type="html">Object key for which the multipart upload was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/key</TokenIdentifier>
+			<Abstract type="html">Object key for which the multipart upload was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateMultipartUploadOutput/key</TokenIdentifier>
+			<Abstract type="html">Object key for which the multipart upload was initiated.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *key</Declaration>
+			
+			
+			<Anchor>//api/name/key</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/setRequestCharged:</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/requestCharged</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateMultipartUploadOutput/requestCharged</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/setSSECustomerAlgorithm:</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/SSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateMultipartUploadOutput/SSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/setSSECustomerKeyMD5:</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/SSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateMultipartUploadOutput/SSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/setSSEKMSKeyId:</TokenIdentifier>
+			<Abstract type="html">If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/SSEKMSKeyId</TokenIdentifier>
+			<Abstract type="html">If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateMultipartUploadOutput/SSEKMSKeyId</TokenIdentifier>
+			<Abstract type="html">If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/setServerSideEncryption:</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/serverSideEncryption</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateMultipartUploadOutput/serverSideEncryption</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/setUploadId:</TokenIdentifier>
+			<Abstract type="html">ID for the initiated multipart upload.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *uploadId</Declaration>
+			
+			
+			<Anchor>//api/name/uploadId</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3CreateMultipartUploadOutput/uploadId</TokenIdentifier>
+			<Abstract type="html">ID for the initiated multipart upload.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *uploadId</Declaration>
+			
+			
+			<Anchor>//api/name/uploadId</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3CreateMultipartUploadOutput/uploadId</TokenIdentifier>
+			<Abstract type="html">ID for the initiated multipart upload.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *uploadId</Declaration>
+			
+			
+			<Anchor>//api/name/uploadId</Anchor>
+            <NodeRef refid="1814"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

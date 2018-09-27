@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESDeleteConfigurationSetTrackingOptionsRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESDeleteConfigurationSetTrackingOptionsRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents a request to delete open and click tracking options in a configuration set. &lt;/p&gt;
+Required parameters: [ConfigurationSetName]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2063"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDeleteConfigurationSetTrackingOptionsRequest/setConfigurationSetName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set from which you want to delete the tracking options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2063"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESDeleteConfigurationSetTrackingOptionsRequest/configurationSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set from which you want to delete the tracking options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2063"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESDeleteConfigurationSetTrackingOptionsRequest/configurationSetName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the configuration set from which you want to delete the tracking options.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *configurationSetName</Declaration>
+			
+			
+			<Anchor>//api/name/configurationSetName</Anchor>
+            <NodeRef refid="2063"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBStreamSpecification.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBStreamSpecification</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents the DynamoDB Streams configuration for a table in DynamoDB.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="667"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBStreamSpecification/setStreamEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *streamEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/streamEnabled</Anchor>
+            <NodeRef refid="667"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBStreamSpecification/streamEnabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *streamEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/streamEnabled</Anchor>
+            <NodeRef refid="667"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBStreamSpecification/streamEnabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Indicates whether DynamoDB Streams is enabled (true) or disabled (false) on the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *streamEnabled</Declaration>
+			
+			
+			<Anchor>//api/name/streamEnabled</Anchor>
+            <NodeRef refid="667"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBStreamSpecification/setStreamViewType:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; When an item in the table is modified, &lt;code&gt;StreamViewType&lt;/code&gt; determines what information is written to the stream for this table. Valid values for &lt;code&gt;StreamViewType&lt;/code&gt; are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYSONLY&lt;/code&gt; - Only the key attributes of the modified item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWIMAGE&lt;/code&gt; - The entire item, as it appears after it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;OLDIMAGE&lt;/code&gt; - The entire item, as it appeared before it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWANDOLDIMAGES&lt;/code&gt; - Both the new and the old item images of the item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBStreamViewType streamViewType</Declaration>
+			
+			
+			<Anchor>//api/name/streamViewType</Anchor>
+            <NodeRef refid="667"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBStreamSpecification/streamViewType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; When an item in the table is modified, &lt;code&gt;StreamViewType&lt;/code&gt; determines what information is written to the stream for this table. Valid values for &lt;code&gt;StreamViewType&lt;/code&gt; are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYSONLY&lt;/code&gt; - Only the key attributes of the modified item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWIMAGE&lt;/code&gt; - The entire item, as it appears after it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;OLDIMAGE&lt;/code&gt; - The entire item, as it appeared before it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWANDOLDIMAGES&lt;/code&gt; - Both the new and the old item images of the item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBStreamViewType streamViewType</Declaration>
+			
+			
+			<Anchor>//api/name/streamViewType</Anchor>
+            <NodeRef refid="667"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBStreamSpecification/streamViewType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt; When an item in the table is modified, &lt;code&gt;StreamViewType&lt;/code&gt; determines what information is written to the stream for this table. Valid values for &lt;code&gt;StreamViewType&lt;/code&gt; are:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;KEYSONLY&lt;/code&gt; - Only the key attributes of the modified item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWIMAGE&lt;/code&gt; - The entire item, as it appears after it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;OLDIMAGE&lt;/code&gt; - The entire item, as it appeared before it was modified, is written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NEWANDOLDIMAGES&lt;/code&gt; - Both the new and the old item images of the item are written to the stream.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSDynamoDBStreamViewType streamViewType</Declaration>
+			
+			
+			<Anchor>//api/name/streamViewType</Anchor>
+            <NodeRef refid="667"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

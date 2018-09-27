@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSMachineLearningEntityStatus.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSMachineLearningEntityStatus</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2588"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningEntityStatusUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningEntityStatusUnknown</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2588"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningEntityStatusPending</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningEntityStatusPending</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2588"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningEntityStatusInprogress</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningEntityStatusInprogress</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2588"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningEntityStatusFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningEntityStatusFailed</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2588"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningEntityStatusCompleted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningEntityStatusCompleted</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2588"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSMachineLearningEntityStatusDeleted</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSMachineLearningEntityStatusDeleted</Declaration>
+            
+            <DeclaredIn>AWSMachineLearningModel.h</DeclaredIn>
+            
+            <NodeRef refid="2588"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

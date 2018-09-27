@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderLambdaConfigType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderLambdaConfigType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies the configuration for AWS Lambda triggers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="363"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/setCreateAuthChallenge:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates an authentication challenge.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *createAuthChallenge</Declaration>
+			
+			
+			<Anchor>//api/name/createAuthChallenge</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/createAuthChallenge</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates an authentication challenge.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *createAuthChallenge</Declaration>
+			
+			
+			<Anchor>//api/name/createAuthChallenge</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderLambdaConfigType/createAuthChallenge</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates an authentication challenge.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *createAuthChallenge</Declaration>
+			
+			
+			<Anchor>//api/name/createAuthChallenge</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/setCustomMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A custom Message AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *customMessage</Declaration>
+			
+			
+			<Anchor>//api/name/customMessage</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/customMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A custom Message AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *customMessage</Declaration>
+			
+			
+			<Anchor>//api/name/customMessage</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderLambdaConfigType/customMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A custom Message AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *customMessage</Declaration>
+			
+			
+			<Anchor>//api/name/customMessage</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/setDefineAuthChallenge:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Defines the authentication challenge.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *defineAuthChallenge</Declaration>
+			
+			
+			<Anchor>//api/name/defineAuthChallenge</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/defineAuthChallenge</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Defines the authentication challenge.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *defineAuthChallenge</Declaration>
+			
+			
+			<Anchor>//api/name/defineAuthChallenge</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderLambdaConfigType/defineAuthChallenge</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Defines the authentication challenge.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *defineAuthChallenge</Declaration>
+			
+			
+			<Anchor>//api/name/defineAuthChallenge</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/setPostAuthentication:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A post-authentication AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *postAuthentication</Declaration>
+			
+			
+			<Anchor>//api/name/postAuthentication</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/postAuthentication</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A post-authentication AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *postAuthentication</Declaration>
+			
+			
+			<Anchor>//api/name/postAuthentication</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderLambdaConfigType/postAuthentication</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A post-authentication AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *postAuthentication</Declaration>
+			
+			
+			<Anchor>//api/name/postAuthentication</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/setPostConfirmation:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A post-confirmation AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *postConfirmation</Declaration>
+			
+			
+			<Anchor>//api/name/postConfirmation</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/postConfirmation</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A post-confirmation AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *postConfirmation</Declaration>
+			
+			
+			<Anchor>//api/name/postConfirmation</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderLambdaConfigType/postConfirmation</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A post-confirmation AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *postConfirmation</Declaration>
+			
+			
+			<Anchor>//api/name/postConfirmation</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/setPreAuthentication:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A pre-authentication AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preAuthentication</Declaration>
+			
+			
+			<Anchor>//api/name/preAuthentication</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/preAuthentication</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A pre-authentication AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preAuthentication</Declaration>
+			
+			
+			<Anchor>//api/name/preAuthentication</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderLambdaConfigType/preAuthentication</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A pre-authentication AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preAuthentication</Declaration>
+			
+			
+			<Anchor>//api/name/preAuthentication</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/setPreSignUp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A pre-registration AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preSignUp</Declaration>
+			
+			
+			<Anchor>//api/name/preSignUp</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/preSignUp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A pre-registration AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preSignUp</Declaration>
+			
+			
+			<Anchor>//api/name/preSignUp</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderLambdaConfigType/preSignUp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A pre-registration AWS Lambda trigger.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preSignUp</Declaration>
+			
+			
+			<Anchor>//api/name/preSignUp</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/setPreTokenGeneration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A Lambda trigger that is invoked before token generation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preTokenGeneration</Declaration>
+			
+			
+			<Anchor>//api/name/preTokenGeneration</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/preTokenGeneration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A Lambda trigger that is invoked before token generation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preTokenGeneration</Declaration>
+			
+			
+			<Anchor>//api/name/preTokenGeneration</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderLambdaConfigType/preTokenGeneration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A Lambda trigger that is invoked before token generation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *preTokenGeneration</Declaration>
+			
+			
+			<Anchor>//api/name/preTokenGeneration</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/setUserMigration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user migration Lambda config type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userMigration</Declaration>
+			
+			
+			<Anchor>//api/name/userMigration</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/userMigration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user migration Lambda config type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userMigration</Declaration>
+			
+			
+			<Anchor>//api/name/userMigration</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderLambdaConfigType/userMigration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user migration Lambda config type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userMigration</Declaration>
+			
+			
+			<Anchor>//api/name/userMigration</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/setVerifyAuthChallengeResponse:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Verifies the authentication challenge response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *verifyAuthChallengeResponse</Declaration>
+			
+			
+			<Anchor>//api/name/verifyAuthChallengeResponse</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderLambdaConfigType/verifyAuthChallengeResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Verifies the authentication challenge response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *verifyAuthChallengeResponse</Declaration>
+			
+			
+			<Anchor>//api/name/verifyAuthChallengeResponse</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderLambdaConfigType/verifyAuthChallengeResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Verifies the authentication challenge response.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *verifyAuthChallengeResponse</Declaration>
+			
+			
+			<Anchor>//api/name/verifyAuthChallengeResponse</Anchor>
+            <NodeRef refid="363"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseCloudWatchLoggingOptions.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseCloudWatchLoggingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the Amazon CloudWatch logging options for your delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="777"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseCloudWatchLoggingOptions/setEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Enables or disables CloudWatch logging.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="777"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseCloudWatchLoggingOptions/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Enables or disables CloudWatch logging.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="777"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseCloudWatchLoggingOptions/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Enables or disables CloudWatch logging.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="777"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseCloudWatchLoggingOptions/setLogGroupName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch group name for logging. This value is required if CloudWatch logging is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="777"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseCloudWatchLoggingOptions/logGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch group name for logging. This value is required if CloudWatch logging is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="777"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseCloudWatchLoggingOptions/logGroupName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch group name for logging. This value is required if CloudWatch logging is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logGroupName</Declaration>
+			
+			
+			<Anchor>//api/name/logGroupName</Anchor>
+            <NodeRef refid="777"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseCloudWatchLoggingOptions/setLogStreamName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch log stream name for logging. This value is required if CloudWatch logging is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamName</Anchor>
+            <NodeRef refid="777"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseCloudWatchLoggingOptions/logStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch log stream name for logging. This value is required if CloudWatch logging is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamName</Anchor>
+            <NodeRef refid="777"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseCloudWatchLoggingOptions/logStreamName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The CloudWatch log stream name for logging. This value is required if CloudWatch logging is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *logStreamName</Declaration>
+			
+			
+			<Anchor>//api/name/logStreamName</Anchor>
+            <NodeRef refid="777"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

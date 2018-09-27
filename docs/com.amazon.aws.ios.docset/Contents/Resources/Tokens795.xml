@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehoseExtendedS3DestinationDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseExtendedS3DestinationDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes a destination in Amazon S3.&lt;/p&gt;
+Required parameters: [RoleARN, BucketARN, BufferingHints, CompressionFormat, EncryptionConfiguration]</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="795"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setBucketARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the S3 bucket. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucketARN</Declaration>
+			
+			
+			<Anchor>//api/name/bucketARN</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/bucketARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the S3 bucket. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucketARN</Declaration>
+			
+			
+			<Anchor>//api/name/bucketARN</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/bucketARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of the S3 bucket. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *bucketARN</Declaration>
+			
+			
+			<Anchor>//api/name/bucketARN</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setBufferingHints:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The buffering option.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseBufferingHints *bufferingHints</Declaration>
+			
+			
+			<Anchor>//api/name/bufferingHints</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/bufferingHints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The buffering option.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseBufferingHints *bufferingHints</Declaration>
+			
+			
+			<Anchor>//api/name/bufferingHints</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/bufferingHints</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The buffering option.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseBufferingHints *bufferingHints</Declaration>
+			
+			
+			<Anchor>//api/name/bufferingHints</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setCloudWatchLoggingOptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options for your delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/cloudWatchLoggingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options for your delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/cloudWatchLoggingOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon CloudWatch logging options for your delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions *cloudWatchLoggingOptions</Declaration>
+			
+			
+			<Anchor>//api/name/cloudWatchLoggingOptions</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setCompressionFormat:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The compression format. If no value is specified, the default is &lt;code&gt;UNCOMPRESSED&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseCompressionFormat compressionFormat</Declaration>
+			
+			
+			<Anchor>//api/name/compressionFormat</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/compressionFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The compression format. If no value is specified, the default is &lt;code&gt;UNCOMPRESSED&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseCompressionFormat compressionFormat</Declaration>
+			
+			
+			<Anchor>//api/name/compressionFormat</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/compressionFormat</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The compression format. If no value is specified, the default is &lt;code&gt;UNCOMPRESSED&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseCompressionFormat compressionFormat</Declaration>
+			
+			
+			<Anchor>//api/name/compressionFormat</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setDataFormatConversionConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseDataFormatConversionConfiguration *dataFormatConversionConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/dataFormatConversionConfiguration</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/dataFormatConversionConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseDataFormatConversionConfiguration *dataFormatConversionConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/dataFormatConversionConfiguration</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/dataFormatConversionConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseDataFormatConversionConfiguration *dataFormatConversionConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/dataFormatConversionConfiguration</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setEncryptionConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encryption configuration. If no value is specified, the default is no encryption.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseEncryptionConfiguration *encryptionConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/encryptionConfiguration</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/encryptionConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encryption configuration. If no value is specified, the default is no encryption.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseEncryptionConfiguration *encryptionConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/encryptionConfiguration</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/encryptionConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The encryption configuration. If no value is specified, the default is no encryption.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseEncryptionConfiguration *encryptionConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/encryptionConfiguration</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setPrefix:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &quot;YYYY/MM/DD/HH&quot; time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see Amazon S3 Object Name Format in the &lt;i&gt;Amazon Kinesis Data Firehose Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/prefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &quot;YYYY/MM/DD/HH&quot; time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see Amazon S3 Object Name Format in the &lt;i&gt;Amazon Kinesis Data Firehose Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/prefix</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The &quot;YYYY/MM/DD/HH&quot; time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see Amazon S3 Object Name Format in the &lt;i&gt;Amazon Kinesis Data Firehose Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *prefix</Declaration>
+			
+			
+			<Anchor>//api/name/prefix</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setProcessingConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/processingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/processingConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The data processing configuration.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseProcessingConfiguration *processingConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/processingConfiguration</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setRoleARN:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS credentials. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/roleARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS credentials. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/roleARN</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the AWS credentials. For more information, see Amazon Resource Names (ARNs) and AWS Service Namespaces.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleARN</Declaration>
+			
+			
+			<Anchor>//api/name/roleARN</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setS3BackupDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration for backup in Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationDescription *s3BackupDescription</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupDescription</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/s3BackupDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration for backup in Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationDescription *s3BackupDescription</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupDescription</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/s3BackupDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The configuration for backup in Amazon S3.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSFirehoseS3DestinationDescription *s3BackupDescription</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupDescription</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/setS3BackupMode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 backup mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehoseExtendedS3DestinationDescription/s3BackupMode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 backup mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehoseExtendedS3DestinationDescription/s3BackupMode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon S3 backup mode.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSFirehoseS3BackupMode s3BackupMode</Declaration>
+			
+			
+			<Anchor>//api/name/s3BackupMode</Anchor>
+            <NodeRef refid="795"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

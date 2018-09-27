@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAnalyticsConfigurationType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAnalyticsConfigurationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.&lt;/p&gt;
+Required parameters: [ApplicationId, RoleArn, ExternalId]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="268"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAnalyticsConfigurationType/setApplicationId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The application ID for an Amazon Pinpoint application.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAnalyticsConfigurationType/applicationId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The application ID for an Amazon Pinpoint application.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAnalyticsConfigurationType/applicationId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The application ID for an Amazon Pinpoint application.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *applicationId</Declaration>
+			
+			
+			<Anchor>//api/name/applicationId</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAnalyticsConfigurationType/setExternalId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The external ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAnalyticsConfigurationType/externalId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The external ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAnalyticsConfigurationType/externalId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The external ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *externalId</Declaration>
+			
+			
+			<Anchor>//api/name/externalId</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAnalyticsConfigurationType/setRoleArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAnalyticsConfigurationType/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAnalyticsConfigurationType/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon Pinpoint analytics.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAnalyticsConfigurationType/setUserDataShared:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If &lt;code&gt;UserDataShared&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *userDataShared</Declaration>
+			
+			
+			<Anchor>//api/name/userDataShared</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAnalyticsConfigurationType/userDataShared</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If &lt;code&gt;UserDataShared&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *userDataShared</Declaration>
+			
+			
+			<Anchor>//api/name/userDataShared</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAnalyticsConfigurationType/userDataShared</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If &lt;code&gt;UserDataShared&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;, Amazon Cognito will include user data in the events it publishes to Amazon Pinpoint analytics.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *userDataShared</Declaration>
+			
+			
+			<Anchor>//api/name/userDataShared</Anchor>
+            <NodeRef refid="268"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

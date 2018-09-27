@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoSyncDescribeIdentityUsageResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoSyncDescribeIdentityUsageResponse</TokenIdentifier>
+			<Abstract type="html">The response to a successful DescribeIdentityUsage request.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="487"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncDescribeIdentityUsageResponse/setIdentityUsage:</TokenIdentifier>
+			<Abstract type="html">Usage information for the identity.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoSyncIdentityUsage *identityUsage</Declaration>
+			
+			
+			<Anchor>//api/name/identityUsage</Anchor>
+            <NodeRef refid="487"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncDescribeIdentityUsageResponse/identityUsage</TokenIdentifier>
+			<Abstract type="html">Usage information for the identity.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoSyncIdentityUsage *identityUsage</Declaration>
+			
+			
+			<Anchor>//api/name/identityUsage</Anchor>
+            <NodeRef refid="487"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncDescribeIdentityUsageResponse/identityUsage</TokenIdentifier>
+			<Abstract type="html">Usage information for the identity.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoSyncIdentityUsage *identityUsage</Declaration>
+			
+			
+			<Anchor>//api/name/identityUsage</Anchor>
+            <NodeRef refid="487"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

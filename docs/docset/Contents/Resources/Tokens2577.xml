@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSLexInteractionKitErrorCode.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSLexInteractionKitErrorCode</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2577"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexInteractionKitErrorCodeUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexInteractionKitErrorCodeUnknown</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+            <NodeRef refid="2577"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexInteractionKitErrorCodeAudioRecording</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexInteractionKitErrorCodeAudioRecording</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+            <NodeRef refid="2577"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexInteractionKitErrorCodeAudioStreaming</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexInteractionKitErrorCodeAudioStreaming</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+            <NodeRef refid="2577"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexInteractionKitErrorCodeMaxSpeechTimeout</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexInteractionKitErrorCodeMaxSpeechTimeout</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+            <NodeRef refid="2577"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexInteractionKitErrorCodeNoSpeechTimeout</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexInteractionKitErrorCodeNoSpeechTimeout</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+            <NodeRef refid="2577"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexInteractionKitErrorCodeDialogFailed</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexInteractionKitErrorCodeDialogFailed</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+            <NodeRef refid="2577"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSLexInteractionKitErrorCodeRequestInProgress</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSLexInteractionKitErrorCodeRequestInProgress</Declaration>
+            
+            <DeclaredIn>AWSLexInteractionKit.h</DeclaredIn>
+            
+            <NodeRef refid="2577"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

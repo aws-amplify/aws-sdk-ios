@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSCognitoIdentityErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSCognitoIdentityErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2418"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorConcurrentModification</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorConcurrentModification</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorDeveloperUserAlreadyRegistered</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorExternalService</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorExternalService</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorInternalError</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorInternalError</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorInvalidIdentityPoolConfiguration</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorInvalidParameter</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorInvalidParameter</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorLimitExceeded</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorLimitExceeded</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorNotAuthorized</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorNotAuthorized</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorResourceConflict</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorResourceConflict</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorResourceNotFound</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorResourceNotFound</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSCognitoIdentityErrorTooManyRequests</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSCognitoIdentityErrorTooManyRequests</Declaration>
+            
+            <DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+            <NodeRef refid="2418"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

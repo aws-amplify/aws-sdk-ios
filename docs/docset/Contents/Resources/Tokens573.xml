@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBConsumedCapacity.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBConsumedCapacity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The capacity units consumed by an operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. &lt;code&gt;ConsumedCapacity&lt;/code&gt; is only returned if the request asked for it. For more information, see Provisioned Throughput in the &lt;i&gt;Amazon DynamoDB Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="573"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBConsumedCapacity/setCapacityUnits:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The total number of capacity units consumed by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *capacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/capacityUnits</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBConsumedCapacity/capacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The total number of capacity units consumed by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *capacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/capacityUnits</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBConsumedCapacity/capacityUnits</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The total number of capacity units consumed by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *capacityUnits</Declaration>
+			
+			
+			<Anchor>//api/name/capacityUnits</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBConsumedCapacity/setGlobalSecondaryIndexes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of throughput consumed on each global index affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCapacity*&gt; *globalSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/globalSecondaryIndexes</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBConsumedCapacity/globalSecondaryIndexes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of throughput consumed on each global index affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCapacity*&gt; *globalSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/globalSecondaryIndexes</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBConsumedCapacity/globalSecondaryIndexes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of throughput consumed on each global index affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCapacity*&gt; *globalSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/globalSecondaryIndexes</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBConsumedCapacity/setLocalSecondaryIndexes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of throughput consumed on each local index affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCapacity*&gt; *localSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/localSecondaryIndexes</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBConsumedCapacity/localSecondaryIndexes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of throughput consumed on each local index affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCapacity*&gt; *localSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/localSecondaryIndexes</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBConsumedCapacity/localSecondaryIndexes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of throughput consumed on each local index affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDictionary&lt;NSString*AWSDynamoDBCapacity*&gt; *localSecondaryIndexes</Declaration>
+			
+			
+			<Anchor>//api/name/localSecondaryIndexes</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBConsumedCapacity/setTable:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of throughput consumed on the table affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBCapacity *table</Declaration>
+			
+			
+			<Anchor>//api/name/table</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBConsumedCapacity/table</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of throughput consumed on the table affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBCapacity *table</Declaration>
+			
+			
+			<Anchor>//api/name/table</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBConsumedCapacity/table</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The amount of throughput consumed on the table affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBCapacity *table</Declaration>
+			
+			
+			<Anchor>//api/name/table</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBConsumedCapacity/setTableName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table that was affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBConsumedCapacity/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table that was affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBConsumedCapacity/tableName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the table that was affected by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tableName</Declaration>
+			
+			
+			<Anchor>//api/name/tableName</Anchor>
+            <NodeRef refid="573"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderUserType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderUserType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="447"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/setAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A container with information about the user type attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/attributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A container with information about the user type attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserType/attributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A container with information about the user type attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderAttributeType*&gt; *attributes</Declaration>
+			
+			
+			<Anchor>//api/name/attributes</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/setEnabled:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the user is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the user is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserType/enabled</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Specifies whether the user is enabled.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *enabled</Declaration>
+			
+			
+			<Anchor>//api/name/enabled</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/setMFAOptions:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The MFA options for the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderMFAOptionType*&gt; *MFAOptions</Declaration>
+			
+			
+			<Anchor>//api/name/MFAOptions</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/MFAOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The MFA options for the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderMFAOptionType*&gt; *MFAOptions</Declaration>
+			
+			
+			<Anchor>//api/name/MFAOptions</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserType/MFAOptions</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The MFA options for the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoIdentityProviderMFAOptionType*&gt; *MFAOptions</Declaration>
+			
+			
+			<Anchor>//api/name/MFAOptions</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/setUserCreateDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The creation date of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *userCreateDate</Declaration>
+			
+			
+			<Anchor>//api/name/userCreateDate</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/userCreateDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The creation date of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *userCreateDate</Declaration>
+			
+			
+			<Anchor>//api/name/userCreateDate</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserType/userCreateDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The creation date of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *userCreateDate</Declaration>
+			
+			
+			<Anchor>//api/name/userCreateDate</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/setUserLastModifiedDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The last modified date of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *userLastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/userLastModifiedDate</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/userLastModifiedDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The last modified date of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *userLastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/userLastModifiedDate</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserType/userLastModifiedDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The last modified date of the user.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *userLastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/userLastModifiedDate</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/setUserStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user status. Can be one of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;UNCONFIRMED - User has been created but not confirmed.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;CONFIRMED - User has been confirmed.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;ARCHIVED - User is no longer active.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;COMPROMISED - User is disabled due to a potential security threat.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;UNKNOWN - User status is not known.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderUserStatusType userStatus</Declaration>
+			
+			
+			<Anchor>//api/name/userStatus</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/userStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user status. Can be one of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;UNCONFIRMED - User has been created but not confirmed.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;CONFIRMED - User has been confirmed.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;ARCHIVED - User is no longer active.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;COMPROMISED - User is disabled due to a potential security threat.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;UNKNOWN - User status is not known.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderUserStatusType userStatus</Declaration>
+			
+			
+			<Anchor>//api/name/userStatus</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserType/userStatus</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user status. Can be one of the following:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;UNCONFIRMED - User has been created but not confirmed.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;CONFIRMED - User has been confirmed.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;ARCHIVED - User is no longer active.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;COMPROMISED - User is disabled due to a potential security threat.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;UNKNOWN - User status is not known.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderUserStatusType userStatus</Declaration>
+			
+			
+			<Anchor>//api/name/userStatus</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/setUsername:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user name of the user you wish to describe.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserType/username</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user name of the user you wish to describe.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserType/username</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user name of the user you wish to describe.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *username</Declaration>
+			
+			
+			<Anchor>//api/name/username</Anchor>
+            <NodeRef refid="447"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

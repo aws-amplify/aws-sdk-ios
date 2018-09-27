@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSAnonymousCredentialsProvider.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSAnonymousCredentialsProvider</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCredentialsProvider.h</DeclaredIn>
+            
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAnonymousCredentialsProvider/credentials</TokenIdentifier>
+			<Abstract type="html">Asynchronously returns a valid AWS credentials or an error object if it cannot retrieve valid credentials. It should cache valid credentials as much as possible and refresh them when they are invalid.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.m</DeclaredIn>
+			
+			<Declaration>- (AWSTask&lt;AWSCredentials*&gt; *)credentials</Declaration>
+			
+			<ReturnValue><Abstract type="html">A valid AWS credentials or an error object describing the error.</Abstract></ReturnValue>
+			<Anchor>//api/name/credentials</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSAnonymousCredentialsProvider/invalidateCachedTemporaryCredentials</TokenIdentifier>
+			<Abstract type="html">Invalidates the cached temporary AWS credentials. If the credentials provider does not cache temporary credentials, this operation is a no-op.</Abstract>
+			<DeclaredIn>AWSCredentialsProvider.m</DeclaredIn>
+			
+			<Declaration>- (void)invalidateCachedTemporaryCredentials</Declaration>
+			
+			
+			<Anchor>//api/name/invalidateCachedTemporaryCredentials</Anchor>
+            <NodeRef refid="6"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

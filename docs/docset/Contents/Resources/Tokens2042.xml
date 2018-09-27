@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSESContent.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSESContent</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Represents textual data, plus an optional character set specification.&lt;/p&gt;&lt;p&gt;By default, the text must be 7-bit ASCII, due to the constraints of the SMTP protocol. If the text must contain any other characters, then you must also specify a character set. Examples include UTF-8, ISO-8859-1, and Shift_JIS.&lt;/p&gt;
+Required parameters: [Data]</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2042"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESContent/setCharset:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The character set of the content.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *charset</Declaration>
+			
+			
+			<Anchor>//api/name/charset</Anchor>
+            <NodeRef refid="2042"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESContent/charset</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The character set of the content.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *charset</Declaration>
+			
+			
+			<Anchor>//api/name/charset</Anchor>
+            <NodeRef refid="2042"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESContent/charset</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The character set of the content.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *charset</Declaration>
+			
+			
+			<Anchor>//api/name/charset</Anchor>
+            <NodeRef refid="2042"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESContent/setData:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The textual data of the content.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="2042"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSESContent/data</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The textual data of the content.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="2042"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSESContent/data</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The textual data of the content.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSESModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *data</Declaration>
+			
+			
+			<Anchor>//api/name/data</Anchor>
+            <NodeRef refid="2042"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3UploadPartOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3UploadPartOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2026"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/setETag:</TokenIdentifier>
+			<Abstract type="html">Entity tag for the uploaded object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ETag</Declaration>
+			
+			
+			<Anchor>//api/name/ETag</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/ETag</TokenIdentifier>
+			<Abstract type="html">Entity tag for the uploaded object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ETag</Declaration>
+			
+			
+			<Anchor>//api/name/ETag</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartOutput/ETag</TokenIdentifier>
+			<Abstract type="html">Entity tag for the uploaded object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ETag</Declaration>
+			
+			
+			<Anchor>//api/name/ETag</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/setRequestCharged:</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/requestCharged</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartOutput/requestCharged</TokenIdentifier>
+			<Abstract type="html">If present, indicates that the requester was successfully charged for the request.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3RequestCharged requestCharged</Declaration>
+			
+			
+			<Anchor>//api/name/requestCharged</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/setSSECustomerAlgorithm:</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/SSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartOutput/SSECustomerAlgorithm</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerAlgorithm</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerAlgorithm</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/setSSECustomerKeyMD5:</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/SSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartOutput/SSECustomerKeyMD5</TokenIdentifier>
+			<Abstract type="html">If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSECustomerKeyMD5</Declaration>
+			
+			
+			<Anchor>//api/name/SSECustomerKeyMD5</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/setSSEKMSKeyId:</TokenIdentifier>
+			<Abstract type="html">If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/SSEKMSKeyId</TokenIdentifier>
+			<Abstract type="html">If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartOutput/SSEKMSKeyId</TokenIdentifier>
+			<Abstract type="html">If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *SSEKMSKeyId</Declaration>
+			
+			
+			<Anchor>//api/name/SSEKMSKeyId</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/setServerSideEncryption:</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3UploadPartOutput/serverSideEncryption</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3UploadPartOutput/serverSideEncryption</TokenIdentifier>
+			<Abstract type="html">The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSS3ServerSideEncryption serverSideEncryption</Declaration>
+			
+			
+			<Anchor>//api/name/serverSideEncryption</Anchor>
+            <NodeRef refid="2026"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

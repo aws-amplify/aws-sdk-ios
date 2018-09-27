@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionAgeRange.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionAgeRange</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Structure containing the estimated age range, in years, for a face.&lt;/p&gt;&lt;p&gt;Rekognition estimates an age-range for faces detected in the input image. Estimated age ranges can overlap; a face of a 5 year old may have an estimated range of 4-6 whilst the face of a 6 year old may have an estimated range of 4-8.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1666"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionAgeRange/setHigh:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The highest estimated age.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *high</Declaration>
+			
+			
+			<Anchor>//api/name/high</Anchor>
+            <NodeRef refid="1666"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionAgeRange/high</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The highest estimated age.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *high</Declaration>
+			
+			
+			<Anchor>//api/name/high</Anchor>
+            <NodeRef refid="1666"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionAgeRange/high</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The highest estimated age.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *high</Declaration>
+			
+			
+			<Anchor>//api/name/high</Anchor>
+            <NodeRef refid="1666"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionAgeRange/setLow:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The lowest estimated age.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *low</Declaration>
+			
+			
+			<Anchor>//api/name/low</Anchor>
+            <NodeRef refid="1666"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionAgeRange/low</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The lowest estimated age.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *low</Declaration>
+			
+			
+			<Anchor>//api/name/low</Anchor>
+            <NodeRef refid="1666"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionAgeRange/low</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The lowest estimated age.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *low</Declaration>
+			
+			
+			<Anchor>//api/name/low</Anchor>
+            <NodeRef refid="1666"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

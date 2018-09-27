@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSTSGetSessionTokenRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSTSGetSessionTokenRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2312"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSGetSessionTokenRequest/setDurationSeconds:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The duration, in seconds, that the credentials should remain valid. Acceptable durations for IAM user sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions for AWS account owners are restricted to a maximum of 3600 seconds (one hour). If the duration is longer than one hour, the session for AWS account owners defaults to one hour.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *durationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/durationSeconds</Anchor>
+            <NodeRef refid="2312"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSGetSessionTokenRequest/durationSeconds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The duration, in seconds, that the credentials should remain valid. Acceptable durations for IAM user sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions for AWS account owners are restricted to a maximum of 3600 seconds (one hour). If the duration is longer than one hour, the session for AWS account owners defaults to one hour.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *durationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/durationSeconds</Anchor>
+            <NodeRef refid="2312"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSGetSessionTokenRequest/durationSeconds</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The duration, in seconds, that the credentials should remain valid. Acceptable durations for IAM user sessions range from 900 seconds (15 minutes) to 129600 seconds (36 hours), with 43200 seconds (12 hours) as the default. Sessions for AWS account owners are restricted to a maximum of 3600 seconds (one hour). If the duration is longer than one hour, the session for AWS account owners defaults to one hour.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *durationSeconds</Declaration>
+			
+			
+			<Anchor>//api/name/durationSeconds</Anchor>
+            <NodeRef refid="2312"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSGetSessionTokenRequest/setSerialNumber:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identification number of the MFA device that is associated with the IAM user who is making the &lt;code&gt;GetSessionToken&lt;/code&gt; call. Specify this value if the IAM user has a policy that requires MFA authentication. The value is either the serial number for a hardware device (such as &lt;code&gt;GAHT12345678&lt;/code&gt;) or an Amazon Resource Name (ARN) for a virtual device (such as &lt;code&gt;arn:aws:iam::123456789012:mfa/user&lt;/code&gt;). You can find the device for an IAM user by going to the AWS Management Console and viewing the user&apos;s security credentials. &lt;/p&gt;&lt;p&gt;The regex used to validated this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *serialNumber</Declaration>
+			
+			
+			<Anchor>//api/name/serialNumber</Anchor>
+            <NodeRef refid="2312"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSGetSessionTokenRequest/serialNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identification number of the MFA device that is associated with the IAM user who is making the &lt;code&gt;GetSessionToken&lt;/code&gt; call. Specify this value if the IAM user has a policy that requires MFA authentication. The value is either the serial number for a hardware device (such as &lt;code&gt;GAHT12345678&lt;/code&gt;) or an Amazon Resource Name (ARN) for a virtual device (such as &lt;code&gt;arn:aws:iam::123456789012:mfa/user&lt;/code&gt;). You can find the device for an IAM user by going to the AWS Management Console and viewing the user&apos;s security credentials. &lt;/p&gt;&lt;p&gt;The regex used to validated this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *serialNumber</Declaration>
+			
+			
+			<Anchor>//api/name/serialNumber</Anchor>
+            <NodeRef refid="2312"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSGetSessionTokenRequest/serialNumber</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identification number of the MFA device that is associated with the IAM user who is making the &lt;code&gt;GetSessionToken&lt;/code&gt; call. Specify this value if the IAM user has a policy that requires MFA authentication. The value is either the serial number for a hardware device (such as &lt;code&gt;GAHT12345678&lt;/code&gt;) or an Amazon Resource Name (ARN) for a virtual device (such as &lt;code&gt;arn:aws:iam::123456789012:mfa/user&lt;/code&gt;). You can find the device for an IAM user by going to the AWS Management Console and viewing the user&apos;s security credentials. &lt;/p&gt;&lt;p&gt;The regex used to validated this parameter is a string of characters consisting of upper- and lower-case alphanumeric characters with no spaces. You can also include underscores or any of the following characters: =,.@:/-&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *serialNumber</Declaration>
+			
+			
+			<Anchor>//api/name/serialNumber</Anchor>
+            <NodeRef refid="2312"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSGetSessionTokenRequest/setTokenCode:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, and the user does not provide a code when requesting a set of temporary security credentials, the user will receive an &quot;access denied&quot; response when requesting resources that require MFA authentication.&lt;/p&gt;&lt;p&gt;The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tokenCode</Declaration>
+			
+			
+			<Anchor>//api/name/tokenCode</Anchor>
+            <NodeRef refid="2312"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSTSGetSessionTokenRequest/tokenCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, and the user does not provide a code when requesting a set of temporary security credentials, the user will receive an &quot;access denied&quot; response when requesting resources that require MFA authentication.&lt;/p&gt;&lt;p&gt;The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tokenCode</Declaration>
+			
+			
+			<Anchor>//api/name/tokenCode</Anchor>
+            <NodeRef refid="2312"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSTSGetSessionTokenRequest/tokenCode</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The value provided by the MFA device, if MFA is required. If any policy requires the IAM user to submit an MFA code, specify this value. If MFA authentication is required, and the user does not provide a code when requesting a set of temporary security credentials, the user will receive an &quot;access denied&quot; response when requesting resources that require MFA authentication.&lt;/p&gt;&lt;p&gt;The format for this parameter, as described by its regex pattern, is a sequence of six numeric digits.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSTSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *tokenCode</Declaration>
+			
+			
+			<Anchor>//api/name/tokenCode</Anchor>
+            <NodeRef refid="2312"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

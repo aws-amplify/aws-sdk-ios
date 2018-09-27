@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionPersonDetection.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionPersonDetection</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details and tracking information for a single time a person is tracked in a video. Amazon Rekognition operations that track persons return an array of &lt;code&gt;PersonDetection&lt;/code&gt; objects with elements for each time a person is tracked in a video. &lt;/p&gt;&lt;p&gt;For more information, see API_GetPersonTracking in the Amazon Rekognition Developer Guide. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1745"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPersonDetection/setPerson:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details about a person tracked in a video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionPersonDetail *person</Declaration>
+			
+			
+			<Anchor>//api/name/person</Anchor>
+            <NodeRef refid="1745"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPersonDetection/person</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details about a person tracked in a video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionPersonDetail *person</Declaration>
+			
+			
+			<Anchor>//api/name/person</Anchor>
+            <NodeRef refid="1745"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionPersonDetection/person</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Details about a person tracked in a video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionPersonDetail *person</Declaration>
+			
+			
+			<Anchor>//api/name/person</Anchor>
+            <NodeRef refid="1745"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPersonDetection/setTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds from the start of the video, that the person was tracked.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1745"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionPersonDetection/timestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds from the start of the video, that the person was tracked.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1745"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionPersonDetection/timestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in milliseconds from the start of the video, that the person was tracked.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *timestamp</Declaration>
+			
+			
+			<Anchor>//api/name/timestamp</Anchor>
+            <NodeRef refid="1745"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSRetireGrantRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSRetireGrantRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1215"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSRetireGrantRequest/setGrantId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier of the grant to retire. The grant ID is returned in the response to a &lt;code&gt;CreateGrant&lt;/code&gt; operation.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantId</Declaration>
+			
+			
+			<Anchor>//api/name/grantId</Anchor>
+            <NodeRef refid="1215"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSRetireGrantRequest/grantId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier of the grant to retire. The grant ID is returned in the response to a &lt;code&gt;CreateGrant&lt;/code&gt; operation.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantId</Declaration>
+			
+			
+			<Anchor>//api/name/grantId</Anchor>
+            <NodeRef refid="1215"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSRetireGrantRequest/grantId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Unique identifier of the grant to retire. The grant ID is returned in the response to a &lt;code&gt;CreateGrant&lt;/code&gt; operation.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Grant ID Example - 0123456789012345678901234567890123456789012345678901234567890123&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantId</Declaration>
+			
+			
+			<Anchor>//api/name/grantId</Anchor>
+            <NodeRef refid="1215"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSRetireGrantRequest/setGrantToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Token that identifies the grant to be retired.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantToken</Declaration>
+			
+			
+			<Anchor>//api/name/grantToken</Anchor>
+            <NodeRef refid="1215"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSRetireGrantRequest/grantToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Token that identifies the grant to be retired.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantToken</Declaration>
+			
+			
+			<Anchor>//api/name/grantToken</Anchor>
+            <NodeRef refid="1215"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSRetireGrantRequest/grantToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Token that identifies the grant to be retired.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *grantToken</Declaration>
+			
+			
+			<Anchor>//api/name/grantToken</Anchor>
+            <NodeRef refid="1215"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSRetireGrantRequest/setKeyId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the CMK associated with the grant. &lt;/p&gt;&lt;p&gt;For example: &lt;code&gt;arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1215"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSRetireGrantRequest/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the CMK associated with the grant. &lt;/p&gt;&lt;p&gt;For example: &lt;code&gt;arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1215"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSRetireGrantRequest/keyId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the CMK associated with the grant. &lt;/p&gt;&lt;p&gt;For example: &lt;code&gt;arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab&lt;/code&gt;&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *keyId</Declaration>
+			
+			
+			<Anchor>//api/name/keyId</Anchor>
+            <NodeRef refid="1215"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

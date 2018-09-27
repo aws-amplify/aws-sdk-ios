@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSElasticLoadBalancingBackendServerDescription.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSElasticLoadBalancingBackendServerDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Information about the configuration of an EC2 instance.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="700"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingBackendServerDescription/setInstancePort:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The port on which the EC2 instance is listening.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *instancePort</Declaration>
+			
+			
+			<Anchor>//api/name/instancePort</Anchor>
+            <NodeRef refid="700"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingBackendServerDescription/instancePort</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The port on which the EC2 instance is listening.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *instancePort</Declaration>
+			
+			
+			<Anchor>//api/name/instancePort</Anchor>
+            <NodeRef refid="700"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingBackendServerDescription/instancePort</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The port on which the EC2 instance is listening.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *instancePort</Declaration>
+			
+			
+			<Anchor>//api/name/instancePort</Anchor>
+            <NodeRef refid="700"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingBackendServerDescription/setPolicyNames:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the policies enabled for the EC2 instance.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *policyNames</Declaration>
+			
+			
+			<Anchor>//api/name/policyNames</Anchor>
+            <NodeRef refid="700"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSElasticLoadBalancingBackendServerDescription/policyNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the policies enabled for the EC2 instance.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *policyNames</Declaration>
+			
+			
+			<Anchor>//api/name/policyNames</Anchor>
+            <NodeRef refid="700"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSElasticLoadBalancingBackendServerDescription/policyNames</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The names of the policies enabled for the EC2 instance.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSElasticLoadBalancingModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *policyNames</Declaration>
+			
+			
+			<Anchor>//api/name/policyNames</Anchor>
+            <NodeRef refid="700"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityRoleMapping.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityRoleMapping</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A role mapping.&lt;/p&gt;
+Required parameters: [Type]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="453"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityRoleMapping/setAmbiguousRoleResolution:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If you specify Token or Rules as the &lt;code&gt;Type&lt;/code&gt;, &lt;code&gt;AmbiguousRoleResolution&lt;/code&gt; is required.&lt;/p&gt;&lt;p&gt;Specifies the action to be taken if either no rules match the claim value for the &lt;code&gt;Rules&lt;/code&gt; type, or there is no &lt;code&gt;cognito:preferred_role&lt;/code&gt; claim and there are multiple &lt;code&gt;cognito:roles&lt;/code&gt; matches for the &lt;code&gt;Token&lt;/code&gt; type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityAmbiguousRoleResolutionType ambiguousRoleResolution</Declaration>
+			
+			
+			<Anchor>//api/name/ambiguousRoleResolution</Anchor>
+            <NodeRef refid="453"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityRoleMapping/ambiguousRoleResolution</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If you specify Token or Rules as the &lt;code&gt;Type&lt;/code&gt;, &lt;code&gt;AmbiguousRoleResolution&lt;/code&gt; is required.&lt;/p&gt;&lt;p&gt;Specifies the action to be taken if either no rules match the claim value for the &lt;code&gt;Rules&lt;/code&gt; type, or there is no &lt;code&gt;cognito:preferred_role&lt;/code&gt; claim and there are multiple &lt;code&gt;cognito:roles&lt;/code&gt; matches for the &lt;code&gt;Token&lt;/code&gt; type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityAmbiguousRoleResolutionType ambiguousRoleResolution</Declaration>
+			
+			
+			<Anchor>//api/name/ambiguousRoleResolution</Anchor>
+            <NodeRef refid="453"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityRoleMapping/ambiguousRoleResolution</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;If you specify Token or Rules as the &lt;code&gt;Type&lt;/code&gt;, &lt;code&gt;AmbiguousRoleResolution&lt;/code&gt; is required.&lt;/p&gt;&lt;p&gt;Specifies the action to be taken if either no rules match the claim value for the &lt;code&gt;Rules&lt;/code&gt; type, or there is no &lt;code&gt;cognito:preferred_role&lt;/code&gt; claim and there are multiple &lt;code&gt;cognito:roles&lt;/code&gt; matches for the &lt;code&gt;Token&lt;/code&gt; type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityAmbiguousRoleResolutionType ambiguousRoleResolution</Declaration>
+			
+			
+			<Anchor>//api/name/ambiguousRoleResolution</Anchor>
+            <NodeRef refid="453"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityRoleMapping/setRulesConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The rules to be used for mapping users to roles.&lt;/p&gt;&lt;p&gt;If you specify Rules as the role mapping type, &lt;code&gt;RulesConfiguration&lt;/code&gt; is required.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityRulesConfigurationType *rulesConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/rulesConfiguration</Anchor>
+            <NodeRef refid="453"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityRoleMapping/rulesConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The rules to be used for mapping users to roles.&lt;/p&gt;&lt;p&gt;If you specify Rules as the role mapping type, &lt;code&gt;RulesConfiguration&lt;/code&gt; is required.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityRulesConfigurationType *rulesConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/rulesConfiguration</Anchor>
+            <NodeRef refid="453"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityRoleMapping/rulesConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The rules to be used for mapping users to roles.&lt;/p&gt;&lt;p&gt;If you specify Rules as the role mapping type, &lt;code&gt;RulesConfiguration&lt;/code&gt; is required.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityRulesConfigurationType *rulesConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/rulesConfiguration</Anchor>
+            <NodeRef refid="453"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityRoleMapping/setTypes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role mapping type. Token will use &lt;code&gt;cognito:roles&lt;/code&gt; and &lt;code&gt;cognito:preferred_role&lt;/code&gt; claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityRoleMappingType types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="453"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityRoleMapping/types</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role mapping type. Token will use &lt;code&gt;cognito:roles&lt;/code&gt; and &lt;code&gt;cognito:preferred_role&lt;/code&gt; claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityRoleMappingType types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="453"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityRoleMapping/types</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The role mapping type. Token will use &lt;code&gt;cognito:roles&lt;/code&gt; and &lt;code&gt;cognito:preferred_role&lt;/code&gt; claims from the Cognito identity provider token to map groups to roles. Rules will attempt to match claims from the token to map to a role.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityRoleMappingType types</Declaration>
+			
+			
+			<Anchor>//api/name/types</Anchor>
+            <NodeRef refid="453"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

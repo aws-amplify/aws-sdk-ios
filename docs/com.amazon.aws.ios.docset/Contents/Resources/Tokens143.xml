@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCloudWatchGetDashboardOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCloudWatchGetDashboardOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="143"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchGetDashboardOutput/setDashboardArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the dashboard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardArn</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardArn</Anchor>
+            <NodeRef refid="143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchGetDashboardOutput/dashboardArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the dashboard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardArn</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardArn</Anchor>
+            <NodeRef refid="143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchGetDashboardOutput/dashboardArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the dashboard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardArn</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardArn</Anchor>
+            <NodeRef refid="143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchGetDashboardOutput/setDashboardBody:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The detailed information about the dashboard, including what widgets are included and their location on the dashboard. For more information about the &lt;code&gt;DashboardBody&lt;/code&gt; syntax, see &lt;a&gt;CloudWatch-Dashboard-Body-Structure&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardBody</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardBody</Anchor>
+            <NodeRef refid="143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchGetDashboardOutput/dashboardBody</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The detailed information about the dashboard, including what widgets are included and their location on the dashboard. For more information about the &lt;code&gt;DashboardBody&lt;/code&gt; syntax, see &lt;a&gt;CloudWatch-Dashboard-Body-Structure&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardBody</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardBody</Anchor>
+            <NodeRef refid="143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchGetDashboardOutput/dashboardBody</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The detailed information about the dashboard, including what widgets are included and their location on the dashboard. For more information about the &lt;code&gt;DashboardBody&lt;/code&gt; syntax, see &lt;a&gt;CloudWatch-Dashboard-Body-Structure&lt;/a&gt;. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardBody</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardBody</Anchor>
+            <NodeRef refid="143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchGetDashboardOutput/setDashboardName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the dashboard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardName</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardName</Anchor>
+            <NodeRef refid="143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCloudWatchGetDashboardOutput/dashboardName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the dashboard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardName</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardName</Anchor>
+            <NodeRef refid="143"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCloudWatchGetDashboardOutput/dashboardName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the dashboard.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCloudWatchModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *dashboardName</Declaration>
+			
+			
+			<Anchor>//api/name/dashboardName</Anchor>
+            <NodeRef refid="143"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionStartFaceDetectionResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionStartFaceDetectionResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1763"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceDetectionResponse/setJobId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier for the face detection job. Use &lt;code&gt;JobId&lt;/code&gt; to identify the job in a subsequent call to &lt;code&gt;GetFaceDetection&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1763"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionStartFaceDetectionResponse/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier for the face detection job. Use &lt;code&gt;JobId&lt;/code&gt; to identify the job in a subsequent call to &lt;code&gt;GetFaceDetection&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1763"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionStartFaceDetectionResponse/jobId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The identifier for the face detection job. Use &lt;code&gt;JobId&lt;/code&gt; to identify the job in a subsequent call to &lt;code&gt;GetFaceDetection&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *jobId</Declaration>
+			
+			
+			<Anchor>//api/name/jobId</Anchor>
+            <NodeRef refid="1763"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

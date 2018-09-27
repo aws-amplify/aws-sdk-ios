@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTDeleteTopicRuleRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTDeleteTopicRuleRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The input for the DeleteTopicRule operation.&lt;/p&gt;
+Required parameters: [ruleName]</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="937"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDeleteTopicRuleRequest/setRuleName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the rule.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleName</Anchor>
+            <NodeRef refid="937"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTDeleteTopicRuleRequest/ruleName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the rule.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleName</Anchor>
+            <NodeRef refid="937"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTDeleteTopicRuleRequest/ruleName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the rule.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *ruleName</Declaration>
+			
+			
+			<Anchor>//api/name/ruleName</Anchor>
+            <NodeRef refid="937"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

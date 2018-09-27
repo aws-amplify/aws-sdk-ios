@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/AWSSignInDelegate.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/AWSSignInDelegate</TokenIdentifier>
+			<Abstract type="html">This protocol defines the method to be implemented to receive a call back when a user attempts
+login with a registered sign-in provider.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2393"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intfm/AWSSignInDelegate/onLoginWithSignInProvider:result:error:</TokenIdentifier>
+			<Abstract type="html">This method gets a call back to the assigned delegate when a user attempts login with a registered sign-in provider.</Abstract>
+			<DeclaredIn>AWSSignInManager.h</DeclaredIn>
+			
+			<Declaration>- (void)onLoginWithSignInProvider:(id&lt;AWSSignInProvider&gt;)signInProvider result:(id _Nullable)result error:(NSError *_Nullable)error</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>signInProvider</Name>
+					<Abstract type="html">The instance of sign in provider implementing AWSSignInProvider protocol.</Abstract>
+				</Parameter><Parameter>
+					<Name>result</Name>
+					<Abstract type="html">The result of login attempt. If error, set to nil.</Abstract>
+				</Parameter><Parameter>
+					<Name>error</Name>
+					<Abstract type="html">The error if sign-in attempt failed.
+*</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/onLoginWithSignInProvider:result:error:</Anchor>
+            <NodeRef refid="2393"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

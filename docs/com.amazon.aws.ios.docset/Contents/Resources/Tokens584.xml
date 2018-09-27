@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSDynamoDBDeleteBackupOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSDynamoDBDeleteBackupOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="584"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBDeleteBackupOutput/setBackupDescription:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the description of the backup created for the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBBackupDescription *backupDescription</Declaration>
+			
+			
+			<Anchor>//api/name/backupDescription</Anchor>
+            <NodeRef refid="584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSDynamoDBDeleteBackupOutput/backupDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the description of the backup created for the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBBackupDescription *backupDescription</Declaration>
+			
+			
+			<Anchor>//api/name/backupDescription</Anchor>
+            <NodeRef refid="584"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSDynamoDBDeleteBackupOutput/backupDescription</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains the description of the backup created for the table.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSDynamoDBModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSDynamoDBBackupDescription *backupDescription</Declaration>
+			
+			
+			<Anchor>//api/name/backupDescription</Anchor>
+            <NodeRef refid="584"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

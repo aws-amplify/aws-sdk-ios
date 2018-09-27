@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSQSGetQueueUrlRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSQSGetQueueUrlRequest</TokenIdentifier>
+			<Abstract type="html">&lt;p/&gt;
+Required parameters: [QueueName]</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2273"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSGetQueueUrlRequest/setQueueName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (&lt;code&gt;-&lt;/code&gt;), and underscores (&lt;code&gt;_&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;Queue names are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueName</Declaration>
+			
+			
+			<Anchor>//api/name/queueName</Anchor>
+            <NodeRef refid="2273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSGetQueueUrlRequest/queueName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (&lt;code&gt;-&lt;/code&gt;), and underscores (&lt;code&gt;_&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;Queue names are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueName</Declaration>
+			
+			
+			<Anchor>//api/name/queueName</Anchor>
+            <NodeRef refid="2273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSGetQueueUrlRequest/queueName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The name of the queue whose URL must be fetched. Maximum 80 characters. Valid values: alphanumeric characters, hyphens (&lt;code&gt;-&lt;/code&gt;), and underscores (&lt;code&gt;_&lt;/code&gt;).&lt;/p&gt;&lt;p&gt;Queue names are case-sensitive.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueName</Declaration>
+			
+			
+			<Anchor>//api/name/queueName</Anchor>
+            <NodeRef refid="2273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSGetQueueUrlRequest/setQueueOwnerAWSAccountId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account ID of the account that created the queue.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueOwnerAWSAccountId</Declaration>
+			
+			
+			<Anchor>//api/name/queueOwnerAWSAccountId</Anchor>
+            <NodeRef refid="2273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSQSGetQueueUrlRequest/queueOwnerAWSAccountId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account ID of the account that created the queue.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueOwnerAWSAccountId</Declaration>
+			
+			
+			<Anchor>//api/name/queueOwnerAWSAccountId</Anchor>
+            <NodeRef refid="2273"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSQSGetQueueUrlRequest/queueOwnerAWSAccountId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The AWS account ID of the account that created the queue.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSSQSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *queueOwnerAWSAccountId</Declaration>
+			
+			
+			<Anchor>//api/name/queueOwnerAWSAccountId</Anchor>
+            <NodeRef refid="2273"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

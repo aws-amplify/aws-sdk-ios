@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderUserPoolClientType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderUserPoolClientType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Contains information about a user pool client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="443"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setAllowedOAuthFlows:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Set to &lt;code&gt;code&lt;/code&gt; to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.&lt;/p&gt;&lt;p&gt;Set to &lt;code&gt;token&lt;/code&gt; to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedOAuthFlows</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOAuthFlows</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/allowedOAuthFlows</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Set to &lt;code&gt;code&lt;/code&gt; to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.&lt;/p&gt;&lt;p&gt;Set to &lt;code&gt;token&lt;/code&gt; to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedOAuthFlows</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOAuthFlows</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/allowedOAuthFlows</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Set to &lt;code&gt;code&lt;/code&gt; to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.&lt;/p&gt;&lt;p&gt;Set to &lt;code&gt;token&lt;/code&gt; to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedOAuthFlows</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOAuthFlows</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setAllowedOAuthFlowsUserPoolClient:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *allowedOAuthFlowsUserPoolClient</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOAuthFlowsUserPoolClient</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/allowedOAuthFlowsUserPoolClient</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *allowedOAuthFlowsUserPoolClient</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOAuthFlowsUserPoolClient</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/allowedOAuthFlowsUserPoolClient</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Set to TRUE if the client is allowed to follow the OAuth protocol when interacting with Cognito user pools.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *allowedOAuthFlowsUserPoolClient</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOAuthFlowsUserPoolClient</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setAllowedOAuthScopes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of allowed &lt;code&gt;OAuth&lt;/code&gt; scopes. Currently supported values are &lt;code&gt;&quot;phone&quot;&lt;/code&gt;, &lt;code&gt;&quot;email&quot;&lt;/code&gt;, &lt;code&gt;&quot;openid&quot;&lt;/code&gt;, and &lt;code&gt;&quot;Cognito&quot;&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedOAuthScopes</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOAuthScopes</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/allowedOAuthScopes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of allowed &lt;code&gt;OAuth&lt;/code&gt; scopes. Currently supported values are &lt;code&gt;&quot;phone&quot;&lt;/code&gt;, &lt;code&gt;&quot;email&quot;&lt;/code&gt;, &lt;code&gt;&quot;openid&quot;&lt;/code&gt;, and &lt;code&gt;&quot;Cognito&quot;&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedOAuthScopes</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOAuthScopes</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/allowedOAuthScopes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of allowed &lt;code&gt;OAuth&lt;/code&gt; scopes. Currently supported values are &lt;code&gt;&quot;phone&quot;&lt;/code&gt;, &lt;code&gt;&quot;email&quot;&lt;/code&gt;, &lt;code&gt;&quot;openid&quot;&lt;/code&gt;, and &lt;code&gt;&quot;Cognito&quot;&lt;/code&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *allowedOAuthScopes</Declaration>
+			
+			
+			<Anchor>//api/name/allowedOAuthScopes</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setAnalyticsConfiguration:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Pinpoint analytics configuration for the user pool client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType *analyticsConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsConfiguration</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/analyticsConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Pinpoint analytics configuration for the user pool client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType *analyticsConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsConfiguration</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/analyticsConfiguration</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Pinpoint analytics configuration for the user pool client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType *analyticsConfiguration</Declaration>
+			
+			
+			<Anchor>//api/name/analyticsConfiguration</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setCallbackURLs:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of allowed redirect (callback) URLs for the identity providers.&lt;/p&gt;&lt;p&gt;A redirect URI must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Be an absolute URI.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Be registered with the authorization server.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Not include a fragment component.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;See &lt;a href=&quot;https://tools.ietf.org/html/rfc6749#section-3.1.2&quot;&gt;OAuth 2.0 - Redirection Endpoint&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.&lt;/p&gt;&lt;p&gt;App callback URLs such as myapp://example are also supported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *callbackURLs</Declaration>
+			
+			
+			<Anchor>//api/name/callbackURLs</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/callbackURLs</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of allowed redirect (callback) URLs for the identity providers.&lt;/p&gt;&lt;p&gt;A redirect URI must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Be an absolute URI.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Be registered with the authorization server.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Not include a fragment component.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;See &lt;a href=&quot;https://tools.ietf.org/html/rfc6749#section-3.1.2&quot;&gt;OAuth 2.0 - Redirection Endpoint&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.&lt;/p&gt;&lt;p&gt;App callback URLs such as myapp://example are also supported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *callbackURLs</Declaration>
+			
+			
+			<Anchor>//api/name/callbackURLs</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/callbackURLs</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of allowed redirect (callback) URLs for the identity providers.&lt;/p&gt;&lt;p&gt;A redirect URI must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Be an absolute URI.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Be registered with the authorization server.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Not include a fragment component.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;See &lt;a href=&quot;https://tools.ietf.org/html/rfc6749#section-3.1.2&quot;&gt;OAuth 2.0 - Redirection Endpoint&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.&lt;/p&gt;&lt;p&gt;App callback URLs such as myapp://example are also supported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *callbackURLs</Declaration>
+			
+			
+			<Anchor>//api/name/callbackURLs</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setClientId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the client associated with the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/clientId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the client associated with the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/clientId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The ID of the client associated with the user pool.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientId</Declaration>
+			
+			
+			<Anchor>//api/name/clientId</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setClientName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The client name from the user pool request of the client type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientName</Declaration>
+			
+			
+			<Anchor>//api/name/clientName</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/clientName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The client name from the user pool request of the client type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientName</Declaration>
+			
+			
+			<Anchor>//api/name/clientName</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/clientName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The client name from the user pool request of the client type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientName</Declaration>
+			
+			
+			<Anchor>//api/name/clientName</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setClientSecret:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The client secret from the user pool request of the client type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientSecret</Declaration>
+			
+			
+			<Anchor>//api/name/clientSecret</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/clientSecret</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The client secret from the user pool request of the client type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientSecret</Declaration>
+			
+			
+			<Anchor>//api/name/clientSecret</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/clientSecret</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The client secret from the user pool request of the client type.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *clientSecret</Declaration>
+			
+			
+			<Anchor>//api/name/clientSecret</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setCreationDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the user pool client was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the user pool client was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the user pool client was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setDefaultRedirectURI:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The default redirect URI. Must be in the &lt;code&gt;CallbackURLs&lt;/code&gt; list.&lt;/p&gt;&lt;p&gt;A redirect URI must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Be an absolute URI.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Be registered with the authorization server.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Not include a fragment component.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;See &lt;a href=&quot;https://tools.ietf.org/html/rfc6749#section-3.1.2&quot;&gt;OAuth 2.0 - Redirection Endpoint&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.&lt;/p&gt;&lt;p&gt;App callback URLs such as myapp://example are also supported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *defaultRedirectURI</Declaration>
+			
+			
+			<Anchor>//api/name/defaultRedirectURI</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/defaultRedirectURI</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The default redirect URI. Must be in the &lt;code&gt;CallbackURLs&lt;/code&gt; list.&lt;/p&gt;&lt;p&gt;A redirect URI must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Be an absolute URI.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Be registered with the authorization server.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Not include a fragment component.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;See &lt;a href=&quot;https://tools.ietf.org/html/rfc6749#section-3.1.2&quot;&gt;OAuth 2.0 - Redirection Endpoint&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.&lt;/p&gt;&lt;p&gt;App callback URLs such as myapp://example are also supported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *defaultRedirectURI</Declaration>
+			
+			
+			<Anchor>//api/name/defaultRedirectURI</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/defaultRedirectURI</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The default redirect URI. Must be in the &lt;code&gt;CallbackURLs&lt;/code&gt; list.&lt;/p&gt;&lt;p&gt;A redirect URI must:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;Be an absolute URI.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Be registered with the authorization server.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;Not include a fragment component.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;See &lt;a href=&quot;https://tools.ietf.org/html/rfc6749#section-3.1.2&quot;&gt;OAuth 2.0 - Redirection Endpoint&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.&lt;/p&gt;&lt;p&gt;App callback URLs such as myapp://example are also supported.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *defaultRedirectURI</Declaration>
+			
+			
+			<Anchor>//api/name/defaultRedirectURI</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setExplicitAuthFlows:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The explicit authentication flows.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *explicitAuthFlows</Declaration>
+			
+			
+			<Anchor>//api/name/explicitAuthFlows</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/explicitAuthFlows</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The explicit authentication flows.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *explicitAuthFlows</Declaration>
+			
+			
+			<Anchor>//api/name/explicitAuthFlows</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/explicitAuthFlows</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The explicit authentication flows.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *explicitAuthFlows</Declaration>
+			
+			
+			<Anchor>//api/name/explicitAuthFlows</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setLastModifiedDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the user pool client was last modified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/lastModifiedDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the user pool client was last modified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/lastModifiedDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the user pool client was last modified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setLogoutURLs:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of allowed logout URLs for the identity providers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *logoutURLs</Declaration>
+			
+			
+			<Anchor>//api/name/logoutURLs</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/logoutURLs</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of allowed logout URLs for the identity providers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *logoutURLs</Declaration>
+			
+			
+			<Anchor>//api/name/logoutURLs</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/logoutURLs</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of allowed logout URLs for the identity providers.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *logoutURLs</Declaration>
+			
+			
+			<Anchor>//api/name/logoutURLs</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setReadAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Read-only attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *readAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/readAttributes</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/readAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Read-only attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *readAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/readAttributes</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/readAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Read-only attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *readAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/readAttributes</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setRefreshTokenValidity:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time limit, in days, after which the refresh token is no longer valid and cannot be used.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *refreshTokenValidity</Declaration>
+			
+			
+			<Anchor>//api/name/refreshTokenValidity</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/refreshTokenValidity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time limit, in days, after which the refresh token is no longer valid and cannot be used.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *refreshTokenValidity</Declaration>
+			
+			
+			<Anchor>//api/name/refreshTokenValidity</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/refreshTokenValidity</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time limit, in days, after which the refresh token is no longer valid and cannot be used.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *refreshTokenValidity</Declaration>
+			
+			
+			<Anchor>//api/name/refreshTokenValidity</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setSupportedIdentityProviders:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of provider names for the identity providers that are supported on this client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *supportedIdentityProviders</Declaration>
+			
+			
+			<Anchor>//api/name/supportedIdentityProviders</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/supportedIdentityProviders</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of provider names for the identity providers that are supported on this client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *supportedIdentityProviders</Declaration>
+			
+			
+			<Anchor>//api/name/supportedIdentityProviders</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/supportedIdentityProviders</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of provider names for the identity providers that are supported on this client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *supportedIdentityProviders</Declaration>
+			
+			
+			<Anchor>//api/name/supportedIdentityProviders</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setUserPoolId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/userPoolId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The user pool ID for the user pool client.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *userPoolId</Declaration>
+			
+			
+			<Anchor>//api/name/userPoolId</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/setWriteAttributes:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The writeable attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *writeAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/writeAttributes</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderUserPoolClientType/writeAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The writeable attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *writeAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/writeAttributes</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderUserPoolClientType/writeAttributes</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The writeable attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *writeAttributes</Declaration>
+			
+			
+			<Anchor>//api/name/writeAttributes</Anchor>
+            <NodeRef refid="443"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

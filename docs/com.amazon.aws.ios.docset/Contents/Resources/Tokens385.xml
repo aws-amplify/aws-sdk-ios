@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderNotifyConfigurationType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderNotifyConfigurationType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The notify configuration type.&lt;/p&gt;
+Required parameters: [SourceArn]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="385"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/setBlockEmail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Email template used when a detected risk event is blocked.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType *blockEmail</Declaration>
+			
+			
+			<Anchor>//api/name/blockEmail</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/blockEmail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Email template used when a detected risk event is blocked.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType *blockEmail</Declaration>
+			
+			
+			<Anchor>//api/name/blockEmail</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNotifyConfigurationType/blockEmail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Email template used when a detected risk event is blocked.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType *blockEmail</Declaration>
+			
+			
+			<Anchor>//api/name/blockEmail</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/setFrom:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *from</Declaration>
+			
+			
+			<Anchor>//api/name/from</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/from</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *from</Declaration>
+			
+			
+			<Anchor>//api/name/from</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNotifyConfigurationType/from</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email address that is sending the email. It must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *from</Declaration>
+			
+			
+			<Anchor>//api/name/from</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/setMfaEmail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The MFA email template used when MFA is challenged as part of a detected risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType *mfaEmail</Declaration>
+			
+			
+			<Anchor>//api/name/mfaEmail</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/mfaEmail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The MFA email template used when MFA is challenged as part of a detected risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType *mfaEmail</Declaration>
+			
+			
+			<Anchor>//api/name/mfaEmail</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNotifyConfigurationType/mfaEmail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The MFA email template used when MFA is challenged as part of a detected risk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType *mfaEmail</Declaration>
+			
+			
+			<Anchor>//api/name/mfaEmail</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/setNoActionEmail:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email template used when a detected risk event is allowed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType *noActionEmail</Declaration>
+			
+			
+			<Anchor>//api/name/noActionEmail</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/noActionEmail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email template used when a detected risk event is allowed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType *noActionEmail</Declaration>
+			
+			
+			<Anchor>//api/name/noActionEmail</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNotifyConfigurationType/noActionEmail</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The email template used when a detected risk event is allowed.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSCognitoIdentityProviderNotifyEmailType *noActionEmail</Declaration>
+			
+			
+			<Anchor>//api/name/noActionEmail</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/setReplyTo:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination to which the receiver of an email should reply to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replyTo</Declaration>
+			
+			
+			<Anchor>//api/name/replyTo</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/replyTo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination to which the receiver of an email should reply to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replyTo</Declaration>
+			
+			
+			<Anchor>//api/name/replyTo</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNotifyConfigurationType/replyTo</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The destination to which the receiver of an email should reply to.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *replyTo</Declaration>
+			
+			
+			<Anchor>//api/name/replyTo</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/setSourceArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the &lt;code&gt;From&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceArn</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderNotifyConfigurationType/sourceArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the &lt;code&gt;From&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceArn</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderNotifyConfigurationType/sourceArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. It permits Amazon Cognito to send for the email address specified in the &lt;code&gt;From&lt;/code&gt; parameter.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *sourceArn</Declaration>
+			
+			
+			<Anchor>//api/name/sourceArn</Anchor>
+            <NodeRef refid="385"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

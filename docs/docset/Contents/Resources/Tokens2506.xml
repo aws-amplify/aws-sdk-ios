@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Constants/AWSFirehoseRecorderErrorType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/c/tdef/AWSFirehoseRecorderErrorType</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSFirehoseRecorder.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2506"/>
+		</Token>
+		
+		
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseRecorderErrorUnknown</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseRecorderErrorUnknown</Declaration>
+            
+            <DeclaredIn>AWSFirehoseRecorder.h</DeclaredIn>
+            
+            <NodeRef refid="2506"/>
+        </Token>
+        
+        <Token>
+            <TokenIdentifier>//apple_ref/c/econst/AWSFirehoseRecorderErrorDataTooLarge</TokenIdentifier>
+            <Abstract type="html"></Abstract>
+            <Declaration>AWSFirehoseRecorderErrorDataTooLarge</Declaration>
+            
+            <DeclaredIn>AWSFirehoseRecorder.h</DeclaredIn>
+            
+            <NodeRef refid="2506"/>
+        </Token>
+        
+        
+	</File>
+</Tokens>

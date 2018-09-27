@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSRekognitionDescribeStreamProcessorResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSRekognitionDescribeStreamProcessorResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1691"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/setCreationTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Date and time the stream processor was created&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/creationTimestamp</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/creationTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Date and time the stream processor was created&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/creationTimestamp</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDescribeStreamProcessorResponse/creationTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Date and time the stream processor was created&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/creationTimestamp</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/setInput:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis video stream that provides the source streaming video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorInput *input</Declaration>
+			
+			
+			<Anchor>//api/name/input</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/input</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis video stream that provides the source streaming video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorInput *input</Declaration>
+			
+			
+			<Anchor>//api/name/input</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDescribeStreamProcessorResponse/input</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis video stream that provides the source streaming video.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorInput *input</Declaration>
+			
+			
+			<Anchor>//api/name/input</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/setLastUpdateTimestamp:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in Unix format, the stream processor was last updated. For example, when the stream processor moves from a running state to a failed state, or when the user starts or stops the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastUpdateTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdateTimestamp</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/lastUpdateTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in Unix format, the stream processor was last updated. For example, when the stream processor moves from a running state to a failed state, or when the user starts or stops the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastUpdateTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdateTimestamp</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDescribeStreamProcessorResponse/lastUpdateTimestamp</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The time, in Unix format, the stream processor was last updated. For example, when the stream processor moves from a running state to a failed state, or when the user starts or stops the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastUpdateTimestamp</Declaration>
+			
+			
+			<Anchor>//api/name/lastUpdateTimestamp</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/setName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the stream processor. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the stream processor. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDescribeStreamProcessorResponse/name</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Name of the stream processor. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *name</Declaration>
+			
+			
+			<Anchor>//api/name/name</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/setOutput:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis data stream to which Amazon Rekognition Video puts the analysis results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorOutput *output</Declaration>
+			
+			
+			<Anchor>//api/name/output</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/output</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis data stream to which Amazon Rekognition Video puts the analysis results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorOutput *output</Declaration>
+			
+			
+			<Anchor>//api/name/output</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDescribeStreamProcessorResponse/output</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Kinesis data stream to which Amazon Rekognition Video puts the analysis results.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorOutput *output</Declaration>
+			
+			
+			<Anchor>//api/name/output</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/setRoleArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the IAM role that allows access to the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the IAM role that allows access to the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDescribeStreamProcessorResponse/roleArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the IAM role that allows access to the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *roleArn</Declaration>
+			
+			
+			<Anchor>//api/name/roleArn</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/setSettings:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorSettings *settings</Declaration>
+			
+			
+			<Anchor>//api/name/settings</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/settings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorSettings *settings</Declaration>
+			
+			
+			<Anchor>//api/name/settings</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDescribeStreamProcessorResponse/settings</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Face recognition input parameters that are being used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSRekognitionStreamProcessorSettings *settings</Declaration>
+			
+			
+			<Anchor>//api/name/settings</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/setStatus:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Current status of the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionStreamProcessorStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Current status of the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionStreamProcessorStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDescribeStreamProcessorResponse/status</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Current status of the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSRekognitionStreamProcessorStatus status</Declaration>
+			
+			
+			<Anchor>//api/name/status</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/setStatusMessage:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Detailed status message about the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/statusMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Detailed status message about the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDescribeStreamProcessorResponse/statusMessage</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Detailed status message about the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *statusMessage</Declaration>
+			
+			
+			<Anchor>//api/name/statusMessage</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/setStreamProcessorArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamProcessorArn</Declaration>
+			
+			
+			<Anchor>//api/name/streamProcessorArn</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSRekognitionDescribeStreamProcessorResponse/streamProcessorArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamProcessorArn</Declaration>
+			
+			
+			<Anchor>//api/name/streamProcessorArn</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSRekognitionDescribeStreamProcessorResponse/streamProcessorArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;ARN of the stream processor.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSRekognitionModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *streamProcessorArn</Declaration>
+			
+			
+			<Anchor>//api/name/streamProcessorArn</Anchor>
+            <NodeRef refid="1691"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSFirehose.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSFirehose</TokenIdentifier>
+			<Abstract type="html">&lt;fullname&gt;Amazon Kinesis Data Firehose API Reference&lt;/fullname&gt;&lt;p&gt;Amazon Kinesis Data Firehose is a fully managed service that delivers real-time streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon Elasticsearch Service (Amazon ES), Amazon Redshift, and Splunk.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+            
+			
+			<NodeRef refid="775"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/setConfiguration:</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSFirehose/configuration</TokenIdentifier>
+			<Abstract type="html">The service configuration used to instantiate this service client.</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</Declaration>
+			
+			
+			<Anchor>//api/name/configuration</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSFirehose/defaultFirehose</TokenIdentifier>
+			<Abstract type="html">Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with defaultServiceConfiguration from [AWSServiceManager defaultServiceManager]. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)defaultFirehose</Declaration>
+			
+			<ReturnValue><Abstract type="html">The default service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/defaultFirehose</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSFirehose/registerFirehoseWithConfiguration:forKey:</TokenIdentifier>
+			<Abstract type="html">Creates a service client with the given service configuration and registers it for the key.</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+			<Declaration>+ (void)registerFirehoseWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">A service configuration object.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/registerFirehoseWithConfiguration:forKey:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSFirehose/FirehoseForKey:</TokenIdentifier>
+			<Abstract type="html">Retrieves the service client associated with the key. You need to call + registerFirehoseWithConfiguration:forKey: before invoking this method.</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+			<Declaration>+ (instancetype)FirehoseForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of the service client.</Abstract></ReturnValue>
+			<Anchor>//api/name/FirehoseForKey:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSFirehose/removeFirehoseForKey:</TokenIdentifier>
+			<Abstract type="html">Removes the service client associated with the key and release it.</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+			<Declaration>+ (void)removeFirehoseForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">A string to identify the service client.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeFirehoseForKey:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/createDeliveryStream:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a Kinesis Data Firehose delivery stream.&lt;/p&gt;&lt;p&gt;By default, you can create up to 50 delivery streams per AWS Region.&lt;/p&gt;&lt;p&gt;This is an asynchronous operation that immediately returns. The initial status of the delivery stream is &lt;code&gt;CREATING&lt;/code&gt;. After the delivery stream is created, its status is &lt;code&gt;ACTIVE&lt;/code&gt; and it now accepts data. Attempts to send data to a delivery stream that is not in the &lt;code&gt;ACTIVE&lt;/code&gt; state cause an exception. To check the state of a delivery stream, use &lt;a&gt;DescribeDeliveryStream&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;A Kinesis Data Firehose delivery stream can be configured to receive records directly from providers using &lt;a&gt;PutRecord&lt;/a&gt; or &lt;a&gt;PutRecordBatch&lt;/a&gt;, or it can be configured to use an existing Kinesis stream as its source. To specify a Kinesis data stream as input, set the &lt;code&gt;DeliveryStreamType&lt;/code&gt; parameter to &lt;code&gt;KinesisStreamAsSource&lt;/code&gt;, and provide the Kinesis stream Amazon Resource Name (ARN) and role ARN in the &lt;code&gt;KinesisStreamSourceConfiguration&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;A delivery stream is configured with a single destination: Amazon S3, Amazon ES, Amazon Redshift, or Splunk. You must specify only one of the following destination configuration parameters: &lt;b&gt;ExtendedS3DestinationConfiguration&lt;/b&gt;, &lt;b&gt;S3DestinationConfiguration&lt;/b&gt;, &lt;b&gt;ElasticsearchDestinationConfiguration&lt;/b&gt;, &lt;b&gt;RedshiftDestinationConfiguration&lt;/b&gt;, or &lt;b&gt;SplunkDestinationConfiguration&lt;/b&gt;.&lt;/p&gt;&lt;p&gt;When you specify &lt;b&gt;S3DestinationConfiguration&lt;/b&gt;, you can also provide the following optional values: &lt;b&gt;BufferingHints&lt;/b&gt;, &lt;b&gt;EncryptionConfiguration&lt;/b&gt;, and &lt;b&gt;CompressionFormat&lt;/b&gt;. By default, if no &lt;b&gt;BufferingHints&lt;/b&gt; value is provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever condition is satisfied first. &lt;b&gt;BufferingHints&lt;/b&gt; is a hint, so there are some cases where the service cannot adhere to these conditions strictly. For example, record boundaries might be such that the size is a little over or under the configured buffering size. By default, no encryption is performed. We strongly recommend that you enable encryption to ensure secure data storage in Amazon S3.&lt;/p&gt;&lt;p&gt;A few notes about Amazon Redshift as a destination:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis Data Firehose first delivers data to Amazon S3 and then uses &lt;code&gt;COPY&lt;/code&gt; syntax to load data into an Amazon Redshift table. This is specified in the &lt;b&gt;RedshiftDestinationConfiguration.S3Configuration&lt;/b&gt; parameter.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The compression formats &lt;code&gt;SNAPPY&lt;/code&gt; or &lt;code&gt;ZIP&lt;/code&gt; cannot be specified in &lt;code&gt;RedshiftDestinationConfiguration.S3Configuration&lt;/code&gt; because the Amazon Redshift &lt;code&gt;COPY&lt;/code&gt; operation that reads from the S3 bucket doesn&apos;t support these compression formats.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;We strongly recommend that you use the user name and password you provide exclusively with Kinesis Data Firehose, and that the permissions for the account are restricted for Amazon Redshift &lt;code&gt;INSERT&lt;/code&gt; permissions.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Kinesis Data Firehose assumes the IAM role that is configured as part of the destination. The role should allow the Kinesis Data Firehose principal to assume the role, and the role should have permissions that allow the service to deliver the data. For more information, see Grant Kinesis Data Firehose Access to an Amazon S3 Destination in the &lt;i&gt;Amazon Kinesis Data Firehose Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseCreateDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseCreateDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSFirehoseCreateDeliveryStreamOutput*&gt; *)createDeliveryStream:(AWSFirehoseCreateDeliveryStreamInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateDeliveryStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSFirehoseCreateDeliveryStreamOutput. On failed execution, task.error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorLimitExceeded, AWSFirehoseErrorResourceInUse.</Abstract></ReturnValue>
+			<Anchor>//api/name/createDeliveryStream:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/createDeliveryStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Creates a Kinesis Data Firehose delivery stream.&lt;/p&gt;&lt;p&gt;By default, you can create up to 50 delivery streams per AWS Region.&lt;/p&gt;&lt;p&gt;This is an asynchronous operation that immediately returns. The initial status of the delivery stream is &lt;code&gt;CREATING&lt;/code&gt;. After the delivery stream is created, its status is &lt;code&gt;ACTIVE&lt;/code&gt; and it now accepts data. Attempts to send data to a delivery stream that is not in the &lt;code&gt;ACTIVE&lt;/code&gt; state cause an exception. To check the state of a delivery stream, use &lt;a&gt;DescribeDeliveryStream&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;A Kinesis Data Firehose delivery stream can be configured to receive records directly from providers using &lt;a&gt;PutRecord&lt;/a&gt; or &lt;a&gt;PutRecordBatch&lt;/a&gt;, or it can be configured to use an existing Kinesis stream as its source. To specify a Kinesis data stream as input, set the &lt;code&gt;DeliveryStreamType&lt;/code&gt; parameter to &lt;code&gt;KinesisStreamAsSource&lt;/code&gt;, and provide the Kinesis stream Amazon Resource Name (ARN) and role ARN in the &lt;code&gt;KinesisStreamSourceConfiguration&lt;/code&gt; parameter.&lt;/p&gt;&lt;p&gt;A delivery stream is configured with a single destination: Amazon S3, Amazon ES, Amazon Redshift, or Splunk. You must specify only one of the following destination configuration parameters: &lt;b&gt;ExtendedS3DestinationConfiguration&lt;/b&gt;, &lt;b&gt;S3DestinationConfiguration&lt;/b&gt;, &lt;b&gt;ElasticsearchDestinationConfiguration&lt;/b&gt;, &lt;b&gt;RedshiftDestinationConfiguration&lt;/b&gt;, or &lt;b&gt;SplunkDestinationConfiguration&lt;/b&gt;.&lt;/p&gt;&lt;p&gt;When you specify &lt;b&gt;S3DestinationConfiguration&lt;/b&gt;, you can also provide the following optional values: &lt;b&gt;BufferingHints&lt;/b&gt;, &lt;b&gt;EncryptionConfiguration&lt;/b&gt;, and &lt;b&gt;CompressionFormat&lt;/b&gt;. By default, if no &lt;b&gt;BufferingHints&lt;/b&gt; value is provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever condition is satisfied first. &lt;b&gt;BufferingHints&lt;/b&gt; is a hint, so there are some cases where the service cannot adhere to these conditions strictly. For example, record boundaries might be such that the size is a little over or under the configured buffering size. By default, no encryption is performed. We strongly recommend that you enable encryption to ensure secure data storage in Amazon S3.&lt;/p&gt;&lt;p&gt;A few notes about Amazon Redshift as a destination:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;An Amazon Redshift destination requires an S3 bucket as intermediate location. Kinesis Data Firehose first delivers data to Amazon S3 and then uses &lt;code&gt;COPY&lt;/code&gt; syntax to load data into an Amazon Redshift table. This is specified in the &lt;b&gt;RedshiftDestinationConfiguration.S3Configuration&lt;/b&gt; parameter.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;The compression formats &lt;code&gt;SNAPPY&lt;/code&gt; or &lt;code&gt;ZIP&lt;/code&gt; cannot be specified in &lt;code&gt;RedshiftDestinationConfiguration.S3Configuration&lt;/code&gt; because the Amazon Redshift &lt;code&gt;COPY&lt;/code&gt; operation that reads from the S3 bucket doesn&apos;t support these compression formats.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;We strongly recommend that you use the user name and password you provide exclusively with Kinesis Data Firehose, and that the permissions for the account are restricted for Amazon Redshift &lt;code&gt;INSERT&lt;/code&gt; permissions.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;Kinesis Data Firehose assumes the IAM role that is configured as part of the destination. The role should allow the Kinesis Data Firehose principal to assume the role, and the role should have permissions that allow the service to deliver the data. For more information, see Grant Kinesis Data Firehose Access to an Amazon S3 Destination in the &lt;i&gt;Amazon Kinesis Data Firehose Developer Guide&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseCreateDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseCreateDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)createDeliveryStream:(AWSFirehoseCreateDeliveryStreamInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseCreateDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the CreateDeliveryStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorLimitExceeded, AWSFirehoseErrorResourceInUse.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/createDeliveryStream:completionHandler:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/deleteDeliveryStream:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a delivery stream and its data.&lt;/p&gt;&lt;p&gt;You can delete a delivery stream only if it is in &lt;code&gt;ACTIVE&lt;/code&gt; or &lt;code&gt;DELETING&lt;/code&gt; state, and not in the &lt;code&gt;CREATING&lt;/code&gt; state. While the deletion request is in process, the delivery stream is in the &lt;code&gt;DELETING&lt;/code&gt; state.&lt;/p&gt;&lt;p&gt;To check the state of a delivery stream, use &lt;a&gt;DescribeDeliveryStream&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;While the delivery stream is &lt;code&gt;DELETING&lt;/code&gt; state, the service might continue to accept the records, but it doesn&apos;t make any guarantees with respect to delivering the data. Therefore, as a best practice, you should first stop any applications that are sending records before deleting a delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDeleteDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDeleteDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSFirehoseDeleteDeliveryStreamOutput*&gt; *)deleteDeliveryStream:(AWSFirehoseDeleteDeliveryStreamInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteDeliveryStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSFirehoseDeleteDeliveryStreamOutput. On failed execution, task.error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceInUse, AWSFirehoseErrorResourceNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/deleteDeliveryStream:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/deleteDeliveryStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Deletes a delivery stream and its data.&lt;/p&gt;&lt;p&gt;You can delete a delivery stream only if it is in &lt;code&gt;ACTIVE&lt;/code&gt; or &lt;code&gt;DELETING&lt;/code&gt; state, and not in the &lt;code&gt;CREATING&lt;/code&gt; state. While the deletion request is in process, the delivery stream is in the &lt;code&gt;DELETING&lt;/code&gt; state.&lt;/p&gt;&lt;p&gt;To check the state of a delivery stream, use &lt;a&gt;DescribeDeliveryStream&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;While the delivery stream is &lt;code&gt;DELETING&lt;/code&gt; state, the service might continue to accept the records, but it doesn&apos;t make any guarantees with respect to delivering the data. Therefore, as a best practice, you should first stop any applications that are sending records before deleting a delivery stream.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDeleteDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDeleteDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)deleteDeliveryStream:(AWSFirehoseDeleteDeliveryStreamInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseDeleteDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DeleteDeliveryStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceInUse, AWSFirehoseErrorResourceNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/deleteDeliveryStream:completionHandler:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/describeDeliveryStream:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the specified delivery stream and gets the status. For example, after your delivery stream is created, call &lt;code&gt;DescribeDeliveryStream&lt;/code&gt; to see whether the delivery stream is &lt;code&gt;ACTIVE&lt;/code&gt; and therefore ready for data to be sent to it.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDescribeDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDescribeDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSFirehoseDescribeDeliveryStreamOutput*&gt; *)describeDeliveryStream:(AWSFirehoseDescribeDeliveryStreamInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeDeliveryStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSFirehoseDescribeDeliveryStreamOutput. On failed execution, task.error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound.</Abstract></ReturnValue>
+			<Anchor>//api/name/describeDeliveryStream:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/describeDeliveryStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Describes the specified delivery stream and gets the status. For example, after your delivery stream is created, call &lt;code&gt;DescribeDeliveryStream&lt;/code&gt; to see whether the delivery stream is &lt;code&gt;ACTIVE&lt;/code&gt; and therefore ready for data to be sent to it.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDescribeDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseDescribeDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)describeDeliveryStream:(AWSFirehoseDescribeDeliveryStreamInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseDescribeDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the DescribeDeliveryStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/describeDeliveryStream:completionHandler:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/listDeliveryStreams:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists your delivery streams.&lt;/p&gt;&lt;p&gt;The number of delivery streams might be too large to return using a single call to &lt;code&gt;ListDeliveryStreams&lt;/code&gt;. You can limit the number of delivery streams returned, using the &lt;b&gt;Limit&lt;/b&gt; parameter. To determine whether there are more delivery streams to list, check the value of &lt;code&gt;HasMoreDeliveryStreams&lt;/code&gt; in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the &lt;code&gt;ExclusiveStartDeliveryStreamName&lt;/code&gt; parameter of a subsequent call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseListDeliveryStreamsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseListDeliveryStreamsOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSFirehoseListDeliveryStreamsOutput*&gt; *)listDeliveryStreams:(AWSFirehoseListDeliveryStreamsInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListDeliveryStreams service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSFirehoseListDeliveryStreamsOutput.</Abstract></ReturnValue>
+			<Anchor>//api/name/listDeliveryStreams:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/listDeliveryStreams:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists your delivery streams.&lt;/p&gt;&lt;p&gt;The number of delivery streams might be too large to return using a single call to &lt;code&gt;ListDeliveryStreams&lt;/code&gt;. You can limit the number of delivery streams returned, using the &lt;b&gt;Limit&lt;/b&gt; parameter. To determine whether there are more delivery streams to list, check the value of &lt;code&gt;HasMoreDeliveryStreams&lt;/code&gt; in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the &lt;code&gt;ExclusiveStartDeliveryStreamName&lt;/code&gt; parameter of a subsequent call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseListDeliveryStreamsInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseListDeliveryStreamsOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listDeliveryStreams:(AWSFirehoseListDeliveryStreamsInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseListDeliveryStreamsOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListDeliveryStreams service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listDeliveryStreams:completionHandler:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/listTagsForDeliveryStream:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the tags for the specified delivery stream. This operation has a limit of five transactions per second per account. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseListTagsForDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseListTagsForDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSFirehoseListTagsForDeliveryStreamOutput*&gt; *)listTagsForDeliveryStream:(AWSFirehoseListTagsForDeliveryStreamInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListTagsForDeliveryStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSFirehoseListTagsForDeliveryStreamOutput. On failed execution, task.error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorLimitExceeded.</Abstract></ReturnValue>
+			<Anchor>//api/name/listTagsForDeliveryStream:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/listTagsForDeliveryStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Lists the tags for the specified delivery stream. This operation has a limit of five transactions per second per account. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseListTagsForDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseListTagsForDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)listTagsForDeliveryStream:(AWSFirehoseListTagsForDeliveryStreamInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseListTagsForDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the ListTagsForDeliveryStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorLimitExceeded.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/listTagsForDeliveryStream:completionHandler:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/putRecord:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple data records into a delivery stream, use &lt;a&gt;PutRecordBatch&lt;/a&gt;. Applications using these operations are referred to as producers.&lt;/p&gt;&lt;p&gt;By default, each delivery stream can take in up to 2,000 transactions per second, 5,000 records per second, or 5 MB per second. If you use &lt;a&gt;PutRecord&lt;/a&gt; and &lt;a&gt;PutRecordBatch&lt;/a&gt;, the limits are an aggregate across these two operations for each delivery stream. For more information about limits and how to request an increase, see Amazon Kinesis Data Firehose Limits. &lt;/p&gt;&lt;p&gt;You must specify the name of the delivery stream and the data record when using &lt;a&gt;PutRecord&lt;/a&gt;. The data record consists of a data blob that can be up to 1,000 KB in size, and any kind of data. For example, it can be a segment from a log file, geographic location data, website clickstream data, and so on.&lt;/p&gt;&lt;p&gt;Kinesis Data Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (&lt;code&gt;\n&lt;/code&gt;) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;PutRecord&lt;/code&gt; operation returns a &lt;code&gt;RecordId&lt;/code&gt;, which is a unique string assigned to each record. Producer applications can use this ID for purposes such as auditability and investigation.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;PutRecord&lt;/code&gt; operation throws a &lt;code&gt;ServiceUnavailableException&lt;/code&gt;, back off and retry. If the exception persists, it is possible that the throughput limits have been exceeded for the delivery stream. &lt;/p&gt;&lt;p&gt;Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it tries to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehosePutRecordInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehosePutRecordOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSFirehosePutRecordOutput*&gt; *)putRecord:(AWSFirehosePutRecordInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutRecord service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSFirehosePutRecordOutput. On failed execution, task.error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/putRecord:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/putRecord:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Writes a single data record into an Amazon Kinesis Data Firehose delivery stream. To write multiple data records into a delivery stream, use &lt;a&gt;PutRecordBatch&lt;/a&gt;. Applications using these operations are referred to as producers.&lt;/p&gt;&lt;p&gt;By default, each delivery stream can take in up to 2,000 transactions per second, 5,000 records per second, or 5 MB per second. If you use &lt;a&gt;PutRecord&lt;/a&gt; and &lt;a&gt;PutRecordBatch&lt;/a&gt;, the limits are an aggregate across these two operations for each delivery stream. For more information about limits and how to request an increase, see Amazon Kinesis Data Firehose Limits. &lt;/p&gt;&lt;p&gt;You must specify the name of the delivery stream and the data record when using &lt;a&gt;PutRecord&lt;/a&gt;. The data record consists of a data blob that can be up to 1,000 KB in size, and any kind of data. For example, it can be a segment from a log file, geographic location data, website clickstream data, and so on.&lt;/p&gt;&lt;p&gt;Kinesis Data Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (&lt;code&gt;\n&lt;/code&gt;) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination.&lt;/p&gt;&lt;p&gt;The &lt;code&gt;PutRecord&lt;/code&gt; operation returns a &lt;code&gt;RecordId&lt;/code&gt;, which is a unique string assigned to each record. Producer applications can use this ID for purposes such as auditability and investigation.&lt;/p&gt;&lt;p&gt;If the &lt;code&gt;PutRecord&lt;/code&gt; operation throws a &lt;code&gt;ServiceUnavailableException&lt;/code&gt;, back off and retry. If the exception persists, it is possible that the throughput limits have been exceeded for the delivery stream. &lt;/p&gt;&lt;p&gt;Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it tries to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehosePutRecordInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehosePutRecordOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putRecord:(AWSFirehosePutRecordInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSFirehosePutRecordOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutRecord service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putRecord:completionHandler:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/putRecordBatch:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Writes multiple data records into a delivery stream in a single call, which can achieve higher throughput per producer than when writing single records. To write single data records into a delivery stream, use &lt;a&gt;PutRecord&lt;/a&gt;. Applications using these operations are referred to as producers.&lt;/p&gt;&lt;p&gt;By default, each delivery stream can take in up to 2,000 transactions per second, 5,000 records per second, or 5 MB per second. If you use &lt;a&gt;PutRecord&lt;/a&gt; and &lt;a&gt;PutRecordBatch&lt;/a&gt;, the limits are an aggregate across these two operations for each delivery stream. For more information about limits, see Amazon Kinesis Data Firehose Limits.&lt;/p&gt;&lt;p&gt;Each &lt;a&gt;PutRecordBatch&lt;/a&gt; request supports up to 500 records. Each record in the request can be as large as 1,000 KB (before 64-bit encoding), up to a limit of 4 MB for the entire request. These limits cannot be changed.&lt;/p&gt;&lt;p&gt;You must specify the name of the delivery stream and the data record when using &lt;a&gt;PutRecord&lt;/a&gt;. The data record consists of a data blob that can be up to 1,000 KB in size, and any kind of data. For example, it could be a segment from a log file, geographic location data, website clickstream data, and so on.&lt;/p&gt;&lt;p&gt;Kinesis Data Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (&lt;code&gt;\n&lt;/code&gt;) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination.&lt;/p&gt;&lt;p&gt;The &lt;a&gt;PutRecordBatch&lt;/a&gt; response includes a count of failed records, &lt;b&gt;FailedPutCount&lt;/b&gt;, and an array of responses, &lt;b&gt;RequestResponses&lt;/b&gt;. Each entry in the &lt;b&gt;RequestResponses&lt;/b&gt; array provides additional information about the processed record. It directly correlates with a record in the request array using the same ordering, from the top to the bottom. The response array always includes the same number of records as the request array. &lt;b&gt;RequestResponses&lt;/b&gt; includes both successfully and unsuccessfully processed records. Kinesis Data Firehose tries to process all records in each &lt;a&gt;PutRecordBatch&lt;/a&gt; request. A single record failure does not stop the processing of subsequent records.&lt;/p&gt;&lt;p&gt;A successfully processed record includes a &lt;b&gt;RecordId&lt;/b&gt; value, which is unique for the record. An unsuccessfully processed record includes &lt;b&gt;ErrorCode&lt;/b&gt; and &lt;b&gt;ErrorMessage&lt;/b&gt; values. &lt;b&gt;ErrorCode&lt;/b&gt; reflects the type of error, and is one of the following values: &lt;code&gt;ServiceUnavailable&lt;/code&gt; or &lt;code&gt;InternalFailure&lt;/code&gt;. &lt;b&gt;ErrorMessage&lt;/b&gt; provides more detailed information about the error.&lt;/p&gt;&lt;p&gt;If there is an internal server error or a timeout, the write might have completed or it might have failed. If &lt;b&gt;FailedPutCount&lt;/b&gt; is greater than 0, retry the request, resending only those records that might have failed processing. This minimizes the possible duplicate records and also reduces the total bytes sent (and corresponding charges). We recommend that you handle any duplicates at the destination.&lt;/p&gt;&lt;p&gt;If &lt;a&gt;PutRecordBatch&lt;/a&gt; throws &lt;b&gt;ServiceUnavailableException&lt;/b&gt;, back off and retry. If the exception persists, it is possible that the throughput limits have been exceeded for the delivery stream.&lt;/p&gt;&lt;p&gt;Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it attempts to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehosePutRecordBatchInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehosePutRecordBatchOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSFirehosePutRecordBatchOutput*&gt; *)putRecordBatch:(AWSFirehosePutRecordBatchInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutRecordBatch service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSFirehosePutRecordBatchOutput. On failed execution, task.error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorServiceUnavailable.</Abstract></ReturnValue>
+			<Anchor>//api/name/putRecordBatch:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/putRecordBatch:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Writes multiple data records into a delivery stream in a single call, which can achieve higher throughput per producer than when writing single records. To write single data records into a delivery stream, use &lt;a&gt;PutRecord&lt;/a&gt;. Applications using these operations are referred to as producers.&lt;/p&gt;&lt;p&gt;By default, each delivery stream can take in up to 2,000 transactions per second, 5,000 records per second, or 5 MB per second. If you use &lt;a&gt;PutRecord&lt;/a&gt; and &lt;a&gt;PutRecordBatch&lt;/a&gt;, the limits are an aggregate across these two operations for each delivery stream. For more information about limits, see Amazon Kinesis Data Firehose Limits.&lt;/p&gt;&lt;p&gt;Each &lt;a&gt;PutRecordBatch&lt;/a&gt; request supports up to 500 records. Each record in the request can be as large as 1,000 KB (before 64-bit encoding), up to a limit of 4 MB for the entire request. These limits cannot be changed.&lt;/p&gt;&lt;p&gt;You must specify the name of the delivery stream and the data record when using &lt;a&gt;PutRecord&lt;/a&gt;. The data record consists of a data blob that can be up to 1,000 KB in size, and any kind of data. For example, it could be a segment from a log file, geographic location data, website clickstream data, and so on.&lt;/p&gt;&lt;p&gt;Kinesis Data Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (&lt;code&gt;\n&lt;/code&gt;) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination.&lt;/p&gt;&lt;p&gt;The &lt;a&gt;PutRecordBatch&lt;/a&gt; response includes a count of failed records, &lt;b&gt;FailedPutCount&lt;/b&gt;, and an array of responses, &lt;b&gt;RequestResponses&lt;/b&gt;. Each entry in the &lt;b&gt;RequestResponses&lt;/b&gt; array provides additional information about the processed record. It directly correlates with a record in the request array using the same ordering, from the top to the bottom. The response array always includes the same number of records as the request array. &lt;b&gt;RequestResponses&lt;/b&gt; includes both successfully and unsuccessfully processed records. Kinesis Data Firehose tries to process all records in each &lt;a&gt;PutRecordBatch&lt;/a&gt; request. A single record failure does not stop the processing of subsequent records.&lt;/p&gt;&lt;p&gt;A successfully processed record includes a &lt;b&gt;RecordId&lt;/b&gt; value, which is unique for the record. An unsuccessfully processed record includes &lt;b&gt;ErrorCode&lt;/b&gt; and &lt;b&gt;ErrorMessage&lt;/b&gt; values. &lt;b&gt;ErrorCode&lt;/b&gt; reflects the type of error, and is one of the following values: &lt;code&gt;ServiceUnavailable&lt;/code&gt; or &lt;code&gt;InternalFailure&lt;/code&gt;. &lt;b&gt;ErrorMessage&lt;/b&gt; provides more detailed information about the error.&lt;/p&gt;&lt;p&gt;If there is an internal server error or a timeout, the write might have completed or it might have failed. If &lt;b&gt;FailedPutCount&lt;/b&gt; is greater than 0, retry the request, resending only those records that might have failed processing. This minimizes the possible duplicate records and also reduces the total bytes sent (and corresponding charges). We recommend that you handle any duplicates at the destination.&lt;/p&gt;&lt;p&gt;If &lt;a&gt;PutRecordBatch&lt;/a&gt; throws &lt;b&gt;ServiceUnavailableException&lt;/b&gt;, back off and retry. If the exception persists, it is possible that the throughput limits have been exceeded for the delivery stream.&lt;/p&gt;&lt;p&gt;Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it attempts to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehosePutRecordBatchInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehosePutRecordBatchOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)putRecordBatch:(AWSFirehosePutRecordBatchInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSFirehosePutRecordBatchOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the PutRecordBatch service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorServiceUnavailable.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/putRecordBatch:completionHandler:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/tagDeliveryStream:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds or updates tags for the specified delivery stream. A tag is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see Using Cost Allocation Tags in the &lt;i&gt;AWS Billing and Cost Management User Guide&lt;/i&gt;. &lt;/p&gt;&lt;p&gt; Each delivery stream can have up to 50 tags. &lt;/p&gt;&lt;p&gt; This operation has a limit of five transactions per second per account. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseTagDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseTagDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSFirehoseTagDeliveryStreamOutput*&gt; *)tagDeliveryStream:(AWSFirehoseTagDeliveryStreamInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the TagDeliveryStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSFirehoseTagDeliveryStreamOutput. On failed execution, task.error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorResourceInUse, AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorLimitExceeded.</Abstract></ReturnValue>
+			<Anchor>//api/name/tagDeliveryStream:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/tagDeliveryStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Adds or updates tags for the specified delivery stream. A tag is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see Using Cost Allocation Tags in the &lt;i&gt;AWS Billing and Cost Management User Guide&lt;/i&gt;. &lt;/p&gt;&lt;p&gt; Each delivery stream can have up to 50 tags. &lt;/p&gt;&lt;p&gt; This operation has a limit of five transactions per second per account. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseTagDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseTagDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)tagDeliveryStream:(AWSFirehoseTagDeliveryStreamInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseTagDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the TagDeliveryStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorResourceInUse, AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorLimitExceeded.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/tagDeliveryStream:completionHandler:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/untagDeliveryStream:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes tags from the specified delivery stream. Removed tags are deleted, and you can&apos;t recover them after this operation successfully completes.&lt;/p&gt;&lt;p&gt;If you specify a tag that doesn&apos;t exist, the operation ignores it.&lt;/p&gt;&lt;p&gt;This operation has a limit of five transactions per second per account. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseUntagDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseUntagDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSFirehoseUntagDeliveryStreamOutput*&gt; *)untagDeliveryStream:(AWSFirehoseUntagDeliveryStreamInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UntagDeliveryStream service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSFirehoseUntagDeliveryStreamOutput. On failed execution, task.error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorResourceInUse, AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorLimitExceeded.</Abstract></ReturnValue>
+			<Anchor>//api/name/untagDeliveryStream:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/untagDeliveryStream:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Removes tags from the specified delivery stream. Removed tags are deleted, and you can&apos;t recover them after this operation successfully completes.&lt;/p&gt;&lt;p&gt;If you specify a tag that doesn&apos;t exist, the operation ignores it.&lt;/p&gt;&lt;p&gt;This operation has a limit of five transactions per second per account. &lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseUntagDeliveryStreamInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseUntagDeliveryStreamOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)untagDeliveryStream:(AWSFirehoseUntagDeliveryStreamInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseUntagDeliveryStreamOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UntagDeliveryStream service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorResourceInUse, AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorLimitExceeded.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/untagDeliveryStream:completionHandler:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/updateDestination:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Updates the specified destination of the specified delivery stream.&lt;/p&gt;&lt;p&gt;Use this operation to change the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters associated with a destination (for example, to change the bucket name of the Amazon S3 destination). The update might not occur immediately. The target delivery stream remains active while the configurations are updated, so data writes to the delivery stream can continue during this process. The updated configurations are usually effective within a few minutes.&lt;/p&gt;&lt;p&gt;Switching between Amazon ES and other services is not supported. For an Amazon ES destination, you can only update to another Amazon ES destination.&lt;/p&gt;&lt;p&gt;If the destination type is the same, Kinesis Data Firehose merges the configuration parameters specified with the destination configuration that already exists on the delivery stream. If any of the parameters are not specified in the call, the existing values are retained. For example, in the Amazon S3 destination, if &lt;a&gt;EncryptionConfiguration&lt;/a&gt; is not specified, then the existing &lt;code&gt;EncryptionConfiguration&lt;/code&gt; is maintained on the destination.&lt;/p&gt;&lt;p&gt;If the destination type is not the same, for example, changing the destination from Amazon S3 to Amazon Redshift, Kinesis Data Firehose does not merge any parameters. In this case, all parameters must be specified.&lt;/p&gt;&lt;p&gt;Kinesis Data Firehose uses &lt;b&gt;CurrentDeliveryStreamVersionId&lt;/b&gt; to avoid race conditions and conflicting merges. This is a required field, and the service updates the configuration only if the existing configuration has a version ID that matches. After the update is applied successfully, the version ID is updated, and can be retrieved using &lt;a&gt;DescribeDeliveryStream&lt;/a&gt;. Use the new version ID to set &lt;b&gt;CurrentDeliveryStreamVersionId&lt;/b&gt; in the next call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseUpdateDestinationInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseUpdateDestinationOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (AWSTask&lt;AWSFirehoseUpdateDestinationOutput*&gt; *)updateDestination:(AWSFirehoseUpdateDestinationInput *)request</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateDestination service method.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">An instance of AWSTask. On successful execution, task.result will contain an instance of AWSFirehoseUpdateDestinationOutput. On failed execution, task.error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorResourceInUse, AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorConcurrentModification.</Abstract></ReturnValue>
+			<Anchor>//api/name/updateDestination:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSFirehose/updateDestination:completionHandler:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Updates the specified destination of the specified delivery stream.&lt;/p&gt;&lt;p&gt;Use this operation to change the destination type (for example, to replace the Amazon S3 destination with Amazon Redshift) or change the parameters associated with a destination (for example, to change the bucket name of the Amazon S3 destination). The update might not occur immediately. The target delivery stream remains active while the configurations are updated, so data writes to the delivery stream can continue during this process. The updated configurations are usually effective within a few minutes.&lt;/p&gt;&lt;p&gt;Switching between Amazon ES and other services is not supported. For an Amazon ES destination, you can only update to another Amazon ES destination.&lt;/p&gt;&lt;p&gt;If the destination type is the same, Kinesis Data Firehose merges the configuration parameters specified with the destination configuration that already exists on the delivery stream. If any of the parameters are not specified in the call, the existing values are retained. For example, in the Amazon S3 destination, if &lt;a&gt;EncryptionConfiguration&lt;/a&gt; is not specified, then the existing &lt;code&gt;EncryptionConfiguration&lt;/code&gt; is maintained on the destination.&lt;/p&gt;&lt;p&gt;If the destination type is not the same, for example, changing the destination from Amazon S3 to Amazon Redshift, Kinesis Data Firehose does not merge any parameters. In this case, all parameters must be specified.&lt;/p&gt;&lt;p&gt;Kinesis Data Firehose uses &lt;b&gt;CurrentDeliveryStreamVersionId&lt;/b&gt; to avoid race conditions and conflicting merges. This is a required field, and the service updates the configuration only if the existing configuration has a version ID that matches. After the update is applied successfully, the version ID is updated, and can be retrieved using &lt;a&gt;DescribeDeliveryStream&lt;/a&gt;. Use the new version ID to set &lt;b&gt;CurrentDeliveryStreamVersionId&lt;/b&gt; in the next call.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSFirehoseService.h</DeclaredIn>
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseUpdateDestinationInput</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/cl/AWSFirehoseUpdateDestinationOutput</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (void)updateDestination:(AWSFirehoseUpdateDestinationInput *)request completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseUpdateDestinationOutput *_Nullable response , NSError *_Nullable error ))completionHandler</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>request</Name>
+					<Abstract type="html">A container for the necessary parameters to execute the UpdateDestination service method.</Abstract>
+				</Parameter><Parameter>
+					<Name>completionHandler</Name>
+					<Abstract type="html">The completion handler to call when the load request is complete.
+                          response - A response object, or nil if the request failed.
+                          error - An error object that indicates why the request failed, or nil if the request was successful. On failed execution, error may contain an NSError with AWSFirehoseErrorDomain domain and the following error code: AWSFirehoseErrorInvalidArgument, AWSFirehoseErrorResourceInUse, AWSFirehoseErrorResourceNotFound, AWSFirehoseErrorConcurrentModification.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/updateDestination:completionHandler:</Anchor>
+            <NodeRef refid="775"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

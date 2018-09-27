@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSPollyListLexiconsOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSPollyListLexiconsOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1652"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListLexiconsOutput/setLexicons:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of lexicon names and attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPollyLexiconDescription*&gt; *lexicons</Declaration>
+			
+			
+			<Anchor>//api/name/lexicons</Anchor>
+            <NodeRef refid="1652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListLexiconsOutput/lexicons</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of lexicon names and attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPollyLexiconDescription*&gt; *lexicons</Declaration>
+			
+			
+			<Anchor>//api/name/lexicons</Anchor>
+            <NodeRef refid="1652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyListLexiconsOutput/lexicons</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;A list of lexicon names and attributes.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSPollyLexiconDescription*&gt; *lexicons</Declaration>
+			
+			
+			<Anchor>//api/name/lexicons</Anchor>
+            <NodeRef refid="1652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListLexiconsOutput/setNextToken:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pagination token to use in the next request to continue the listing of lexicons. &lt;code&gt;NextToken&lt;/code&gt; is returned only if the response is truncated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSPollyListLexiconsOutput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pagination token to use in the next request to continue the listing of lexicons. &lt;code&gt;NextToken&lt;/code&gt; is returned only if the response is truncated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1652"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSPollyListLexiconsOutput/nextToken</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The pagination token to use in the next request to continue the listing of lexicons. &lt;code&gt;NextToken&lt;/code&gt; is returned only if the response is truncated.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSPollyModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *nextToken</Declaration>
+			
+			
+			<Anchor>//api/name/nextToken</Anchor>
+            <NodeRef refid="1652"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

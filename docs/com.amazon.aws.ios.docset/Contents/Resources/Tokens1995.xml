@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSS3SelectObjectContentOutput.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSS3SelectObjectContentOutput</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1995"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3SelectObjectContentOutput/setPayload:</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SelectObjectContentEventStream *payload</Declaration>
+			
+			
+			<Anchor>//api/name/payload</Anchor>
+            <NodeRef refid="1995"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSS3SelectObjectContentOutput/payload</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SelectObjectContentEventStream *payload</Declaration>
+			
+			
+			<Anchor>//api/name/payload</Anchor>
+            <NodeRef refid="1995"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSS3SelectObjectContentOutput/payload</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSS3Model.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSS3SelectObjectContentEventStream *payload</Declaration>
+			
+			
+			<Anchor>//api/name/payload</Anchor>
+            <NodeRef refid="1995"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

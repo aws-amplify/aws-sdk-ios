@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSComprehendBatchDetectSentimentItemResult.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSComprehendBatchDetectSentimentItemResult</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="527"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectSentimentItemResult/setIndex:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The zero-based index of the document in the input list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *index</Declaration>
+			
+			
+			<Anchor>//api/name/index</Anchor>
+            <NodeRef refid="527"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectSentimentItemResult/index</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The zero-based index of the document in the input list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *index</Declaration>
+			
+			
+			<Anchor>//api/name/index</Anchor>
+            <NodeRef refid="527"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendBatchDetectSentimentItemResult/index</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The zero-based index of the document in the input list.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *index</Declaration>
+			
+			
+			<Anchor>//api/name/index</Anchor>
+            <NodeRef refid="527"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectSentimentItemResult/setSentiment:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sentiment detected in the document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendSentimentType sentiment</Declaration>
+			
+			
+			<Anchor>//api/name/sentiment</Anchor>
+            <NodeRef refid="527"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectSentimentItemResult/sentiment</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sentiment detected in the document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendSentimentType sentiment</Declaration>
+			
+			
+			<Anchor>//api/name/sentiment</Anchor>
+            <NodeRef refid="527"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendBatchDetectSentimentItemResult/sentiment</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The sentiment detected in the document.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSComprehendSentimentType sentiment</Declaration>
+			
+			
+			<Anchor>//api/name/sentiment</Anchor>
+            <NodeRef refid="527"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectSentimentItemResult/setSentimentScore:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its sentiment detection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendSentimentScore *sentimentScore</Declaration>
+			
+			
+			<Anchor>//api/name/sentimentScore</Anchor>
+            <NodeRef refid="527"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSComprehendBatchDetectSentimentItemResult/sentimentScore</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its sentiment detection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendSentimentScore *sentimentScore</Declaration>
+			
+			
+			<Anchor>//api/name/sentimentScore</Anchor>
+            <NodeRef refid="527"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSComprehendBatchDetectSentimentItemResult/sentimentScore</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The level of confidence that Amazon Comprehend has in the accuracy of its sentiment detection.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSComprehendModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) AWSComprehendSentimentScore *sentimentScore</Declaration>
+			
+			
+			<Anchor>//api/name/sentimentScore</Anchor>
+            <NodeRef refid="527"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

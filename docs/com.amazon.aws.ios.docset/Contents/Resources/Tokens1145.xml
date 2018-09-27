@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTUpdateAuthorizerResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTUpdateAuthorizerResponse</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1145"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTUpdateAuthorizerResponse/setAuthorizerArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The authorizer ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *authorizerArn</Declaration>
+			
+			
+			<Anchor>//api/name/authorizerArn</Anchor>
+            <NodeRef refid="1145"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTUpdateAuthorizerResponse/authorizerArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The authorizer ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *authorizerArn</Declaration>
+			
+			
+			<Anchor>//api/name/authorizerArn</Anchor>
+            <NodeRef refid="1145"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTUpdateAuthorizerResponse/authorizerArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The authorizer ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *authorizerArn</Declaration>
+			
+			
+			<Anchor>//api/name/authorizerArn</Anchor>
+            <NodeRef refid="1145"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTUpdateAuthorizerResponse/setAuthorizerName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The authorizer name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *authorizerName</Declaration>
+			
+			
+			<Anchor>//api/name/authorizerName</Anchor>
+            <NodeRef refid="1145"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTUpdateAuthorizerResponse/authorizerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The authorizer name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *authorizerName</Declaration>
+			
+			
+			<Anchor>//api/name/authorizerName</Anchor>
+            <NodeRef refid="1145"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTUpdateAuthorizerResponse/authorizerName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The authorizer name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *authorizerName</Declaration>
+			
+			
+			<Anchor>//api/name/authorizerName</Anchor>
+            <NodeRef refid="1145"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

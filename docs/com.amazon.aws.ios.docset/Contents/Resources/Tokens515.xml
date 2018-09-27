@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoSyncUpdateRecordsResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoSyncUpdateRecordsResponse</TokenIdentifier>
+			<Abstract type="html">Returned for a successful UpdateRecordsRequest.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="515"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncUpdateRecordsResponse/setRecords:</TokenIdentifier>
+			<Abstract type="html">A list of records that have been updated.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoSyncRecord*&gt; *records</Declaration>
+			
+			
+			<Anchor>//api/name/records</Anchor>
+            <NodeRef refid="515"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoSyncUpdateRecordsResponse/records</TokenIdentifier>
+			<Abstract type="html">A list of records that have been updated.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoSyncRecord*&gt; *records</Declaration>
+			
+			
+			<Anchor>//api/name/records</Anchor>
+            <NodeRef refid="515"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoSyncUpdateRecordsResponse/records</TokenIdentifier>
+			<Abstract type="html">A list of records that have been updated.</Abstract>
+			<DeclaredIn>AWSCognitoSyncModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSArray&lt;AWSCognitoSyncRecord*&gt; *records</Declaration>
+			
+			
+			<Anchor>//api/name/records</Anchor>
+            <NodeRef refid="515"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

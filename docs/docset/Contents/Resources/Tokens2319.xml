@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSSignInViewController.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSSignInViewController</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+            
+			
+			<NodeRef refid="2319"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setCanCancel:</TokenIdentifier>
+			<Abstract type="html">If set to YES user can hit cancel button to dismiss sign in UI
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (atomic) BOOL canCancel</Declaration>
+			
+			
+			<Anchor>//api/name/canCancel</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/canCancel</TokenIdentifier>
+			<Abstract type="html">If set to YES user can hit cancel button to dismiss sign in UI
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (atomic) BOOL canCancel</Declaration>
+			
+			
+			<Anchor>//api/name/canCancel</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/canCancel</TokenIdentifier>
+			<Abstract type="html">If set to YES user can hit cancel button to dismiss sign in UI
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (atomic) BOOL canCancel</Declaration>
+			
+			
+			<Anchor>//api/name/canCancel</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setSignInButton:</TokenIdentifier>
+			<Abstract type="html">UIButton that kicks off the SignIn flow on click
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIButton *signInButton</Declaration>
+			
+			
+			<Anchor>//api/name/signInButton</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/signInButton</TokenIdentifier>
+			<Abstract type="html">UIButton that kicks off the SignIn flow on click
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIButton *signInButton</Declaration>
+			
+			
+			<Anchor>//api/name/signInButton</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/signInButton</TokenIdentifier>
+			<Abstract type="html">UIButton that kicks off the SignIn flow on click
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIButton *signInButton</Declaration>
+			
+			
+			<Anchor>//api/name/signInButton</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setSignUpButton:</TokenIdentifier>
+			<Abstract type="html">UIButton that kicks off the SignUp flow on click
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIButton *signUpButton</Declaration>
+			
+			
+			<Anchor>//api/name/signUpButton</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/signUpButton</TokenIdentifier>
+			<Abstract type="html">UIButton that kicks off the SignUp flow on click
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIButton *signUpButton</Declaration>
+			
+			
+			<Anchor>//api/name/signUpButton</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/signUpButton</TokenIdentifier>
+			<Abstract type="html">UIButton that kicks off the SignUp flow on click
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIButton *signUpButton</Declaration>
+			
+			
+			<Anchor>//api/name/signUpButton</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setForgotPasswordButton:</TokenIdentifier>
+			<Abstract type="html">UIButton that kicks off the ForgotPassword flow on click
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIButton *forgotPasswordButton</Declaration>
+			
+			
+			<Anchor>//api/name/forgotPasswordButton</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/forgotPasswordButton</TokenIdentifier>
+			<Abstract type="html">UIButton that kicks off the ForgotPassword flow on click
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIButton *forgotPasswordButton</Declaration>
+			
+			
+			<Anchor>//api/name/forgotPasswordButton</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/forgotPasswordButton</TokenIdentifier>
+			<Abstract type="html">UIButton that kicks off the ForgotPassword flow on click
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIButton *forgotPasswordButton</Declaration>
+			
+			
+			<Anchor>//api/name/forgotPasswordButton</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setOrSignInWithLabel:</TokenIdentifier>
+			<Abstract type="html">Text Label that displays &quot;or sign in with&quot; when userpools
+and one or more SignIn Buttons are configured
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *orSignInWithLabel</Declaration>
+			
+			
+			<Anchor>//api/name/orSignInWithLabel</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/orSignInWithLabel</TokenIdentifier>
+			<Abstract type="html">Text Label that displays &quot;or sign in with&quot; when userpools
+and one or more SignIn Buttons are configured
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *orSignInWithLabel</Declaration>
+			
+			
+			<Anchor>//api/name/orSignInWithLabel</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/orSignInWithLabel</TokenIdentifier>
+			<Abstract type="html">Text Label that displays &quot;or sign in with&quot; when userpools
+and one or more SignIn Buttons are configured
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UILabel *orSignInWithLabel</Declaration>
+			
+			
+			<Anchor>//api/name/orSignInWithLabel</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setLogoView:</TokenIdentifier>
+			<Abstract type="html">Image View for holding the Logo Image
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIImageView *logoView</Declaration>
+			
+			
+			<Anchor>//api/name/logoView</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/logoView</TokenIdentifier>
+			<Abstract type="html">Image View for holding the Logo Image
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIImageView *logoView</Declaration>
+			
+			
+			<Anchor>//api/name/logoView</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/logoView</TokenIdentifier>
+			<Abstract type="html">Image View for holding the Logo Image
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIImageView *logoView</Declaration>
+			
+			
+			<Anchor>//api/name/logoView</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setTableFormView:</TokenIdentifier>
+			<Abstract type="html">The table form view for userpools
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *tableFormView</Declaration>
+			
+			
+			<Anchor>//api/name/tableFormView</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/tableFormView</TokenIdentifier>
+			<Abstract type="html">The table form view for userpools
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *tableFormView</Declaration>
+			
+			
+			<Anchor>//api/name/tableFormView</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/tableFormView</TokenIdentifier>
+			<Abstract type="html">The table form view for userpools
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UIView *tableFormView</Declaration>
+			
+			
+			<Anchor>//api/name/tableFormView</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setTableView:</TokenIdentifier>
+			<Abstract type="html">The table view for userpools
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UITableView *tableView</Declaration>
+			
+			
+			<Anchor>//api/name/tableView</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/tableView</TokenIdentifier>
+			<Abstract type="html">The table view for userpools
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UITableView *tableView</Declaration>
+			
+			
+			<Anchor>//api/name/tableView</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/tableView</TokenIdentifier>
+			<Abstract type="html">The table view for userpools
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet UITableView *tableView</Declaration>
+			
+			
+			<Anchor>//api/name/tableView</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setLogoViewHeight:</TokenIdentifier>
+			<Abstract type="html">Layout constraint for specifying the height of the logo view
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoViewHeight</Declaration>
+			
+			
+			<Anchor>//api/name/logoViewHeight</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/logoViewHeight</TokenIdentifier>
+			<Abstract type="html">Layout constraint for specifying the height of the logo view
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoViewHeight</Declaration>
+			
+			
+			<Anchor>//api/name/logoViewHeight</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/logoViewHeight</TokenIdentifier>
+			<Abstract type="html">Layout constraint for specifying the height of the logo view
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (weak, nonatomic) IBOutlet NSLayoutConstraint *logoViewHeight</Declaration>
+			
+			
+			<Anchor>//api/name/logoViewHeight</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setCompletionHandler:</TokenIdentifier>
+			<Abstract type="html">Callback to the application which notifies success/failure of the SignIn
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( id&lt;AWSSignInProvider&gt; signInProvider , NSError *_Nullable error ) completionHandler</Declaration>
+			
+			
+			<Anchor>//api/name/completionHandler</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/completionHandler</TokenIdentifier>
+			<Abstract type="html">Callback to the application which notifies success/failure of the SignIn
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( id&lt;AWSSignInProvider&gt; signInProvider , NSError *_Nullable error ) completionHandler</Declaration>
+			
+			
+			<Anchor>//api/name/completionHandler</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/completionHandler</TokenIdentifier>
+			<Abstract type="html">Callback to the application which notifies success/failure of the SignIn
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, copy) void ( ^ ) ( id&lt;AWSSignInProvider&gt; signInProvider , NSError *_Nullable error ) completionHandler</Declaration>
+			
+			
+			<Anchor>//api/name/completionHandler</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setConfig:</TokenIdentifier>
+			<Abstract type="html">Auth UI Confguration
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AWSAuthUIConfiguration *config</Declaration>
+			
+			
+			<Anchor>//api/name/config</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/config</TokenIdentifier>
+			<Abstract type="html">Auth UI Confguration
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AWSAuthUIConfiguration *config</Declaration>
+			
+			
+			<Anchor>//api/name/config</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSSignInViewController/config</TokenIdentifier>
+			<Abstract type="html">Auth UI Confguration
+*</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>@property (strong, nonatomic) AWSAuthUIConfiguration *config</Declaration>
+			
+			
+			<Anchor>//api/name/config</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/AWSSignInViewController/getAWSSignInViewControllerWithconfiguration:</TokenIdentifier>
+			<Abstract type="html">Creates a new AWSSignInViewController instance</Abstract>
+			<DeclaredIn>AWSSignInViewController.h</DeclaredIn>
+			
+			<Declaration>+ (AWSSignInViewController *)getAWSSignInViewControllerWithconfiguration:(AWSAuthUIConfiguration *)configuration</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>configuration</Name>
+					<Abstract type="html">The AWSAuthUIConfiguration object configured with logo, background color, etc.</Abstract>
+				</Parameter>
+			</Parameters>
+			<ReturnValue><Abstract type="html">AWSSignInViewController The SignIniewController object initialized with the storyboard
+*</Abstract></ReturnValue>
+			<Anchor>//api/name/getAWSSignInViewControllerWithconfiguration:</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSSignInViewController/setUpBackground:</TokenIdentifier>
+			<Abstract type="html">     If user did not select a logo image, use the default AWS Logo
+     Else, use the logo image passed in by the user
+     </Abstract>
+			<DeclaredIn>AWSSignInViewController.m</DeclaredIn>
+			
+			<Declaration>- (void)setUpBackground:(UIColor *)color</Declaration>
+			
+			
+			<Anchor>//api/name/setUpBackground:</Anchor>
+            <NodeRef refid="2319"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSCognitoIdentityProviderAccountTakeoverActionType.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSCognitoIdentityProviderAccountTakeoverActionType</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Account takeover action type.&lt;/p&gt;
+Required parameters: [Notify, EventAction]</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="216"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverActionType/setEventAction:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event action.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;BLOCK&lt;/code&gt; Choosing this action will block the request.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MFAIFCONFIGURED&lt;/code&gt; Throw MFA challenge if user has configured it, else allow the request.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MFAREQUIRED&lt;/code&gt; Throw MFA challenge if user has configured it, else block the request.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NOACTION&lt;/code&gt; Allow the user sign-in.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderAccountTakeoverEventActionType eventAction</Declaration>
+			
+			
+			<Anchor>//api/name/eventAction</Anchor>
+            <NodeRef refid="216"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverActionType/eventAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event action.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;BLOCK&lt;/code&gt; Choosing this action will block the request.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MFAIFCONFIGURED&lt;/code&gt; Throw MFA challenge if user has configured it, else allow the request.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MFAREQUIRED&lt;/code&gt; Throw MFA challenge if user has configured it, else block the request.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NOACTION&lt;/code&gt; Allow the user sign-in.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderAccountTakeoverEventActionType eventAction</Declaration>
+			
+			
+			<Anchor>//api/name/eventAction</Anchor>
+            <NodeRef refid="216"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAccountTakeoverActionType/eventAction</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The event action.&lt;/p&gt;&lt;ul&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;BLOCK&lt;/code&gt; Choosing this action will block the request.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MFAIFCONFIGURED&lt;/code&gt; Throw MFA challenge if user has configured it, else allow the request.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;MFAREQUIRED&lt;/code&gt; Throw MFA challenge if user has configured it, else block the request.&lt;/p&gt;&lt;/li&gt;&lt;li&gt;&lt;p&gt;&lt;code&gt;NOACTION&lt;/code&gt; Allow the user sign-in.&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, assign) AWSCognitoIdentityProviderAccountTakeoverEventActionType eventAction</Declaration>
+			
+			
+			<Anchor>//api/name/eventAction</Anchor>
+            <NodeRef refid="216"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverActionType/setNotify:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Flag specifying whether to send a notification.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *notify</Declaration>
+			
+			
+			<Anchor>//api/name/notify</Anchor>
+            <NodeRef refid="216"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSCognitoIdentityProviderAccountTakeoverActionType/notify</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Flag specifying whether to send a notification.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *notify</Declaration>
+			
+			
+			<Anchor>//api/name/notify</Anchor>
+            <NodeRef refid="216"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSCognitoIdentityProviderAccountTakeoverActionType/notify</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Flag specifying whether to send a notification.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSCognitoIdentityProviderModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *notify</Declaration>
+			
+			
+			<Anchor>//api/name/notify</Anchor>
+            <NodeRef refid="216"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

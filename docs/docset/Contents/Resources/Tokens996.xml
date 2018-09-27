@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSIoTGetPolicyResponse.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSIoTGetPolicyResponse</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The output from the GetPolicy operation.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="996"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/setCreationDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the policy was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the policy was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTGetPolicyResponse/creationDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the policy was created.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *creationDate</Declaration>
+			
+			
+			<Anchor>//api/name/creationDate</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/setDefaultVersionId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The default policy version ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *defaultVersionId</Declaration>
+			
+			
+			<Anchor>//api/name/defaultVersionId</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/defaultVersionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The default policy version ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *defaultVersionId</Declaration>
+			
+			
+			<Anchor>//api/name/defaultVersionId</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTGetPolicyResponse/defaultVersionId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The default policy version ID.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *defaultVersionId</Declaration>
+			
+			
+			<Anchor>//api/name/defaultVersionId</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/setGenerationId:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The generation ID of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *generationId</Declaration>
+			
+			
+			<Anchor>//api/name/generationId</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/generationId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The generation ID of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *generationId</Declaration>
+			
+			
+			<Anchor>//api/name/generationId</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTGetPolicyResponse/generationId</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The generation ID of the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *generationId</Declaration>
+			
+			
+			<Anchor>//api/name/generationId</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/setLastModifiedDate:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the policy was last modified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/lastModifiedDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the policy was last modified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTGetPolicyResponse/lastModifiedDate</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The date the policy was last modified.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSDate *lastModifiedDate</Declaration>
+			
+			
+			<Anchor>//api/name/lastModifiedDate</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/setPolicyArn:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyArn</Declaration>
+			
+			
+			<Anchor>//api/name/policyArn</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/policyArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyArn</Declaration>
+			
+			
+			<Anchor>//api/name/policyArn</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTGetPolicyResponse/policyArn</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy ARN.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyArn</Declaration>
+			
+			
+			<Anchor>//api/name/policyArn</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/setPolicyDocument:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The JSON document that describes the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyDocument</Declaration>
+			
+			
+			<Anchor>//api/name/policyDocument</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/policyDocument</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The JSON document that describes the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyDocument</Declaration>
+			
+			
+			<Anchor>//api/name/policyDocument</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTGetPolicyResponse/policyDocument</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The JSON document that describes the policy.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyDocument</Declaration>
+			
+			
+			<Anchor>//api/name/policyDocument</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/setPolicyName:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSIoTGetPolicyResponse/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSIoTGetPolicyResponse/policyName</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The policy name.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSIoTModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *policyName</Declaration>
+			
+			
+			<Anchor>//api/name/policyName</Anchor>
+            <NodeRef refid="996"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/AWSKMSListRetirableGrantsRequest.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/AWSKMSListRetirableGrantsRequest</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+            
+			
+			<NodeRef refid="1211"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListRetirableGrantsRequest/setLimit:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.&lt;/p&gt;&lt;p&gt;This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListRetirableGrantsRequest/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.&lt;/p&gt;&lt;p&gt;This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSListRetirableGrantsRequest/limit</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use this parameter to specify the maximum number of items to return. When this value is present, AWS KMS does not return more than the specified number of items, but it might return fewer.&lt;/p&gt;&lt;p&gt;This value is optional. If you include a value, it must be between 1 and 100, inclusive. If you do not include a value, it defaults to 50.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSNumber *limit</Declaration>
+			
+			
+			<Anchor>//api/name/limit</Anchor>
+            <NodeRef refid="1211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListRetirableGrantsRequest/setMarker:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of &lt;code&gt;NextMarker&lt;/code&gt; from the truncated response you just received.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+            <NodeRef refid="1211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListRetirableGrantsRequest/marker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of &lt;code&gt;NextMarker&lt;/code&gt; from the truncated response you just received.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+            <NodeRef refid="1211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSListRetirableGrantsRequest/marker</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of &lt;code&gt;NextMarker&lt;/code&gt; from the truncated response you just received.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *marker</Declaration>
+			
+			
+			<Anchor>//api/name/marker</Anchor>
+            <NodeRef refid="1211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListRetirableGrantsRequest/setRetiringPrincipal:</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retiring principal for which to list grants.&lt;/p&gt;&lt;p&gt;To specify the retiring principal, use the AWS Identity and Access Management (IAM) in the Example ARNs section of the &lt;i&gt;Amazon Web Services General Reference&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *retiringPrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/retiringPrincipal</Anchor>
+            <NodeRef refid="1211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/AWSKMSListRetirableGrantsRequest/retiringPrincipal</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retiring principal for which to list grants.&lt;/p&gt;&lt;p&gt;To specify the retiring principal, use the AWS Identity and Access Management (IAM) in the Example ARNs section of the &lt;i&gt;Amazon Web Services General Reference&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *retiringPrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/retiringPrincipal</Anchor>
+            <NodeRef refid="1211"/>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/AWSKMSListRetirableGrantsRequest/retiringPrincipal</TokenIdentifier>
+			<Abstract type="html">&lt;p&gt;The retiring principal for which to list grants.&lt;/p&gt;&lt;p&gt;To specify the retiring principal, use the AWS Identity and Access Management (IAM) in the Example ARNs section of the &lt;i&gt;Amazon Web Services General Reference&lt;/i&gt;.&lt;/p&gt;</Abstract>
+			<DeclaredIn>AWSKMSModel.h</DeclaredIn>
+			
+			<Declaration>@property (nonatomic, strong) NSString *retiringPrincipal</Declaration>
+			
+			
+			<Anchor>//api/name/retiringPrincipal</Anchor>
+            <NodeRef refid="1211"/>
+		</Token>
+		
+        
+        
+	</File>
+</Tokens>
