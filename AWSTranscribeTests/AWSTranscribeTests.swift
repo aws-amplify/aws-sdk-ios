@@ -51,46 +51,139 @@ class AWSTranscribeTests: XCTestCase {
     }
     
     func testVocabularyOperations() {
-        
+        // This test case builds up system conditions step-by-step, so any failure means we
+        // can't proceed. Note that since assertions inside blocks don't stop test execution
+        // (even though they properly report the error after the test execution completes),
+        // we capture conditions inside blocks and assert on them outside.
+        let originalContinueAfterFailure = continueAfterFailure
+        defer {
+            continueAfterFailure = originalContinueAfterFailure
+        }
+        continueAfterFailure = false
+
+        // We'll assert this is empty after each block
+        var asyncExecutionError: NSError?
+
         let vocabularyName = "hello-world-vocab"
         let transcribeClient = AWSTranscribe.default()
+
+        let deleteVocabularyRequest = AWSTranscribeDeleteVocabularyRequest()
+        deleteVocabularyRequest?.vocabularyName = vocabularyName
+
+        // ##################################
+        // Precondition: test vocabulary does not exist in account
+        transcribeClient.deleteVocabulary(deleteVocabularyRequest!).continueWith { (task) -> Any? in
+            guard let error = task.error else {
+                return nil
+            }
+
+            XCTAssertEqual(error._code, AWSTranscribeErrorType.notFound.rawValue)
+            if error._code != AWSTranscribeErrorType.notFound.rawValue {
+                asyncExecutionError = error as NSError
+            }
+
+            return nil
+        }.waitUntilFinished()
+
+        XCTAssertNil(asyncExecutionError)
+
+        // ##################################
+        // Create vocabulary
         let createVocabularyRequest = AWSTranscribeCreateVocabularyRequest()
         createVocabularyRequest?.languageCode = .enUS
         createVocabularyRequest?.phrases = ["hello", "world"]
         createVocabularyRequest?.vocabularyName = vocabularyName
-        
+
         transcribeClient.createVocabulary(createVocabularyRequest!).continueWith { (task) -> Any? in
             guard let result = task.result else {
-                XCTAssertFalse(true, "Expected create vocabulory response, but got error.")
+                asyncExecutionError = task.error as NSError?
+                XCTAssertFalse(true, "Expected create vocabulary response, but got error.")
+                XCTAssertNil(task.error, "Error should be nil")
                 return nil
             }
-            
-            XCTAssertTrue(result.vocabularyName! == vocabularyName, "Vocabulory names are different. This is unexpected.")
+
+            if result.vocabularyName != vocabularyName {
+                asyncExecutionError = NSError(domain: "asyncExecutionError", code: -1, userInfo: nil)
+                XCTAssertEqual(result.vocabularyName, vocabularyName, "vocabulary names are different. This is unexpected.")
+            }
             return nil
         }.waitUntilFinished()
         
-        
+        XCTAssertNil(asyncExecutionError)
+
+        // ##################################
+        // List vocabulary
         let listVocabRequest = AWSTranscribeListVocabulariesRequest()
         transcribeClient.listVocabularies(listVocabRequest!).continueWith { (task) -> Any? in
             guard let result = task.result else {
-                XCTAssertFalse(true, "Expected vocabulory list, but got error.")
+                asyncExecutionError = task.error as NSError?
+                XCTFail("Expected vocabulary list, but got error.")
                 return nil
             }
-            
-            XCTAssertTrue(result.vocabularies!.count == 1, "Only 1 vocabulory expected, but found \(result.vocabularies!.count) instead.")
+
+            if result.vocabularies!.count != 1 {
+                asyncExecutionError = NSError(domain: "asyncExecutionError", code: -1, userInfo: nil)
+                XCTAssertEqual(result.vocabularies!.count, 1, "Only 1 vocabulary expected, but found \(result.vocabularies!.count) instead.")
+            }
             return nil
         }.waitUntilFinished()
-        
-        let deleteVocabularyRequest = AWSTranscribeDeleteVocabularyRequest()
-        deleteVocabularyRequest?.vocabularyName = vocabularyName
-        
+
+        XCTAssertNil(asyncExecutionError)
+
+        // ##################################
+        // Get vocabulary
+
+        // We'll test `getVocabulary` operation by waiting for the vocabulary to be in READY
+        // or FAILED state so we can delete it
+        let getVocabularyRequest = AWSTranscribeGetVocabularyRequest()!
+        getVocabularyRequest.vocabularyName = vocabularyName
+
+        var readyToDeleteVocabulary = false
+        var retriesRemaining = 36
+        while !readyToDeleteVocabulary && retriesRemaining >= 0 {
+            retriesRemaining -= 1
+            transcribeClient.getVocabulary(getVocabularyRequest).continueWith { (task) -> Any? in
+                guard let taskResult = task.result else {
+                    asyncExecutionError = task.error as NSError?
+                    XCTAssertNil(task.error, "Result should not be nil, error should be nil")
+                    XCTAssertNotNil(task.result, "Expected getVocabulary result, got nil")
+                    return nil
+                }
+
+                let vocabularyState = taskResult.vocabularyState
+
+                readyToDeleteVocabulary = vocabularyState == .ready ||
+                    vocabularyState == .failed;
+
+                return nil
+            }.waitUntilFinished()
+
+            if asyncExecutionError != nil {
+                break
+            }
+
+            if !readyToDeleteVocabulary {
+                sleep(10)
+            }
+        }
+
+        XCTAssertNil(asyncExecutionError)
+        XCTAssertTrue(readyToDeleteVocabulary, "Vocabulary still not in READY or FAILED state after max retries")
+
+        // ##################################
+        // Delete vocabulary
+        // Re-use the `deleteVocabulary` request from the precondition
         transcribeClient.deleteVocabulary(deleteVocabularyRequest!).continueWith { (task) -> Any? in
             guard let _ = task.result else {
+                asyncExecutionError = task.error as NSError?
                 XCTAssertTrue(false, "Expected delete confirmation, not error")
+                XCTAssertNil(task.error, "Error should be nil")
                 return nil
             }
             return nil
         }.waitUntilFinished()
+
+        XCTAssertNil(asyncExecutionError)
     }
     
     func testTranscribeRequests() {

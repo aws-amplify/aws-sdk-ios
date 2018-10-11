@@ -24,9 +24,10 @@
 #import <AWSCore/AWSURLRequestRetryHandler.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import "AWSFirehoseResources.h"
+#import "AWSFirehoseSerializer.h"
 
 static NSString *const AWSInfoFirehose = @"Firehose";
-static NSString *const AWSFirehoseSDKVersion = @"2.6.31";
+static NSString *const AWSFirehoseSDKVersion = @"2.6.32";
 
 
 @interface AWSFirehoseResponseSerializer : AWSJSONResponseSerializer
@@ -268,8 +269,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
         networkingRequest.headers = headers;
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSFirehoseResources sharedInstance] JSONObject]
-                                                                                                   actionName:operationName];
+		networkingRequest.requestSerializer = [[AWSFirehoseRequestSerializer alloc] initWithJSONDefinition:[[AWSFirehoseResources sharedInstance] JSONObject]
+		 															     actionName:operationName];
         networkingRequest.responseSerializer = [[AWSFirehoseResponseSerializer alloc] initWithJSONDefinition:[[AWSFirehoseResources sharedInstance] JSONObject]
                                                                                              actionName:operationName
                                                                                             outputClass:outputClass];

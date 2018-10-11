@@ -25,9 +25,10 @@
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import "AWSKinesisResources.h"
 #import "AWSKinesisRequestRetryHandler.h"
+#import "AWSKinesisSerializer.h"
 
 static NSString *const AWSInfoKinesis = @"Kinesis";
-static NSString *const AWSKinesisSDKVersion = @"2.6.31";
+static NSString *const AWSKinesisSDKVersion = @"2.6.32";
 
 
 @interface AWSKinesisResponseSerializer : AWSJSONResponseSerializer
@@ -269,8 +270,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
         networkingRequest.headers = headers;
         networkingRequest.HTTPMethod = HTTPMethod;
-        networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSKinesisResources sharedInstance] JSONObject]
-                                                                                                   actionName:operationName];
+		networkingRequest.requestSerializer = [[AWSKinesisRequestSerializer alloc] initWithJSONDefinition:[[AWSKinesisResources sharedInstance] JSONObject]
+		 															     actionName:operationName];
         networkingRequest.responseSerializer = [[AWSKinesisResponseSerializer alloc] initWithJSONDefinition:[[AWSKinesisResources sharedInstance] JSONObject]
                                                                                              actionName:operationName
                                                                                             outputClass:outputClass];

@@ -1,6 +1,22 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.32
+
+### Bug Fixes
+
+* **Amazon Kinesis**
+  * Use row id instead of partition key to delete submitted events in database. See [PR #792](https://github.com/aws/aws-sdk-ios/pull/792)
+  * GZIP encoded `PutRecord` and `PutRecords` requests for Kinesis Streams; `PutRecord` and `PutRecordBatch` for Firehose.
+
+* **Amazon S3**
+  * For background transfers using `AWSS3TransferUtility`, the `backgroundURLSessionCompletionHandler` callback will be called on the main thread.
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon EC2
+
 ## 2.6.31
 
 ### Bug Fixes

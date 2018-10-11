@@ -1159,6 +1159,16 @@
 		EFF1B9F21CBC42FF001F4CF1 /* aws_tommath_class.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF1B9EE1CBC42FF001F4CF1 /* aws_tommath_class.h */; };
 		EFF1B9F31CBC42FF001F4CF1 /* aws_tommath_superclass.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF1B9EF1CBC42FF001F4CF1 /* aws_tommath_superclass.h */; };
 		EFF1B9F41CBC42FF001F4CF1 /* tommath.c in Sources */ = {isa = PBXBuildFile; fileRef = EFF1B9F01CBC42FF001F4CF1 /* tommath.c */; };
+		FA62A7172167C9F100EFB444 /* AWSGZIPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */; };
+		FA99CF25216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA99CF23216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h */; };
+		FA99CF26216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF24216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m */; };
+		FA99CF2D216C13E30086F9A7 /* AWSKinesisSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA99CF2B216C13E20086F9A7 /* AWSKinesisSerializer.h */; };
+		FA99CF2E216C13E30086F9A7 /* AWSFirehoseSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA99CF2C216C13E30086F9A7 /* AWSFirehoseSerializer.h */; };
+		FA99CF30216C14240086F9A7 /* AWSFirehoseSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF2F216C14240086F9A7 /* AWSFirehoseSerializer.m */; };
+		FA99CF32216C144F0086F9A7 /* AWSKinesisSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF31216C144F0086F9A7 /* AWSKinesisSerializer.m */; };
+		FABCFA632167D1F800C6F1FF /* AWSGZIPEncodingFirehoseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FABCFA622167D1F800C6F1FF /* AWSGZIPEncodingFirehoseTests.m */; };
+		FAEE86AC2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE86AB2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m */; };
+		FAF13AB02167C6AA008115D1 /* AWSGZIPTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF13AAF2167C6AA008115D1 /* AWSGZIPTestHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -4089,6 +4099,18 @@
 		EFF1B9EE1CBC42FF001F4CF1 /* aws_tommath_class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aws_tommath_class.h; sourceTree = "<group>"; };
 		EFF1B9EF1CBC42FF001F4CF1 /* aws_tommath_superclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aws_tommath_superclass.h; sourceTree = "<group>"; };
 		EFF1B9F01CBC42FF001F4CF1 /* tommath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tommath.c; sourceTree = "<group>"; };
+		FA62A7152167C9F100EFB444 /* AWSGZIPBaseTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSGZIPBaseTestCase.h; sourceTree = "<group>"; };
+		FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPBaseTestCase.m; sourceTree = "<group>"; };
+		FA99CF23216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSGZIPEncodingJSONRequestSerializer.h; sourceTree = "<group>"; };
+		FA99CF24216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingJSONRequestSerializer.m; sourceTree = "<group>"; };
+		FA99CF2B216C13E20086F9A7 /* AWSKinesisSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSKinesisSerializer.h; sourceTree = "<group>"; };
+		FA99CF2C216C13E30086F9A7 /* AWSFirehoseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSFirehoseSerializer.h; sourceTree = "<group>"; };
+		FA99CF2F216C14240086F9A7 /* AWSFirehoseSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSFirehoseSerializer.m; sourceTree = "<group>"; };
+		FA99CF31216C144F0086F9A7 /* AWSKinesisSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisSerializer.m; sourceTree = "<group>"; };
+		FABCFA622167D1F800C6F1FF /* AWSGZIPEncodingFirehoseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingFirehoseTests.m; sourceTree = "<group>"; };
+		FAEE86AB2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingKinesisTests.m; sourceTree = "<group>"; };
+		FAF13AAE2167C6AA008115D1 /* AWSGZIPTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSGZIPTestHelper.h; sourceTree = "<group>"; };
+		FAF13AAF2167C6AA008115D1 /* AWSGZIPTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPTestHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -5952,6 +5974,12 @@
 			children = (
 				CE56052E1C6BCE1700B4E00B /* AWSGeneralFirehoseTests.m */,
 				CE56052F1C6BCE1700B4E00B /* AWSGeneralKinesisTests.m */,
+				FA62A7152167C9F100EFB444 /* AWSGZIPBaseTestCase.h */,
+				FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */,
+				FABCFA622167D1F800C6F1FF /* AWSGZIPEncodingFirehoseTests.m */,
+				FAEE86AB2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m */,
+				FAF13AAE2167C6AA008115D1 /* AWSGZIPTestHelper.h */,
+				FAF13AAF2167C6AA008115D1 /* AWSGZIPTestHelper.m */,
 				CE5604671C6BC92E00B4E00B /* Info.plist */,
 			);
 			path = AWSKinesisUnitTests;
@@ -6240,7 +6268,6 @@
 		CE9DE6881C6A79460060793F /* AWSKinesis */ = {
 			isa = PBXGroup;
 			children = (
-				CE9DE6891C6A79460060793F /* AWSKinesis.h */,
 				CE9DE69F1C6A79990060793F /* AWSAbstractKinesisRecorder.h */,
 				CE9DE6A01C6A79990060793F /* AWSAbstractKinesisRecorder.m */,
 				CE9DE6A11C6A79990060793F /* AWSFirehose.h */,
@@ -6252,17 +6279,19 @@
 				CE9DE6A71C6A79990060793F /* AWSFirehoseResources.m */,
 				CE9DE6A81C6A79990060793F /* AWSFirehoseService.h */,
 				CE9DE6A91C6A79990060793F /* AWSFirehoseService.m */,
+				CE9DE6891C6A79460060793F /* AWSKinesis.h */,
 				CE9DE6AA1C6A79990060793F /* AWSKinesisModel.h */,
 				CE9DE6AB1C6A79990060793F /* AWSKinesisModel.m */,
 				CE9DE6AC1C6A79990060793F /* AWSKinesisRecorder.h */,
 				CE9DE6AD1C6A79990060793F /* AWSKinesisRecorder.m */,
+				18CDFB221D661FED0021B1DE /* AWSKinesisRequestRetryHandler.h */,
+				18CDFB231D661FED0021B1DE /* AWSKinesisRequestRetryHandler.m */,
 				CE9DE6AE1C6A79990060793F /* AWSKinesisResources.h */,
 				CE9DE6AF1C6A79990060793F /* AWSKinesisResources.m */,
 				CE9DE6B01C6A79990060793F /* AWSKinesisService.h */,
 				CE9DE6B11C6A79990060793F /* AWSKinesisService.m */,
-				18CDFB221D661FED0021B1DE /* AWSKinesisRequestRetryHandler.h */,
-				18CDFB231D661FED0021B1DE /* AWSKinesisRequestRetryHandler.m */,
 				CE9DE68B1C6A79470060793F /* Info.plist */,
+				FA8ECEC4216E7CE300DB67B2 /* Internal */,
 			);
 			path = AWSKinesis;
 			sourceTree = "<group>";
@@ -7072,6 +7101,19 @@
 			path = LibTomMath;
 			sourceTree = "<group>";
 		};
+		FA8ECEC4216E7CE300DB67B2 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				FA99CF2C216C13E30086F9A7 /* AWSFirehoseSerializer.h */,
+				FA99CF2F216C14240086F9A7 /* AWSFirehoseSerializer.m */,
+				FA99CF23216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h */,
+				FA99CF24216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m */,
+				FA99CF2B216C13E20086F9A7 /* AWSKinesisSerializer.h */,
+				FA99CF31216C144F0086F9A7 /* AWSKinesisSerializer.m */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -7399,10 +7441,13 @@
 				CE9DE6B51C6A79990060793F /* AWSFirehoseModel.h in Headers */,
 				CE9DE69E1C6A794D0060793F /* AWSKinesis.h in Headers */,
 				18CDFB241D661FED0021B1DE /* AWSKinesisRequestRetryHandler.h in Headers */,
+				FA99CF25216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h in Headers */,
 				CE9DE6B71C6A79990060793F /* AWSFirehoseRecorder.h in Headers */,
 				CE9DE6BB1C6A79990060793F /* AWSFirehoseService.h in Headers */,
 				CE9DE6B21C6A79990060793F /* AWSAbstractKinesisRecorder.h in Headers */,
 				CE9DE6C11C6A79990060793F /* AWSKinesisResources.h in Headers */,
+				FA99CF2E216C13E30086F9A7 /* AWSFirehoseSerializer.h in Headers */,
+				FA99CF2D216C13E30086F9A7 /* AWSKinesisSerializer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11191,8 +11236,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAF13AB02167C6AA008115D1 /* AWSGZIPTestHelper.m in Sources */,
+				FABCFA632167D1F800C6F1FF /* AWSGZIPEncodingFirehoseTests.m in Sources */,
+				FAEE86AC2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m in Sources */,
 				CE5604EE1C6BCA9B00B4E00B /* AWSTestUtility.m in Sources */,
 				CE5605311C6BCE1700B4E00B /* AWSGeneralKinesisTests.m in Sources */,
+				FA62A7172167C9F100EFB444 /* AWSGZIPBaseTestCase.m in Sources */,
 				CE5605301C6BCE1700B4E00B /* AWSGeneralFirehoseTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -11392,8 +11441,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9DE6BA1C6A79990060793F /* AWSFirehoseResources.m in Sources */,
+				FA99CF26216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m in Sources */,
 				CE9DE6B61C6A79990060793F /* AWSFirehoseModel.m in Sources */,
 				CE9DE6C41C6A79990060793F /* AWSKinesisService.m in Sources */,
+				FA99CF32216C144F0086F9A7 /* AWSKinesisSerializer.m in Sources */,
+				FA99CF30216C14240086F9A7 /* AWSFirehoseSerializer.m in Sources */,
 				CE9DE6BC1C6A79990060793F /* AWSFirehoseService.m in Sources */,
 				CE9DE6B31C6A79990060793F /* AWSAbstractKinesisRecorder.m in Sources */,
 				CE9DE6C21C6A79990060793F /* AWSKinesisResources.m in Sources */,

@@ -1838,9 +1838,11 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 
 - (void)URLSessionDidFinishEventsForBackgroundURLSession:(NSURLSession *)session {
     AWSDDLogDebug(@"URLSessionDidFinishEventsForBackgroundURLSession called for NSURLSession %@", _sessionIdentifier);
-    if (self.backgroundURLSessionCompletionHandler) {
-        self.backgroundURLSessionCompletionHandler();
-    }
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.backgroundURLSessionCompletionHandler) {
+            self.backgroundURLSessionCompletionHandler();
+        }
+    });
 }
 
 - (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(NSError *)error {
