@@ -34,6 +34,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
 
 @interface AWSPinpointSessionClientTests : XCTestCase
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSString *appId;
 @end
 
 
@@ -48,6 +49,13 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointSessionClientTests"];
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointSessionClientTests"];
     [AWSTestUtility setupCognitoCredentialsProvider];
+    
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                          ofType:@"json"];
+    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                    options:NSJSONReadingMutableContainers
+                                                                      error:nil];
+    self.appId = credentialsJson[@"pinpointAppId"];
 }
 
 - (void)tearDown {
@@ -435,7 +443,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
     
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionTimeout"
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:5*1024*1024
                                                                         sessionTimeout:5000];
@@ -502,7 +510,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
     
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionTimeoutNoCompletion"
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:5*1024*1024
                                                                         sessionTimeout:5000];
@@ -568,7 +576,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
     
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionImmediateTimeout"
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:5*1024*1024
                                                                         sessionTimeout:0];
@@ -634,7 +642,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
     
     __block XCTestExpectation *expectation = [self expectationWithDescription:@"Test finished running."];
     
-    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:@"testSessionImmediateTimeoutNoCompletion"
+    AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:self.appId
                                                                          launchOptions:nil
                                                                         maxStorageSize:5*1024*1024
                                                                         sessionTimeout:0];

@@ -26,7 +26,7 @@
 #import "AWSRekognitionResources.h"
 
 static NSString *const AWSInfoRekognition = @"Rekognition";
-static NSString *const AWSRekognitionSDKVersion = @"2.6.18";
+static NSString *const AWSRekognitionSDKVersion = @"2.6.32";
 
 
 @interface AWSRekognitionResponseSerializer : AWSJSONResponseSerializer
@@ -417,6 +417,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionDeleteStreamProcessorResponse *response, NSError *error))completionHandler {
     [[self deleteStreamProcessor:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDeleteStreamProcessorResponse *> * _Nonnull task) {
         AWSRekognitionDeleteStreamProcessorResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionDescribeCollectionResponse *> *)describeCollection:(AWSRekognitionDescribeCollectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"DescribeCollection"
+                   outputClass:[AWSRekognitionDescribeCollectionResponse class]];
+}
+
+- (void)describeCollection:(AWSRekognitionDescribeCollectionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionDescribeCollectionResponse *response, NSError *error))completionHandler {
+    [[self describeCollection:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDescribeCollectionResponse *> * _Nonnull task) {
+        AWSRekognitionDescribeCollectionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

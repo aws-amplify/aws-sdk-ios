@@ -21,7 +21,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- <fullname>Elastic Load Balancing</fullname><p>A load balancer distributes incoming traffic across your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered instances and ensures that it routes traffic only to healthy instances. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer and a protocol and port number for connections from the load balancer to the instances.</p><p>Elastic Load Balancing supports two types of load balancers: Classic load balancers and Application load balancers (new). A Classic load balancer makes routing and load balancing decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. An Application load balancer makes routing and load balancing decisions at the application layer (HTTP/HTTPS), supports path-based routing, and can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC). For more information, see the .</p><p>This reference covers the 2012-06-01 API, which supports Classic load balancers. The 2015-12-01 API supports Application load balancers.</p><p>To get started, create a load balancer with one or more listeners using <a>CreateLoadBalancer</a>. Register your instances with the load balancer using <a>RegisterInstancesWithLoadBalancer</a>.</p><p>All Elastic Load Balancing operations are <i>idempotent</i>, which means that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK response code.</p>
+ <fullname>Elastic Load Balancing</fullname><p>A load balancer can distribute incoming traffic across your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered instances and ensures that it routes traffic only to healthy instances. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer and a protocol and port number for connections from the load balancer to the instances.</p><p>Elastic Load Balancing supports three types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers. You can select a load balancer based on your application needs. For more information, see the <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/">Elastic Load Balancing User Guide</a>.</p><p>This reference covers the 2012-06-01 API, which supports Classic Load Balancers. The 2015-12-01 API supports Application Load Balancers and Network Load Balancers.</p><p>To get started, create a load balancer with one or more listeners using <a>CreateLoadBalancer</a>. Register your instances with the load balancer using <a>RegisterInstancesWithLoadBalancer</a>.</p><p>All Elastic Load Balancing operations are <i>idempotent</i>, which means that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK response code.</p>
  */
 @interface AWSElasticLoadBalancing : AWSService
 
@@ -322,11 +322,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createLBCookieStickinessPolicy:(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a Classic load balancer.</p><p>You can add listeners, security groups, subnets, and tags when you create your load balancer, or you can add them later using <a>CreateLoadBalancerListeners</a>, <a>ApplySecurityGroupsToLoadBalancer</a>, <a>AttachLoadBalancerToSubnets</a>, and <a>AddTags</a>.</p><p>To describe your current load balancers, see <a>DescribeLoadBalancers</a>. When you are finished with a load balancer, you can delete it using <a>DeleteLoadBalancer</a>.</p><p>You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>Creates a Classic Load Balancer.</p><p>You can add listeners, security groups, subnets, and tags when you create your load balancer, or you can add them later using <a>CreateLoadBalancerListeners</a>, <a>ApplySecurityGroupsToLoadBalancer</a>, <a>AttachLoadBalancerToSubnets</a>, and <a>AddTags</a>.</p><p>To describe your current load balancers, see <a>DescribeLoadBalancers</a>. When you are finished with a load balancer, you can delete it using <a>DeleteLoadBalancer</a>.</p><p>You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateLoadBalancer service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateAccessPointOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateAccessPointName`, `AWSElasticLoadBalancingErrorTooManyAccessPoints`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorSubnetNotFound`, `AWSElasticLoadBalancingErrorInvalidSubnet`, `AWSElasticLoadBalancingErrorInvalidSecurityGroup`, `AWSElasticLoadBalancingErrorInvalidScheme`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorDuplicateTagKeys`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateAccessPointOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateAccessPointName`, `AWSElasticLoadBalancingErrorTooManyAccessPoints`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorSubnetNotFound`, `AWSElasticLoadBalancingErrorInvalidSubnet`, `AWSElasticLoadBalancingErrorInvalidSecurityGroup`, `AWSElasticLoadBalancingErrorInvalidScheme`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorDuplicateTagKeys`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorOperationNotPermitted`.
  
  @see AWSElasticLoadBalancingCreateAccessPointInput
  @see AWSElasticLoadBalancingCreateAccessPointOutput
@@ -334,12 +334,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSElasticLoadBalancingCreateAccessPointOutput *> *)createLoadBalancer:(AWSElasticLoadBalancingCreateAccessPointInput *)request;
 
 /**
- <p>Creates a Classic load balancer.</p><p>You can add listeners, security groups, subnets, and tags when you create your load balancer, or you can add them later using <a>CreateLoadBalancerListeners</a>, <a>ApplySecurityGroupsToLoadBalancer</a>, <a>AttachLoadBalancerToSubnets</a>, and <a>AddTags</a>.</p><p>To describe your current load balancers, see <a>DescribeLoadBalancers</a>. When you are finished with a load balancer, you can delete it using <a>DeleteLoadBalancer</a>.</p><p>You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>Creates a Classic Load Balancer.</p><p>You can add listeners, security groups, subnets, and tags when you create your load balancer, or you can add them later using <a>CreateLoadBalancerListeners</a>, <a>ApplySecurityGroupsToLoadBalancer</a>, <a>AttachLoadBalancerToSubnets</a>, and <a>AddTags</a>.</p><p>To describe your current load balancers, see <a>DescribeLoadBalancers</a>. When you are finished with a load balancer, you can delete it using <a>DeleteLoadBalancer</a>.</p><p>You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateLoadBalancer service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateAccessPointName`, `AWSElasticLoadBalancingErrorTooManyAccessPoints`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorSubnetNotFound`, `AWSElasticLoadBalancingErrorInvalidSubnet`, `AWSElasticLoadBalancingErrorInvalidSecurityGroup`, `AWSElasticLoadBalancingErrorInvalidScheme`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorDuplicateTagKeys`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateAccessPointName`, `AWSElasticLoadBalancingErrorTooManyAccessPoints`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorSubnetNotFound`, `AWSElasticLoadBalancingErrorInvalidSubnet`, `AWSElasticLoadBalancingErrorInvalidSecurityGroup`, `AWSElasticLoadBalancingErrorInvalidScheme`, `AWSElasticLoadBalancingErrorTooManyTags`, `AWSElasticLoadBalancingErrorDuplicateTagKeys`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorOperationNotPermitted`.
  
  @see AWSElasticLoadBalancingCreateAccessPointInput
  @see AWSElasticLoadBalancingCreateAccessPointOutput
@@ -495,6 +495,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSElasticLoadBalancingDeregisterEndPointsOutput
  */
 - (void)deregisterInstancesFromLoadBalancer:(AWSElasticLoadBalancingDeregisterEndPointsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDeregisterEndPointsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the current Elastic Load Balancing resource limits for your AWS account.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAccountLimits service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingDescribeAccountLimitsOutput`.
+ 
+ @see AWSElasticLoadBalancingDescribeAccountLimitsInput
+ @see AWSElasticLoadBalancingDescribeAccountLimitsOutput
+ */
+- (AWSTask<AWSElasticLoadBalancingDescribeAccountLimitsOutput *> *)describeAccountLimits:(AWSElasticLoadBalancingDescribeAccountLimitsInput *)request;
+
+/**
+ <p>Describes the current Elastic Load Balancing resource limits for your AWS account.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html">Limits for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAccountLimits service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSElasticLoadBalancingDescribeAccountLimitsInput
+ @see AWSElasticLoadBalancingDescribeAccountLimitsOutput
+ */
+- (void)describeAccountLimits:(AWSElasticLoadBalancingDescribeAccountLimitsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDescribeAccountLimitsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes the state of the specified instances with respect to the specified load balancer. If no instances are specified, the call describes the state of all instances that are currently registered with the load balancer. If instances are specified, their state is returned even if they are no longer registered with the load balancer. The state of terminated instances is not returned.</p>
@@ -672,7 +697,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)detachLoadBalancerFromSubnets:(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer.</p><p>There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, all instances registered with the load balancer that are in the removed Availability Zone go into the <code>OutOfService</code> state. Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer in EC2-Classic or a default VPC.</p><p>For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.</p><p>There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, all instances registered with the load balancer that are in the removed Availability Zone go into the <code>OutOfService</code> state. Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisableAvailabilityZonesForLoadBalancer service method.
 
@@ -684,7 +709,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSElasticLoadBalancingRemoveAvailabilityZonesOutput *> *)disableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingRemoveAvailabilityZonesInput *)request;
 
 /**
- <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer.</p><p>There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, all instances registered with the load balancer that are in the removed Availability Zone go into the <code>OutOfService</code> state. Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer in EC2-Classic or a default VPC.</p><p>For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.</p><p>There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, all instances registered with the load balancer that are in the removed Availability Zone go into the <code>OutOfService</code> state. Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisableAvailabilityZonesForLoadBalancer service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -697,7 +722,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)disableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingRemoveAvailabilityZonesInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingRemoveAvailabilityZonesOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer.</p><p>The load balancer evenly distributes requests across all its registered Availability Zones that contain instances.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer in EC2-Classic or a default VPC.</p><p>For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.</p><p>The load balancer evenly distributes requests across all its registered Availability Zones that contain instances. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the EnableAvailabilityZonesForLoadBalancer service method.
 
@@ -709,7 +734,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSElasticLoadBalancingAddAvailabilityZonesOutput *> *)enableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingAddAvailabilityZonesInput *)request;
 
 /**
- <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer.</p><p>The load balancer evenly distributes requests across all its registered Availability Zones that contain instances.</p><p>For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer in EC2-Classic or a default VPC.</p><p>For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.</p><p>The load balancer evenly distributes requests across all its registered Availability Zones that contain instances. For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the EnableAvailabilityZonesForLoadBalancer service method.
  @param completionHandler The completion handler to call when the load request is complete.

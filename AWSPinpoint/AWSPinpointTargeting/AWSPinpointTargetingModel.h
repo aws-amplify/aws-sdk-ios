@@ -23,11 +23,15 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingErrorType) {
     AWSPinpointTargetingErrorUnknown,
+    AWSPinpointTargetingErrorBadGateway,
     AWSPinpointTargetingErrorBadRequest,
     AWSPinpointTargetingErrorForbidden,
     AWSPinpointTargetingErrorInternalServerError,
     AWSPinpointTargetingErrorMethodNotAllowed,
     AWSPinpointTargetingErrorNotFound,
+    AWSPinpointTargetingErrorRequestEntityTooLarge,
+    AWSPinpointTargetingErrorRequestTimedOut,
+    AWSPinpointTargetingErrorServiceUnavailable,
     AWSPinpointTargetingErrorTooManyRequests,
 };
 
@@ -175,11 +179,15 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingEndpointBatchItem;
 @class AWSPinpointTargetingEndpointBatchRequest;
 @class AWSPinpointTargetingEndpointDemographic;
+@class AWSPinpointTargetingEndpointItemResponse;
 @class AWSPinpointTargetingEndpointLocation;
 @class AWSPinpointTargetingEndpointRequest;
 @class AWSPinpointTargetingEndpointResponse;
 @class AWSPinpointTargetingEndpointUser;
 @class AWSPinpointTargetingEventStream;
+@class AWSPinpointTargetingEvent;
+@class AWSPinpointTargetingEventItemResponse;
+@class AWSPinpointTargetingEventsBatch;
 @class AWSPinpointTargetingGCMChannelRequest;
 @class AWSPinpointTargetingGCMChannelResponse;
 @class AWSPinpointTargetingGCMMessage;
@@ -223,6 +231,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingGetSegmentsResponse;
 @class AWSPinpointTargetingGetSmsChannelRequest;
 @class AWSPinpointTargetingGetSmsChannelResponse;
+@class AWSPinpointTargetingItemResponse;
 @class AWSPinpointTargetingImportJobRequest;
 @class AWSPinpointTargetingImportJobResource;
 @class AWSPinpointTargetingImportJobResponse;
@@ -233,6 +242,8 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingMessageRequest;
 @class AWSPinpointTargetingMessageResponse;
 @class AWSPinpointTargetingMessageResult;
+@class AWSPinpointTargetingEventsRequest;
+@class AWSPinpointTargetingEventsResponse;
 @class AWSPinpointTargetingPutEventStreamRequest;
 @class AWSPinpointTargetingPutEventStreamResponse;
 @class AWSPinpointTargetingQuietTime;
@@ -251,6 +262,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @class AWSPinpointTargetingSendMessagesRequest;
 @class AWSPinpointTargetingSendMessagesResponse;
 @class AWSPinpointTargetingSetDimension;
+@class AWSPinpointTargetingSession;
 @class AWSPinpointTargetingTreatmentResource;
 @class AWSPinpointTargetingUpdateApnsChannelRequest;
 @class AWSPinpointTargetingUpdateApnsChannelResponse;
@@ -1504,6 +1516,24 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 @end
 
 /**
+ 
+ */
+@interface AWSPinpointTargetingEndpointItemResponse : AWSModel
+
+
+/**
+ The response message.
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ The response status code.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable statusCode;
+
+@end
+
+/**
  Endpoint location data
  */
 @interface AWSPinpointTargetingEndpointLocation : AWSModel
@@ -1745,6 +1775,80 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
  The IAM role that authorizes Amazon Pinpoint to publish events to the stream in your account.
  */
 @property (nonatomic, strong) NSString * _Nullable roleArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingEvent : AWSModel
+
+
+/**
+ Event attributes.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
+
+/**
+ The client sdk version.
+ */
+@property (nonatomic, strong) NSString * _Nullable clientSdkVersion;
+
+/**
+ The event type submitted.
+ */
+@property (nonatomic, strong) NSString * _Nullable eventType;
+
+/**
+ Event metrics.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable metrics;
+
+/**
+ The session associated with the event.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingSession * _Nullable session;
+
+/**
+ The timestamp associated with event.
+ */
+@property (nonatomic, strong) NSString * _Nullable timestamp;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingEventItemResponse : AWSModel
+
+
+/**
+ The response message.
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ The response status code.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable statusCode;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingEventsBatch : AWSModel
+
+
+/**
+ Endpoint information to submit.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEndpointRequest * _Nullable endpoint;
+
+/**
+ Events to submit.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingEvent *> * _Nullable events;
 
 @end
 
@@ -2562,6 +2666,24 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
 /**
  
  */
+@interface AWSPinpointTargetingItemResponse : AWSModel
+
+
+/**
+ The response from endpoint request.
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEndpointItemResponse * _Nullable endpointItemResponse;
+
+/**
+ The response from each event request.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingEventItemResponse *> * _Nullable eventsItemResponse;
+
+@end
+
+/**
+ 
+ */
 @interface AWSPinpointTargetingImportJobRequest : AWSModel
 
 
@@ -2926,6 +3048,37 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
  If token was updated as part of delivery. (This is GCM Specific)
  */
 @property (nonatomic, strong) NSString * _Nullable updatedToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingEventsRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationId;
+
+/**
+ Batch events to submit
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingEventsBatch *> * _Nullable batchItem;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingEventsResponse : AWSModel
+
+
+/**
+ Events submission response.
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingItemResponse *> * _Nullable results;
 
 @end
 
@@ -3397,6 +3550,34 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingSegmentType) {
  The criteria values for the segment dimension. Endpoints with matching attribute values are included or excluded from the segment, depending on the setting for Type.
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable values;
+
+@end
+
+/**
+ 
+ */
+@interface AWSPinpointTargetingSession : AWSModel
+
+
+/**
+ The duration of the session.
+ */
+@property (nonatomic, strong) NSNumber * _Nullable duration;
+
+/**
+ The session id.
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ The start time of the session.
+ */
+@property (nonatomic, strong) NSString * _Nullable startTimestamp;
+
+/**
+ The stop time of the session.
+ */
+@property (nonatomic, strong) NSString * _Nullable stopTimestamp;
 
 @end
 

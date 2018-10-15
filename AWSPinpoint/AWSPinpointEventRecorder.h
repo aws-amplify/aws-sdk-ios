@@ -20,6 +20,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+FOUNDATION_EXPORT NSString *const AWSPinpointAnalyticsErrorDomain;
+
+typedef NS_ENUM(NSInteger, AWSPinpointAnalyticsErrorType) {
+    AWSPinpointAnalyticsErrorUnknown,
+    AWSPinpointAnalyticsErrorBadRequest,
+};
+
+
 /**
  When a `saveEvent:` operation causes the disk size to exceed `notificationByteThreshold`, it posts `AWSPinpointEventByteThresholdReachedNotification`.
  */

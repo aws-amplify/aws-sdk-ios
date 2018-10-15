@@ -16,6 +16,5 @@
 #import <AWSS3/AWSS3.h>
 
 @interface AWSS3TransferUtility (Validation)
-- (AWSTask *) validateParameters: (NSString * )bucket fileURL:(NSURL *)fileURL accelerationModeEnabled: (BOOL) accelerationModeEnabled;
 
 @end

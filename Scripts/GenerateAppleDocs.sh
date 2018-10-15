@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.6.18"
+VERSION="2.6.32"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -36,6 +36,8 @@ else
     cp -r AWSElasticLoadBalancing ./docs_tmp/AWSElasticLoadBalancing
     cp -r AWSIoT ./docs_tmp/AWSIoT
     cp -r AWSKinesis ./docs_tmp/AWSKinesis
+    cp -r AWSKinesisVideo ./docs_tmp/AWSKinesisVideo
+    cp -r AWSKinesisVideoArchivedMedia ./docs_tmp/AWSKinesisVideoArchivedMedia
     cp -r AWSKMS ./docs_tmp/AWSKMS
     cp -r AWSLambda ./docs_tmp/AWSLambda
     cp -r AWSLex ./docs_tmp/AWSLex
@@ -51,6 +53,8 @@ else
     cp -r AWSSNS ./docs_tmp/AWSSNS
     cp -r AWSSQS ./docs_tmp/AWSSQS
     cp -r AWSTranscribe ./docs_tmp/AWSTranscribe
+    cp -r AWSTranslate ./docs_tmp/AWSTranslate
+    cp -r AWSComprehend ./docs_tmp/AWSComprehend
     cp -r AWSCognitoAuth ./docs_tmp/AWSCognitoAuth
     cp -r AWSAuthSDK/Sources/AWSAuthCore ./docs_tmp/AWSAuthSDK/
     cp -r AWSAuthSDK/Sources/AWSAuthUI ./docs_tmp/AWSAuthSDK/

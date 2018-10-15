@@ -34,9 +34,9 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 
 - (AWSTask *)submitRecordsForStream:(NSString *)streamName
                             records:(NSArray *)temporaryRecords
-                      partitionKeys:(NSArray *)partitionKeys
-                   putPartitionKeys:(NSMutableArray *)putPartitionKeys
-                 retryPartitionKeys:(NSMutableArray *)retryPartitionKeys
+                             rowIds:(NSArray *)rowIds
+                          putRowIds:(NSMutableArray *)putRowIds
+                        retryRowIds:(NSMutableArray *)retryRowIds
                                stop:(BOOL *)stop;
 
 - (NSError *)dataTooLargeError;
@@ -205,8 +205,8 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                 [databaseQueue inDatabase:^(AWSFMDatabase *db) {
                     BOOL result = [db executeUpdate:
                                    @"DELETE FROM record "
-                                   @"WHERE partition_key IN ( "
-                                   @"SELECT partition_key "
+                                   @"WHERE rowid IN ( "
+                                   @"SELECT rowid "
                                    @"FROM record "
                                    @"ORDER BY timestamp ASC "
                                    @"LIMIT 1 "
@@ -238,10 +238,10 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 
         do {
             [databaseQueue inTransaction:^(AWSFMDatabase *db, BOOL *rollback) {
-                NSMutableArray *partitionKeys = nil;
+                NSMutableArray *rowIds = nil;
 
                 AWSFMResultSet *rs = [db executeQuery:
-                                      @"SELECT partition_key, data, retry_count, stream_name "
+                                      @"SELECT rowid, partition_key, data, retry_count, stream_name "
                                       @"FROM record "
                                       @"WHERE stream_name = (SELECT stream_name FROM record ORDER BY timestamp ASC LIMIT 1) "
                                       @"ORDER BY timestamp ASC "
@@ -255,7 +255,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
 
                 NSUInteger batchDataSize = 0;
                 NSMutableArray *temporaryRecords = [NSMutableArray new];
-                partitionKeys = [NSMutableArray new];
+                rowIds = [NSMutableArray new];
                 while ([rs next]) {
                     [temporaryRecords addObject:@{
                                                   @"partition_key": [rs stringForColumn:@"partition_key"],
@@ -263,7 +263,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                                                   @"stream_name": [rs stringForColumn:@"stream_name"],
                                                   }];
 
-                    [partitionKeys addObject:[rs stringForColumn:@"partition_key"]];
+                    [rowIds addObject:[rs stringForColumn:@"rowid"]];
                     batchDataSize += [[rs dataForColumn:@"data"] length];
 
                     if (batchDataSize > self.batchRecordsByteLimit) { // if the batch size exceeds `batchRecordsByteLimit`, stop there.
@@ -274,17 +274,17 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                 batchSize = [temporaryRecords count];
 
                 if (batchSize > 0) {
-                    __block NSMutableArray *putPartitionKeys = [NSMutableArray new];
-                    __block NSMutableArray *retryPartitionKeys = [NSMutableArray new];
+                    __block NSMutableArray *putRowIds = [NSMutableArray new];
+                    __block NSMutableArray *retryRowIds = [NSMutableArray new];
 
                     NSString *streamName = temporaryRecords[0][@"stream_name"];
 
                     AWSTask *submitTask = \
                         [self.recorderHelper submitRecordsForStream:streamName
                                                             records:temporaryRecords
-                                                      partitionKeys:partitionKeys
-                                                   putPartitionKeys:putPartitionKeys
-                                                 retryPartitionKeys:retryPartitionKeys
+                                                             rowIds:rowIds
+                                                          putRowIds:putRowIds
+                                                        retryRowIds:retryRowIds
                                                                stop:&stop];
 
                     [submitTask waitUntilFinished];
@@ -293,10 +293,10 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                         error = submitTask.error;
                     }
 
-                    for (NSString *partitionKey in putPartitionKeys) {
-                        BOOL result = [db executeUpdate:@"DELETE FROM record WHERE partition_key = :partition_key"
+                    for (NSString *rowId in putRowIds) {
+                        BOOL result = [db executeUpdate:@"DELETE FROM record WHERE rowid = :rowid"
                                 withParameterDictionary:@{
-                                                          @"partition_key" : partitionKey
+                                                          @"rowid" : rowId
                                                           }];
                         if (!result) {
                             AWSDDLogError(@"SQLite error. [%@]", db.lastError);
@@ -304,10 +304,10 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
                         }
                     }
 
-                    for (NSString *partitionKey in retryPartitionKeys) {
-                        BOOL result = [db executeUpdate:@"UPDATE record SET retry_count = retry_count + 1 WHERE partition_key = :partition_key"
+                    for (NSString *rowId in retryRowIds) {
+                        BOOL result = [db executeUpdate:@"UPDATE record SET retry_count = retry_count + 1 WHERE rowid = :rowid"
                                 withParameterDictionary:@{
-                                                          @"partition_key" : partitionKey
+                                                          @"rowid" : rowId
                                                           }];
                         if (!result) {
                             AWSDDLogError(@"SQLite error. [%@]", db.lastError);

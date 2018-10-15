@@ -410,6 +410,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"channelIdentification" : @"ChannelIdentification",
              @"maxSpeakerLabels" : @"MaxSpeakerLabels",
              @"showSpeakerLabels" : @"ShowSpeakerLabels",
              @"vocabularyName" : @"VocabularyName",
@@ -426,6 +427,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"media" : @"Media",
              @"mediaFormat" : @"MediaFormat",
              @"mediaSampleRateHertz" : @"MediaSampleRateHertz",
+             @"outputBucketName" : @"OutputBucketName",
              @"settings" : @"Settings",
              @"transcriptionJobName" : @"TranscriptionJobName",
              };
@@ -651,6 +653,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"creationTime" : @"CreationTime",
              @"failureReason" : @"FailureReason",
              @"languageCode" : @"LanguageCode",
+             @"outputLocationType" : @"OutputLocationType",
              @"transcriptionJobName" : @"TranscriptionJobName",
              @"transcriptionJobStatus" : @"TranscriptionJobStatus",
              };
@@ -687,6 +690,27 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"en-US";
             case AWSTranscribeLanguageCodeEsUS:
                 return @"es-US";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)outputLocationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CUSTOMER_BUCKET"] == NSOrderedSame) {
+            return @(AWSTranscribeOutputLocationTypeCustomerBucket);
+        }
+        if ([value caseInsensitiveCompare:@"SERVICE_BUCKET"] == NSOrderedSame) {
+            return @(AWSTranscribeOutputLocationTypeServiceBucket);
+        }
+        return @(AWSTranscribeOutputLocationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeOutputLocationTypeCustomerBucket:
+                return @"CUSTOMER_BUCKET";
+            case AWSTranscribeOutputLocationTypeServiceBucket:
+                return @"SERVICE_BUCKET";
             default:
                 return nil;
         }

@@ -26,7 +26,7 @@
 #import "AWSElasticLoadBalancingResources.h"
 
 static NSString *const AWSInfoElasticLoadBalancing = @"ElasticLoadBalancing";
-static NSString *const AWSElasticLoadBalancingSDKVersion = @"2.6.18";
+static NSString *const AWSElasticLoadBalancingSDKVersion = @"2.6.32";
 
 
 @interface AWSElasticLoadBalancingResponseSerializer : AWSXMLResponseSerializer
@@ -54,6 +54,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidSubnet" : @(AWSElasticLoadBalancingErrorInvalidSubnet),
                             @"ListenerNotFound" : @(AWSElasticLoadBalancingErrorListenerNotFound),
                             @"LoadBalancerAttributeNotFound" : @(AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound),
+                            @"OperationNotPermitted" : @(AWSElasticLoadBalancingErrorOperationNotPermitted),
                             @"PolicyNotFound" : @(AWSElasticLoadBalancingErrorPolicyNotFound),
                             @"PolicyTypeNotFound" : @(AWSElasticLoadBalancingErrorPolicyTypeNotFound),
                             @"SubnetNotFound" : @(AWSElasticLoadBalancingErrorSubnetNotFound),
@@ -582,6 +583,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSElasticLoadBalancingDeregisterEndPointsOutput *response, NSError *error))completionHandler {
     [[self deregisterInstancesFromLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeregisterEndPointsOutput *> * _Nonnull task) {
         AWSElasticLoadBalancingDeregisterEndPointsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingDescribeAccountLimitsOutput *> *)describeAccountLimits:(AWSElasticLoadBalancingDescribeAccountLimitsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeAccountLimits"
+                   outputClass:[AWSElasticLoadBalancingDescribeAccountLimitsOutput class]];
+}
+
+- (void)describeAccountLimits:(AWSElasticLoadBalancingDescribeAccountLimitsInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeAccountLimitsOutput *response, NSError *error))completionHandler {
+    [[self describeAccountLimits:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeAccountLimitsOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeAccountLimitsOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

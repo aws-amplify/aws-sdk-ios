@@ -15,6 +15,7 @@
 
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
+#import "AWSGZIP.h"
 #import "AWSSerialization.h"
 #import "AWSURLRequestSerialization.h"
 #import "AWSURLResponseSerialization.h"
@@ -127,8 +128,8 @@ static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
                                 headers:testHeaders
                              parameters:testParams] continueWithSuccessBlock:^id(AWSTask *task) {
         //Assert headers are properly set
-        NSDictionary *serialziedHeaders = [testRequest allHTTPHeaderFields];
-        XCTAssertEqualObjects(testHeaders, serialziedHeaders, "JSONSerializer failed to properly attach headers");
+        NSDictionary *serializedHeaders = [testRequest allHTTPHeaderFields];
+        XCTAssertEqualObjects(testHeaders, serializedHeaders, "JSONSerializer failed to properly attach headers");
         
         //Assert body is properly in JSON
         NSData *jsonData = [testRequest HTTPBody];
@@ -150,6 +151,50 @@ static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
         }
         return nil;
     }] waitUntilFinished];
+}
+
+- (void)testJSONRequestPayloadIsGzippedIfSpecifiedInHeaders {
+    // We'll assign these inside the continuation block after serialization, and
+    // assert on them after the block completes
+    __block NSString *requestContentEncoding = nil;
+    __block NSData *requestHTTPBody = nil;
+
+    NSString *testURLString = @"http://aws.amazon.com";
+    NSURL *testURL = [NSURL URLWithString:testURLString];
+    NSMutableURLRequest *testRequest = [NSMutableURLRequest requestWithURL:testURL];
+    testRequest.HTTPMethod = @"POST";
+
+    NSDictionary *testParams = @{ @"Key1": @"Value1" };
+    NSDictionary *testHeaders = @{
+                                  @"Content-Encoding":@"gzip"
+                                  };
+
+    AWSJSONRequestSerializer *jsonSerializer = [AWSJSONRequestSerializer new];
+
+    [[[jsonSerializer serializeRequest:testRequest
+                               headers:testHeaders
+                            parameters:testParams] continueWithSuccessBlock:^id(AWSTask *task) {
+        NSDictionary *serializedHeaders = [testRequest allHTTPHeaderFields];
+        requestContentEncoding = [serializedHeaders objectForKey:@"Content-Encoding"];
+        requestHTTPBody = [testRequest HTTPBody];
+        return nil;
+    }] waitUntilFinished];
+
+    XCTAssertNotNil(requestContentEncoding, "Content encoding should not be nil");
+    XCTAssertEqual(@"gzip", requestContentEncoding);
+
+    XCTAssertNotNil(requestHTTPBody, "Request HTTP Body should not be nil");
+
+    NSData *jsonData = [requestHTTPBody awsgzip_gunzippedData];
+    XCTAssertNotNil(jsonData, @"jsonData should not be nil");
+
+    NSError *error = nil;
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:NSJSONReadingMutableContainers
+                                                                     error:&error];
+    XCTAssertNil(error, @"Error serializing unzipped data into JSON: %@", error);
+
+    XCTAssertEqualObjects(jsonDictionary, testParams, @"Unzipped JSON data does not equal incoming data");
 }
 
 - (void)testXMLSerializer {
@@ -879,11 +924,10 @@ static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
     }
 }
 
-- (void)testValidAwsConfigurationJson {
+- (void)testValidAwsConfigurationJsonIfPresent {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"awsconfiguration"
                                                          ofType:@"json"];
     if (!filePath) {
-        XCTFail(@"Test Failed: Please add %@ file under AWSCoreTests/Resources folder.", awsConfigurationJsonFileName);
         return;
     }
     
@@ -907,11 +951,10 @@ static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
     }
 }
 
-- (void)testEmptyAwsConfigurationJson {
+- (void)testEmptyAwsConfigurationJsonIfPresent {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"awsconfiguration"
                                                          ofType:@"json"];
     if (!filePath) {
-        XCTFail(@"Test Failed: Please add %@ file under AWSCoreTests/Resources folder.", awsConfigurationJsonFileName);
         return;
     }
     NSData *validData = [NSData dataWithContentsOfFile:filePath];

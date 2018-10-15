@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -15,8 +15,8 @@
 
 #import <UIKit/UIKit.h>
 #import <AWSCore/AWSCore.h>
-
 #import "AWSS3Service.h"
+#import "AWSS3TransferUtilityTasks.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, AWSS3TransferUtilityErrorType) {
 };
 
 
+
 FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification;
 
 @class AWSS3TransferUtilityConfiguration;
@@ -41,59 +42,6 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
 @class AWSS3TransferUtilityUploadExpression;
 @class AWSS3TransferUtilityMultiPartUploadExpression;
 @class AWSS3TransferUtilityDownloadExpression;
-
-
-/**
- The upload completion handler.
-
- @param task  The upload task object.
- @param error Returns the error object when the download failed.
- */
-typedef void (^AWSS3TransferUtilityUploadCompletionHandlerBlock) (AWSS3TransferUtilityUploadTask *task,
-                                                                  NSError * _Nullable error);
-
-/**
- The upload completion handler for MultiPart.
- 
- @param task  The upload task object.
- @param error Returns the error object when the download failed.
- */
-typedef void (^AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock) (AWSS3TransferUtilityMultiPartUploadTask *task,
-                                                                  NSError * _Nullable error);
-
-/**
- The download completion handler.
-
- @param task     The download task object.
- @param location When downloading an Amazon S3 object to a file, returns a file URL of the returned object. Otherwise, returns `nil`.
- @param data     When downloading an Amazon S3 object as an `NSData`, returns the returned object as an instance of `NSData`. Otherwise, returns `nil`.
- @param error    Returns the error object when the download failed. Returns `nil` on successful downlaod.
- */
-typedef void (^AWSS3TransferUtilityDownloadCompletionHandlerBlock) (AWSS3TransferUtilityDownloadTask *task,
-                                                                    NSURL * _Nullable location,
-                                                                    NSData * _Nullable data,
-                                                                    NSError * _Nullable error);
-
-/**
- The transfer progress feedback block.
-
- @param task                     The upload task object.
- @param progress                 The progress object.
-
- @note Refer to `- URLSession:task:didSendBodyData:totalBytesSent:totalBytesExpectedToSend:` in `NSURLSessionTaskDelegate` for more details on upload progress and `- URLSession:downloadTask:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:` in `NSURLSessionDownloadDelegate` for more details on download progress.
- */
-typedef void (^AWSS3TransferUtilityProgressBlock) (AWSS3TransferUtilityTask *task,
-                                                   NSProgress *progress);
-
-/**
- The multi part transfer progress feedback block.
- 
- @param task                     The upload task object.
- @param progress                 The progress object.
-*/
-typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtilityMultiPartUploadTask *task,
-                                                   NSProgress *progress);
-
 
 #pragma mark - AWSS3TransferUtility
 
@@ -151,6 +99,54 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
 + (instancetype)defaultS3TransferUtility;
 
 /**
+ Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
+ 
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+ 
+ *Swift*
+ 
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+ let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+ let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+ AWSServiceManager.default().defaultServiceConfiguration = configuration
+ 
+ return true
+ }
+ 
+ *Objective-C*
+ 
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+ AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+ identityPoolId:@"YourIdentityPoolId"];
+ AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+ credentialsProvider:credentialsProvider];
+ [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+ 
+ return YES;
+ }
+ 
+ Then call the following to get the default service client:
+ 
+ *Swift*
+ 
+ let S3TransferUtility = AWSS3TransferUtility.default() { (error) in
+ 
+ }
+ 
+ *Objective-C*
+ 
+ AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility defaultS3TransferUtility:^(NSError * _Nullable error) {
+ 
+ }];
+ 
+ @param completionHandler The completion handler to call when the TransferUtility finishes loading transfers from prior sessions.
+ @return The default service client.
+ */
++ (instancetype)defaultS3TransferUtility:(nullable void (^)(NSError *_Nullable error)) completionHandler
+  NS_SWIFT_NAME(default(completionHandler:));
+
+
+/**
  Creates a service client with the given service configuration and registers it for the key.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
@@ -173,7 +169,9 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
          AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                               credentialsProvider:credentialsProvider];
 
-         [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@"USWest2S3TransferUtility"];
+ [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@"USWest2S3TransferUtility" completionHandler:^(NSError * _Nullable error) {
+ 
+ }];
 
          return YES;
      }
@@ -198,6 +196,58 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
 
 /**
  Creates a service client with the given service configuration and registers it for the key.
+ 
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+ 
+ *Swift*
+ 
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+ let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+ let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+ AWSS3TransferUtility.register(with: configuration!, forKey: "USWest2S3TransferUtility"){ (error) in
+ 
+ }
+ 
+ return true
+ }
+ 
+ *Objective-C*
+ 
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+ AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+ identityPoolId:@"YourIdentityPoolId"];
+ AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+ credentialsProvider:credentialsProvider];
+ 
+ [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration forKey:@"USWest2S3TransferUtility" completionHandler:^(NSError * _Nullable error) {
+ 
+ }];
+ 
+ return YES;
+ }
+ 
+ Then call the following to get the service client:
+ 
+ *Swift*
+ 
+ let S3TransferUtility = AWSS3TransferUtility(forKey: "USWest2S3TransferUtility")
+ 
+ *Objective-C*
+ 
+ AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@"USWest2S3TransferUtility"];
+ 
+ @warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
+ 
+ @param configuration A service configuration object.
+ @param key           A string to identify the service client.
+ @param completionHandler The completion handler to call when the TransferUtility finishes loading transfers from prior sessions.
+ */
++ (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)configuration
+                                            forKey:(NSString *)key
+                                 completionHandler:(nullable void (^)(NSError *_Nullable error)) completionHandler;
+
+/**
+ Creates a service client with the given service configuration and registers it for the key.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
 
@@ -206,8 +256,9 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
      func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: "USWest2S3TransferUtility")
-
+         AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: "USWest2S3TransferUtility") { (error) in
+ 
+         }
          return true
      }
 
@@ -245,6 +296,59 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
                                             forKey:(NSString *)key;
 
 /**
+ Creates a service client with the given service configuration and registers it for the key.
+ 
+ For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
+ 
+ *Swift*
+ 
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+ let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+ let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+ AWSS3TransferUtility.register(with: configuration!, transferUtilityConfiguration: nil, forKey: "USWest2S3TransferUtility") { (error) in
+ 
+ }
+ 
+ return true
+ }
+ 
+ *Objective-C*
+ 
+ - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+ AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+ identityPoolId:@"YourIdentityPoolId"];
+ AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+ credentialsProvider:credentialsProvider];
+ 
+ [AWSS3TransferUtility registerS3TransferUtilityWithConfiguration:configuration transferUtilityConfiguration:nil forKey:@"USWest2S3TransferUtility" completionHandler:^(NSError * _Nullable error) {
+ 
+ }];
+ 
+ return YES;
+ }
+ 
+ Then call the following to get the service client:
+ 
+ *Swift*
+ 
+ let S3TransferUtility = AWSS3TransferUtility(forKey: "USWest2S3TransferUtility")
+ 
+ *Objective-C*
+ 
+ AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3TransferUtilityForKey:@"USWest2S3TransferUtility"];
+ 
+ @warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
+ 
+ @param configuration A service configuration object.
+ @param transferUtilityConfiguration An S3 transfer utility configuration object.
+ @param key           A string to identify the service client.
+ @param completionHandler The completion handler to call when the TransferUtility finishes loading transfers from prior sessions.
+ */
++ (void)registerS3TransferUtilityWithConfiguration:(AWSServiceConfiguration *)configuration
+                      transferUtilityConfiguration:(nullable AWSS3TransferUtilityConfiguration *)transferUtilityConfiguration
+                                            forKey:(NSString *)key
+                                 completionHandler:(nullable void (^)(NSError *_Nullable error)) completionHandler;
+/**
  Retrieves the service client associated with the key. You need to call `+ registerS3TransferUtilityWithConfiguration:forKey:` before invoking this method.
 
  For example, set the default service configuration in `- application:didFinishLaunchingWithOptions:`
@@ -267,6 +371,8 @@ typedef void (^AWSS3TransferUtilityMultiPartProgressBlock) (AWSS3TransferUtility
  @return An instance of the service client.
  */
 + (instancetype)S3TransferUtilityForKey:(NSString *)key;
+
+
 
 /**
  Removes the service client associated with the key and release it.
@@ -575,225 +681,8 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 @property NSInteger retryLimit;
 
 @property (nonatomic, nullable) NSNumber *multiPartConcurrencyLimit;
-@end
 
-
-#pragma mark - AWSS3TransferUtilityTasks
-
-/**
- The task object to represent a upload or download task.
- */
-@interface AWSS3TransferUtilityTask : NSObject
-
-/**
- An identifier uniquely identifies the transferID.
- */
-
-@property (readonly) NSString *transferID;
-
-/**
- An identifier uniquely identifies the task within a given `AWSS3TransferUtility` instance.
- */
-@property (readonly) NSUInteger taskIdentifier;
-
-/**
- The Amazon S3 bucket name associated with the transfer.
- */
-@property (readonly) NSString *bucket;
-
-/**
- The Amazon S3 object key name associated with the transfer.
- */
-@property (readonly) NSString *key;
-
-/**
- The transfer progress.
- */
-@property (readonly) NSProgress *progress;
-
-/**
- The underlying `NSURLSessionTask` object.
- */
-@property (readonly) NSURLSessionTask *sessionTask;
-
-/**
- The HTTP request object.
- */
-@property (nullable, readonly) NSURLRequest *request;
-
-/**
- The HTTP response object. May be nil if no response has been received.
- */
-@property (nullable, readonly) NSHTTPURLResponse *response;
-
-/**
- Cancels the task.
- */
-- (void)cancel;
-
-/**
- Resumes the task, if it is suspended.
- */
-- (void)resume;
-
-/**
- Temporarily suspends a task.
- */
-- (void)suspend;
-
-@end
-
-/**
- The task object to represent a upload task.
- */
-@interface AWSS3TransferUtilityUploadTask : AWSS3TransferUtilityTask
-
-@end
-
-/**
- The task object to represent a multipart upload task.
- */
-@interface AWSS3TransferUtilityMultiPartUploadTask: NSObject
-
-/**
- An identifier uniquely identifies the transferID.
- */
-@property (readonly) NSString *transferID;
-
-/**
- The Amazon S3 bucket name associated with the transfer.
- */
-@property (readonly) NSString *bucket;
-
-/**
- The Amazon S3 object key name associated with the transfer.
- */
-@property (readonly) NSString *key;
-
-/**
- The transfer progress.
- */
-@property (readonly) NSProgress *progress;
-
-/**
- Cancels the task.
- */
-- (void)cancel;
-
-/**
- Resumes the task, if it is suspended.
- */
-- (void)resume;
-
-/**
- Temporarily suspends a task.
- */
-- (void)suspend;
-@end
-
-
-/**
- The task object to represent a download task.
- */
-@interface AWSS3TransferUtilityDownloadTask : AWSS3TransferUtilityTask
-
-@end
-
-#pragma mark - AWSS3TransferUtilityExpressions
-
-/**
- The expression object for configuring a upload or download task.
- */
-@interface AWSS3TransferUtilityExpression : NSObject
-
-/**
- This NSDictionary can contains additional request headers to be included in the pre-signed URL. Default is emtpy.
- */
-@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *requestHeaders;
-
-/**
- This NSDictionary can contains additional request parameters to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object. Default is emtpy.
- */
-@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *requestParameters;
-
-/**
- The progress feedback block.
- */
-@property (copy, nonatomic, nullable) AWSS3TransferUtilityProgressBlock progressBlock;
-
-/**
- Set an additional request header to be included in the pre-signed URL.
-
- @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
- @param requestHeader The name of the request header.
- */
-- (void)setValue:(nullable NSString *)value forRequestHeader:(NSString *)requestHeader;
-
-/**
- Set an additional request parameter to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object.
-
- @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
- @param requestParameter The name of the request parameter, as it appears in the URL's query string (e.g. AWSS3PresignedURLVersionID).
- */
-- (void)setValue:(nullable NSString *)value forRequestParameter:(NSString *)requestParameter;
-
-@end
-
-/**
- The expression object for configuring a upload task.
- */
-@interface AWSS3TransferUtilityUploadExpression : AWSS3TransferUtilityExpression
-
-/**
- The upload request header for `Content-MD5`.
- */
-@property (nonatomic, nullable) NSString *contentMD5;
-
-@end
-
-
-/**
- The expression object for configuring a Multipart upload task.
- */
-@interface AWSS3TransferUtilityMultiPartUploadExpression : NSObject
-
-/**
- This NSDictionary can contains additional request headers to be included in the pre-signed URL. Default is emtpy.
- */
-@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *requestHeaders;
-
-/**
- This NSDictionary can contains additional request parameters to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object. Default is emtpy.
- */
-@property (nonatomic, readonly) NSDictionary<NSString *, NSString *> *requestParameters;
-
-/**
- The progress feedback block.
- */
-@property (copy, nonatomic, nullable) AWSS3TransferUtilityMultiPartProgressBlock progressBlock;
-/**
- Set an additional request header to be included in the pre-signed URL.
- 
- @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
- @param requestHeader The name of the request header.
- */
-- (void)setValue:(nullable NSString *)value forRequestHeader:(NSString *)requestHeader;
-
-/**
- Set an additional request parameter to be included in the pre-signed URL. Adding additional request parameters enables more advanced pre-signed URLs, such as accessing Amazon S3's torrent resource for an object, or for specifying a version ID when accessing an object.
- 
- @param value The value of the request parameter being added. Set to nil if parameter doesn't contains value.
- @param requestParameter The name of the request parameter, as it appears in the URL's query string (e.g. AWSS3PresignedURLVersionID).
- */
-- (void)setValue:(nullable NSString *)value forRequestParameter:(NSString *)requestParameter;
-
-@end
-
-
-/**
- The expression object for configuring a download task.
- */
-@interface AWSS3TransferUtilityDownloadExpression : AWSS3TransferUtilityExpression
+@property NSInteger timeoutIntervalForResource;
 
 @end
 

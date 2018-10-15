@@ -34,6 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  <li>AWSCognitoAuthClientErrorSecurityReason - The security of this request could not be guaranteed.</li>
  <li>AWSCognitoAuthClientInvalidAuthenticationDelegate - The AWSCognitoAuthDelegate delegate is not setup or returned an invalid value.</li>
  <li>AWSCognitoAuthClientNoIdTokenIssued - If no id token was issued. For future use. </li>
+ <li>AWSCognitoAuthClientErrorExpiredRefreshToken - If the refresh token is expired. </li>
  </ul>
  */
 FOUNDATION_EXPORT NSString *const AWSCognitoAuthErrorDomain;
@@ -45,7 +46,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoAuthClientErrorType) {
     AWSCognitoAuthClientErrorBadRequest = -3000,
     AWSCognitoAuthClientErrorSecurityFailed = -4000,
     AWSCognitoAuthClientInvalidAuthenticationDelegate = -5000,
-    AWSCognitoAuthClientNoIdTokenIssued = -6000
+    AWSCognitoAuthClientNoIdTokenIssued = -6000,
+    AWSCognitoAuthClientErrorExpiredRefreshToken = -7000
 };
 
 typedef void (^AWSCognitoAuthGetSessionBlock)(AWSCognitoAuthUserSession * _Nullable session, NSError * _Nullable error);
@@ -125,6 +127,16 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  @param completion completion block to invoke on completion
  */
 - (void) signOut: (nullable AWSCognitoAuthSignOutBlock) completion;
+
+/**
+ Remove user session from keychain
+ */
+-(void) signOutLocally;
+
+/**
+ Remove user session from keychain and clear last known username.
+ */
+-(void) signOutLocallyAndClearLastKnownUser;
 
 
 /**
@@ -291,6 +303,12 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  Get view controller to display user authentication on top of.
  */
 - (UIViewController *) getViewController;
+
+@optional
+/**
+ If refresh token is expired, let the user decide if the signInVC should be presented or an error should be returned.
+ */
+- (BOOL) shouldLaunchSignInVCIfRefreshTokenIsExpired;
 @end
 
 

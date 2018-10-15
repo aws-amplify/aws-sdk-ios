@@ -972,6 +972,31 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putEventStream:(AWSPinpointTargetingPutEventStreamRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingPutEventStreamResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ Use to submit events to Pinpoint into multiple regions.
+ 
+ @param request A container for the necessary parameters to execute the PutEvents service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPinpointTargetingEventsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorTooManyRequests`, `AWSPinpointTargetingErrorRequestEntityTooLarge`, `AWSPinpointTargetingErrorBadGateway`, `AWSPinpointTargetingErrorServiceUnavailable`, `AWSPinpointTargetingErrorRequestTimedOut`, `AWSPinpointTargetingErrorInternalServerError`.
+ 
+ @see AWSPinpointTargetingEventsRequest
+ @see AWSPinpointTargetingEventsResponse
+ */
+- (AWSTask<AWSPinpointTargetingEventsResponse *> *)putEvents:(AWSPinpointTargetingEventsRequest *)request;
+
+/**
+ Use to submit events to Pinpoint into multiple regions.
+ 
+ @param request A container for the necessary parameters to execute the PutEvents service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPinpointTargetingErrorDomain` domain and the following error code: `AWSPinpointTargetingErrorBadRequest`, `AWSPinpointTargetingErrorNotFound`, `AWSPinpointTargetingErrorTooManyRequests`, `AWSPinpointTargetingErrorRequestEntityTooLarge`, `AWSPinpointTargetingErrorBadGateway`, `AWSPinpointTargetingErrorServiceUnavailable`, `AWSPinpointTargetingErrorRequestTimedOut`, `AWSPinpointTargetingErrorInternalServerError`.
+ 
+ @see AWSPinpointTargetingEventsRequest
+ @see AWSPinpointTargetingEventsResponse
+ */
+- (void)putEvents:(AWSPinpointTargetingEventsRequest *)request completionHandler:(void (^ _Nullable)(AWSPinpointTargetingEventsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  Send a batch of messages
  
  @param request A container for the necessary parameters to execute the SendMessages service method.
