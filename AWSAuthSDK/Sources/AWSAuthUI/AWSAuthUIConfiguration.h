@@ -61,6 +61,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (atomic) BOOL enableUserPoolsUI;
 
 /**
+ @property enableUserSignUp
+ @brief Enables the User SignUp button. Defaults to true - ignore if enableUserPoolsUI is false.
+ */
+@property (atomic) BOOL enableUserSignUp;
+
+/**
  @property isBackgroundColorFullScreen
  @brief Gets the backgorund color of the sign in screen configured by the user for the whole screen.
  **/

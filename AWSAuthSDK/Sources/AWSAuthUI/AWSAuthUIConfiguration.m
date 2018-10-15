@@ -36,12 +36,15 @@
 
 @synthesize enableUserPoolsUI;
 
+@synthesize enableUserSignUp;
+
 @synthesize isBackgroundColorFullScreen;
 
 @synthesize font;
 
 - (id)init {
     self = [super init];
+    self.enableUserSignUp = true;
     if (self) {
         self.registeredSignInButtonViews = [[NSMutableArray alloc] init];
     }
