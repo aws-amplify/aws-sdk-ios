@@ -121,7 +121,7 @@ id<AWSUIConfiguration> config = nil;
     AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
     email.name = @"email";
     email.value = [self.tableDelegate getValueForCell:self.emailRow forTableView:self.tableView];
-    
+
 //    if(![@"" isEqualToString:phone.value]){
 //        [attributes addObject:phone];
 //    }
@@ -197,7 +197,7 @@ id<AWSUIConfiguration> config = nil;
                 [self presentViewController:alertController
                                    animated:YES
                                  completion:nil];
-            }else if(task.result.user.confirmedStatus != AWSCognitoIdentityUserStatusConfirmed){
+            }else if(!task.result.userConfirmed){
                 self.sentTo = task.result.codeDeliveryDetails.destination;
                 [self performSegueWithIdentifier:@"SignUpConfirmSegue" sender:sender];
             }
