@@ -272,7 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  A NSDictionary of claims in this token.
  */
-@property (nonatomic, readonly) NSDictionary<NSString *, NSString*> * claims;
+@property (nonatomic, readonly) NSDictionary<NSString *, id> * claims;
 
 @end
 

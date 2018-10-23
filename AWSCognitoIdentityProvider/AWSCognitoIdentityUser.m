@@ -1477,7 +1477,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     return self;
 }
 
--(NSDictionary<NSString *, NSString*> *) claims {
+-(NSDictionary<NSString *, id> *) claims {
     NSDictionary * result = nil;
     NSArray *pieces = [self.tokenString componentsSeparatedByString:@"."];
     if(pieces.count > 2){
