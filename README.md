@@ -432,7 +432,7 @@ The AWS SDK for iOS includes sample apps that demonstrate common use cases.
 
 This sample demonstrates how sign up and sign in a user to display an authenticated portion of your app.
 
-### Cognito Sync Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSync-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoSync-Sample/Objective-C/))
+### Cognito Sync Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]CognitoSync-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]CognitoSync-Sample/Objective-C/))
 
 This sample demonstrates how to securely manage and sync your mobile app data and create unique identities via login providers including Facebook, Google, and Login with Amazon.
 
@@ -441,7 +441,7 @@ This sample demonstrates how to securely manage and sync your mobile app data an
 * [Amazon Cognito Sync](http://aws.amazon.com/cognito/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-### DynamoDB Object Mapper Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/DynamoDBObjectMapper-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/DynamoDBObjectMapper-Sample/Objective-C/))
+### DynamoDB Object Mapper Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]DynamoDBObjectMapper-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]DynamoDBObjectMapper-Sample/Objective-C/))
 
 This sample demonstrates how to insert / update / delete / query items using DynamoDB Object Mapper.
 
@@ -450,7 +450,7 @@ This sample demonstrates how to insert / update / delete / query items using Dyn
 * [Amazon DynamoDB](http://aws.amazon.com/dynamodb/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-### S3 Transfer Manager Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferManager-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferManager-Sample/Objective-C/))
+### S3 Transfer Manager Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]S3TransferManager-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]S3TransferManager-Sample/Objective-C/))
 
 This sample demonstrates how to upload / download multiple files simultaneously using S3 Transfer Manager. It also shows how to pause, resume, and cancel file upload / download.
 
@@ -459,24 +459,13 @@ This sample demonstrates how to upload / download multiple files simultaneously 
 * [Amazon S3](http://aws.amazon.com/s3/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-### S3 Transfer Utility Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3BackgroundTransfer-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3BackgroundTransfer-Sample/Objective-C/))
+### S3 Transfer Utility Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferUtility-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferUtility-Sample/Objective-C/))
 
 This sample demonstrates how to use the Amazon S3 PreSigned URL Builder to download / upload files in background.
 
 #### AWS Services Demonstrated:
 
 * [Amazon S3](http://aws.amazon.com/s3/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-
-### SNS Mobile Push and Mobile Analytics Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/SNS-MobileAnalytics-Sample/Objective-C/))
-
-This sample demonstrates how to set up Amazon SNS Mobile Push and record events using Amazon Mobile Analytics.
-
-#### AWS Services Demonstrated:
-
-* [Amazon SNS Mobile Push](http://aws.amazon.com/sns/)
-* [Amazon Mobile Analytics](http://aws.amazon.com/mobileanalytics/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
 ### IoT Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoT-Sample/Swift/))
