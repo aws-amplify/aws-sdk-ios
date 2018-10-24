@@ -432,7 +432,7 @@ The AWS SDK for iOS includes sample apps that demonstrate common use cases.
 
 This sample demonstrates how sign up and sign in a user to display an authenticated portion of your app.
 
-### Cognito Sync Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]CognitoSync-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]CognitoSync-Sample/Objective-C/))
+### [DEPRECATED]Cognito Sync Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]CognitoSync-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]CognitoSync-Sample/Objective-C/))
 
 This sample demonstrates how to securely manage and sync your mobile app data and create unique identities via login providers including Facebook, Google, and Login with Amazon.
 
@@ -441,7 +441,7 @@ This sample demonstrates how to securely manage and sync your mobile app data an
 * [Amazon Cognito Sync](http://aws.amazon.com/cognito/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-### DynamoDB Object Mapper Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]DynamoDBObjectMapper-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]DynamoDBObjectMapper-Sample/Objective-C/))
+### [DEPRECATED]DynamoDB Object Mapper Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]DynamoDBObjectMapper-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]DynamoDBObjectMapper-Sample/Objective-C/))
 
 This sample demonstrates how to insert / update / delete / query items using DynamoDB Object Mapper.
 
@@ -450,7 +450,7 @@ This sample demonstrates how to insert / update / delete / query items using Dyn
 * [Amazon DynamoDB](http://aws.amazon.com/dynamodb/)
 * [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
 
-### S3 Transfer Manager Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]S3TransferManager-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]S3TransferManager-Sample/Objective-C/))
+### [DEPRECATED]S3 Transfer Manager Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]S3TransferManager-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]S3TransferManager-Sample/Objective-C/))
 
 This sample demonstrates how to upload / download multiple files simultaneously using S3 Transfer Manager. It also shows how to pause, resume, and cancel file upload / download.
 
