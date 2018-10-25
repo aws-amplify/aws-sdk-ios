@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSTranslate
+FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
+
 /**
  <p>Provides translation between English and one of six languages, or between one of the six languages and English.</p>
  */

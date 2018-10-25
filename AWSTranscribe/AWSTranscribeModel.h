@@ -34,6 +34,9 @@ typedef NS_ENUM(NSInteger, AWSTranscribeLanguageCode) {
     AWSTranscribeLanguageCodeUnknown,
     AWSTranscribeLanguageCodeEnUS,
     AWSTranscribeLanguageCodeEsUS,
+    AWSTranscribeLanguageCodeEnAU,
+    AWSTranscribeLanguageCodeFrCA,
+    AWSTranscribeLanguageCodeEnUK,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeMediaFormat) {
@@ -66,6 +69,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 @class AWSTranscribeCreateVocabularyRequest;
 @class AWSTranscribeCreateVocabularyResponse;
+@class AWSTranscribeDeleteTranscriptionJobRequest;
 @class AWSTranscribeDeleteVocabularyRequest;
 @class AWSTranscribeGetTranscriptionJobRequest;
 @class AWSTranscribeGetTranscriptionJobResponse;
@@ -139,6 +143,19 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The processing state of the vocabulary. When the <code>VocabularyState</code> field contains <code>READY</code> the vocabulary is ready to be used in a <code>StartTranscriptionJob</code> request.</p>
  */
 @property (nonatomic, assign) AWSTranscribeVocabularyState vocabularyState;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranscribeDeleteTranscriptionJobRequest : AWSRequest
+
+
+/**
+ <p>The name of the transcription job to be deleted.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transcriptionJobName;
 
 @end
 
@@ -445,7 +462,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation.</p>
+ <p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers.</p>
  */
 @interface AWSTranscribeTranscriptionJob : AWSModel
 
@@ -508,7 +525,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Provides a summary of information about a transcription job.</p>
+ <p>Provides a summary of information about a transcription job. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers.</p>
  */
 @interface AWSTranscribeTranscriptionJobSummary : AWSModel
 
@@ -602,7 +619,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Provides information about a custom vocabulary.</p>
+ <p>Provides information about a custom vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>
  */
 @interface AWSTranscribeVocabularyInfo : AWSModel
 

@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSS3
+FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
+
 /**
  
  */

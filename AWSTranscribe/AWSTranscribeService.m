@@ -26,7 +26,7 @@
 #import "AWSTranscribeResources.h"
 
 static NSString *const AWSInfoTranscribe = @"Transcribe";
-static NSString *const AWSTranscribeSDKVersion = @"2.6.32";
+NSString *const AWSTranscribeSDKVersion = @"2.6.33";
 
 
 @interface AWSTranscribeResponseSerializer : AWSJSONResponseSerializer
@@ -296,6 +296,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteTranscriptionJob:(AWSTranscribeDeleteTranscriptionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Transcribe"
+                 operationName:@"DeleteTranscriptionJob"
+                   outputClass:nil];
+}
+
+- (void)deleteTranscriptionJob:(AWSTranscribeDeleteTranscriptionJobRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteTranscriptionJob:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;

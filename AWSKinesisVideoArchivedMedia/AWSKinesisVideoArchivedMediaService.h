@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSKinesisVideoArchivedMedia
+FOUNDATION_EXPORT NSString *const AWSKinesisVideoArchivedMediaSDKVersion;
+
 /**
  <p/>
  */

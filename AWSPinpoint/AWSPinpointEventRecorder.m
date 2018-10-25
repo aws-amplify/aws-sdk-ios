@@ -1034,7 +1034,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     //Event type and timestamp
     serviceEvent.eventType = event.eventType;
     serviceEvent.timestamp = [AWSPinpointDateUtils isoDateTimeWithTimestamp:event.eventTimestamp];
-    serviceEvent.clientSdkVersion = [NSString stringWithFormat:@"%s", AWSPinpointVersionString];
+    serviceEvent.clientSdkVersion = [AWSPinpointTargetingSDKVersion copy];
     return serviceEvent;
 }
 

@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSPinpointTargeting
+FOUNDATION_EXPORT NSString *const AWSPinpointTargetingSDKVersion;
+
 /**
  
  */

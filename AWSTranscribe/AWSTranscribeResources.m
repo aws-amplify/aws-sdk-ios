@@ -85,7 +85,21 @@
         {\"shape\":\"InternalFailureException\"},\
         {\"shape\":\"ConflictException\"}\
       ],\
-      \"documentation\":\"<p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file.</p>\"\
+      \"documentation\":\"<p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message. </p>\"\
+    },\
+    \"DeleteTranscriptionJob\":{\
+      \"name\":\"DeleteTranscriptionJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteTranscriptionJobRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"BadRequestException\"},\
+        {\"shape\":\"InternalFailureException\"}\
+      ],\
+      \"documentation\":\"<p>Deletes a previously submitted transcription job as well as any other generated results such as the transcription, models, and so on.</p>\"\
     },\
     \"DeleteVocabulary\":{\
       \"name\":\"DeleteVocabulary\",\
@@ -132,7 +146,7 @@
         {\"shape\":\"InternalFailureException\"},\
         {\"shape\":\"BadRequestException\"}\
       ],\
-      \"documentation\":\"<p>Gets information about a vocabulary.</p>\"\
+      \"documentation\":\"<p>Gets information about a vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>\"\
     },\
     \"ListTranscriptionJobs\":{\
       \"name\":\"ListTranscriptionJobs\",\
@@ -178,7 +192,7 @@
         {\"shape\":\"InternalFailureException\"},\
         {\"shape\":\"ConflictException\"}\
       ],\
-      \"documentation\":\"<p>Starts an asynchronous job to transcribe speech to text.</p>\"\
+      \"documentation\":\"<p>Starts an asynchronous job to transcribe speech to text. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers. </p>\"\
     },\
     \"UpdateVocabulary\":{\
       \"name\":\"UpdateVocabulary\",\
@@ -195,7 +209,7 @@
         {\"shape\":\"NotFoundException\"},\
         {\"shape\":\"ConflictException\"}\
       ],\
-      \"documentation\":\"<p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request.</p>\"\
+      \"documentation\":\"<p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>\"\
     }\
   },\
   \"shapes\":{\
@@ -204,7 +218,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"FailureReason\"}\
       },\
-      \"documentation\":\"<p>Your request didn't pass one or more validation tests. For example, a name already exists when creating a resource or a name may not exist when getting a transcription job or custom vocabulary. See the exception <code>Message</code> field for more information.</p>\",\
+      \"documentation\":\"<p>Your request didn't pass one or more validation tests. For example, if the transcription you're trying to delete doesn't exist of if it is in a non-terminal state (for example, it's \\\"in progress\\\"). See the exception <code>Message</code> field for more information.</p>\",\
       \"exception\":true\
     },\
     \"Boolean\":{\"type\":\"boolean\"},\
@@ -264,6 +278,16 @@
       }\
     },\
     \"DateTime\":{\"type\":\"timestamp\"},\
+    \"DeleteTranscriptionJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"TranscriptionJobName\"],\
+      \"members\":{\
+        \"TranscriptionJobName\":{\
+          \"shape\":\"TranscriptionJobName\",\
+          \"documentation\":\"<p>The name of the transcription job to be deleted.</p>\"\
+        }\
+      }\
+    },\
     \"DeleteVocabularyRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"VocabularyName\"],\
@@ -346,7 +370,10 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"en-US\",\
-        \"es-US\"\
+        \"es-US\",\
+        \"en-AU\",\
+        \"fr-CA\",\
+        \"en-UK\"\
       ]\
     },\
     \"LimitExceededException\":{\
@@ -628,7 +655,7 @@
           \"documentation\":\"<p>Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing the transcription job.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation.</p>\"\
+      \"documentation\":\"<p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers.</p>\"\
     },\
     \"TranscriptionJobName\":{\
       \"type\":\"string\",\
@@ -680,7 +707,7 @@
           \"documentation\":\"<p>Indicates the location of the output of the transcription job.</p> <p>If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the <code>outputBucketName</code> field when the transcription job was started with the <code>StartTranscriptionJob</code> operation.</p> <p>If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be retrieved using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code> field.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Provides a summary of information about a transcription job.</p>\"\
+      \"documentation\":\"<p>Provides a summary of information about a transcription job. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers.</p>\"\
     },\
     \"UpdateVocabularyRequest\":{\
       \"type\":\"structure\",\
@@ -754,7 +781,7 @@
           \"documentation\":\"<p>The processing state of the vocabulary. If the state is <code>READY</code> you can use the vocabulary in a <code>StartTranscriptionJob</code> request.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Provides information about a custom vocabulary.</p>\"\
+      \"documentation\":\"<p>Provides information about a custom vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>\"\
     },\
     \"VocabularyName\":{\
       \"type\":\"string\",\

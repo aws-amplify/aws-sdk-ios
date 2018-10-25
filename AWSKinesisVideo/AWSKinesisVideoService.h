@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSKinesisVideo
+FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
+
 /**
  <p/>
  */

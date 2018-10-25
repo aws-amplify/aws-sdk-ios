@@ -18,6 +18,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSCognitoAuth
+FOUNDATION_EXPORT NSString *const AWSCognitoAuthSDKVersion;
+
 @class AWSCognitoAuthUserSession;
 @class AWSCognitoAuthUserSessionToken;
 @class AWSCognitoAuthConfiguration;

@@ -29,7 +29,7 @@ NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification = @"c
 
 
 // Private constants
-static NSString *const AWSS3TransferUtilityIdentifier = @"com.amazonaws.AWSS3TransferUtility.Identifier";
+static NSString *const AWSS3TransferUtilityDefaultIdentifier = @"com.amazonaws.AWSS3TransferUtility.Default.Identifier";
 static NSTimeInterval const AWSS3TransferUtilityTimeoutIntervalForResource = 50 * 60; // 50 minutes
 static NSString *const AWSS3TransferUtilityUserAgent = @"transfer-utility";
 static NSString *const AWSInfoS3TransferUtility = @"S3TransferUtility";
@@ -314,7 +314,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     
     AWSS3TransferUtility *s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
                                                                      transferUtilityConfiguration:transferUtilityConfiguration
-                                                                                       identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityIdentifier, key]
+                                                                                       identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityDefaultIdentifier, key]
                                                                                 completionHandler: completionHandler];
     [_serviceClients setObject:s3TransferUtility
                         forKey:key];
@@ -382,8 +382,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             _sessionIdentifier = identifier;
         }
         else {
-             NSString *uuid = [[NSUUID UUID] UUIDString];
-            _sessionIdentifier = [AWSS3TransferUtilityIdentifier stringByAppendingString:uuid];
+            _sessionIdentifier = AWSS3TransferUtilityDefaultIdentifier;
         }
         
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:_sessionIdentifier];

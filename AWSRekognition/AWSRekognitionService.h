@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSRekognition
+FOUNDATION_EXPORT NSString *const AWSRekognitionSDKVersion;
+
 /**
  <p>This is the Amazon Rekognition API reference.</p>
  */
