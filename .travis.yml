@@ -1,0 +1,32 @@
+language: objective-c
+osx_image: xcode10
+env:
+  global:
+  - FRAMEWORK_NAME=aws-sdk-ios-sun
+xcode_workspace: aws-sdk-ios-sun.xcworkspace
+xcode_scheme: aws-sdk-ios-sun
+before_install:
+- openssl aes-256-cbc -K $encrypted_79b276987c9f_key -iv $encrypted_79b276987c9f_iv
+  -in AWSAppSyncTests/appsync_test_credentials.json.enc -out AWSAppSyncTests/appsync_test_credentials.json 
+  -d
+- brew update
+- brew outdated carthage || brew upgrade carthage
+- pod update
+before_deploy:
+- carthage build --no-skip-current
+- carthage archive $FRAMEWORK_NAME
+script:
+- xcodebuild -workspace AWSAppSyncClient.xcworkspace -scheme AWSAppSync build test -destination 'platform=iOS Simulator,name=iPhone 6,OS=latest'
+deploy:
+- provider: releases
+  api_key:
+    secure: grQ0iwgJczU2OQuoXM4TkYrWtPBEwaG5WSPwtQ4OeNJT/S9u/NsB8UWlkqr7w0dzgJhZC0rYX8qDHT8UH8LoGUYPvtORBz+0ktoOFxGHR1Xf7diEKrsDFYJ0Tou7zrgLzzVEY3t+vlLZAmd8POavQsfNKWx5xeOvsmfJgHSuJic1eAaH6R9LsJgXnqhiUF6DT2nDdFEy2cDYL8fro98WXoek7Z+fG4nx5oJQSOmhiNmdSIcTcFMFWJ9TFMlsNJom6pMDJR6FL1AgCz3/zSvYW4ZNpkq1WIQjIJAidiKEPue0tmVPwXvP5fmOsGTneu72O/uSyIoTdkPnt0QZXFofA+g4ScwhI8GQNPjF4muUrJauOVzInExm/RS1gI4Z5AwLV/DDouNtyMRIuCjCr/cPUpzllUyWTguTl7YVyt0/rK7QjCVX4U46N1QSmXNpP6Qa8EWQam5MMi0bcTa0drjNMqPaRjRP+F0O/x9wnbSfJElRueSexw5Uvn/+nh0upxo6kbIttVHZRjJuw5mN0iiEUIdL08nem9BWRLjg/hA1t6Lo94QCHu6BGeHi5AyddTFmiM0vsMnnNNSKB+q1RSMCCqMMjGtcGZJw5YtZybcn5AvIrhPjGLcMOpSPQ2BTWToKMHKlkzefaF0e9gPbC4PDBGIAVEqx8qKkUqDsCuSZb60=
+  file: "$FRAMEWORK_NAME.framework.zip"
+  skip_cleanup: true
+  on:
+    repo: awslabs/aws-mobile-appsync-sdk-ios
+    tags: true
+- provider: script
+  script: bash cocoapods_release.sh
+  on:
+    tags: true
