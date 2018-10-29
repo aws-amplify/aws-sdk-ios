@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.license      = 'Amazon Software License'
   s.author       = { 'Amazon Web Services' => 'amazonwebservices' }
   s.platform     = :ios, '8.0'
-  s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
+  s.source       = { :git => 'https://github.com/sunchunqiang/aws-sdk-ios.git',
                      :tag => s.version}
   s.requires_arc = true
   s.library      = 'sqlite3' 
