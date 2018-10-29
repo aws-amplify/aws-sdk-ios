@@ -3,8 +3,8 @@ osx_image: xcode10
 env:
   global:
   - FRAMEWORK_NAME=aws-sdk-ios-sun
-xcode_workspace: aws-sdk-ios-sun.xcworkspace
-xcode_scheme: aws-sdk-ios-sun
+xcode_workspace: aws-sdk-ios.xcworkspace
+xcode_scheme: aws-sdk-ios
 before_install:
 - brew update
 - brew outdated carthage || brew upgrade carthage
