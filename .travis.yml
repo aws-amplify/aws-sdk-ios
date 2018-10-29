@@ -6,9 +6,6 @@ env:
 xcode_workspace: aws-sdk-ios-sun.xcworkspace
 xcode_scheme: aws-sdk-ios-sun
 before_install:
-- openssl aes-256-cbc -K $encrypted_79b276987c9f_key -iv $encrypted_79b276987c9f_iv
-  -in AWSAppSyncTests/appsync_test_credentials.json.enc -out AWSAppSyncTests/appsync_test_credentials.json 
-  -d
 - brew update
 - brew outdated carthage || brew upgrade carthage
 - pod update
