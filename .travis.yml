@@ -20,5 +20,5 @@ deploy:
   file: "$FRAMEWORK_NAME.framework.zip"
   skip_cleanup: true
   on:
-    repo: sunchunqiang/aaws-sdk-ios
+    repo: sunchunqiang/aws-sdk-ios
     tags: true
