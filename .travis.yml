@@ -14,7 +14,7 @@ before_deploy:
 - carthage archive $FRAMEWORK_NAME
 script:
 - provider: script
-  script: bash Scripts/Package.sh
+  script: bash  aws-sdk-ios/Scripts/Package.sh
 deploy:
 - provider: releases
   api_key:
@@ -22,7 +22,7 @@ deploy:
   file: "$FRAMEWORK_NAME.framework.zip"
   skip_cleanup: true
   on:
-    repo: awslabs/aws-mobile-appsync-sdk-ios
+    repo: sunchunqiang/aaws-sdk-ios
     tags: true
 - provider: script
   script: bash cocoapods_release.sh
