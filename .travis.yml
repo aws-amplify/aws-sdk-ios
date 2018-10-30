@@ -2,7 +2,7 @@ language: objective-c
 osx_image: xcode10
 env:
   global:
-  - FRAMEWORK_NAME=aws-sdk-ios-sun
+  - FRAMEWORK_NAME=aws-sdk-ios
 xcode_workspace: aws-sdk-ios.xcworkspace
 xcode_scheme: aws-sdk-ios
 before_install:
