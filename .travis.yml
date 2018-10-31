@@ -9,19 +9,9 @@ before_install:
 - brew update
 - brew outdated carthage || brew upgrade carthage
 - pod repo update
-before_deploy:
-- carthage build  --no-skip-current 
-- carthage archive $FRAMEWORK_NAME
+
 script: bash Scripts/Package.sh
 deploy:
-- provider: releases
-  api_key:
-    secure: Yvf5pvJhYfKu/LuRQBL5aR4QEVxsZAwTQ/zgyva9CmUW6X/JRjmZiJvJg/12LTAdLAIaG2NCfSh1lQDfZ/xlyiR/ZzDyr0kWJ3xV8vwKGXEXeFyi+NMswYMo/3W40WBqL9QDVOjw9kZKnCRJBNnv3BpabpTfu4BwGC+0HY2EtePwWuy0pAMP0FOR42ScWKPplXqG8IGEI30/CcCUnXujpfPYPXFZ665RcyZCqUk70OHO7S/CFnd5V5nwK2RJBt1iIs8fCmirr6fzKeglV9XBGEWiZUKcOib8Z57wpoiRgzt1hKRAfnt4GAWuNMYAv3FsGp06r/rWtnBNM8mcANyqKWp2YWYlTkxXPcEojqBLKZDF0arc/sLTxwGMKn1YPrXx6yOdFDv5+mIpZ6BR5f/V4mDHaK2iro5sdTchZwFFrVxlrqLpxhxjbIZ6S3mC7K+dyhI7+kEuvviGDPJRiHYBOyVhU915svViOtdKfXfAUVG11HuPaXUmkAmuyTqjtETzcEzYejg/P8qXO7ESVrNYdClH7akd4GMESHQYKe+T7r/jWc8JpGrpFQ4T5NhrR/z842tYbTA793FW3CcJWE5QS12BhbVCZJ55QLhtgsAh1jq4xdVwQ6PBzu1MSBDARanMX6e9wCRm74JZtRW2rPObxm9r4mDhQOW+4wGT7ehlFsQ=
-  file: "$FRAMEWORK_NAME.framework.zip"
-  skip_cleanup: true
-  on:
-    repo: sunchunqiang/aws-sdk-ios
-    tags: true
 - provider: script
   script: python3 cocoapods_release.py
   on:
