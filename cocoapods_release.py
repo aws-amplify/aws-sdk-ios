@@ -48,7 +48,9 @@ podpackages = [
 
                ]
 for package in podpackages:
-    process = Popen(["pod", 'trunk','push',package,'--allow-warnings'], stdout=PIPE)
+    print ('publishing ' + package + ' ...')
+    #   process = Popen(["pod", 'trunk','push',package,'--allow-warnings'], stdout=PIPE)
+    process = Popen(["pod", 'repo','push','https://github.com/sunchunqiang/mypod-specs',package,'--allow-warnings'], stdout=PIPE)
     (output, err) = process.communicate()
     exit_code = process.wait()
     if exit_code != 0 :
