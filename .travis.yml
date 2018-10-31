@@ -1,10 +1,10 @@
 language: objective-c
-osx_image: xcode9.4
+osx_image: xcode10
 env:
   global:
   - FRAMEWORK_NAME=aws-sdk-ios
-xcode_project: AWSiOSSDKv2.xcodeproj
-xcode_scheme: aws-sdk-ios
+xcode_workspace: AWSiOSSDKv2.xcworkspace
+xcode_scheme: AWSiOSSDKv2
 before_install:
 - brew update
 - brew outdated carthage || brew upgrade carthage
