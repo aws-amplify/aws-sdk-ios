@@ -10,7 +10,7 @@ before_install:
 - brew outdated carthage || brew upgrade carthage
 - pod repo update
 before_deploy:
-- carthage build  ##--no-skip-current
+- carthage build   
 - carthage archive $FRAMEWORK_NAME
 script: bash Scripts/Package.sh
 deploy:
@@ -29,6 +29,6 @@ tags: true
 addons:
   apt:
     sources:
-      - deadsnakes # source required so it finds the package definition below
+      - deadsnakes  
     packages:
       - python3.5
