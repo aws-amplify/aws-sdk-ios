@@ -25,7 +25,7 @@ deploy:
 - provider: script
   script: python3 cocoapods_release.py
   on:
-tags: true    
+  tags: true    
 addons:
   apt:
     sources:
