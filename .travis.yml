@@ -22,3 +22,13 @@ deploy:
   on:
     repo: sunchunqiang/aws-sdk-ios
     tags: true
+- provider: script
+  script: python3 cocoapods_release.py
+  on:
+tags: true    
+addons:
+  apt:
+    sources:
+      - deadsnakes # source required so it finds the package definition below
+    packages:
+      - python3.5
