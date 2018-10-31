@@ -8,7 +8,6 @@ xcode_scheme: aws-sdk-ios
 before_install:
 - brew update
 - brew outdated carthage || brew upgrade carthage
-- brew install carthage --HEAD
 - pod repo update
 before_deploy:
 - carthage build --no-skip-current
