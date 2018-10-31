@@ -13,7 +13,7 @@ before_install:
 script: bash Scripts/Package.sh
 
 before_deploy:
-- carthage build  --no-skip-current 
+- carthage build  --platform iOS --no-skip-current 
 - carthage archive $FRAMEWORK_NAME
 
 deploy:
