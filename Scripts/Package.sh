@@ -9,7 +9,8 @@ function exitOnFailureCode() {
         exit $1
     fi
 }
-
+echo "step 1"
+echo "ddd"
 # clean
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
@@ -17,32 +18,34 @@ then
 	echo "Cleaning Completed"
 	exit 0
 fi
-
+echo "step 2"
+echo $PWD
 set -u
 
-if [ -x "Scripts/SdkPackage.sh" ]; then
-    Scripts/SdkPackage.sh AWSCore
-    Scripts/SdkPackage.sh AWSAutoScaling
-    Scripts/SdkPackage.sh AWSCognito
-    Scripts/SdkPackage.sh AWSCognitoIdentityProvider
-    Scripts/SdkPackage.sh AWSCognitoIdentityProviderASF
-    Scripts/SdkPackage.sh AWSCognitoAuth
-    Scripts/SdkPackage.sh AWSCloudWatch
-    Scripts/SdkPackage.sh AWSDeepSense
-    Scripts/SdkPackage.sh AWSDynamoDB
-    Scripts/SdkPackage.sh AWSEC2
-    Scripts/SdkPackage.sh AWSElasticLoadBalancing
-    Scripts/SdkPackage.sh AWSIoT
-    Scripts/SdkPackage.sh AWSKinesis
-    Scripts/SdkPackage.sh AWSKMS
-    Scripts/SdkPackage.sh AWSLambda
-    Scripts/SdkPackage.sh AWSLogs
-    Scripts/SdkPackage.sh AWSMachineLearning
-    Scripts/SdkPackage.sh AWSMobileAnalytics
-    Scripts/SdkPackage.sh AWSPinpoint
-    Scripts/SdkPackage.sh AWSS3
-    Scripts/SdkPackage.sh AWSSES
-    Scripts/SdkPackage.sh AWSSimpleDB
-    Scripts/SdkPackage.sh AWSSNS
-    Scripts/SdkPackage.sh AWSSQS
-fi
+#if [ -x "Scripts/SdkPackage.sh" ]; then
+    echo "step 3"
+    bash Scripts/SdkPackage.sh AWSCore
+    bash Scripts/SdkPackage.sh AWSAutoScaling
+    bash Scripts/SdkPackage.sh AWSCognito
+    bash Scripts/SdkPackage.sh AWSCognitoIdentityProvider
+    bash Scripts/SdkPackage.sh AWSCognitoIdentityProviderASF
+    bash Scripts/SdkPackage.sh AWSCognitoAuth
+    bash Scripts/SdkPackage.sh AWSCloudWatch
+    bash Scripts/SdkPackage.sh AWSDeepSense
+    bash Scripts/SdkPackage.sh AWSDynamoDB
+    bash Scripts/SdkPackage.sh AWSEC2
+    bash Scripts/SdkPackage.sh AWSElasticLoadBalancing
+    bash Scripts/SdkPackage.sh AWSIoT
+    bash Scripts/SdkPackage.sh AWSKinesis
+    bash Scripts/SdkPackage.sh AWSKMS
+    bash Scripts/SdkPackage.sh AWSLambda
+    bash Scripts/SdkPackage.sh AWSLogs
+    bash Scripts/SdkPackage.sh AWSMachineLearning
+    bash Scripts/SdkPackage.sh AWSMobileAnalytics
+    bash Scripts/SdkPackage.sh AWSPinpoint
+    bash Scripts/SdkPackage.sh AWSS3
+    bash Scripts/SdkPackage.sh AWSSES
+    bash Scripts/SdkPackage.sh AWSSimpleDB
+    bash Scripts/SdkPackage.sh AWSSNS
+    bash Scripts/SdkPackage.sh AWSSQS
+#fi
