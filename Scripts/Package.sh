@@ -21,6 +21,7 @@ fi
 echo "step 2"
 echo $PWD
 set -u
+exit 0
 
 #if [ -x "Scripts/SdkPackage.sh" ]; then
     echo "step 3"
