@@ -14,8 +14,8 @@ script: bash Scripts/Package.sh
 
 before_deploy:
 #- time xcodebuild -showBuildSettings
-- ./customcarthage build  --platform iOS --no-skip-current 
-- ./customcarthage archive $FRAMEWORK_NAME
+#- ./customcarthage build  --platform iOS --no-skip-current 
+#- ./customcarthage archive $FRAMEWORK_NAME
 
 deploy:
 #- provider: releases
@@ -29,7 +29,7 @@ deploy:
 - provider: script
   script: 
     - python  release_cocapod.py AWSCore.podspec 
-    - python release_cocapod.py  AWSAPIGateway.podspec
+   # - python release_cocapod.py  AWSAPIGateway.podspec
   on:
     repo: sunchunqiang/aws-sdk-ios
    # tags: true    
