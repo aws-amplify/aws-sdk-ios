@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSString *URLString;
 @property (nonatomic, strong) NSDictionary *queryParameters;
 @property (nonatomic, strong) NSDictionary *headerParameters;
-@property (nonatomic, strong) id HTTPBody;
+@property (nonatomic, strong)  id HTTPBody;
 
 @end
 
