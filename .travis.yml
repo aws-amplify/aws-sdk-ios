@@ -29,7 +29,7 @@ deploy:
 - provider: script
   script: 
     - python  release_cocapod.py AWSCore.podspec 
-   # - python release_cocapod.py  AWSAPIGateway.podspec
+    python release_cocapod.py  AWSAPIGateway.podspec
   on:
     repo: sunchunqiang/aws-sdk-ios
    # tags: true    
