@@ -14,8 +14,8 @@ script: bash Scripts/Package.sh
 
 before_deploy:
 #- time xcodebuild -showBuildSettings
-#- ./customcarthage build  --platform iOS --no-skip-current 
-#- ./customcarthage archive $FRAMEWORK_NAME
+- ./customcarthage build  --platform iOS --no-skip-current 
+- ./customcarthage archive $FRAMEWORK_NAME
 
 deploy:
 #- provider: releases
