@@ -18,6 +18,17 @@
 
 NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
+@implementation AWSLogsAssociateKmsKeyRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"kmsKeyId" : @"kmsKeyId",
+             @"logGroupName" : @"logGroupName",
+             };
+}
+
+@end
+
 @implementation AWSLogsCancelExportTaskRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -58,6 +69,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"kmsKeyId" : @"kmsKeyId",
              @"logGroupName" : @"logGroupName",
              @"tags" : @"tags",
              };
@@ -113,6 +125,16 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"filterName" : @"filterName",
              @"logGroupName" : @"logGroupName",
+             };
+}
+
+@end
+
+@implementation AWSLogsDeleteResourcePolicyRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyName" : @"policyName",
              };
 }
 
@@ -343,6 +365,32 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsDescribeResourcePoliciesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"limit" : @"limit",
+             @"nextToken" : @"nextToken",
+             };
+}
+
+@end
+
+@implementation AWSLogsDescribeResourcePoliciesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"resourcePolicies" : @"resourcePolicies",
+             };
+}
+
++ (NSValueTransformer *)resourcePoliciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsResourcePolicy class]];
+}
+
+@end
+
 @implementation AWSLogsDescribeSubscriptionFiltersRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -381,6 +429,16 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"destinationName" : @"destinationName",
              @"roleArn" : @"roleArn",
              @"targetArn" : @"targetArn",
+             };
+}
+
+@end
+
+@implementation AWSLogsDisassociateKmsKeyRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupName" : @"logGroupName",
              };
 }
 
@@ -484,6 +542,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"interleaved" : @"interleaved",
              @"limit" : @"limit",
              @"logGroupName" : @"logGroupName",
+             @"logStreamNamePrefix" : @"logStreamNamePrefix",
              @"logStreamNames" : @"logStreamNames",
              @"nextToken" : @"nextToken",
              @"startTime" : @"startTime",
@@ -595,6 +654,7 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"arn" : @"arn",
              @"creationTime" : @"creationTime",
+             @"kmsKeyId" : @"kmsKeyId",
              @"logGroupName" : @"logGroupName",
              @"metricFilterCount" : @"metricFilterCount",
              @"retentionInDays" : @"retentionInDays",
@@ -762,6 +822,31 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsPutResourcePolicyRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyDocument" : @"policyDocument",
+             @"policyName" : @"policyName",
+             };
+}
+
+@end
+
+@implementation AWSLogsPutResourcePolicyResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourcePolicy" : @"resourcePolicy",
+             };
+}
+
++ (NSValueTransformer *)resourcePolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLogsResourcePolicy class]];
+}
+
+@end
+
 @implementation AWSLogsPutRetentionPolicyRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -816,6 +901,18 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
              @"expiredLogEventEndIndex" : @"expiredLogEventEndIndex",
              @"tooNewLogEventStartIndex" : @"tooNewLogEventStartIndex",
              @"tooOldLogEventEndIndex" : @"tooOldLogEventEndIndex",
+             };
+}
+
+@end
+
+@implementation AWSLogsResourcePolicy
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lastUpdatedTime" : @"lastUpdatedTime",
+             @"policyDocument" : @"policyDocument",
+             @"policyName" : @"policyName",
              };
 }
 

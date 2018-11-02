@@ -69,7 +69,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
 
     //find value according to shapeName, return the value if found
     NSString *shapeName = [self.embeddedDictionary objectForKey:@"shape"];
-    if (shapeName.length != 0 ) {
+    if (shapeName.length != 0) {
         NSDictionary *definitionResult = [self.JSONDefinitionRule objectForKey:shapeName];
 
         id result = [definitionResult objectForKey:aKey];
@@ -952,7 +952,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
         prefix = [prefix stringByAppendingString:@".member"];
     }
 
-    for (int i = 0; i < [values count] ; i++) {
+    for (int i = 0; i < [values count]; i++) {
         id value = values[i];
         [self serializeMember:value rules:listRules[@"member"] prefix:[NSString stringWithFormat:@"%@.%d",prefix,i+1] formattedParams:formattedParams error:error];
         if (error && *error != nil) {
@@ -1160,7 +1160,7 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
         return YES;
     }
 
-    for (int i = 0; i < [values count] ; i++) {
+    for (int i = 0; i < [values count]; i++) {
         id value = values[i];
         [self serializeMember:value rules:listRules[@"member"] prefix:[NSString stringWithFormat:@"%@.%d",prefix,i+1] formattedParams:formattedParams error:error];
         if (error && *error != nil) {

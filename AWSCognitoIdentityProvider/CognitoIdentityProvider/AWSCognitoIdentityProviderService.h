@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSCognitoIdentityProvider
+FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
+
 /**
  <p>Using the Amazon Cognito User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.</p><p>This API reference provides information about user pools in Amazon Cognito User Pools.</p><p>For more information, see the Amazon Cognito Documentation.</p>
  */
@@ -244,7 +247,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)adminConfirmSignUp:(AWSCognitoIdentityProviderAdminConfirmSignUpRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminConfirmSignUpResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new user in the specified user pool and sends a welcome message via email or phone (SMS). This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p><p>Requires developer credentials.</p>
+ <p>Creates a new user in the specified user pool.</p><p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p><note><p>This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p></note><p>Alternatively, you can call AdminCreateUser with “SUPPRESS” for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p><p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p><p>AdminCreateUser requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminCreateUser service method.
 
@@ -256,7 +259,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderAdminCreateUserResponse *> *)adminCreateUser:(AWSCognitoIdentityProviderAdminCreateUserRequest *)request;
 
 /**
- <p>Creates a new user in the specified user pool and sends a welcome message via email or phone (SMS). This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p><p>Requires developer credentials.</p>
+ <p>Creates a new user in the specified user pool.</p><p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p><note><p>This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p></note><p>Alternatively, you can call AdminCreateUser with “SUPPRESS” for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p><p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p><p>AdminCreateUser requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the AdminCreateUser service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -563,7 +566,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)adminListGroupsForUser:(AWSCognitoIdentityProviderAdminListGroupsForUserRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminListGroupsForUserResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- AdminListUserAuthEvents
+ <p>Lists a history of user activity and any risks detected as part of Amazon Cognito advanced security.</p>
  
  @param request A container for the necessary parameters to execute the AdminListUserAuthEvents service method.
 
@@ -575,7 +578,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderAdminListUserAuthEventsResponse *> *)adminListUserAuthEvents:(AWSCognitoIdentityProviderAdminListUserAuthEventsRequest *)request;
 
 /**
- AdminListUserAuthEvents
+ <p>Lists a history of user activity and any risks detected as part of Amazon Cognito advanced security.</p>
  
  @param request A container for the necessary parameters to execute the AdminListUserAuthEvents service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -660,7 +663,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)adminRespondToAuthChallenge:(AWSCognitoIdentityProviderAdminRespondToAuthChallengeRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminRespondToAuthChallengeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- AdminSetUserMFAPreference
+ <p>Sets the user's multi-factor authentication (MFA) preference.</p>
  
  @param request A container for the necessary parameters to execute the AdminSetUserMFAPreference service method.
 
@@ -672,7 +675,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderAdminSetUserMFAPreferenceResponse *> *)adminSetUserMFAPreference:(AWSCognitoIdentityProviderAdminSetUserMFAPreferenceRequest *)request;
 
 /**
- AdminSetUserMFAPreference
+ <p>Sets the user's multi-factor authentication (MFA) preference.</p>
  
  @param request A container for the necessary parameters to execute the AdminSetUserMFAPreference service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -710,7 +713,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)adminSetUserSettings:(AWSCognitoIdentityProviderAdminSetUserSettingsRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminSetUserSettingsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- AdminUpdateAuthEventFeedback
+ <p>Provides feedback for an authentication event as to whether it was from a valid user. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.</p>
  
  @param request A container for the necessary parameters to execute the AdminUpdateAuthEventFeedback service method.
 
@@ -722,7 +725,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackResponse *> *)adminUpdateAuthEventFeedback:(AWSCognitoIdentityProviderAdminUpdateAuthEventFeedbackRequest *)request;
 
 /**
- AdminUpdateAuthEventFeedback
+ <p>Provides feedback for an authentication event as to whether it was from a valid user. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.</p>
  
  @param request A container for the necessary parameters to execute the AdminUpdateAuthEventFeedback service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -810,7 +813,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)adminUserGlobalSignOut:(AWSCognitoIdentityProviderAdminUserGlobalSignOutRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderAdminUserGlobalSignOutResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- AssociateSoftwareToken
+ <p>Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.</p>
  
  @param request A container for the necessary parameters to execute the AssociateSoftwareToken service method.
 
@@ -822,7 +825,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderAssociateSoftwareTokenResponse *> *)associateSoftwareToken:(AWSCognitoIdentityProviderAssociateSoftwareTokenRequest *)request;
 
 /**
- AssociateSoftwareToken
+ <p>Returns a unique generated shared secret key code for the user account. The request takes an access token or a session string, but not both.</p>
  
  @param request A container for the necessary parameters to execute the AssociateSoftwareToken service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1089,7 +1092,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param request A container for the necessary parameters to execute the CreateUserPoolDomain service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityProviderCreateUserPoolDomainResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorInternalError`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityProviderCreateUserPoolDomainResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorLimitExceeded`, `AWSCognitoIdentityProviderErrorInternalError`.
  
  @see AWSCognitoIdentityProviderCreateUserPoolDomainRequest
  @see AWSCognitoIdentityProviderCreateUserPoolDomainResponse
@@ -1102,7 +1105,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param request A container for the necessary parameters to execute the CreateUserPoolDomain service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorInternalError`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorLimitExceeded`, `AWSCognitoIdentityProviderErrorInternalError`.
  
  @see AWSCognitoIdentityProviderCreateUserPoolDomainRequest
  @see AWSCognitoIdentityProviderCreateUserPoolDomainResponse
@@ -1342,7 +1345,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeResourceServer:(AWSCognitoIdentityProviderDescribeResourceServerRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderDescribeResourceServerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- DescribeRiskConfiguration
+ <p>Describes the risk configuration.</p>
  
  @param request A container for the necessary parameters to execute the DescribeRiskConfiguration service method.
 
@@ -1354,7 +1357,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderDescribeRiskConfigurationResponse *> *)describeRiskConfiguration:(AWSCognitoIdentityProviderDescribeRiskConfigurationRequest *)request;
 
 /**
- DescribeRiskConfiguration
+ <p>Describes the risk configuration.</p>
  
  @param request A container for the necessary parameters to execute the DescribeRiskConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1417,7 +1420,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeUserPool:(AWSCognitoIdentityProviderDescribeUserPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderDescribeUserPoolResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Client method for returning the configuration information and metadata of the specified user pool client.</p>
+ <p>Client method for returning the configuration information and metadata of the specified user pool app client.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUserPoolClient service method.
 
@@ -1429,7 +1432,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderDescribeUserPoolClientResponse *> *)describeUserPoolClient:(AWSCognitoIdentityProviderDescribeUserPoolClientRequest *)request;
 
 /**
- <p>Client method for returning the configuration information and metadata of the specified user pool client.</p>
+ <p>Client method for returning the configuration information and metadata of the specified user pool app client.</p>
  
  @param request A container for the necessary parameters to execute the DescribeUserPoolClient service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1614,7 +1617,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getIdentityProviderByIdentifier:(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderGetIdentityProviderByIdentifierResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- GetSigningCertificate
+ <p>This method takes a user pool ID, and returns the signing certificate.</p>
  
  @param request A container for the necessary parameters to execute the GetSigningCertificate service method.
 
@@ -1626,7 +1629,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderGetSigningCertificateResponse *> *)getSigningCertificate:(AWSCognitoIdentityProviderGetSigningCertificateRequest *)request;
 
 /**
- GetSigningCertificate
+ <p>This method takes a user pool ID, and returns the signing certificate.</p>
  
  @param request A container for the necessary parameters to execute the GetSigningCertificate service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1714,7 +1717,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getUserAttributeVerificationCode:(AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- GetUserPoolMfaConfig
+ <p>Gets the user pool multi-factor authentication (MFA) configuration.</p>
  
  @param request A container for the necessary parameters to execute the GetUserPoolMfaConfig service method.
 
@@ -1726,7 +1729,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderGetUserPoolMfaConfigResponse *> *)getUserPoolMfaConfig:(AWSCognitoIdentityProviderGetUserPoolMfaConfigRequest *)request;
 
 /**
- GetUserPoolMfaConfig
+ <p>Gets the user pool multi-factor authentication (MFA) configuration.</p>
  
  @param request A container for the necessary parameters to execute the GetUserPoolMfaConfig service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2064,7 +2067,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)respondToAuthChallenge:(AWSCognitoIdentityProviderRespondToAuthChallengeRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderRespondToAuthChallengeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- SetRiskConfiguration
+ <p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p><p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p><p>See .</p>
  
  @param request A container for the necessary parameters to execute the SetRiskConfiguration service method.
 
@@ -2076,7 +2079,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderSetRiskConfigurationResponse *> *)setRiskConfiguration:(AWSCognitoIdentityProviderSetRiskConfigurationRequest *)request;
 
 /**
- SetRiskConfiguration
+ <p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p><p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p><p>See .</p>
  
  @param request A container for the necessary parameters to execute the SetRiskConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2114,7 +2117,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setUICustomization:(AWSCognitoIdentityProviderSetUICustomizationRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderSetUICustomizationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- SetUserMFAPreference
+ <p>Set the user's multi-factor authentication (MFA) method preference.</p>
  
  @param request A container for the necessary parameters to execute the SetUserMFAPreference service method.
 
@@ -2126,7 +2129,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderSetUserMFAPreferenceResponse *> *)setUserMFAPreference:(AWSCognitoIdentityProviderSetUserMFAPreferenceRequest *)request;
 
 /**
- SetUserMFAPreference
+ <p>Set the user's multi-factor authentication (MFA) method preference.</p>
  
  @param request A container for the necessary parameters to execute the SetUserMFAPreference service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2139,7 +2142,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setUserMFAPreference:(AWSCognitoIdentityProviderSetUserMFAPreferenceRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderSetUserMFAPreferenceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- SetUserPoolMfaConfig
+ <p>Set the user pool MFA configuration.</p>
  
  @param request A container for the necessary parameters to execute the SetUserPoolMfaConfig service method.
 
@@ -2151,7 +2154,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderSetUserPoolMfaConfigResponse *> *)setUserPoolMfaConfig:(AWSCognitoIdentityProviderSetUserPoolMfaConfigRequest *)request;
 
 /**
- SetUserPoolMfaConfig
+ <p>Set the user pool MFA configuration.</p>
  
  @param request A container for the necessary parameters to execute the SetUserPoolMfaConfig service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2264,7 +2267,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)stopUserImportJob:(AWSCognitoIdentityProviderStopUserImportJobRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderStopUserImportJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- UpdateAuthEventFeedback
+ <p>Provides the feedback for an authentication event whether it was from a valid user or not. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.</p>
  
  @param request A container for the necessary parameters to execute the UpdateAuthEventFeedback service method.
 
@@ -2276,7 +2279,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderUpdateAuthEventFeedbackResponse *> *)updateAuthEventFeedback:(AWSCognitoIdentityProviderUpdateAuthEventFeedbackRequest *)request;
 
 /**
- UpdateAuthEventFeedback
+ <p>Provides the feedback for an authentication event whether it was from a valid user or not. This feedback is used for improving the risk evaluation decision for the user pool as part of Amazon Cognito advanced security.</p>
  
  @param request A container for the necessary parameters to execute the UpdateAuthEventFeedback service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2414,7 +2417,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateUserAttributes:(AWSCognitoIdentityProviderUpdateUserAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateUserAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the specified user pool with the specified attributes.</p>
+ <p>Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool settings with .</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserPool service method.
 
@@ -2426,7 +2429,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderUpdateUserPoolResponse *> *)updateUserPool:(AWSCognitoIdentityProviderUpdateUserPoolRequest *)request;
 
 /**
- <p>Updates the specified user pool with the specified attributes.</p>
+ <p>Updates the specified user pool with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool settings with .</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserPool service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2439,7 +2442,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateUserPool:(AWSCognitoIdentityProviderUpdateUserPoolRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateUserPoolResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Allows the developer to update the specified user pool client and password policy.</p>
+ <p>Updates the specified user pool app client with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool app client settings with .</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserPoolClient service method.
 
@@ -2451,7 +2454,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderUpdateUserPoolClientResponse *> *)updateUserPoolClient:(AWSCognitoIdentityProviderUpdateUserPoolClientRequest *)request;
 
 /**
- <p>Allows the developer to update the specified user pool client and password policy.</p>
+ <p>Updates the specified user pool app client with the specified attributes. If you don't provide a value for an attribute, it will be set to the default value. You can get a list of the current user pool app client settings with .</p>
  
  @param request A container for the necessary parameters to execute the UpdateUserPoolClient service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2464,7 +2467,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateUserPoolClient:(AWSCognitoIdentityProviderUpdateUserPoolClientRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateUserPoolClientResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- VerifySoftwareToken
+ <p>Use this API to register a user's entered TOTP code and mark the user's software token MFA status as "verified" if successful. The request takes an access token or a session string, but not both.</p>
  
  @param request A container for the necessary parameters to execute the VerifySoftwareToken service method.
 
@@ -2476,7 +2479,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityProviderVerifySoftwareTokenResponse *> *)verifySoftwareToken:(AWSCognitoIdentityProviderVerifySoftwareTokenRequest *)request;
 
 /**
- VerifySoftwareToken
+ <p>Use this API to register a user's entered TOTP code and mark the user's software token MFA status as "verified" if successful. The request takes an access token or a session string, but not both.</p>
  
  @param request A container for the necessary parameters to execute the VerifySoftwareToken service method.
  @param completionHandler The completion handler to call when the load request is complete.

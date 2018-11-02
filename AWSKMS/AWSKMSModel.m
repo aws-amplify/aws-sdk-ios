@@ -634,6 +634,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
              @"enabled" : @"Enabled",
              @"expirationModel" : @"ExpirationModel",
              @"keyId" : @"KeyId",
+             @"keyManager" : @"KeyManager",
              @"keyState" : @"KeyState",
              @"keyUsage" : @"KeyUsage",
              @"origin" : @"Origin",
@@ -672,6 +673,27 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
                 return @"KEY_MATERIAL_EXPIRES";
             case AWSKMSExpirationModelTypeKeyMaterialDoesNotExpire:
                 return @"KEY_MATERIAL_DOES_NOT_EXPIRE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)keyManagerJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AWS"] == NSOrderedSame) {
+            return @(AWSKMSKeyManagerTypeAws);
+        }
+        if ([value caseInsensitiveCompare:@"CUSTOMER"] == NSOrderedSame) {
+            return @(AWSKMSKeyManagerTypeCustomer);
+        }
+        return @(AWSKMSKeyManagerTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSKMSKeyManagerTypeAws:
+                return @"AWS";
+            case AWSKMSKeyManagerTypeCustomer:
+                return @"CUSTOMER";
             default:
                 return nil;
         }
@@ -760,6 +782,7 @@ NSString *const AWSKMSErrorDomain = @"com.amazonaws.AWSKMSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"keyId" : @"KeyId",
              @"limit" : @"Limit",
              @"marker" : @"Marker",
              };

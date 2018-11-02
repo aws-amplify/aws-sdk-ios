@@ -127,6 +127,283 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBAutoScalingPolicyDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyName" : @"PolicyName",
+             @"targetTrackingScalingPolicyConfiguration" : @"TargetTrackingScalingPolicyConfiguration",
+             };
+}
+
++ (NSValueTransformer *)targetTrackingScalingPolicyConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBAutoScalingPolicyUpdate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyName" : @"PolicyName",
+             @"targetTrackingScalingPolicyConfiguration" : @"TargetTrackingScalingPolicyConfiguration",
+             };
+}
+
++ (NSValueTransformer *)targetTrackingScalingPolicyConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationUpdate class]];
+}
+
+@end
+
+@implementation AWSDynamoDBAutoScalingSettingsDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingDisabled" : @"AutoScalingDisabled",
+             @"autoScalingRoleArn" : @"AutoScalingRoleArn",
+             @"maximumUnits" : @"MaximumUnits",
+             @"minimumUnits" : @"MinimumUnits",
+             @"scalingPolicies" : @"ScalingPolicies",
+             };
+}
+
++ (NSValueTransformer *)scalingPoliciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBAutoScalingPolicyDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBAutoScalingSettingsUpdate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"autoScalingDisabled" : @"AutoScalingDisabled",
+             @"autoScalingRoleArn" : @"AutoScalingRoleArn",
+             @"maximumUnits" : @"MaximumUnits",
+             @"minimumUnits" : @"MinimumUnits",
+             @"scalingPolicyUpdate" : @"ScalingPolicyUpdate",
+             };
+}
+
++ (NSValueTransformer *)scalingPolicyUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingPolicyUpdate class]];
+}
+
+@end
+
+@implementation AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"disableScaleIn" : @"DisableScaleIn",
+             @"scaleInCooldown" : @"ScaleInCooldown",
+             @"scaleOutCooldown" : @"ScaleOutCooldown",
+             @"targetValue" : @"TargetValue",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBAutoScalingTargetTrackingScalingPolicyConfigurationUpdate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"disableScaleIn" : @"DisableScaleIn",
+             @"scaleInCooldown" : @"ScaleInCooldown",
+             @"scaleOutCooldown" : @"ScaleOutCooldown",
+             @"targetValue" : @"TargetValue",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBBackupDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupDetails" : @"BackupDetails",
+             @"sourceTableDetails" : @"SourceTableDetails",
+             @"sourceTableFeatureDetails" : @"SourceTableFeatureDetails",
+             };
+}
+
++ (NSValueTransformer *)backupDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBBackupDetails class]];
+}
+
++ (NSValueTransformer *)sourceTableDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBSourceTableDetails class]];
+}
+
++ (NSValueTransformer *)sourceTableFeatureDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBSourceTableFeatureDetails class]];
+}
+
+@end
+
+@implementation AWSDynamoDBBackupDetails
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupArn" : @"BackupArn",
+             @"backupCreationDateTime" : @"BackupCreationDateTime",
+             @"backupExpiryDateTime" : @"BackupExpiryDateTime",
+             @"backupName" : @"BackupName",
+             @"backupSizeBytes" : @"BackupSizeBytes",
+             @"backupStatus" : @"BackupStatus",
+             @"backupType" : @"BackupType",
+             };
+}
+
++ (NSValueTransformer *)backupCreationDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)backupExpiryDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)backupStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupStatusCreating);
+        }
+        if ([value caseInsensitiveCompare:@"DELETED"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupStatusDeleted);
+        }
+        if ([value caseInsensitiveCompare:@"AVAILABLE"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupStatusAvailable);
+        }
+        return @(AWSDynamoDBBackupStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBBackupStatusCreating:
+                return @"CREATING";
+            case AWSDynamoDBBackupStatusDeleted:
+                return @"DELETED";
+            case AWSDynamoDBBackupStatusAvailable:
+                return @"AVAILABLE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)backupTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"USER"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeUser);
+        }
+        if ([value caseInsensitiveCompare:@"SYSTEM"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeSystem);
+        }
+        return @(AWSDynamoDBBackupTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBBackupTypeUser:
+                return @"USER";
+            case AWSDynamoDBBackupTypeSystem:
+                return @"SYSTEM";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBBackupSummary
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupArn" : @"BackupArn",
+             @"backupCreationDateTime" : @"BackupCreationDateTime",
+             @"backupExpiryDateTime" : @"BackupExpiryDateTime",
+             @"backupName" : @"BackupName",
+             @"backupSizeBytes" : @"BackupSizeBytes",
+             @"backupStatus" : @"BackupStatus",
+             @"backupType" : @"BackupType",
+             @"tableArn" : @"TableArn",
+             @"tableId" : @"TableId",
+             @"tableName" : @"TableName",
+             };
+}
+
++ (NSValueTransformer *)backupCreationDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)backupExpiryDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)backupStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupStatusCreating);
+        }
+        if ([value caseInsensitiveCompare:@"DELETED"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupStatusDeleted);
+        }
+        if ([value caseInsensitiveCompare:@"AVAILABLE"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupStatusAvailable);
+        }
+        return @(AWSDynamoDBBackupStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBBackupStatusCreating:
+                return @"CREATING";
+            case AWSDynamoDBBackupStatusDeleted:
+                return @"DELETED";
+            case AWSDynamoDBBackupStatusAvailable:
+                return @"AVAILABLE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)backupTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"USER"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeUser);
+        }
+        if ([value caseInsensitiveCompare:@"SYSTEM"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeSystem);
+        }
+        return @(AWSDynamoDBBackupTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBBackupTypeUser:
+                return @"USER";
+            case AWSDynamoDBBackupTypeSystem:
+                return @"SYSTEM";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSDynamoDBBatchGetItemInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -438,6 +715,67 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBContinuousBackupsDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"continuousBackupsStatus" : @"ContinuousBackupsStatus",
+             @"pointInTimeRecoveryDescription" : @"PointInTimeRecoveryDescription",
+             };
+}
+
++ (NSValueTransformer *)continuousBackupsStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBContinuousBackupsStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBContinuousBackupsStatusDisabled);
+        }
+        return @(AWSDynamoDBContinuousBackupsStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBContinuousBackupsStatusEnabled:
+                return @"ENABLED";
+            case AWSDynamoDBContinuousBackupsStatusDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)pointInTimeRecoveryDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBPointInTimeRecoveryDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBCreateBackupInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupName" : @"BackupName",
+             @"tableName" : @"TableName",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBCreateBackupOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupDetails" : @"BackupDetails",
+             };
+}
+
++ (NSValueTransformer *)backupDetailsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBBackupDetails class]];
+}
+
+@end
+
 @implementation AWSDynamoDBCreateGlobalSecondaryIndexAction
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -463,6 +801,45 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBCreateGlobalTableInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableName" : @"GlobalTableName",
+             @"replicationGroup" : @"ReplicationGroup",
+             };
+}
+
++ (NSValueTransformer *)replicationGroupJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplica class]];
+}
+
+@end
+
+@implementation AWSDynamoDBCreateGlobalTableOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableDescription" : @"GlobalTableDescription",
+             };
+}
+
++ (NSValueTransformer *)globalTableDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBGlobalTableDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBCreateReplicaAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"regionName" : @"RegionName",
+             };
+}
+
+@end
+
 @implementation AWSDynamoDBCreateTableInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -472,6 +849,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"keySchema" : @"KeySchema",
              @"localSecondaryIndexes" : @"LocalSecondaryIndexes",
              @"provisionedThroughput" : @"ProvisionedThroughput",
+             @"SSESpecification" : @"SSESpecification",
              @"streamSpecification" : @"StreamSpecification",
              @"tableName" : @"TableName",
              };
@@ -497,6 +875,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
 }
 
++ (NSValueTransformer *)SSESpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBSSESpecification class]];
+}
+
 + (NSValueTransformer *)streamSpecificationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
 }
@@ -513,6 +895,30 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)tableDescriptionJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBDeleteBackupInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupArn" : @"BackupArn",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBDeleteBackupOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupDescription" : @"BackupDescription",
+             };
+}
+
++ (NSValueTransformer *)backupDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBBackupDescription class]];
 }
 
 @end
@@ -702,6 +1108,16 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBDeleteReplicaAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"regionName" : @"RegionName",
+             };
+}
+
+@end
+
 @implementation AWSDynamoDBDeleteRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -744,6 +1160,121 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBDescribeBackupInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupArn" : @"BackupArn",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeBackupOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupDescription" : @"BackupDescription",
+             };
+}
+
++ (NSValueTransformer *)backupDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBBackupDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeContinuousBackupsInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tableName" : @"TableName",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeContinuousBackupsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"continuousBackupsDescription" : @"ContinuousBackupsDescription",
+             };
+}
+
++ (NSValueTransformer *)continuousBackupsDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBContinuousBackupsDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeEndpointsRequest
+
+@end
+
+@implementation AWSDynamoDBDescribeEndpointsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpoints" : @"Endpoints",
+             };
+}
+
++ (NSValueTransformer *)endpointsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBEndpoint class]];
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeGlobalTableInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableName" : @"GlobalTableName",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeGlobalTableOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableDescription" : @"GlobalTableDescription",
+             };
+}
+
++ (NSValueTransformer *)globalTableDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBGlobalTableDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeGlobalTableSettingsInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableName" : @"GlobalTableName",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeGlobalTableSettingsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableName" : @"GlobalTableName",
+             @"replicaSettings" : @"ReplicaSettings",
+             };
+}
+
++ (NSValueTransformer *)replicaSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaSettingsDescription class]];
+}
+
+@end
+
 @implementation AWSDynamoDBDescribeLimitsInput
 
 @end
@@ -781,6 +1312,41 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)tableJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeTimeToLiveInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tableName" : @"TableName",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeTimeToLiveOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"timeToLiveDescription" : @"TimeToLiveDescription",
+             };
+}
+
++ (NSValueTransformer *)timeToLiveDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTimeToLiveDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBEndpoint
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"address" : @"Address",
+             @"cachePeriodInMinutes" : @"CachePeriodInMinutes",
+             };
 }
 
 @end
@@ -1041,6 +1607,31 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBGlobalSecondaryIndexInfo
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"indexName" : @"IndexName",
+             @"keySchema" : @"KeySchema",
+             @"projection" : @"Projection",
+             @"provisionedThroughput" : @"ProvisionedThroughput",
+             };
+}
+
++ (NSValueTransformer *)keySchemaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+}
+
++ (NSValueTransformer *)projectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+}
+
++ (NSValueTransformer *)provisionedThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+}
+
+@end
+
 @implementation AWSDynamoDBGlobalSecondaryIndexUpdate
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1061,6 +1652,94 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)updateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBUpdateGlobalSecondaryIndexAction class]];
+}
+
+@end
+
+@implementation AWSDynamoDBGlobalTable
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableName" : @"GlobalTableName",
+             @"replicationGroup" : @"ReplicationGroup",
+             };
+}
+
++ (NSValueTransformer *)replicationGroupJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplica class]];
+}
+
+@end
+
+@implementation AWSDynamoDBGlobalTableDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDateTime" : @"CreationDateTime",
+             @"globalTableArn" : @"GlobalTableArn",
+             @"globalTableName" : @"GlobalTableName",
+             @"globalTableStatus" : @"GlobalTableStatus",
+             @"replicationGroup" : @"ReplicationGroup",
+             };
+}
+
++ (NSValueTransformer *)creationDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)globalTableStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
+            return @(AWSDynamoDBGlobalTableStatusCreating);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSDynamoDBGlobalTableStatusActive);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSDynamoDBGlobalTableStatusDeleting);
+        }
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
+            return @(AWSDynamoDBGlobalTableStatusUpdating);
+        }
+        return @(AWSDynamoDBGlobalTableStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBGlobalTableStatusCreating:
+                return @"CREATING";
+            case AWSDynamoDBGlobalTableStatusActive:
+                return @"ACTIVE";
+            case AWSDynamoDBGlobalTableStatusDeleting:
+                return @"DELETING";
+            case AWSDynamoDBGlobalTableStatusUpdating:
+                return @"UPDATING";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)replicationGroupJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"indexName" : @"IndexName",
+             @"provisionedWriteCapacityAutoScalingSettingsUpdate" : @"ProvisionedWriteCapacityAutoScalingSettingsUpdate",
+             @"provisionedWriteCapacityUnits" : @"ProvisionedWriteCapacityUnits",
+             };
+}
+
++ (NSValueTransformer *)provisionedWriteCapacityAutoScalingSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsUpdate class]];
 }
 
 @end
@@ -1138,6 +1817,105 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBListBackupsInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupType" : @"BackupType",
+             @"exclusiveStartBackupArn" : @"ExclusiveStartBackupArn",
+             @"limit" : @"Limit",
+             @"tableName" : @"TableName",
+             @"timeRangeLowerBound" : @"TimeRangeLowerBound",
+             @"timeRangeUpperBound" : @"TimeRangeUpperBound",
+             };
+}
+
++ (NSValueTransformer *)backupTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"USER"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeFilterUser);
+        }
+        if ([value caseInsensitiveCompare:@"SYSTEM"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeFilterSystem);
+        }
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSDynamoDBBackupTypeFilterAll);
+        }
+        return @(AWSDynamoDBBackupTypeFilterUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBBackupTypeFilterUser:
+                return @"USER";
+            case AWSDynamoDBBackupTypeFilterSystem:
+                return @"SYSTEM";
+            case AWSDynamoDBBackupTypeFilterAll:
+                return @"ALL";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)timeRangeLowerBoundJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)timeRangeUpperBoundJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBListBackupsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupSummaries" : @"BackupSummaries",
+             @"lastEvaluatedBackupArn" : @"LastEvaluatedBackupArn",
+             };
+}
+
++ (NSValueTransformer *)backupSummariesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBBackupSummary class]];
+}
+
+@end
+
+@implementation AWSDynamoDBListGlobalTablesInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"exclusiveStartGlobalTableName" : @"ExclusiveStartGlobalTableName",
+             @"limit" : @"Limit",
+             @"regionName" : @"RegionName",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBListGlobalTablesOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTables" : @"GlobalTables",
+             @"lastEvaluatedGlobalTableName" : @"LastEvaluatedGlobalTableName",
+             };
+}
+
++ (NSValueTransformer *)globalTablesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalTable class]];
+}
+
+@end
+
 @implementation AWSDynamoDBListTablesInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1156,6 +1934,32 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"lastEvaluatedTableName" : @"LastEvaluatedTableName",
              @"tableNames" : @"TableNames",
              };
+}
+
+@end
+
+@implementation AWSDynamoDBListTagsOfResourceInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"resourceArn" : @"ResourceArn",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBListTagsOfResourceOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBTag class]];
 }
 
 @end
@@ -1199,6 +2003,85 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)projectionJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+}
+
+@end
+
+@implementation AWSDynamoDBLocalSecondaryIndexInfo
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"indexName" : @"IndexName",
+             @"keySchema" : @"KeySchema",
+             @"projection" : @"Projection",
+             };
+}
+
++ (NSValueTransformer *)keySchemaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+}
+
++ (NSValueTransformer *)projectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProjection class]];
+}
+
+@end
+
+@implementation AWSDynamoDBPointInTimeRecoveryDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"earliestRestorableDateTime" : @"EarliestRestorableDateTime",
+             @"latestRestorableDateTime" : @"LatestRestorableDateTime",
+             @"pointInTimeRecoveryStatus" : @"PointInTimeRecoveryStatus",
+             };
+}
+
++ (NSValueTransformer *)earliestRestorableDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)latestRestorableDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)pointInTimeRecoveryStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBPointInTimeRecoveryStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBPointInTimeRecoveryStatusDisabled);
+        }
+        return @(AWSDynamoDBPointInTimeRecoveryStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBPointInTimeRecoveryStatusEnabled:
+                return @"ENABLED";
+            case AWSDynamoDBPointInTimeRecoveryStatusDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBPointInTimeRecoverySpecification
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"pointInTimeRecoveryEnabled" : @"PointInTimeRecoveryEnabled",
+             };
 }
 
 @end
@@ -1644,6 +2527,378 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBReplica
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"regionName" : @"RegionName",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBReplicaDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"regionName" : @"RegionName",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"indexName" : @"IndexName",
+             @"indexStatus" : @"IndexStatus",
+             @"provisionedReadCapacityAutoScalingSettings" : @"ProvisionedReadCapacityAutoScalingSettings",
+             @"provisionedReadCapacityUnits" : @"ProvisionedReadCapacityUnits",
+             @"provisionedWriteCapacityAutoScalingSettings" : @"ProvisionedWriteCapacityAutoScalingSettings",
+             @"provisionedWriteCapacityUnits" : @"ProvisionedWriteCapacityUnits",
+             };
+}
+
++ (NSValueTransformer *)indexStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
+            return @(AWSDynamoDBIndexStatusCreating);
+        }
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
+            return @(AWSDynamoDBIndexStatusUpdating);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSDynamoDBIndexStatusDeleting);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSDynamoDBIndexStatusActive);
+        }
+        return @(AWSDynamoDBIndexStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBIndexStatusCreating:
+                return @"CREATING";
+            case AWSDynamoDBIndexStatusUpdating:
+                return @"UPDATING";
+            case AWSDynamoDBIndexStatusDeleting:
+                return @"DELETING";
+            case AWSDynamoDBIndexStatusActive:
+                return @"ACTIVE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)provisionedReadCapacityAutoScalingSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsDescription class]];
+}
+
++ (NSValueTransformer *)provisionedWriteCapacityAutoScalingSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBReplicaGlobalSecondaryIndexSettingsUpdate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"indexName" : @"IndexName",
+             @"provisionedReadCapacityAutoScalingSettingsUpdate" : @"ProvisionedReadCapacityAutoScalingSettingsUpdate",
+             @"provisionedReadCapacityUnits" : @"ProvisionedReadCapacityUnits",
+             };
+}
+
++ (NSValueTransformer *)provisionedReadCapacityAutoScalingSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsUpdate class]];
+}
+
+@end
+
+@implementation AWSDynamoDBReplicaSettingsDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"regionName" : @"RegionName",
+             @"replicaGlobalSecondaryIndexSettings" : @"ReplicaGlobalSecondaryIndexSettings",
+             @"replicaProvisionedReadCapacityAutoScalingSettings" : @"ReplicaProvisionedReadCapacityAutoScalingSettings",
+             @"replicaProvisionedReadCapacityUnits" : @"ReplicaProvisionedReadCapacityUnits",
+             @"replicaProvisionedWriteCapacityAutoScalingSettings" : @"ReplicaProvisionedWriteCapacityAutoScalingSettings",
+             @"replicaProvisionedWriteCapacityUnits" : @"ReplicaProvisionedWriteCapacityUnits",
+             @"replicaStatus" : @"ReplicaStatus",
+             };
+}
+
++ (NSValueTransformer *)replicaGlobalSecondaryIndexSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription class]];
+}
+
++ (NSValueTransformer *)replicaProvisionedReadCapacityAutoScalingSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsDescription class]];
+}
+
++ (NSValueTransformer *)replicaProvisionedWriteCapacityAutoScalingSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsDescription class]];
+}
+
++ (NSValueTransformer *)replicaStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CREATING"] == NSOrderedSame) {
+            return @(AWSDynamoDBReplicaStatusCreating);
+        }
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
+            return @(AWSDynamoDBReplicaStatusUpdating);
+        }
+        if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
+            return @(AWSDynamoDBReplicaStatusDeleting);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSDynamoDBReplicaStatusActive);
+        }
+        return @(AWSDynamoDBReplicaStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBReplicaStatusCreating:
+                return @"CREATING";
+            case AWSDynamoDBReplicaStatusUpdating:
+                return @"UPDATING";
+            case AWSDynamoDBReplicaStatusDeleting:
+                return @"DELETING";
+            case AWSDynamoDBReplicaStatusActive:
+                return @"ACTIVE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBReplicaSettingsUpdate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"regionName" : @"RegionName",
+             @"replicaGlobalSecondaryIndexSettingsUpdate" : @"ReplicaGlobalSecondaryIndexSettingsUpdate",
+             @"replicaProvisionedReadCapacityAutoScalingSettingsUpdate" : @"ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate",
+             @"replicaProvisionedReadCapacityUnits" : @"ReplicaProvisionedReadCapacityUnits",
+             };
+}
+
++ (NSValueTransformer *)replicaGlobalSecondaryIndexSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaGlobalSecondaryIndexSettingsUpdate class]];
+}
+
++ (NSValueTransformer *)replicaProvisionedReadCapacityAutoScalingSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsUpdate class]];
+}
+
+@end
+
+@implementation AWSDynamoDBReplicaUpdate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"create" : @"Create",
+             @"remove" : @"Delete",
+             };
+}
+
++ (NSValueTransformer *)createJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBCreateReplicaAction class]];
+}
+
++ (NSValueTransformer *)removeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBDeleteReplicaAction class]];
+}
+
+@end
+
+@implementation AWSDynamoDBRestoreSummary
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"restoreDateTime" : @"RestoreDateTime",
+             @"restoreInProgress" : @"RestoreInProgress",
+             @"sourceBackupArn" : @"SourceBackupArn",
+             @"sourceTableArn" : @"SourceTableArn",
+             };
+}
+
++ (NSValueTransformer *)restoreDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBRestoreTableFromBackupInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"backupArn" : @"BackupArn",
+             @"targetTableName" : @"TargetTableName",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBRestoreTableFromBackupOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tableDescription" : @"TableDescription",
+             };
+}
+
++ (NSValueTransformer *)tableDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBRestoreTableToPointInTimeInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"restoreDateTime" : @"RestoreDateTime",
+             @"sourceTableName" : @"SourceTableName",
+             @"targetTableName" : @"TargetTableName",
+             @"useLatestRestorableTime" : @"UseLatestRestorableTime",
+             };
+}
+
++ (NSValueTransformer *)restoreDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBRestoreTableToPointInTimeOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tableDescription" : @"TableDescription",
+             };
+}
+
++ (NSValueTransformer *)tableDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBSSEDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"KMSMasterKeyArn" : @"KMSMasterKeyArn",
+             @"SSEType" : @"SSEType",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)SSETypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AES256"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSETypeAES256);
+        }
+        if ([value caseInsensitiveCompare:@"KMS"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSETypeKms);
+        }
+        return @(AWSDynamoDBSSETypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBSSETypeAES256:
+                return @"AES256";
+            case AWSDynamoDBSSETypeKms:
+                return @"KMS";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLING"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSEStatusEnabling);
+        }
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSEStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLING"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSEStatusDisabling);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSEStatusDisabled);
+        }
+        if ([value caseInsensitiveCompare:@"UPDATING"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSEStatusUpdating);
+        }
+        return @(AWSDynamoDBSSEStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBSSEStatusEnabling:
+                return @"ENABLING";
+            case AWSDynamoDBSSEStatusEnabled:
+                return @"ENABLED";
+            case AWSDynamoDBSSEStatusDisabling:
+                return @"DISABLING";
+            case AWSDynamoDBSSEStatusDisabled:
+                return @"DISABLED";
+            case AWSDynamoDBSSEStatusUpdating:
+                return @"UPDATING";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBSSESpecification
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
+             @"KMSMasterKeyId" : @"KMSMasterKeyId",
+             @"SSEType" : @"SSEType",
+             };
+}
+
++ (NSValueTransformer *)SSETypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AES256"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSETypeAES256);
+        }
+        if ([value caseInsensitiveCompare:@"KMS"] == NSOrderedSame) {
+            return @(AWSDynamoDBSSETypeKms);
+        }
+        return @(AWSDynamoDBSSETypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBSSETypeAES256:
+                return @"AES256";
+            case AWSDynamoDBSSETypeKms:
+                return @"KMS";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSDynamoDBScanInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1805,6 +3060,73 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBSourceTableDetails
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"itemCount" : @"ItemCount",
+             @"keySchema" : @"KeySchema",
+             @"provisionedThroughput" : @"ProvisionedThroughput",
+             @"tableArn" : @"TableArn",
+             @"tableCreationDateTime" : @"TableCreationDateTime",
+             @"tableId" : @"TableId",
+             @"tableName" : @"TableName",
+             @"tableSizeBytes" : @"TableSizeBytes",
+             };
+}
+
++ (NSValueTransformer *)keySchemaJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBKeySchemaElement class]];
+}
+
++ (NSValueTransformer *)provisionedThroughputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+}
+
++ (NSValueTransformer *)tableCreationDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBSourceTableFeatureDetails
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalSecondaryIndexes" : @"GlobalSecondaryIndexes",
+             @"localSecondaryIndexes" : @"LocalSecondaryIndexes",
+             @"SSEDescription" : @"SSEDescription",
+             @"streamDescription" : @"StreamDescription",
+             @"timeToLiveDescription" : @"TimeToLiveDescription",
+             };
+}
+
++ (NSValueTransformer *)globalSecondaryIndexesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalSecondaryIndexInfo class]];
+}
+
++ (NSValueTransformer *)localSecondaryIndexesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBLocalSecondaryIndexInfo class]];
+}
+
++ (NSValueTransformer *)SSEDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBSSEDescription class]];
+}
+
++ (NSValueTransformer *)streamDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBStreamSpecification class]];
+}
+
++ (NSValueTransformer *)timeToLiveDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTimeToLiveDescription class]];
+}
+
+@end
+
 @implementation AWSDynamoDBStreamSpecification
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1860,8 +3182,11 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"latestStreamLabel" : @"LatestStreamLabel",
              @"localSecondaryIndexes" : @"LocalSecondaryIndexes",
              @"provisionedThroughput" : @"ProvisionedThroughput",
+             @"restoreSummary" : @"RestoreSummary",
+             @"SSEDescription" : @"SSEDescription",
              @"streamSpecification" : @"StreamSpecification",
              @"tableArn" : @"TableArn",
+             @"tableId" : @"TableId",
              @"tableName" : @"TableName",
              @"tableSizeBytes" : @"TableSizeBytes",
              @"tableStatus" : @"TableStatus",
@@ -1894,6 +3219,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughputDescription class]];
+}
+
++ (NSValueTransformer *)restoreSummaryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBRestoreSummary class]];
+}
+
++ (NSValueTransformer *)SSEDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBSSEDescription class]];
 }
 
 + (NSValueTransformer *)streamSpecificationJSONTransformer {
@@ -1933,6 +3266,125 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBTag
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"value" : @"Value",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBTagResourceInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBTag class]];
+}
+
+@end
+
+@implementation AWSDynamoDBTimeToLiveDescription
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributeName" : @"AttributeName",
+             @"timeToLiveStatus" : @"TimeToLiveStatus",
+             };
+}
+
++ (NSValueTransformer *)timeToLiveStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLING"] == NSOrderedSame) {
+            return @(AWSDynamoDBTimeToLiveStatusEnabling);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLING"] == NSOrderedSame) {
+            return @(AWSDynamoDBTimeToLiveStatusDisabling);
+        }
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBTimeToLiveStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBTimeToLiveStatusDisabled);
+        }
+        return @(AWSDynamoDBTimeToLiveStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBTimeToLiveStatusEnabling:
+                return @"ENABLING";
+            case AWSDynamoDBTimeToLiveStatusDisabling:
+                return @"DISABLING";
+            case AWSDynamoDBTimeToLiveStatusEnabled:
+                return @"ENABLED";
+            case AWSDynamoDBTimeToLiveStatusDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBTimeToLiveSpecification
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributeName" : @"AttributeName",
+             @"enabled" : @"Enabled",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBUntagResourceInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceArn" : @"ResourceArn",
+             @"tagKeys" : @"TagKeys",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBUpdateContinuousBackupsInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"pointInTimeRecoverySpecification" : @"PointInTimeRecoverySpecification",
+             @"tableName" : @"TableName",
+             };
+}
+
++ (NSValueTransformer *)pointInTimeRecoverySpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBPointInTimeRecoverySpecification class]];
+}
+
+@end
+
+@implementation AWSDynamoDBUpdateContinuousBackupsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"continuousBackupsDescription" : @"ContinuousBackupsDescription",
+             };
+}
+
++ (NSValueTransformer *)continuousBackupsDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBContinuousBackupsDescription class]];
+}
+
+@end
+
 @implementation AWSDynamoDBUpdateGlobalSecondaryIndexAction
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1944,6 +3396,76 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+}
+
+@end
+
+@implementation AWSDynamoDBUpdateGlobalTableInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableName" : @"GlobalTableName",
+             @"replicaUpdates" : @"ReplicaUpdates",
+             };
+}
+
++ (NSValueTransformer *)replicaUpdatesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaUpdate class]];
+}
+
+@end
+
+@implementation AWSDynamoDBUpdateGlobalTableOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableDescription" : @"GlobalTableDescription",
+             };
+}
+
++ (NSValueTransformer *)globalTableDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBGlobalTableDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBUpdateGlobalTableSettingsInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableGlobalSecondaryIndexSettingsUpdate" : @"GlobalTableGlobalSecondaryIndexSettingsUpdate",
+             @"globalTableName" : @"GlobalTableName",
+             @"globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate" : @"GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate",
+             @"globalTableProvisionedWriteCapacityUnits" : @"GlobalTableProvisionedWriteCapacityUnits",
+             @"replicaSettingsUpdate" : @"ReplicaSettingsUpdate",
+             };
+}
+
++ (NSValueTransformer *)globalTableGlobalSecondaryIndexSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate class]];
+}
+
++ (NSValueTransformer *)globalTableProvisionedWriteCapacityAutoScalingSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAutoScalingSettingsUpdate class]];
+}
+
++ (NSValueTransformer *)replicaSettingsUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaSettingsUpdate class]];
+}
+
+@end
+
+@implementation AWSDynamoDBUpdateGlobalTableSettingsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"globalTableName" : @"GlobalTableName",
+             @"replicaSettings" : @"ReplicaSettings",
+             };
+}
+
++ (NSValueTransformer *)replicaSettingsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBReplicaSettingsDescription class]];
 }
 
 @end
@@ -2140,6 +3662,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"attributeDefinitions" : @"AttributeDefinitions",
              @"globalSecondaryIndexUpdates" : @"GlobalSecondaryIndexUpdates",
              @"provisionedThroughput" : @"ProvisionedThroughput",
+             @"SSESpecification" : @"SSESpecification",
              @"streamSpecification" : @"StreamSpecification",
              @"tableName" : @"TableName",
              };
@@ -2155,6 +3678,10 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)provisionedThroughputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughput class]];
+}
+
++ (NSValueTransformer *)SSESpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBSSESpecification class]];
 }
 
 + (NSValueTransformer *)streamSpecificationJSONTransformer {
@@ -2173,6 +3700,35 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)tableDescriptionJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTableDescription class]];
+}
+
+@end
+
+@implementation AWSDynamoDBUpdateTimeToLiveInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"tableName" : @"TableName",
+             @"timeToLiveSpecification" : @"TimeToLiveSpecification",
+             };
+}
+
++ (NSValueTransformer *)timeToLiveSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTimeToLiveSpecification class]];
+}
+
+@end
+
+@implementation AWSDynamoDBUpdateTimeToLiveOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"timeToLiveSpecification" : @"TimeToLiveSpecification",
+             };
+}
+
++ (NSValueTransformer *)timeToLiveSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBTimeToLiveSpecification class]];
 }
 
 @end

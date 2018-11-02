@@ -288,29 +288,19 @@ typedef void(^voidBlock)(void);
     return [self.context.analyticsClient recordEvent:stopEvent];
 }
 
-- (void) endCurrentSessionTimeoutWithTimer:(NSTimer*) timer {
-    AWSPinpointTimeoutBlock block;
-    if (timer) {
-        block = [[timer userInfo] objectForKey:@"completionBlock"];
-    }
-    
-    [self endCurrentSessionWithBlock:block];
-}
-
 - (void) endCurrentSessionWithBlock:(AWSPinpointTimeoutBlock) block {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [self endCurrentSession];
-        if (block) {
-            //Add to background queue so its in different thread and not blocking.
-            [[self.context.analyticsClient submitEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+
+        //Add to background queue so its in different thread and not blocking.
+        [[self.context.analyticsClient submitEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (block) {
                 block(task);
-                [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
-                self.bgTask = UIBackgroundTaskInvalid;
-                return nil;
-            }];
-        } else {
-            [self.context.analyticsClient submitEvents];
-        }
+            }
+            [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
+            self.bgTask = UIBackgroundTaskInvalid;
+            return nil;
+        }];
     });
 }
 
@@ -347,15 +337,13 @@ typedef void(^voidBlock)(void);
                 [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
                 self.bgTask = UIBackgroundTaskInvalid;
             }];
-            NSDictionary *userInfo = nil;
-            if (block) {
-                userInfo = @{@"completionBlock":block};
-            }
+
             dispatch_async(dispatch_get_main_queue(), ^(){
+                // Wrapping the block in an NSBlockOperation prevents a crash from when it was stored in userInfo
                 self.bgTimer = [NSTimer scheduledTimerWithTimeInterval:(self.context.configuration.sessionTimeout / 1000)
-                                                                target:self
-                                                              selector:@selector(endCurrentSessionTimeoutWithTimer:)
-                                                              userInfo:userInfo
+                                                                target:[NSBlockOperation blockOperationWithBlock:^{ [self endCurrentSessionWithBlock:block]; }]
+                                                              selector:@selector(main)
+                                                              userInfo:nil
                                                                repeats:NO];
             });
         } else {

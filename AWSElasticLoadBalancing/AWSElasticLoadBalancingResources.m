@@ -63,7 +63,9 @@
     \"endpointPrefix\":\"elasticloadbalancing\",\
     \"protocol\":\"query\",\
     \"serviceFullName\":\"Elastic Load Balancing\",\
+    \"serviceId\":\"Elastic Load Balancing\",\
     \"signatureVersion\":\"v4\",\
+    \"uid\":\"elasticloadbalancing-2012-06-01\",\
     \"xmlNamespace\":\"http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/\"\
   },\
   \"operations\":{\
@@ -198,9 +200,10 @@
         {\"shape\":\"InvalidSchemeException\"},\
         {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"DuplicateTagKeysException\"},\
-        {\"shape\":\"UnsupportedProtocolException\"}\
+        {\"shape\":\"UnsupportedProtocolException\"},\
+        {\"shape\":\"OperationNotPermittedException\"}\
       ],\
-      \"documentation\":\"<p>Creates a Classic load balancer.</p> <p>You can add listeners, security groups, subnets, and tags when you create your load balancer, or you can add them later using <a>CreateLoadBalancerListeners</a>, <a>ApplySecurityGroupsToLoadBalancer</a>, <a>AttachLoadBalancerToSubnets</a>, and <a>AddTags</a>.</p> <p>To describe your current load balancers, see <a>DescribeLoadBalancers</a>. When you are finished with a load balancer, you can delete it using <a>DeleteLoadBalancer</a>.</p> <p>You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <a href=\\\"http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html\\\">Limits for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a Classic Load Balancer.</p> <p>You can add listeners, security groups, subnets, and tags when you create your load balancer, or you can add them later using <a>CreateLoadBalancerListeners</a>, <a>ApplySecurityGroupsToLoadBalancer</a>, <a>AttachLoadBalancerToSubnets</a>, and <a>AddTags</a>.</p> <p>To describe your current load balancers, see <a>DescribeLoadBalancers</a>. When you are finished with a load balancer, you can delete it using <a>DeleteLoadBalancer</a>.</p> <p>You can create up to 20 load balancers per region per account. You can request an increase for the number of load balancers for your account. For more information, see <a href=\\\"http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html\\\">Limits for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>\"\
     },\
     \"CreateLoadBalancerListeners\":{\
       \"name\":\"CreateLoadBalancerListeners\",\
@@ -304,6 +307,19 @@
         {\"shape\":\"InvalidEndPointException\"}\
       ],\
       \"documentation\":\"<p>Deregisters the specified instances from the specified load balancer. After the instance is deregistered, it no longer receives traffic from the load balancer.</p> <p>You can use <a>DescribeLoadBalancers</a> to verify that the instance is deregistered from the load balancer.</p> <p>For more information, see <a href=\\\"http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-deregister-register-instances.html\\\">Register or De-Register EC2 Instances</a> in the <i>Classic Load Balancers Guide</i>.</p>\"\
+    },\
+    \"DescribeAccountLimits\":{\
+      \"name\":\"DescribeAccountLimits\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeAccountLimitsInput\"},\
+      \"output\":{\
+        \"shape\":\"DescribeAccountLimitsOutput\",\
+        \"resultWrapper\":\"DescribeAccountLimitsResult\"\
+      },\
+      \"documentation\":\"<p>Describes the current Elastic Load Balancing resource limits for your AWS account.</p> <p>For more information, see <a href=\\\"http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-limits.html\\\">Limits for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>\"\
     },\
     \"DescribeInstanceHealth\":{\
       \"name\":\"DescribeInstanceHealth\",\
@@ -437,7 +453,7 @@
         {\"shape\":\"AccessPointNotFoundException\"},\
         {\"shape\":\"InvalidConfigurationRequestException\"}\
       ],\
-      \"documentation\":\"<p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer.</p> <p>There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, all instances registered with the load balancer that are in the removed Availability Zone go into the <code>OutOfService</code> state. Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.</p> <p>For more information, see <a href=\\\"http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html\\\">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>\"\
+      \"documentation\":\"<p>Removes the specified Availability Zones from the set of Availability Zones for the specified load balancer in EC2-Classic or a default VPC.</p> <p>For load balancers in a non-default VPC, use <a>DetachLoadBalancerFromSubnets</a>.</p> <p>There must be at least one Availability Zone registered with a load balancer at all times. After an Availability Zone is removed, all instances registered with the load balancer that are in the removed Availability Zone go into the <code>OutOfService</code> state. Then, the load balancer attempts to equally balance the traffic among its remaining Availability Zones.</p> <p>For more information, see <a href=\\\"http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html\\\">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>\"\
     },\
     \"EnableAvailabilityZonesForLoadBalancer\":{\
       \"name\":\"EnableAvailabilityZonesForLoadBalancer\",\
@@ -453,7 +469,7 @@
       \"errors\":[\
         {\"shape\":\"AccessPointNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer.</p> <p>The load balancer evenly distributes requests across all its registered Availability Zones that contain instances.</p> <p>For more information, see <a href=\\\"http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html\\\">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>\"\
+      \"documentation\":\"<p>Adds the specified Availability Zones to the set of Availability Zones for the specified load balancer in EC2-Classic or a default VPC.</p> <p>For load balancers in a non-default VPC, use <a>AttachLoadBalancerToSubnets</a>.</p> <p>The load balancer evenly distributes requests across all its registered Availability Zones that contain instances. For more information, see <a href=\\\"http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-disable-az.html\\\">Add or Remove Availability Zones</a> in the <i>Classic Load Balancers Guide</i>.</p>\"\
     },\
     \"ModifyLoadBalancerAttributes\":{\
       \"name\":\"ModifyLoadBalancerAttributes\",\
@@ -1103,6 +1119,7 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
+      \"documentation\":\"<p>A request made by Elastic Load Balancing to another service exceeds the maximum request rate permitted for your account.</p>\",\
       \"error\":{\
         \"code\":\"DependencyThrottle\",\
         \"httpStatusCode\":400,\
@@ -1169,6 +1186,32 @@
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for DescribeLoadBalancers.</p>\"\
+    },\
+    \"DescribeAccountLimitsInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Marker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker for the next set of results. (You received this marker from a previous call.)</p>\"\
+        },\
+        \"PageSize\":{\
+          \"shape\":\"PageSize\",\
+          \"documentation\":\"<p>The maximum number of results to return with this call.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeAccountLimitsOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Limits\":{\
+          \"shape\":\"Limits\",\
+          \"documentation\":\"<p>Information about the limits.</p>\"\
+        },\
+        \"NextMarker\":{\
+          \"shape\":\"Marker\",\
+          \"documentation\":\"<p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>\"\
+        }\
+      }\
     },\
     \"DescribeEndPointStateInput\":{\
       \"type\":\"structure\",\
@@ -1537,6 +1580,24 @@
       },\
       \"documentation\":\"<p>Information about a policy for duration-based session stickiness.</p>\"\
     },\
+    \"Limit\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Name\":{\
+          \"shape\":\"Name\",\
+          \"documentation\":\"<p>The name of the limit. The possible values are:</p> <ul> <li> <p>classic-listeners</p> </li> <li> <p>classic-load-balancers</p> </li> <li> <p>classic-registered-instances</p> </li> </ul>\"\
+        },\
+        \"Max\":{\
+          \"shape\":\"Max\",\
+          \"documentation\":\"<p>The maximum value of the limit.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about an Elastic Load Balancing resource limit for your AWS account.</p>\"\
+    },\
+    \"Limits\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Limit\"}\
+    },\
     \"Listener\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1571,7 +1632,10 @@
     \"ListenerDescription\":{\
       \"type\":\"structure\",\
       \"members\":{\
-        \"Listener\":{\"shape\":\"Listener\"},\
+        \"Listener\":{\
+          \"shape\":\"Listener\",\
+          \"documentation\":\"<p>The listener.</p>\"\
+        },\
         \"PolicyNames\":{\
           \"shape\":\"PolicyNames\",\
           \"documentation\":\"<p>The policies. If there are no policies enabled, the list is empty.</p>\"\
@@ -1723,6 +1787,7 @@
     },\
     \"LoadBalancerScheme\":{\"type\":\"string\"},\
     \"Marker\":{\"type\":\"string\"},\
+    \"Max\":{\"type\":\"string\"},\
     \"ModifyLoadBalancerAttributesInput\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1736,7 +1801,7 @@
         },\
         \"LoadBalancerAttributes\":{\
           \"shape\":\"LoadBalancerAttributes\",\
-          \"documentation\":\"<p>The attributes of the load balancer.</p>\"\
+          \"documentation\":\"<p>The attributes for the load balancer.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for ModifyLoadBalancerAttributes.</p>\"\
@@ -1748,9 +1813,25 @@
           \"shape\":\"AccessPointName\",\
           \"documentation\":\"<p>The name of the load balancer.</p>\"\
         },\
-        \"LoadBalancerAttributes\":{\"shape\":\"LoadBalancerAttributes\"}\
+        \"LoadBalancerAttributes\":{\
+          \"shape\":\"LoadBalancerAttributes\",\
+          \"documentation\":\"<p>Information about the load balancer attributes.</p>\"\
+        }\
       },\
       \"documentation\":\"<p>Contains the output of ModifyLoadBalancerAttributes.</p>\"\
+    },\
+    \"Name\":{\"type\":\"string\"},\
+    \"OperationNotPermittedException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"documentation\":\"<p>This operation is not allowed.</p>\",\
+      \"error\":{\
+        \"code\":\"OperationNotPermitted\",\
+        \"httpStatusCode\":400,\
+        \"senderFault\":true\
+      },\
+      \"exception\":true\
     },\
     \"PageSize\":{\
       \"type\":\"integer\",\
@@ -2243,6 +2324,7 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
+      \"documentation\":\"<p>The specified protocol or signature version is not supported.</p>\",\
       \"error\":{\
         \"code\":\"UnsupportedProtocol\",\
         \"httpStatusCode\":400,\
@@ -2252,8 +2334,9 @@
     },\
     \"VPCId\":{\"type\":\"string\"}\
   },\
-  \"documentation\":\"<fullname>Elastic Load Balancing</fullname> <p>A load balancer distributes incoming traffic across your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered instances and ensures that it routes traffic only to healthy instances. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer and a protocol and port number for connections from the load balancer to the instances.</p> <p>Elastic Load Balancing supports two types of load balancers: Classic load balancers and Application load balancers (new). A Classic load balancer makes routing and load balancing decisions either at the transport layer (TCP/SSL) or the application layer (HTTP/HTTPS), and supports either EC2-Classic or a VPC. An Application load balancer makes routing and load balancing decisions at the application layer (HTTP/HTTPS), supports path-based routing, and can route requests to one or more ports on each EC2 instance or container instance in your virtual private cloud (VPC). For more information, see the .</p> <p>This reference covers the 2012-06-01 API, which supports Classic load balancers. The 2015-12-01 API supports Application load balancers.</p> <p>To get started, create a load balancer with one or more listeners using <a>CreateLoadBalancer</a>. Register your instances with the load balancer using <a>RegisterInstancesWithLoadBalancer</a>.</p> <p>All Elastic Load Balancing operations are <i>idempotent</i>, which means that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK response code.</p>\"\
-}";
+  \"documentation\":\"<fullname>Elastic Load Balancing</fullname> <p>A load balancer can distribute incoming traffic across your EC2 instances. This enables you to increase the availability of your application. The load balancer also monitors the health of its registered instances and ensures that it routes traffic only to healthy instances. You configure your load balancer to accept incoming traffic by specifying one or more listeners, which are configured with a protocol and port number for connections from clients to the load balancer and a protocol and port number for connections from the load balancer to the instances.</p> <p>Elastic Load Balancing supports three types of load balancers: Application Load Balancers, Network Load Balancers, and Classic Load Balancers. You can select a load balancer based on your application needs. For more information, see the <a href=\\\"http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/\\\">Elastic Load Balancing User Guide</a>.</p> <p>This reference covers the 2012-06-01 API, which supports Classic Load Balancers. The 2015-12-01 API supports Application Load Balancers and Network Load Balancers.</p> <p>To get started, create a load balancer with one or more listeners using <a>CreateLoadBalancer</a>. Register your instances with the load balancer using <a>RegisterInstancesWithLoadBalancer</a>.</p> <p>All Elastic Load Balancing operations are <i>idempotent</i>, which means that they complete at most one time. If you repeat an operation, it succeeds with a 200 OK response code.</p>\"\
+}\
+";
 }
 
 @end

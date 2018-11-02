@@ -947,6 +947,17 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingEndpointItemResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"message" : @"Message",
+             @"statusCode" : @"StatusCode",
+             };
+}
+
+@end
+
 @implementation AWSPinpointTargetingEndpointLocation
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1135,6 +1146,59 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"lastUpdatedBy" : @"LastUpdatedBy",
              @"roleArn" : @"RoleArn",
              };
+}
+
+@end
+
+@implementation AWSPinpointTargetingEvent
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"Attributes",
+             @"clientSdkVersion" : @"ClientSdkVersion",
+             @"eventType" : @"EventType",
+             @"metrics" : @"Metrics",
+             @"session" : @"Session",
+             @"timestamp" : @"Timestamp",
+             };
+}
+
++ (NSValueTransformer *)sessionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSession class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingEventItemResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"message" : @"Message",
+             @"statusCode" : @"StatusCode",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingEventsBatch
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpoint" : @"Endpoint",
+             @"events" : @"Events",
+             };
+}
+
++ (NSValueTransformer *)endpointJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEndpointRequest class]];
+}
+
++ (NSValueTransformer *)eventsJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSPinpointTargetingEvent class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end
@@ -1725,6 +1789,29 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingItemResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpointItemResponse" : @"EndpointItemResponse",
+             @"eventsItemResponse" : @"EventsItemResponse",
+             };
+}
+
++ (NSValueTransformer *)endpointItemResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEndpointItemResponse class]];
+}
+
++ (NSValueTransformer *)eventsItemResponseJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSPinpointTargetingEventItemResponse class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingImportJobRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2061,6 +2148,43 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
             default:
                 return nil;
         }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingEventsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"batchItem" : @"BatchItem",
+             };
+}
+
++ (NSValueTransformer *)batchItemJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSPinpointTargetingEventsBatch class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingEventsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"results" : @"Results",
+             };
+}
+
++ (NSValueTransformer *)resultsJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSPinpointTargetingItemResponse class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
     }];
 }
 
@@ -2553,6 +2677,19 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingSession
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"duration" : @"Duration",
+             @"identifier" : @"Id",
+             @"startTimestamp" : @"StartTimestamp",
+             @"stopTimestamp" : @"StopTimestamp",
+             };
 }
 
 @end

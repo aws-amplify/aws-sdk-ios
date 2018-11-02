@@ -270,7 +270,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
             [_dates setObject:date forKey:key];
 
         NSNumber *fileSize = [dictionary objectForKey:NSURLTotalFileAllocatedSizeKey];
-        if (fileSize) {
+        if (fileSize != nil) {
             [_sizes setObject:fileSize forKey:key];
             byteCount += [fileSize unsignedIntegerValue];
         }
@@ -318,7 +318,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     [AWSTMDiskCache emptyTrash];
 
     NSNumber *byteSize = [_sizes objectForKey:key];
-    if (byteSize)
+    if (byteSize != nil)
         self.byteCount = _byteCount - [byteSize unsignedIntegerValue]; // atomic
 
     [_sizes removeObjectForKey:key];
@@ -489,7 +489,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
             AWSTMDiskCacheError(error);
 
             NSNumber *diskFileSize = [values objectForKey:NSURLTotalFileAllocatedSizeKey];
-            if (diskFileSize) {
+            if (diskFileSize != nil) {
                 NSNumber *oldEntry = [strongSelf->_sizes objectForKey:key];
                 
                 if ([oldEntry isKindOfClass:[NSNumber class]]){
@@ -868,7 +868,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     __block AWSTMDiskCacheObjectBlock block = nil;
 
     dispatch_sync(_queue, ^{
-        block = _willAddObjectBlock;
+        block = self->_willAddObjectBlock;
     });
 
     return block;
@@ -892,7 +892,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     __block AWSTMDiskCacheObjectBlock block = nil;
 
     dispatch_sync(_queue, ^{
-        block = _willRemoveObjectBlock;
+        block = self->_willRemoveObjectBlock;
     });
 
     return block;
@@ -916,7 +916,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     __block AWSTMDiskCacheBlock block = nil;
 
     dispatch_sync(_queue, ^{
-        block = _willRemoveAllObjectsBlock;
+        block = self->_willRemoveAllObjectsBlock;
     });
 
     return block;
@@ -940,7 +940,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     __block AWSTMDiskCacheObjectBlock block = nil;
 
     dispatch_sync(_queue, ^{
-        block = _didAddObjectBlock;
+        block = self->_didAddObjectBlock;
     });
 
     return block;
@@ -964,7 +964,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     __block AWSTMDiskCacheObjectBlock block = nil;
 
     dispatch_sync(_queue, ^{
-        block = _didRemoveObjectBlock;
+        block = self->_didRemoveObjectBlock;
     });
 
     return block;
@@ -988,7 +988,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     __block AWSTMDiskCacheBlock block = nil;
 
     dispatch_sync(_queue, ^{
-        block = _didRemoveAllObjectsBlock;
+        block = self->_didRemoveAllObjectsBlock;
     });
 
     return block;
@@ -1012,7 +1012,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     __block NSUInteger byteLimit = 0;
     
     dispatch_sync(_queue, ^{
-        byteLimit = _byteLimit;
+        byteLimit = self->_byteLimit;
     });
     
     return byteLimit;
@@ -1039,7 +1039,7 @@ NSString * const AWSTMDiskCacheSharedName = @"TMDiskCacheShared";
     __block NSTimeInterval ageLimit = 0.0;
     
     dispatch_sync(_queue, ^{
-        ageLimit = _ageLimit;
+        ageLimit = self->_ageLimit;
     });
     
     return ageLimit;

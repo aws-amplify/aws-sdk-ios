@@ -42,7 +42,7 @@ NSString *const AWSCognitoAuthErrorDomain = @"com.amazon.cognito.AWSCognitoAuthE
 
 @implementation AWSCognitoAuth
 
-static NSString *const AWSCognitoAuthSDKVersion = @"2.6.12";
+NSString *const AWSCognitoAuthSDKVersion = @"2.6.33";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -150,17 +150,26 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 - (instancetype)initWithConfiguration:(AWSCognitoAuthConfiguration *)authConfiguration; {
     if (self = [super init]) {
         _signOutQueue = [NSOperationQueue new];
+        _signOutQueue.maxConcurrentOperationCount = 1;
+        
         _getSessionQueue = [NSOperationQueue new];
+        _getSessionQueue.maxConcurrentOperationCount = 1;
+        
         _authConfiguration = [authConfiguration copy];
         _keychain = [AWSCognitoAuthUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, @"AWSCognitoIdentityUserPool"]];  //Consistent with AWSCognitoIdentityUserPool
     }
     return self;
 }
 
-- (BOOL) isSignedIn {
-    NSString * keyChainNamespace = [self keyChainNamespaceClientId: [self currentUsername]];
+- (NSString *) refreshTokenFromKeyChain: (NSString *) keyChainNamespace {
     NSString * refreshTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoAuthUserRefreshToken];
     NSString * refreshToken = self.keychain[refreshTokenKey];
+    return refreshToken;
+}
+
+- (BOOL) isSignedIn {
+    NSString * keyChainNamespace = [self keyChainNamespaceClientId: [self currentUsername]];
+    NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
     return refreshToken!=nil;
 }
 
@@ -270,8 +279,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         
         if(expirationDate && scopes != nil && [scopes isEqualToString:[self normalizeScopes]]){
             NSDate *expiration = [self dateFromString:expirationDate];
-            NSString * refreshTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoAuthUserRefreshToken];
-            NSString * refreshToken = self.keychain[refreshTokenKey];
+            NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
             
             //if the session expires > 5 minutes return it.
             if(expiration && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:5 * 60]] == NSOrderedDescending){
@@ -305,16 +313,22 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
  Dismiss ui, invoke completion and cleanup a getSession call.
  */
 - (void) completeGetSession: (nullable AWSCognitoAuthUserSession *) userSession  error:(nullable NSError *) error {
-    [self dismissSafariVC];
     if(error){
         self.getSessionError = error;
         [self.getSessionQueue cancelAllOperations];
     }
-    if(self.getSessionBlock){
-        self.getSessionBlock(userSession, error);
-    }
     
+    [self dismissSafariVC: ^{
+        [self cleanUpAndCallGetSessionBlock:userSession error:error];
+    }];
+}
+
+- (void) cleanUpAndCallGetSessionBlock: (nullable AWSCognitoAuthUserSession *) userSession  error:(nullable NSError *) error {
+    AWSCognitoAuthGetSessionBlock getSessionBlock = self.getSessionBlock;
     [self cleanupSignIn];
+    if(getSessionBlock){
+        getSessionBlock(userSession, error);
+    }
 }
 
 #pragma mark sign out
@@ -323,14 +337,21 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
  Dismiss ui, invoke completion and cleanup a signOut call.
  */
 - (void) completeSignOut:(nullable NSError *) error {
-    [self dismissSafariVC];
     if(error){
         self.signOutError = error;
         [self.signOutQueue cancelAllOperations];
     }
-    if(self.signOutBlock){
-        self.signOutBlock(error);
-        self.signOutBlock = nil;
+    
+    [self dismissSafariVC: ^{
+        [self cleanUpAndCallSignOutBlock:error];
+    }];
+}
+
+- (void) cleanUpAndCallSignOutBlock:(nullable NSError *) error {
+    AWSCognitoAuthSignOutBlock signOutBlock = self.signOutBlock;
+    self.signOutBlock = nil;
+    if(signOutBlock){
+        signOutBlock(error);
     }
 }
 
@@ -579,13 +600,16 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 /**
  Dismiss and reap the safari view controller
  */
--(void) dismissSafariVC {
+-(void) dismissSafariVC: (void (^)(void)) dismissBlock {
     dispatch_async(dispatch_get_main_queue(), ^{
         if(self.svc){
             [self.svc dismissViewControllerAnimated:NO completion:^{
                 //clean up vc
                 self.svc = nil;
+                dismissBlock();
             }];
+        }else {
+            dismissBlock();
         }
     });
 }
@@ -610,13 +634,29 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     else if(result[@"error"]){
         //refresh token has expired, switch to interactive auth
         if([@"invalid_grant" isEqualToString:result[@"error"]]){
-            [self launchSignInVC:self.pvc];
-            return;
+            if (![self.delegate respondsToSelector:@selector(shouldLaunchSignInVCIfRefreshTokenIsExpired)]) {
+                [self launchSignInVC:self.pvc];
+            }else {
+                BOOL present = [self.delegate shouldLaunchSignInVCIfRefreshTokenIsExpired];
+                if (present) {
+                    [self launchSignInVC:self.pvc];
+                }else {
+                    [self completeGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorExpiredRefreshToken]];
+                }
+            }
+        }else {
+            [self completeGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorUnknown]];
         }
-        
-        [self completeGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorUnknown]];
     }else {
-        AWSCognitoAuthUserSession *userSession = [[AWSCognitoAuthUserSession alloc] initWithIdToken:[result valueForKey:@"id_token"]  accessToken:[result valueForKey:@"access_token"] refreshToken:[result valueForKey:@"refresh_token"] expiresIn:[result valueForKey:@"expires_in"]];
+        /** Check to see if refreshToken is received from the server.
+         If not, load it from the keychain.
+         */
+        NSString * refreshToken = [result valueForKey:@"refresh_token"];
+        if (refreshToken == nil){
+            NSString * keyChainNamespace = [self keyChainNamespaceClientId: [self currentUsername]];
+            refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
+        }
+        AWSCognitoAuthUserSession *userSession = [[AWSCognitoAuthUserSession alloc] initWithIdToken:[result valueForKey:@"id_token"]  accessToken:[result valueForKey:@"access_token"] refreshToken:refreshToken expiresIn:[result valueForKey:@"expires_in"]];
         if(!userSession.accessToken){
             [self completeGetSession:nil error: [self getError:@"Tokens not received" code:AWSCognitoAuthClientErrorUnknown]];
         }else{

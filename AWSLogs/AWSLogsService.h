@@ -20,8 +20,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSLogs
+FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
+
 /**
- <p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from EC2 instances, Amazon CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the Amazon CloudWatch console, the CloudWatch Logs commands in the AWS CLI, the CloudWatch Logs API, or the CloudWatch Logs SDK.</p><p>You can use CloudWatch Logs to:</p><ul><li><p><b>Monitor Logs from Amazon EC2 Instances in Real-time</b>: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold you specify. CloudWatch Logs uses your log data for monitoring; so, no code changes are required. For example, you can monitor application logs for specific literal terms (such as "NullReferenceException") or count the number of occurrences of a literal term at a particular position in log data (such as "404" status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a Amazon CloudWatch metric that you specify.</p></li><li><p><b>Monitor Amazon CloudTrail Logged Events</b>: You can create alarms in Amazon CloudWatch and receive notifications of particular API activity as captured by CloudTrail and use the notification to perform troubleshooting.</p></li><li><p><b>Archive Log Data</b>: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.</p></li></ul>
+ <p>You can use Amazon CloudWatch Logs to monitor, store, and access your log files from Amazon EC2 instances, AWS CloudTrail, or other sources. You can then retrieve the associated log data from CloudWatch Logs using the CloudWatch console, CloudWatch Logs commands in the AWS CLI, CloudWatch Logs API, or CloudWatch Logs SDK.</p><p>You can use CloudWatch Logs to:</p><ul><li><p><b>Monitor logs from EC2 instances in real-time</b>: You can use CloudWatch Logs to monitor applications and systems using log data. For example, CloudWatch Logs can track the number of errors that occur in your application logs and send you a notification whenever the rate of errors exceeds a threshold that you specify. CloudWatch Logs uses your log data for monitoring; so, no code changes are required. For example, you can monitor application logs for specific literal terms (such as "NullReferenceException") or count the number of occurrences of a literal term at a particular position in log data (such as "404" status codes in an Apache access log). When the term you are searching for is found, CloudWatch Logs reports the data to a CloudWatch metric that you specify.</p></li><li><p><b>Monitor AWS CloudTrail logged events</b>: You can create alarms in CloudWatch and receive notifications of particular API activity as captured by CloudTrail and use the notification to perform troubleshooting.</p></li><li><p><b>Archive log data</b>: You can use CloudWatch Logs to store your log data in highly durable storage. You can change the log retention setting so that any log events older than this setting are automatically deleted. The CloudWatch Logs agent makes it easy to quickly send both rotated and non-rotated log data off of a host and into the log service. You can then access the raw log data when you need it.</p></li></ul>
  */
 @interface AWSLogs : AWSService
 
@@ -172,6 +175,28 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)removeLogsForKey:(NSString *)key;
 
 /**
+ <p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p><p>Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><p>Note that it can take up to 5 minutes for this operation to take effect.</p><p>If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateKmsKey service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorOperationAborted`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsAssociateKmsKeyRequest
+ */
+- (AWSTask *)associateKmsKey:(AWSLogsAssociateKmsKeyRequest *)request;
+
+/**
+ <p>Associates the specified AWS Key Management Service (AWS KMS) customer master key (CMK) with the specified log group.</p><p>Associating an AWS KMS CMK with a log group overrides any existing associations between the log group and a CMK. After a CMK is associated with a log group, all newly ingested data for the log group is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><p>Note that it can take up to 5 minutes for this operation to take effect.</p><p>If you attempt to associate a CMK with a log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateKmsKey service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorOperationAborted`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsAssociateKmsKeyRequest
+ */
+- (void)associateKmsKey:(AWSLogsAssociateKmsKeyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Cancels the specified export task.</p><p>The task must be in the <code>PENDING</code> or <code>RUNNING</code> state.</p>
  
  @param request A container for the necessary parameters to execute the CancelExportTask service method.
@@ -194,7 +219,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)cancelExportTask:(AWSLogsCancelExportTaskRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix that will be used as the Amazon S3 key prefix for all exported objects.</p>
+ <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p>
  
  @param request A container for the necessary parameters to execute the CreateExportTask service method.
 
@@ -206,7 +231,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSLogsCreateExportTaskResponse *> *)createExportTask:(AWSLogsCreateExportTaskRequest *)request;
 
 /**
- <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix that will be used as the Amazon S3 key prefix for all exported objects.</p>
+ <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p>
  
  @param request A container for the necessary parameters to execute the CreateExportTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -219,7 +244,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createExportTask:(AWSLogsCreateExportTaskRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsCreateExportTaskResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a log group with the specified name.</p><p>You can create up to 5000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a region for an AWS account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).</p></li></ul>
+ <p>Creates a log group with the specified name.</p><p>You can create up to 5000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a region for an AWS account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).</p></li></ul><p>If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><p>If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
  
  @param request A container for the necessary parameters to execute the CreateLogGroup service method.
 
@@ -230,7 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)createLogGroup:(AWSLogsCreateLogGroupRequest *)request;
 
 /**
- <p>Creates a log group with the specified name.</p><p>You can create up to 5000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a region for an AWS account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).</p></li></ul>
+ <p>Creates a log group with the specified name.</p><p>You can create up to 5000 log groups per account.</p><p>You must use the following guidelines when naming a log group:</p><ul><li><p>Log group names must be unique within a region for an AWS account.</p></li><li><p>Log group names can be between 1 and 512 characters long.</p></li><li><p>Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore), '-' (hyphen), '/' (forward slash), and '.' (period).</p></li></ul><p>If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK) with the log group, ingested data is encrypted using the CMK. This association is stored as long as the data encrypted with the CMK is still within Amazon CloudWatch Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.</p><p>If you attempt to associate a CMK with the log group but the CMK does not exist or the CMK is disabled, you will receive an <code>InvalidParameterException</code> error. </p>
  
  @param request A container for the necessary parameters to execute the CreateLogGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -349,6 +374,28 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSLogsDeleteMetricFilterRequest
  */
 - (void)deleteMetricFilter:(AWSLogsDeleteMetricFilterRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a resource policy from this account. This revokes the access of the identities in that policy to put log events to this account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteResourcePolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsDeleteResourcePolicyRequest
+ */
+- (AWSTask *)deleteResourcePolicy:(AWSLogsDeleteResourcePolicyRequest *)request;
+
+/**
+ <p>Deletes a resource policy from this account. This revokes the access of the identities in that policy to put log events to this account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteResourcePolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsDeleteResourcePolicyRequest
+ */
+- (void)deleteResourcePolicy:(AWSLogsDeleteResourcePolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified retention policy.</p><p>Log events do not expire if they belong to log groups without a retention policy.</p>
@@ -495,7 +542,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeLogStreams:(AWSLogsDescribeLogStreamsRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsDescribeLogStreamsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, and metric namespace. The results are ASCII-sorted by filter name.</p>
+ <p>Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMetricFilters service method.
 
@@ -507,7 +554,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSLogsDescribeMetricFiltersResponse *> *)describeMetricFilters:(AWSLogsDescribeMetricFiltersRequest *)request;
 
 /**
- <p>Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, and metric namespace. The results are ASCII-sorted by filter name.</p>
+ <p>Lists the specified metric filters. You can list all the metric filters or filter the results by log name, prefix, metric name, or metric namespace. The results are ASCII-sorted by filter name.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMetricFilters service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -518,6 +565,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSLogsDescribeMetricFiltersResponse
  */
 - (void)describeMetricFilters:(AWSLogsDescribeMetricFiltersRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsDescribeMetricFiltersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists the resource policies in this account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeResourcePolicies service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLogsDescribeResourcePoliciesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsDescribeResourcePoliciesRequest
+ @see AWSLogsDescribeResourcePoliciesResponse
+ */
+- (AWSTask<AWSLogsDescribeResourcePoliciesResponse *> *)describeResourcePolicies:(AWSLogsDescribeResourcePoliciesRequest *)request;
+
+/**
+ <p>Lists the resource policies in this account.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeResourcePolicies service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsDescribeResourcePoliciesRequest
+ @see AWSLogsDescribeResourcePoliciesResponse
+ */
+- (void)describeResourcePolicies:(AWSLogsDescribeResourcePoliciesRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsDescribeResourcePoliciesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists the subscription filters for the specified log group. You can list all the subscription filters or filter the results by prefix. The results are ASCII-sorted by filter name.</p>
@@ -545,7 +617,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)describeSubscriptionFilters:(AWSLogsDescribeSubscriptionFiltersRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsDescribeSubscriptionFiltersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p><p>By default, this operation returns as many log events as can fit in 1MB (up to 10,000 log events), or all the events found within the time range that you specify. If the results include a token, then there are more log events available, and you can get additional results by specifying the token in a subsequent call.</p>
+ <p>Disassociates the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group.</p><p>After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.</p><p>Note that it can take up to 5 minutes for this operation to take effect.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateKmsKey service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorOperationAborted`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsDisassociateKmsKeyRequest
+ */
+- (AWSTask *)disassociateKmsKey:(AWSLogsDisassociateKmsKeyRequest *)request;
+
+/**
+ <p>Disassociates the associated AWS Key Management Service (AWS KMS) customer master key (CMK) from the specified log group.</p><p>After the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested.</p><p>Note that it can take up to 5 minutes for this operation to take effect.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateKmsKey service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorOperationAborted`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsDisassociateKmsKeyRequest
+ */
+- (void)disassociateKmsKey:(AWSLogsDisassociateKmsKeyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p><p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events), or all the events found within the time range that you specify. If the results include a token, then there are more log events available, and you can get additional results by specifying the token in a subsequent call.</p>
  
  @param request A container for the necessary parameters to execute the FilterLogEvents service method.
 
@@ -557,7 +651,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSLogsFilterLogEventsResponse *> *)filterLogEvents:(AWSLogsFilterLogEventsRequest *)request;
 
 /**
- <p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p><p>By default, this operation returns as many log events as can fit in 1MB (up to 10,000 log events), or all the events found within the time range that you specify. If the results include a token, then there are more log events available, and you can get additional results by specifying the token in a subsequent call.</p>
+ <p>Lists log events from the specified log group. You can list all the log events or filter the results using a filter pattern, a time range, and the name of the log stream.</p><p>By default, this operation returns as many log events as can fit in 1 MB (up to 10,000 log events), or all the events found within the time range that you specify. If the results include a token, then there are more log events available, and you can get additional results by specifying the token in a subsequent call.</p>
  
  @param request A container for the necessary parameters to execute the FilterLogEvents service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -570,7 +664,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)filterLogEvents:(AWSLogsFilterLogEventsRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsFilterLogEventsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists log events from the specified log stream. You can list all the log events or filter using a time range.</p><p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). If the results include tokens, there are more log events available. You can get additional log events by specifying one of the tokens in a subsequent call.</p>
+ <p>Lists log events from the specified log stream. You can list all the log events or filter using a time range.</p><p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). You can get additional log events by specifying one of the tokens in a subsequent call.</p>
  
  @param request A container for the necessary parameters to execute the GetLogEvents service method.
 
@@ -582,7 +676,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSLogsGetLogEventsResponse *> *)getLogEvents:(AWSLogsGetLogEventsRequest *)request;
 
 /**
- <p>Lists log events from the specified log stream. You can list all the log events or filter using a time range.</p><p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). If the results include tokens, there are more log events available. You can get additional log events by specifying one of the tokens in a subsequent call.</p>
+ <p>Lists log events from the specified log stream. You can list all the log events or filter using a time range.</p><p>By default, this operation returns as many log events as can fit in a response size of 1MB (up to 10,000 log events). You can get additional log events by specifying one of the tokens in a subsequent call.</p>
  
  @param request A container for the necessary parameters to execute the GetLogEvents service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -595,7 +689,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getLogEvents:(AWSLogsGetLogEventsRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsGetLogEventsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the tags for the specified log group.</p><p>To add tags, use <a>TagLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p>
+ <p>Lists the tags for the specified log group.</p>
  
  @param request A container for the necessary parameters to execute the ListTagsLogGroup service method.
 
@@ -607,7 +701,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSLogsListTagsLogGroupResponse *> *)listTagsLogGroup:(AWSLogsListTagsLogGroupRequest *)request;
 
 /**
- <p>Lists the tags for the specified log group.</p><p>To add tags, use <a>TagLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p>
+ <p>Lists the tags for the specified log group.</p>
  
  @param request A container for the necessary parameters to execute the ListTagsLogGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -620,7 +714,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listTagsLogGroup:(AWSLogsListTagsLogGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsListTagsLogGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a destination. A destination encapsulates a physical resource (such as a Kinesis stream) and enables you to subscribe to a real-time stream of log events of a different account, ingested using <a>PutLogEvents</a>. Currently, the only supported physical resource is a Amazon Kinesis stream belonging to the same account as the destination.</p><p>A destination controls what is written to its Amazon Kinesis stream through an access policy. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
+ <p>Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a>PutLogEvents</a>. Currently, the only supported physical resource is a Kinesis stream belonging to the same account as the destination.</p><p>Through an access policy, a destination controls what is written to its Kinesis stream. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
  
  @param request A container for the necessary parameters to execute the PutDestination service method.
 
@@ -632,7 +726,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSLogsPutDestinationResponse *> *)putDestination:(AWSLogsPutDestinationRequest *)request;
 
 /**
- <p>Creates or updates a destination. A destination encapsulates a physical resource (such as a Kinesis stream) and enables you to subscribe to a real-time stream of log events of a different account, ingested using <a>PutLogEvents</a>. Currently, the only supported physical resource is a Amazon Kinesis stream belonging to the same account as the destination.</p><p>A destination controls what is written to its Amazon Kinesis stream through an access policy. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
+ <p>Creates or updates a destination. A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a>PutLogEvents</a>. Currently, the only supported physical resource is a Kinesis stream belonging to the same account as the destination.</p><p>Through an access policy, a destination controls what is written to its Kinesis stream. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
  
  @param request A container for the necessary parameters to execute the PutDestination service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -667,11 +761,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putDestinationPolicy:(AWSLogsPutDestinationPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp (the time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC).</p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul>
+ <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their time stamp. The time stamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul><p>If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause is an invalid AWS access key ID or secret key. </p>
  
  @param request A container for the necessary parameters to execute the PutLogEvents service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLogsPutLogEventsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorInvalidSequenceToken`, `AWSLogsErrorDataAlreadyAccepted`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLogsPutLogEventsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorInvalidSequenceToken`, `AWSLogsErrorDataAlreadyAccepted`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`, `AWSLogsErrorUnrecognizedClient`.
  
  @see AWSLogsPutLogEventsRequest
  @see AWSLogsPutLogEventsResponse
@@ -679,12 +773,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSLogsPutLogEventsResponse *> *)putLogEvents:(AWSLogsPutLogEventsRequest *)request;
 
 /**
- <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp (the time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC).</p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul>
+ <p>Uploads a batch of log events to the specified log stream.</p><p>You must include the sequence token obtained from the response of the previous call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p><p>The batch of events must satisfy the following constraints:</p><ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their time stamp. The time stamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul><p>If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause is an invalid AWS access key ID or secret key. </p>
  
  @param request A container for the necessary parameters to execute the PutLogEvents service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorInvalidSequenceToken`, `AWSLogsErrorDataAlreadyAccepted`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorInvalidSequenceToken`, `AWSLogsErrorDataAlreadyAccepted`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`, `AWSLogsErrorUnrecognizedClient`.
  
  @see AWSLogsPutLogEventsRequest
  @see AWSLogsPutLogEventsResponse
@@ -714,7 +808,32 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putMetricFilter:(AWSLogsPutMetricFilterRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the retention of the specified log group. A retention policy allows you to configure the number of days you want to retain log events in the specified log group.</p>
+ <p>Creates or updates a resource policy allowing other AWS services to put log events to this account, such as Amazon Route 53. An account can have up to 10 resource policies per region.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutResourcePolicy service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLogsPutResourcePolicyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorLimitExceeded`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsPutResourcePolicyRequest
+ @see AWSLogsPutResourcePolicyResponse
+ */
+- (AWSTask<AWSLogsPutResourcePolicyResponse *> *)putResourcePolicy:(AWSLogsPutResourcePolicyRequest *)request;
+
+/**
+ <p>Creates or updates a resource policy allowing other AWS services to put log events to this account, such as Amazon Route 53. An account can have up to 10 resource policies per region.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutResourcePolicy service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorLimitExceeded`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsPutResourcePolicyRequest
+ @see AWSLogsPutResourcePolicyResponse
+ */
+- (void)putResourcePolicy:(AWSLogsPutResourcePolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsPutResourcePolicyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Sets the retention of the specified log group. A retention policy allows you to configure the number of days for which to retain log events in the specified log group.</p>
  
  @param request A container for the necessary parameters to execute the PutRetentionPolicy service method.
 
@@ -725,7 +844,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putRetentionPolicy:(AWSLogsPutRetentionPolicyRequest *)request;
 
 /**
- <p>Sets the retention of the specified log group. A retention policy allows you to configure the number of days you want to retain log events in the specified log group.</p>
+ <p>Sets the retention of the specified log group. A retention policy allows you to configure the number of days for which to retain log events in the specified log group.</p>
  
  @param request A container for the necessary parameters to execute the PutRetentionPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -736,7 +855,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putRetentionPolicy:(AWSLogsPutRetentionPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a>PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>There can only be one subscription filter associated with a log group.</p>
+ <p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a>PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group.</p>
  
  @param request A container for the necessary parameters to execute the PutSubscriptionFilter service method.
 
@@ -747,7 +866,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putSubscriptionFilter:(AWSLogsPutSubscriptionFilterRequest *)request;
 
 /**
- <p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a>PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>There can only be one subscription filter associated with a log group.</p>
+ <p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a>PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group.</p>
  
  @param request A container for the necessary parameters to execute the PutSubscriptionFilter service method.
  @param completionHandler The completion handler to call when the load request is complete.

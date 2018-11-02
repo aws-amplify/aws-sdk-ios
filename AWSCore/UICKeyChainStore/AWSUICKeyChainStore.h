@@ -271,11 +271,4 @@ __OSX_AVAILABLE_STARTING(__MAC_10_10, __IPHONE_8_0);
 
 @end
 
-@interface AWSUICKeyChainStore (Deprecation)
-
-- (void)synchronize __attribute__((deprecated("calling this method is no longer required")));
-- (BOOL)synchronizeWithError:(NSError * __nullable __autoreleasing * __nullable)error __attribute__((deprecated("calling this method is no longer required")));
-
-@end
-
 NS_ASSUME_NONNULL_END

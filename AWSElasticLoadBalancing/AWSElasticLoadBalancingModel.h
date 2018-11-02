@@ -37,6 +37,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
     AWSElasticLoadBalancingErrorInvalidSubnet,
     AWSElasticLoadBalancingErrorListenerNotFound,
     AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound,
+    AWSElasticLoadBalancingErrorOperationNotPermitted,
     AWSElasticLoadBalancingErrorPolicyNotFound,
     AWSElasticLoadBalancingErrorPolicyTypeNotFound,
     AWSElasticLoadBalancingErrorSubnetNotFound,
@@ -83,6 +84,8 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @class AWSElasticLoadBalancingDeregisterEndPointsOutput;
 @class AWSElasticLoadBalancingDescribeAccessPointsInput;
 @class AWSElasticLoadBalancingDescribeAccessPointsOutput;
+@class AWSElasticLoadBalancingDescribeAccountLimitsInput;
+@class AWSElasticLoadBalancingDescribeAccountLimitsOutput;
 @class AWSElasticLoadBalancingDescribeEndPointStateInput;
 @class AWSElasticLoadBalancingDescribeEndPointStateOutput;
 @class AWSElasticLoadBalancingDescribeLoadBalancerAttributesInput;
@@ -99,6 +102,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @class AWSElasticLoadBalancingInstance;
 @class AWSElasticLoadBalancingInstanceState;
 @class AWSElasticLoadBalancingLBCookieStickinessPolicy;
+@class AWSElasticLoadBalancingLimit;
 @class AWSElasticLoadBalancingListener;
 @class AWSElasticLoadBalancingListenerDescription;
 @class AWSElasticLoadBalancingLoadBalancerAttributes;
@@ -748,6 +752,42 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @end
 
 /**
+ 
+ */
+@interface AWSElasticLoadBalancingDescribeAccountLimitsInput : AWSRequest
+
+
+/**
+ <p>The marker for the next set of results. (You received this marker from a previous call.)</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+/**
+ <p>The maximum number of results to return with this call.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable pageSize;
+
+@end
+
+/**
+ 
+ */
+@interface AWSElasticLoadBalancingDescribeAccountLimitsOutput : AWSModel
+
+
+/**
+ <p>Information about the limits.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSElasticLoadBalancingLimit *> * _Nullable limits;
+
+/**
+ <p>The marker to use when requesting the next set of results. If there are no additional results, the string is empty.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+@end
+
+/**
  <p>Contains the parameters for DescribeInstanceHealth.</p>
  Required parameters: [LoadBalancerName]
  */
@@ -1016,6 +1056,24 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 @end
 
 /**
+ <p>Information about an Elastic Load Balancing resource limit for your AWS account.</p>
+ */
+@interface AWSElasticLoadBalancingLimit : AWSModel
+
+
+/**
+ <p>The maximum value of the limit.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable max;
+
+/**
+ <p>The name of the limit. The possible values are:</p><ul><li><p>classic-listeners</p></li><li><p>classic-load-balancers</p></li><li><p>classic-registered-instances</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
  <p>Information about a listener.</p><p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
  Required parameters: [Protocol, LoadBalancerPort, InstancePort]
  */
@@ -1056,7 +1114,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 
 
 /**
- <p>Information about a listener.</p><p>For information about the protocols and the ports supported by Elastic Load Balancing, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-listener-config.html">Listeners for Your Classic Load Balancer</a> in the <i>Classic Load Balancers Guide</i>.</p>
+ <p>The listener.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingListener * _Nullable listener;
 
@@ -1196,7 +1254,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 
 
 /**
- <p>The attributes of the load balancer.</p>
+ <p>The attributes for the load balancer.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes * _Nullable loadBalancerAttributes;
 
@@ -1214,7 +1272,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingErrorType) {
 
 
 /**
- <p>The attributes for a load balancer.</p>
+ <p>Information about the load balancer attributes.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingLoadBalancerAttributes * _Nullable loadBalancerAttributes;
 

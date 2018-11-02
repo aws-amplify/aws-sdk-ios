@@ -18,6 +18,7 @@
 #import "AWSCredentialsProvider.h"
 #import "AWSServiceEnum.h"
 
+//! SDK version for AWS Core
 FOUNDATION_EXPORT NSString *const AWSiOSSDKVersion;
 
 FOUNDATION_EXPORT NSString *const AWSServiceErrorDomain;

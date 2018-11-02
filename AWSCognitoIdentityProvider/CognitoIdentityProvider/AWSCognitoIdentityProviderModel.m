@@ -1502,6 +1502,9 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
         if ([value caseInsensitiveCompare:@"LoginWithAmazon"] == NSOrderedSame) {
             return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon);
         }
+        if ([value caseInsensitiveCompare:@"OIDC"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeOidc);
+        }
         return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1513,6 +1516,8 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return @"Google";
             case AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon:
                 return @"LoginWithAmazon";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeOidc:
+                return @"OIDC";
             default:
                 return nil;
         }
@@ -1638,14 +1643,25 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"customDomainConfig" : @"CustomDomainConfig",
              @"domain" : @"Domain",
              @"userPoolId" : @"UserPoolId",
              };
 }
 
++ (NSValueTransformer *)customDomainConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderCustomDomainConfigType class]];
+}
+
 @end
 
 @implementation AWSCognitoIdentityProviderCreateUserPoolDomainResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cloudFrontDomain" : @"CloudFrontDomain",
+             };
+}
 
 @end
 
@@ -1749,6 +1765,16 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSValueTransformer *)userPoolJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderUserPoolType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderCustomDomainConfigType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateArn" : @"CertificateArn",
+             };
 }
 
 @end
@@ -2090,12 +2116,17 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"AWSAccountId" : @"AWSAccountId",
              @"cloudFrontDistribution" : @"CloudFrontDistribution",
+             @"customDomainConfig" : @"CustomDomainConfig",
              @"domain" : @"Domain",
              @"s3Bucket" : @"S3Bucket",
              @"status" : @"Status",
              @"userPoolId" : @"UserPoolId",
              @"version" : @"Version",
              };
+}
+
++ (NSValueTransformer *)customDomainConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderCustomDomainConfigType class]];
 }
 
 + (NSValueTransformer *)statusJSONTransformer {
@@ -2668,6 +2699,9 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
         if ([value caseInsensitiveCompare:@"LoginWithAmazon"] == NSOrderedSame) {
             return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon);
         }
+        if ([value caseInsensitiveCompare:@"OIDC"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeOidc);
+        }
         return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2679,6 +2713,8 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return @"Google";
             case AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon:
                 return @"LoginWithAmazon";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeOidc:
+                return @"OIDC";
             default:
                 return nil;
         }
@@ -3253,6 +3289,9 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
         if ([value caseInsensitiveCompare:@"LoginWithAmazon"] == NSOrderedSame) {
             return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon);
         }
+        if ([value caseInsensitiveCompare:@"OIDC"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeOidc);
+        }
         return @(AWSCognitoIdentityProviderIdentityProviderTypeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3264,6 +3303,8 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return @"Google";
             case AWSCognitoIdentityProviderIdentityProviderTypeTypeLoginWithAmazon:
                 return @"LoginWithAmazon";
+            case AWSCognitoIdentityProviderIdentityProviderTypeTypeOidc:
+                return @"OIDC";
             default:
                 return nil;
         }
@@ -4613,8 +4654,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 	return @{
              @"adminCreateUserConfig" : @"AdminCreateUserConfig",
              @"aliasAttributes" : @"AliasAttributes",
+             @"arn" : @"Arn",
              @"autoVerifiedAttributes" : @"AutoVerifiedAttributes",
              @"creationDate" : @"CreationDate",
+             @"customDomain" : @"CustomDomain",
              @"deviceConfiguration" : @"DeviceConfiguration",
              @"domain" : @"Domain",
              @"emailConfiguration" : @"EmailConfiguration",
