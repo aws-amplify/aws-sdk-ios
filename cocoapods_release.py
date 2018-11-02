@@ -1,6 +1,6 @@
 from subprocess import Popen, PIPE
 import os
-podpackages = [
+podpackages = [  
                'AWSCore.podspec', 
                'AWSAPIGateway.podspec',
                'AWSAutoScaling.podspec',
