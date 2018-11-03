@@ -4,34 +4,71 @@
 #
 version: 2
 jobs:
-  build:
+  release_carthage:
     # Specify the Xcode version to use
     macos:
-      xcode: "8.3.3"
+      xcode: "9.2.0"
     steps:
       - checkout
 
       # Install CocoaPods
-      - run:
-          name: Install CocoaPods
-          command: pod install
+    #  - run:
+     #     name: Install CocoaPods
+      #    command: pod install
 
       # Build the app and run tests
       - run:
-          name: Build and run tests
-          command: fastlane scan
-          environment:
-            SCAN_DEVICE: iPhone 6
-            SCAN_SCHEME: WebTests
+          name: Build Cathage
+          command: carthage build --no-skip-current
+      - run:
+          name: Carthage update
+          command:  
+            carthage update
+            carthage update --no-use-binaries
+       - run:
+          name: Carthage achive
+          command: carthage archive
+  release_cocoapod:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "9.2.0"
+    steps:
+      - checkout  
+      - run:
+        name: push lish cocalpd
+        command : bash  	cocoapods_release.py
+  release_document:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "9.2.0"
+    steps:
+      - checkout  
+      - run:
+        name: publish document
+        command : echo   "publish document"
 
-      # Collect XML test results data to show in the UI,
-      # and save the same XML files under test-results folder
-      # in the Artifacts tab
-      - store_test_results:
-          path: test_output/report.xml
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: scan-test-results
-      - store_artifacts:
-          path: ~/Library/Logs/scan
-          destination: scan-logs
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - release_carthage:
+          filters:
+            branches:
+              only: master 
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/      
+      - release_cocoapod:
+          filters:
+            branches:
+              only: master 
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/     
+      - release_document:
+          filters:
+            branches:
+              only: master 
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
