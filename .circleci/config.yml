@@ -16,10 +16,10 @@ jobs:
       - run:
           name: Carthage update
           command:  carthage update
-       - run:
+      - run:
           name: Carthage update
           command:  carthage update --no-use-binaries  
-       - run:
+      - run:
           name: Carthage achive
           command: carthage archive
   release_cocoapod:
