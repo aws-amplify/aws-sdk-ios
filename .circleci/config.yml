@@ -10,13 +10,6 @@ jobs:
       xcode: "9.2.0"
     steps: 
       - checkout
-
-      # Install CocoaPods
-    #  - run:
-     #     name: Install CocoaPods
-      #    command: pod install
-
-      # Build the app and run tests
       - run:
           name: Build Cathage
           command: carthage build --no-skip-current
@@ -34,6 +27,13 @@ jobs:
       xcode: "9.2.0"
     steps:
       - checkout  
+       # Install CocoaPods
+    #  - run:
+     #     name: Install CocoaPods
+      #    command: pod install
+
+      # Build the app and run tests     
+      
       - run:
         name: push lish cocalpd
         command : bash  	cocoapods_release.py
