@@ -15,9 +15,10 @@ jobs:
           command: carthage build --no-skip-current
       - run:
           name: Carthage update
-          command:  
-            carthage update
-            carthage update --no-use-binaries
+          command:  carthage update
+       - run:
+          name: Carthage update
+          command:  carthage update --no-use-binaries  
        - run:
           name: Carthage achive
           command: carthage archive
