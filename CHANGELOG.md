@@ -1,10 +1,10 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
-## 4.7.45
+## 4.7.46
 
 ### Bug Fixes
 
-* **Amazon Pinpoint**. 444444
+* **Amazon Pinpoint**. 4.7.46
   * Fixed 'Undefined symbols' error where `AWSPinpointVersionString` was not
     implemented when importing AWSPinpoint as a static library using CocoaPods.
     See [issue#1050](https://github.com/aws/aws-sdk-ios/issues/1050)
