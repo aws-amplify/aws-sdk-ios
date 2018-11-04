@@ -66,6 +66,36 @@ jobs:
       - run:
           name: Release cocoapods
           command : python    cocoapods_release.py
+  release_appledoc:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "10.0.0"
+    steps:
+      - checkout  
+       # Install CocoaPods
+      - run:
+          name: Install appledoc
+          command: brew install appledoc
+      - run:
+          name: generate documents
+          command: bash ./Scripts/GenerateAppleDocs.sh
+
+      - run:
+          name: copy documents
+          command: |
+            git checkout gh-pages
+            cp -R docs/html/* folder to docs/reference/
+
+      - run:
+          name: checkin documents
+          command: |
+            git add docs
+            git commit & git push
+
+      # Build the app and run tests     
+      
+
+
 
 workflows:
   version: 2
@@ -84,7 +114,14 @@ workflows:
       - release_cocoapods:
           filters:
             branches:
-              only: master
+              only: mastertest
     #          ignore: /.*/
      #       tags:
       #        only: /^[0-9]+.[0-9]+.[0-9]+$/
+        - release_appledoc:
+          filters:
+            branches:
+              only: master 
+#              ignore: /.*/
+ #           tags:
+  #            only: /^[0-9]+.[0-9]+.[0-9]+$/
