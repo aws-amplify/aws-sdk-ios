@@ -9,7 +9,7 @@ jobs:
     macos:
       xcode: "9.2.0"
     steps: 
-       - checkout
+      - checkout
       - run:
           name: install github-release
           command: brew install github-release
