@@ -6,7 +6,7 @@ version: 2
 jobs:
   test:
     macos:
-      xcode: "9.2.0"
+      xcode: "9.4.0"
     steps: 
       - run:     
          name: test
