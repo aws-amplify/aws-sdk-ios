@@ -19,3 +19,8 @@ jobs:
       - run:
           name: upload file to git release 
           command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f releasecontent.txt
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs: release_carthage
