@@ -11,26 +11,32 @@ jobs:
     steps: 
       - checkout
       - run:
+          name: upgrade release_carthage
+          command: brew outdated carthage || brew upgrade carthage
+      - run:
           name: install github-release
           command: brew install github-release
-      - run: 
-          name: create file
-          command: echo "file content" >> releasecontent.txt
+      - run:
+          name: Build Cathage
+          command: carthage build --no-skip-current
+
+      - run:
+          name: Create Cathage Achive
+          command: carthage achieve 
+
+      - run:
+          name: Rename Cathage Achive
+          command:  mv  AWSAPIGatewayGateway.framework.zip   aws-sdk-ios-carthage.framework.zip
 
       - run:
           name: release the tag
           command: |
             tagdescription=$(sed -n '/## '${CIRCLE_TAG}'/,/## [0-9]*\.[0-9]*\.[0-9]/p'  CHANGELOG.md | sed '1d' | sed '$d')
             tagname="AWS SDK for iOS "${CIRCLE_TAG}
-            github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -d "$tagdescription" -n "$tagname"
-          
-
-          # bash  releasetag.sh
-         # command: github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} 
-         
+            github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -d "$tagdescription" -n "$tagname"         
       - run:
           name: upload file to git release 
-          command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f releasecontent.txt -n releasecontent.txt
+          command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
 
 workflows:
   version: 2
