@@ -54,6 +54,9 @@ workflows:
   build_and_test:
     jobs: 
       - test:
+          filters:
+            branches:
+              only: master      
       - release_carthage:
           filters:
             branches:
