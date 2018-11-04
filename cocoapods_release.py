@@ -1,7 +1,7 @@
 from subprocess import Popen, PIPE
 import os
 podpackages = [  
-               'AWSCore.podspec', 
+               #   'AWSCore.podspec',
                'AWSAPIGateway.podspec',
                'AWSAutoScaling.podspec',
                'AWSCloudWatch.podspec',
@@ -56,6 +56,8 @@ for package in podpackages:
         if "Unable to accept duplicate entry for:" in str(output):
             print (package +" is already published")
         else:
+            print("error:" + err)
+            print(output)
             print("Failed to publish " + package)
             quit(exit_code);
     print ('published ' + package)
