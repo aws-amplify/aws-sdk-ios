@@ -17,7 +17,7 @@ jobs:
           name: create file
           command: echo "file content" >> releasecontent.txt
 
-       - run:
+      - run:
           name: release the tag
           command: bash  releasetag.sh
          # command: github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} 
