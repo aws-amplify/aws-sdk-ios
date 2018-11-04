@@ -57,7 +57,7 @@ workflows:
       - test:
           filters:
             branches:
-              only: master      
+              only: mastertest      
       - release_carthage:
           filters:
             branches:
