@@ -1,0 +1,75 @@
+# iOS CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/ios-migrating-from-1-2/ for more details
+#
+version: 2
+jobs:
+  release_carthage:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "9.2.0"
+    steps: 
+      - checkout
+      - run:
+          name: Build Cathage
+          command: carthage build --no-skip-current
+      - run:
+          name: Carthage update
+          command:  carthage update
+      - run:
+          name: Carthage update
+          command:  carthage update --no-use-binaries  
+      - run:
+          name: Carthage achive
+          command: carthage archive
+  release_cocoapod:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "9.2.0"
+    steps:
+      - checkout  
+       # Install CocoaPods
+    #  - run:
+     #     name: Install CocoaPods
+      #    command: pod install
+
+      # Build the app and run tests     
+      
+      - run:
+        name: push lish cocalpd
+        command : bash  	cocoapods_release.py
+  release_document:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "9.2.0"
+    steps:
+      - checkout  
+      - run:
+        name: publish document
+        command : echo   "publish document"
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - release_carthage:
+          filters:
+            branches:
+              only: master 
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/      
+      - release_cocoapod:
+          filters:
+            branches:
+              only: master 
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/     
+      - release_document:
+          filters:
+            branches:
+              only: master 
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/

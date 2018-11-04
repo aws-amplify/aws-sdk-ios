@@ -1,8 +1,7 @@
 from subprocess import Popen, PIPE
 import os
-podpackages = [
+podpackages = [  
                'AWSCore.podspec', 
-               
                'AWSAPIGateway.podspec',
                'AWSAutoScaling.podspec',
                'AWSCloudWatch.podspec',
@@ -59,4 +58,4 @@ for package in podpackages:
         else:
             print("Failed to publish " + package)
             quit(0);
-
+  
