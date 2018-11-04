@@ -1,5 +1,28 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
+## 4.7.33
+
+### Bug Fixes
+
+* **Amazon Pinpoint**
+  * Fixed 'Undefined symbols' error where `AWSPinpointVersionString` was not
+    implemented when importing AWSPinpoint as a static library using CocoaPods.
+    See [issue#1050](https://github.com/aws/aws-sdk-ios/issues/1050)
+  * Fixed incorrectly reported SDK version in Pinpoint events
+    See [issue#1051](https://github.com/aws/aws-sdk-ios/issues/1051)
+
+* **Amazon S3**
+  * Fixed bug in AWSTransferUtility.default client to use a constant value for the NSURLSessionID. See [issue#1067](https://github.com/aws/aws-sdk-ios/issues/1067)
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon EC2
+  * Amazon Transcribe
+* In all SDKs, the `SDKVersion` and `SDKVersionString` in the umbrella header
+  are now deprecated, and will be removed in an upcoming minor version of the
+  SDK. Use the service-specific version string instead.
+
 
 ## 2.6.33
 
