@@ -84,7 +84,7 @@ workflows:
       - release_cocoapods:
           filters:
             branches:
-              only: master1
+              only: master
     #          ignore: /.*/
      #       tags:
       #        only: /^[0-9]+.[0-9]+.[0-9]+$/
