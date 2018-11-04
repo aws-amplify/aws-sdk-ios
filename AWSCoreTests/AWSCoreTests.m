@@ -15,6 +15,7 @@
 
 #import <XCTest/XCTest.h>
 #import "AWSCore.h"
+#import "AWSGZIP.h"
 #import "AWSSerialization.h"
 #import "AWSURLRequestSerialization.h"
 #import "AWSURLResponseSerialization.h"
@@ -31,6 +32,8 @@
 @end
 
 @implementation AWSCoreTests
+
+static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
 
 - (void)setUp {
     [super setUp];
@@ -125,8 +128,8 @@
                                 headers:testHeaders
                              parameters:testParams] continueWithSuccessBlock:^id(AWSTask *task) {
         //Assert headers are properly set
-        NSDictionary *serialziedHeaders = [testRequest allHTTPHeaderFields];
-        XCTAssertEqualObjects(testHeaders, serialziedHeaders, "JSONSerializer failed to properly attach headers");
+        NSDictionary *serializedHeaders = [testRequest allHTTPHeaderFields];
+        XCTAssertEqualObjects(testHeaders, serializedHeaders, "JSONSerializer failed to properly attach headers");
         
         //Assert body is properly in JSON
         NSData *jsonData = [testRequest HTTPBody];
@@ -148,6 +151,50 @@
         }
         return nil;
     }] waitUntilFinished];
+}
+
+- (void)testJSONRequestPayloadIsGzippedIfSpecifiedInHeaders {
+    // We'll assign these inside the continuation block after serialization, and
+    // assert on them after the block completes
+    __block NSString *requestContentEncoding = nil;
+    __block NSData *requestHTTPBody = nil;
+
+    NSString *testURLString = @"http://aws.amazon.com";
+    NSURL *testURL = [NSURL URLWithString:testURLString];
+    NSMutableURLRequest *testRequest = [NSMutableURLRequest requestWithURL:testURL];
+    testRequest.HTTPMethod = @"POST";
+
+    NSDictionary *testParams = @{ @"Key1": @"Value1" };
+    NSDictionary *testHeaders = @{
+                                  @"Content-Encoding":@"gzip"
+                                  };
+
+    AWSJSONRequestSerializer *jsonSerializer = [AWSJSONRequestSerializer new];
+
+    [[[jsonSerializer serializeRequest:testRequest
+                               headers:testHeaders
+                            parameters:testParams] continueWithSuccessBlock:^id(AWSTask *task) {
+        NSDictionary *serializedHeaders = [testRequest allHTTPHeaderFields];
+        requestContentEncoding = [serializedHeaders objectForKey:@"Content-Encoding"];
+        requestHTTPBody = [testRequest HTTPBody];
+        return nil;
+    }] waitUntilFinished];
+
+    XCTAssertNotNil(requestContentEncoding, "Content encoding should not be nil");
+    XCTAssertEqual(@"gzip", requestContentEncoding);
+
+    XCTAssertNotNil(requestHTTPBody, "Request HTTP Body should not be nil");
+
+    NSData *jsonData = [requestHTTPBody awsgzip_gunzippedData];
+    XCTAssertNotNil(jsonData, @"jsonData should not be nil");
+
+    NSError *error = nil;
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:NSJSONReadingMutableContainers
+                                                                     error:&error];
+    XCTAssertNil(error, @"Error serializing unzipped data into JSON: %@", error);
+
+    XCTAssertEqualObjects(jsonDictionary, testParams, @"Unzipped JSON data does not equal incoming data");
 }
 
 - (void)testXMLSerializer {
@@ -302,7 +349,7 @@
             }
 
             // ------------Validate Result------------------------------
-            if ([responseResult isKindOfClass:[NSDictionary class]] && [responseResult objectForKey:@"Stream"] ) {
+            if ([responseResult isKindOfClass:[NSDictionary class]] && [responseResult objectForKey:@"Stream"]) {
                 NSMutableDictionary *tempResult = [responseResult mutableCopy];
                 [tempResult setObject:[[NSString alloc] initWithData:responseResult[@"Stream"] encoding:NSUTF8StringEncoding] forKey:@"Stream"];
                 responseResult = tempResult;
@@ -449,7 +496,7 @@
             }
             
             // ------------Validate Result------------------------------
-            if ([responseResult isKindOfClass:[NSDictionary class]] && [responseResult objectForKey:@"Stream"] ) {
+            if ([responseResult isKindOfClass:[NSDictionary class]] && [responseResult objectForKey:@"Stream"]) {
                 NSMutableDictionary *tempResult = [responseResult mutableCopy];
                 [tempResult setObject:[[NSString alloc] initWithData:responseResult[@"Stream"] encoding:NSUTF8StringEncoding] forKey:@"Stream"];
                 responseResult = tempResult;
@@ -851,7 +898,7 @@
 {
     if ([jsonObject isKindOfClass:[NSArray class]]) {
         
-        for (int i = 0 ; i< [jsonObject count] ; i++ ) {
+        for (int i = 0 ; i < [jsonObject count] ; i++) {
             id object = jsonObject[i];
             
             if ([object isKindOfClass:[NSArray class]] || [object isKindOfClass:[NSDictionary class]]) {
@@ -866,7 +913,7 @@
     
     if ([jsonObject isKindOfClass:[NSDictionary class]]) {
         for (NSString *key in [jsonObject allKeys]) {
-            if ( [jsonObject[key] isKindOfClass:[NSDictionary class]] || [jsonObject[key] isKindOfClass:[NSArray class]]) {
+            if ([jsonObject[key] isKindOfClass:[NSDictionary class]] || [jsonObject[key] isKindOfClass:[NSArray class]]) {
                 [self replaceNSData2NSString:jsonObject[key]];
             }
             
@@ -875,8 +922,56 @@
             }
         }
     }
-   
+}
+
+- (void)testValidAwsConfigurationJsonIfPresent {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"awsconfiguration"
+                                                         ofType:@"json"];
+    if (!filePath) {
+        return;
+    }
     
+    NSDictionary *awsConfigurationJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                         options:NSJSONReadingMutableContainers
+                                                                           error:nil];
+    @try {
+        NSString *cognitoIdentityPoolId = awsConfigurationJson[@"CredentialsProvider"][@"CognitoIdentity"][@"Default"][@"PoolId"];
+        XCTAssertNotNil(cognitoIdentityPoolId);
+    } @catch (NSException *exception) {
+        XCTFail(@"Cannot read the Cognito Identity Pool Id from the %@.", awsConfigurationJsonFileName);
+    }
+}
+
+- (void)testAwsInfoInit {
+    @try {
+        AWSInfo *defaultInfo = [AWSInfo defaultAWSInfo];
+        XCTAssertNotNil(defaultInfo);
+    } @catch (NSException *exception) {
+        XCTFail(@"AWSInfo initilization failed.");
+    }
+}
+
+- (void)testEmptyAwsConfigurationJsonIfPresent {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"awsconfiguration"
+                                                         ofType:@"json"];
+    if (!filePath) {
+        return;
+    }
+    NSData *validData = [NSData dataWithContentsOfFile:filePath];
+    
+    // Clear contents of file
+    [[NSFileManager defaultManager] createFileAtPath:filePath contents:[NSData data] attributes:nil];
+    
+    NSData *invalidData = [NSData dataWithContentsOfFile:filePath];
+    
+    @try {
+        AWSInfo *defaultInfo = [AWSInfo defaultAWSInfo];
+    } @catch (NSException *exception) {
+        XCTFail(@"AWSInfo initilization failed and exception thrown.");
+    }
+    
+    // Write the data back to the file
+    [[NSFileManager defaultManager] createFileAtPath:filePath contents:validData attributes:nil];
 }
 
 @end

@@ -21,16 +21,12 @@
 #import "AWSPinpointConfiguration.h"
 #import "AWSClientContext.h"
 #import "AWSPinpointTargeting.h"
-#import "AWSPinpointAnalytics.h"
 #import "AWSPinpointNotificationManager.h"
 #import "AWSPinpointAnalyticsClient.h"
 #import "AWSPinpointTargetingClient.h"
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 
 #pragma mark - Categories -
-@interface AWSPinpointAnalytics()
-- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
-@end
 
 @interface AWSPinpointTargeting()
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration;
@@ -65,7 +61,6 @@
 @property (nonatomic, strong) AWSPinpointNotificationManager *notificationManager;
 @property (nonatomic, strong) AWSPinpointConfiguration *configuration;
 @property (nonatomic, strong) AWSPinpointContext *pinpointContext;
-
 @end
 
 @implementation AWSPinpoint
@@ -123,10 +118,9 @@ static AWSSynchronizedMutableDictionary *_pinpointForAppNamespace = nil;
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                            reason:@"Failed to initialize Pinpoint SDK. The targeting service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration`."
                                          userInfo:nil];
-        }
-        
+        }        
+
         _pinpointContext = [AWSPinpointContext contextWithConfiguration:_configuration];
-        
         if (_configuration.enableTargeting) {
             _pinpointContext.targetingService = [[AWSPinpointTargeting alloc] initWithConfiguration:_configuration.targetingServiceConfiguration];
             _targetingClient = [[AWSPinpointTargetingClient alloc] initWithContext:_pinpointContext];
@@ -138,7 +132,6 @@ static AWSSynchronizedMutableDictionary *_pinpointForAppNamespace = nil;
         if (_configuration.enableEvents) {
             _sessionClient = [[AWSPinpointSessionClient alloc] initWithContext:_pinpointContext];
             _pinpointContext.sessionClient = _sessionClient;
-            _pinpointContext.analyticsService = [[AWSPinpointAnalytics alloc] initWithConfiguration:_configuration.serviceConfiguration];
             _analyticsClient = [[AWSPinpointAnalyticsClient alloc] initWithContext:_pinpointContext];
             _pinpointContext.analyticsClient = _analyticsClient;
         } else {

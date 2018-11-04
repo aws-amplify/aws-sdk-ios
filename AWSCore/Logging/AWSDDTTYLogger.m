@@ -900,7 +900,7 @@ static AWSDDTTYLogger *sharedInstance;
 
     dispatch_sync(globalLoggingQueue, ^{
         dispatch_sync(self.loggerQueue, ^{
-            result = _colorsEnabled;
+            result = self->_colorsEnabled;
         });
     });
 
@@ -910,9 +910,9 @@ static AWSDDTTYLogger *sharedInstance;
 - (void)setColorsEnabled:(BOOL)newColorsEnabled {
     dispatch_block_t block = ^{
         @autoreleasepool {
-            _colorsEnabled = newColorsEnabled;
+            self->_colorsEnabled = newColorsEnabled;
 
-            if ([_colorProfilesArray count] == 0) {
+            if ([self->_colorProfilesArray count] == 0) {
                 [self loadDefaultColorProfiles];
             }
         }
@@ -955,7 +955,7 @@ static AWSDDTTYLogger *sharedInstance;
 
             NSUInteger i = 0;
 
-            for (AWSDDTTYLoggerColorProfile *colorProfile in _colorProfilesArray) {
+            for (AWSDDTTYLoggerColorProfile *colorProfile in self->_colorProfilesArray) {
                 if ((colorProfile->mask == mask) && (colorProfile->context == ctxt)) {
                     break;
                 }
@@ -963,10 +963,10 @@ static AWSDDTTYLogger *sharedInstance;
                 i++;
             }
 
-            if (i < [_colorProfilesArray count]) {
-                _colorProfilesArray[i] = newColorProfile;
+            if (i < [self->_colorProfilesArray count]) {
+                self->_colorProfilesArray[i] = newColorProfile;
             } else {
-                [_colorProfilesArray addObject:newColorProfile];
+                [self->_colorProfilesArray addObject:newColorProfile];
             }
         }
     };
@@ -999,7 +999,7 @@ static AWSDDTTYLogger *sharedInstance;
 
             NSLogInfo(@"AWSDDTTYLogger: newColorProfile: %@", newColorProfile);
 
-            _colorProfilesDict[tag] = newColorProfile;
+            self->_colorProfilesDict[tag] = newColorProfile;
         }
     };
 
@@ -1027,7 +1027,7 @@ static AWSDDTTYLogger *sharedInstance;
         @autoreleasepool {
             NSUInteger i = 0;
 
-            for (AWSDDTTYLoggerColorProfile *colorProfile in _colorProfilesArray) {
+            for (AWSDDTTYLoggerColorProfile *colorProfile in self->_colorProfilesArray) {
                 if ((colorProfile->mask == mask) && (colorProfile->context == context)) {
                     break;
                 }
@@ -1035,8 +1035,8 @@ static AWSDDTTYLogger *sharedInstance;
                 i++;
             }
 
-            if (i < [_colorProfilesArray count]) {
-                [_colorProfilesArray removeObjectAtIndex:i];
+            if (i < [self->_colorProfilesArray count]) {
+                [self->_colorProfilesArray removeObjectAtIndex:i];
             }
         }
     };
@@ -1061,7 +1061,7 @@ static AWSDDTTYLogger *sharedInstance;
 
     dispatch_block_t block = ^{
         @autoreleasepool {
-            [_colorProfilesDict removeObjectForKey:tag];
+            [self->_colorProfilesDict removeObjectForKey:tag];
         }
     };
 
@@ -1083,7 +1083,7 @@ static AWSDDTTYLogger *sharedInstance;
 - (void)clearColorsForAllFlags {
     dispatch_block_t block = ^{
         @autoreleasepool {
-            [_colorProfilesArray removeAllObjects];
+            [self->_colorProfilesArray removeAllObjects];
         }
     };
 
@@ -1105,7 +1105,7 @@ static AWSDDTTYLogger *sharedInstance;
 - (void)clearColorsForAllTags {
     dispatch_block_t block = ^{
         @autoreleasepool {
-            [_colorProfilesDict removeAllObjects];
+            [self->_colorProfilesDict removeAllObjects];
         }
     };
 
@@ -1127,8 +1127,8 @@ static AWSDDTTYLogger *sharedInstance;
 - (void)clearAllColors {
     dispatch_block_t block = ^{
         @autoreleasepool {
-            [_colorProfilesArray removeAllObjects];
-            [_colorProfilesDict removeAllObjects];
+            [self->_colorProfilesArray removeAllObjects];
+            [self->_colorProfilesDict removeAllObjects];
         }
     };
 

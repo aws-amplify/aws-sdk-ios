@@ -414,82 +414,83 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
         NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
         
-        if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 ) {
+        if (httpResponse.statusCode >= 200 && httpResponse.statusCode < 300) {
             // status is good, we can keep value of shouldWriteToFile
         } else {
             // got error status code, avoid write data to disk
             delegate.shouldWriteToFile = NO;
         }
     }
-    if (delegate.shouldWriteToFile) {
+    
+    @try {
+        if (delegate.shouldWriteToFile) {
 
-        if (delegate.shouldWriteDirectly) {
-            //If set (e..g by S3 Transfer Manager), downloaded data will be wrote to the downloadingFileURL directly, if the file already exists, it will appended to the end.
-            AWSDDLogDebug(@"DirectWrite is On, downloaded data will be wrote to the downloadingFileURL directly, if the file already exists, it will appended to the end.\
-                        Original file may be modified even the downloading task has been paused/cancelled later.");
+            if (delegate.shouldWriteDirectly) {
+                //If set (e..g by S3 Transfer Manager), downloaded data will be wrote to the downloadingFileURL directly, if the file already exists, it will appended to the end.
+                AWSDDLogDebug(@"DirectWrite is On, downloaded data will be wrote to the downloadingFileURL directly, if the file already exists, it will appended to the end.\
+                            Original file may be modified even the downloading task has been paused/cancelled later.");
 
-            NSError *error = nil;
-            if ([[NSFileManager defaultManager] fileExistsAtPath:delegate.downloadingFileURL.path]) {
-                AWSDDLogDebug(@"target file already exists, will be appended at the file path: %@",delegate.downloadingFileURL);
-                delegate.responseFilehandle = [NSFileHandle fileHandleForUpdatingURL:delegate.downloadingFileURL error:&error];
-                if (error) {
-                    AWSDDLogError(@"Error: [%@]", error);
+                NSError *error = nil;
+                if ([[NSFileManager defaultManager] fileExistsAtPath:delegate.downloadingFileURL.path]) {
+                    AWSDDLogDebug(@"target file already exists, will be appended at the file path: %@",delegate.downloadingFileURL);
+                    delegate.responseFilehandle = [NSFileHandle fileHandleForUpdatingURL:delegate.downloadingFileURL error:&error];
+                    if (error) {
+                        AWSDDLogError(@"Error: [%@]", error);
+                    }
+                    [delegate.responseFilehandle seekToEndOfFile];
+
+                } else {
+                    //Create the file
+                    if (![[NSFileManager defaultManager] createFileAtPath:delegate.downloadingFileURL.path contents:nil attributes:nil]) {
+                        AWSDDLogError(@"Error: Can not create file with file path:%@",delegate.downloadingFileURL.path);
+                    }
+                    error = nil;
+                    delegate.responseFilehandle = [NSFileHandle fileHandleForWritingToURL:delegate.downloadingFileURL error:&error];
+                    if (error) {
+                        AWSDDLogError(@"Error: [%@]", error);
+                    }
                 }
-                [delegate.responseFilehandle seekToEndOfFile];
 
             } else {
-                //Create the file
-                if (![[NSFileManager defaultManager] createFileAtPath:delegate.downloadingFileURL.path contents:nil attributes:nil]) {
-                    AWSDDLogError(@"Error: Can not create file with file path:%@",delegate.downloadingFileURL.path);
+                NSError *error = nil;
+                //This is the normal case. downloaded data will be saved in a temporay folder and then moved to downloadingFileURL after downloading complete.
+                NSString *tempFileName = [NSString stringWithFormat:@"%@.%@",AWSMobileURLSessionManagerCacheDomain,[[NSProcessInfo processInfo] globallyUniqueString]];
+                NSString *tempDirPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.fileCache",AWSMobileURLSessionManagerCacheDomain]];
+
+                //Create temp folder if not exist
+                [[NSFileManager defaultManager] createDirectoryAtPath:tempDirPath withIntermediateDirectories:NO attributes:nil error:nil];
+
+                delegate.tempDownloadedFileURL  = [NSURL fileURLWithPath:[tempDirPath stringByAppendingPathComponent:tempFileName]];
+
+                //Remove temp file if it has already exists
+                if ([[NSFileManager defaultManager] fileExistsAtPath:delegate.tempDownloadedFileURL.path]) {
+                    AWSDDLogWarn(@"Warning: target file already exists, will be overwritten at the file path: %@",delegate.tempDownloadedFileURL);
+                    [[NSFileManager defaultManager] removeItemAtPath:delegate.tempDownloadedFileURL.path error:&error];
+                }
+                if (error) {
+                    AWSDDLogError(@"Error: [%@]", error);
+                }
+
+                //Create new temp file
+                if (![[NSFileManager defaultManager] createFileAtPath:delegate.tempDownloadedFileURL.path contents:nil attributes:nil]) {
+                    AWSDDLogError(@"Error: Can not create file with file path:%@",delegate.tempDownloadedFileURL.path);
                 }
                 error = nil;
-                delegate.responseFilehandle = [NSFileHandle fileHandleForWritingToURL:delegate.downloadingFileURL error:&error];
+                delegate.responseFilehandle = [NSFileHandle fileHandleForWritingToURL:delegate.tempDownloadedFileURL error:&error];
                 if (error) {
                     AWSDDLogError(@"Error: [%@]", error);
                 }
             }
-
-        } else {
-            NSError *error = nil;
-            //This is the normal case. downloaded data will be saved in a temporay folder and then moved to downloadingFileURL after downloading complete.
-            NSString *tempFileName = [NSString stringWithFormat:@"%@.%@",AWSMobileURLSessionManagerCacheDomain,[[NSProcessInfo processInfo] globallyUniqueString]];
-            NSString *tempDirPath = [NSTemporaryDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.fileCache",AWSMobileURLSessionManagerCacheDomain]];
-
-            //Create temp folder if not exist
-            [[NSFileManager defaultManager] createDirectoryAtPath:tempDirPath withIntermediateDirectories:NO attributes:nil error:nil];
-
-            delegate.tempDownloadedFileURL  = [NSURL fileURLWithPath:[tempDirPath stringByAppendingPathComponent:tempFileName]];
-
-            //Remove temp file if it has already exists
-            if ([[NSFileManager defaultManager] fileExistsAtPath:delegate.tempDownloadedFileURL.path]) {
-                AWSDDLogWarn(@"Warning: target file already exists, will be overwritten at the file path: %@",delegate.tempDownloadedFileURL);
-                [[NSFileManager defaultManager] removeItemAtPath:delegate.tempDownloadedFileURL.path error:&error];
-            }
-            if (error) {
-                AWSDDLogError(@"Error: [%@]", error);
-            }
-
-            //Create new temp file
-            if (![[NSFileManager defaultManager] createFileAtPath:delegate.tempDownloadedFileURL.path contents:nil attributes:nil]) {
-                AWSDDLogError(@"Error: Can not create file with file path:%@",delegate.tempDownloadedFileURL.path);
-            }
-            error = nil;
-            delegate.responseFilehandle = [NSFileHandle fileHandleForWritingToURL:delegate.tempDownloadedFileURL error:&error];
-            if (error) {
-                AWSDDLogError(@"Error: [%@]", error);
-            }
         }
-
     }
-
-    //    if([response isKindOfClass:[NSHTTPURLResponse class]]) {
-    //        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-    //        if ([[[httpResponse allHeaderFields] objectForKey:@"Content-Length"] longLongValue] >= AWSMinimumDownloadTaskSize) {
-    //            completionHandler(NSURLSessionResponseBecomeDownload);
-    //            return;
-    //        }
-    //    }
-
+    @catch (NSException *exception) {
+        NSString *desc = [NSString stringWithFormat:@"Failed to write data: %@", exception];
+        NSDictionary *userInfo = @{
+                                   NSLocalizedDescriptionKey:  desc
+                                   };
+        AWSDDLogError(@"Error: [%@]", exception);
+        delegate.error = [NSError errorWithDomain:AWSNetworkingErrorDomain code:AWSNetworkingErrorUnknown userInfo: userInfo];
+    }
     completionHandler(NSURLSessionResponseAllow);
 }
 
@@ -498,7 +499,18 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     AWSURLSessionManagerDelegate *delegate = [self.sessionManagerDelegates objectForKey:@(dataTask.taskIdentifier)];
     
     if (delegate.responseFilehandle) {
-        [delegate.responseFilehandle writeData:data];
+        @try{
+            [delegate.responseFilehandle writeData:data];
+        }
+        @catch (NSException *exception) {
+            NSString *desc = [NSString stringWithFormat:@"Failed to write data: %@", exception];
+            NSDictionary *userInfo = @{
+                                       NSLocalizedDescriptionKey:  desc
+                                       };
+            AWSDDLogError(@"Error: [%@]", exception);
+            delegate.error = [NSError errorWithDomain:AWSNetworkingErrorDomain code:AWSNetworkingErrorUnknown userInfo: userInfo];
+            [dataTask cancel];
+        }
     } else {
         if (!delegate.responseData) {
             delegate.responseData = [NSMutableData dataWithData:data];
@@ -506,7 +518,7 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
             [delegate.responseData appendData:data];
         }
     }
-
+    
     AWSNetworkingDownloadProgressBlock downloadProgress = delegate.request.downloadProgress;
     if (downloadProgress) {
 

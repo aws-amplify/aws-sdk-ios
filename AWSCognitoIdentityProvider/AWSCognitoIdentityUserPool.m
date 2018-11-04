@@ -81,7 +81,7 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
         NSString *pinpointAppId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolPinpointAppId];
         NSNumber *migrationEnabled = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolMigrationEnabled];
         BOOL migrationEnabledBoolean = NO;
-        if(migrationEnabled){
+        if (migrationEnabled != nil) {
             migrationEnabledBoolean = [migrationEnabled boolValue];
         }
 

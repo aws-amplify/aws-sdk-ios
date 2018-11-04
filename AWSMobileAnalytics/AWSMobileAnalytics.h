@@ -15,11 +15,21 @@
 
 #import <Foundation/Foundation.h>
 
-//! Project version number for AWSMobileAnalytics.
-FOUNDATION_EXPORT double AWSMobileAnalyticsVersionNumber;
+/*!
+ Project version number for the AWSMobileAnalytics framework.
 
-//! Project version string for AWSMobileAnalytics.
-FOUNDATION_EXPORT const unsigned char AWSMobileAnalyticsVersionString[];
+ @warning The AWSMobileAnalytics SDK is deprecated. Please use AWSPinpoint for analytics.
+ @deprecated Please use AWSPinpoint for analytics.
+ */
+FOUNDATION_EXPORT double AWSMobileAnalyticsVersionNumber DEPRECATED_MSG_ATTRIBUTE("Use AWSPinpoint instead.");
+
+/*!
+ Project version string for the AWSMobileAnalytics framework.
+
+ @warning The AWSMobileAnalytics SDK is deprecated. Please use AWSPinpoint for analytics.
+ @deprecated Please use AWSPinpoint for analytics.
+ */
+FOUNDATION_EXPORT const unsigned char AWSMobileAnalyticsVersionString[] DEPRECATED_MSG_ATTRIBUTE("Use AWSPinpoint instead.");
 
 #import <AWSCore/AWSCore.h>
 

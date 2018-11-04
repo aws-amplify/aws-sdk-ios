@@ -119,7 +119,7 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     AWSPinpointEvent *monetizationEvent = [[AWSPinpointEvent alloc] initWithEventType:PURCHASE_EVENT_NAME
                                                                        eventTimestamp:[AWSPinpointDateUtils utcTimeMillisNow]
                                                                               session:self.context.sessionClient.session];
-    
+
     [monetizationEvent addAttribute:product.productIdentifier forKey:PURCHASE_EVENT_PRODUCT_ID_ATTR];
     [monetizationEvent addAttribute:PURCHASE_EVENT_APPLE_STORE forKey:PURCHASE_EVENT_STORE_ATTR];
     [monetizationEvent addMetric:[NSNumber numberWithInteger:transaction.payment.quantity] forKey:PURCHASE_EVENT_QUANTITY_METRIC];

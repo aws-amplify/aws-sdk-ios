@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSMachineLearning
+FOUNDATION_EXPORT NSString *const AWSMachineLearningSDKVersion;
+
 /**
  Definition of the public APIs exposed by Amazon Machine Learning
  */

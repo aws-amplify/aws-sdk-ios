@@ -116,7 +116,8 @@ static NSString *const AWSInfoIoTDataManager = @"IoTDataManager";
 @property (nonatomic, strong) AWSIoTData* IoTData;
 @property (nonatomic, strong) AWSSynchronizedMutableDictionary* shadows;
 @property (nonatomic, strong) AWSIoTMQTTClient *mqttClient;
-
+@property  BOOL userDidIssueDisconnect;
+@property  BOOL userDidIssueConnect;
 @end
 
 @implementation AWSIoTMQTTLastWillAndTestament
@@ -136,6 +137,7 @@ static NSString *const AWSInfoIoTDataManager = @"IoTDataManager";
 
 - (instancetype)init {
     return [self initWithKeepAliveTimeInterval:300
+            
                      baseReconnectTimeInterval:1.0
                  minimumConnectionTimeInterval:20.0
                   maximumReconnectTimeInterval:128.0
@@ -163,6 +165,7 @@ static NSString *const AWSInfoIoTDataManager = @"IoTDataManager";
         _runLoopMode = rlm;
         _autoResubscribe = ars;
         _lastWillAndTestament = lwt;
+        _publishRetryThrottle = 100; //Default to 100 if not specified.
         AWSDDLogInfo(@"Initializing AWSIoTMqttConfiguration with KeepAlive:%f, baseReconnectTime:%f,"
                      "minimumConnectionTime:%f, maximumReconnectTime:%f, autoResubscribe:%@, lwt topic:%@ message:%@ ",
                      _keepAliveTimeInterval, _baseReconnectTimeInterval, _minimumConnectionTimeInterval,
@@ -170,7 +173,36 @@ static NSString *const AWSInfoIoTDataManager = @"IoTDataManager";
                      _lastWillAndTestament.topic, _lastWillAndTestament.message );
     }
     return self;
+}
 
+- (instancetype)initWithKeepAliveTimeInterval:(NSTimeInterval)kat
+                    baseReconnectTimeInterval:(NSTimeInterval)brt
+                minimumConnectionTimeInterval:(NSTimeInterval)mct
+                 maximumReconnectTimeInterval:(NSTimeInterval)mrt
+                                      runLoop:(NSRunLoop*)rlp
+                                  runLoopMode:(NSString*)rlm
+                              autoResubscribe:(BOOL)ars
+                         lastWillAndTestament:(AWSIoTMQTTLastWillAndTestament*)lwt
+                            publishRetryThrottle:(NSUInteger) prt
+{
+    if ( self = [super init] ) {
+        _keepAliveTimeInterval = kat;
+        _baseReconnectTimeInterval = brt;
+        _minimumConnectionTimeInterval = mct;
+        _maximumReconnectTimeInterval = mrt;
+        _runLoop = rlp;
+        _runLoopMode = rlm;
+        _autoResubscribe = ars;
+        _lastWillAndTestament = lwt;
+        _publishRetryThrottle = prt;
+        AWSDDLogInfo(@"Initializing AWSIoTMqttConfiguration with KeepAlive:%f, baseReconnectTime:%f,"
+                     "minimumConnectionTime:%f, maximumReconnectTime:%f, autoResubscribe:%@, lwt topic:%@ message:%@ ",
+                     _keepAliveTimeInterval, _baseReconnectTimeInterval, _minimumConnectionTimeInterval,
+                     _maximumReconnectTimeInterval, _autoResubscribe ? @"Enabled":@"Disabled",
+                     _lastWillAndTestament.topic, _lastWillAndTestament.message );
+    }
+    return self;
+    
 }
 
 @end
@@ -286,11 +318,13 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _mqttConfiguration = mqttConfig;
         _IoTData = [[AWSIoTData alloc] initWithConfiguration:_configuration];
         _shadows = [AWSSynchronizedMutableDictionary new];
-        _mqttClient = [AWSIoTMQTTClient sharedInstance];
+        _mqttClient = [AWSIoTMQTTClient new];
         if(_mqttClient == nil){
             AWSDDLogError(@"**** mqttClient is nil. **** ");
         }
         _mqttClient.associatedObject = self;
+        _userDidIssueDisconnect = NO;
+        _userDidIssueConnect = NO;
     }
     return self;
 }
@@ -304,6 +338,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                 certificateId:(NSString *)certificateId
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
 {
+    AWSDDLogDebug(@"<<%@>>In connectWithClientID", [NSThread currentThread]);
     AWSDDLogInfo(@"hostName: %@", self.IoTData.configuration.endpoint.hostName);
     AWSDDLogInfo(@"URL: %@", self.IoTData.configuration.endpoint.URL);
 
@@ -315,11 +350,21 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         return false;
     }
 
+    if (_userDidIssueConnect) {
+        //User has already connected. Can't connect multiple times, return No.
+        return NO;
+    }
+    
+    _userDidIssueConnect = YES;
+    _userDidIssueDisconnect = NO;
+    
     [self.mqttClient setBaseReconnectTime:self.mqttConfiguration.baseReconnectTimeInterval];
     [self.mqttClient setMinimumConnectionTime:self.mqttConfiguration.minimumConnectionTimeInterval];
     [self.mqttClient setMaximumReconnectTime:self.mqttConfiguration.maximumReconnectTimeInterval];
     [self.mqttClient setAutoResubscribe:self.mqttConfiguration.autoResubscribe];
-
+    [self.mqttClient setPublishRetryThrottle:self.mqttConfiguration.publishRetryThrottle];
+    [self.mqttClient setAutoResubscribe:self.mqttConfiguration.autoResubscribe];
+    
     return [self.mqttClient connectWithClientId:clientId
                                      toHost:self.IoTData.configuration.endpoint.hostName
                                        port:8883
@@ -330,8 +375,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                     willMsg:[self.mqttConfiguration.lastWillAndTestament.message dataUsingEncoding:NSUTF8StringEncoding]
                                     willQoS:self.mqttConfiguration.lastWillAndTestament.qos
                              willRetainFlag:NO
-                                    runLoop:self.mqttConfiguration.runLoop
-                                    forMode:self.mqttConfiguration.runLoopMode
                              statusCallback:callback];
 }
 
@@ -339,20 +382,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                              cleanSession:(BOOL)cleanSession
                            statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 {
-    //
-    // Get WebSocket URL which will be used to connect; it has SigV4 authentication
-    // information embedded in the query string.
-    //
-
+    //Validate that clientId has been passed in.
     if (clientId == nil || [clientId  isEqualToString: @""]) {
         return false;
     }
     AWSDDLogInfo(@"IOTDataManager: Connecting to IoT using websocket, client id: %@", clientId);
+    
+    if (_userDidIssueConnect) {
+        //User has already connected. Can't connect multiple times, return No.
+        return NO;
+    }
+    
+    _userDidIssueConnect = YES;
+    _userDidIssueDisconnect = NO;
+    
+    //set the parameters on the mqttClient from configuration
     [self.mqttClient setBaseReconnectTime:self.mqttConfiguration.baseReconnectTimeInterval];
     [self.mqttClient setMinimumConnectionTime:self.mqttConfiguration.minimumConnectionTimeInterval];
     [self.mqttClient setMaximumReconnectTime:self.mqttConfiguration.maximumReconnectTimeInterval];
     [self.mqttClient setAutoResubscribe:self.mqttConfiguration.autoResubscribe];
-
+    [self.mqttClient setPublishRetryThrottle:self.mqttConfiguration.publishRetryThrottle];
+    [self.mqttClient setAutoResubscribe:self.mqttConfiguration.autoResubscribe];
+    
     return [self.mqttClient connectWithClientId:clientId
                                    cleanSession:cleanSession
                                   configuration:self.IoTData.configuration
@@ -361,12 +412,16 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                         willMsg:[self.mqttConfiguration.lastWillAndTestament.message dataUsingEncoding:NSUTF8StringEncoding]
                                         willQoS:self.mqttConfiguration.lastWillAndTestament.qos
                                  willRetainFlag:NO
-                                        runLoop:self.mqttConfiguration.runLoop
-                                        forMode:self.mqttConfiguration.runLoopMode
                                  statusCallback:callback];
 }
 
 - (void)disconnect{
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. noop this call by returning
+        return ;
+    }
+    _userDidIssueConnect = NO;
+    _userDidIssueDisconnect = YES;
     [self.mqttClient disconnect];
 }
 
@@ -374,6 +429,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self.mqttClient.mqttStatus;
 }
 
+- (BOOL)publishString:(NSString *)string
+              onTopic:(NSString *)topic
+                  QoS:(AWSIoTMQTTQoS)qos
+          ackCallback:(nonnull AWSIoTMQTTAckBlock)ackCallback {
+    if (string == nil) {
+        return NO;
+    }
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return NO;
+    }
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. Return NO to indicate failure
+        return NO;
+    }
+    
+    [self.mqttClient publishString:string
+                               qos:(UInt8)qos
+                           onTopic:topic
+                       ackCallback:ackCallback];
+    
+    return YES;
+}
 
 - (BOOL)publishString:(NSString *)string
               onTopic:(NSString *)topic
@@ -385,11 +462,38 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         return NO;
     }
     
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. Return NO to indicate failure
+        return NO;
+    }
+    
     [self.mqttClient publishString:string qos:(UInt8)qos onTopic:topic];
 
     return YES;
 }
 
+
+- (BOOL)publishData:(NSData *)data
+            onTopic:(NSString *)topic
+                QoS:(AWSIoTMQTTQoS)qos
+        ackCallback:(nonnull AWSIoTMQTTAckBlock)ackCallback {
+    if (data == nil) {
+        return NO;
+    }
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return NO;
+    }
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. Return NO to indicate failure
+        return NO;
+    }
+    
+    [self.mqttClient publishData:data
+                             qos:(UInt8)qos
+                         onTopic:topic
+                     ackCallback:ackCallback];
+    return YES;
+}
 
 - (BOOL)publishData:(NSData *)data
             onTopic:(NSString *)topic
@@ -400,11 +504,14 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (topic == nil || [topic isEqualToString:@""]) {
         return NO;
     }
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. Return NO to indicate failure
+        return NO;
+    }
     
     [self.mqttClient publishData:data qos:(UInt8)qos onTopic:topic];
     return YES;
 }
-
 
 - (BOOL)subscribeToTopic:(NSString *)topic
                      QoS:(AWSIoTMQTTQoS)qos
@@ -413,8 +520,31 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (topic == nil || [topic isEqualToString:@""]) {
         return NO;
     }
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. Return NO to indicate failure
+        return NO;
+    }
     
     [self.mqttClient subscribeToTopic:topic qos:qos messageCallback:callback];
+    return YES;
+}
+
+- (BOOL)subscribeToTopic:(NSString *)topic
+                     QoS:(AWSIoTMQTTQoS)qos
+         messageCallback:(AWSIoTMQTTNewMessageBlock)callback
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return NO;
+    }
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. Return NO to indicate failure
+        return NO;
+    }
+    
+    [self.mqttClient subscribeToTopic:topic
+                                  qos:qos
+                      messageCallback:callback
+                          ackCallback:ackCallback];
     return YES;
 }
 
@@ -425,8 +555,32 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (topic == nil || [topic isEqualToString:@""]) {
         return NO;
     }
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. Return NO to indicate failure
+        return NO;
+    }
     
     [self.mqttClient subscribeToTopic:topic qos:qos extendedCallback:callback];
+    return YES;
+}
+
+// We currently support QoS = 1 for ackCallback; we still allow user to pass QoS parameter (without assuming QoS = 1) for ackCallback since when QoS = 2 is supported, we won't have to do any method signature changes.
+- (BOOL)subscribeToTopic:(NSString *)topic
+                     QoS:(AWSIoTMQTTQoS)qos
+        extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return NO;
+    }
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. Return NO to indicate failure
+        return NO;
+    }
+    
+    [self.mqttClient subscribeToTopic:topic
+                                  qos:qos
+                     extendedCallback:callback
+                          ackCallback:ackCallback];
     return YES;
 }
 
@@ -434,8 +588,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (topic == nil || [topic isEqualToString:@""]) {
         return;
     }
-
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. No op this method by returning
+        return ;
+    }
     [self.mqttClient unsubscribeTopic:topic];
+}
+
+- (void)unsubscribeTopic:(NSString *)topic
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return;
+    }
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. No op this method by returning
+        return ;
+    }
+    [self.mqttClient unsubscribeTopic:topic ackCallback:ackCallback];
 }
 
 
@@ -677,7 +846,7 @@ static NSString * const AWSIoTShadowOperationStatusTypeStrings[] = {
         // update/accepted or delete/accepted, call the user's callback if they've
         // requested foreign state update notifications.
         //
-        if ((shadow.timer == nil) || ![shadowModel.clientToken isEqualToString:shadow.clientToken] ) {
+        if ((shadow.timer == nil) || ![shadowModel.clientToken isEqualToString:shadow.clientToken]) {
             AWSDDLogDebug(@" timer is nil or shadow token mismatch.");
             if (status == AWSIoTShadowOperationStatusTypeAccepted &&
                 operation != AWSIoTShadowOperationTypeGet &&
@@ -763,11 +932,11 @@ static void (^shadowMqttMessageHandler)(NSObject *mqttClient, NSString *topic, N
     // up to 128 bytes in length.  Use only the last 48 bytes of the client ID when
     // creating a new client token.
     //
-    if ([self.mqttClient.clientId length] > 48 ) {
+    if ([self.mqttClient.clientId length] > 48) {
         range = NSMakeRange([self.mqttClient.clientId length] - 48, 48);
     }
     else {
-        range = NSMakeRange( 0, [self.mqttClient.clientId length]);
+        range = NSMakeRange(0, [self.mqttClient.clientId length]);
     }
     return [NSString stringWithFormat:@"%@-%u", [self.mqttClient.clientId substringWithRange:range], (unsigned int)currentToken++];
 }

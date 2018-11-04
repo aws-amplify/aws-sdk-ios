@@ -412,6 +412,32 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @end
 
+@implementation AWSElasticLoadBalancingDescribeAccountLimitsInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"marker" : @"Marker",
+             @"pageSize" : @"PageSize",
+             };
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingDescribeAccountLimitsOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"limits" : @"Limits",
+             @"nextMarker" : @"NextMarker",
+             };
+}
+
++ (NSValueTransformer *)limitsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingLimit class]];
+}
+
+@end
+
 @implementation AWSElasticLoadBalancingDescribeEndPointStateInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -602,6 +628,17 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 	return @{
              @"cookieExpirationPeriod" : @"CookieExpirationPeriod",
              @"policyName" : @"PolicyName",
+             };
+}
+
+@end
+
+@implementation AWSElasticLoadBalancingLimit
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"max" : @"Max",
+             @"name" : @"Name",
              };
 }
 

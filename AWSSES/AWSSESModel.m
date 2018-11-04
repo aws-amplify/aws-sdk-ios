@@ -120,6 +120,119 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
+@implementation AWSSESBulkEmailDestination
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"destination" : @"Destination",
+             @"replacementTags" : @"ReplacementTags",
+             @"replacementTemplateData" : @"ReplacementTemplateData",
+             };
+}
+
++ (NSValueTransformer *)destinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDestination class]];
+}
+
++ (NSValueTransformer *)replacementTagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESMessageTag class]];
+}
+
+@end
+
+@implementation AWSSESBulkEmailDestinationStatus
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"error" : @"Error",
+             @"messageId" : @"MessageId",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Success"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusSuccess);
+        }
+        if ([value caseInsensitiveCompare:@"MessageRejected"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusMessageRejected);
+        }
+        if ([value caseInsensitiveCompare:@"MailFromDomainNotVerified"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusMailFromDomainNotVerified);
+        }
+        if ([value caseInsensitiveCompare:@"ConfigurationSetDoesNotExist"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusConfigurationSetDoesNotExist);
+        }
+        if ([value caseInsensitiveCompare:@"TemplateDoesNotExist"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusTemplateDoesNotExist);
+        }
+        if ([value caseInsensitiveCompare:@"AccountSuspended"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusAccountSuspended);
+        }
+        if ([value caseInsensitiveCompare:@"AccountThrottled"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusAccountThrottled);
+        }
+        if ([value caseInsensitiveCompare:@"AccountDailyQuotaExceeded"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusAccountDailyQuotaExceeded);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidSendingPoolName"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusInvalidSendingPoolName);
+        }
+        if ([value caseInsensitiveCompare:@"AccountSendingPaused"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusAccountSendingPaused);
+        }
+        if ([value caseInsensitiveCompare:@"ConfigurationSetSendingPaused"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusConfigurationSetSendingPaused);
+        }
+        if ([value caseInsensitiveCompare:@"InvalidParameterValue"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusInvalidParameterValue);
+        }
+        if ([value caseInsensitiveCompare:@"TransientFailure"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusTransientFailure);
+        }
+        if ([value caseInsensitiveCompare:@"Failed"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusFailed);
+        }
+        return @(AWSSESBulkEmailStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESBulkEmailStatusSuccess:
+                return @"Success";
+            case AWSSESBulkEmailStatusMessageRejected:
+                return @"MessageRejected";
+            case AWSSESBulkEmailStatusMailFromDomainNotVerified:
+                return @"MailFromDomainNotVerified";
+            case AWSSESBulkEmailStatusConfigurationSetDoesNotExist:
+                return @"ConfigurationSetDoesNotExist";
+            case AWSSESBulkEmailStatusTemplateDoesNotExist:
+                return @"TemplateDoesNotExist";
+            case AWSSESBulkEmailStatusAccountSuspended:
+                return @"AccountSuspended";
+            case AWSSESBulkEmailStatusAccountThrottled:
+                return @"AccountThrottled";
+            case AWSSESBulkEmailStatusAccountDailyQuotaExceeded:
+                return @"AccountDailyQuotaExceeded";
+            case AWSSESBulkEmailStatusInvalidSendingPoolName:
+                return @"InvalidSendingPoolName";
+            case AWSSESBulkEmailStatusAccountSendingPaused:
+                return @"AccountSendingPaused";
+            case AWSSESBulkEmailStatusConfigurationSetSendingPaused:
+                return @"ConfigurationSetSendingPaused";
+            case AWSSESBulkEmailStatusInvalidParameterValue:
+                return @"InvalidParameterValue";
+            case AWSSESBulkEmailStatusTransientFailure:
+                return @"TransientFailure";
+            case AWSSESBulkEmailStatusFailed:
+                return @"Failed";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSSESCloneReceiptRuleSetRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -135,12 +248,145 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
+@implementation AWSSESCloudWatchDestination
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dimensionConfigurations" : @"DimensionConfigurations",
+             };
+}
+
++ (NSValueTransformer *)dimensionConfigurationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESCloudWatchDimensionConfiguration class]];
+}
+
+@end
+
+@implementation AWSSESCloudWatchDimensionConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultDimensionValue" : @"DefaultDimensionValue",
+             @"dimensionName" : @"DimensionName",
+             @"dimensionValueSource" : @"DimensionValueSource",
+             };
+}
+
++ (NSValueTransformer *)dimensionValueSourceJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"messageTag"] == NSOrderedSame) {
+            return @(AWSSESDimensionValueSourceMessageTag);
+        }
+        if ([value caseInsensitiveCompare:@"emailHeader"] == NSOrderedSame) {
+            return @(AWSSESDimensionValueSourceEmailHeader);
+        }
+        if ([value caseInsensitiveCompare:@"linkTag"] == NSOrderedSame) {
+            return @(AWSSESDimensionValueSourceLinkTag);
+        }
+        return @(AWSSESDimensionValueSourceUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESDimensionValueSourceMessageTag:
+                return @"messageTag";
+            case AWSSESDimensionValueSourceEmailHeader:
+                return @"emailHeader";
+            case AWSSESDimensionValueSourceLinkTag:
+                return @"linkTag";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSSESConfigurationSet
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             };
+}
+
+@end
+
 @implementation AWSSESContent
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"charset" : @"Charset",
              @"data" : @"Data",
+             };
+}
+
+@end
+
+@implementation AWSSESCreateConfigurationSetEventDestinationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"eventDestination" : @"EventDestination",
+             };
+}
+
++ (NSValueTransformer *)eventDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEventDestination class]];
+}
+
+@end
+
+@implementation AWSSESCreateConfigurationSetEventDestinationResponse
+
+@end
+
+@implementation AWSSESCreateConfigurationSetRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSet" : @"ConfigurationSet",
+             };
+}
+
++ (NSValueTransformer *)configurationSetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESConfigurationSet class]];
+}
+
+@end
+
+@implementation AWSSESCreateConfigurationSetResponse
+
+@end
+
+@implementation AWSSESCreateConfigurationSetTrackingOptionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"trackingOptions" : @"TrackingOptions",
+             };
+}
+
++ (NSValueTransformer *)trackingOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTrackingOptions class]];
+}
+
+@end
+
+@implementation AWSSESCreateConfigurationSetTrackingOptionsResponse
+
+@end
+
+@implementation AWSSESCreateCustomVerificationEmailTemplateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failureRedirectionURL" : @"FailureRedirectionURL",
+             @"fromEmailAddress" : @"FromEmailAddress",
+             @"successRedirectionURL" : @"SuccessRedirectionURL",
+             @"templateContent" : @"TemplateContent",
+             @"templateName" : @"TemplateName",
+             @"templateSubject" : @"TemplateSubject",
              };
 }
 
@@ -195,6 +441,91 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 @end
 
 @implementation AWSSESCreateReceiptRuleSetResponse
+
+@end
+
+@implementation AWSSESCreateTemplateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"template" : @"Template",
+             };
+}
+
++ (NSValueTransformer *)templateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTemplate class]];
+}
+
+@end
+
+@implementation AWSSESCreateTemplateResponse
+
+@end
+
+@implementation AWSSESCustomVerificationEmailTemplate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failureRedirectionURL" : @"FailureRedirectionURL",
+             @"fromEmailAddress" : @"FromEmailAddress",
+             @"successRedirectionURL" : @"SuccessRedirectionURL",
+             @"templateName" : @"TemplateName",
+             @"templateSubject" : @"TemplateSubject",
+             };
+}
+
+@end
+
+@implementation AWSSESDeleteConfigurationSetEventDestinationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"eventDestinationName" : @"EventDestinationName",
+             };
+}
+
+@end
+
+@implementation AWSSESDeleteConfigurationSetEventDestinationResponse
+
+@end
+
+@implementation AWSSESDeleteConfigurationSetRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESDeleteConfigurationSetResponse
+
+@end
+
+@implementation AWSSESDeleteConfigurationSetTrackingOptionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESDeleteConfigurationSetTrackingOptionsResponse
+
+@end
+
+@implementation AWSSESDeleteCustomVerificationEmailTemplateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             };
+}
 
 @end
 
@@ -270,6 +601,20 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
+@implementation AWSSESDeleteTemplateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             };
+}
+
+@end
+
+@implementation AWSSESDeleteTemplateResponse
+
+@end
+
 @implementation AWSSESDeleteVerifiedEmailAddressRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -299,6 +644,46 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSValueTransformer *)rulesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESReceiptRule class]];
+}
+
+@end
+
+@implementation AWSSESDescribeConfigurationSetRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetAttributeNames" : @"ConfigurationSetAttributeNames",
+             @"configurationSetName" : @"ConfigurationSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESDescribeConfigurationSetResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSet" : @"ConfigurationSet",
+             @"eventDestinations" : @"EventDestinations",
+             @"reputationOptions" : @"ReputationOptions",
+             @"trackingOptions" : @"TrackingOptions",
+             };
+}
+
++ (NSValueTransformer *)configurationSetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESConfigurationSet class]];
+}
+
++ (NSValueTransformer *)eventDestinationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESEventDestination class]];
+}
+
++ (NSValueTransformer *)reputationOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReputationOptions class]];
+}
+
++ (NSValueTransformer *)trackingOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTrackingOptions class]];
 }
 
 @end
@@ -369,12 +754,74 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
+@implementation AWSSESEventDestination
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cloudWatchDestination" : @"CloudWatchDestination",
+             @"enabled" : @"Enabled",
+             @"kinesisFirehoseDestination" : @"KinesisFirehoseDestination",
+             @"matchingEventTypes" : @"MatchingEventTypes",
+             @"name" : @"Name",
+             @"SNSDestination" : @"SNSDestination",
+             };
+}
+
++ (NSValueTransformer *)cloudWatchDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESCloudWatchDestination class]];
+}
+
++ (NSValueTransformer *)kinesisFirehoseDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESKinesisFirehoseDestination class]];
+}
+
++ (NSValueTransformer *)SNSDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSNSDestination class]];
+}
+
+@end
+
 @implementation AWSSESExtensionField
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
              @"value" : @"Value",
+             };
+}
+
+@end
+
+@implementation AWSSESGetAccountSendingEnabledResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
+             };
+}
+
+@end
+
+@implementation AWSSESGetCustomVerificationEmailTemplateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             };
+}
+
+@end
+
+@implementation AWSSESGetCustomVerificationEmailTemplateResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failureRedirectionURL" : @"FailureRedirectionURL",
+             @"fromEmailAddress" : @"FromEmailAddress",
+             @"successRedirectionURL" : @"SuccessRedirectionURL",
+             @"templateContent" : @"TemplateContent",
+             @"templateName" : @"TemplateName",
+             @"templateSubject" : @"TemplateSubject",
              };
 }
 
@@ -535,6 +982,30 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSValueTransformer *)sendDataPointsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESSendDataPoint class]];
+}
+
+@end
+
+@implementation AWSSESGetTemplateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             };
+}
+
+@end
+
+@implementation AWSSESGetTemplateResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"template" : @"Template",
+             };
+}
+
++ (NSValueTransformer *)templateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTemplate class]];
 }
 
 @end
@@ -714,6 +1185,17 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
+@implementation AWSSESKinesisFirehoseDestination
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryStreamARN" : @"DeliveryStreamARN",
+             @"IAMRoleARN" : @"IAMRoleARN",
+             };
+}
+
+@end
+
 @implementation AWSSESLambdaAction
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -743,6 +1225,58 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSSESListConfigurationSetsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxItems" : @"MaxItems",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSSESListConfigurationSetsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSets" : @"ConfigurationSets",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)configurationSetsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESConfigurationSet class]];
+}
+
+@end
+
+@implementation AWSSESListCustomVerificationEmailTemplatesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSSESListCustomVerificationEmailTemplatesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customVerificationEmailTemplates" : @"CustomVerificationEmailTemplates",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)customVerificationEmailTemplatesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESCustomVerificationEmailTemplate class]];
 }
 
 @end
@@ -854,6 +1388,32 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
+@implementation AWSSESListTemplatesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxItems" : @"MaxItems",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSSESListTemplatesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"templatesMetadata" : @"TemplatesMetadata",
+             };
+}
+
++ (NSValueTransformer *)templatesMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTemplateMetadata class]];
+}
+
+@end
+
 @implementation AWSSESListVerifiedEmailAddressesResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -903,6 +1463,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)extensionFieldsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESExtensionField class]];
+}
+
+@end
+
+@implementation AWSSESMessageTag
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             @"value" : @"Value",
+             };
 }
 
 @end
@@ -1162,6 +1733,26 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSSESReputationOptions
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lastFreshStart" : @"LastFreshStart",
+             @"reputationMetricsEnabled" : @"ReputationMetricsEnabled",
+             @"sendingEnabled" : @"SendingEnabled",
+             };
+}
+
++ (NSValueTransformer *)lastFreshStartJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
+@end
+
 @implementation AWSSESS3Action
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1207,6 +1798,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSSESSNSDestination
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"topicARN" : @"TopicARN",
+             };
+}
+
+@end
+
 @implementation AWSSESSendBounceRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1231,6 +1832,70 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSSESSendBounceResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageId" : @"MessageId",
+             };
+}
+
+@end
+
+@implementation AWSSESSendBulkTemplatedEmailRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"defaultTags" : @"DefaultTags",
+             @"defaultTemplateData" : @"DefaultTemplateData",
+             @"destinations" : @"Destinations",
+             @"replyToAddresses" : @"ReplyToAddresses",
+             @"returnPath" : @"ReturnPath",
+             @"returnPathArn" : @"ReturnPathArn",
+             @"source" : @"Source",
+             @"sourceArn" : @"SourceArn",
+             @"template" : @"Template",
+             @"templateArn" : @"TemplateArn",
+             };
+}
+
++ (NSValueTransformer *)defaultTagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESMessageTag class]];
+}
+
++ (NSValueTransformer *)destinationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESBulkEmailDestination class]];
+}
+
+@end
+
+@implementation AWSSESSendBulkTemplatedEmailResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESBulkEmailDestinationStatus class]];
+}
+
+@end
+
+@implementation AWSSESSendCustomVerificationEmailRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"emailAddress" : @"EmailAddress",
+             @"templateName" : @"TemplateName",
+             };
+}
+
+@end
+
+@implementation AWSSESSendCustomVerificationEmailResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1266,6 +1931,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
              @"destination" : @"Destination",
              @"message" : @"Message",
              @"replyToAddresses" : @"ReplyToAddresses",
@@ -1273,6 +1939,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"returnPathArn" : @"ReturnPathArn",
              @"source" : @"Source",
              @"sourceArn" : @"SourceArn",
+             @"tags" : @"Tags",
              };
 }
 
@@ -1282,6 +1949,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)messageJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESMessage class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESMessageTag class]];
 }
 
 @end
@@ -1300,12 +1971,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
              @"destinations" : @"Destinations",
              @"fromArn" : @"FromArn",
              @"rawMessage" : @"RawMessage",
              @"returnPathArn" : @"ReturnPathArn",
              @"source" : @"Source",
              @"sourceArn" : @"SourceArn",
+             @"tags" : @"Tags",
              };
 }
 
@@ -1313,9 +1986,51 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESRawMessage class]];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESMessageTag class]];
+}
+
 @end
 
 @implementation AWSSESSendRawEmailResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageId" : @"MessageId",
+             };
+}
+
+@end
+
+@implementation AWSSESSendTemplatedEmailRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"destination" : @"Destination",
+             @"replyToAddresses" : @"ReplyToAddresses",
+             @"returnPath" : @"ReturnPath",
+             @"returnPathArn" : @"ReturnPathArn",
+             @"source" : @"Source",
+             @"sourceArn" : @"SourceArn",
+             @"tags" : @"Tags",
+             @"template" : @"Template",
+             @"templateArn" : @"TemplateArn",
+             @"templateData" : @"TemplateData",
+             };
+}
+
++ (NSValueTransformer *)destinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDestination class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESMessageTag class]];
+}
+
+@end
+
+@implementation AWSSESSendTemplatedEmailResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1533,6 +2248,154 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSSESTemplate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"htmlPart" : @"HtmlPart",
+             @"subjectPart" : @"SubjectPart",
+             @"templateName" : @"TemplateName",
+             @"textPart" : @"TextPart",
+             };
+}
+
+@end
+
+@implementation AWSSESTemplateMetadata
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createdTimestamp" : @"CreatedTimestamp",
+             @"name" : @"Name",
+             };
+}
+
++ (NSValueTransformer *)createdTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
+@end
+
+@implementation AWSSESTestRenderTemplateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateData" : @"TemplateData",
+             @"templateName" : @"TemplateName",
+             };
+}
+
+@end
+
+@implementation AWSSESTestRenderTemplateResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"renderedTemplate" : @"RenderedTemplate",
+             };
+}
+
+@end
+
+@implementation AWSSESTrackingOptions
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customRedirectDomain" : @"CustomRedirectDomain",
+             };
+}
+
+@end
+
+@implementation AWSSESUpdateAccountSendingEnabledRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
+             };
+}
+
+@end
+
+@implementation AWSSESUpdateConfigurationSetEventDestinationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"eventDestination" : @"EventDestination",
+             };
+}
+
++ (NSValueTransformer *)eventDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEventDestination class]];
+}
+
+@end
+
+@implementation AWSSESUpdateConfigurationSetEventDestinationResponse
+
+@end
+
+@implementation AWSSESUpdateConfigurationSetReputationMetricsEnabledRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"enabled" : @"Enabled",
+             };
+}
+
+@end
+
+@implementation AWSSESUpdateConfigurationSetSendingEnabledRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"enabled" : @"Enabled",
+             };
+}
+
+@end
+
+@implementation AWSSESUpdateConfigurationSetTrackingOptionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"trackingOptions" : @"TrackingOptions",
+             };
+}
+
++ (NSValueTransformer *)trackingOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTrackingOptions class]];
+}
+
+@end
+
+@implementation AWSSESUpdateConfigurationSetTrackingOptionsResponse
+
+@end
+
+@implementation AWSSESUpdateCustomVerificationEmailTemplateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failureRedirectionURL" : @"FailureRedirectionURL",
+             @"fromEmailAddress" : @"FromEmailAddress",
+             @"successRedirectionURL" : @"SuccessRedirectionURL",
+             @"templateContent" : @"TemplateContent",
+             @"templateName" : @"TemplateName",
+             @"templateSubject" : @"TemplateSubject",
+             };
+}
+
+@end
+
 @implementation AWSSESUpdateReceiptRuleRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1549,6 +2412,24 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSSESUpdateReceiptRuleResponse
+
+@end
+
+@implementation AWSSESUpdateTemplateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"template" : @"Template",
+             };
+}
+
++ (NSValueTransformer *)templateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTemplate class]];
+}
+
+@end
+
+@implementation AWSSESUpdateTemplateResponse
 
 @end
 

@@ -24,6 +24,7 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 	return @{
              @"clientId" : @"ClientId",
              @"providerName" : @"ProviderName",
+             @"serverSideTokenCheck" : @"ServerSideTokenCheck",
              };
 }
 
@@ -188,8 +189,17 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"identityPoolId" : @"IdentityPoolId",
+             @"roleMappings" : @"RoleMappings",
              @"roles" : @"Roles",
              };
+}
+
++ (NSValueTransformer *)roleMappingsJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSCognitoIdentityRoleMapping class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end
@@ -382,6 +392,50 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 @end
 
+@implementation AWSCognitoIdentityMappingRule
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"claim" : @"Claim",
+             @"matchType" : @"MatchType",
+             @"roleARN" : @"RoleARN",
+             @"value" : @"Value",
+             };
+}
+
++ (NSValueTransformer *)matchTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Equals"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityMappingRuleMatchTypeEquals);
+        }
+        if ([value caseInsensitiveCompare:@"Contains"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityMappingRuleMatchTypeContains);
+        }
+        if ([value caseInsensitiveCompare:@"StartsWith"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityMappingRuleMatchTypeStartsWith);
+        }
+        if ([value caseInsensitiveCompare:@"NotEqual"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityMappingRuleMatchTypeNotEqual);
+        }
+        return @(AWSCognitoIdentityMappingRuleMatchTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityMappingRuleMatchTypeEquals:
+                return @"Equals";
+            case AWSCognitoIdentityMappingRuleMatchTypeContains:
+                return @"Contains";
+            case AWSCognitoIdentityMappingRuleMatchTypeStartsWith:
+                return @"StartsWith";
+            case AWSCognitoIdentityMappingRuleMatchTypeNotEqual:
+                return @"NotEqual";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSCognitoIdentityMergeDeveloperIdentitiesInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -405,13 +459,94 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 
 @end
 
+@implementation AWSCognitoIdentityRoleMapping
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ambiguousRoleResolution" : @"AmbiguousRoleResolution",
+             @"rulesConfiguration" : @"RulesConfiguration",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)ambiguousRoleResolutionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AuthenticatedRole"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityAmbiguousRoleResolutionTypeAuthenticatedRole);
+        }
+        if ([value caseInsensitiveCompare:@"Deny"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityAmbiguousRoleResolutionTypeDeny);
+        }
+        return @(AWSCognitoIdentityAmbiguousRoleResolutionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityAmbiguousRoleResolutionTypeAuthenticatedRole:
+                return @"AuthenticatedRole";
+            case AWSCognitoIdentityAmbiguousRoleResolutionTypeDeny:
+                return @"Deny";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)rulesConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityRulesConfigurationType class]];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Token"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityRoleMappingTypeToken);
+        }
+        if ([value caseInsensitiveCompare:@"Rules"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityRoleMappingTypeRules);
+        }
+        return @(AWSCognitoIdentityRoleMappingTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityRoleMappingTypeToken:
+                return @"Token";
+            case AWSCognitoIdentityRoleMappingTypeRules:
+                return @"Rules";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSCognitoIdentityRulesConfigurationType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"rules" : @"Rules",
+             };
+}
+
++ (NSValueTransformer *)rulesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCognitoIdentityMappingRule class]];
+}
+
+@end
+
 @implementation AWSCognitoIdentitySetIdentityPoolRolesInput
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"identityPoolId" : @"IdentityPoolId",
+             @"roleMappings" : @"RoleMappings",
              @"roles" : @"Roles",
              };
+}
+
++ (NSValueTransformer *)roleMappingsJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSCognitoIdentityRoleMapping class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
 }
 
 @end

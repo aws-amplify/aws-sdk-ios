@@ -405,6 +405,37 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionDescribeCollectionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"collectionId" : @"CollectionId",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionDescribeCollectionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"collectionARN" : @"CollectionARN",
+             @"creationTimestamp" : @"CreationTimestamp",
+             @"faceCount" : @"FaceCount",
+             @"faceModelVersion" : @"FaceModelVersion",
+             };
+}
+
++ (NSValueTransformer *)creationTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSRekognitionDescribeStreamProcessorRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -766,6 +797,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"associationScore" : @"AssociationScore",
              @"boundingBox" : @"BoundingBox",
              @"confidence" : @"Confidence",
              @"externalImageId" : @"ExternalImageId",
@@ -1030,11 +1062,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"billableDurationSeconds" : @"BillableDurationSeconds",
              @"celebrities" : @"Celebrities",
+             @"errorCode" : @"ErrorCode",
              @"jobStatus" : @"JobStatus",
              @"nextToken" : @"NextToken",
              @"statusMessage" : @"StatusMessage",
              @"videoMetadata" : @"VideoMetadata",
+             @"warnings" : @"Warnings",
              };
 }
 
@@ -1070,6 +1105,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)videoMetadataJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionVideoMetadata class]];
+}
+
++ (NSValueTransformer *)warningsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionWarning class]];
 }
 
 @end
@@ -1112,11 +1151,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"billableDurationSeconds" : @"BillableDurationSeconds",
+             @"errorCode" : @"ErrorCode",
              @"jobStatus" : @"JobStatus",
              @"moderationLabels" : @"ModerationLabels",
              @"nextToken" : @"NextToken",
              @"statusMessage" : @"StatusMessage",
              @"videoMetadata" : @"VideoMetadata",
+             @"warnings" : @"Warnings",
              };
 }
 
@@ -1154,6 +1196,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionVideoMetadata class]];
 }
 
++ (NSValueTransformer *)warningsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionWarning class]];
+}
+
 @end
 
 @implementation AWSRekognitionGetFaceDetectionRequest
@@ -1172,11 +1218,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"billableDurationSeconds" : @"BillableDurationSeconds",
+             @"errorCode" : @"ErrorCode",
              @"faces" : @"Faces",
              @"jobStatus" : @"JobStatus",
              @"nextToken" : @"NextToken",
              @"statusMessage" : @"StatusMessage",
              @"videoMetadata" : @"VideoMetadata",
+             @"warnings" : @"Warnings",
              };
 }
 
@@ -1212,6 +1261,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)videoMetadataJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionVideoMetadata class]];
+}
+
++ (NSValueTransformer *)warningsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionWarning class]];
 }
 
 @end
@@ -1254,11 +1307,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"billableDurationSeconds" : @"BillableDurationSeconds",
+             @"errorCode" : @"ErrorCode",
              @"jobStatus" : @"JobStatus",
              @"nextToken" : @"NextToken",
              @"persons" : @"Persons",
              @"statusMessage" : @"StatusMessage",
              @"videoMetadata" : @"VideoMetadata",
+             @"warnings" : @"Warnings",
              };
 }
 
@@ -1294,6 +1350,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)videoMetadataJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionVideoMetadata class]];
+}
+
++ (NSValueTransformer *)warningsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionWarning class]];
 }
 
 @end
@@ -1336,11 +1396,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"billableDurationSeconds" : @"BillableDurationSeconds",
+             @"errorCode" : @"ErrorCode",
              @"jobStatus" : @"JobStatus",
              @"labels" : @"Labels",
              @"nextToken" : @"NextToken",
              @"statusMessage" : @"StatusMessage",
              @"videoMetadata" : @"VideoMetadata",
+             @"warnings" : @"Warnings",
              };
 }
 
@@ -1376,6 +1439,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)videoMetadataJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionVideoMetadata class]];
+}
+
++ (NSValueTransformer *)warningsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionWarning class]];
 }
 
 @end
@@ -1418,11 +1485,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"billableDurationSeconds" : @"BillableDurationSeconds",
+             @"errorCode" : @"ErrorCode",
              @"jobStatus" : @"JobStatus",
              @"nextToken" : @"NextToken",
              @"persons" : @"Persons",
              @"statusMessage" : @"StatusMessage",
              @"videoMetadata" : @"VideoMetadata",
+             @"warnings" : @"Warnings",
              };
 }
 
@@ -1458,6 +1528,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)videoMetadataJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionVideoMetadata class]];
+}
+
++ (NSValueTransformer *)warningsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionWarning class]];
 }
 
 @end
@@ -2090,6 +2164,17 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionSection
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endTimestamp" : @"EndTimestamp",
+             @"startTimestamp" : @"StartTimestamp",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionSmile
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2106,6 +2191,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientRequestToken" : @"ClientRequestToken",
+             @"enablePersonTracking" : @"EnablePersonTracking",
              @"jobTag" : @"JobTag",
              @"notificationChannel" : @"NotificationChannel",
              @"video" : @"Video",
@@ -2223,6 +2309,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 	return @{
              @"clientRequestToken" : @"ClientRequestToken",
              @"collectionId" : @"CollectionId",
+             @"enablePersonTracking" : @"EnablePersonTracking",
              @"faceMatchThreshold" : @"FaceMatchThreshold",
              @"jobTag" : @"JobTag",
              @"notificationChannel" : @"NotificationChannel",
@@ -2505,7 +2592,24 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"frameHeight" : @"FrameHeight",
              @"frameRate" : @"FrameRate",
              @"frameWidth" : @"FrameWidth",
+             @"rotation" : @"Rotation",
              };
+}
+
+@end
+
+@implementation AWSRekognitionWarning
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"errorCode" : @"ErrorCode",
+             @"message" : @"Message",
+             @"sections" : @"Sections",
+             };
+}
+
++ (NSValueTransformer *)sectionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionSection class]];
 }
 
 @end

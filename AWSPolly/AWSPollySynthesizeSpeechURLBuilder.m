@@ -16,7 +16,7 @@
 #import "AWSPollySynthesizeSpeechURLBuilder.h"
 
 static NSString *const AWSInfoPollySynthesizeSpeechURLBuilder = @"PollySynthesizeSpeechUrlBuilder";
-static NSString *const AWSPollySDKVersion = @"2.6.12";
+static NSString *const AWSPollySDKVersion = @"2.6.33";
 
 NSString *const AWSPollySynthesizeSpeechURLBuilderErrorDomain = @"com.amazonaws.AWSPollySynthesizeSpeechURLBuilderErrorDomain";
 NSString *const AWSPollyPresignedUrlPath = @"v1/speech";
@@ -182,6 +182,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             [parameters setObject:preSignedURLRequest.speechMarkTypes forKey:@"SpeechMarkTypes"];
         }
         
+        if (preSignedURLRequest.languageCode) {
+            [parameters setObject:[self stringFromLanguageCode:preSignedURLRequest.languageCode] forKey:@"LanguageCode"];
+        }
+        
         NSMutableDictionary *headers = [NSMutableDictionary new];
         [headers setObject:endpoint.hostName forKey:@"host"];
         
@@ -219,6 +223,67 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             return @"ssml";
         case AWSPollyTextTypeUnknown:
             return @"";
+    }
+}
+
+- (NSString *)stringFromLanguageCode: (AWSPollyLanguageCode)languageCode {
+    switch (languageCode) {
+        case AWSPollyLanguageCodeCmnCN:
+            return @"cmn-CN";
+        case AWSPollyLanguageCodeCyGB:
+            return @"cy-GB";
+        case AWSPollyLanguageCodeDaDK:
+            return @"da-DK";
+        case AWSPollyLanguageCodeDeDE:
+            return @"de-DE";
+        case AWSPollyLanguageCodeEnAU:
+            return @"en-AU";
+        case AWSPollyLanguageCodeEnGB:
+            return @"en-GB";
+        case AWSPollyLanguageCodeEnGBWLS:
+            return @"en-GB-WLS";
+        case AWSPollyLanguageCodeEnIN:
+            return @"en-IN";
+        case AWSPollyLanguageCodeEnUS:
+            return @"en-US";
+        case AWSPollyLanguageCodeEsES:
+            return @"es-ES";
+        case AWSPollyLanguageCodeEsUS:
+            return @"es-US";
+        case AWSPollyLanguageCodeFrCA:
+            return @"fr-CA";
+        case AWSPollyLanguageCodeFrFR:
+            return @"fr-FR";
+        case AWSPollyLanguageCodeIsIS:
+            return @"is-IS";
+        case AWSPollyLanguageCodeItIT:
+            return @"it-IT";
+        case AWSPollyLanguageCodeJaJP:
+            return @"ja-JP";
+        case AWSPollyLanguageCodeHiIN:
+            return @"hi-IN";
+        case AWSPollyLanguageCodeKoKR:
+            return @"ko-KR";
+        case AWSPollyLanguageCodeNbNO:
+            return @"nb-NO";
+        case AWSPollyLanguageCodeNlNL:
+            return @"nl-NL";
+        case AWSPollyLanguageCodePlPL:
+            return @"pl-PL";
+        case AWSPollyLanguageCodePtBR:
+            return @"pt-BR";
+        case AWSPollyLanguageCodePtPT:
+            return @"pt-PT";
+        case AWSPollyLanguageCodeRoRO:
+            return @"ro-RO";
+        case AWSPollyLanguageCodeRuRU:
+            return @"ru-RU";
+        case AWSPollyLanguageCodeSvSE:
+            return @"sv-SE";
+        case AWSPollyLanguageCodeTrTR:
+            return @"tr-TR";
+        default:
+            return nil;
     }
 }
 
@@ -328,6 +393,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             return @"Seoyeon";
         case AWSPollyVoiceIdAditi:
             return @"Aditi";
+        case AWSPollyVoiceIdLea:
+            return @"Lea";
+        case AWSPollyVoiceIdZhiyu:
+            return @"Zhiyu";
         default:
             return nil;
     }

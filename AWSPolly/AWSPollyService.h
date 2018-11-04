@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSPolly
+FOUNDATION_EXPORT NSString *const AWSPollySDKVersion;
+
 /**
  <p>Amazon Polly is a web service that makes it easy to synthesize speech from text.</p><p>The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.</p>
  */
@@ -247,6 +250,31 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getLexicon:(AWSPollyGetLexiconInput *)request completionHandler:(void (^ _Nullable)(AWSPollyGetLexiconOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSpeechSynthesisTask service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPollyGetSpeechSynthesisTaskOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorInvalidTaskId`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorSynthesisTaskNotFound`.
+ 
+ @see AWSPollyGetSpeechSynthesisTaskInput
+ @see AWSPollyGetSpeechSynthesisTaskOutput
+ */
+- (AWSTask<AWSPollyGetSpeechSynthesisTaskOutput *> *)getSpeechSynthesisTask:(AWSPollyGetSpeechSynthesisTaskInput *)request;
+
+/**
+ <p>Retrieves a specific SpeechSynthesisTask object based on its TaskID. This object contains information about the given speech synthesis task, including the status of the task, and a link to the S3 bucket containing the output of the task.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSpeechSynthesisTask service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorInvalidTaskId`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorSynthesisTaskNotFound`.
+ 
+ @see AWSPollyGetSpeechSynthesisTaskInput
+ @see AWSPollyGetSpeechSynthesisTaskOutput
+ */
+- (void)getSpeechSynthesisTask:(AWSPollyGetSpeechSynthesisTaskInput *)request completionHandler:(void (^ _Nullable)(AWSPollyGetSpeechSynthesisTaskOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns a list of pronunciation lexicons stored in an AWS Region. For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
  
  @param request A container for the necessary parameters to execute the ListLexicons service method.
@@ -270,6 +298,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSPollyListLexiconsOutput
  */
 - (void)listLexicons:(AWSPollyListLexiconsInput *)request completionHandler:(void (^ _Nullable)(AWSPollyListLexiconsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListSpeechSynthesisTasks service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPollyListSpeechSynthesisTasksOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorInvalidNextToken`, `AWSPollyErrorServiceFailure`.
+ 
+ @see AWSPollyListSpeechSynthesisTasksInput
+ @see AWSPollyListSpeechSynthesisTasksOutput
+ */
+- (AWSTask<AWSPollyListSpeechSynthesisTasksOutput *> *)listSpeechSynthesisTasks:(AWSPollyListSpeechSynthesisTasksInput *)request;
+
+/**
+ <p>Returns a list of SpeechSynthesisTask objects ordered by their creation date. This operation can filter the tasks by their status, for example, allowing users to list only tasks that are completed.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListSpeechSynthesisTasks service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorInvalidNextToken`, `AWSPollyErrorServiceFailure`.
+ 
+ @see AWSPollyListSpeechSynthesisTasksInput
+ @see AWSPollyListSpeechSynthesisTasksOutput
+ */
+- (void)listSpeechSynthesisTasks:(AWSPollyListSpeechSynthesisTasksInput *)request completionHandler:(void (^ _Nullable)(AWSPollyListSpeechSynthesisTasksOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Stores a pronunciation lexicon in an AWS Region. If a lexicon with the same name already exists in the region, it is overwritten by the new lexicon. Lexicon operations have eventual consistency, therefore, it might take some time before the lexicon is available to the SynthesizeSpeech operation.</p><p>For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html">Managing Lexicons</a>.</p>
@@ -297,11 +350,36 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putLexicon:(AWSPollyPutLexiconInput *)request completionHandler:(void (^ _Nullable)(AWSPollyPutLexiconOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartSpeechSynthesisTask service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPollyStartSpeechSynthesisTaskOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidS3Bucket`, `AWSPollyErrorInvalidS3Key`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSnsTopicArn`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`.
+ 
+ @see AWSPollyStartSpeechSynthesisTaskInput
+ @see AWSPollyStartSpeechSynthesisTaskOutput
+ */
+- (AWSTask<AWSPollyStartSpeechSynthesisTaskOutput *> *)startSpeechSynthesisTask:(AWSPollyStartSpeechSynthesisTaskInput *)request;
+
+/**
+ <p>Allows the creation of an asynchronous synthesis task, by starting a new <code>SpeechSynthesisTask</code>. This operation requires all the standard information needed for speech synthesis, plus the name of an Amazon S3 bucket for the service to store the output of the synthesis task and two optional parameters (OutputS3KeyPrefix and SnsTopicArn). Once the synthesis task is created, this operation will return a SpeechSynthesisTask object, which will include an identifier of this task as well as the current status.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartSpeechSynthesisTask service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidS3Bucket`, `AWSPollyErrorInvalidS3Key`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSnsTopicArn`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`.
+ 
+ @see AWSPollyStartSpeechSynthesisTaskInput
+ @see AWSPollyStartSpeechSynthesisTaskOutput
+ */
+- (void)startSpeechSynthesisTask:(AWSPollyStartSpeechSynthesisTaskInput *)request completionHandler:(void (^ _Nullable)(AWSPollyStartSpeechSynthesisTaskOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Synthesizes UTF-8 input, plain text or SSML, to a stream of bytes. SSML input must be valid, well-formed SSML. Some alphabets might not be available with all the voices (for example, Cyrillic might not be read at all by English voices) unless phoneme mapping is used. For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/how-text-to-speech-works.html">How it Works</a>.</p>
  
  @param request A container for the necessary parameters to execute the SynthesizeSpeech service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPollySynthesizeSpeechOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSPollySynthesizeSpeechOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`.
  
  @see AWSPollySynthesizeSpeechInput
  @see AWSPollySynthesizeSpeechOutput
@@ -314,7 +392,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param request A container for the necessary parameters to execute the SynthesizeSpeech service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSPollyErrorDomain` domain and the following error code: `AWSPollyErrorTextLengthExceeded`, `AWSPollyErrorInvalidSampleRate`, `AWSPollyErrorInvalidSsml`, `AWSPollyErrorLexiconNotFound`, `AWSPollyErrorServiceFailure`, `AWSPollyErrorMarksNotSupportedForFormat`, `AWSPollyErrorSsmlMarksNotSupportedForTextType`, `AWSPollyErrorLanguageNotSupported`.
  
  @see AWSPollySynthesizeSpeechInput
  @see AWSPollySynthesizeSpeechOutput

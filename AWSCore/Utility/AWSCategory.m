@@ -615,7 +615,7 @@ static NSTimeInterval _clockskew = 0.0;
                                 options:NSFileManagerItemReplacementUsingNewMetadataOnly
                        resultingItemURL:nil
                                   error:outError];
-        if ( NO == result ) {
+        if (NO == result) {
             if (backupItemName) {
                 NSURL *backupItemURL = [[destinationURL URLByDeletingLastPathComponent] URLByAppendingPathComponent:backupItemName];
                 NSError *error = nil;
