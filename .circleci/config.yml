@@ -74,13 +74,13 @@ workflows:
       - test:
           filters:
             branches:
-              only: mastertest      
+              only: masteraaa      
       - release_carthage:
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /test^[0-9]+.[0-9]+.[0-9]+$/
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           filters:
             branches:
