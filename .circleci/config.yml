@@ -10,21 +10,21 @@ jobs:
       xcode: "9.2.0"
     steps: 
        - checkout
-    #  - run:
-     #     name: install github-release
-      #    command: brew install github-release
-      #- run: 
-       #   name: create file
-        #  command: echo "file content" >> releasecontent.txt
+      - run:
+          name: install github-release
+          command: brew install github-release
+      - run: 
+          name: create file
+          command: echo "file content" >> releasecontent.txt
 
        - run:
           name: release the tag
           command: bash  releasetag.sh
-      #    command: github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} 
+         # command: github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} 
          
-     # - run:
-      #    name: upload file to git release 
-       #   command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f releasecontent.txt -n -f releasecontent.txt
+      - run:
+          name: upload file to git release 
+          command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f releasecontent.txt -n -f releasecontent.txt
 
 workflows:
   version: 2
