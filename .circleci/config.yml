@@ -38,7 +38,7 @@ jobs:
 
       - run:
           name: Rename Cathage Achive
-          command:  mv  AWSAPIGatewayGateway.framework.zip   aws-sdk-ios-carthage.framework.zip
+          command:  mv  AWSAPIGateway.framework.zip   aws-sdk-ios-carthage.framework.zip
 
       - run:
           name: release the tag
@@ -64,7 +64,7 @@ jobs:
       # Build the app and run tests     
       
       - run:
-          name: push lish cocalpd
+          name: Release cocoapods
           command : python    cocoapods_release.py
 
 workflows:
@@ -84,7 +84,7 @@ workflows:
       - release_cocoapods:
           filters:
             branches:
-              only: master
+              only: master1
     #          ignore: /.*/
      #       tags:
       #        only: /^[0-9]+.[0-9]+.[0-9]+$/
