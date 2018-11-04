@@ -50,6 +50,23 @@ jobs:
           name: upload file to git release 
           command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
 
+  release_cocoapods:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "9.2.0"
+    steps:
+      - checkout  
+       # Install CocoaPods
+    #  - run:
+     #     name: Install CocoaPods
+      #    command: pod install
+
+      # Build the app and run tests     
+      
+      - run:
+        name: push lish cocalpd
+        command : python    cocoapods_release.py
+
 workflows:
   version: 2
   build_and_test:
@@ -63,4 +80,11 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
+              only: /test^[0-9]+.[0-9]+.[0-9]+$/
+      - release_cocoapods:
+          filters:
+            branches:
+              only: master
+    #          ignore: /.*/
+     #       tags:
+      #        only: /^[0-9]+.[0-9]+.[0-9]+$/
