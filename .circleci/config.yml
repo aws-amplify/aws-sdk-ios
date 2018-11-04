@@ -13,13 +13,12 @@ jobs:
       - run:
           name: install github-release
           command: brew install github-release
-      - run 
+      - run: 
           name: create file
           command: echo "file content" releasecontent.txt
       - run:
           name: upload file to git release 
-          command: 
-               - run:  github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f releasecontent.txt
+          command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f releasecontent.txt
  
 
 
