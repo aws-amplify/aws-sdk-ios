@@ -8,7 +8,7 @@ jobs:
     macos:
       xcode: "9.2.0"
     steps: 
-      -run:     
+      - run:     
          name: test
          command: |
            carthage version
