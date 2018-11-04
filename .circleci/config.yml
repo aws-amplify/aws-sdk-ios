@@ -9,11 +9,11 @@ jobs:
       xcode: "9.2.0"
     steps: 
       -run:     
-        name: test
-        command: |
-          carthage version
-          brew outdated carthage || brew upgrade 
-          carthage version
+         name: test
+         command: |
+           carthage version
+           brew outdated carthage || brew upgrade 
+           carthage version
 
   release_carthage:
     # Specify the Xcode version to use
