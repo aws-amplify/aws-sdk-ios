@@ -9,7 +9,7 @@ jobs:
     macos:
       xcode: "9.2.0"
     steps: 
-   #   - checkout
+       - checkout
     #  - run:
      #     name: install github-release
       #    command: brew install github-release
@@ -19,7 +19,7 @@ jobs:
 
        - run:
           name: release the tag
-          command: bash releasetag.sh
+          command: bash  releasetag.sh
       #    command: github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} 
          
      # - run:
