@@ -1,6 +1,6 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
-## 4.7.42
+## 4.7.43
 
 ### Bug Fixes
 
