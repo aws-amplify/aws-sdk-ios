@@ -23,4 +23,5 @@ jobs:
 workflows:
   version: 2
   build_and_test:
-    jobs: release_carthage
+    jobs: 
+      - release_carthage
