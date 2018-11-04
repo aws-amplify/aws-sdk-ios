@@ -16,9 +16,14 @@ jobs:
       - run: 
           name: create file
           command: echo "file content" >> releasecontent.txt
+
+       - run:
+          name: release the tag
+          command: github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} 
+         
       - run:
           name: upload file to git release 
-          command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f releasecontent.txt
+          command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f releasecontent.txt -n -f releasecontent.txt
 
 workflows:
   version: 2
@@ -29,4 +34,4 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
+              only: /vvvv^[0-9]+.[0-9]+.[0-9]+$/
