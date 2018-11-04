@@ -4,14 +4,25 @@
 #
 version: 2
 jobs:
+  test:
+    macos:
+      xcode: "9.2.0"
+    -run:     
+      name: test
+      command: |
+        carthage version
+        brew outdated carthage || brew upgrade 
+        carthage version
+
   release_carthage:
     # Specify the Xcode version to use
     macos:
       xcode: "9.2.0"
+
     steps: 
       - checkout
       - run:
-          name: upgrade release_carthage
+          name: upgrade carthage
           command: brew outdated carthage || brew upgrade carthage
       - run:
           name: install github-release
@@ -21,8 +32,8 @@ jobs:
           command: carthage build --no-skip-current
 
       - run:
-          name: Create Cathage Achive
-          command: carthage achieve 
+          name: Create Cathage Archive
+          command: carthage archive  
 
       - run:
           name: Rename Cathage Achive
@@ -42,6 +53,7 @@ workflows:
   version: 2
   build_and_test:
     jobs: 
+      - test:
       - release_carthage:
           filters:
             branches:
