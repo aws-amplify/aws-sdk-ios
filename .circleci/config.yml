@@ -24,7 +24,7 @@ workflows:
   version: 2
   build_and_test:
     jobs: 
-      - release_carthage
+      - release_carthage:
           branches:
             only: master 
             ignore: /.*/
