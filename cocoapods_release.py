@@ -54,6 +54,8 @@ for package in podpackages:
     process = Popen(["pod", 'trunk','push',package,'--allow-warnings'], stdout=PIPE, stderr=PIPE)
     #process = Popen(["pod", 'repo','push','https://github.com/sunchunqiang/mypod-specs',package,'--allow-warnings'], stdout=PIPE)
     #  (output, err) = process.communicate()
+    output = process.stdout.readline()
+    err = process.stderr.readline();
     wait_times = 0 ;
     exit_code = process.poll()
     while exit_code is None:
@@ -63,11 +65,34 @@ for package in podpackages:
         if wait_times > 600 :
             print(str(datetime.now())+ ": time out")
             quit(1)
+        
         time.sleep(10)
+        
+        outputline = process.stdout.readline()
+        while outputline !='':
+            output = output +  outputline
+            #  print(outputline)
+            outputline = process.stdout.readline()
+
+        errline = process.stderr.readline()
+        while outputline !='':
+            err = errline +  outputline
+            #            print(errline)
+            errline = process.stderr.readline()
+
         exit_code = process.poll()
 
-    (output, err) = process.communicate()
-    print("output:" + str(output))
+    outputline = process.stdout.readline()
+    while outputline !='':
+        output = output +  outputline
+        outputline = process.stdout.readline()
+        
+    errline = process.stderr.readline()
+    while outputline !='':
+        err = errline +  outputline
+        errline = process.stderr.readline()
+#  (output, err) = process.communicate()
+#   print("output:" + str(output))
     if exit_code != 0 :
         if "Unable to accept duplicate entry for:" in str(output):
             print (str(datetime.now()) +": " +  package +" is already published")
