@@ -87,7 +87,7 @@ jobs:
       - run:
           name: copy documents
           command: |
-            git checkout gh-pages
+            git checkout -f gh-pages
             cp -R docs/html/* folder to docs/reference/
 
       - run:
