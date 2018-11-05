@@ -12,6 +12,8 @@ jobs:
       - run:
           name: checkin documents
           command: |
+            git checkout -f gh-pages
+            echo "hello world" >> docs/\ttt.txt
             git add docs
             git commit -m "Update document via CircleCI"
             git push  
