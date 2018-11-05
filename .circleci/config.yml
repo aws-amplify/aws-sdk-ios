@@ -8,12 +8,13 @@ jobs:
     macos:
       xcode: "9.4.0"
     steps: 
-      - run:     
-         name: test
-         command: |
-           carthage version
-           brew outdated carthage || brew upgrade 
-           carthage version
+      - checkout
+      - run:
+          name: checkin documents
+          command: |
+            git add docs
+            git commit -m "Update document via CircleCI"
+            git push  
 
   release_carthage:
     # Specify the Xcode version to use
@@ -72,16 +73,10 @@ jobs:
       - checkout  
        # Install CocoaPods
       - run:
-          name: Install appledoc
+          name: Install appledoc 
           command: brew install appledoc
           # curl -o install-appledoc.sh https://raw.githubusercontent.com/tomaz/appledoc/master/install-appledoc.sh
-          # bash install-appledoc.sh -t default
-
-           
-
-
-
-            
+          # bash install-appledoc.sh -t default          
       - run:
           name: generate documents
           command: bash ./Scripts/GenerateAppleDocs.sh
@@ -111,7 +106,7 @@ workflows:
       - test:
           filters:
             branches:
-              only: masteraaa      
+              only: master 
       - release_carthage:
           filters:
             branches:
@@ -121,7 +116,7 @@ workflows:
       - release_cocoapods:
           filters:
             branches:
-              only: master
+              only: mastertest
     #          ignore: /.*/
      #       tags:
       #        only: /^[0-9]+.[0-9]+.[0-9]+$/
