@@ -63,7 +63,7 @@ jobs:
       
       - run:
           name: Release cocoapods
-          command : python    cocoapods_release.py
+          command : python3    cocoapods_release.py
   release_appledoc:
     # Specify the Xcode version to use
     macos:
