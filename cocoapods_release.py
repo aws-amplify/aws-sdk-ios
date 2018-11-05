@@ -51,11 +51,12 @@ podpackages = [
 print (str(datetime.now()) + ': publishing cocoapods ...')
 for package in podpackages:
     print (str(datetime.now())+': publishing ' + package + ' ...')
-    process = Popen(["pod", 'trunk','push',package,'--allow-warnings'], stdout=PIPE)
+    process = Popen(["pod", 'trunk','push',package,'--allow-warnings'], stdout=PIPE, stderr=PIPE)
     #process = Popen(["pod", 'repo','push','https://github.com/sunchunqiang/mypod-specs',package,'--allow-warnings'], stdout=PIPE)
-    (output, err) = process.communicate()
+    #  (output, err) = process.communicate()
     wait_times = 0 ;
-    while process.poll() is None:
+    exit_code = process.poll()
+    while exit_code is None:
         wait_times = wait_times + 1;
         if wait_times % 50 == 0 :
             print(str(datetime.now())+ ": I am still alive")
@@ -63,8 +64,10 @@ for package in podpackages:
             print(str(datetime.now())+ ": time out")
             quit(1)
         time.sleep(10)
-    exit_code = process.poll()
-# (output, err) = process.communicate()
+        exit_code = process.poll()
+
+    (output, err) = process.communicate()
+    print("output:" + str(output))
     if exit_code != 0 :
         if "Unable to accept duplicate entry for:" in str(output):
             print (str(datetime.now()) +": " +  package +" is already published")
