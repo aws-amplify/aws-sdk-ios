@@ -98,7 +98,7 @@ jobs:
             git add docs
             git commit -m "Update document via CircleCI"
             git push
-            git push -q https://${GITHUB_PERSONAL_TOKEN}@github.com/sunchunqiang/aws-sdk-ios.git  
+            git push -q https://${GITHUB_TOKEN}@github.com/sunchunqiang/aws-sdk-ios.git  
 
       # Build the app and run tests     
       
