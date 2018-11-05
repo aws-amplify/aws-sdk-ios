@@ -58,8 +58,8 @@ jobs:
       - checkout  
        # Install CocoaPods
       - run:
-          name: pod update
-          command: pod update
+          name: pod install
+          command: pod install
       
       - run:
           name: Release cocoapods
