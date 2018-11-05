@@ -75,11 +75,15 @@ jobs:
        # Install CocoaPods
       - run:
           name: Install appledoc
-          command: |
-            curl -o install-appledoc.sh https://raw.githubusercontent.com/tomaz/appledoc/master/install-appledoc.sh
-            bash install-appledoc.sh -t default
+          command: brew install appledoc
+          # curl -o install-appledoc.sh https://raw.githubusercontent.com/tomaz/appledoc/master/install-appledoc.sh
+          # bash install-appledoc.sh -t default
 
-            #brew install appledoc
+           
+
+
+
+            
       - run:
           name: generate documents
           command: bash ./Scripts/GenerateAppleDocs.sh
