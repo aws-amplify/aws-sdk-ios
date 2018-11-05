@@ -57,7 +57,7 @@ for package in podpackages:
     wait_times = 0 ;
     while process.poll() is None:
         wait_times = wait_times + 1;
-        if wait_times % 5 == 0 :
+        if wait_times % 50 == 0 :
             print(str(datetime.now())+ ": I am still alive")
         if wait_times > 600 :
             print(str(datetime.now())+ ": time out")
