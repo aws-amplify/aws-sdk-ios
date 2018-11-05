@@ -57,9 +57,9 @@ jobs:
     steps:
       - checkout  
        # Install CocoaPods
-      - run:
-          name: pod install
-          command: pod install
+    #  - run:
+     #     name: pod install
+      #    command: pod install
       
       - run:
           name: Release cocoapods
