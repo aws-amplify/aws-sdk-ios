@@ -76,7 +76,7 @@ jobs:
       - run:
           name: Install appledoc
           command: |
-            curl -o install-appledoc.sh https://github.com/tomaz/appledoc/blob/master/install-appledoc.sh
+            curl -o install-appledoc.sh https://raw.githubusercontent.com/tomaz/appledoc/master/install-appledoc.sh
             bash install-appledoc.sh -t default
 
             #brew install appledoc
