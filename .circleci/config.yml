@@ -86,13 +86,13 @@ jobs:
       - run:
           name: copy documents
           command: |
-            git checkout -f gh-pages
+            git checkout  gh-pages
             cp -R docs/html/*   docs/reference/
 
       - run:
           name: checkin documents
           command: |
-            git add docs
+            git add docs/reference
             git commit -m "Update document via CircleCI"
             git push -q https://${GITHUB_TOKEN}@github.com/sunchunqiang/aws-sdk-ios.git  
 
@@ -108,7 +108,7 @@ workflows:
       - test:
           filters:
             branches:
-              only: master 
+              only: master-- 
       - release_carthage:
           filters:
             branches:
@@ -125,7 +125,7 @@ workflows:
       - release_appledoc:
           filters:
             branches:
-              only: mastertest
+              only: master
 #              ignore: /.*/
  #           tags:
   #            only: /^[0-9]+.[0-9]+.[0-9]+$/
