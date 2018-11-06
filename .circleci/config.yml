@@ -114,7 +114,7 @@ workflows:
       - test:
           filters:
             branches:
-              only: master--
+              only: master
 
 
       - release_carthage:
@@ -133,7 +133,7 @@ workflows:
       - release_appledoc:
           filters:
             branches:
-              only: master
+              only: master--
 #              ignore: /.*/
  #           tags:
   #            only: /^[0-9]+.[0-9]+.[0-9]+$/
