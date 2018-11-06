@@ -8,17 +8,14 @@ jobs:
     macos:
       xcode: "9.4.0"
     steps: 
-      - checkout
+    #  - checkout
       - run:
           name: checkin documents
           command: |
             pwd
-            pushd $TMPDIR
-            git clone https://github.com/tomaz/appledoc
-            cd appledoc
-            bash install-appledoc.sh -t default
-            popd 
-            pwd
+
+            echo "*** Created AWSAPIGateway.framework.zip" | grep -Po 'Created (.*).zip' 
+             
 
 
   release_carthage:
