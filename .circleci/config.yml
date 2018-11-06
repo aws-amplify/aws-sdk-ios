@@ -12,11 +12,14 @@ jobs:
       - run:
           name: checkin documents
           command: |
-            git checkout -f gh-pages
-            echo "hello world" >> docs/\ttt.txt
-            git add docs
-            git commit -m "Update document via CircleCI"
-            git push  
+            pwd
+            pushd $TMPDIR
+            mkdir git clone https://github.com/tomaz/appledoc
+            cd appledoc
+            bash install-appledoc.sh -t default
+            popd 
+            pwd
+
 
   release_carthage:
     # Specify the Xcode version to use
@@ -108,7 +111,9 @@ workflows:
       - test:
           filters:
             branches:
-              only: master-- 
+              only: master
+
+
       - release_carthage:
           filters:
             branches:
@@ -125,7 +130,7 @@ workflows:
       - release_appledoc:
           filters:
             branches:
-              only: master
+              only: master--
 #              ignore: /.*/
  #           tags:
   #            only: /^[0-9]+.[0-9]+.[0-9]+$/
