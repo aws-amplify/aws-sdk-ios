@@ -37,12 +37,7 @@ jobs:
 
       - run:
           name: Create Cathage Archive
-          command: carthage archive  
-
-      - run:
-          name: Rename Cathage Achive
-          command:  mv  AWSAPIGateway.framework.zip   aws-sdk-ios-carthage.framework.zip
-
+          command: bash CreateCarthageArchive.sh
       - run:
           name: release the tag
           command: |
@@ -114,15 +109,15 @@ workflows:
       - test:
           filters:
             branches:
-              only: master
+              only: master--
 
 
       - release_carthage:
           filters:
             branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
+              only: master
+      #      tags:
+       #       only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           filters:
             branches:
