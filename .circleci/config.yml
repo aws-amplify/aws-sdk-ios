@@ -14,7 +14,7 @@ jobs:
           command: |
             pwd
             pushd $TMPDIR
-            mkdir git clone https://github.com/tomaz/appledoc
+            git clone https://github.com/tomaz/appledoc
             cd appledoc
             bash install-appledoc.sh -t default
             popd 
