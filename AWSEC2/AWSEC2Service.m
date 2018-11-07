@@ -27,7 +27,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-NSString *const AWSEC2SDKVersion = @"2.6.33";
+NSString *const AWSEC2SDKVersion = @"2.6.34";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -331,6 +331,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2AcceptVpcPeeringConnectionResult *response, NSError *error))completionHandler {
     [[self acceptVpcPeeringConnection:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AcceptVpcPeeringConnectionResult *> * _Nonnull task) {
         AWSEC2AcceptVpcPeeringConnectionResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2AdvertiseByoipCidrResult *> *)advertiseByoipCidr:(AWSEC2AdvertiseByoipCidrRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AdvertiseByoipCidr"
+                   outputClass:[AWSEC2AdvertiseByoipCidrResult class]];
+}
+
+- (void)advertiseByoipCidr:(AWSEC2AdvertiseByoipCidrRequest *)request
+     completionHandler:(void (^)(AWSEC2AdvertiseByoipCidrResult *response, NSError *error))completionHandler {
+    [[self advertiseByoipCidr:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AdvertiseByoipCidrResult *> * _Nonnull task) {
+        AWSEC2AdvertiseByoipCidrResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -773,6 +796,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2CancelCapacityReservationResult *> *)cancelCapacityReservation:(AWSEC2CancelCapacityReservationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CancelCapacityReservation"
+                   outputClass:[AWSEC2CancelCapacityReservationResult class]];
+}
+
+- (void)cancelCapacityReservation:(AWSEC2CancelCapacityReservationRequest *)request
+     completionHandler:(void (^)(AWSEC2CancelCapacityReservationResult *response, NSError *error))completionHandler {
+    [[self cancelCapacityReservation:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CancelCapacityReservationResult *> * _Nonnull task) {
+        AWSEC2CancelCapacityReservationResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)cancelConversionTask:(AWSEC2CancelConversionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -991,6 +1037,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ReplicateSnapshotResult *response, NSError *error))completionHandler {
     [[self replicateSnapshot:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ReplicateSnapshotResult *> * _Nonnull task) {
         AWSEC2ReplicateSnapshotResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateCapacityReservationResult *> *)createCapacityReservation:(AWSEC2CreateCapacityReservationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateCapacityReservation"
+                   outputClass:[AWSEC2CreateCapacityReservationResult class]];
+}
+
+- (void)createCapacityReservation:(AWSEC2CreateCapacityReservationRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateCapacityReservationResult *response, NSError *error))completionHandler {
+    [[self createCapacityReservation:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateCapacityReservationResult *> * _Nonnull task) {
+        AWSEC2CreateCapacityReservationResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2564,6 +2633,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DeprovisionByoipCidrResult *> *)deprovisionByoipCidr:(AWSEC2DeprovisionByoipCidrRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeprovisionByoipCidr"
+                   outputClass:[AWSEC2DeprovisionByoipCidrResult class]];
+}
+
+- (void)deprovisionByoipCidr:(AWSEC2DeprovisionByoipCidrRequest *)request
+     completionHandler:(void (^)(AWSEC2DeprovisionByoipCidrResult *response, NSError *error))completionHandler {
+    [[self deprovisionByoipCidr:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeprovisionByoipCidrResult *> * _Nonnull task) {
+        AWSEC2DeprovisionByoipCidrResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deregisterImage:(AWSEC2DeregisterImageRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2691,6 +2783,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DescribeBundleTasksResult *response, NSError *error))completionHandler {
     [[self describeBundleTasks:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeBundleTasksResult *> * _Nonnull task) {
         AWSEC2DescribeBundleTasksResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeByoipCidrsResult *> *)describeByoipCidrs:(AWSEC2DescribeByoipCidrsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeByoipCidrs"
+                   outputClass:[AWSEC2DescribeByoipCidrsResult class]];
+}
+
+- (void)describeByoipCidrs:(AWSEC2DescribeByoipCidrsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeByoipCidrsResult *response, NSError *error))completionHandler {
+    [[self describeByoipCidrs:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeByoipCidrsResult *> * _Nonnull task) {
+        AWSEC2DescribeByoipCidrsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeCapacityReservationsResult *> *)describeCapacityReservations:(AWSEC2DescribeCapacityReservationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeCapacityReservations"
+                   outputClass:[AWSEC2DescribeCapacityReservationsResult class]];
+}
+
+- (void)describeCapacityReservations:(AWSEC2DescribeCapacityReservationsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeCapacityReservationsResult *response, NSError *error))completionHandler {
+    [[self describeCapacityReservations:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeCapacityReservationsResult *> * _Nonnull task) {
+        AWSEC2DescribeCapacityReservationsResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3611,6 +3749,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DescribePrincipalIdFormatResult *response, NSError *error))completionHandler {
     [[self describePrincipalIdFormat:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribePrincipalIdFormatResult *> * _Nonnull task) {
         AWSEC2DescribePrincipalIdFormatResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribePublicIpv4PoolsResult *> *)describePublicIpv4Pools:(AWSEC2DescribePublicIpv4PoolsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribePublicIpv4Pools"
+                   outputClass:[AWSEC2DescribePublicIpv4PoolsResult class]];
+}
+
+- (void)describePublicIpv4Pools:(AWSEC2DescribePublicIpv4PoolsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribePublicIpv4PoolsResult *response, NSError *error))completionHandler {
+    [[self describePublicIpv4Pools:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribePublicIpv4PoolsResult *> * _Nonnull task) {
+        AWSEC2DescribePublicIpv4PoolsResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -5131,6 +5292,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2ModifyCapacityReservationResult *> *)modifyCapacityReservation:(AWSEC2ModifyCapacityReservationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyCapacityReservation"
+                   outputClass:[AWSEC2ModifyCapacityReservationResult class]];
+}
+
+- (void)modifyCapacityReservation:(AWSEC2ModifyCapacityReservationRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyCapacityReservationResult *response, NSError *error))completionHandler {
+    [[self modifyCapacityReservation:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyCapacityReservationResult *> * _Nonnull task) {
+        AWSEC2ModifyCapacityReservationResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2ModifyFleetResult *> *)modifyFleet:(AWSEC2ModifyFleetRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -5282,6 +5466,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifyInstanceCapacityReservationAttributesResult *> *)modifyInstanceCapacityReservationAttributes:(AWSEC2ModifyInstanceCapacityReservationAttributesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyInstanceCapacityReservationAttributes"
+                   outputClass:[AWSEC2ModifyInstanceCapacityReservationAttributesResult class]];
+}
+
+- (void)modifyInstanceCapacityReservationAttributes:(AWSEC2ModifyInstanceCapacityReservationAttributesRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyInstanceCapacityReservationAttributesResult *response, NSError *error))completionHandler {
+    [[self modifyInstanceCapacityReservationAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyInstanceCapacityReservationAttributesResult *> * _Nonnull task) {
+        AWSEC2ModifyInstanceCapacityReservationAttributesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -5710,6 +5917,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2MoveAddressToVpcResult *response, NSError *error))completionHandler {
     [[self moveAddressToVpc:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2MoveAddressToVpcResult *> * _Nonnull task) {
         AWSEC2MoveAddressToVpcResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ProvisionByoipCidrResult *> *)provisionByoipCidr:(AWSEC2ProvisionByoipCidrRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ProvisionByoipCidr"
+                   outputClass:[AWSEC2ProvisionByoipCidrResult class]];
+}
+
+- (void)provisionByoipCidr:(AWSEC2ProvisionByoipCidrRequest *)request
+     completionHandler:(void (^)(AWSEC2ProvisionByoipCidrResult *response, NSError *error))completionHandler {
+    [[self provisionByoipCidr:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ProvisionByoipCidrResult *> * _Nonnull task) {
+        AWSEC2ProvisionByoipCidrResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -6503,6 +6733,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2UpdateSecurityGroupRuleDescriptionsIngressResult *response, NSError *error))completionHandler {
     [[self updateSecurityGroupRuleDescriptionsIngress:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2UpdateSecurityGroupRuleDescriptionsIngressResult *> * _Nonnull task) {
         AWSEC2UpdateSecurityGroupRuleDescriptionsIngressResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2WithdrawByoipCidrResult *> *)withdrawByoipCidr:(AWSEC2WithdrawByoipCidrRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"WithdrawByoipCidr"
+                   outputClass:[AWSEC2WithdrawByoipCidrResult class]];
+}
+
+- (void)withdrawByoipCidr:(AWSEC2WithdrawByoipCidrRequest *)request
+     completionHandler:(void (^)(AWSEC2WithdrawByoipCidrResult *response, NSError *error))completionHandler {
+    [[self withdrawByoipCidr:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2WithdrawByoipCidrResult *> * _Nonnull task) {
+        AWSEC2WithdrawByoipCidrResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

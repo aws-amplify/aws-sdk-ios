@@ -1,6 +1,34 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.34
+
+### Enhancements
+
+* **Amazon CognitoAuth**
+   * Added capability to use `SFAuthenticationSession` for devices running iOS 11+. It can be enabled using the `enableSFAuthSessionIfAvailable` in the initializer or through `EnableSFAuthenticationSesssion` property in the  `awsconfiguration.json`.
+
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed bug in AWSTransferUtility that was reporting incorrect status for transfers when the app was force-closed. See [issue#1058](https://github.com/aws/aws-sdk-ios/issues/1058)
+  * Fixed crash in AWSTransferUtility due to a null value for MultiPartUpload ID. See [issue#1060](https://github.com/aws/aws-sdk-ios/issues/1060)
+
+* **Amazon Pinpoint**
+  * `putEvents` now correctly logs the number of accepted, retryable, and dirty
+    events. See [issue#1074](https://github.com/aws/aws-sdk-ios/issues/1074)
+  * Fixed data race issues in AWSPinpointSessionEventClient
+
+* **AWS IoT**
+  * Fixed crash in the drainSenderQueue routine by using a semaphore to manage access of the underlying queue. See [issue#1071](https://github.com/aws/aws-sdk-ios/issues/1071)
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon EC2
+  * AWS Lambda
+  * Amazon S3
+
 ## 2.6.33
 
 ### Bug Fixes
