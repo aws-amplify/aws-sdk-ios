@@ -462,7 +462,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
             ////////////////////
             NSDictionary *urlDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"test", @"text", url, @"url", nil];
             NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-            [nc postNotificationName: @"appSchemeUrlSignOutNotification" object:self userInfo:urlDict];
+            [nc postNotificationName: @"UrlCalledNotification" object:self userInfo:urlDict];
             ////////////////////
         }
     }
@@ -704,6 +704,9 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 dismissBlock();
             }
         });
+    }
+    else {
+        [self cleanUpAndCallGetSessionBlock:userSession error:error];
     }
 }
 
