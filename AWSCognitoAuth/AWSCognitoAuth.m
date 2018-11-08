@@ -698,8 +698,53 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    [self processResponse:self.responseData];
+    
+    //    NSError * error;
+    //    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:self.responseData options:kNilOptions error:&error];
+    //    if(error){
+    //        [self completeGetSession:nil error:[self getError:[error description] code:AWSCognitoAuthClientErrorUnknown]];
+    //        return;
+    //    }
+    //    else if(result[@"error"]){
+    //        //refresh token has expired, switch to interactive auth
+    //        if([@"invalid_grant" isEqualToString:result[@"error"]]){
+    //            if (![self.delegate respondsToSelector:@selector(shouldLaunchSignInVCIfRefreshTokenIsExpired)]) {
+    //                [self launchSignInVC:self.pvc];
+    //            }else {
+    //                BOOL present = [self.delegate shouldLaunchSignInVCIfRefreshTokenIsExpired];
+    //                if (present) {
+    //                    [self launchSignInVC:self.pvc];
+    //                }else {
+    //                    [self completeGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorExpiredRefreshToken]];
+    //                }
+    //            }
+    //        }else {
+    //            [self completeGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorUnknown]];
+    //        }
+    //    }else {
+    //        /** Check to see if refreshToken is received from the server.
+    //         If not, load it from the keychain.
+    //         */
+    //        NSString * refreshToken = [result valueForKey:@"refresh_token"];
+    //        if (refreshToken == nil){
+    //            NSString * keyChainNamespace = [self keyChainNamespaceClientId: [self currentUsername]];
+    //            refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
+    //        }
+    //        AWSCognitoAuthUserSession *userSession = [[AWSCognitoAuthUserSession alloc] initWithIdToken:[result valueForKey:@"id_token"]  accessToken:[result valueForKey:@"access_token"] refreshToken:refreshToken expiresIn:[result valueForKey:@"expires_in"]];
+    //        if(!userSession.accessToken){
+    //            [self completeGetSession:nil error: [self getError:@"Tokens not received" code:AWSCognitoAuthClientErrorUnknown]];
+    //        }else{
+    //            [self updateUsernameAndPersistTokens:userSession];
+    //            [self completeGetSession:userSession error:nil];
+    //        }
+    //    }
+}
+
+- (void)processResponse:(NSData *)responseData {
     NSError * error;
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:self.responseData options:kNilOptions error:&error];
+    
     if(error){
         [self completeGetSession:nil error:[self getError:[error description] code:AWSCognitoAuthClientErrorUnknown]];
         return;

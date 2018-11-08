@@ -63,6 +63,11 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
 @interface AWSCognitoAuth : NSObject
 
 /**
+ Make other implementations be able to handover external received responseData
+ */
+- (void)processResponse:(NSData *)responseData;
+
+/**
  Set this delegate to obtain the current view controller to interact with the end user
  */
 @property (nonatomic, strong) id <AWSCognitoAuthDelegate> delegate;
@@ -149,6 +154,10 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
 
+/**
+ Make external redirections work with interal methods/messages
+ */
+- (BOOL)processURL:(NSURL *)url;
 
 @end
 
