@@ -1,5 +1,5 @@
-carthage archive | tee "carthageout.txt"
-frameworkfilename=$(cat carthageout.txt |  grep -o 'Created .*\.zip$'  | grep -o   '\S*\.zip$')
+python3 tcf.py carthageout.txt customizedcarthage/carthage archive
+frameworkfilename=$(cat carthageout.txt |  grep -o 'Created .*\.zip'  | grep -o   '\S*\.zip$')
 
 if [ -z  "$frameworkfilename" ];then
 	echo "Cannot find framework zip file from output of carthage archive"
