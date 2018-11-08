@@ -266,22 +266,31 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 
 -(void)showSFSafariViewControllerForURL:(NSString *)url
            withPresentingViewController:(UIViewController *)presentingViewController{
-    self.svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url] entersReaderIfAvailable:NO];
-    self.svc.delegate = self;
-    self.svc.modalPresentationStyle = UIModalPresentationPopover;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        __block UIViewController * sourceVC = presentingViewController;
-        if(!sourceVC){
-            if(!self.delegate){
-                [self completeGetSession:nil error:[self getError:@"delegate must be set to a valid AWSCognitoAuthDelegate" code:AWSCognitoAuthClientInvalidAuthenticationDelegate]];
-                return;
-            } else {
-                sourceVC = [self.delegate getViewController];
+    if (self.sfAuthenticationSessionAvailable) {
+        self.svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url] entersReaderIfAvailable:NO];
+        self.svc.delegate = self;
+        self.svc.modalPresentationStyle = UIModalPresentationPopover;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            __block UIViewController * sourceVC = presentingViewController;
+            if(!sourceVC){
+                if(!self.delegate){
+                    [self completeGetSession:nil error:[self getError:@"delegate must be set to a valid AWSCognitoAuthDelegate" code:AWSCognitoAuthClientInvalidAuthenticationDelegate]];
+                    return;
+                } else {
+                    sourceVC = [self.delegate getViewController];
+                }
             }
-        }
-        [self setPopoverSource:self.svc source:sourceVC];
-        [sourceVC presentViewController:self.svc animated:NO completion:nil];
-    });
+            [self setPopoverSource:self.svc source:sourceVC];
+            [sourceVC presentViewController:self.svc animated:NO completion:nil];
+        });
+    }
+    else {  // raise a Notification
+        ////////////////////
+        NSDictionary *urlDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"someValue", @"someKey", url, @"url", nil];
+        NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+        [nc postNotificationName: @"UrlCalledNotification" object:self userInfo:urlDict];
+        ////////////////////
+    }
 }
 
 /**
@@ -674,17 +683,19 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
  Dismiss and reap the safari view controller
  */
 -(void) dismissSafariVC: (void (^)(void)) dismissBlock {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if(self.svc){
-            [self.svc dismissViewControllerAnimated:NO completion:^{
-                //clean up vc
-                self.svc = nil;
+    if (self.sfAuthenticationSessionAvailable) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if(self.svc){
+                [self.svc dismissViewControllerAnimated:NO completion:^{
+                    //clean up vc
+                    self.svc = nil;
+                    dismissBlock();
+                }];
+            }else {
                 dismissBlock();
-            }];
-        }else {
-            dismissBlock();
-        }
-    });
+            }
+        });
+    }
 }
 
 #pragma mark NSURLConnection Delegate Methods
