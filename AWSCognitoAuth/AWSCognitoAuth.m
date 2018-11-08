@@ -454,8 +454,17 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                                 url:url];
         }
     } else {
-        [self signOutSFSafariVC:vc
-                            url:url];
+        if (self.sfAuthenticationSessionAvailable) {
+            [self signOutSFSafariVC:vc
+                                url:url];
+        }
+        else {
+            ////////////////////
+            NSDictionary *urlDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"test", @"text", url, @"url", nil];
+            NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+            [nc postNotificationName: @"appSchemeUrlSignOutNotification" object:self userInfo:urlDict];
+            ////////////////////
+        }
     }
 }
 
