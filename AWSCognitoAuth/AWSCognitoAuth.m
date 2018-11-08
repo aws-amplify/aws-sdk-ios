@@ -706,7 +706,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         });
     }
     else {
-        [self cleanUpAndCallGetSessionBlock:userSession error:error];
+        dismissBlock();
     }
 }
 
