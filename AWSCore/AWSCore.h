@@ -24,7 +24,7 @@ FOUNDATION_EXPORT double AWSCoreVersionNumber;
 
 //! Project version string for AWSCore.
 FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[];
-=======
+
 /*!
  Project version number for the AWSCore framework.
 
@@ -47,7 +47,6 @@ FOUNDATION_EXPORT double AWSCoreVersionNumber DEPRECATED_MSG_ATTRIBUTE("Use AWSi
  @deprecated Use AWSiOSSDKVersion instead.
  */
 FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[] DEPRECATED_MSG_ATTRIBUTE("Use AWSiOSSDKVersion instead.");
->>>>>>> a542f8098ec91953bef30ee6010a58dc587506ee
 
 #import "AWSCocoaLumberjack.h"
 
