@@ -1058,7 +1058,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                    identityProvider:(nullable NSString *) identityProvider
                       idpIdentifier:(nullable NSString *) idpIdentifier
            userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF {
-    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signOutRedirectUri signOutRedirectUri:signOutRedirectUri webDomain:webDomain identityProvider:identityProvider idpIdentifier:idpIdentifier userPoolIdForEnablingASF:userPoolIdForEnablingASF enableSFAuthSessionIfAvailable:NO];
+    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signInRedirectUri signOutRedirectUri:signOutRedirectUri webDomain:webDomain identityProvider:identityProvider idpIdentifier:idpIdentifier userPoolIdForEnablingASF:userPoolIdForEnablingASF enableSFAuthSessionIfAvailable:NO];
 }
 
 - (instancetype)initWithAppClientId:(NSString *) appClientId
