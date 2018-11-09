@@ -1,6 +1,13 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.6.35
+
+### Bug Fixes
+
+* **AWS CognitoAuth**
+    * Fixes regression in AWSCognitoAuthConfiguration constructor. See [issue#1090](https://github.com/aws-amplify/aws-sdk-ios/issues/1090)
+
 ## 2.6.34
 
 ### Enhancements

@@ -52,7 +52,7 @@ API_AVAILABLE(ios(11.0))
 
 @implementation AWSCognitoAuth
 
-NSString *const AWSCognitoAuthSDKVersion = @"2.6.34";
+NSString *const AWSCognitoAuthSDKVersion = @"2.6.35";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -990,7 +990,15 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                   signInRedirectUri:(NSString *) signInRedirectUri
                  signOutRedirectUri:(NSString *) signOutRedirectUri
                           webDomain:(NSString *) webDomain {
-    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signInRedirectUri signOutRedirectUri:signOutRedirectUri webDomain:webDomain identityProvider:nil idpIdentifier:nil userPoolIdForEnablingASF:nil];
+    return [self initWithAppClientId:appClientId
+                     appClientSecret:appClientSecret
+                              scopes:scopes
+                   signInRedirectUri:signInRedirectUri
+                  signOutRedirectUri:signOutRedirectUri
+                           webDomain:webDomain
+                    identityProvider:nil
+                       idpIdentifier:nil
+            userPoolIdForEnablingASF:nil];
 }
 
 - (instancetype)initWithAppClientId:(NSString *) appClientId
@@ -1002,7 +1010,16 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                    identityProvider:(nullable NSString *) identityProvider
                       idpIdentifier:(nullable NSString *) idpIdentifier
            userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF {
-    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signOutRedirectUri signOutRedirectUri:signOutRedirectUri webDomain:webDomain identityProvider:identityProvider idpIdentifier:idpIdentifier userPoolIdForEnablingASF:userPoolIdForEnablingASF enableSFAuthSessionIfAvailable:NO];
+    return [self initWithAppClientId:appClientId
+                     appClientSecret:appClientSecret
+                              scopes:scopes
+                   signInRedirectUri:signInRedirectUri
+                  signOutRedirectUri:signOutRedirectUri
+                           webDomain:webDomain
+                    identityProvider:identityProvider
+                       idpIdentifier:idpIdentifier
+            userPoolIdForEnablingASF:userPoolIdForEnablingASF
+      enableSFAuthSessionIfAvailable:NO];
 }
 
 - (instancetype)initWithAppClientId:(NSString *) appClientId

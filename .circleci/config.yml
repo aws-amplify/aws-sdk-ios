@@ -5,7 +5,6 @@
 version: 2
 jobs:
 
-
   release_carthage:
     # Specify the Xcode version to use
     macos:
@@ -80,10 +79,6 @@ jobs:
             git add docs/reference
             git commit -m "Update document via CircleCI"
             git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git  
-
-      
-
-
 
 workflows:
   version: 2
