@@ -1,6 +1,22 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.7.0
+
+### New Features
+
+* ** AWS Mobile Client**
+  * The `AWSMobileClient` provides client APIs and building blocks for developers who want to create user authentication experiences.  It supports the following new features:
+    - User state tracking: `AWSMobileClient` offers on-demand querying for the “login state” of a user in the application. 
+    - Credentials management: Automatic refreshing of `Cognito User Pools` `JWT Token` and `AWS Credentials` from `Cognito Identity`.
+    - Offline support: `AWSMobileClient` is optimized to account for applications transitioning from offline to online connectivity, and refreshing credentials at the appropriate time so that errors do not occur when actions are taken and connectivity is not available. 
+    - Drop-in Auth UI: `AWSMobileClient` client supports easy “drop-in” UI for your application.
+    - Simple, declarative APIs `signUp`, `signIn`, `confirmSignIn`, etc.
+
+> Note: The existing methods of `AWSMobileClient` are deprecated and will be removed in a future minor version. `AWSMobileClient` now takes a dependency on `AWSCognitoIdentityProvider`(Cognito User Pools SDK) package to offer integration with `CognitoUserPools`. When using the new drop-in UI, `AWSAuthUI` and `Social sign-in` features continue to be pluggable dependencies for `AWSMobileClient`.
+
+All documentation is now centralized at https://aws-amplify.github.io/
+
 ## 2.6.35
 
 ### Bug Fixes

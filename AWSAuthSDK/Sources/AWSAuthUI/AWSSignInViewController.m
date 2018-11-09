@@ -51,6 +51,15 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 @end
 
+@interface AWSSignInManager()
+
+@property (nonatomic) BOOL shouldFederate;
+@property (nonatomic) BOOL pendingSignIn;
+@property (strong, atomic) NSString *pendingUsername;
+@property (strong, atomic) NSString *pendingPassword;
+
+@end
+
 @interface AWSUserPoolsUIOperations: NSObject
 
 -(id)initWithAuthUIConfiguration:(AWSAuthUIConfiguration *)configuration;
@@ -148,6 +157,23 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         [self setUpFont];
     }
 }
+    
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if ([AWSSignInManager sharedInstance].pendingSignIn) {
+        
+        Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);
+        AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
+        [userPoolsOperations loginWithUserName:[AWSSignInManager sharedInstance].pendingUsername
+                                      password:[AWSSignInManager sharedInstance].pendingPassword
+                          navigationController:self.navigationController
+                             completionHandler:self.completionHandler];
+    }
+    [AWSSignInManager sharedInstance].pendingSignIn = NO;
+    [AWSSignInManager sharedInstance].pendingUsername = @"";
+    [AWSSignInManager sharedInstance].pendingPassword = @"";
+    
+}
 
 // This is used to dismiss the keyboard, user just has to tap outside the
 // user name and password views and it will dismiss
@@ -166,7 +192,21 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     [[AWSSignInManager sharedInstance]
      loginWithSignInProviderKey:[signInProvider identityProviderName]
      completionHandler:^(id result, NSError *error) {
-         if (!error) {
+         
+         if (![[AWSSignInManager sharedInstance] shouldFederate]) {
+             if (error) {
+                 self.completionHandlerCustom(nil, nil, error);
+             } else {
+                 [[signInProvider token] continueWithBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
+                     if (task.result) {
+                         NSString *token = task.result;
+                         NSString *provider = signInProvider.identityProviderName;
+                         self.completionHandlerCustom(provider, token, nil);
+                     }
+                     return nil;
+                 }];
+             }
+         } else if (!error) {
              dispatch_async(dispatch_get_main_queue(), ^{
                  [self dismissViewControllerAnimated:YES
                                           completion:nil];
@@ -343,6 +383,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 - (void)barButtonClosePressed {
     [self dismissViewControllerAnimated:YES completion:nil];
+    self.completionHandlerCustom(nil, nil, [[NSError alloc] initWithDomain:@"AWSMobileClientError" code:-2 userInfo:@{@"message": @"The user cancelled the sign in operation"}]);
     AWSDDLogDebug(@"User closed sign in screen.");
 }
 
@@ -430,6 +471,24 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 #pragma mark - IBActions
+
+-(void)createInternalCompletionHandler {
+    __weak AWSSignInViewController *weakSelf = self;
+    self.completionHandler = ^(id<AWSSignInProvider>  _Nonnull signInProvider, NSError * _Nullable error) {
+        if (error) {
+            weakSelf.completionHandlerCustom(nil, nil, error);
+        } else{
+            [[signInProvider token] continueWithBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
+                if (task.result) {
+                    weakSelf.completionHandlerCustom(signInProvider.identityProviderName, task.result, nil);
+                } else {
+                    weakSelf.completionHandlerCustom(nil, nil, task.error);
+                }
+                return nil;
+            }];
+        }
+    };
+}
 
 - (void)handleUserPoolSignIn {
     Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);

@@ -16,6 +16,21 @@
 #import "AWSAuthUIViewController.h"
 #import "AWSSignInViewController.h"
 
+@interface AWSSignInManager()
+@property (nonatomic) BOOL shouldFederate;
+-(void)setDontFederate;
+@end
+
+@interface AWSSignInViewController()
+-(void)createInternalCompletionHandler;
+@end
+
+@interface AWSAuthUIViewController()
+
+typedef void(^AWSAuthUIExtendedCompletionHandler)(NSString * _Nullable signInProviderKey, NSString * _Nullable signInProviderToken, NSError * _Nullable error);
+
+@end
+
 @implementation AWSAuthUIViewController
 
 static NSString *const AWSInfoCognitoUserPoolIdentifier = @"CognitoUserPool";
@@ -24,6 +39,47 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
 
 #pragma mark PresentViewController methods
 
+// new signIn screen which allows optional federation
++ (void)presentViewControllerWithConfig:(NSMutableDictionary<NSString *, id> *)configDictionary
+                                    completionHandler:(AWSAuthUIExtendedCompletionHandler)completionHandler {
+    
+    UINavigationController *navigationController = (UINavigationController *)configDictionary[@"navigationController"];
+    AWSAuthUIConfiguration *config = [AWSAuthUIViewController getDefaultAuthUIConfiguration];
+    if(configDictionary[@"canCancel"]) {
+        NSString *canCancelValue = (NSString *)configDictionary[@"canCancel"];
+        if ([canCancelValue isEqual: @"YES"]) {
+            [config setCanCancel:true];
+        } else {
+            [config setCanCancel:false];
+        }
+        
+    }
+    if(configDictionary[@"logoImage"]) {
+        [config setLogoImage:(UIImage *)configDictionary[@"logoImage"]];
+    }
+    if(configDictionary[@"backgroundColor"]) {
+        [config setBackgroundColor:(UIColor *)configDictionary[@"backgroundColor"]];
+    }
+    
+    [[AWSSignInManager sharedInstance] setDontFederate];
+    
+    AWSDDLogDebug(@"Presenting SignInViewController");
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        AWSSignInViewController *loginController;
+        loginController = [AWSSignInViewController getAWSSignInViewControllerWithconfiguration: config];
+        
+        loginController.completionHandlerCustom = completionHandler;
+        [loginController createInternalCompletionHandler];
+        
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginController];
+        [navigationController presentViewController:navController
+                                           animated:YES
+                                         completion:nil];
+    });
+}
+
+// legacy method for existing customers
 + (void)presentViewControllerWithNavigationController:(UINavigationController *)navigationController
                                         configuration:(AWSAuthUIConfiguration *)authUIConfiguration
                                     completionHandler:(AWSAuthUICompletionHandler)completionHandler {
@@ -53,15 +109,30 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
     AWSAuthUIConfiguration *authUIConfig = [[AWSAuthUIConfiguration alloc] init];
     
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoCognitoUserPoolIdentifier]) {
-        authUIConfig.enableUserPoolsUI = true;
+        Class userpoolClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
+        if (userpoolClass) {
+            authUIConfig.enableUserPoolsUI = true;
+        } else {
+            AWSDDLogWarn(@"Found UserPool configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
+        }
     }
     
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoFacebookIdentifier]) {
-        [authUIConfig addAWSSignInButtonViewClass:NSClassFromString(@"AWSFacebookSignInButton")];
+        Class fbClass = NSClassFromString(@"AWSFacebookSignInButton");
+        if (fbClass) {
+            [authUIConfig addAWSSignInButtonViewClass:fbClass];
+        } else {
+            AWSDDLogWarn(@"Found Facebook sign in configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
+        }
     }
     
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoGoogleIdentifier]) {
-        [authUIConfig addAWSSignInButtonViewClass:NSClassFromString(@"AWSGoogleSignInButton")];
+        Class googleClass = NSClassFromString(@"AWSGoogleSignInButton");
+        if (googleClass) {
+            [authUIConfig addAWSSignInButtonViewClass:googleClass];
+        } else {
+            AWSDDLogWarn(@"Found Google sign in configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
+        }
     }
     
     authUIConfig.canCancel = false;
