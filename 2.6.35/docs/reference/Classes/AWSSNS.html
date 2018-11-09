@@ -1,0 +1,4993 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSSNS Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.35 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/configuration">configuration</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Class Methods">
+		
+		<option value="//api/name/SNSForKey:">+ SNSForKey:</option>
+		
+		<option value="//api/name/defaultSNS">+ defaultSNS</option>
+		
+		<option value="//api/name/registerSNSWithConfiguration:forKey:">+ registerSNSWithConfiguration:forKey:</option>
+		
+		<option value="//api/name/removeSNSForKey:">+ removeSNSForKey:</option>
+		
+	</optgroup>
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addPermission:">- addPermission:</option>
+		
+		<option value="//api/name/addPermission:completionHandler:">- addPermission:completionHandler:</option>
+		
+		<option value="//api/name/checkIfPhoneNumberIsOptedOut:">- checkIfPhoneNumberIsOptedOut:</option>
+		
+		<option value="//api/name/checkIfPhoneNumberIsOptedOut:completionHandler:">- checkIfPhoneNumberIsOptedOut:completionHandler:</option>
+		
+		<option value="//api/name/confirmSubscription:">- confirmSubscription:</option>
+		
+		<option value="//api/name/confirmSubscription:completionHandler:">- confirmSubscription:completionHandler:</option>
+		
+		<option value="//api/name/createPlatformApplication:">- createPlatformApplication:</option>
+		
+		<option value="//api/name/createPlatformApplication:completionHandler:">- createPlatformApplication:completionHandler:</option>
+		
+		<option value="//api/name/createPlatformEndpoint:">- createPlatformEndpoint:</option>
+		
+		<option value="//api/name/createPlatformEndpoint:completionHandler:">- createPlatformEndpoint:completionHandler:</option>
+		
+		<option value="//api/name/createTopic:">- createTopic:</option>
+		
+		<option value="//api/name/createTopic:completionHandler:">- createTopic:completionHandler:</option>
+		
+		<option value="//api/name/deleteEndpoint:">- deleteEndpoint:</option>
+		
+		<option value="//api/name/deleteEndpoint:completionHandler:">- deleteEndpoint:completionHandler:</option>
+		
+		<option value="//api/name/deletePlatformApplication:">- deletePlatformApplication:</option>
+		
+		<option value="//api/name/deletePlatformApplication:completionHandler:">- deletePlatformApplication:completionHandler:</option>
+		
+		<option value="//api/name/deleteTopic:">- deleteTopic:</option>
+		
+		<option value="//api/name/deleteTopic:completionHandler:">- deleteTopic:completionHandler:</option>
+		
+		<option value="//api/name/getEndpointAttributes:">- getEndpointAttributes:</option>
+		
+		<option value="//api/name/getEndpointAttributes:completionHandler:">- getEndpointAttributes:completionHandler:</option>
+		
+		<option value="//api/name/getPlatformApplicationAttributes:">- getPlatformApplicationAttributes:</option>
+		
+		<option value="//api/name/getPlatformApplicationAttributes:completionHandler:">- getPlatformApplicationAttributes:completionHandler:</option>
+		
+		<option value="//api/name/getSMSAttributes:">- getSMSAttributes:</option>
+		
+		<option value="//api/name/getSMSAttributes:completionHandler:">- getSMSAttributes:completionHandler:</option>
+		
+		<option value="//api/name/getSubscriptionAttributes:">- getSubscriptionAttributes:</option>
+		
+		<option value="//api/name/getSubscriptionAttributes:completionHandler:">- getSubscriptionAttributes:completionHandler:</option>
+		
+		<option value="//api/name/getTopicAttributes:">- getTopicAttributes:</option>
+		
+		<option value="//api/name/getTopicAttributes:completionHandler:">- getTopicAttributes:completionHandler:</option>
+		
+		<option value="//api/name/listEndpointsByPlatformApplication:">- listEndpointsByPlatformApplication:</option>
+		
+		<option value="//api/name/listEndpointsByPlatformApplication:completionHandler:">- listEndpointsByPlatformApplication:completionHandler:</option>
+		
+		<option value="//api/name/listPhoneNumbersOptedOut:">- listPhoneNumbersOptedOut:</option>
+		
+		<option value="//api/name/listPhoneNumbersOptedOut:completionHandler:">- listPhoneNumbersOptedOut:completionHandler:</option>
+		
+		<option value="//api/name/listPlatformApplications:">- listPlatformApplications:</option>
+		
+		<option value="//api/name/listPlatformApplications:completionHandler:">- listPlatformApplications:completionHandler:</option>
+		
+		<option value="//api/name/listSubscriptions:">- listSubscriptions:</option>
+		
+		<option value="//api/name/listSubscriptions:completionHandler:">- listSubscriptions:completionHandler:</option>
+		
+		<option value="//api/name/listSubscriptionsByTopic:">- listSubscriptionsByTopic:</option>
+		
+		<option value="//api/name/listSubscriptionsByTopic:completionHandler:">- listSubscriptionsByTopic:completionHandler:</option>
+		
+		<option value="//api/name/listTopics:">- listTopics:</option>
+		
+		<option value="//api/name/listTopics:completionHandler:">- listTopics:completionHandler:</option>
+		
+		<option value="//api/name/optInPhoneNumber:">- optInPhoneNumber:</option>
+		
+		<option value="//api/name/optInPhoneNumber:completionHandler:">- optInPhoneNumber:completionHandler:</option>
+		
+		<option value="//api/name/publish:">- publish:</option>
+		
+		<option value="//api/name/publish:completionHandler:">- publish:completionHandler:</option>
+		
+		<option value="//api/name/removePermission:">- removePermission:</option>
+		
+		<option value="//api/name/removePermission:completionHandler:">- removePermission:completionHandler:</option>
+		
+		<option value="//api/name/setEndpointAttributes:">- setEndpointAttributes:</option>
+		
+		<option value="//api/name/setEndpointAttributes:completionHandler:">- setEndpointAttributes:completionHandler:</option>
+		
+		<option value="//api/name/setPlatformApplicationAttributes:">- setPlatformApplicationAttributes:</option>
+		
+		<option value="//api/name/setPlatformApplicationAttributes:completionHandler:">- setPlatformApplicationAttributes:completionHandler:</option>
+		
+		<option value="//api/name/setSMSAttributes:">- setSMSAttributes:</option>
+		
+		<option value="//api/name/setSMSAttributes:completionHandler:">- setSMSAttributes:completionHandler:</option>
+		
+		<option value="//api/name/setSubscriptionAttributes:">- setSubscriptionAttributes:</option>
+		
+		<option value="//api/name/setSubscriptionAttributes:completionHandler:">- setSubscriptionAttributes:completionHandler:</option>
+		
+		<option value="//api/name/setTopicAttributes:">- setTopicAttributes:</option>
+		
+		<option value="//api/name/setTopicAttributes:completionHandler:">- setTopicAttributes:completionHandler:</option>
+		
+		<option value="//api/name/subscribe:">- subscribe:</option>
+		
+		<option value="//api/name/subscribe:completionHandler:">- subscribe:completionHandler:</option>
+		
+		<option value="//api/name/unsubscribe:">- unsubscribe:</option>
+		
+		<option value="//api/name/unsubscribe:completionHandler:">- unsubscribe:completionHandler:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSSNS Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td><a href="../Classes/AWSService.html">AWSService</a> : NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSSNSService.h<br />AWSSNSService.m</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><fullname>Amazon Simple Notification Service</fullname><p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build distributed web-enabled applications. Applications can use Amazon SNS to easily push real-time notification messages to interested subscribers over multiple delivery protocols. For more information about this product see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns</a>. For detailed information about Amazon SNS features and their associated API calls, see the <a href="http://docs.aws.amazon.com/sns/latest/dg/">Amazon SNS Developer Guide</a>. </p><p>We also provide SDKs that enable you to access Amazon SNS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as: cryptographically signing your service requests, retrying requests, and handling error responses. For a list of available SDKs, go to <a href="http://aws.amazon.com/tools/">Tools for Amazon Web Services</a>. </p></p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/configuration" title="configuration"></a>
+	<h3 class="method-title"><code><a href="#//api/name/configuration">&nbsp;&nbsp;configuration</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The service configuration used to instantiate this service client.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong, readonly) AWSServiceConfiguration *configuration</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Once the client is instantiated, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultSNS" title="defaultSNS"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultSNS">+&nbsp;defaultSNS</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with <code>defaultServiceConfiguration</code> from <code>[AWSServiceManager defaultServiceManager]</code>. The reference to this object is maintained by the SDK, and you do not need to retain it manually.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)defaultSNS</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The default service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
+    AWSServiceManager.default().defaultServiceConfiguration = configuration
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+      AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                      identityPoolId:@"YourIdentityPoolId"];
+      AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                           credentialsProvider:credentialsProvider];
+      [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+
+      return YES;
+  }
+</code></pre>
+
+<p>Then call the following to get the default service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let SNS = AWSSNS.default()
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSSNS *SNS = [AWSSNS defaultSNS];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/registerSNSWithConfiguration:forKey:" title="registerSNSWithConfiguration:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/registerSNSWithConfiguration:forKey:">+&nbsp;registerSNSWithConfiguration:forKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a service client with the given service configuration and registers it for the key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)registerSNSWithConfiguration:(AWSServiceConfiguration *)<em>configuration</em> forKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>configuration</code></th>
+						<td><p>A service configuration object.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSSNS.register(with: configuration!, forKey: "USWest2SNS")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSSNS registerSNSWithConfiguration:configuration forKey:@"USWest2SNS"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let SNS = AWSSNS(forKey: "USWest2SNS")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSSNS *SNS = [AWSSNS SNSForKey:@"USWest2SNS"];
+</code></pre><div class="warning"><p><strong>Warning:</strong> After calling this method, do not modify the configuration object. It may cause unspecified behaviors.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/SNSForKey:" title="SNSForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/SNSForKey:">+&nbsp;SNSForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the service client associated with the key. You need to call <code>+ registerSNSWithConfiguration:forKey:</code> before invoking this method.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (instancetype)SNSForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of the service client.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>For example, set the default service configuration in <code>- application:didFinishLaunchingWithOptions:</code></p>
+
+<p><em>Swift</em></p>
+
+<pre><code> func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -&gt; Bool {
+    let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
+    let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
+    AWSSNS.register(with: configuration!, forKey: "USWest2SNS")
+
+    return true
+}
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                     identityPoolId:@"YourIdentityPoolId"];
+     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                                                          credentialsProvider:credentialsProvider];
+
+     [AWSSNS registerSNSWithConfiguration:configuration forKey:@"USWest2SNS"];
+
+     return YES;
+ }
+</code></pre>
+
+<p>Then call the following to get the service client:</p>
+
+<p><em>Swift</em></p>
+
+<pre><code> let SNS = AWSSNS(forKey: "USWest2SNS")
+</code></pre>
+
+<p><em>Objective-C</em></p>
+
+<pre><code> AWSSNS *SNS = [AWSSNS SNSForKey:@"USWest2SNS"];
+</code></pre>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removeSNSForKey:" title="removeSNSForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removeSNSForKey:">+&nbsp;removeSNSForKey:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the service client associated with the key and release it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>+ (void)removeSNSForKey:(NSString *)<em>key</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>key</code></th>
+						<td><p>A string to identify the service client.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<div class="warning"><p><strong>Warning:</strong> Before calling this method, make sure no method is running on this client.</p></div>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addPermission:" title="addPermission:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addPermission:">&ndash;&nbsp;addPermission:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds a statement to a topic's access control policy, granting access for the specified AWS accounts to the specified actions.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)addPermission:(AWSSNSAddPermissionInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the AddPermission service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSAddPermissionInput.html">AWSSNSAddPermissionInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addPermission:completionHandler:" title="addPermission:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addPermission:completionHandler:">&ndash;&nbsp;addPermission:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds a statement to a topic's access control policy, granting access for the specified AWS accounts to the specified actions.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addPermission:(AWSSNSAddPermissionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the AddPermission service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSAddPermissionInput.html">AWSSNSAddPermissionInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/checkIfPhoneNumberIsOptedOut:" title="checkIfPhoneNumberIsOptedOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/checkIfPhoneNumberIsOptedOut:">&ndash;&nbsp;checkIfPhoneNumberIsOptedOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Accepts a phone number and indicates whether the phone holder has opted out of receiving SMS messages from your account. You cannot send SMS messages to a number that is opted out.</p>
+
+
+<p>To resume sending messages, you can opt in the number by using the <code>OptInPhoneNumber</code> action.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSCheckIfPhoneNumberIsOptedOutResponse*&gt; *)checkIfPhoneNumberIsOptedOut:(AWSSNSCheckIfPhoneNumberIsOptedOutInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CheckIfPhoneNumberIsOptedOut service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSCheckIfPhoneNumberIsOptedOutResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorThrottled</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorInvalidParameter</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSCheckIfPhoneNumberIsOptedOutInput.html">AWSSNSCheckIfPhoneNumberIsOptedOutInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSCheckIfPhoneNumberIsOptedOutResponse.html">AWSSNSCheckIfPhoneNumberIsOptedOutResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/checkIfPhoneNumberIsOptedOut:completionHandler:" title="checkIfPhoneNumberIsOptedOut:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/checkIfPhoneNumberIsOptedOut:completionHandler:">&ndash;&nbsp;checkIfPhoneNumberIsOptedOut:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Accepts a phone number and indicates whether the phone holder has opted out of receiving SMS messages from your account. You cannot send SMS messages to a number that is opted out.</p>
+
+
+<p>To resume sending messages, you can opt in the number by using the <code>OptInPhoneNumber</code> action.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)checkIfPhoneNumberIsOptedOut:(AWSSNSCheckIfPhoneNumberIsOptedOutInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSCheckIfPhoneNumberIsOptedOutResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CheckIfPhoneNumberIsOptedOut service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorThrottled</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorInvalidParameter</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSCheckIfPhoneNumberIsOptedOutInput.html">AWSSNSCheckIfPhoneNumberIsOptedOutInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSCheckIfPhoneNumberIsOptedOutResponse.html">AWSSNSCheckIfPhoneNumberIsOptedOutResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/confirmSubscription:" title="confirmSubscription:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/confirmSubscription:">&ndash;&nbsp;confirmSubscription:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is set to "true".</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSConfirmSubscriptionResponse*&gt; *)confirmSubscription:(AWSSNSConfirmSubscriptionInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ConfirmSubscription service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSConfirmSubscriptionResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorSubscriptionLimitExceeded</code>, <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSConfirmSubscriptionInput.html">AWSSNSConfirmSubscriptionInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSConfirmSubscriptionResponse.html">AWSSNSConfirmSubscriptionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/confirmSubscription:completionHandler:" title="confirmSubscription:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/confirmSubscription:completionHandler:">&ndash;&nbsp;confirmSubscription:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Verifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier <code>Subscribe</code> action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the <code>AuthenticateOnUnsubscribe</code> flag is set to "true".</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)confirmSubscription:(AWSSNSConfirmSubscriptionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSConfirmSubscriptionResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ConfirmSubscription service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorSubscriptionLimitExceeded</code>, <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSConfirmSubscriptionInput.html">AWSSNSConfirmSubscriptionInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSConfirmSubscriptionResponse.html">AWSSNSConfirmSubscriptionResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createPlatformApplication:" title="createPlatformApplication:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPlatformApplication:">&ndash;&nbsp;createPlatformApplication:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the <code>CreatePlatformApplication</code> action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received from the notification service. For WNS, PlatformPrincipal is "Package Security Identifier". For MPNS, PlatformPrincipal is "TLS certificate". For Baidu, PlatformPrincipal is "API key".</p>
+
+
+<p>For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". For WNS, PlatformCredential is "secret key". For MPNS, PlatformCredential is "private key". For Baidu, PlatformCredential is "secret key". The PlatformApplicationArn that is returned when using <code>CreatePlatformApplication</code> is then used as an attribute for the <code>CreatePlatformEndpoint</code> action. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html">Getting Started with Apple Push Notification Service</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html">Getting Started with Amazon Device Messaging</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html">Getting Started with Baidu Cloud Push</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html">Getting Started with Google Cloud Messaging for Android</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html">Getting Started with MPNS</a>, or <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html">Getting Started with WNS</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSCreatePlatformApplicationResponse*&gt; *)createPlatformApplication:(AWSSNSCreatePlatformApplicationInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreatePlatformApplication service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSCreatePlatformApplicationResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreatePlatformApplicationInput.html">AWSSNSCreatePlatformApplicationInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreatePlatformApplicationResponse.html">AWSSNSCreatePlatformApplicationResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createPlatformApplication:completionHandler:" title="createPlatformApplication:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPlatformApplication:completionHandler:">&ndash;&nbsp;createPlatformApplication:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the <code>CreatePlatformApplication</code> action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is "SSL certificate". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id". The PlatformCredential is also received from the notification service. For WNS, PlatformPrincipal is "Package Security Identifier". For MPNS, PlatformPrincipal is "TLS certificate". For Baidu, PlatformPrincipal is "API key".</p>
+
+
+<p>For APNS/APNS_SANDBOX, PlatformCredential is "private key". For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret". For WNS, PlatformCredential is "secret key". For MPNS, PlatformCredential is "private key". For Baidu, PlatformCredential is "secret key". The PlatformApplicationArn that is returned when using <code>CreatePlatformApplication</code> is then used as an attribute for the <code>CreatePlatformEndpoint</code> action. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For more information about obtaining the PlatformPrincipal and PlatformCredential for each of the supported push notification services, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-apns.html">Getting Started with Apple Push Notification Service</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-adm.html">Getting Started with Amazon Device Messaging</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-baidu.html">Getting Started with Baidu Cloud Push</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-gcm.html">Getting Started with Google Cloud Messaging for Android</a>, <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-mpns.html">Getting Started with MPNS</a>, or <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-wns.html">Getting Started with WNS</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)createPlatformApplication:(AWSSNSCreatePlatformApplicationInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSCreatePlatformApplicationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreatePlatformApplication service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreatePlatformApplicationInput.html">AWSSNSCreatePlatformApplicationInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreatePlatformApplicationResponse.html">AWSSNSCreatePlatformApplicationResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createPlatformEndpoint:" title="createPlatformEndpoint:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPlatformEndpoint:">&ndash;&nbsp;createPlatformEndpoint:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM and APNS. <code>CreatePlatformEndpoint</code> requires the PlatformApplicationArn that is returned from <code>CreatePlatformApplication</code>. The EndpointArn that is returned when using <code>CreatePlatformEndpoint</code> can then be used by the <code>Publish</code> action to send a message to a mobile app or by the <code>Subscribe</code> action for subscription to a topic. The <code>CreatePlatformEndpoint</code> action is idempotent, so if the requester already owns an endpoint with the same device token and attributes, that endpoint's ARN is returned without creating a new endpoint. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+
+<p>When using <code>CreatePlatformEndpoint</code> with Baidu, two attributes must be provided: ChannelId and UserId. The token field must also contain the ChannelId. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html">Creating an Amazon SNS Endpoint for Baidu</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSCreateEndpointResponse*&gt; *)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreatePlatformEndpoint service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSCreateEndpointResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreatePlatformEndpointInput.html">AWSSNSCreatePlatformEndpointInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreateEndpointResponse.html">AWSSNSCreateEndpointResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createPlatformEndpoint:completionHandler:" title="createPlatformEndpoint:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createPlatformEndpoint:completionHandler:">&ndash;&nbsp;createPlatformEndpoint:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM and APNS. <code>CreatePlatformEndpoint</code> requires the PlatformApplicationArn that is returned from <code>CreatePlatformApplication</code>. The EndpointArn that is returned when using <code>CreatePlatformEndpoint</code> can then be used by the <code>Publish</code> action to send a message to a mobile app or by the <code>Subscribe</code> action for subscription to a topic. The <code>CreatePlatformEndpoint</code> action is idempotent, so if the requester already owns an endpoint with the same device token and attributes, that endpoint's ARN is returned without creating a new endpoint. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+
+<p>When using <code>CreatePlatformEndpoint</code> with Baidu, two attributes must be provided: ChannelId and UserId. The token field must also contain the ChannelId. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html">Creating an Amazon SNS Endpoint for Baidu</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSCreateEndpointResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreatePlatformEndpoint service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreatePlatformEndpointInput.html">AWSSNSCreatePlatformEndpointInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreateEndpointResponse.html">AWSSNSCreateEndpointResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createTopic:" title="createTopic:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createTopic:">&ndash;&nbsp;createTopic:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSCreateTopicResponse*&gt; *)createTopic:(AWSSNSCreateTopicInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreateTopic service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSCreateTopicResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorTopicLimitExceeded</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreateTopicInput.html">AWSSNSCreateTopicInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreateTopicResponse.html">AWSSNSCreateTopicResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/createTopic:completionHandler:" title="createTopic:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/createTopic:completionHandler:">&ndash;&nbsp;createTopic:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see <a href="http://aws.amazon.com/sns/">http://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)createTopic:(AWSSNSCreateTopicInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSCreateTopicResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the CreateTopic service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorTopicLimitExceeded</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreateTopicInput.html">AWSSNSCreateTopicInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSCreateTopicResponse.html">AWSSNSCreateTopicResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteEndpoint:" title="deleteEndpoint:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteEndpoint:">&ndash;&nbsp;deleteEndpoint:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+
+<p>When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)deleteEndpoint:(AWSSNSDeleteEndpointInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteEndpoint service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSDeleteEndpointInput.html">AWSSNSDeleteEndpointInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteEndpoint:completionHandler:" title="deleteEndpoint:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteEndpoint:completionHandler:">&ndash;&nbsp;deleteEndpoint:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes the endpoint for a device and mobile app from Amazon SNS. This action is idempotent. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+
+<p>When you delete an endpoint that is also subscribed to a topic, then you must also unsubscribe the endpoint from the topic.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteEndpoint:(AWSSNSDeleteEndpointInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteEndpoint service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSDeleteEndpointInput.html">AWSSNSDeleteEndpointInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deletePlatformApplication:" title="deletePlatformApplication:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deletePlatformApplication:">&ndash;&nbsp;deletePlatformApplication:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes a platform application object for one of the supported push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)deletePlatformApplication:(AWSSNSDeletePlatformApplicationInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeletePlatformApplication service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSDeletePlatformApplicationInput.html">AWSSNSDeletePlatformApplicationInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deletePlatformApplication:completionHandler:" title="deletePlatformApplication:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deletePlatformApplication:completionHandler:">&ndash;&nbsp;deletePlatformApplication:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes a platform application object for one of the supported push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deletePlatformApplication:(AWSSNSDeletePlatformApplicationInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeletePlatformApplication service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSDeletePlatformApplicationInput.html">AWSSNSDeletePlatformApplicationInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteTopic:" title="deleteTopic:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteTopic:">&ndash;&nbsp;deleteTopic:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes a topic and all its subscriptions. Deleting a topic might prevent some messages previously sent to the topic from being delivered to subscribers. This action is idempotent, so deleting a topic that does not exist does not result in an error.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)deleteTopic:(AWSSNSDeleteTopicInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteTopic service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSDeleteTopicInput.html">AWSSNSDeleteTopicInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deleteTopic:completionHandler:" title="deleteTopic:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deleteTopic:completionHandler:">&ndash;&nbsp;deleteTopic:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes a topic and all its subscriptions. Deleting a topic might prevent some messages previously sent to the topic from being delivered to subscribers. This action is idempotent, so deleting a topic that does not exist does not result in an error.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deleteTopic:(AWSSNSDeleteTopicInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeleteTopic service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSDeleteTopicInput.html">AWSSNSDeleteTopicInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getEndpointAttributes:" title="getEndpointAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getEndpointAttributes:">&ndash;&nbsp;getEndpointAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM and APNS. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSGetEndpointAttributesResponse*&gt; *)getEndpointAttributes:(AWSSNSGetEndpointAttributesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetEndpointAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSGetEndpointAttributesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetEndpointAttributesInput.html">AWSSNSGetEndpointAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetEndpointAttributesResponse.html">AWSSNSGetEndpointAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getEndpointAttributes:completionHandler:" title="getEndpointAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getEndpointAttributes:completionHandler:">&ndash;&nbsp;getEndpointAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM and APNS. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getEndpointAttributes:(AWSSNSGetEndpointAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetEndpointAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetEndpointAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetEndpointAttributesInput.html">AWSSNSGetEndpointAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetEndpointAttributesResponse.html">AWSSNSGetEndpointAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getPlatformApplicationAttributes:" title="getPlatformApplicationAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getPlatformApplicationAttributes:">&ndash;&nbsp;getPlatformApplicationAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSGetPlatformApplicationAttributesResponse*&gt; *)getPlatformApplicationAttributes:(AWSSNSGetPlatformApplicationAttributesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetPlatformApplicationAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSGetPlatformApplicationAttributesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetPlatformApplicationAttributesInput.html">AWSSNSGetPlatformApplicationAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetPlatformApplicationAttributesResponse.html">AWSSNSGetPlatformApplicationAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getPlatformApplicationAttributes:completionHandler:" title="getPlatformApplicationAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getPlatformApplicationAttributes:completionHandler:">&ndash;&nbsp;getPlatformApplicationAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getPlatformApplicationAttributes:(AWSSNSGetPlatformApplicationAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetPlatformApplicationAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetPlatformApplicationAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetPlatformApplicationAttributesInput.html">AWSSNSGetPlatformApplicationAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetPlatformApplicationAttributesResponse.html">AWSSNSGetPlatformApplicationAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSMSAttributes:" title="getSMSAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSMSAttributes:">&ndash;&nbsp;getSMSAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the settings for sending SMS messages from your account.</p>
+
+
+<p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSGetSMSAttributesResponse*&gt; *)getSMSAttributes:(AWSSNSGetSMSAttributesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetSMSAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSGetSMSAttributesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorThrottled</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorInvalidParameter</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetSMSAttributesInput.html">AWSSNSGetSMSAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetSMSAttributesResponse.html">AWSSNSGetSMSAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSMSAttributes:completionHandler:" title="getSMSAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSMSAttributes:completionHandler:">&ndash;&nbsp;getSMSAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the settings for sending SMS messages from your account.</p>
+
+
+<p>These settings are set with the <code>SetSMSAttributes</code> action.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getSMSAttributes:(AWSSNSGetSMSAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetSMSAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetSMSAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorThrottled</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorInvalidParameter</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetSMSAttributesInput.html">AWSSNSGetSMSAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetSMSAttributesResponse.html">AWSSNSGetSMSAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSubscriptionAttributes:" title="getSubscriptionAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSubscriptionAttributes:">&ndash;&nbsp;getSubscriptionAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns all of the properties of a subscription.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSGetSubscriptionAttributesResponse*&gt; *)getSubscriptionAttributes:(AWSSNSGetSubscriptionAttributesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetSubscriptionAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSGetSubscriptionAttributesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetSubscriptionAttributesInput.html">AWSSNSGetSubscriptionAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetSubscriptionAttributesResponse.html">AWSSNSGetSubscriptionAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getSubscriptionAttributes:completionHandler:" title="getSubscriptionAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getSubscriptionAttributes:completionHandler:">&ndash;&nbsp;getSubscriptionAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns all of the properties of a subscription.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getSubscriptionAttributes:(AWSSNSGetSubscriptionAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetSubscriptionAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetSubscriptionAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetSubscriptionAttributesInput.html">AWSSNSGetSubscriptionAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetSubscriptionAttributesResponse.html">AWSSNSGetSubscriptionAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getTopicAttributes:" title="getTopicAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getTopicAttributes:">&ndash;&nbsp;getTopicAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSGetTopicAttributesResponse*&gt; *)getTopicAttributes:(AWSSNSGetTopicAttributesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetTopicAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSGetTopicAttributesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetTopicAttributesInput.html">AWSSNSGetTopicAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetTopicAttributesResponse.html">AWSSNSGetTopicAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getTopicAttributes:completionHandler:" title="getTopicAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getTopicAttributes:completionHandler:">&ndash;&nbsp;getTopicAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getTopicAttributes:(AWSSNSGetTopicAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSGetTopicAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetTopicAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetTopicAttributesInput.html">AWSSNSGetTopicAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSGetTopicAttributesResponse.html">AWSSNSGetTopicAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listEndpointsByPlatformApplication:" title="listEndpointsByPlatformApplication:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listEndpointsByPlatformApplication:">&ndash;&nbsp;listEndpointsByPlatformApplication:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for <code>ListEndpointsByPlatformApplication</code> are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call <code>ListEndpointsByPlatformApplication</code> again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+
+<p>This action is throttled at 30 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSListEndpointsByPlatformApplicationResponse*&gt; *)listEndpointsByPlatformApplication:(AWSSNSListEndpointsByPlatformApplicationInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListEndpointsByPlatformApplication service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSListEndpointsByPlatformApplicationResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListEndpointsByPlatformApplicationInput.html">AWSSNSListEndpointsByPlatformApplicationInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListEndpointsByPlatformApplicationResponse.html">AWSSNSListEndpointsByPlatformApplicationResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listEndpointsByPlatformApplication:completionHandler:" title="listEndpointsByPlatformApplication:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listEndpointsByPlatformApplication:completionHandler:">&ndash;&nbsp;listEndpointsByPlatformApplication:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for <code>ListEndpointsByPlatformApplication</code> are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call <code>ListEndpointsByPlatformApplication</code> again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+
+<p>This action is throttled at 30 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listEndpointsByPlatformApplication:(AWSSNSListEndpointsByPlatformApplicationInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListEndpointsByPlatformApplicationResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListEndpointsByPlatformApplication service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListEndpointsByPlatformApplicationInput.html">AWSSNSListEndpointsByPlatformApplicationInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListEndpointsByPlatformApplicationResponse.html">AWSSNSListEndpointsByPlatformApplicationResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listPhoneNumbersOptedOut:" title="listPhoneNumbersOptedOut:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listPhoneNumbersOptedOut:">&ndash;&nbsp;listPhoneNumbersOptedOut:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages to them.</p>
+
+
+<p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a <code>NextToken</code> string will be returned. To receive the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the <code>NextToken</code> string received from the previous call. When there are no more records to return, <code>NextToken</code> will be null.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSListPhoneNumbersOptedOutResponse*&gt; *)listPhoneNumbersOptedOut:(AWSSNSListPhoneNumbersOptedOutInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListPhoneNumbersOptedOut service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSListPhoneNumbersOptedOutResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorThrottled</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorInvalidParameter</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListPhoneNumbersOptedOutInput.html">AWSSNSListPhoneNumbersOptedOutInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListPhoneNumbersOptedOutResponse.html">AWSSNSListPhoneNumbersOptedOutResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listPhoneNumbersOptedOut:completionHandler:" title="listPhoneNumbersOptedOut:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listPhoneNumbersOptedOut:completionHandler:">&ndash;&nbsp;listPhoneNumbersOptedOut:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages to them.</p>
+
+
+<p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a <code>NextToken</code> string will be returned. To receive the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the <code>NextToken</code> string received from the previous call. When there are no more records to return, <code>NextToken</code> will be null.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listPhoneNumbersOptedOut:(AWSSNSListPhoneNumbersOptedOutInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListPhoneNumbersOptedOutResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListPhoneNumbersOptedOut service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorThrottled</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorInvalidParameter</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListPhoneNumbersOptedOutInput.html">AWSSNSListPhoneNumbersOptedOutInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListPhoneNumbersOptedOutResponse.html">AWSSNSListPhoneNumbersOptedOutResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listPlatformApplications:" title="listPlatformApplications:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listPlatformApplications:">&ndash;&nbsp;listPlatformApplications:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for <code>ListPlatformApplications</code> are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call <code>ListPlatformApplications</code> using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+
+<p>This action is throttled at 15 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSListPlatformApplicationsResponse*&gt; *)listPlatformApplications:(AWSSNSListPlatformApplicationsInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListPlatformApplications service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSListPlatformApplicationsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListPlatformApplicationsInput.html">AWSSNSListPlatformApplicationsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListPlatformApplicationsResponse.html">AWSSNSListPlatformApplicationsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listPlatformApplications:completionHandler:" title="listPlatformApplications:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listPlatformApplications:completionHandler:">&ndash;&nbsp;listPlatformApplications:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Lists the platform application objects for the supported push notification services, such as APNS and GCM. The results for <code>ListPlatformApplications</code> are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call <code>ListPlatformApplications</code> using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+
+<p>This action is throttled at 15 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listPlatformApplications:(AWSSNSListPlatformApplicationsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListPlatformApplicationsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListPlatformApplications service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListPlatformApplicationsInput.html">AWSSNSListPlatformApplicationsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListPlatformApplicationsResponse.html">AWSSNSListPlatformApplicationsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listSubscriptions:" title="listSubscriptions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listSubscriptions:">&ndash;&nbsp;listSubscriptions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of the requester's subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a new <code>ListSubscriptions</code> call to get further results.</p>
+
+
+<p>This action is throttled at 30 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSListSubscriptionsResponse*&gt; *)listSubscriptions:(AWSSNSListSubscriptionsInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListSubscriptions service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSListSubscriptionsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListSubscriptionsInput.html">AWSSNSListSubscriptionsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListSubscriptionsResponse.html">AWSSNSListSubscriptionsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listSubscriptions:completionHandler:" title="listSubscriptions:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listSubscriptions:completionHandler:">&ndash;&nbsp;listSubscriptions:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of the requester's subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a new <code>ListSubscriptions</code> call to get further results.</p>
+
+
+<p>This action is throttled at 30 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listSubscriptions:(AWSSNSListSubscriptionsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListSubscriptionsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListSubscriptions service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListSubscriptionsInput.html">AWSSNSListSubscriptionsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListSubscriptionsResponse.html">AWSSNSListSubscriptionsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listSubscriptionsByTopic:" title="listSubscriptionsByTopic:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listSubscriptionsByTopic:">&ndash;&nbsp;listSubscriptionsByTopic:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of the subscriptions to a specific topic. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a new <code>ListSubscriptionsByTopic</code> call to get further results.</p>
+
+
+<p>This action is throttled at 30 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSListSubscriptionsByTopicResponse*&gt; *)listSubscriptionsByTopic:(AWSSNSListSubscriptionsByTopicInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListSubscriptionsByTopic service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSListSubscriptionsByTopicResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListSubscriptionsByTopicInput.html">AWSSNSListSubscriptionsByTopicInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListSubscriptionsByTopicResponse.html">AWSSNSListSubscriptionsByTopicResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listSubscriptionsByTopic:completionHandler:" title="listSubscriptionsByTopic:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listSubscriptionsByTopic:completionHandler:">&ndash;&nbsp;listSubscriptionsByTopic:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of the subscriptions to a specific topic. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a new <code>ListSubscriptionsByTopic</code> call to get further results.</p>
+
+
+<p>This action is throttled at 30 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listSubscriptionsByTopic:(AWSSNSListSubscriptionsByTopicInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListSubscriptionsByTopicResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListSubscriptionsByTopic service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListSubscriptionsByTopicInput.html">AWSSNSListSubscriptionsByTopicInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListSubscriptionsByTopicResponse.html">AWSSNSListSubscriptionsByTopicResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTopics:" title="listTopics:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTopics:">&ndash;&nbsp;listTopics:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get further results.</p>
+
+
+<p>This action is throttled at 30 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSListTopicsResponse*&gt; *)listTopics:(AWSSNSListTopicsInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTopics service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSListTopicsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListTopicsInput.html">AWSSNSListTopicsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListTopicsResponse.html">AWSSNSListTopicsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/listTopics:completionHandler:" title="listTopics:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/listTopics:completionHandler:">&ndash;&nbsp;listTopics:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a new <code>ListTopics</code> call to get further results.</p>
+
+
+<p>This action is throttled at 30 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)listTopics:(AWSSNSListTopicsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSListTopicsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the ListTopics service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSListTopicsInput.html">AWSSNSListTopicsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSListTopicsResponse.html">AWSSNSListTopicsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/optInPhoneNumber:" title="optInPhoneNumber:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/optInPhoneNumber:">&ndash;&nbsp;optInPhoneNumber:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Use this request to opt in a phone number that is opted out, which enables you to resume sending SMS messages to the number.</p>
+
+
+<p>You can opt in a phone number only once every 30 days.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSOptInPhoneNumberResponse*&gt; *)optInPhoneNumber:(AWSSNSOptInPhoneNumberInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the OptInPhoneNumber service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSOptInPhoneNumberResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorThrottled</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorInvalidParameter</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSOptInPhoneNumberInput.html">AWSSNSOptInPhoneNumberInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSOptInPhoneNumberResponse.html">AWSSNSOptInPhoneNumberResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/optInPhoneNumber:completionHandler:" title="optInPhoneNumber:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/optInPhoneNumber:completionHandler:">&ndash;&nbsp;optInPhoneNumber:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Use this request to opt in a phone number that is opted out, which enables you to resume sending SMS messages to the number.</p>
+
+
+<p>You can opt in a phone number only once every 30 days.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)optInPhoneNumber:(AWSSNSOptInPhoneNumberInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSOptInPhoneNumberResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the OptInPhoneNumber service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorThrottled</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorInvalidParameter</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSOptInPhoneNumberInput.html">AWSSNSOptInPhoneNumberInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSOptInPhoneNumberResponse.html">AWSSNSOptInPhoneNumberResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/publish:" title="publish:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/publish:">&ndash;&nbsp;publish:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sends a message to an Amazon SNS topic or sends a text message (SMS message) directly to a phone number. </p>
+
+
+<p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.</p>
+
+
+<p>When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it shortly.</p>
+
+
+<p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. </p>
+
+
+<p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSPublishResponse*&gt; *)publish:(AWSSNSPublishInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the Publish service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSPublishResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInvalidParameterValue</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorEndpointDisabled</code>, <code>AWSSNSErrorPlatformApplicationDisabled</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSPublishInput.html">AWSSNSPublishInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSPublishResponse.html">AWSSNSPublishResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/publish:completionHandler:" title="publish:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/publish:completionHandler:">&ndash;&nbsp;publish:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sends a message to an Amazon SNS topic or sends a text message (SMS message) directly to a phone number. </p>
+
+
+<p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.</p>
+
+
+<p>When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it shortly.</p>
+
+
+<p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. </p>
+
+
+<p>For more information about formatting messages, see <a href="http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)publish:(AWSSNSPublishInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSPublishResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the Publish service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInvalidParameterValue</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorEndpointDisabled</code>, <code>AWSSNSErrorPlatformApplicationDisabled</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSPublishInput.html">AWSSNSPublishInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSPublishResponse.html">AWSSNSPublishResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removePermission:" title="removePermission:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removePermission:">&ndash;&nbsp;removePermission:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes a statement from a topic's access control policy.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)removePermission:(AWSSNSRemovePermissionInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the RemovePermission service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSRemovePermissionInput.html">AWSSNSRemovePermissionInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/removePermission:completionHandler:" title="removePermission:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/removePermission:completionHandler:">&ndash;&nbsp;removePermission:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes a statement from a topic's access control policy.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)removePermission:(AWSSNSRemovePermissionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the RemovePermission service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSRemovePermissionInput.html">AWSSNSRemovePermissionInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setEndpointAttributes:" title="setEndpointAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setEndpointAttributes:">&ndash;&nbsp;setEndpointAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM and APNS. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)setEndpointAttributes:(AWSSNSSetEndpointAttributesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetEndpointAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetEndpointAttributesInput.html">AWSSNSSetEndpointAttributesInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setEndpointAttributes:completionHandler:" title="setEndpointAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setEndpointAttributes:completionHandler:">&ndash;&nbsp;setEndpointAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM and APNS. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setEndpointAttributes:(AWSSNSSetEndpointAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetEndpointAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetEndpointAttributesInput.html">AWSSNSSetEndpointAttributesInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setPlatformApplicationAttributes:" title="setPlatformApplicationAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setPlatformApplicationAttributes:">&ndash;&nbsp;setPlatformApplicationAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring attributes for message delivery status, see <a href="http://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using Amazon SNS Application Attributes for Message Delivery Status</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)setPlatformApplicationAttributes:(AWSSNSSetPlatformApplicationAttributesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetPlatformApplicationAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetPlatformApplicationAttributesInput.html">AWSSNSSetPlatformApplicationAttributesInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setPlatformApplicationAttributes:completionHandler:" title="setPlatformApplicationAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setPlatformApplicationAttributes:completionHandler:">&ndash;&nbsp;setPlatformApplicationAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Sets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html">Using Amazon SNS Mobile Push Notifications</a>. For information on configuring attributes for message delivery status, see <a href="http://docs.aws.amazon.com/sns/latest/dg/sns-msg-status.html">Using Amazon SNS Application Attributes for Message Delivery Status</a>. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setPlatformApplicationAttributes:(AWSSNSSetPlatformApplicationAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetPlatformApplicationAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetPlatformApplicationAttributesInput.html">AWSSNSSetPlatformApplicationAttributesInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSMSAttributes:" title="setSMSAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSMSAttributes:">&ndash;&nbsp;setSMSAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p>
+
+
+<p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Sending an SMS Message</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSSetSMSAttributesResponse*&gt; *)setSMSAttributes:(AWSSNSSetSMSAttributesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetSMSAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSSetSMSAttributesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorThrottled</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetSMSAttributesInput.html">AWSSNSSetSMSAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetSMSAttributesResponse.html">AWSSNSSetSMSAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSMSAttributes:completionHandler:" title="setSMSAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSMSAttributes:completionHandler:">&ndash;&nbsp;setSMSAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p>
+
+
+<p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href="http://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Sending an SMS Message</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setSMSAttributes:(AWSSNSSetSMSAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSSetSMSAttributesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetSMSAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorThrottled</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetSMSAttributesInput.html">AWSSNSSetSMSAttributesInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetSMSAttributesResponse.html">AWSSNSSetSMSAttributesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSubscriptionAttributes:" title="setSubscriptionAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSubscriptionAttributes:">&ndash;&nbsp;setSubscriptionAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Allows a subscription owner to set an attribute of the subscription to a new value.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)setSubscriptionAttributes:(AWSSNSSetSubscriptionAttributesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetSubscriptionAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorFilterPolicyLimitExceeded</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetSubscriptionAttributesInput.html">AWSSNSSetSubscriptionAttributesInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setSubscriptionAttributes:completionHandler:" title="setSubscriptionAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setSubscriptionAttributes:completionHandler:">&ndash;&nbsp;setSubscriptionAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Allows a subscription owner to set an attribute of the subscription to a new value.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setSubscriptionAttributes:(AWSSNSSetSubscriptionAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetSubscriptionAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorFilterPolicyLimitExceeded</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetSubscriptionAttributesInput.html">AWSSNSSetSubscriptionAttributesInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setTopicAttributes:" title="setTopicAttributes:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setTopicAttributes:">&ndash;&nbsp;setTopicAttributes:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Allows a topic owner to set an attribute of the topic to a new value.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)setTopicAttributes:(AWSSNSSetTopicAttributesInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetTopicAttributes service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetTopicAttributesInput.html">AWSSNSSetTopicAttributesInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/setTopicAttributes:completionHandler:" title="setTopicAttributes:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/setTopicAttributes:completionHandler:">&ndash;&nbsp;setTopicAttributes:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Allows a topic owner to set an attribute of the topic to a new value.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)setTopicAttributes:(AWSSNSSetTopicAttributesInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the SetTopicAttributes service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSetTopicAttributesInput.html">AWSSNSSetTopicAttributesInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/subscribe:" title="subscribe:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/subscribe:">&ndash;&nbsp;subscribe:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Prepares to subscribe an endpoint by sending the endpoint a confirmation message. To actually create a subscription, the endpoint owner must call the <code>ConfirmSubscription</code> action with the token from the confirmation message. Confirmation tokens are valid for three days.</p>
+
+
+<p>This action is throttled at 100 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSSNSSubscribeResponse*&gt; *)subscribe:(AWSSNSSubscribeInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the Subscribe service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSSNSSubscribeResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorSubscriptionLimitExceeded</code>, <code>AWSSNSErrorFilterPolicyLimitExceeded</code>, <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSubscribeInput.html">AWSSNSSubscribeInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSSubscribeResponse.html">AWSSNSSubscribeResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/subscribe:completionHandler:" title="subscribe:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/subscribe:completionHandler:">&ndash;&nbsp;subscribe:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Prepares to subscribe an endpoint by sending the endpoint a confirmation message. To actually create a subscription, the endpoint owner must call the <code>ConfirmSubscription</code> action with the token from the confirmation message. Confirmation tokens are valid for three days.</p>
+
+
+<p>This action is throttled at 100 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)subscribe:(AWSSNSSubscribeInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSSNSSubscribeResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the Subscribe service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorSubscriptionLimitExceeded</code>, <code>AWSSNSErrorFilterPolicyLimitExceeded</code>, <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorNotFound</code>, <code>AWSSNSErrorAuthorizationError</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSSubscribeInput.html">AWSSNSSubscribeInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSSNSSubscribeResponse.html">AWSSNSSubscribeResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unsubscribe:" title="unsubscribe:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unsubscribe:">&ndash;&nbsp;unsubscribe:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an AWS signature is required. If the <code>Unsubscribe</code> call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the <code>Unsubscribe</code> request was unintended.</p>
+
+
+<p>This action is throttled at 100 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)unsubscribe:(AWSSNSUnsubscribeInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the Unsubscribe service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSUnsubscribeInput.html">AWSSNSUnsubscribeInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/unsubscribe:completionHandler:" title="unsubscribe:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/unsubscribe:completionHandler:">&ndash;&nbsp;unsubscribe:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an AWS signature is required. If the <code>Unsubscribe</code> call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the <code>Unsubscribe</code> request was unintended.</p>
+
+
+<p>This action is throttled at 100 transactions per second (TPS).</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)unsubscribe:(AWSSNSUnsubscribeInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the Unsubscribe service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSSNSErrorDomain</code> domain and the following error code: <code>AWSSNSErrorInvalidParameter</code>, <code>AWSSNSErrorInternalError</code>, <code>AWSSNSErrorAuthorizationError</code>, <code>AWSSNSErrorNotFound</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSSNSUnsubscribeInput.html">AWSSNSUnsubscribeInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSSNSService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-08</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>

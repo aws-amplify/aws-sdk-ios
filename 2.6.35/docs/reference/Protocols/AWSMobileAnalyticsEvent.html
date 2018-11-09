@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>AWSMobileAnalyticsEvent Protocol Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AWS Mobile SDK for iOS v2.6.35 </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">Amazon Web Services, Inc.</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/eventType">eventType</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/addAttribute:forKey:">- addAttribute:forKey:</option>
+		
+		<option value="//api/name/addMetric:forKey:">- addMetric:forKey:</option>
+		
+		<option value="//api/name/allAttributes">- allAttributes</option>
+		
+		<option value="//api/name/allMetrics">- allMetrics</option>
+		
+		<option value="//api/name/attributeForKey:">- attributeForKey:</option>
+		
+		<option value="//api/name/hasAttributeForKey:">- hasAttributeForKey:</option>
+		
+		<option value="//api/name/hasMetricForKey:">- hasMetricForKey:</option>
+		
+		<option value="//api/name/metricForKey:">- metricForKey:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">AWSMobileAnalyticsEvent Protocol Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Conforms to</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>AWSMobileAnalyticsEvent.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Represents the visit or conversion event of an A/B test,
+or may also be used to collect useful information in your application.</p>
+
+<p>The example below demonstrates how to record view and conversion events. The <code>@"level1Complete"</code> event represents the view event,
+and if the user makes a purchase, the code below records a <code>@"level1UserBoughtUpgrade"</code> event as the conversion event.</p>
+
+<pre><code> // get the event client from insights instance
+ idAWSMobileAnalyticsEventClient eventClient = insights.eventClient;
+
+ // create the view event
+ id&lt;AWSMobileAnalyticsEvent&gt; level1Event = [eventClient createEventWithEventType:@"level1Complete"];
+
+ // record the view event
+ [eventClient recordEvent:level1Event];
+
+ // record if the user bought an upgrade (conversion)
+ if (userBoughtUpgrade) {
+    // create the conversion event
+    id&lt;AWSMobileAnalyticsEvent&gt; boughtUpgradeEvent = [eventClient createEventWithEventType:@"level1UserBoughtUpgrade"];
+
+    // record the conversion event
+    [eventClient recordEvent:boughtUpgradeEvent];
+ }
+</code></pre>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/eventType" title="eventType"></a>
+	<h3 class="method-title"><code><a href="#//api/name/eventType">&nbsp;&nbsp;eventType</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the name/type of this AWSMobileAnalyticsEvent</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, readonly) NSString *eventType</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>the name/type of this AWSMobileAnalyticsEvent</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addAttribute:forKey:" title="addAttribute:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addAttribute:forKey:">&ndash;&nbsp;addAttribute:forKey:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds an attribute to this AWSMobileAnalyticsEvent with the specified key. Only 40 attributes/metrics
+are allowed to be added to an AWSMobileAnalyticsEvent. If 40 attributes/metrics already exist on this AWSMobileAnalyticsEvent, the call is ignored.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addAttribute:(NSString *)<em>theValue</em> forKey:(NSString *)<em>theKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theValue</code></th>
+						<td><p>The value of the attribute. The value will be truncated if it exceeds 200 characters.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>The key of the attribute. The key will be truncated if it exceeds 50 characters.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/addMetric:forKey:" title="addMetric:forKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/addMetric:forKey:">&ndash;&nbsp;addMetric:forKey:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Adds a metric to this AWSMobileAnalyticsEvent with the specified key. Only 40 attributes/metrics
+are allowed to be added to an AWSMobileAnalyticsEvent. If 40 attribute/metrics already exist on this AWSMobileAnalyticsEvent, the call is ignored.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)addMetric:(NSNumber *)<em>theValue</em> forKey:(NSString *)<em>theKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theValue</code></th>
+						<td><p>The value of the metric.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>The key of the metric. The key will be truncated if it exceeds 50 characters.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/attributeForKey:" title="attributeForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/attributeForKey:">&ndash;&nbsp;attributeForKey:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the value of the attribute with the specified key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSString *)attributeForKey:(NSString *)<em>theKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>The key of the attribute to return</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The attribute with the specified key, or null if attribute does not exist</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/metricForKey:" title="metricForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/metricForKey:">&ndash;&nbsp;metricForKey:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the value of the metric with the specified key.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSNumber *)metricForKey:(NSString *)<em>theKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>The key of the metric to return</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>The metric with the specified key, or null if metric does not exist</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/hasAttributeForKey:" title="hasAttributeForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hasAttributeForKey:">&ndash;&nbsp;hasAttributeForKey:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Determines if this AWSMobileAnalyticsEvent contains a specific attribute</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)hasAttributeForKey:(NSString *)<em>theKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>The key of the attribute</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>YES if this AWSMobileAnalyticsEvent has an attribute with the specified key, NO otherwise</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/hasMetricForKey:" title="hasMetricForKey:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hasMetricForKey:">&ndash;&nbsp;hasMetricForKey:</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Determines if this AWSMobileAnalyticsEvent contains a specific metric</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)hasMetricForKey:(NSString *)<em>theKey</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>theKey</code></th>
+						<td><p>The key of the metric</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>YES if this AWSMobileAnalyticsEvent has a metric with the specified key, NO otherwise</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/allAttributes" title="allAttributes"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allAttributes">&ndash;&nbsp;allAttributes</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns an NSDictionary of all attributes contained within this AWSMobileAnalyticsEvent</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSDictionary *)allAttributes</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an NSDictionary of all attributes, where the attribute keys are the keys and the attribute values are the values</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/allMetrics" title="allMetrics"></a>
+	<h3 class="method-title"><code><a href="#//api/name/allMetrics">&ndash;&nbsp;allMetrics</a></code>
+<span class="task-item-suffix">required method</span></h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns an NSDictionary of all metrics contained within this AWSMobileAnalyticsEvent</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (NSDictionary *)allMetrics</code></div>
+
+		    
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>an NSDictionary of all metrics, where the metric keys are the keys and the metric values are the values</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSMobileAnalyticsEvent.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-08</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
