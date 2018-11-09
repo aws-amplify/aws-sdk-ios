@@ -67,6 +67,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) BOOL isBackgroundColorFullScreen;
 
 /**
+ @property disableSignUpButton
+ @brief If set to `YES` the sign up button is hidden from the UI.
+ **/
+@property (atomic) BOOL disableSignUpButton;
+
+/**
  @property font
  @brief Font for the text in the SignInView and all its subviews.
  **/

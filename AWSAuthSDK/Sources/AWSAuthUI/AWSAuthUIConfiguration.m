@@ -38,12 +38,15 @@
 
 @synthesize isBackgroundColorFullScreen;
 
+@synthesize disableSignUpButton;
+
 @synthesize font;
 
 - (id)init {
     self = [super init];
     if (self) {
         self.registeredSignInButtonViews = [[NSMutableArray alloc] init];
+        self.disableSignUpButton = NO;
     }
     return self;
 }
