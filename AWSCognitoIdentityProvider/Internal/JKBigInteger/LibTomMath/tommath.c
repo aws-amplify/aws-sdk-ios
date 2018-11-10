@@ -2502,7 +2502,7 @@ int aws_mp_jacobi(aws_mp_int *a, aws_mp_int *p, int *c)
   }
 
   /* step 5.  if p == 3 (mod 4) *and* a1 == 3 (mod 4) then s = -s */
-  if ( ((p->dp[0] & 3) == 3) && ((a1.dp[0] & 3) == 3)) {
+  if (((p->dp[0] & 3) == 3) && ((a1.dp[0] & 3) == 3)) {
     s = -s;
   }
 

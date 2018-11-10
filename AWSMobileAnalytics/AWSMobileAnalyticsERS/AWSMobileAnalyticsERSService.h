@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSMobileAnalyticsERS
+FOUNDATION_EXPORT NSString *const AWSMobileAnalyticsERSSDKVersion;
+
 /**
  A service which is used to record Amazon Mobile Analytics events
  */

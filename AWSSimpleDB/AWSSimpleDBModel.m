@@ -71,17 +71,6 @@ NSString *const AWSSimpleDBErrorDomain = @"com.amazonaws.AWSSimpleDBErrorDomain"
 
 @end
 
-@implementation AWSSimpleDBDeletableAttribute
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"name" : @"Name",
-             @"value" : @"Value",
-             };
-}
-
-@end
-
 @implementation AWSSimpleDBDeletableItem
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -92,7 +81,7 @@ NSString *const AWSSimpleDBErrorDomain = @"com.amazonaws.AWSSimpleDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSimpleDBDeletableAttribute class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSimpleDBAttribute class]];
 }
 
 @end
@@ -109,7 +98,7 @@ NSString *const AWSSimpleDBErrorDomain = @"com.amazonaws.AWSSimpleDBErrorDomain"
 }
 
 + (NSValueTransformer *)attributesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSimpleDBDeletableAttribute class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSimpleDBAttribute class]];
 }
 
 + (NSValueTransformer *)expectedJSONTransformer {

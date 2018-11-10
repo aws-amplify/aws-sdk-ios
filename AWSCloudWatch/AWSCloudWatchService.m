@@ -26,7 +26,7 @@
 #import "AWSCloudWatchResources.h"
 
 static NSString *const AWSInfoCloudWatch = @"CloudWatch";
-static NSString *const AWSCloudWatchSDKVersion = @"2.6.12";
+NSString *const AWSCloudWatchSDKVersion = @"2.7.0";
 
 
 @interface AWSCloudWatchResponseSerializer : AWSXMLResponseSerializer
@@ -40,6 +40,8 @@ static NSString *const AWSCloudWatchSDKVersion = @"2.6.12";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"InvalidParameterInput" : @(AWSCloudWatchErrorDashboardInvalidInput),
+                            @"ResourceNotFound" : @(AWSCloudWatchErrorDashboardNotFound),
                             @"InternalServiceError" : @(AWSCloudWatchErrorInternalService),
                             @"InvalidFormat" : @(AWSCloudWatchErrorInvalidFormat),
                             @"InvalidNextToken" : @(AWSCloudWatchErrorInvalidNextToken),
@@ -302,6 +304,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCloudWatchDeleteDashboardsOutput *> *)deleteDashboards:(AWSCloudWatchDeleteDashboardsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteDashboards"
+                   outputClass:[AWSCloudWatchDeleteDashboardsOutput class]];
+}
+
+- (void)deleteDashboards:(AWSCloudWatchDeleteDashboardsInput *)request
+     completionHandler:(void (^)(AWSCloudWatchDeleteDashboardsOutput *response, NSError *error))completionHandler {
+    [[self deleteDashboards:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchDeleteDashboardsOutput *> * _Nonnull task) {
+        AWSCloudWatchDeleteDashboardsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCloudWatchDescribeAlarmHistoryOutput *> *)describeAlarmHistory:(AWSCloudWatchDescribeAlarmHistoryInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -415,6 +440,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCloudWatchGetDashboardOutput *> *)getDashboard:(AWSCloudWatchGetDashboardInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetDashboard"
+                   outputClass:[AWSCloudWatchGetDashboardOutput class]];
+}
+
+- (void)getDashboard:(AWSCloudWatchGetDashboardInput *)request
+     completionHandler:(void (^)(AWSCloudWatchGetDashboardOutput *response, NSError *error))completionHandler {
+    [[self getDashboard:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchGetDashboardOutput *> * _Nonnull task) {
+        AWSCloudWatchGetDashboardOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCloudWatchGetMetricDataOutput *> *)getMetricData:(AWSCloudWatchGetMetricDataInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetMetricData"
+                   outputClass:[AWSCloudWatchGetMetricDataOutput class]];
+}
+
+- (void)getMetricData:(AWSCloudWatchGetMetricDataInput *)request
+     completionHandler:(void (^)(AWSCloudWatchGetMetricDataOutput *response, NSError *error))completionHandler {
+    [[self getMetricData:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchGetMetricDataOutput *> * _Nonnull task) {
+        AWSCloudWatchGetMetricDataOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCloudWatchGetMetricStatisticsOutput *> *)getMetricStatistics:(AWSCloudWatchGetMetricStatisticsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -438,6 +509,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSCloudWatchGetMetricWidgetImageOutput *> *)getMetricWidgetImage:(AWSCloudWatchGetMetricWidgetImageInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetMetricWidgetImage"
+                   outputClass:[AWSCloudWatchGetMetricWidgetImageOutput class]];
+}
+
+- (void)getMetricWidgetImage:(AWSCloudWatchGetMetricWidgetImageInput *)request
+     completionHandler:(void (^)(AWSCloudWatchGetMetricWidgetImageOutput *response, NSError *error))completionHandler {
+    [[self getMetricWidgetImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchGetMetricWidgetImageOutput *> * _Nonnull task) {
+        AWSCloudWatchGetMetricWidgetImageOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCloudWatchListDashboardsOutput *> *)listDashboards:(AWSCloudWatchListDashboardsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ListDashboards"
+                   outputClass:[AWSCloudWatchListDashboardsOutput class]];
+}
+
+- (void)listDashboards:(AWSCloudWatchListDashboardsInput *)request
+     completionHandler:(void (^)(AWSCloudWatchListDashboardsOutput *response, NSError *error))completionHandler {
+    [[self listDashboards:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchListDashboardsOutput *> * _Nonnull task) {
+        AWSCloudWatchListDashboardsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSCloudWatchListMetricsOutput *> *)listMetrics:(AWSCloudWatchListMetricsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -451,6 +568,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSCloudWatchListMetricsOutput *response, NSError *error))completionHandler {
     [[self listMetrics:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchListMetricsOutput *> * _Nonnull task) {
         AWSCloudWatchListMetricsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSCloudWatchPutDashboardOutput *> *)putDashboard:(AWSCloudWatchPutDashboardInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"PutDashboard"
+                   outputClass:[AWSCloudWatchPutDashboardOutput class]];
+}
+
+- (void)putDashboard:(AWSCloudWatchPutDashboardInput *)request
+     completionHandler:(void (^)(AWSCloudWatchPutDashboardOutput *response, NSError *error))completionHandler {
+    [[self putDashboard:request] continueWithBlock:^id _Nullable(AWSTask<AWSCloudWatchPutDashboardOutput *> * _Nonnull task) {
+        AWSCloudWatchPutDashboardOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

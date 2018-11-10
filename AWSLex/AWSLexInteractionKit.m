@@ -22,7 +22,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 NSString *const AWSInfoInteractionKit = @"LexInteractionKit";
-NSString *const AWSInteractionKitSDKVersion = @"2.6.12";
+NSString *const AWSInteractionKitSDKVersion = @"2.7.0";
 NSString *const AWSInternalLexInteractionKit = @"LexInteractionKitClient";
 NSString *const AWSLexInteractionKitUserAgent = @"interactionkit";
 NSString *const AWSLexInteractionKitErrorDomain = @"com.amazonaws.AWSLexInteractionKitErrorDomain";
@@ -285,7 +285,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             interactionKitConfig = [AWSLexInteractionKitConfig defaultInteractionKitConfigWithBotName:botName botAlias:botAlias];
         }
         
-        if (!serviceConfiguration && !interactionKitConfig) {
+        if (!serviceConfiguration || !interactionKitConfig) {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                            reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
                                          userInfo:nil];
@@ -315,8 +315,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [_serviceClients removeObjectForKey:key];
 }
 
-- (instancetype)initWithServiceConfiguration:(AWSServiceConfiguration *)serviceConfiguration
-                        interactionKitConfig:(AWSLexInteractionKitConfig *)interactionConfig
+- (instancetype)initWithServiceConfiguration:(nonnull AWSServiceConfiguration *)serviceConfiguration
+                        interactionKitConfig:(nonnull AWSLexInteractionKitConfig *)interactionConfig
 {
     if (self = [super init]) {
         _configuration = [serviceConfiguration copy];
@@ -565,7 +565,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [self dispatchBlockOnMainQueue:^{
         if(weakSelf.microphoneDelegate && [weakSelf.microphoneDelegate respondsToSelector:@selector(interactionKitOnRecordingEnd:audioStream:contentType:)]) {
             //TODO: need to decode the audio to something thats understandable by the audio player.
-            [weakSelf.microphoneDelegate interactionKitOnRecordingEnd:weakSelf audioStream:[producerAudioBuffer copy] contentType:[audioSource contentType]];
+            [weakSelf.microphoneDelegate interactionKitOnRecordingEnd:weakSelf audioStream:[self->producerAudioBuffer copy] contentType:[self->audioSource contentType]];
         }
     }];
 }
@@ -740,15 +740,15 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             [self handleError:task.error];
             return nil;
         }else{
-            return [_serviceClient postContent:request];
+            return [self->_serviceClient postContent:request];
         }
     }] continueWithBlock:^id _Nullable(AWSTask<AWSLexPostContentResponse *> * _Nonnull task) {
-        isStreaming = NO;
+        self->isStreaming = NO;
         self.resumeListening = NO;
         
         [self releaseAudioSource];
         
-        postRequest = nil;
+        self->postRequest = nil;
         
         if(task.error){
             [self handleError:task.error];
@@ -940,7 +940,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         };
         
         [self dispatchBlockOnMainQueue:^{
-            [audioPlayer start];
+            [self->audioPlayer start];
         }];
     }
 }

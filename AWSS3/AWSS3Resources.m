@@ -66,8 +66,8 @@
     \"protocol\":\"rest-xml\",\
     \"serviceAbbreviation\":\"Amazon S3\",\
     \"serviceFullName\":\"Amazon Simple Storage Service\",\
+    \"serviceId\":\"S3\",\
     \"signatureVersion\":\"s3\",\
-    \"timestampFormat\":\"rfc822\",\
     \"uid\":\"s3-2006-03-01\"\
   },\
   \"operations\":{\
@@ -83,7 +83,7 @@
         {\"shape\":\"NoSuchUpload\"}\
       ],\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadAbort.html\",\
-      \"documentation\":\"<p>Aborts a multipart upload.</p><p>To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.</p>\"\
+      \"documentation\":\"<p>Aborts a multipart upload.</p> <p>To verify that all parts have been removed, so you don't get charged for the part storage, you should call the List Parts operation and ensure the parts list is empty.</p>\"\
     },\
     \"CompleteMultipartUpload\":{\
       \"name\":\"CompleteMultipartUpload\",\
@@ -94,7 +94,7 @@
       \"input\":{\"shape\":\"CompleteMultipartUploadRequest\"},\
       \"output\":{\"shape\":\"CompleteMultipartUploadOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadComplete.html\",\
-      \"documentation\":\"Completes a multipart upload by assembling previously uploaded parts.\"\
+      \"documentation\":\"<p>Completes a multipart upload by assembling previously uploaded parts.</p>\"\
     },\
     \"CopyObject\":{\
       \"name\":\"CopyObject\",\
@@ -108,7 +108,7 @@
         {\"shape\":\"ObjectNotInActiveTierError\"}\
       ],\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectCOPY.html\",\
-      \"documentation\":\"Creates a copy of an object that is already stored in Amazon S3.\",\
+      \"documentation\":\"<p>Creates a copy of an object that is already stored in Amazon S3.</p>\",\
       \"alias\":\"PutObjectCopy\"\
     },\
     \"CreateBucket\":{\
@@ -124,7 +124,7 @@
         {\"shape\":\"BucketAlreadyOwnedByYou\"}\
       ],\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUT.html\",\
-      \"documentation\":\"Creates a new bucket.\",\
+      \"documentation\":\"<p>Creates a new bucket.</p>\",\
       \"alias\":\"PutBucket\"\
     },\
     \"CreateMultipartUpload\":{\
@@ -136,7 +136,7 @@
       \"input\":{\"shape\":\"CreateMultipartUploadRequest\"},\
       \"output\":{\"shape\":\"CreateMultipartUploadOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadInitiate.html\",\
-      \"documentation\":\"<p>Initiates a multipart upload and returns an upload ID.</p><p><b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>\",\
+      \"documentation\":\"<p>Initiates a multipart upload and returns an upload ID.</p> <p> <b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>\",\
       \"alias\":\"InitiateMultipartUpload\"\
     },\
     \"DeleteBucket\":{\
@@ -147,7 +147,7 @@
       },\
       \"input\":{\"shape\":\"DeleteBucketRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETE.html\",\
-      \"documentation\":\"Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.\"\
+      \"documentation\":\"<p>Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.</p>\"\
     },\
     \"DeleteBucketAnalyticsConfiguration\":{\
       \"name\":\"DeleteBucketAnalyticsConfiguration\",\
@@ -156,7 +156,7 @@
         \"requestUri\":\"/{Bucket}?analytics\"\
       },\
       \"input\":{\"shape\":\"DeleteBucketAnalyticsConfigurationRequest\"},\
-      \"documentation\":\"Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).\"\
+      \"documentation\":\"<p>Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).</p>\"\
     },\
     \"DeleteBucketCors\":{\
       \"name\":\"DeleteBucketCors\",\
@@ -166,7 +166,16 @@
       },\
       \"input\":{\"shape\":\"DeleteBucketCorsRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETEcors.html\",\
-      \"documentation\":\"Deletes the cors configuration information set for the bucket.\"\
+      \"documentation\":\"<p>Deletes the cors configuration information set for the bucket.</p>\"\
+    },\
+    \"DeleteBucketEncryption\":{\
+      \"name\":\"DeleteBucketEncryption\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/{Bucket}?encryption\"\
+      },\
+      \"input\":{\"shape\":\"DeleteBucketEncryptionRequest\"},\
+      \"documentation\":\"<p>Deletes the server-side encryption configuration from the bucket.</p>\"\
     },\
     \"DeleteBucketInventoryConfiguration\":{\
       \"name\":\"DeleteBucketInventoryConfiguration\",\
@@ -175,7 +184,7 @@
         \"requestUri\":\"/{Bucket}?inventory\"\
       },\
       \"input\":{\"shape\":\"DeleteBucketInventoryConfigurationRequest\"},\
-      \"documentation\":\"Deletes an inventory configuration (identified by the inventory ID) from the bucket.\"\
+      \"documentation\":\"<p>Deletes an inventory configuration (identified by the inventory ID) from the bucket.</p>\"\
     },\
     \"DeleteBucketLifecycle\":{\
       \"name\":\"DeleteBucketLifecycle\",\
@@ -185,7 +194,7 @@
       },\
       \"input\":{\"shape\":\"DeleteBucketLifecycleRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETElifecycle.html\",\
-      \"documentation\":\"Deletes the lifecycle configuration from the bucket.\"\
+      \"documentation\":\"<p>Deletes the lifecycle configuration from the bucket.</p>\"\
     },\
     \"DeleteBucketMetricsConfiguration\":{\
       \"name\":\"DeleteBucketMetricsConfiguration\",\
@@ -194,7 +203,7 @@
         \"requestUri\":\"/{Bucket}?metrics\"\
       },\
       \"input\":{\"shape\":\"DeleteBucketMetricsConfigurationRequest\"},\
-      \"documentation\":\"Deletes a metrics configuration (specified by the metrics configuration ID) from the bucket.\"\
+      \"documentation\":\"<p>Deletes a metrics configuration (specified by the metrics configuration ID) from the bucket.</p>\"\
     },\
     \"DeleteBucketPolicy\":{\
       \"name\":\"DeleteBucketPolicy\",\
@@ -204,7 +213,7 @@
       },\
       \"input\":{\"shape\":\"DeleteBucketPolicyRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETEpolicy.html\",\
-      \"documentation\":\"Deletes the policy from the bucket.\"\
+      \"documentation\":\"<p>Deletes the policy from the bucket.</p>\"\
     },\
     \"DeleteBucketReplication\":{\
       \"name\":\"DeleteBucketReplication\",\
@@ -213,7 +222,7 @@
         \"requestUri\":\"/{Bucket}?replication\"\
       },\
       \"input\":{\"shape\":\"DeleteBucketReplicationRequest\"},\
-      \"documentation\":\"Deletes the replication configuration from the bucket.\"\
+      \"documentation\":\"<p>Deletes the replication configuration from the bucket.</p>\"\
     },\
     \"DeleteBucketTagging\":{\
       \"name\":\"DeleteBucketTagging\",\
@@ -223,7 +232,7 @@
       },\
       \"input\":{\"shape\":\"DeleteBucketTaggingRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETEtagging.html\",\
-      \"documentation\":\"Deletes the tags from the bucket.\"\
+      \"documentation\":\"<p>Deletes the tags from the bucket.</p>\"\
     },\
     \"DeleteBucketWebsite\":{\
       \"name\":\"DeleteBucketWebsite\",\
@@ -233,7 +242,7 @@
       },\
       \"input\":{\"shape\":\"DeleteBucketWebsiteRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETEwebsite.html\",\
-      \"documentation\":\"This operation removes the website configuration from the bucket.\"\
+      \"documentation\":\"<p>This operation removes the website configuration from the bucket.</p>\"\
     },\
     \"DeleteObject\":{\
       \"name\":\"DeleteObject\",\
@@ -244,7 +253,7 @@
       \"input\":{\"shape\":\"DeleteObjectRequest\"},\
       \"output\":{\"shape\":\"DeleteObjectOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectDELETE.html\",\
-      \"documentation\":\"Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.\"\
+      \"documentation\":\"<p>Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.</p>\"\
     },\
     \"DeleteObjectTagging\":{\
       \"name\":\"DeleteObjectTagging\",\
@@ -254,7 +263,7 @@
       },\
       \"input\":{\"shape\":\"DeleteObjectTaggingRequest\"},\
       \"output\":{\"shape\":\"DeleteObjectTaggingOutput\"},\
-      \"documentation\":\"Removes the tag-set from an existing object.\"\
+      \"documentation\":\"<p>Removes the tag-set from an existing object.</p>\"\
     },\
     \"DeleteObjects\":{\
       \"name\":\"DeleteObjects\",\
@@ -265,7 +274,7 @@
       \"input\":{\"shape\":\"DeleteObjectsRequest\"},\
       \"output\":{\"shape\":\"DeleteObjectsOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/multiobjectdeleteapi.html\",\
-      \"documentation\":\"This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.\",\
+      \"documentation\":\"<p>This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.</p>\",\
       \"alias\":\"DeleteMultipleObjects\"\
     },\
     \"GetBucketAccelerateConfiguration\":{\
@@ -276,7 +285,7 @@
       },\
       \"input\":{\"shape\":\"GetBucketAccelerateConfigurationRequest\"},\
       \"output\":{\"shape\":\"GetBucketAccelerateConfigurationOutput\"},\
-      \"documentation\":\"Returns the accelerate configuration of a bucket.\"\
+      \"documentation\":\"<p>Returns the accelerate configuration of a bucket.</p>\"\
     },\
     \"GetBucketAcl\":{\
       \"name\":\"GetBucketAcl\",\
@@ -287,7 +296,7 @@
       \"input\":{\"shape\":\"GetBucketAclRequest\"},\
       \"output\":{\"shape\":\"GetBucketAclOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETacl.html\",\
-      \"documentation\":\"Gets the access control policy for the bucket.\"\
+      \"documentation\":\"<p>Gets the access control policy for the bucket.</p>\"\
     },\
     \"GetBucketAnalyticsConfiguration\":{\
       \"name\":\"GetBucketAnalyticsConfiguration\",\
@@ -297,7 +306,7 @@
       },\
       \"input\":{\"shape\":\"GetBucketAnalyticsConfigurationRequest\"},\
       \"output\":{\"shape\":\"GetBucketAnalyticsConfigurationOutput\"},\
-      \"documentation\":\"Gets an analytics configuration for the bucket (specified by the analytics configuration ID).\"\
+      \"documentation\":\"<p>Gets an analytics configuration for the bucket (specified by the analytics configuration ID).</p>\"\
     },\
     \"GetBucketCors\":{\
       \"name\":\"GetBucketCors\",\
@@ -308,7 +317,17 @@
       \"input\":{\"shape\":\"GetBucketCorsRequest\"},\
       \"output\":{\"shape\":\"GetBucketCorsOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETcors.html\",\
-      \"documentation\":\"Returns the cors configuration for the bucket.\"\
+      \"documentation\":\"<p>Returns the cors configuration for the bucket.</p>\"\
+    },\
+    \"GetBucketEncryption\":{\
+      \"name\":\"GetBucketEncryption\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/{Bucket}?encryption\"\
+      },\
+      \"input\":{\"shape\":\"GetBucketEncryptionRequest\"},\
+      \"output\":{\"shape\":\"GetBucketEncryptionOutput\"},\
+      \"documentation\":\"<p>Returns the server-side encryption configuration of a bucket.</p>\"\
     },\
     \"GetBucketInventoryConfiguration\":{\
       \"name\":\"GetBucketInventoryConfiguration\",\
@@ -318,7 +337,7 @@
       },\
       \"input\":{\"shape\":\"GetBucketInventoryConfigurationRequest\"},\
       \"output\":{\"shape\":\"GetBucketInventoryConfigurationOutput\"},\
-      \"documentation\":\"Returns an inventory configuration (identified by the inventory ID) from the bucket.\"\
+      \"documentation\":\"<p>Returns an inventory configuration (identified by the inventory ID) from the bucket.</p>\"\
     },\
     \"GetBucketLifecycle\":{\
       \"name\":\"GetBucketLifecycle\",\
@@ -329,7 +348,7 @@
       \"input\":{\"shape\":\"GetBucketLifecycleRequest\"},\
       \"output\":{\"shape\":\"GetBucketLifecycleOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETlifecycle.html\",\
-      \"documentation\":\"Deprecated, see the GetBucketLifecycleConfiguration operation.\",\
+      \"documentation\":\"<p>Deprecated, see the GetBucketLifecycleConfiguration operation.</p>\",\
       \"deprecated\":true\
     },\
     \"GetBucketLifecycleConfiguration\":{\
@@ -340,7 +359,7 @@
       },\
       \"input\":{\"shape\":\"GetBucketLifecycleConfigurationRequest\"},\
       \"output\":{\"shape\":\"GetBucketLifecycleConfigurationOutput\"},\
-      \"documentation\":\"Returns the lifecycle configuration information set on the bucket.\"\
+      \"documentation\":\"<p>Returns the lifecycle configuration information set on the bucket.</p>\"\
     },\
     \"GetBucketLocation\":{\
       \"name\":\"GetBucketLocation\",\
@@ -351,7 +370,7 @@
       \"input\":{\"shape\":\"GetBucketLocationRequest\"},\
       \"output\":{\"shape\":\"GetBucketLocationOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETlocation.html\",\
-      \"documentation\":\"Returns the region the bucket resides in.\"\
+      \"documentation\":\"<p>Returns the region the bucket resides in.</p>\"\
     },\
     \"GetBucketLogging\":{\
       \"name\":\"GetBucketLogging\",\
@@ -362,7 +381,7 @@
       \"input\":{\"shape\":\"GetBucketLoggingRequest\"},\
       \"output\":{\"shape\":\"GetBucketLoggingOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETlogging.html\",\
-      \"documentation\":\"Returns the logging status of a bucket and the permissions users have to view and modify that status. To use GET, you must be the bucket owner.\"\
+      \"documentation\":\"<p>Returns the logging status of a bucket and the permissions users have to view and modify that status. To use GET, you must be the bucket owner.</p>\"\
     },\
     \"GetBucketMetricsConfiguration\":{\
       \"name\":\"GetBucketMetricsConfiguration\",\
@@ -372,7 +391,7 @@
       },\
       \"input\":{\"shape\":\"GetBucketMetricsConfigurationRequest\"},\
       \"output\":{\"shape\":\"GetBucketMetricsConfigurationOutput\"},\
-      \"documentation\":\"Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.\"\
+      \"documentation\":\"<p>Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.</p>\"\
     },\
     \"GetBucketNotification\":{\
       \"name\":\"GetBucketNotification\",\
@@ -383,7 +402,7 @@
       \"input\":{\"shape\":\"GetBucketNotificationConfigurationRequest\"},\
       \"output\":{\"shape\":\"NotificationConfigurationDeprecated\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETnotification.html\",\
-      \"documentation\":\"Deprecated, see the GetBucketNotificationConfiguration operation.\",\
+      \"documentation\":\"<p>Deprecated, see the GetBucketNotificationConfiguration operation.</p>\",\
       \"deprecated\":true\
     },\
     \"GetBucketNotificationConfiguration\":{\
@@ -394,7 +413,7 @@
       },\
       \"input\":{\"shape\":\"GetBucketNotificationConfigurationRequest\"},\
       \"output\":{\"shape\":\"NotificationConfiguration\"},\
-      \"documentation\":\"Returns the notification configuration of a bucket.\"\
+      \"documentation\":\"<p>Returns the notification configuration of a bucket.</p>\"\
     },\
     \"GetBucketPolicy\":{\
       \"name\":\"GetBucketPolicy\",\
@@ -405,7 +424,7 @@
       \"input\":{\"shape\":\"GetBucketPolicyRequest\"},\
       \"output\":{\"shape\":\"GetBucketPolicyOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETpolicy.html\",\
-      \"documentation\":\"Returns the policy of a specified bucket.\"\
+      \"documentation\":\"<p>Returns the policy of a specified bucket.</p>\"\
     },\
     \"GetBucketReplication\":{\
       \"name\":\"GetBucketReplication\",\
@@ -415,7 +434,7 @@
       },\
       \"input\":{\"shape\":\"GetBucketReplicationRequest\"},\
       \"output\":{\"shape\":\"GetBucketReplicationOutput\"},\
-      \"documentation\":\"Returns the replication configuration of a bucket.\"\
+      \"documentation\":\"<p>Returns the replication configuration of a bucket.</p>\"\
     },\
     \"GetBucketRequestPayment\":{\
       \"name\":\"GetBucketRequestPayment\",\
@@ -426,7 +445,7 @@
       \"input\":{\"shape\":\"GetBucketRequestPaymentRequest\"},\
       \"output\":{\"shape\":\"GetBucketRequestPaymentOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTrequestPaymentGET.html\",\
-      \"documentation\":\"Returns the request payment configuration of a bucket.\"\
+      \"documentation\":\"<p>Returns the request payment configuration of a bucket.</p>\"\
     },\
     \"GetBucketTagging\":{\
       \"name\":\"GetBucketTagging\",\
@@ -437,7 +456,7 @@
       \"input\":{\"shape\":\"GetBucketTaggingRequest\"},\
       \"output\":{\"shape\":\"GetBucketTaggingOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETtagging.html\",\
-      \"documentation\":\"Returns the tag set associated with the bucket.\"\
+      \"documentation\":\"<p>Returns the tag set associated with the bucket.</p>\"\
     },\
     \"GetBucketVersioning\":{\
       \"name\":\"GetBucketVersioning\",\
@@ -448,7 +467,7 @@
       \"input\":{\"shape\":\"GetBucketVersioningRequest\"},\
       \"output\":{\"shape\":\"GetBucketVersioningOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETversioningStatus.html\",\
-      \"documentation\":\"Returns the versioning state of a bucket.\"\
+      \"documentation\":\"<p>Returns the versioning state of a bucket.</p>\"\
     },\
     \"GetBucketWebsite\":{\
       \"name\":\"GetBucketWebsite\",\
@@ -459,7 +478,7 @@
       \"input\":{\"shape\":\"GetBucketWebsiteRequest\"},\
       \"output\":{\"shape\":\"GetBucketWebsiteOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETwebsite.html\",\
-      \"documentation\":\"Returns the website configuration for a bucket.\"\
+      \"documentation\":\"<p>Returns the website configuration for a bucket.</p>\"\
     },\
     \"GetObject\":{\
       \"name\":\"GetObject\",\
@@ -473,7 +492,7 @@
         {\"shape\":\"NoSuchKey\"}\
       ],\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectGET.html\",\
-      \"documentation\":\"Retrieves objects from Amazon S3.\"\
+      \"documentation\":\"<p>Retrieves objects from Amazon S3.</p>\"\
     },\
     \"GetObjectAcl\":{\
       \"name\":\"GetObjectAcl\",\
@@ -487,7 +506,7 @@
         {\"shape\":\"NoSuchKey\"}\
       ],\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectGETacl.html\",\
-      \"documentation\":\"Returns the access control list (ACL) of an object.\"\
+      \"documentation\":\"<p>Returns the access control list (ACL) of an object.</p>\"\
     },\
     \"GetObjectTagging\":{\
       \"name\":\"GetObjectTagging\",\
@@ -497,7 +516,7 @@
       },\
       \"input\":{\"shape\":\"GetObjectTaggingRequest\"},\
       \"output\":{\"shape\":\"GetObjectTaggingOutput\"},\
-      \"documentation\":\"Returns the tag-set of an object.\"\
+      \"documentation\":\"<p>Returns the tag-set of an object.</p>\"\
     },\
     \"GetObjectTorrent\":{\
       \"name\":\"GetObjectTorrent\",\
@@ -508,7 +527,7 @@
       \"input\":{\"shape\":\"GetObjectTorrentRequest\"},\
       \"output\":{\"shape\":\"GetObjectTorrentOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectGETtorrent.html\",\
-      \"documentation\":\"Return torrent files from a bucket.\"\
+      \"documentation\":\"<p>Return torrent files from a bucket.</p>\"\
     },\
     \"HeadBucket\":{\
       \"name\":\"HeadBucket\",\
@@ -521,7 +540,7 @@
         {\"shape\":\"NoSuchBucket\"}\
       ],\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketHEAD.html\",\
-      \"documentation\":\"This operation is useful to determine if a bucket exists and you have permission to access it.\"\
+      \"documentation\":\"<p>This operation is useful to determine if a bucket exists and you have permission to access it.</p>\"\
     },\
     \"HeadObject\":{\
       \"name\":\"HeadObject\",\
@@ -535,7 +554,7 @@
         {\"shape\":\"NoSuchKey\"}\
       ],\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectHEAD.html\",\
-      \"documentation\":\"The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.\"\
+      \"documentation\":\"<p>The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.</p>\"\
     },\
     \"ListBucketAnalyticsConfigurations\":{\
       \"name\":\"ListBucketAnalyticsConfigurations\",\
@@ -545,7 +564,7 @@
       },\
       \"input\":{\"shape\":\"ListBucketAnalyticsConfigurationsRequest\"},\
       \"output\":{\"shape\":\"ListBucketAnalyticsConfigurationsOutput\"},\
-      \"documentation\":\"Lists the analytics configurations for the bucket.\"\
+      \"documentation\":\"<p>Lists the analytics configurations for the bucket.</p>\"\
     },\
     \"ListBucketInventoryConfigurations\":{\
       \"name\":\"ListBucketInventoryConfigurations\",\
@@ -555,7 +574,7 @@
       },\
       \"input\":{\"shape\":\"ListBucketInventoryConfigurationsRequest\"},\
       \"output\":{\"shape\":\"ListBucketInventoryConfigurationsOutput\"},\
-      \"documentation\":\"Returns a list of inventory configurations for the bucket.\"\
+      \"documentation\":\"<p>Returns a list of inventory configurations for the bucket.</p>\"\
     },\
     \"ListBucketMetricsConfigurations\":{\
       \"name\":\"ListBucketMetricsConfigurations\",\
@@ -565,7 +584,7 @@
       },\
       \"input\":{\"shape\":\"ListBucketMetricsConfigurationsRequest\"},\
       \"output\":{\"shape\":\"ListBucketMetricsConfigurationsOutput\"},\
-      \"documentation\":\"Lists the metrics configurations for the bucket.\"\
+      \"documentation\":\"<p>Lists the metrics configurations for the bucket.</p>\"\
     },\
     \"ListBuckets\":{\
       \"name\":\"ListBuckets\",\
@@ -575,7 +594,7 @@
       },\
       \"output\":{\"shape\":\"ListBucketsOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTServiceGET.html\",\
-      \"documentation\":\"Returns a list of all buckets owned by the authenticated sender of the request.\",\
+      \"documentation\":\"<p>Returns a list of all buckets owned by the authenticated sender of the request.</p>\",\
       \"alias\":\"GetService\"\
     },\
     \"ListMultipartUploads\":{\
@@ -587,7 +606,7 @@
       \"input\":{\"shape\":\"ListMultipartUploadsRequest\"},\
       \"output\":{\"shape\":\"ListMultipartUploadsOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadListMPUpload.html\",\
-      \"documentation\":\"This operation lists in-progress multipart uploads.\"\
+      \"documentation\":\"<p>This operation lists in-progress multipart uploads.</p>\"\
     },\
     \"ListObjectVersions\":{\
       \"name\":\"ListObjectVersions\",\
@@ -598,7 +617,7 @@
       \"input\":{\"shape\":\"ListObjectVersionsRequest\"},\
       \"output\":{\"shape\":\"ListObjectVersionsOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETVersion.html\",\
-      \"documentation\":\"Returns metadata about all of the versions of objects in a bucket.\",\
+      \"documentation\":\"<p>Returns metadata about all of the versions of objects in a bucket.</p>\",\
       \"alias\":\"GetBucketObjectVersions\"\
     },\
     \"ListObjects\":{\
@@ -613,7 +632,7 @@
         {\"shape\":\"NoSuchBucket\"}\
       ],\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGET.html\",\
-      \"documentation\":\"Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.\",\
+      \"documentation\":\"<p>Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.</p>\",\
       \"alias\":\"GetBucket\"\
     },\
     \"ListObjectsV2\":{\
@@ -627,7 +646,7 @@
       \"errors\":[\
         {\"shape\":\"NoSuchBucket\"}\
       ],\
-      \"documentation\":\"Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. Note: ListObjectsV2 is the revised List Objects API and we recommend you use this revised API for new application development.\"\
+      \"documentation\":\"<p>Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. Note: ListObjectsV2 is the revised List Objects API and we recommend you use this revised API for new application development.</p>\"\
     },\
     \"ListParts\":{\
       \"name\":\"ListParts\",\
@@ -638,7 +657,7 @@
       \"input\":{\"shape\":\"ListPartsRequest\"},\
       \"output\":{\"shape\":\"ListPartsOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadListParts.html\",\
-      \"documentation\":\"Lists the parts that have been uploaded for a specific multipart upload.\"\
+      \"documentation\":\"<p>Lists the parts that have been uploaded for a specific multipart upload.</p>\"\
     },\
     \"PutBucketAccelerateConfiguration\":{\
       \"name\":\"PutBucketAccelerateConfiguration\",\
@@ -647,7 +666,7 @@
         \"requestUri\":\"/{Bucket}?accelerate\"\
       },\
       \"input\":{\"shape\":\"PutBucketAccelerateConfigurationRequest\"},\
-      \"documentation\":\"Sets the accelerate configuration of an existing bucket.\"\
+      \"documentation\":\"<p>Sets the accelerate configuration of an existing bucket.</p>\"\
     },\
     \"PutBucketAcl\":{\
       \"name\":\"PutBucketAcl\",\
@@ -657,7 +676,7 @@
       },\
       \"input\":{\"shape\":\"PutBucketAclRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTacl.html\",\
-      \"documentation\":\"Sets the permissions on a bucket using access control lists (ACL).\"\
+      \"documentation\":\"<p>Sets the permissions on a bucket using access control lists (ACL).</p>\"\
     },\
     \"PutBucketAnalyticsConfiguration\":{\
       \"name\":\"PutBucketAnalyticsConfiguration\",\
@@ -666,7 +685,7 @@
         \"requestUri\":\"/{Bucket}?analytics\"\
       },\
       \"input\":{\"shape\":\"PutBucketAnalyticsConfigurationRequest\"},\
-      \"documentation\":\"Sets an analytics configuration for the bucket (specified by the analytics configuration ID).\"\
+      \"documentation\":\"<p>Sets an analytics configuration for the bucket (specified by the analytics configuration ID).</p>\"\
     },\
     \"PutBucketCors\":{\
       \"name\":\"PutBucketCors\",\
@@ -676,7 +695,16 @@
       },\
       \"input\":{\"shape\":\"PutBucketCorsRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTcors.html\",\
-      \"documentation\":\"Sets the cors configuration for a bucket.\"\
+      \"documentation\":\"<p>Sets the cors configuration for a bucket.</p>\"\
+    },\
+    \"PutBucketEncryption\":{\
+      \"name\":\"PutBucketEncryption\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/{Bucket}?encryption\"\
+      },\
+      \"input\":{\"shape\":\"PutBucketEncryptionRequest\"},\
+      \"documentation\":\"<p>Creates a new server-side encryption configuration (or replaces an existing one, if present).</p>\"\
     },\
     \"PutBucketInventoryConfiguration\":{\
       \"name\":\"PutBucketInventoryConfiguration\",\
@@ -685,7 +713,7 @@
         \"requestUri\":\"/{Bucket}?inventory\"\
       },\
       \"input\":{\"shape\":\"PutBucketInventoryConfigurationRequest\"},\
-      \"documentation\":\"Adds an inventory configuration (identified by the inventory ID) from the bucket.\"\
+      \"documentation\":\"<p>Adds an inventory configuration (identified by the inventory ID) from the bucket.</p>\"\
     },\
     \"PutBucketLifecycle\":{\
       \"name\":\"PutBucketLifecycle\",\
@@ -695,7 +723,7 @@
       },\
       \"input\":{\"shape\":\"PutBucketLifecycleRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTlifecycle.html\",\
-      \"documentation\":\"Deprecated, see the PutBucketLifecycleConfiguration operation.\",\
+      \"documentation\":\"<p>Deprecated, see the PutBucketLifecycleConfiguration operation.</p>\",\
       \"deprecated\":true\
     },\
     \"PutBucketLifecycleConfiguration\":{\
@@ -705,7 +733,7 @@
         \"requestUri\":\"/{Bucket}?lifecycle\"\
       },\
       \"input\":{\"shape\":\"PutBucketLifecycleConfigurationRequest\"},\
-      \"documentation\":\"Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.\"\
+      \"documentation\":\"<p>Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.</p>\"\
     },\
     \"PutBucketLogging\":{\
       \"name\":\"PutBucketLogging\",\
@@ -715,7 +743,7 @@
       },\
       \"input\":{\"shape\":\"PutBucketLoggingRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTlogging.html\",\
-      \"documentation\":\"Set the logging parameters for a bucket and to specify permissions for who can view and modify the logging parameters. To set the logging status of a bucket, you must be the bucket owner.\"\
+      \"documentation\":\"<p>Set the logging parameters for a bucket and to specify permissions for who can view and modify the logging parameters. To set the logging status of a bucket, you must be the bucket owner.</p>\"\
     },\
     \"PutBucketMetricsConfiguration\":{\
       \"name\":\"PutBucketMetricsConfiguration\",\
@@ -724,7 +752,7 @@
         \"requestUri\":\"/{Bucket}?metrics\"\
       },\
       \"input\":{\"shape\":\"PutBucketMetricsConfigurationRequest\"},\
-      \"documentation\":\"Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.\"\
+      \"documentation\":\"<p>Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.</p>\"\
     },\
     \"PutBucketNotification\":{\
       \"name\":\"PutBucketNotification\",\
@@ -734,7 +762,7 @@
       },\
       \"input\":{\"shape\":\"PutBucketNotificationRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTnotification.html\",\
-      \"documentation\":\"Deprecated, see the PutBucketNotificationConfiguraiton operation.\",\
+      \"documentation\":\"<p>Deprecated, see the PutBucketNotificationConfiguraiton operation.</p>\",\
       \"deprecated\":true\
     },\
     \"PutBucketNotificationConfiguration\":{\
@@ -744,7 +772,7 @@
         \"requestUri\":\"/{Bucket}?notification\"\
       },\
       \"input\":{\"shape\":\"PutBucketNotificationConfigurationRequest\"},\
-      \"documentation\":\"Enables notifications of specified events for a bucket.\"\
+      \"documentation\":\"<p>Enables notifications of specified events for a bucket.</p>\"\
     },\
     \"PutBucketPolicy\":{\
       \"name\":\"PutBucketPolicy\",\
@@ -754,7 +782,7 @@
       },\
       \"input\":{\"shape\":\"PutBucketPolicyRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTpolicy.html\",\
-      \"documentation\":\"Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.\"\
+      \"documentation\":\"<p>Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.</p>\"\
     },\
     \"PutBucketReplication\":{\
       \"name\":\"PutBucketReplication\",\
@@ -763,7 +791,7 @@
         \"requestUri\":\"/{Bucket}?replication\"\
       },\
       \"input\":{\"shape\":\"PutBucketReplicationRequest\"},\
-      \"documentation\":\"Creates a new replication configuration (or replaces an existing one, if present).\"\
+      \"documentation\":\"<p> Creates a new replication configuration (or replaces an existing one, if present). For more information, see <a href=\\\" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html\\\">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>\"\
     },\
     \"PutBucketRequestPayment\":{\
       \"name\":\"PutBucketRequestPayment\",\
@@ -773,7 +801,7 @@
       },\
       \"input\":{\"shape\":\"PutBucketRequestPaymentRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTrequestPaymentPUT.html\",\
-      \"documentation\":\"Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html\"\
+      \"documentation\":\"<p>Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html</p>\"\
     },\
     \"PutBucketTagging\":{\
       \"name\":\"PutBucketTagging\",\
@@ -783,7 +811,7 @@
       },\
       \"input\":{\"shape\":\"PutBucketTaggingRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTtagging.html\",\
-      \"documentation\":\"Sets the tags for a bucket.\"\
+      \"documentation\":\"<p>Sets the tags for a bucket.</p>\"\
     },\
     \"PutBucketVersioning\":{\
       \"name\":\"PutBucketVersioning\",\
@@ -793,7 +821,7 @@
       },\
       \"input\":{\"shape\":\"PutBucketVersioningRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTVersioningStatus.html\",\
-      \"documentation\":\"Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.\"\
+      \"documentation\":\"<p>Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.</p>\"\
     },\
     \"PutBucketWebsite\":{\
       \"name\":\"PutBucketWebsite\",\
@@ -803,7 +831,7 @@
       },\
       \"input\":{\"shape\":\"PutBucketWebsiteRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTwebsite.html\",\
-      \"documentation\":\"Set the website configuration for a bucket.\"\
+      \"documentation\":\"<p>Set the website configuration for a bucket.</p>\"\
     },\
     \"PutObject\":{\
       \"name\":\"PutObject\",\
@@ -814,7 +842,7 @@
       \"input\":{\"shape\":\"PutObjectRequest\"},\
       \"output\":{\"shape\":\"PutObjectOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPUT.html\",\
-      \"documentation\":\"Adds an object to a bucket.\"\
+      \"documentation\":\"<p>Adds an object to a bucket.</p>\"\
     },\
     \"PutObjectAcl\":{\
       \"name\":\"PutObjectAcl\",\
@@ -828,7 +856,7 @@
         {\"shape\":\"NoSuchKey\"}\
       ],\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPUTacl.html\",\
-      \"documentation\":\"uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket\"\
+      \"documentation\":\"<p>uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket</p>\"\
     },\
     \"PutObjectTagging\":{\
       \"name\":\"PutObjectTagging\",\
@@ -838,7 +866,7 @@
       },\
       \"input\":{\"shape\":\"PutObjectTaggingRequest\"},\
       \"output\":{\"shape\":\"PutObjectTaggingOutput\"},\
-      \"documentation\":\"Sets the supplied tag-set to an object that already exists in a bucket\"\
+      \"documentation\":\"<p>Sets the supplied tag-set to an object that already exists in a bucket</p>\"\
     },\
     \"RestoreObject\":{\
       \"name\":\"RestoreObject\",\
@@ -852,8 +880,22 @@
         {\"shape\":\"ObjectAlreadyInActiveTierError\"}\
       ],\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectRestore.html\",\
-      \"documentation\":\"Restores an archived copy of an object back into Amazon S3\",\
+      \"documentation\":\"<p>Restores an archived copy of an object back into Amazon S3</p>\",\
       \"alias\":\"PostObjectRestore\"\
+    },\
+    \"SelectObjectContent\":{\
+      \"name\":\"SelectObjectContent\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/{Bucket}/{Key+}?select&select-type=2\"\
+      },\
+      \"input\":{\
+        \"shape\":\"SelectObjectContentRequest\",\
+        \"locationName\":\"SelectObjectContentRequest\",\
+        \"xmlNamespace\":{\"uri\":\"http://s3.amazonaws.com/doc/2006-03-01/\"}\
+      },\
+      \"output\":{\"shape\":\"SelectObjectContentOutput\"},\
+      \"documentation\":\"<p>This operation filters the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response.</p>\"\
     },\
     \"UploadPart\":{\
       \"name\":\"UploadPart\",\
@@ -864,7 +906,7 @@
       \"input\":{\"shape\":\"UploadPartRequest\"},\
       \"output\":{\"shape\":\"UploadPartOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadUploadPart.html\",\
-      \"documentation\":\"<p>Uploads a part in a multipart upload.</p><p><b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>\"\
+      \"documentation\":\"<p>Uploads a part in a multipart upload.</p> <p> <b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>\"\
     },\
     \"UploadPartCopy\":{\
       \"name\":\"UploadPartCopy\",\
@@ -875,7 +917,7 @@
       \"input\":{\"shape\":\"UploadPartCopyRequest\"},\
       \"output\":{\"shape\":\"UploadPartCopyOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/mpUploadUploadPartCopy.html\",\
-      \"documentation\":\"Uploads a part by copying data from an existing object as data source.\"\
+      \"documentation\":\"<p>Uploads a part by copying data from an existing object as data source.</p>\"\
     }\
   },\
   \"shapes\":{\
@@ -885,10 +927,10 @@
       \"members\":{\
         \"DaysAfterInitiation\":{\
           \"shape\":\"DaysAfterInitiation\",\
-          \"documentation\":\"Indicates the number of days that must pass since initiation for Lifecycle to abort an Incomplete Multipart Upload.\"\
+          \"documentation\":\"<p>Indicates the number of days that must pass since initiation for Lifecycle to abort an Incomplete Multipart Upload.</p>\"\
         }\
       },\
-      \"documentation\":\"Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.\"\
+      \"documentation\":\"<p>Specifies the days since the initiation of an Incomplete Multipart Upload that Lifecycle will wait before permanently removing all parts of the upload.</p>\"\
     },\
     \"AbortMultipartUploadOutput\":{\
       \"type\":\"structure\",\
@@ -936,7 +978,7 @@
       \"members\":{\
         \"Status\":{\
           \"shape\":\"BucketAccelerateStatus\",\
-          \"documentation\":\"The accelerate configuration of the bucket.\"\
+          \"documentation\":\"<p>The accelerate configuration of the bucket.</p>\"\
         }\
       }\
     },\
@@ -946,13 +988,25 @@
       \"members\":{\
         \"Grants\":{\
           \"shape\":\"Grants\",\
-          \"documentation\":\"A list of grants.\",\
+          \"documentation\":\"<p>A list of grants.</p>\",\
           \"locationName\":\"AccessControlList\"\
         },\
         \"Owner\":{\"shape\":\"Owner\"}\
       }\
     },\
+    \"AccessControlTranslation\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Owner\"],\
+      \"members\":{\
+        \"Owner\":{\
+          \"shape\":\"OwnerOverride\",\
+          \"documentation\":\"<p>The override value for the owner of the replica object.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Container for information regarding the access control for replicas.</p>\"\
+    },\
     \"AccountId\":{\"type\":\"string\"},\
+    \"AllowQuotedRecordDelimiter\":{\"type\":\"boolean\"},\
     \"AllowedHeader\":{\"type\":\"string\"},\
     \"AllowedHeaders\":{\
       \"type\":\"list\",\
@@ -976,11 +1030,11 @@
       \"members\":{\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"The prefix to use when evaluating an AND predicate.\"\
+          \"documentation\":\"<p>The prefix to use when evaluating an AND predicate.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagSet\",\
-          \"documentation\":\"The list of tags to use when evaluating an AND predicate.\",\
+          \"documentation\":\"<p>The list of tags to use when evaluating an AND predicate.</p>\",\
           \"flattened\":true,\
           \"locationName\":\"Tag\"\
         }\
@@ -995,15 +1049,15 @@
       \"members\":{\
         \"Id\":{\
           \"shape\":\"AnalyticsId\",\
-          \"documentation\":\"The identifier used to represent an analytics configuration.\"\
+          \"documentation\":\"<p>The identifier used to represent an analytics configuration.</p>\"\
         },\
         \"Filter\":{\
           \"shape\":\"AnalyticsFilter\",\
-          \"documentation\":\"The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.\"\
+          \"documentation\":\"<p>The filter used to describe a set of objects for analyses. A filter must have exactly one prefix, one tag, or one conjunction (AnalyticsAndOperator). If no filter is provided, all objects will be considered in any analysis.</p>\"\
         },\
         \"StorageClassAnalysis\":{\
           \"shape\":\"StorageClassAnalysis\",\
-          \"documentation\":\"If present, it indicates that data related to access patterns will be collected and made available to analyze the tradeoffs between different storage classes.\"\
+          \"documentation\":\"<p>If present, it indicates that data related to access patterns will be collected and made available to analyze the tradeoffs between different storage classes.</p>\"\
         }\
       }\
     },\
@@ -1018,7 +1072,7 @@
       \"members\":{\
         \"S3BucketDestination\":{\
           \"shape\":\"AnalyticsS3BucketDestination\",\
-          \"documentation\":\"A destination signifying output to an S3 bucket.\"\
+          \"documentation\":\"<p>A destination signifying output to an S3 bucket.</p>\"\
         }\
       }\
     },\
@@ -1027,15 +1081,15 @@
       \"members\":{\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"The prefix to use when evaluating an analytics filter.\"\
+          \"documentation\":\"<p>The prefix to use when evaluating an analytics filter.</p>\"\
         },\
         \"Tag\":{\
           \"shape\":\"Tag\",\
-          \"documentation\":\"The tag to use when evaluating an analytics filter.\"\
+          \"documentation\":\"<p>The tag to use when evaluating an analytics filter.</p>\"\
         },\
         \"And\":{\
           \"shape\":\"AnalyticsAndOperator\",\
-          \"documentation\":\"A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.\"\
+          \"documentation\":\"<p>A conjunction (logical AND) of predicates, which is used in evaluating an analytics filter. The operator must have at least two predicates.</p>\"\
         }\
       }\
     },\
@@ -1049,19 +1103,19 @@
       \"members\":{\
         \"Format\":{\
           \"shape\":\"AnalyticsS3ExportFileFormat\",\
-          \"documentation\":\"The file format used when exporting data to Amazon S3.\"\
+          \"documentation\":\"<p>The file format used when exporting data to Amazon S3.</p>\"\
         },\
         \"BucketAccountId\":{\
           \"shape\":\"AccountId\",\
-          \"documentation\":\"The account ID that owns the destination bucket. If no account ID is provided, the owner will not be validated prior to exporting data.\"\
+          \"documentation\":\"<p>The account ID that owns the destination bucket. If no account ID is provided, the owner will not be validated prior to exporting data.</p>\"\
         },\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The Amazon resource name (ARN) of the bucket to which data is exported.\"\
+          \"documentation\":\"<p>The Amazon resource name (ARN) of the bucket to which data is exported.</p>\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"The prefix to use when exporting data. The exported data begins with this prefix.\"\
+          \"documentation\":\"<p>The prefix to use when exporting data. The exported data begins with this prefix.</p>\"\
         }\
       }\
     },\
@@ -1075,11 +1129,11 @@
       \"members\":{\
         \"Name\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket.\"\
+          \"documentation\":\"<p>The name of the bucket.</p>\"\
         },\
         \"CreationDate\":{\
           \"shape\":\"CreationDate\",\
-          \"documentation\":\"Date the bucket was created.\"\
+          \"documentation\":\"<p>Date the bucket was created.</p>\"\
         }\
       }\
     },\
@@ -1094,7 +1148,7 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.\",\
+      \"documentation\":\"<p>The requested bucket name is not available. The bucket namespace is shared by all users of the system. Please select a different name and try again.</p>\",\
       \"exception\":true\
     },\
     \"BucketAlreadyOwnedByYou\":{\
@@ -1128,11 +1182,11 @@
         \"\",\
         \"EU\",\
         \"eu-west-1\",\
+        \"us-west-1\",\
+        \"us-west-2\",\
         \"eu-west-2\",\
         \"eu-west-3\",\
         \"us-east-2\",\
-        \"us-west-1\",\
-        \"us-west-2\",\
         \"ap-south-1\",\
         \"ap-southeast-1\",\
         \"ap-southeast-2\",\
@@ -1175,6 +1229,9 @@
         \"locationName\":\"Bucket\"\
       }\
     },\
+    \"BytesProcessed\":{\"type\":\"long\"},\
+    \"BytesReturned\":{\"type\":\"long\"},\
+    \"BytesScanned\":{\"type\":\"long\"},\
     \"CORSConfiguration\":{\
       \"type\":\"structure\",\
       \"required\":[\"CORSRules\"],\
@@ -1194,27 +1251,27 @@
       \"members\":{\
         \"AllowedHeaders\":{\
           \"shape\":\"AllowedHeaders\",\
-          \"documentation\":\"Specifies which headers are allowed in a pre-flight OPTIONS request.\",\
+          \"documentation\":\"<p>Specifies which headers are allowed in a pre-flight OPTIONS request.</p>\",\
           \"locationName\":\"AllowedHeader\"\
         },\
         \"AllowedMethods\":{\
           \"shape\":\"AllowedMethods\",\
-          \"documentation\":\"Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.\",\
+          \"documentation\":\"<p>Identifies HTTP methods that the domain/origin specified in the rule is allowed to execute.</p>\",\
           \"locationName\":\"AllowedMethod\"\
         },\
         \"AllowedOrigins\":{\
           \"shape\":\"AllowedOrigins\",\
-          \"documentation\":\"One or more origins you want customers to be able to access the bucket from.\",\
+          \"documentation\":\"<p>One or more origins you want customers to be able to access the bucket from.</p>\",\
           \"locationName\":\"AllowedOrigin\"\
         },\
         \"ExposeHeaders\":{\
           \"shape\":\"ExposeHeaders\",\
-          \"documentation\":\"One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).\",\
+          \"documentation\":\"<p>One or more headers in the response that you want customers to be able to access from their applications (for example, from a JavaScript XMLHttpRequest object).</p>\",\
           \"locationName\":\"ExposeHeader\"\
         },\
         \"MaxAgeSeconds\":{\
           \"shape\":\"MaxAgeSeconds\",\
-          \"documentation\":\"The time in seconds that your browser is to cache the preflight response for the specified resource.\"\
+          \"documentation\":\"<p>The time in seconds that your browser is to cache the preflight response for the specified resource.</p>\"\
         }\
       }\
     },\
@@ -1222,6 +1279,66 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"CORSRule\"},\
       \"flattened\":true\
+    },\
+    \"CSVInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"FileHeaderInfo\":{\
+          \"shape\":\"FileHeaderInfo\",\
+          \"documentation\":\"<p>Describes the first line of input. Valid values: None, Ignore, Use.</p>\"\
+        },\
+        \"Comments\":{\
+          \"shape\":\"Comments\",\
+          \"documentation\":\"<p>Single character used to indicate a row should be ignored when present at the start of a row.</p>\"\
+        },\
+        \"QuoteEscapeCharacter\":{\
+          \"shape\":\"QuoteEscapeCharacter\",\
+          \"documentation\":\"<p>Single character used for escaping the quote character inside an already escaped value.</p>\"\
+        },\
+        \"RecordDelimiter\":{\
+          \"shape\":\"RecordDelimiter\",\
+          \"documentation\":\"<p>Value used to separate individual records.</p>\"\
+        },\
+        \"FieldDelimiter\":{\
+          \"shape\":\"FieldDelimiter\",\
+          \"documentation\":\"<p>Value used to separate individual fields in a record.</p>\"\
+        },\
+        \"QuoteCharacter\":{\
+          \"shape\":\"QuoteCharacter\",\
+          \"documentation\":\"<p>Value used for escaping where the field delimiter is part of the value.</p>\"\
+        },\
+        \"AllowQuotedRecordDelimiter\":{\
+          \"shape\":\"AllowQuotedRecordDelimiter\",\
+          \"documentation\":\"<p>Specifies that CSV field values may contain quoted record delimiters and such records should be allowed. Default value is FALSE. Setting this value to TRUE may lower performance.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes how a CSV-formatted input object is formatted.</p>\"\
+    },\
+    \"CSVOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"QuoteFields\":{\
+          \"shape\":\"QuoteFields\",\
+          \"documentation\":\"<p>Indicates whether or not all output fields should be quoted.</p>\"\
+        },\
+        \"QuoteEscapeCharacter\":{\
+          \"shape\":\"QuoteEscapeCharacter\",\
+          \"documentation\":\"<p>Single character used for escaping the quote character inside an already escaped value.</p>\"\
+        },\
+        \"RecordDelimiter\":{\
+          \"shape\":\"RecordDelimiter\",\
+          \"documentation\":\"<p>Value used to separate individual records.</p>\"\
+        },\
+        \"FieldDelimiter\":{\
+          \"shape\":\"FieldDelimiter\",\
+          \"documentation\":\"<p>Value used to separate individual fields in a record.</p>\"\
+        },\
+        \"QuoteCharacter\":{\
+          \"shape\":\"QuoteCharacter\",\
+          \"documentation\":\"<p>Value used for escaping where the field delimiter is part of the value.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes how CSV-formatted results are formatted.</p>\"\
     },\
     \"CacheControl\":{\"type\":\"string\"},\
     \"CloudFunction\":{\"type\":\"string\"},\
@@ -1243,6 +1360,7 @@
     },\
     \"CloudFunctionInvocationRole\":{\"type\":\"string\"},\
     \"Code\":{\"type\":\"string\"},\
+    \"Comments\":{\"type\":\"string\"},\
     \"CommonPrefix\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -1262,29 +1380,29 @@
         \"Key\":{\"shape\":\"ObjectKey\"},\
         \"Expiration\":{\
           \"shape\":\"Expiration\",\
-          \"documentation\":\"If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.\",\
+          \"documentation\":\"<p>If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-expiration\"\
         },\
         \"ETag\":{\
           \"shape\":\"ETag\",\
-          \"documentation\":\"Entity tag of the object.\"\
+          \"documentation\":\"<p>Entity tag of the object.</p>\"\
         },\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"Version of the object.\",\
+          \"documentation\":\"<p>Version of the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-version-id\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.\",\
+          \"documentation\":\"<p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
@@ -1345,11 +1463,11 @@
       \"members\":{\
         \"ETag\":{\
           \"shape\":\"ETag\",\
-          \"documentation\":\"Entity tag returned when the part was uploaded.\"\
+          \"documentation\":\"<p>Entity tag returned when the part was uploaded.</p>\"\
         },\
         \"PartNumber\":{\
           \"shape\":\"PartNumber\",\
-          \"documentation\":\"Part number that identifies the part. This is a positive integer between 1 and 10,000.\"\
+          \"documentation\":\"<p>Part number that identifies the part. This is a positive integer between 1 and 10,000.</p>\"\
         }\
       }\
     },\
@@ -1358,19 +1476,28 @@
       \"member\":{\"shape\":\"CompletedPart\"},\
       \"flattened\":true\
     },\
+    \"CompressionType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"NONE\",\
+        \"GZIP\",\
+        \"BZIP2\"\
+      ]\
+    },\
     \"Condition\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"HttpErrorCodeReturnedEquals\":{\
           \"shape\":\"HttpErrorCodeReturnedEquals\",\
-          \"documentation\":\"The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element Condition is specified and sibling KeyPrefixEquals is not specified. If both are specified, then both must be true for the redirect to be applied.\"\
+          \"documentation\":\"<p>The HTTP error code when the redirect is applied. In the event of an error, if the error code equals this value, then the specified redirect is applied. Required when parent element Condition is specified and sibling KeyPrefixEquals is not specified. If both are specified, then both must be true for the redirect to be applied.</p>\"\
         },\
         \"KeyPrefixEquals\":{\
           \"shape\":\"KeyPrefixEquals\",\
-          \"documentation\":\"The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs/, the key prefix will be /docs, which identifies all objects in the docs/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.\"\
+          \"documentation\":\"<p>The object key name prefix when the redirect is applied. For example, to redirect requests for ExamplePage.html, the key prefix will be ExamplePage.html. To redirect request for all pages with the prefix docs/, the key prefix will be /docs, which identifies all objects in the docs/ folder. Required when the parent element Condition is specified and sibling HttpErrorCodeReturnedEquals is not specified. If both conditions are specified, both must be true for the redirect to be applied.</p>\"\
         }\
       }\
     },\
+    \"ConfirmRemoveSelfBucketAccess\":{\"type\":\"boolean\"},\
     \"ContentDisposition\":{\"type\":\"string\"},\
     \"ContentEncoding\":{\"type\":\"string\"},\
     \"ContentLanguage\":{\"type\":\"string\"},\
@@ -1378,13 +1505,19 @@
     \"ContentMD5\":{\"type\":\"string\"},\
     \"ContentRange\":{\"type\":\"string\"},\
     \"ContentType\":{\"type\":\"string\"},\
+    \"ContinuationEvent\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"event\":true\
+    },\
     \"CopyObjectOutput\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"CopyObjectResult\":{\"shape\":\"CopyObjectResult\"},\
         \"Expiration\":{\
           \"shape\":\"Expiration\",\
-          \"documentation\":\"If the object expiration is configured, the response includes this header.\",\
+          \"documentation\":\"<p>If the object expiration is configured, the response includes this header.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-expiration\"\
         },\
@@ -1395,31 +1528,31 @@
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"Version ID of the newly created copy.\",\
+          \"documentation\":\"<p>Version ID of the newly created copy.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-version-id\"\
         },\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.\",\
+          \"documentation\":\"<p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
@@ -1441,7 +1574,7 @@
       \"members\":{\
         \"ACL\":{\
           \"shape\":\"ObjectCannedACL\",\
-          \"documentation\":\"The canned ACL to apply to the object.\",\
+          \"documentation\":\"<p>The canned ACL to apply to the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-acl\"\
         },\
@@ -1452,91 +1585,91 @@
         },\
         \"CacheControl\":{\
           \"shape\":\"CacheControl\",\
-          \"documentation\":\"Specifies caching behavior along the request/reply chain.\",\
+          \"documentation\":\"<p>Specifies caching behavior along the request/reply chain.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Cache-Control\"\
         },\
         \"ContentDisposition\":{\
           \"shape\":\"ContentDisposition\",\
-          \"documentation\":\"Specifies presentational information for the object.\",\
+          \"documentation\":\"<p>Specifies presentational information for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Disposition\"\
         },\
         \"ContentEncoding\":{\
           \"shape\":\"ContentEncoding\",\
-          \"documentation\":\"Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.\",\
+          \"documentation\":\"<p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Encoding\"\
         },\
         \"ContentLanguage\":{\
           \"shape\":\"ContentLanguage\",\
-          \"documentation\":\"The language the content is in.\",\
+          \"documentation\":\"<p>The language the content is in.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Language\"\
         },\
         \"ContentType\":{\
           \"shape\":\"ContentType\",\
-          \"documentation\":\"A standard MIME type describing the format of the object data.\",\
+          \"documentation\":\"<p>A standard MIME type describing the format of the object data.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Type\"\
         },\
         \"CopySource\":{\
           \"shape\":\"CopySource\",\
-          \"documentation\":\"The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.\",\
+          \"documentation\":\"<p>The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source\"\
         },\
         \"CopySourceIfMatch\":{\
           \"shape\":\"CopySourceIfMatch\",\
-          \"documentation\":\"Copies the object if its entity tag (ETag) matches the specified tag.\",\
+          \"documentation\":\"<p>Copies the object if its entity tag (ETag) matches the specified tag.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-if-match\"\
         },\
         \"CopySourceIfModifiedSince\":{\
           \"shape\":\"CopySourceIfModifiedSince\",\
-          \"documentation\":\"Copies the object if it has been modified since the specified time.\",\
+          \"documentation\":\"<p>Copies the object if it has been modified since the specified time.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-if-modified-since\"\
         },\
         \"CopySourceIfNoneMatch\":{\
           \"shape\":\"CopySourceIfNoneMatch\",\
-          \"documentation\":\"Copies the object if its entity tag (ETag) is different than the specified ETag.\",\
+          \"documentation\":\"<p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-if-none-match\"\
         },\
         \"CopySourceIfUnmodifiedSince\":{\
           \"shape\":\"CopySourceIfUnmodifiedSince\",\
-          \"documentation\":\"Copies the object if it hasn't been modified since the specified time.\",\
+          \"documentation\":\"<p>Copies the object if it hasn't been modified since the specified time.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-if-unmodified-since\"\
         },\
         \"Expires\":{\
           \"shape\":\"Expires\",\
-          \"documentation\":\"The date and time at which the object is no longer cacheable.\",\
+          \"documentation\":\"<p>The date and time at which the object is no longer cacheable.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Expires\"\
         },\
         \"GrantFullControl\":{\
           \"shape\":\"GrantFullControl\",\
-          \"documentation\":\"Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.\",\
+          \"documentation\":\"<p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-full-control\"\
         },\
         \"GrantRead\":{\
           \"shape\":\"GrantRead\",\
-          \"documentation\":\"Allows grantee to read the object data and its metadata.\",\
+          \"documentation\":\"<p>Allows grantee to read the object data and its metadata.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read\"\
         },\
         \"GrantReadACP\":{\
           \"shape\":\"GrantReadACP\",\
-          \"documentation\":\"Allows grantee to read the object ACL.\",\
+          \"documentation\":\"<p>Allows grantee to read the object ACL.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read-acp\"\
         },\
         \"GrantWriteACP\":{\
           \"shape\":\"GrantWriteACP\",\
-          \"documentation\":\"Allows grantee to write the ACL for the applicable object.\",\
+          \"documentation\":\"<p>Allows grantee to write the ACL for the applicable object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-write-acp\"\
         },\
@@ -1547,79 +1680,79 @@
         },\
         \"Metadata\":{\
           \"shape\":\"Metadata\",\
-          \"documentation\":\"A map of metadata to store with the object in S3.\",\
+          \"documentation\":\"<p>A map of metadata to store with the object in S3.</p>\",\
           \"location\":\"headers\",\
           \"locationName\":\"x-amz-meta-\"\
         },\
         \"MetadataDirective\":{\
           \"shape\":\"MetadataDirective\",\
-          \"documentation\":\"Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.\",\
+          \"documentation\":\"<p>Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-metadata-directive\"\
         },\
         \"TaggingDirective\":{\
           \"shape\":\"TaggingDirective\",\
-          \"documentation\":\"Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.\",\
+          \"documentation\":\"<p>Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-tagging-directive\"\
         },\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"StorageClass\":{\
           \"shape\":\"StorageClass\",\
-          \"documentation\":\"The type of storage to use for the object. Defaults to 'STANDARD'.\",\
+          \"documentation\":\"<p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-storage-class\"\
         },\
         \"WebsiteRedirectLocation\":{\
           \"shape\":\"WebsiteRedirectLocation\",\
-          \"documentation\":\"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.\",\
+          \"documentation\":\"<p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-website-redirect-location\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"Specifies the algorithm to use to when encrypting the object (e.g., AES256).\",\
+          \"documentation\":\"<p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.\",\
+          \"documentation\":\"<p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.\",\
+          \"documentation\":\"<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version\",\
+          \"documentation\":\"<p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
         \"CopySourceSSECustomerAlgorithm\":{\
           \"shape\":\"CopySourceSSECustomerAlgorithm\",\
-          \"documentation\":\"Specifies the algorithm to use when decrypting the source object (e.g., AES256).\",\
+          \"documentation\":\"<p>Specifies the algorithm to use when decrypting the source object (e.g., AES256).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-server-side-encryption-customer-algorithm\"\
         },\
         \"CopySourceSSECustomerKey\":{\
           \"shape\":\"CopySourceSSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.\",\
+          \"documentation\":\"<p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-server-side-encryption-customer-key\"\
         },\
         \"CopySourceSSECustomerKeyMD5\":{\
           \"shape\":\"CopySourceSSECustomerKeyMD5\",\
-          \"documentation\":\"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.\",\
+          \"documentation\":\"<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-server-side-encryption-customer-key-MD5\"\
         },\
@@ -1630,7 +1763,7 @@
         },\
         \"Tagging\":{\
           \"shape\":\"TaggingHeader\",\
-          \"documentation\":\"The tag-set for the object destination object this value must be used in conjunction with the TaggingDirective. The tag-set must be encoded as URL Query parameters\",\
+          \"documentation\":\"<p>The tag-set for the object destination object this value must be used in conjunction with the TaggingDirective. The tag-set must be encoded as URL Query parameters</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-tagging\"\
         }\
@@ -1648,11 +1781,11 @@
       \"members\":{\
         \"ETag\":{\
           \"shape\":\"ETag\",\
-          \"documentation\":\"Entity tag of the object.\"\
+          \"documentation\":\"<p>Entity tag of the object.</p>\"\
         },\
         \"LastModified\":{\
           \"shape\":\"LastModified\",\
-          \"documentation\":\"Date and time at which the object was uploaded.\"\
+          \"documentation\":\"<p>Date and time at which the object was uploaded.</p>\"\
         }\
       }\
     },\
@@ -1677,7 +1810,7 @@
       \"members\":{\
         \"LocationConstraint\":{\
           \"shape\":\"BucketLocationConstraint\",\
-          \"documentation\":\"Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.\"\
+          \"documentation\":\"<p>Specifies the region where the bucket will be created. If you don't specify a region, the bucket will be created in US Standard.</p>\"\
         }\
       }\
     },\
@@ -1697,7 +1830,7 @@
       \"members\":{\
         \"ACL\":{\
           \"shape\":\"BucketCannedACL\",\
-          \"documentation\":\"The canned ACL to apply to the bucket.\",\
+          \"documentation\":\"<p>The canned ACL to apply to the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-acl\"\
         },\
@@ -1713,31 +1846,31 @@
         },\
         \"GrantFullControl\":{\
           \"shape\":\"GrantFullControl\",\
-          \"documentation\":\"Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.\",\
+          \"documentation\":\"<p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-full-control\"\
         },\
         \"GrantRead\":{\
           \"shape\":\"GrantRead\",\
-          \"documentation\":\"Allows grantee to list the objects in the bucket.\",\
+          \"documentation\":\"<p>Allows grantee to list the objects in the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read\"\
         },\
         \"GrantReadACP\":{\
           \"shape\":\"GrantReadACP\",\
-          \"documentation\":\"Allows grantee to read the bucket ACL.\",\
+          \"documentation\":\"<p>Allows grantee to read the bucket ACL.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read-acp\"\
         },\
         \"GrantWrite\":{\
           \"shape\":\"GrantWrite\",\
-          \"documentation\":\"Allows grantee to create, overwrite, and delete any object in the bucket.\",\
+          \"documentation\":\"<p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-write\"\
         },\
         \"GrantWriteACP\":{\
           \"shape\":\"GrantWriteACP\",\
-          \"documentation\":\"Allows grantee to write the ACL for the applicable bucket.\",\
+          \"documentation\":\"<p>Allows grantee to write the ACL for the applicable bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-write-acp\"\
         }\
@@ -1749,50 +1882,50 @@
       \"members\":{\
         \"AbortDate\":{\
           \"shape\":\"AbortDate\",\
-          \"documentation\":\"Date when multipart upload will become eligible for abort operation by lifecycle.\",\
+          \"documentation\":\"<p>Date when multipart upload will become eligible for abort operation by lifecycle.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-abort-date\"\
         },\
         \"AbortRuleId\":{\
           \"shape\":\"AbortRuleId\",\
-          \"documentation\":\"Id of the lifecycle rule that makes a multipart upload eligible for abort operation.\",\
+          \"documentation\":\"<p>Id of the lifecycle rule that makes a multipart upload eligible for abort operation.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-abort-rule-id\"\
         },\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Name of the bucket to which the multipart upload was initiated.\",\
+          \"documentation\":\"<p>Name of the bucket to which the multipart upload was initiated.</p>\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"Object key for which the multipart upload was initiated.\"\
+          \"documentation\":\"<p>Object key for which the multipart upload was initiated.</p>\"\
         },\
         \"UploadId\":{\
           \"shape\":\"MultipartUploadId\",\
-          \"documentation\":\"ID for the initiated multipart upload.\"\
+          \"documentation\":\"<p>ID for the initiated multipart upload.</p>\"\
         },\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.\",\
+          \"documentation\":\"<p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
@@ -1812,7 +1945,7 @@
       \"members\":{\
         \"ACL\":{\
           \"shape\":\"ObjectCannedACL\",\
-          \"documentation\":\"The canned ACL to apply to the object.\",\
+          \"documentation\":\"<p>The canned ACL to apply to the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-acl\"\
         },\
@@ -1823,61 +1956,61 @@
         },\
         \"CacheControl\":{\
           \"shape\":\"CacheControl\",\
-          \"documentation\":\"Specifies caching behavior along the request/reply chain.\",\
+          \"documentation\":\"<p>Specifies caching behavior along the request/reply chain.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Cache-Control\"\
         },\
         \"ContentDisposition\":{\
           \"shape\":\"ContentDisposition\",\
-          \"documentation\":\"Specifies presentational information for the object.\",\
+          \"documentation\":\"<p>Specifies presentational information for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Disposition\"\
         },\
         \"ContentEncoding\":{\
           \"shape\":\"ContentEncoding\",\
-          \"documentation\":\"Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.\",\
+          \"documentation\":\"<p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Encoding\"\
         },\
         \"ContentLanguage\":{\
           \"shape\":\"ContentLanguage\",\
-          \"documentation\":\"The language the content is in.\",\
+          \"documentation\":\"<p>The language the content is in.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Language\"\
         },\
         \"ContentType\":{\
           \"shape\":\"ContentType\",\
-          \"documentation\":\"A standard MIME type describing the format of the object data.\",\
+          \"documentation\":\"<p>A standard MIME type describing the format of the object data.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Type\"\
         },\
         \"Expires\":{\
           \"shape\":\"Expires\",\
-          \"documentation\":\"The date and time at which the object is no longer cacheable.\",\
+          \"documentation\":\"<p>The date and time at which the object is no longer cacheable.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Expires\"\
         },\
         \"GrantFullControl\":{\
           \"shape\":\"GrantFullControl\",\
-          \"documentation\":\"Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.\",\
+          \"documentation\":\"<p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-full-control\"\
         },\
         \"GrantRead\":{\
           \"shape\":\"GrantRead\",\
-          \"documentation\":\"Allows grantee to read the object data and its metadata.\",\
+          \"documentation\":\"<p>Allows grantee to read the object data and its metadata.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read\"\
         },\
         \"GrantReadACP\":{\
           \"shape\":\"GrantReadACP\",\
-          \"documentation\":\"Allows grantee to read the object ACL.\",\
+          \"documentation\":\"<p>Allows grantee to read the object ACL.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read-acp\"\
         },\
         \"GrantWriteACP\":{\
           \"shape\":\"GrantWriteACP\",\
-          \"documentation\":\"Allows grantee to write the ACL for the applicable object.\",\
+          \"documentation\":\"<p>Allows grantee to write the ACL for the applicable object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-write-acp\"\
         },\
@@ -1888,49 +2021,49 @@
         },\
         \"Metadata\":{\
           \"shape\":\"Metadata\",\
-          \"documentation\":\"A map of metadata to store with the object in S3.\",\
+          \"documentation\":\"<p>A map of metadata to store with the object in S3.</p>\",\
           \"location\":\"headers\",\
           \"locationName\":\"x-amz-meta-\"\
         },\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"StorageClass\":{\
           \"shape\":\"StorageClass\",\
-          \"documentation\":\"The type of storage to use for the object. Defaults to 'STANDARD'.\",\
+          \"documentation\":\"<p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-storage-class\"\
         },\
         \"WebsiteRedirectLocation\":{\
           \"shape\":\"WebsiteRedirectLocation\",\
-          \"documentation\":\"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.\",\
+          \"documentation\":\"<p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-website-redirect-location\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"Specifies the algorithm to use to when encrypting the object (e.g., AES256).\",\
+          \"documentation\":\"<p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.\",\
+          \"documentation\":\"<p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.\",\
+          \"documentation\":\"<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version\",\
+          \"documentation\":\"<p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
@@ -1938,6 +2071,12 @@
           \"shape\":\"RequestPayer\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-request-payer\"\
+        },\
+        \"Tagging\":{\
+          \"shape\":\"TaggingHeader\",\
+          \"documentation\":\"<p>The tag-set for the object. The tag-set must be encoded as URL Query parameters</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-tagging\"\
         }\
       }\
     },\
@@ -1958,7 +2097,7 @@
         },\
         \"Quiet\":{\
           \"shape\":\"Quiet\",\
-          \"documentation\":\"Element to enable quiet mode for the request. When you add this element, you must set its value to true.\"\
+          \"documentation\":\"<p>Element to enable quiet mode for the request. When you add this element, you must set its value to true.</p>\"\
         }\
       }\
     },\
@@ -1971,13 +2110,13 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket from which an analytics configuration is deleted.\",\
+          \"documentation\":\"<p>The name of the bucket from which an analytics configuration is deleted.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Id\":{\
           \"shape\":\"AnalyticsId\",\
-          \"documentation\":\"The identifier used to represent an analytics configuration.\",\
+          \"documentation\":\"<p>The identifier used to represent an analytics configuration.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"id\"\
         }\
@@ -1994,6 +2133,18 @@
         }\
       }\
     },\
+    \"DeleteBucketEncryptionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Bucket\"],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The name of the bucket containing the server-side encryption configuration to delete.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        }\
+      }\
+    },\
     \"DeleteBucketInventoryConfigurationRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -2003,13 +2154,13 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket containing the inventory configuration to delete.\",\
+          \"documentation\":\"<p>The name of the bucket containing the inventory configuration to delete.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Id\":{\
           \"shape\":\"InventoryId\",\
-          \"documentation\":\"The ID used to identify the inventory configuration.\",\
+          \"documentation\":\"<p>The ID used to identify the inventory configuration.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"id\"\
         }\
@@ -2035,13 +2186,13 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket containing the metrics configuration to delete.\",\
+          \"documentation\":\"<p>The name of the bucket containing the metrics configuration to delete.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Id\":{\
           \"shape\":\"MetricsId\",\
-          \"documentation\":\"The ID used to identify the metrics configuration.\",\
+          \"documentation\":\"<p>The ID used to identify the metrics configuration.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"id\"\
         }\
@@ -2064,6 +2215,7 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>Deletes the replication subresource associated with the specified bucket.</p> <note> <p>There is usually some time lag before replication configuration deletion is fully propagated to all the Amazon S3 systems.</p> </note> <p> For more information, see <a href=\\\" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html\\\">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         }\
@@ -2109,21 +2261,38 @@
         \"Owner\":{\"shape\":\"Owner\"},\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"The object key.\"\
+          \"documentation\":\"<p>The object key.</p>\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"Version ID of an object.\"\
+          \"documentation\":\"<p>Version ID of an object.</p>\"\
         },\
         \"IsLatest\":{\
           \"shape\":\"IsLatest\",\
-          \"documentation\":\"Specifies whether the object is (true) or is not (false) the latest version of an object.\"\
+          \"documentation\":\"<p>Specifies whether the object is (true) or is not (false) the latest version of an object.</p>\"\
         },\
         \"LastModified\":{\
           \"shape\":\"LastModified\",\
-          \"documentation\":\"Date and time the object was last modified.\"\
+          \"documentation\":\"<p>Date and time the object was last modified.</p>\"\
         }\
       }\
+    },\
+    \"DeleteMarkerReplication\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Status\":{\
+          \"shape\":\"DeleteMarkerReplicationStatus\",\
+          \"documentation\":\"<p>The status of the delete marker replication.</p> <note> <p> In the current implementation, Amazon S3 does not replicate the delete markers. Therefore, the status must be <code>Disabled</code>. </p> </note>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies whether Amazon S3 should replicate delete makers.</p>\"\
+    },\
+    \"DeleteMarkerReplicationStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"Enabled\",\
+        \"Disabled\"\
+      ]\
     },\
     \"DeleteMarkerVersionId\":{\"type\":\"string\"},\
     \"DeleteMarkers\":{\
@@ -2136,13 +2305,13 @@
       \"members\":{\
         \"DeleteMarker\":{\
           \"shape\":\"DeleteMarker\",\
-          \"documentation\":\"Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.\",\
+          \"documentation\":\"<p>Specifies whether the versioned object that was permanently deleted was (true) or was not (false) a delete marker.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-delete-marker\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"Returns the version ID of the delete marker created as a result of the DELETE operation.\",\
+          \"documentation\":\"<p>Returns the version ID of the delete marker created as a result of the DELETE operation.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-version-id\"\
         },\
@@ -2172,13 +2341,13 @@
         },\
         \"MFA\":{\
           \"shape\":\"MFA\",\
-          \"documentation\":\"The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.\",\
+          \"documentation\":\"<p>The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-mfa\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"VersionId used to reference a specific version of the object.\",\
+          \"documentation\":\"<p>VersionId used to reference a specific version of the object.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"versionId\"\
         },\
@@ -2194,7 +2363,7 @@
       \"members\":{\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"The versionId of the object the tag-set was removed from.\",\
+          \"documentation\":\"<p>The versionId of the object the tag-set was removed from.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-version-id\"\
         }\
@@ -2219,7 +2388,7 @@
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"The versionId of the object that the tag-set will be removed from.\",\
+          \"documentation\":\"<p>The versionId of the object that the tag-set will be removed from.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"versionId\"\
         }\
@@ -2259,7 +2428,7 @@
         },\
         \"MFA\":{\
           \"shape\":\"MFA\",\
-          \"documentation\":\"The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.\",\
+          \"documentation\":\"<p>The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-mfa\"\
         },\
@@ -2286,27 +2455,77 @@
       \"flattened\":true\
     },\
     \"Delimiter\":{\"type\":\"string\"},\
+    \"Description\":{\"type\":\"string\"},\
     \"Destination\":{\
       \"type\":\"structure\",\
       \"required\":[\"Bucket\"],\
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule.\"\
+          \"documentation\":\"<p> Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule. </p> <p> If you have multiple rules in your replication configuration, all rules must specify the same bucket as the destination. A replication configuration can replicate objects only to one destination bucket. </p>\"\
+        },\
+        \"Account\":{\
+          \"shape\":\"AccountId\",\
+          \"documentation\":\"<p> Account ID of the destination bucket. Currently Amazon S3 verifies this value only if Access Control Translation is enabled. </p> <p> In a cross-account scenario, if you tell Amazon S3 to change replica ownership to the AWS account that owns the destination bucket by adding the <code>AccessControlTranslation</code> element, this is the account ID of the destination bucket owner. </p>\"\
         },\
         \"StorageClass\":{\
           \"shape\":\"StorageClass\",\
-          \"documentation\":\"The class of storage used to store the object.\"\
+          \"documentation\":\"<p>The class of storage used to store the object.</p>\"\
+        },\
+        \"AccessControlTranslation\":{\
+          \"shape\":\"AccessControlTranslation\",\
+          \"documentation\":\"<p> Container for information regarding the access control for replicas. </p> <p> Use only in a cross-account scenario, where source and destination bucket owners are not the same, when you want to change replica ownership to the AWS account that owns the destination bucket. If you don't add this element to the replication configuration, the replicas are owned by same AWS account that owns the source object. </p>\"\
+        },\
+        \"EncryptionConfiguration\":{\
+          \"shape\":\"EncryptionConfiguration\",\
+          \"documentation\":\"<p> Container that provides encryption-related information. You must specify this element if the <code>SourceSelectionCriteria</code> is specified. </p>\"\
         }\
-      }\
+      },\
+      \"documentation\":\"<p>Container for replication destination information.</p>\"\
     },\
     \"DisplayName\":{\"type\":\"string\"},\
     \"ETag\":{\"type\":\"string\"},\
     \"EmailAddress\":{\"type\":\"string\"},\
+    \"EnableRequestProgress\":{\"type\":\"boolean\"},\
     \"EncodingType\":{\
       \"type\":\"string\",\
-      \"documentation\":\"Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.\",\
+      \"documentation\":\"<p>Requests Amazon S3 to encode the object keys in the response and specifies the encoding method to use. An object key may contain any Unicode character; however, XML 1.0 parser cannot parse some characters, such as characters with an ASCII value from 0 to 10. For characters that are not supported in XML 1.0, you can add this parameter to request that Amazon S3 encode the keys in the response.</p>\",\
       \"enum\":[\"url\"]\
+    },\
+    \"Encryption\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"EncryptionType\"],\
+      \"members\":{\
+        \"EncryptionType\":{\
+          \"shape\":\"ServerSideEncryption\",\
+          \"documentation\":\"<p>The server-side encryption algorithm used when storing job results in Amazon S3 (e.g., AES256, aws:kms).</p>\"\
+        },\
+        \"KMSKeyId\":{\
+          \"shape\":\"SSEKMSKeyId\",\
+          \"documentation\":\"<p>If the encryption type is aws:kms, this optional value specifies the AWS KMS key ID to use for encryption of job results.</p>\"\
+        },\
+        \"KMSContext\":{\
+          \"shape\":\"KMSContext\",\
+          \"documentation\":\"<p>If the encryption type is aws:kms, this optional value can be used to specify the encryption context for the restore results.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the server-side encryption that will be applied to the restore results.</p>\"\
+    },\
+    \"EncryptionConfiguration\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ReplicaKmsKeyID\":{\
+          \"shape\":\"ReplicaKmsKeyID\",\
+          \"documentation\":\"<p> The ID of the AWS KMS key for the region where the destination bucket resides. Amazon S3 uses this key to encrypt the replica object. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Container for information regarding encryption based configuration for replicas.</p>\"\
+    },\
+    \"EndEvent\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"event\":true\
     },\
     \"Error\":{\
       \"type\":\"structure\",\
@@ -2323,7 +2542,7 @@
       \"members\":{\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"The object key name to use when a 4XX class error occurs.\"\
+          \"documentation\":\"<p>The object key name to use when a 4XX class error occurs.</p>\"\
         }\
       }\
     },\
@@ -2334,7 +2553,7 @@
     },\
     \"Event\":{\
       \"type\":\"string\",\
-      \"documentation\":\"Bucket event for which to send notifications.\",\
+      \"documentation\":\"<p>Bucket event for which to send notifications.</p>\",\
       \"enum\":[\
         \"s3:ReducedRedundancyLostObject\",\
         \"s3:ObjectCreated:*\",\
@@ -2368,22 +2587,36 @@
       \"member\":{\"shape\":\"ExposeHeader\"},\
       \"flattened\":true\
     },\
+    \"Expression\":{\"type\":\"string\"},\
+    \"ExpressionType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"SQL\"]\
+    },\
     \"FetchOwner\":{\"type\":\"boolean\"},\
+    \"FieldDelimiter\":{\"type\":\"string\"},\
+    \"FileHeaderInfo\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"USE\",\
+        \"IGNORE\",\
+        \"NONE\"\
+      ]\
+    },\
     \"FilterRule\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"Name\":{\
           \"shape\":\"FilterRuleName\",\
-          \"documentation\":\"Object key name prefix or suffix identifying one or more objects to which the filtering rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\\\">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.\"\
+          \"documentation\":\"<p>Object key name prefix or suffix identifying one or more objects to which the filtering rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\\\">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>\"\
         },\
         \"Value\":{\"shape\":\"FilterRuleValue\"}\
       },\
-      \"documentation\":\"Container for key value pair that defines the criteria for the filter rule.\"\
+      \"documentation\":\"<p>Container for key value pair that defines the criteria for the filter rule.</p>\"\
     },\
     \"FilterRuleList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"FilterRule\"},\
-      \"documentation\":\"A list of containers for key value pair that defines the criteria for the filter rule.\",\
+      \"documentation\":\"<p>A list of containers for key value pair that defines the criteria for the filter rule.</p>\",\
       \"flattened\":true\
     },\
     \"FilterRuleName\":{\
@@ -2399,7 +2632,7 @@
       \"members\":{\
         \"Status\":{\
           \"shape\":\"BucketAccelerateStatus\",\
-          \"documentation\":\"The accelerate configuration of the bucket.\"\
+          \"documentation\":\"<p>The accelerate configuration of the bucket.</p>\"\
         }\
       }\
     },\
@@ -2409,7 +2642,7 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Name of the bucket for which the accelerate configuration is retrieved.\",\
+          \"documentation\":\"<p>Name of the bucket for which the accelerate configuration is retrieved.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         }\
@@ -2421,7 +2654,7 @@
         \"Owner\":{\"shape\":\"Owner\"},\
         \"Grants\":{\
           \"shape\":\"Grants\",\
-          \"documentation\":\"A list of grants.\",\
+          \"documentation\":\"<p>A list of grants.</p>\",\
           \"locationName\":\"AccessControlList\"\
         }\
       }\
@@ -2442,7 +2675,7 @@
       \"members\":{\
         \"AnalyticsConfiguration\":{\
           \"shape\":\"AnalyticsConfiguration\",\
-          \"documentation\":\"The configuration and any analyses for the analytics filter.\"\
+          \"documentation\":\"<p>The configuration and any analyses for the analytics filter.</p>\"\
         }\
       },\
       \"payload\":\"AnalyticsConfiguration\"\
@@ -2456,13 +2689,13 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket from which an analytics configuration is retrieved.\",\
+          \"documentation\":\"<p>The name of the bucket from which an analytics configuration is retrieved.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Id\":{\
           \"shape\":\"AnalyticsId\",\
-          \"documentation\":\"The identifier used to represent an analytics configuration.\",\
+          \"documentation\":\"<p>The identifier used to represent an analytics configuration.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"id\"\
         }\
@@ -2488,12 +2721,31 @@
         }\
       }\
     },\
+    \"GetBucketEncryptionOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ServerSideEncryptionConfiguration\":{\"shape\":\"ServerSideEncryptionConfiguration\"}\
+      },\
+      \"payload\":\"ServerSideEncryptionConfiguration\"\
+    },\
+    \"GetBucketEncryptionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Bucket\"],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The name of the bucket from which the server-side encryption configuration is retrieved.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        }\
+      }\
+    },\
     \"GetBucketInventoryConfigurationOutput\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"InventoryConfiguration\":{\
           \"shape\":\"InventoryConfiguration\",\
-          \"documentation\":\"Specifies the inventory configuration.\"\
+          \"documentation\":\"<p>Specifies the inventory configuration.</p>\"\
         }\
       },\
       \"payload\":\"InventoryConfiguration\"\
@@ -2507,13 +2759,13 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket containing the inventory configuration to retrieve.\",\
+          \"documentation\":\"<p>The name of the bucket containing the inventory configuration to retrieve.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Id\":{\
           \"shape\":\"InventoryId\",\
-          \"documentation\":\"The ID used to identify the inventory configuration.\",\
+          \"documentation\":\"<p>The ID used to identify the inventory configuration.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"id\"\
         }\
@@ -2598,7 +2850,7 @@
       \"members\":{\
         \"MetricsConfiguration\":{\
           \"shape\":\"MetricsConfiguration\",\
-          \"documentation\":\"Specifies the metrics configuration.\"\
+          \"documentation\":\"<p>Specifies the metrics configuration.</p>\"\
         }\
       },\
       \"payload\":\"MetricsConfiguration\"\
@@ -2612,13 +2864,13 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket containing the metrics configuration to retrieve.\",\
+          \"documentation\":\"<p>The name of the bucket containing the metrics configuration to retrieve.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Id\":{\
           \"shape\":\"MetricsId\",\
-          \"documentation\":\"The ID used to identify the metrics configuration.\",\
+          \"documentation\":\"<p>The ID used to identify the metrics configuration.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"id\"\
         }\
@@ -2630,7 +2882,7 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Name of the bucket to get the notification configuration for.\",\
+          \"documentation\":\"<p>Name of the bucket to get the notification configuration for.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         }\
@@ -2641,7 +2893,7 @@
       \"members\":{\
         \"Policy\":{\
           \"shape\":\"Policy\",\
-          \"documentation\":\"The bucket policy as a JSON document.\"\
+          \"documentation\":\"<p>The bucket policy as a JSON document.</p>\"\
         }\
       },\
       \"payload\":\"Policy\"\
@@ -2680,7 +2932,7 @@
       \"members\":{\
         \"Payer\":{\
           \"shape\":\"Payer\",\
-          \"documentation\":\"Specifies who pays for the download and request fees.\"\
+          \"documentation\":\"<p>Specifies who pays for the download and request fees.</p>\"\
         }\
       }\
     },\
@@ -2718,11 +2970,11 @@
       \"members\":{\
         \"Status\":{\
           \"shape\":\"BucketVersioningStatus\",\
-          \"documentation\":\"The versioning state of the bucket.\"\
+          \"documentation\":\"<p>The versioning state of the bucket.</p>\"\
         },\
         \"MFADelete\":{\
           \"shape\":\"MFADeleteStatus\",\
-          \"documentation\":\"Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.\",\
+          \"documentation\":\"<p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</p>\",\
           \"locationName\":\"MfaDelete\"\
         }\
       }\
@@ -2764,7 +3016,7 @@
         \"Owner\":{\"shape\":\"Owner\"},\
         \"Grants\":{\
           \"shape\":\"Grants\",\
-          \"documentation\":\"A list of grants.\",\
+          \"documentation\":\"<p>A list of grants.</p>\",\
           \"locationName\":\"AccessControlList\"\
         },\
         \"RequestCharged\":{\
@@ -2793,7 +3045,7 @@
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"VersionId used to reference a specific version of the object.\",\
+          \"documentation\":\"<p>VersionId used to reference a specific version of the object.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"versionId\"\
         },\
@@ -2809,12 +3061,12 @@
       \"members\":{\
         \"Body\":{\
           \"shape\":\"Body\",\
-          \"documentation\":\"Object data.\",\
+          \"documentation\":\"<p>Object data.</p>\",\
           \"streaming\":true\
         },\
         \"DeleteMarker\":{\
           \"shape\":\"DeleteMarker\",\
-          \"documentation\":\"Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.\",\
+          \"documentation\":\"<p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-delete-marker\"\
         },\
@@ -2825,121 +3077,121 @@
         },\
         \"Expiration\":{\
           \"shape\":\"Expiration\",\
-          \"documentation\":\"If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.\",\
+          \"documentation\":\"<p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-expiration\"\
         },\
         \"Restore\":{\
           \"shape\":\"Restore\",\
-          \"documentation\":\"Provides information about object restoration operation and expiration time of the restored object copy.\",\
+          \"documentation\":\"<p>Provides information about object restoration operation and expiration time of the restored object copy.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-restore\"\
         },\
         \"LastModified\":{\
           \"shape\":\"LastModified\",\
-          \"documentation\":\"Last modified date of the object\",\
+          \"documentation\":\"<p>Last modified date of the object</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Last-Modified\"\
         },\
         \"ContentLength\":{\
           \"shape\":\"ContentLength\",\
-          \"documentation\":\"Size of the body in bytes.\",\
+          \"documentation\":\"<p>Size of the body in bytes.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Length\"\
         },\
         \"ETag\":{\
           \"shape\":\"ETag\",\
-          \"documentation\":\"An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL\",\
+          \"documentation\":\"<p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"ETag\"\
         },\
         \"MissingMeta\":{\
           \"shape\":\"MissingMeta\",\
-          \"documentation\":\"This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.\",\
+          \"documentation\":\"<p>This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-missing-meta\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"Version of the object.\",\
+          \"documentation\":\"<p>Version of the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-version-id\"\
         },\
         \"CacheControl\":{\
           \"shape\":\"CacheControl\",\
-          \"documentation\":\"Specifies caching behavior along the request/reply chain.\",\
+          \"documentation\":\"<p>Specifies caching behavior along the request/reply chain.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Cache-Control\"\
         },\
         \"ContentDisposition\":{\
           \"shape\":\"ContentDisposition\",\
-          \"documentation\":\"Specifies presentational information for the object.\",\
+          \"documentation\":\"<p>Specifies presentational information for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Disposition\"\
         },\
         \"ContentEncoding\":{\
           \"shape\":\"ContentEncoding\",\
-          \"documentation\":\"Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.\",\
+          \"documentation\":\"<p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Encoding\"\
         },\
         \"ContentLanguage\":{\
           \"shape\":\"ContentLanguage\",\
-          \"documentation\":\"The language the content is in.\",\
+          \"documentation\":\"<p>The language the content is in.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Language\"\
         },\
         \"ContentRange\":{\
           \"shape\":\"ContentRange\",\
-          \"documentation\":\"The portion of the object returned in the response.\",\
+          \"documentation\":\"<p>The portion of the object returned in the response.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Range\"\
         },\
         \"ContentType\":{\
           \"shape\":\"ContentType\",\
-          \"documentation\":\"A standard MIME type describing the format of the object data.\",\
+          \"documentation\":\"<p>A standard MIME type describing the format of the object data.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Type\"\
         },\
         \"Expires\":{\
           \"shape\":\"Expires\",\
-          \"documentation\":\"The date and time at which the object is no longer cacheable.\",\
+          \"documentation\":\"<p>The date and time at which the object is no longer cacheable.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Expires\"\
         },\
         \"WebsiteRedirectLocation\":{\
           \"shape\":\"WebsiteRedirectLocation\",\
-          \"documentation\":\"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.\",\
+          \"documentation\":\"<p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-website-redirect-location\"\
         },\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"Metadata\":{\
           \"shape\":\"Metadata\",\
-          \"documentation\":\"A map of metadata to store with the object in S3.\",\
+          \"documentation\":\"<p>A map of metadata to store with the object in S3.</p>\",\
           \"location\":\"headers\",\
           \"locationName\":\"x-amz-meta-\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.\",\
+          \"documentation\":\"<p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
@@ -2960,13 +3212,13 @@
         },\
         \"PartsCount\":{\
           \"shape\":\"PartsCount\",\
-          \"documentation\":\"The count of parts this object has.\",\
+          \"documentation\":\"<p>The count of parts this object has.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-mp-parts-count\"\
         },\
         \"TagCount\":{\
           \"shape\":\"TagCount\",\
-          \"documentation\":\"The number of tags, if any, on the object.\",\
+          \"documentation\":\"<p>The number of tags, if any, on the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-tagging-count\"\
         }\
@@ -2987,25 +3239,25 @@
         },\
         \"IfMatch\":{\
           \"shape\":\"IfMatch\",\
-          \"documentation\":\"Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).\",\
+          \"documentation\":\"<p>Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"If-Match\"\
         },\
         \"IfModifiedSince\":{\
           \"shape\":\"IfModifiedSince\",\
-          \"documentation\":\"Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).\",\
+          \"documentation\":\"<p>Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"If-Modified-Since\"\
         },\
         \"IfNoneMatch\":{\
           \"shape\":\"IfNoneMatch\",\
-          \"documentation\":\"Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).\",\
+          \"documentation\":\"<p>Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"If-None-Match\"\
         },\
         \"IfUnmodifiedSince\":{\
           \"shape\":\"IfUnmodifiedSince\",\
-          \"documentation\":\"Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).\",\
+          \"documentation\":\"<p>Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"If-Unmodified-Since\"\
         },\
@@ -3016,67 +3268,67 @@
         },\
         \"Range\":{\
           \"shape\":\"Range\",\
-          \"documentation\":\"Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.\",\
+          \"documentation\":\"<p>Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Range\"\
         },\
         \"ResponseCacheControl\":{\
           \"shape\":\"ResponseCacheControl\",\
-          \"documentation\":\"Sets the Cache-Control header of the response.\",\
+          \"documentation\":\"<p>Sets the Cache-Control header of the response.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"response-cache-control\"\
         },\
         \"ResponseContentDisposition\":{\
           \"shape\":\"ResponseContentDisposition\",\
-          \"documentation\":\"Sets the Content-Disposition header of the response\",\
+          \"documentation\":\"<p>Sets the Content-Disposition header of the response</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"response-content-disposition\"\
         },\
         \"ResponseContentEncoding\":{\
           \"shape\":\"ResponseContentEncoding\",\
-          \"documentation\":\"Sets the Content-Encoding header of the response.\",\
+          \"documentation\":\"<p>Sets the Content-Encoding header of the response.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"response-content-encoding\"\
         },\
         \"ResponseContentLanguage\":{\
           \"shape\":\"ResponseContentLanguage\",\
-          \"documentation\":\"Sets the Content-Language header of the response.\",\
+          \"documentation\":\"<p>Sets the Content-Language header of the response.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"response-content-language\"\
         },\
         \"ResponseContentType\":{\
           \"shape\":\"ResponseContentType\",\
-          \"documentation\":\"Sets the Content-Type header of the response.\",\
+          \"documentation\":\"<p>Sets the Content-Type header of the response.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"response-content-type\"\
         },\
         \"ResponseExpires\":{\
           \"shape\":\"ResponseExpires\",\
-          \"documentation\":\"Sets the Expires header of the response.\",\
+          \"documentation\":\"<p>Sets the Expires header of the response.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"response-expires\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"VersionId used to reference a specific version of the object.\",\
+          \"documentation\":\"<p>VersionId used to reference a specific version of the object.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"versionId\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"Specifies the algorithm to use to when encrypting the object (e.g., AES256).\",\
+          \"documentation\":\"<p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.\",\
+          \"documentation\":\"<p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.\",\
+          \"documentation\":\"<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
@@ -3087,7 +3339,7 @@
         },\
         \"PartNumber\":{\
           \"shape\":\"PartNumber\",\
-          \"documentation\":\"Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.\",\
+          \"documentation\":\"<p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' GET request for the part specified. Useful for downloading just a part of an object.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"partNumber\"\
         }\
@@ -3174,7 +3426,7 @@
       \"members\":{\
         \"Tier\":{\
           \"shape\":\"Tier\",\
-          \"documentation\":\"Glacier retrieval tier at which the restore will be processed.\"\
+          \"documentation\":\"<p>Glacier retrieval tier at which the restore will be processed.</p>\"\
         }\
       }\
     },\
@@ -3184,7 +3436,7 @@
         \"Grantee\":{\"shape\":\"Grantee\"},\
         \"Permission\":{\
           \"shape\":\"Permission\",\
-          \"documentation\":\"Specifies the permission given to the grantee.\"\
+          \"documentation\":\"<p>Specifies the permission given to the grantee.</p>\"\
         }\
       }\
     },\
@@ -3199,25 +3451,25 @@
       \"members\":{\
         \"DisplayName\":{\
           \"shape\":\"DisplayName\",\
-          \"documentation\":\"Screen name of the grantee.\"\
+          \"documentation\":\"<p>Screen name of the grantee.</p>\"\
         },\
         \"EmailAddress\":{\
           \"shape\":\"EmailAddress\",\
-          \"documentation\":\"Email address of the grantee.\"\
+          \"documentation\":\"<p>Email address of the grantee.</p>\"\
         },\
         \"ID\":{\
           \"shape\":\"ID\",\
-          \"documentation\":\"The canonical user ID of the grantee.\"\
+          \"documentation\":\"<p>The canonical user ID of the grantee.</p>\"\
         },\
         \"Type\":{\
           \"shape\":\"Type\",\
-          \"documentation\":\"Type of grantee\",\
+          \"documentation\":\"<p>Type of grantee</p>\",\
           \"locationName\":\"xsi:type\",\
           \"xmlAttribute\":true\
         },\
         \"URI\":{\
           \"shape\":\"URI\",\
-          \"documentation\":\"URI of the grantee group.\"\
+          \"documentation\":\"<p>URI of the grantee group.</p>\"\
         }\
       },\
       \"xmlNamespace\":{\
@@ -3248,7 +3500,7 @@
       \"members\":{\
         \"DeleteMarker\":{\
           \"shape\":\"DeleteMarker\",\
-          \"documentation\":\"Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.\",\
+          \"documentation\":\"<p>Specifies whether the object retrieved was (true) or was not (false) a Delete Marker. If false, this response header does not appear in the response.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-delete-marker\"\
         },\
@@ -3259,115 +3511,115 @@
         },\
         \"Expiration\":{\
           \"shape\":\"Expiration\",\
-          \"documentation\":\"If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.\",\
+          \"documentation\":\"<p>If the object expiration is configured (see PUT Bucket lifecycle), the response includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-expiration\"\
         },\
         \"Restore\":{\
           \"shape\":\"Restore\",\
-          \"documentation\":\"Provides information about object restoration operation and expiration time of the restored object copy.\",\
+          \"documentation\":\"<p>Provides information about object restoration operation and expiration time of the restored object copy.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-restore\"\
         },\
         \"LastModified\":{\
           \"shape\":\"LastModified\",\
-          \"documentation\":\"Last modified date of the object\",\
+          \"documentation\":\"<p>Last modified date of the object</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Last-Modified\"\
         },\
         \"ContentLength\":{\
           \"shape\":\"ContentLength\",\
-          \"documentation\":\"Size of the body in bytes.\",\
+          \"documentation\":\"<p>Size of the body in bytes.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Length\"\
         },\
         \"ETag\":{\
           \"shape\":\"ETag\",\
-          \"documentation\":\"An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL\",\
+          \"documentation\":\"<p>An ETag is an opaque identifier assigned by a web server to a specific version of a resource found at a URL</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"ETag\"\
         },\
         \"MissingMeta\":{\
           \"shape\":\"MissingMeta\",\
-          \"documentation\":\"This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.\",\
+          \"documentation\":\"<p>This is set to the number of metadata entries not returned in x-amz-meta headers. This can happen if you create metadata using an API like SOAP that supports more flexible metadata than the REST API. For example, using SOAP, you can create metadata whose values are not legal HTTP headers.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-missing-meta\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"Version of the object.\",\
+          \"documentation\":\"<p>Version of the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-version-id\"\
         },\
         \"CacheControl\":{\
           \"shape\":\"CacheControl\",\
-          \"documentation\":\"Specifies caching behavior along the request/reply chain.\",\
+          \"documentation\":\"<p>Specifies caching behavior along the request/reply chain.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Cache-Control\"\
         },\
         \"ContentDisposition\":{\
           \"shape\":\"ContentDisposition\",\
-          \"documentation\":\"Specifies presentational information for the object.\",\
+          \"documentation\":\"<p>Specifies presentational information for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Disposition\"\
         },\
         \"ContentEncoding\":{\
           \"shape\":\"ContentEncoding\",\
-          \"documentation\":\"Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.\",\
+          \"documentation\":\"<p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Encoding\"\
         },\
         \"ContentLanguage\":{\
           \"shape\":\"ContentLanguage\",\
-          \"documentation\":\"The language the content is in.\",\
+          \"documentation\":\"<p>The language the content is in.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Language\"\
         },\
         \"ContentType\":{\
           \"shape\":\"ContentType\",\
-          \"documentation\":\"A standard MIME type describing the format of the object data.\",\
+          \"documentation\":\"<p>A standard MIME type describing the format of the object data.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Type\"\
         },\
         \"Expires\":{\
           \"shape\":\"Expires\",\
-          \"documentation\":\"The date and time at which the object is no longer cacheable.\",\
+          \"documentation\":\"<p>The date and time at which the object is no longer cacheable.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Expires\"\
         },\
         \"WebsiteRedirectLocation\":{\
           \"shape\":\"WebsiteRedirectLocation\",\
-          \"documentation\":\"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.\",\
+          \"documentation\":\"<p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-website-redirect-location\"\
         },\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"Metadata\":{\
           \"shape\":\"Metadata\",\
-          \"documentation\":\"A map of metadata to store with the object in S3.\",\
+          \"documentation\":\"<p>A map of metadata to store with the object in S3.</p>\",\
           \"location\":\"headers\",\
           \"locationName\":\"x-amz-meta-\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.\",\
+          \"documentation\":\"<p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
@@ -3388,7 +3640,7 @@
         },\
         \"PartsCount\":{\
           \"shape\":\"PartsCount\",\
-          \"documentation\":\"The count of parts this object has.\",\
+          \"documentation\":\"<p>The count of parts this object has.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-mp-parts-count\"\
         }\
@@ -3408,25 +3660,25 @@
         },\
         \"IfMatch\":{\
           \"shape\":\"IfMatch\",\
-          \"documentation\":\"Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).\",\
+          \"documentation\":\"<p>Return the object only if its entity tag (ETag) is the same as the one specified, otherwise return a 412 (precondition failed).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"If-Match\"\
         },\
         \"IfModifiedSince\":{\
           \"shape\":\"IfModifiedSince\",\
-          \"documentation\":\"Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).\",\
+          \"documentation\":\"<p>Return the object only if it has been modified since the specified time, otherwise return a 304 (not modified).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"If-Modified-Since\"\
         },\
         \"IfNoneMatch\":{\
           \"shape\":\"IfNoneMatch\",\
-          \"documentation\":\"Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).\",\
+          \"documentation\":\"<p>Return the object only if its entity tag (ETag) is different from the one specified, otherwise return a 304 (not modified).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"If-None-Match\"\
         },\
         \"IfUnmodifiedSince\":{\
           \"shape\":\"IfUnmodifiedSince\",\
-          \"documentation\":\"Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).\",\
+          \"documentation\":\"<p>Return the object only if it has not been modified since the specified time, otherwise return a 412 (precondition failed).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"If-Unmodified-Since\"\
         },\
@@ -3437,31 +3689,31 @@
         },\
         \"Range\":{\
           \"shape\":\"Range\",\
-          \"documentation\":\"Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.\",\
+          \"documentation\":\"<p>Downloads the specified range bytes of an object. For more information about the HTTP Range header, go to http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Range\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"VersionId used to reference a specific version of the object.\",\
+          \"documentation\":\"<p>VersionId used to reference a specific version of the object.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"versionId\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"Specifies the algorithm to use to when encrypting the object (e.g., AES256).\",\
+          \"documentation\":\"<p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.\",\
+          \"documentation\":\"<p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.\",\
+          \"documentation\":\"<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
@@ -3472,7 +3724,7 @@
         },\
         \"PartNumber\":{\
           \"shape\":\"PartNumber\",\
-          \"documentation\":\"Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.\",\
+          \"documentation\":\"<p>Part number of the object being read. This is a positive integer between 1 and 10,000. Effectively performs a 'ranged' HEAD request for the part specified. Useful querying about the size of the part and the number of parts in this object.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"partNumber\"\
         }\
@@ -3492,7 +3744,7 @@
       \"members\":{\
         \"Suffix\":{\
           \"shape\":\"Suffix\",\
-          \"documentation\":\"A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.\"\
+          \"documentation\":\"<p>A suffix that is appended to a request that is for a directory on the website endpoint (e.g. if the suffix is index.html and you make a request to samplebucket/images/ the data that is returned will be for the object with the key name images/index.html) The suffix must not be empty and must not include a slash character.</p>\"\
         }\
       }\
     },\
@@ -3502,13 +3754,35 @@
       \"members\":{\
         \"ID\":{\
           \"shape\":\"ID\",\
-          \"documentation\":\"If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.\"\
+          \"documentation\":\"<p>If the principal is an AWS account, it provides the Canonical User ID. If the principal is an IAM User, it provides a user ARN value.</p>\"\
         },\
         \"DisplayName\":{\
           \"shape\":\"DisplayName\",\
-          \"documentation\":\"Name of the Principal.\"\
+          \"documentation\":\"<p>Name of the Principal.</p>\"\
         }\
       }\
+    },\
+    \"InputSerialization\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CSV\":{\
+          \"shape\":\"CSVInput\",\
+          \"documentation\":\"<p>Describes the serialization of a CSV-encoded object.</p>\"\
+        },\
+        \"CompressionType\":{\
+          \"shape\":\"CompressionType\",\
+          \"documentation\":\"<p>Specifies object's compression format. Valid values: NONE, GZIP, BZIP2. Default Value: NONE.</p>\"\
+        },\
+        \"JSON\":{\
+          \"shape\":\"JSONInput\",\
+          \"documentation\":\"<p>Specifies JSON as object's input serialization format.</p>\"\
+        },\
+        \"Parquet\":{\
+          \"shape\":\"ParquetInput\",\
+          \"documentation\":\"<p>Specifies Parquet as object's input serialization format.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the serialization format of the object.</p>\"\
     },\
     \"InventoryConfiguration\":{\
       \"type\":\"structure\",\
@@ -3522,31 +3796,31 @@
       \"members\":{\
         \"Destination\":{\
           \"shape\":\"InventoryDestination\",\
-          \"documentation\":\"Contains information about where to publish the inventory results.\"\
+          \"documentation\":\"<p>Contains information about where to publish the inventory results.</p>\"\
         },\
         \"IsEnabled\":{\
           \"shape\":\"IsEnabled\",\
-          \"documentation\":\"Specifies whether the inventory is enabled or disabled.\"\
+          \"documentation\":\"<p>Specifies whether the inventory is enabled or disabled.</p>\"\
         },\
         \"Filter\":{\
           \"shape\":\"InventoryFilter\",\
-          \"documentation\":\"Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.\"\
+          \"documentation\":\"<p>Specifies an inventory filter. The inventory only includes objects that meet the filter's criteria.</p>\"\
         },\
         \"Id\":{\
           \"shape\":\"InventoryId\",\
-          \"documentation\":\"The ID used to identify the inventory configuration.\"\
+          \"documentation\":\"<p>The ID used to identify the inventory configuration.</p>\"\
         },\
         \"IncludedObjectVersions\":{\
           \"shape\":\"InventoryIncludedObjectVersions\",\
-          \"documentation\":\"Specifies which object version(s) to included in the inventory results.\"\
+          \"documentation\":\"<p>Specifies which object version(s) to included in the inventory results.</p>\"\
         },\
         \"OptionalFields\":{\
           \"shape\":\"InventoryOptionalFields\",\
-          \"documentation\":\"Contains the optional fields that are included in the inventory results.\"\
+          \"documentation\":\"<p>Contains the optional fields that are included in the inventory results.</p>\"\
         },\
         \"Schedule\":{\
           \"shape\":\"InventorySchedule\",\
-          \"documentation\":\"Specifies the schedule for generating inventory results.\"\
+          \"documentation\":\"<p>Specifies the schedule for generating inventory results.</p>\"\
         }\
       }\
     },\
@@ -3561,9 +3835,25 @@
       \"members\":{\
         \"S3BucketDestination\":{\
           \"shape\":\"InventoryS3BucketDestination\",\
-          \"documentation\":\"Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.\"\
+          \"documentation\":\"<p>Contains the bucket name, file format, bucket owner (optional), and prefix (optional) where inventory results are published.</p>\"\
         }\
       }\
+    },\
+    \"InventoryEncryption\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SSES3\":{\
+          \"shape\":\"SSES3\",\
+          \"documentation\":\"<p>Specifies the use of SSE-S3 to encrypt delievered Inventory reports.</p>\",\
+          \"locationName\":\"SSE-S3\"\
+        },\
+        \"SSEKMS\":{\
+          \"shape\":\"SSEKMS\",\
+          \"documentation\":\"<p>Specifies the use of SSE-KMS to encrypt delievered Inventory reports.</p>\",\
+          \"locationName\":\"SSE-KMS\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains the type of server-side encryption used to encrypt the inventory results.</p>\"\
     },\
     \"InventoryFilter\":{\
       \"type\":\"structure\",\
@@ -3571,13 +3861,16 @@
       \"members\":{\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"The prefix that an object must have to be included in the inventory results.\"\
+          \"documentation\":\"<p>The prefix that an object must have to be included in the inventory results.</p>\"\
         }\
       }\
     },\
     \"InventoryFormat\":{\
       \"type\":\"string\",\
-      \"enum\":[\"CSV\"]\
+      \"enum\":[\
+        \"CSV\",\
+        \"ORC\"\
+      ]\
     },\
     \"InventoryFrequency\":{\
       \"type\":\"string\",\
@@ -3602,7 +3895,8 @@
         \"StorageClass\",\
         \"ETag\",\
         \"IsMultipartUploaded\",\
-        \"ReplicationStatus\"\
+        \"ReplicationStatus\",\
+        \"EncryptionStatus\"\
       ]\
     },\
     \"InventoryOptionalFields\":{\
@@ -3621,19 +3915,23 @@
       \"members\":{\
         \"AccountId\":{\
           \"shape\":\"AccountId\",\
-          \"documentation\":\"The ID of the account that owns the destination bucket.\"\
+          \"documentation\":\"<p>The ID of the account that owns the destination bucket.</p>\"\
         },\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The Amazon resource name (ARN) of the bucket where inventory results will be published.\"\
+          \"documentation\":\"<p>The Amazon resource name (ARN) of the bucket where inventory results will be published.</p>\"\
         },\
         \"Format\":{\
           \"shape\":\"InventoryFormat\",\
-          \"documentation\":\"Specifies the output format of the inventory results.\"\
+          \"documentation\":\"<p>Specifies the output format of the inventory results.</p>\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"The prefix that is prepended to all inventory results.\"\
+          \"documentation\":\"<p>The prefix that is prepended to all inventory results.</p>\"\
+        },\
+        \"Encryption\":{\
+          \"shape\":\"InventoryEncryption\",\
+          \"documentation\":\"<p>Contains the type of server-side encryption used to encrypt the inventory results.</p>\"\
         }\
       }\
     },\
@@ -3643,13 +3941,39 @@
       \"members\":{\
         \"Frequency\":{\
           \"shape\":\"InventoryFrequency\",\
-          \"documentation\":\"Specifies how frequently inventory results are produced.\"\
+          \"documentation\":\"<p>Specifies how frequently inventory results are produced.</p>\"\
         }\
       }\
     },\
     \"IsEnabled\":{\"type\":\"boolean\"},\
     \"IsLatest\":{\"type\":\"boolean\"},\
     \"IsTruncated\":{\"type\":\"boolean\"},\
+    \"JSONInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\
+          \"shape\":\"JSONType\",\
+          \"documentation\":\"<p>The type of JSON. Valid values: Document, Lines.</p>\"\
+        }\
+      }\
+    },\
+    \"JSONOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RecordDelimiter\":{\
+          \"shape\":\"RecordDelimiter\",\
+          \"documentation\":\"<p>The value used to separate individual records in the output.</p>\"\
+        }\
+      }\
+    },\
+    \"JSONType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"DOCUMENT\",\
+        \"LINES\"\
+      ]\
+    },\
+    \"KMSContext\":{\"type\":\"string\"},\
     \"KeyCount\":{\"type\":\"integer\"},\
     \"KeyMarker\":{\"type\":\"string\"},\
     \"KeyPrefixEquals\":{\"type\":\"string\"},\
@@ -3664,7 +3988,7 @@
         \"Id\":{\"shape\":\"NotificationId\"},\
         \"LambdaFunctionArn\":{\
           \"shape\":\"LambdaFunctionArn\",\
-          \"documentation\":\"Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.\",\
+          \"documentation\":\"<p>Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.</p>\",\
           \"locationName\":\"CloudFunction\"\
         },\
         \"Events\":{\
@@ -3673,7 +3997,7 @@
         },\
         \"Filter\":{\"shape\":\"NotificationConfigurationFilter\"}\
       },\
-      \"documentation\":\"Container for specifying the AWS Lambda notification configuration.\"\
+      \"documentation\":\"<p>Container for specifying the AWS Lambda notification configuration.</p>\"\
     },\
     \"LambdaFunctionConfigurationList\":{\
       \"type\":\"list\",\
@@ -3696,15 +4020,15 @@
       \"members\":{\
         \"Date\":{\
           \"shape\":\"Date\",\
-          \"documentation\":\"Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.\"\
+          \"documentation\":\"<p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>\"\
         },\
         \"Days\":{\
           \"shape\":\"Days\",\
-          \"documentation\":\"Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.\"\
+          \"documentation\":\"<p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>\"\
         },\
         \"ExpiredObjectDeleteMarker\":{\
           \"shape\":\"ExpiredObjectDeleteMarker\",\
-          \"documentation\":\"Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.\"\
+          \"documentation\":\"<p>Indicates whether Amazon S3 will remove a delete marker with no noncurrent versions. If set to true, the delete marker will be expired; if set to false the policy takes no action. This cannot be specified with Days or Date in a Lifecycle Expiration Policy.</p>\"\
         }\
       }\
     },\
@@ -3715,17 +4039,17 @@
         \"Expiration\":{\"shape\":\"LifecycleExpiration\"},\
         \"ID\":{\
           \"shape\":\"ID\",\
-          \"documentation\":\"Unique identifier for the rule. The value cannot be longer than 255 characters.\"\
+          \"documentation\":\"<p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.\",\
+          \"documentation\":\"<p>Prefix identifying one or more objects to which the rule applies. This is deprecated; use Filter instead.</p>\",\
           \"deprecated\":true\
         },\
         \"Filter\":{\"shape\":\"LifecycleRuleFilter\"},\
         \"Status\":{\
           \"shape\":\"ExpirationStatus\",\
-          \"documentation\":\"If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.\"\
+          \"documentation\":\"<p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>\"\
         },\
         \"Transitions\":{\
           \"shape\":\"TransitionList\",\
@@ -3745,27 +4069,27 @@
         \"Prefix\":{\"shape\":\"Prefix\"},\
         \"Tags\":{\
           \"shape\":\"TagSet\",\
-          \"documentation\":\"All of these tags must exist in the object's tag set in order for the rule to apply.\",\
+          \"documentation\":\"<p>All of these tags must exist in the object's tag set in order for the rule to apply.</p>\",\
           \"flattened\":true,\
           \"locationName\":\"Tag\"\
         }\
       },\
-      \"documentation\":\"This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.\"\
+      \"documentation\":\"<p>This is used in a Lifecycle Rule Filter to apply a logical AND to two or more predicates. The Lifecycle Rule will apply to any object matching all of the predicates configured inside the And operator.</p>\"\
     },\
     \"LifecycleRuleFilter\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"Prefix identifying one or more objects to which the rule applies.\"\
+          \"documentation\":\"<p>Prefix identifying one or more objects to which the rule applies.</p>\"\
         },\
         \"Tag\":{\
           \"shape\":\"Tag\",\
-          \"documentation\":\"This tag must exist in the object's tag set in order for the rule to apply.\"\
+          \"documentation\":\"<p>This tag must exist in the object's tag set in order for the rule to apply.</p>\"\
         },\
         \"And\":{\"shape\":\"LifecycleRuleAndOperator\"}\
       },\
-      \"documentation\":\"The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.\"\
+      \"documentation\":\"<p>The Filter is used to identify objects that a Lifecycle Rule applies to. A Filter must have exactly one of Prefix, Tag, or And specified.</p>\"\
     },\
     \"LifecycleRules\":{\
       \"type\":\"list\",\
@@ -3777,19 +4101,19 @@
       \"members\":{\
         \"IsTruncated\":{\
           \"shape\":\"IsTruncated\",\
-          \"documentation\":\"Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.\"\
+          \"documentation\":\"<p>Indicates whether the returned list of analytics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</p>\"\
         },\
         \"ContinuationToken\":{\
           \"shape\":\"Token\",\
-          \"documentation\":\"The ContinuationToken that represents where this request began.\"\
+          \"documentation\":\"<p>The ContinuationToken that represents where this request began.</p>\"\
         },\
         \"NextContinuationToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"NextContinuationToken is sent when isTruncated is true, which indicates that there are more analytics configurations to list. The next request must include this NextContinuationToken. The token is obfuscated and is not a usable value.\"\
+          \"documentation\":\"<p>NextContinuationToken is sent when isTruncated is true, which indicates that there are more analytics configurations to list. The next request must include this NextContinuationToken. The token is obfuscated and is not a usable value.</p>\"\
         },\
         \"AnalyticsConfigurationList\":{\
           \"shape\":\"AnalyticsConfigurationList\",\
-          \"documentation\":\"The list of analytics configurations for a bucket.\",\
+          \"documentation\":\"<p>The list of analytics configurations for a bucket.</p>\",\
           \"locationName\":\"AnalyticsConfiguration\"\
         }\
       }\
@@ -3800,13 +4124,13 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket from which analytics configurations are retrieved.\",\
+          \"documentation\":\"<p>The name of the bucket from which analytics configurations are retrieved.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"ContinuationToken\":{\
           \"shape\":\"Token\",\
-          \"documentation\":\"The ContinuationToken that represents a placeholder from where this request should begin.\",\
+          \"documentation\":\"<p>The ContinuationToken that represents a placeholder from where this request should begin.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"continuation-token\"\
         }\
@@ -3817,20 +4141,20 @@
       \"members\":{\
         \"ContinuationToken\":{\
           \"shape\":\"Token\",\
-          \"documentation\":\"If sent in the request, the marker that is used as a starting point for this inventory configuration list response.\"\
+          \"documentation\":\"<p>If sent in the request, the marker that is used as a starting point for this inventory configuration list response.</p>\"\
         },\
         \"InventoryConfigurationList\":{\
           \"shape\":\"InventoryConfigurationList\",\
-          \"documentation\":\"The list of inventory configurations for a bucket.\",\
+          \"documentation\":\"<p>The list of inventory configurations for a bucket.</p>\",\
           \"locationName\":\"InventoryConfiguration\"\
         },\
         \"IsTruncated\":{\
           \"shape\":\"IsTruncated\",\
-          \"documentation\":\"Indicates whether the returned list of inventory configurations is truncated in this response. A value of true indicates that the list is truncated.\"\
+          \"documentation\":\"<p>Indicates whether the returned list of inventory configurations is truncated in this response. A value of true indicates that the list is truncated.</p>\"\
         },\
         \"NextContinuationToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"The marker used to continue this inventory configuration listing. Use the NextContinuationToken from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.\"\
+          \"documentation\":\"<p>The marker used to continue this inventory configuration listing. Use the NextContinuationToken from this response to continue the listing in a subsequent request. The continuation token is an opaque value that Amazon S3 understands.</p>\"\
         }\
       }\
     },\
@@ -3840,13 +4164,13 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket containing the inventory configurations to retrieve.\",\
+          \"documentation\":\"<p>The name of the bucket containing the inventory configurations to retrieve.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"ContinuationToken\":{\
           \"shape\":\"Token\",\
-          \"documentation\":\"The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.\",\
+          \"documentation\":\"<p>The marker used to continue an inventory configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"continuation-token\"\
         }\
@@ -3857,19 +4181,19 @@
       \"members\":{\
         \"IsTruncated\":{\
           \"shape\":\"IsTruncated\",\
-          \"documentation\":\"Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.\"\
+          \"documentation\":\"<p>Indicates whether the returned list of metrics configurations is complete. A value of true indicates that the list is not complete and the NextContinuationToken will be provided for a subsequent request.</p>\"\
         },\
         \"ContinuationToken\":{\
           \"shape\":\"Token\",\
-          \"documentation\":\"The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.\"\
+          \"documentation\":\"<p>The marker that is used as a starting point for this metrics configuration list response. This value is present if it was sent in the request.</p>\"\
         },\
         \"NextContinuationToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"The marker used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.\"\
+          \"documentation\":\"<p>The marker used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>\"\
         },\
         \"MetricsConfigurationList\":{\
           \"shape\":\"MetricsConfigurationList\",\
-          \"documentation\":\"The list of metrics configurations for a bucket.\",\
+          \"documentation\":\"<p>The list of metrics configurations for a bucket.</p>\",\
           \"locationName\":\"MetricsConfiguration\"\
         }\
       }\
@@ -3880,13 +4204,13 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket containing the metrics configurations to retrieve.\",\
+          \"documentation\":\"<p>The name of the bucket containing the metrics configurations to retrieve.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"ContinuationToken\":{\
           \"shape\":\"Token\",\
-          \"documentation\":\"The marker that is used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.\",\
+          \"documentation\":\"<p>The marker that is used to continue a metrics configuration listing that has been truncated. Use the NextContinuationToken from a previously truncated list response to continue the listing. The continuation token is an opaque value that Amazon S3 understands.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"continuation-token\"\
         }\
@@ -3904,36 +4228,36 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Name of the bucket to which the multipart upload was initiated.\"\
+          \"documentation\":\"<p>Name of the bucket to which the multipart upload was initiated.</p>\"\
         },\
         \"KeyMarker\":{\
           \"shape\":\"KeyMarker\",\
-          \"documentation\":\"The key at or after which the listing began.\"\
+          \"documentation\":\"<p>The key at or after which the listing began.</p>\"\
         },\
         \"UploadIdMarker\":{\
           \"shape\":\"UploadIdMarker\",\
-          \"documentation\":\"Upload ID after which listing began.\"\
+          \"documentation\":\"<p>Upload ID after which listing began.</p>\"\
         },\
         \"NextKeyMarker\":{\
           \"shape\":\"NextKeyMarker\",\
-          \"documentation\":\"When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.\"\
+          \"documentation\":\"<p>When a list is truncated, this element specifies the value that should be used for the key-marker request parameter in a subsequent request.</p>\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.\"\
+          \"documentation\":\"<p>When a prefix is provided in the request, this field contains the specified prefix. The result contains only keys starting with the specified prefix.</p>\"\
         },\
         \"Delimiter\":{\"shape\":\"Delimiter\"},\
         \"NextUploadIdMarker\":{\
           \"shape\":\"NextUploadIdMarker\",\
-          \"documentation\":\"When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.\"\
+          \"documentation\":\"<p>When a list is truncated, this element specifies the value that should be used for the upload-id-marker request parameter in a subsequent request.</p>\"\
         },\
         \"MaxUploads\":{\
           \"shape\":\"MaxUploads\",\
-          \"documentation\":\"Maximum number of multipart uploads that could have been included in the response.\"\
+          \"documentation\":\"<p>Maximum number of multipart uploads that could have been included in the response.</p>\"\
         },\
         \"IsTruncated\":{\
           \"shape\":\"IsTruncated\",\
-          \"documentation\":\"Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.\"\
+          \"documentation\":\"<p>Indicates whether the returned list of multipart uploads is truncated. A value of true indicates that the list was truncated. The list can be truncated if the number of multipart uploads exceeds the limit allowed or specified by max uploads.</p>\"\
         },\
         \"Uploads\":{\
           \"shape\":\"MultipartUploadList\",\
@@ -3942,7 +4266,7 @@
         \"CommonPrefixes\":{\"shape\":\"CommonPrefixList\"},\
         \"EncodingType\":{\
           \"shape\":\"EncodingType\",\
-          \"documentation\":\"Encoding type used by Amazon S3 to encode object keys in the response.\"\
+          \"documentation\":\"<p>Encoding type used by Amazon S3 to encode object keys in the response.</p>\"\
         }\
       }\
     },\
@@ -3957,7 +4281,7 @@
         },\
         \"Delimiter\":{\
           \"shape\":\"Delimiter\",\
-          \"documentation\":\"Character you use to group keys.\",\
+          \"documentation\":\"<p>Character you use to group keys.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"delimiter\"\
         },\
@@ -3968,25 +4292,25 @@
         },\
         \"KeyMarker\":{\
           \"shape\":\"KeyMarker\",\
-          \"documentation\":\"Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.\",\
+          \"documentation\":\"<p>Together with upload-id-marker, this parameter specifies the multipart upload after which listing should begin.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"key-marker\"\
         },\
         \"MaxUploads\":{\
           \"shape\":\"MaxUploads\",\
-          \"documentation\":\"Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.\",\
+          \"documentation\":\"<p>Sets the maximum number of multipart uploads, from 1 to 1,000, to return in the response body. 1,000 is the maximum number of uploads that can be returned in a response.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"max-uploads\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"Lists in-progress uploads only for those keys that begin with the specified prefix.\",\
+          \"documentation\":\"<p>Lists in-progress uploads only for those keys that begin with the specified prefix.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"prefix\"\
         },\
         \"UploadIdMarker\":{\
           \"shape\":\"UploadIdMarker\",\
-          \"documentation\":\"Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.\",\
+          \"documentation\":\"<p>Together with key-marker, specifies the multipart upload after which listing should begin. If key-marker is not specified, the upload-id-marker parameter is ignored.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"upload-id-marker\"\
         }\
@@ -3997,20 +4321,20 @@
       \"members\":{\
         \"IsTruncated\":{\
           \"shape\":\"IsTruncated\",\
-          \"documentation\":\"A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.\"\
+          \"documentation\":\"<p>A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria. If your results were truncated, you can make a follow-up paginated request using the NextKeyMarker and NextVersionIdMarker response parameters as a starting place in another request to return the rest of the results.</p>\"\
         },\
         \"KeyMarker\":{\
           \"shape\":\"KeyMarker\",\
-          \"documentation\":\"Marks the last Key returned in a truncated response.\"\
+          \"documentation\":\"<p>Marks the last Key returned in a truncated response.</p>\"\
         },\
         \"VersionIdMarker\":{\"shape\":\"VersionIdMarker\"},\
         \"NextKeyMarker\":{\
           \"shape\":\"NextKeyMarker\",\
-          \"documentation\":\"Use this value for the key marker request parameter in a subsequent request.\"\
+          \"documentation\":\"<p>Use this value for the key marker request parameter in a subsequent request.</p>\"\
         },\
         \"NextVersionIdMarker\":{\
           \"shape\":\"NextVersionIdMarker\",\
-          \"documentation\":\"Use this value for the next version id marker parameter in a subsequent request.\"\
+          \"documentation\":\"<p>Use this value for the next version id marker parameter in a subsequent request.</p>\"\
         },\
         \"Versions\":{\
           \"shape\":\"ObjectVersionList\",\
@@ -4027,7 +4351,7 @@
         \"CommonPrefixes\":{\"shape\":\"CommonPrefixList\"},\
         \"EncodingType\":{\
           \"shape\":\"EncodingType\",\
-          \"documentation\":\"Encoding type used by Amazon S3 to encode object keys in the response.\"\
+          \"documentation\":\"<p>Encoding type used by Amazon S3 to encode object keys in the response.</p>\"\
         }\
       }\
     },\
@@ -4042,7 +4366,7 @@
         },\
         \"Delimiter\":{\
           \"shape\":\"Delimiter\",\
-          \"documentation\":\"A delimiter is a character you use to group keys.\",\
+          \"documentation\":\"<p>A delimiter is a character you use to group keys.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"delimiter\"\
         },\
@@ -4053,25 +4377,25 @@
         },\
         \"KeyMarker\":{\
           \"shape\":\"KeyMarker\",\
-          \"documentation\":\"Specifies the key to start with when listing objects in a bucket.\",\
+          \"documentation\":\"<p>Specifies the key to start with when listing objects in a bucket.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"key-marker\"\
         },\
         \"MaxKeys\":{\
           \"shape\":\"MaxKeys\",\
-          \"documentation\":\"Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.\",\
+          \"documentation\":\"<p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"max-keys\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"Limits the response to keys that begin with the specified prefix.\",\
+          \"documentation\":\"<p>Limits the response to keys that begin with the specified prefix.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"prefix\"\
         },\
         \"VersionIdMarker\":{\
           \"shape\":\"VersionIdMarker\",\
-          \"documentation\":\"Specifies the object version you want to start listing from.\",\
+          \"documentation\":\"<p>Specifies the object version you want to start listing from.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"version-id-marker\"\
         }\
@@ -4082,12 +4406,12 @@
       \"members\":{\
         \"IsTruncated\":{\
           \"shape\":\"IsTruncated\",\
-          \"documentation\":\"A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.\"\
+          \"documentation\":\"<p>A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.</p>\"\
         },\
         \"Marker\":{\"shape\":\"Marker\"},\
         \"NextMarker\":{\
           \"shape\":\"NextMarker\",\
-          \"documentation\":\"When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.\"\
+          \"documentation\":\"<p>When response is truncated (the IsTruncated element value in the response is true), you can use the key name in this field as marker in the subsequent request to get next set of objects. Amazon S3 lists objects in alphabetical order Note: This element is returned only if you have delimiter request parameter specified. If response does not include the NextMaker and it is truncated, you can use the value of the last Key in the response as the marker in the subsequent request to get the next set of object keys.</p>\"\
         },\
         \"Contents\":{\"shape\":\"ObjectList\"},\
         \"Name\":{\"shape\":\"BucketName\"},\
@@ -4097,7 +4421,7 @@
         \"CommonPrefixes\":{\"shape\":\"CommonPrefixList\"},\
         \"EncodingType\":{\
           \"shape\":\"EncodingType\",\
-          \"documentation\":\"Encoding type used by Amazon S3 to encode object keys in the response.\"\
+          \"documentation\":\"<p>Encoding type used by Amazon S3 to encode object keys in the response.</p>\"\
         }\
       }\
     },\
@@ -4112,7 +4436,7 @@
         },\
         \"Delimiter\":{\
           \"shape\":\"Delimiter\",\
-          \"documentation\":\"A delimiter is a character you use to group keys.\",\
+          \"documentation\":\"<p>A delimiter is a character you use to group keys.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"delimiter\"\
         },\
@@ -4123,25 +4447,25 @@
         },\
         \"Marker\":{\
           \"shape\":\"Marker\",\
-          \"documentation\":\"Specifies the key to start with when listing objects in a bucket.\",\
+          \"documentation\":\"<p>Specifies the key to start with when listing objects in a bucket.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"marker\"\
         },\
         \"MaxKeys\":{\
           \"shape\":\"MaxKeys\",\
-          \"documentation\":\"Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.\",\
+          \"documentation\":\"<p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"max-keys\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"Limits the response to keys that begin with the specified prefix.\",\
+          \"documentation\":\"<p>Limits the response to keys that begin with the specified prefix.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"prefix\"\
         },\
         \"RequestPayer\":{\
           \"shape\":\"RequestPayer\",\
-          \"documentation\":\"Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.\",\
+          \"documentation\":\"<p>Confirms that the requester knows that she or he will be charged for the list objects request. Bucket owners need not specify this parameter in their requests.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-request-payer\"\
         }\
@@ -4152,51 +4476,51 @@
       \"members\":{\
         \"IsTruncated\":{\
           \"shape\":\"IsTruncated\",\
-          \"documentation\":\"A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.\"\
+          \"documentation\":\"<p>A flag that indicates whether or not Amazon S3 returned all of the results that satisfied the search criteria.</p>\"\
         },\
         \"Contents\":{\
           \"shape\":\"ObjectList\",\
-          \"documentation\":\"Metadata about each object returned.\"\
+          \"documentation\":\"<p>Metadata about each object returned.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Name of the bucket to list.\"\
+          \"documentation\":\"<p>Name of the bucket to list.</p>\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"Limits the response to keys that begin with the specified prefix.\"\
+          \"documentation\":\"<p>Limits the response to keys that begin with the specified prefix.</p>\"\
         },\
         \"Delimiter\":{\
           \"shape\":\"Delimiter\",\
-          \"documentation\":\"A delimiter is a character you use to group keys.\"\
+          \"documentation\":\"<p>A delimiter is a character you use to group keys.</p>\"\
         },\
         \"MaxKeys\":{\
           \"shape\":\"MaxKeys\",\
-          \"documentation\":\"Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.\"\
+          \"documentation\":\"<p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</p>\"\
         },\
         \"CommonPrefixes\":{\
           \"shape\":\"CommonPrefixList\",\
-          \"documentation\":\"CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by delimiter\"\
+          \"documentation\":\"<p>CommonPrefixes contains all (if there are any) keys between Prefix and the next occurrence of the string specified by delimiter</p>\"\
         },\
         \"EncodingType\":{\
           \"shape\":\"EncodingType\",\
-          \"documentation\":\"Encoding type used by Amazon S3 to encode object keys in the response.\"\
+          \"documentation\":\"<p>Encoding type used by Amazon S3 to encode object keys in the response.</p>\"\
         },\
         \"KeyCount\":{\
           \"shape\":\"KeyCount\",\
-          \"documentation\":\"KeyCount is the number of keys returned with this request. KeyCount will always be less than equals to MaxKeys field. Say you ask for 50 keys, your result will include less than equals 50 keys\"\
+          \"documentation\":\"<p>KeyCount is the number of keys returned with this request. KeyCount will always be less than equals to MaxKeys field. Say you ask for 50 keys, your result will include less than equals 50 keys </p>\"\
         },\
         \"ContinuationToken\":{\
           \"shape\":\"Token\",\
-          \"documentation\":\"ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key\"\
+          \"documentation\":\"<p>ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key</p>\"\
         },\
         \"NextContinuationToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"NextContinuationToken is sent when isTruncated is true which means there are more keys in the bucket that can be listed. The next list requests to Amazon S3 can be continued with this NextContinuationToken. NextContinuationToken is obfuscated and is not a real key\"\
+          \"documentation\":\"<p>NextContinuationToken is sent when isTruncated is true which means there are more keys in the bucket that can be listed. The next list requests to Amazon S3 can be continued with this NextContinuationToken. NextContinuationToken is obfuscated and is not a real key</p>\"\
         },\
         \"StartAfter\":{\
           \"shape\":\"StartAfter\",\
-          \"documentation\":\"StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket\"\
+          \"documentation\":\"<p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket</p>\"\
         }\
       }\
     },\
@@ -4206,55 +4530,55 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Name of the bucket to list.\",\
+          \"documentation\":\"<p>Name of the bucket to list.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Delimiter\":{\
           \"shape\":\"Delimiter\",\
-          \"documentation\":\"A delimiter is a character you use to group keys.\",\
+          \"documentation\":\"<p>A delimiter is a character you use to group keys.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"delimiter\"\
         },\
         \"EncodingType\":{\
           \"shape\":\"EncodingType\",\
-          \"documentation\":\"Encoding type used by Amazon S3 to encode object keys in the response.\",\
+          \"documentation\":\"<p>Encoding type used by Amazon S3 to encode object keys in the response.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"encoding-type\"\
         },\
         \"MaxKeys\":{\
           \"shape\":\"MaxKeys\",\
-          \"documentation\":\"Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.\",\
+          \"documentation\":\"<p>Sets the maximum number of keys returned in the response. The response might contain fewer keys but will never contain more.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"max-keys\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"Limits the response to keys that begin with the specified prefix.\",\
+          \"documentation\":\"<p>Limits the response to keys that begin with the specified prefix.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"prefix\"\
         },\
         \"ContinuationToken\":{\
           \"shape\":\"Token\",\
-          \"documentation\":\"ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key\",\
+          \"documentation\":\"<p>ContinuationToken indicates Amazon S3 that the list is being continued on this bucket with a token. ContinuationToken is obfuscated and is not a real key</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"continuation-token\"\
         },\
         \"FetchOwner\":{\
           \"shape\":\"FetchOwner\",\
-          \"documentation\":\"The owner field is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true\",\
+          \"documentation\":\"<p>The owner field is not present in listV2 by default, if you want to return owner field with each key in the result then set the fetch owner field to true</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"fetch-owner\"\
         },\
         \"StartAfter\":{\
           \"shape\":\"StartAfter\",\
-          \"documentation\":\"StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket\",\
+          \"documentation\":\"<p>StartAfter is where you want Amazon S3 to start listing from. Amazon S3 starts listing after this specified key. StartAfter can be any key in the bucket</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"start-after\"\
         },\
         \"RequestPayer\":{\
           \"shape\":\"RequestPayer\",\
-          \"documentation\":\"Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.\",\
+          \"documentation\":\"<p>Confirms that the requester knows that she or he will be charged for the list objects request in V2 style. Bucket owners need not specify this parameter in their requests.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-request-payer\"\
         }\
@@ -4265,43 +4589,43 @@
       \"members\":{\
         \"AbortDate\":{\
           \"shape\":\"AbortDate\",\
-          \"documentation\":\"Date when multipart upload will become eligible for abort operation by lifecycle.\",\
+          \"documentation\":\"<p>Date when multipart upload will become eligible for abort operation by lifecycle.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-abort-date\"\
         },\
         \"AbortRuleId\":{\
           \"shape\":\"AbortRuleId\",\
-          \"documentation\":\"Id of the lifecycle rule that makes a multipart upload eligible for abort operation.\",\
+          \"documentation\":\"<p>Id of the lifecycle rule that makes a multipart upload eligible for abort operation.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-abort-rule-id\"\
         },\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Name of the bucket to which the multipart upload was initiated.\"\
+          \"documentation\":\"<p>Name of the bucket to which the multipart upload was initiated.</p>\"\
         },\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"Object key for which the multipart upload was initiated.\"\
+          \"documentation\":\"<p>Object key for which the multipart upload was initiated.</p>\"\
         },\
         \"UploadId\":{\
           \"shape\":\"MultipartUploadId\",\
-          \"documentation\":\"Upload ID identifying the multipart upload whose parts are being listed.\"\
+          \"documentation\":\"<p>Upload ID identifying the multipart upload whose parts are being listed.</p>\"\
         },\
         \"PartNumberMarker\":{\
           \"shape\":\"PartNumberMarker\",\
-          \"documentation\":\"Part number after which listing begins.\"\
+          \"documentation\":\"<p>Part number after which listing begins.</p>\"\
         },\
         \"NextPartNumberMarker\":{\
           \"shape\":\"NextPartNumberMarker\",\
-          \"documentation\":\"When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.\"\
+          \"documentation\":\"<p>When a list is truncated, this element specifies the last part in the list, as well as the value to use for the part-number-marker request parameter in a subsequent request.</p>\"\
         },\
         \"MaxParts\":{\
           \"shape\":\"MaxParts\",\
-          \"documentation\":\"Maximum number of parts that were allowed in the response.\"\
+          \"documentation\":\"<p>Maximum number of parts that were allowed in the response.</p>\"\
         },\
         \"IsTruncated\":{\
           \"shape\":\"IsTruncated\",\
-          \"documentation\":\"Indicates whether the returned list of parts is truncated.\"\
+          \"documentation\":\"<p>Indicates whether the returned list of parts is truncated.</p>\"\
         },\
         \"Parts\":{\
           \"shape\":\"Parts\",\
@@ -4309,12 +4633,12 @@
         },\
         \"Initiator\":{\
           \"shape\":\"Initiator\",\
-          \"documentation\":\"Identifies who initiated the multipart upload.\"\
+          \"documentation\":\"<p>Identifies who initiated the multipart upload.</p>\"\
         },\
         \"Owner\":{\"shape\":\"Owner\"},\
         \"StorageClass\":{\
           \"shape\":\"StorageClass\",\
-          \"documentation\":\"The class of storage used to store the object.\"\
+          \"documentation\":\"<p>The class of storage used to store the object.</p>\"\
         },\
         \"RequestCharged\":{\
           \"shape\":\"RequestCharged\",\
@@ -4343,19 +4667,19 @@
         },\
         \"MaxParts\":{\
           \"shape\":\"MaxParts\",\
-          \"documentation\":\"Sets the maximum number of parts to return.\",\
+          \"documentation\":\"<p>Sets the maximum number of parts to return.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"max-parts\"\
         },\
         \"PartNumberMarker\":{\
           \"shape\":\"PartNumberMarker\",\
-          \"documentation\":\"Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.\",\
+          \"documentation\":\"<p>Specifies the part after which listing should begin. Only parts with higher part numbers will be listed.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"part-number-marker\"\
         },\
         \"UploadId\":{\
           \"shape\":\"MultipartUploadId\",\
-          \"documentation\":\"Upload ID identifying the multipart upload whose parts are being listed.\",\
+          \"documentation\":\"<p>Upload ID identifying the multipart upload whose parts are being listed.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"uploadId\"\
         },\
@@ -4367,19 +4691,25 @@
       }\
     },\
     \"Location\":{\"type\":\"string\"},\
+    \"LocationPrefix\":{\"type\":\"string\"},\
     \"LoggingEnabled\":{\
       \"type\":\"structure\",\
+      \"required\":[\
+        \"TargetBucket\",\
+        \"TargetPrefix\"\
+      ],\
       \"members\":{\
         \"TargetBucket\":{\
           \"shape\":\"TargetBucket\",\
-          \"documentation\":\"Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.\"\
+          \"documentation\":\"<p>Specifies the bucket where you want Amazon S3 to store server access logs. You can have your logs delivered to any bucket that you own, including the same bucket that is being logged. You can also configure multiple buckets to deliver their logs to the same target bucket. In this case you should choose a different TargetPrefix for each source bucket so that the delivered log files can be distinguished by key.</p>\"\
         },\
         \"TargetGrants\":{\"shape\":\"TargetGrants\"},\
         \"TargetPrefix\":{\
           \"shape\":\"TargetPrefix\",\
-          \"documentation\":\"This element lets you specify a prefix for the keys that the log files will be stored under.\"\
+          \"documentation\":\"<p>This element lets you specify a prefix for the keys that the log files will be stored under.</p>\"\
         }\
-      }\
+      },\
+      \"documentation\":\"<p>Container for logging information. Presence of this element indicates that logging is enabled. Parameters TargetBucket and TargetPrefix are required in this case.</p>\"\
     },\
     \"MFA\":{\"type\":\"string\"},\
     \"MFADelete\":{\
@@ -4414,6 +4744,14 @@
         \"REPLACE\"\
       ]\
     },\
+    \"MetadataEntry\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Name\":{\"shape\":\"MetadataKey\"},\
+        \"Value\":{\"shape\":\"MetadataValue\"}\
+      },\
+      \"documentation\":\"<p>A metadata key-value pair to store with an object.</p>\"\
+    },\
     \"MetadataKey\":{\"type\":\"string\"},\
     \"MetadataValue\":{\"type\":\"string\"},\
     \"MetricsAndOperator\":{\
@@ -4421,11 +4759,11 @@
       \"members\":{\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"The prefix used when evaluating an AND predicate.\"\
+          \"documentation\":\"<p>The prefix used when evaluating an AND predicate.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagSet\",\
-          \"documentation\":\"The list of tags used when evaluating an AND predicate.\",\
+          \"documentation\":\"<p>The list of tags used when evaluating an AND predicate.</p>\",\
           \"flattened\":true,\
           \"locationName\":\"Tag\"\
         }\
@@ -4437,11 +4775,11 @@
       \"members\":{\
         \"Id\":{\
           \"shape\":\"MetricsId\",\
-          \"documentation\":\"The ID used to identify the metrics configuration.\"\
+          \"documentation\":\"<p>The ID used to identify the metrics configuration.</p>\"\
         },\
         \"Filter\":{\
           \"shape\":\"MetricsFilter\",\
-          \"documentation\":\"Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).\"\
+          \"documentation\":\"<p>Specifies a metrics configuration filter. The metrics configuration will only include objects that meet the filter's criteria. A filter must be a prefix, a tag, or a conjunction (MetricsAndOperator).</p>\"\
         }\
       }\
     },\
@@ -4455,15 +4793,15 @@
       \"members\":{\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"The prefix used when evaluating a metrics filter.\"\
+          \"documentation\":\"<p>The prefix used when evaluating a metrics filter.</p>\"\
         },\
         \"Tag\":{\
           \"shape\":\"Tag\",\
-          \"documentation\":\"The tag used when evaluating a metrics filter.\"\
+          \"documentation\":\"<p>The tag used when evaluating a metrics filter.</p>\"\
         },\
         \"And\":{\
           \"shape\":\"MetricsAndOperator\",\
-          \"documentation\":\"A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.\"\
+          \"documentation\":\"<p>A conjunction (logical AND) of predicates, which is used in evaluating a metrics filter. The operator must have at least two predicates, and an object must match all of the predicates in order for the filter to apply.</p>\"\
         }\
       }\
     },\
@@ -4474,24 +4812,24 @@
       \"members\":{\
         \"UploadId\":{\
           \"shape\":\"MultipartUploadId\",\
-          \"documentation\":\"Upload ID that identifies the multipart upload.\"\
+          \"documentation\":\"<p>Upload ID that identifies the multipart upload.</p>\"\
         },\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"Key of the object for which the multipart upload was initiated.\"\
+          \"documentation\":\"<p>Key of the object for which the multipart upload was initiated.</p>\"\
         },\
         \"Initiated\":{\
           \"shape\":\"Initiated\",\
-          \"documentation\":\"Date and time at which the multipart upload was initiated.\"\
+          \"documentation\":\"<p>Date and time at which the multipart upload was initiated.</p>\"\
         },\
         \"StorageClass\":{\
           \"shape\":\"StorageClass\",\
-          \"documentation\":\"The class of storage used to store the object.\"\
+          \"documentation\":\"<p>The class of storage used to store the object.</p>\"\
         },\
         \"Owner\":{\"shape\":\"Owner\"},\
         \"Initiator\":{\
           \"shape\":\"Initiator\",\
-          \"documentation\":\"Identifies who initiated the multipart upload.\"\
+          \"documentation\":\"<p>Identifies who initiated the multipart upload.</p>\"\
         }\
       }\
     },\
@@ -4511,21 +4849,21 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"The specified bucket does not exist.\",\
+      \"documentation\":\"<p>The specified bucket does not exist.</p>\",\
       \"exception\":true\
     },\
     \"NoSuchKey\":{\
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"The specified key does not exist.\",\
+      \"documentation\":\"<p>The specified key does not exist.</p>\",\
       \"exception\":true\
     },\
     \"NoSuchUpload\":{\
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"The specified multipart upload does not exist.\",\
+      \"documentation\":\"<p>The specified multipart upload does not exist.</p>\",\
       \"exception\":true\
     },\
     \"NoncurrentVersionExpiration\":{\
@@ -4533,24 +4871,24 @@
       \"members\":{\
         \"NoncurrentDays\":{\
           \"shape\":\"Days\",\
-          \"documentation\":\"Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\\\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.\"\
+          \"documentation\":\"<p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\\\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.</p>\"\
         }\
       },\
-      \"documentation\":\"Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.\"\
+      \"documentation\":\"<p>Specifies when noncurrent object versions expire. Upon expiration, Amazon S3 permanently deletes the noncurrent object versions. You set this lifecycle configuration action on a bucket that has versioning enabled (or suspended) to request that Amazon S3 delete noncurrent object versions at a specific period in the object's lifetime.</p>\"\
     },\
     \"NoncurrentVersionTransition\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"NoncurrentDays\":{\
           \"shape\":\"Days\",\
-          \"documentation\":\"Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\\\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.\"\
+          \"documentation\":\"<p>Specifies the number of days an object is noncurrent before Amazon S3 can perform the associated action. For information about the noncurrent days calculations, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-access-control.html\\\">How Amazon S3 Calculates When an Object Became Noncurrent</a> in the Amazon Simple Storage Service Developer Guide.</p>\"\
         },\
         \"StorageClass\":{\
           \"shape\":\"TransitionStorageClass\",\
-          \"documentation\":\"The class of storage used to store the object.\"\
+          \"documentation\":\"<p>The class of storage used to store the object.</p>\"\
         }\
       },\
-      \"documentation\":\"Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA or GLACIER storage class at a specific period in the object's lifetime.\"\
+      \"documentation\":\"<p>Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.</p>\"\
     },\
     \"NoncurrentVersionTransitionList\":{\
       \"type\":\"list\",\
@@ -4573,7 +4911,7 @@
           \"locationName\":\"CloudFunctionConfiguration\"\
         }\
       },\
-      \"documentation\":\"Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.\"\
+      \"documentation\":\"<p>Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.</p>\"\
     },\
     \"NotificationConfigurationDeprecated\":{\
       \"type\":\"structure\",\
@@ -4591,11 +4929,11 @@
           \"locationName\":\"S3Key\"\
         }\
       },\
-      \"documentation\":\"Container for object key name filtering rules. For information about key name filtering, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\\\">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.\"\
+      \"documentation\":\"<p>Container for object key name filtering rules. For information about key name filtering, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\\\">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>\"\
     },\
     \"NotificationId\":{\
       \"type\":\"string\",\
-      \"documentation\":\"Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.\"\
+      \"documentation\":\"<p>Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>\"\
     },\
     \"Object\":{\
       \"type\":\"structure\",\
@@ -4606,7 +4944,7 @@
         \"Size\":{\"shape\":\"Size\"},\
         \"StorageClass\":{\
           \"shape\":\"ObjectStorageClass\",\
-          \"documentation\":\"The class of storage used to store the object.\"\
+          \"documentation\":\"<p>The class of storage used to store the object.</p>\"\
         },\
         \"Owner\":{\"shape\":\"Owner\"}\
       }\
@@ -4615,7 +4953,7 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"This operation is not allowed against this storage tier\",\
+      \"documentation\":\"<p>This operation is not allowed against this storage tier</p>\",\
       \"exception\":true\
     },\
     \"ObjectCannedACL\":{\
@@ -4636,11 +4974,11 @@
       \"members\":{\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"Key name of the object to delete.\"\
+          \"documentation\":\"<p>Key name of the object to delete.</p>\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"VersionId for the specific version of the object to delete.\"\
+          \"documentation\":\"<p>VersionId for the specific version of the object to delete.</p>\"\
         }\
       }\
     },\
@@ -4662,7 +5000,7 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"The source object of the COPY operation is not in the active tier and is only stored in Amazon Glacier.\",\
+      \"documentation\":\"<p>The source object of the COPY operation is not in the active tier and is only stored in Amazon Glacier.</p>\",\
       \"exception\":true\
     },\
     \"ObjectStorageClass\":{\
@@ -4670,7 +5008,9 @@
       \"enum\":[\
         \"STANDARD\",\
         \"REDUCED_REDUNDANCY\",\
-        \"GLACIER\"\
+        \"GLACIER\",\
+        \"STANDARD_IA\",\
+        \"ONEZONE_IA\"\
       ]\
     },\
     \"ObjectVersion\":{\
@@ -4679,27 +5019,27 @@
         \"ETag\":{\"shape\":\"ETag\"},\
         \"Size\":{\
           \"shape\":\"Size\",\
-          \"documentation\":\"Size in bytes of the object.\"\
+          \"documentation\":\"<p>Size in bytes of the object.</p>\"\
         },\
         \"StorageClass\":{\
           \"shape\":\"ObjectVersionStorageClass\",\
-          \"documentation\":\"The class of storage used to store the object.\"\
+          \"documentation\":\"<p>The class of storage used to store the object.</p>\"\
         },\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"The object key.\"\
+          \"documentation\":\"<p>The object key.</p>\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"Version ID of an object.\"\
+          \"documentation\":\"<p>Version ID of an object.</p>\"\
         },\
         \"IsLatest\":{\
           \"shape\":\"IsLatest\",\
-          \"documentation\":\"Specifies whether the object is (true) or is not (false) the latest version of an object.\"\
+          \"documentation\":\"<p>Specifies whether the object is (true) or is not (false) the latest version of an object.</p>\"\
         },\
         \"LastModified\":{\
           \"shape\":\"LastModified\",\
-          \"documentation\":\"Date and time the object was last modified.\"\
+          \"documentation\":\"<p>Date and time the object was last modified.</p>\"\
         },\
         \"Owner\":{\"shape\":\"Owner\"}\
       }\
@@ -4714,6 +5054,30 @@
       \"type\":\"string\",\
       \"enum\":[\"STANDARD\"]\
     },\
+    \"OutputLocation\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"S3\":{\
+          \"shape\":\"S3Location\",\
+          \"documentation\":\"<p>Describes an S3 location that will receive the results of the restore request.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the location where the restore job's output is stored.</p>\"\
+    },\
+    \"OutputSerialization\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CSV\":{\
+          \"shape\":\"CSVOutput\",\
+          \"documentation\":\"<p>Describes the serialization of CSV-encoded Select results.</p>\"\
+        },\
+        \"JSON\":{\
+          \"shape\":\"JSONOutput\",\
+          \"documentation\":\"<p>Specifies JSON as request's output serialization format.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes how results of the Select job are serialized.</p>\"\
+    },\
     \"Owner\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4721,24 +5085,33 @@
         \"ID\":{\"shape\":\"ID\"}\
       }\
     },\
+    \"OwnerOverride\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"Destination\"]\
+    },\
+    \"ParquetInput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"Part\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"PartNumber\":{\
           \"shape\":\"PartNumber\",\
-          \"documentation\":\"Part number identifying the part. This is a positive integer between 1 and 10,000.\"\
+          \"documentation\":\"<p>Part number identifying the part. This is a positive integer between 1 and 10,000.</p>\"\
         },\
         \"LastModified\":{\
           \"shape\":\"LastModified\",\
-          \"documentation\":\"Date and time at which the part was uploaded.\"\
+          \"documentation\":\"<p>Date and time at which the part was uploaded.</p>\"\
         },\
         \"ETag\":{\
           \"shape\":\"ETag\",\
-          \"documentation\":\"Entity tag returned when the part was uploaded.\"\
+          \"documentation\":\"<p>Entity tag returned when the part was uploaded.</p>\"\
         },\
         \"Size\":{\
           \"shape\":\"Size\",\
-          \"documentation\":\"Size of the uploaded part data.\"\
+          \"documentation\":\"<p>Size of the uploaded part data.</p>\"\
         }\
       }\
     },\
@@ -4769,6 +5142,35 @@
     },\
     \"Policy\":{\"type\":\"string\"},\
     \"Prefix\":{\"type\":\"string\"},\
+    \"Priority\":{\"type\":\"integer\"},\
+    \"Progress\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"BytesScanned\":{\
+          \"shape\":\"BytesScanned\",\
+          \"documentation\":\"<p>Current number of object bytes scanned.</p>\"\
+        },\
+        \"BytesProcessed\":{\
+          \"shape\":\"BytesProcessed\",\
+          \"documentation\":\"<p>Current number of uncompressed object bytes processed.</p>\"\
+        },\
+        \"BytesReturned\":{\
+          \"shape\":\"BytesReturned\",\
+          \"documentation\":\"<p>Current number of bytes of records payload data returned.</p>\"\
+        }\
+      }\
+    },\
+    \"ProgressEvent\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Details\":{\
+          \"shape\":\"Progress\",\
+          \"documentation\":\"<p>The Progress event details.</p>\",\
+          \"eventpayload\":true\
+        }\
+      },\
+      \"event\":true\
+    },\
     \"Protocol\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -4785,13 +5187,13 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Name of the bucket for which the accelerate configuration is set.\",\
+          \"documentation\":\"<p>Name of the bucket for which the accelerate configuration is set.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"AccelerateConfiguration\":{\
           \"shape\":\"AccelerateConfiguration\",\
-          \"documentation\":\"Specifies the Accelerate Configuration you want to set for the bucket.\",\
+          \"documentation\":\"<p>Specifies the Accelerate Configuration you want to set for the bucket.</p>\",\
           \"locationName\":\"AccelerateConfiguration\",\
           \"xmlNamespace\":{\"uri\":\"http://s3.amazonaws.com/doc/2006-03-01/\"}\
         }\
@@ -4804,7 +5206,7 @@
       \"members\":{\
         \"ACL\":{\
           \"shape\":\"BucketCannedACL\",\
-          \"documentation\":\"The canned ACL to apply to the bucket.\",\
+          \"documentation\":\"<p>The canned ACL to apply to the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-acl\"\
         },\
@@ -4825,31 +5227,31 @@
         },\
         \"GrantFullControl\":{\
           \"shape\":\"GrantFullControl\",\
-          \"documentation\":\"Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.\",\
+          \"documentation\":\"<p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-full-control\"\
         },\
         \"GrantRead\":{\
           \"shape\":\"GrantRead\",\
-          \"documentation\":\"Allows grantee to list the objects in the bucket.\",\
+          \"documentation\":\"<p>Allows grantee to list the objects in the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read\"\
         },\
         \"GrantReadACP\":{\
           \"shape\":\"GrantReadACP\",\
-          \"documentation\":\"Allows grantee to read the bucket ACL.\",\
+          \"documentation\":\"<p>Allows grantee to read the bucket ACL.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read-acp\"\
         },\
         \"GrantWrite\":{\
           \"shape\":\"GrantWrite\",\
-          \"documentation\":\"Allows grantee to create, overwrite, and delete any object in the bucket.\",\
+          \"documentation\":\"<p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-write\"\
         },\
         \"GrantWriteACP\":{\
           \"shape\":\"GrantWriteACP\",\
-          \"documentation\":\"Allows grantee to write the ACL for the applicable bucket.\",\
+          \"documentation\":\"<p>Allows grantee to write the ACL for the applicable bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-write-acp\"\
         }\
@@ -4866,19 +5268,19 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket to which an analytics configuration is stored.\",\
+          \"documentation\":\"<p>The name of the bucket to which an analytics configuration is stored.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Id\":{\
           \"shape\":\"AnalyticsId\",\
-          \"documentation\":\"The identifier used to represent an analytics configuration.\",\
+          \"documentation\":\"<p>The identifier used to represent an analytics configuration.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"id\"\
         },\
         \"AnalyticsConfiguration\":{\
           \"shape\":\"AnalyticsConfiguration\",\
-          \"documentation\":\"The configuration and any analyses for the analytics filter.\",\
+          \"documentation\":\"<p>The configuration and any analyses for the analytics filter.</p>\",\
           \"locationName\":\"AnalyticsConfiguration\",\
           \"xmlNamespace\":{\"uri\":\"http://s3.amazonaws.com/doc/2006-03-01/\"}\
         }\
@@ -4910,6 +5312,33 @@
       },\
       \"payload\":\"CORSConfiguration\"\
     },\
+    \"PutBucketEncryptionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Bucket\",\
+        \"ServerSideEncryptionConfiguration\"\
+      ],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The name of the bucket for which the server-side encryption configuration is set.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        },\
+        \"ContentMD5\":{\
+          \"shape\":\"ContentMD5\",\
+          \"documentation\":\"<p>The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"Content-MD5\"\
+        },\
+        \"ServerSideEncryptionConfiguration\":{\
+          \"shape\":\"ServerSideEncryptionConfiguration\",\
+          \"locationName\":\"ServerSideEncryptionConfiguration\",\
+          \"xmlNamespace\":{\"uri\":\"http://s3.amazonaws.com/doc/2006-03-01/\"}\
+        }\
+      },\
+      \"payload\":\"ServerSideEncryptionConfiguration\"\
+    },\
     \"PutBucketInventoryConfigurationRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -4920,19 +5349,19 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket where the inventory configuration will be stored.\",\
+          \"documentation\":\"<p>The name of the bucket where the inventory configuration will be stored.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Id\":{\
           \"shape\":\"InventoryId\",\
-          \"documentation\":\"The ID used to identify the inventory configuration.\",\
+          \"documentation\":\"<p>The ID used to identify the inventory configuration.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"id\"\
         },\
         \"InventoryConfiguration\":{\
           \"shape\":\"InventoryConfiguration\",\
-          \"documentation\":\"Specifies the inventory configuration.\",\
+          \"documentation\":\"<p>Specifies the inventory configuration.</p>\",\
           \"locationName\":\"InventoryConfiguration\",\
           \"xmlNamespace\":{\"uri\":\"http://s3.amazonaws.com/doc/2006-03-01/\"}\
         }\
@@ -5013,19 +5442,19 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"The name of the bucket for which the metrics configuration is set.\",\
+          \"documentation\":\"<p>The name of the bucket for which the metrics configuration is set.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Id\":{\
           \"shape\":\"MetricsId\",\
-          \"documentation\":\"The ID used to identify the metrics configuration.\",\
+          \"documentation\":\"<p>The ID used to identify the metrics configuration.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"id\"\
         },\
         \"MetricsConfiguration\":{\
           \"shape\":\"MetricsConfiguration\",\
-          \"documentation\":\"Specifies the metrics configuration.\",\
+          \"documentation\":\"<p>Specifies the metrics configuration.</p>\",\
           \"locationName\":\"MetricsConfiguration\",\
           \"xmlNamespace\":{\"uri\":\"http://s3.amazonaws.com/doc/2006-03-01/\"}\
         }\
@@ -5094,9 +5523,15 @@
           \"location\":\"header\",\
           \"locationName\":\"Content-MD5\"\
         },\
+        \"ConfirmRemoveSelfBucketAccess\":{\
+          \"shape\":\"ConfirmRemoveSelfBucketAccess\",\
+          \"documentation\":\"<p>Set this parameter to true to confirm that you want to remove your permissions to change this bucket policy in the future.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-confirm-remove-self-bucket-access\"\
+        },\
         \"Policy\":{\
           \"shape\":\"Policy\",\
-          \"documentation\":\"The bucket policy as a JSON document.\"\
+          \"documentation\":\"<p>The bucket policy as a JSON document.</p>\"\
         }\
       },\
       \"payload\":\"Policy\"\
@@ -5195,7 +5630,7 @@
         },\
         \"MFA\":{\
           \"shape\":\"MFA\",\
-          \"documentation\":\"The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.\",\
+          \"documentation\":\"<p>The concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-mfa\"\
         },\
@@ -5251,7 +5686,7 @@
       \"members\":{\
         \"ACL\":{\
           \"shape\":\"ObjectCannedACL\",\
-          \"documentation\":\"The canned ACL to apply to the object.\",\
+          \"documentation\":\"<p>The canned ACL to apply to the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-acl\"\
         },\
@@ -5272,31 +5707,31 @@
         },\
         \"GrantFullControl\":{\
           \"shape\":\"GrantFullControl\",\
-          \"documentation\":\"Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.\",\
+          \"documentation\":\"<p>Allows grantee the read, write, read ACP, and write ACP permissions on the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-full-control\"\
         },\
         \"GrantRead\":{\
           \"shape\":\"GrantRead\",\
-          \"documentation\":\"Allows grantee to list the objects in the bucket.\",\
+          \"documentation\":\"<p>Allows grantee to list the objects in the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read\"\
         },\
         \"GrantReadACP\":{\
           \"shape\":\"GrantReadACP\",\
-          \"documentation\":\"Allows grantee to read the bucket ACL.\",\
+          \"documentation\":\"<p>Allows grantee to read the bucket ACL.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read-acp\"\
         },\
         \"GrantWrite\":{\
           \"shape\":\"GrantWrite\",\
-          \"documentation\":\"Allows grantee to create, overwrite, and delete any object in the bucket.\",\
+          \"documentation\":\"<p>Allows grantee to create, overwrite, and delete any object in the bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-write\"\
         },\
         \"GrantWriteACP\":{\
           \"shape\":\"GrantWriteACP\",\
-          \"documentation\":\"Allows grantee to write the ACL for the applicable bucket.\",\
+          \"documentation\":\"<p>Allows grantee to write the ACL for the applicable bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-write-acp\"\
         },\
@@ -5312,7 +5747,7 @@
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"VersionId used to reference a specific version of the object.\",\
+          \"documentation\":\"<p>VersionId used to reference a specific version of the object.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"versionId\"\
         }\
@@ -5324,43 +5759,43 @@
       \"members\":{\
         \"Expiration\":{\
           \"shape\":\"Expiration\",\
-          \"documentation\":\"If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.\",\
+          \"documentation\":\"<p>If the object expiration is configured, this will contain the expiration date (expiry-date) and rule ID (rule-id). The value of rule-id is URL encoded.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-expiration\"\
         },\
         \"ETag\":{\
           \"shape\":\"ETag\",\
-          \"documentation\":\"Entity tag for the uploaded object.\",\
+          \"documentation\":\"<p>Entity tag for the uploaded object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"ETag\"\
         },\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"VersionId\":{\
           \"shape\":\"ObjectVersionId\",\
-          \"documentation\":\"Version of the object.\",\
+          \"documentation\":\"<p>Version of the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-version-id\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.\",\
+          \"documentation\":\"<p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
@@ -5380,144 +5815,144 @@
       \"members\":{\
         \"ACL\":{\
           \"shape\":\"ObjectCannedACL\",\
-          \"documentation\":\"The canned ACL to apply to the object.\",\
+          \"documentation\":\"<p>The canned ACL to apply to the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-acl\"\
         },\
         \"Body\":{\
           \"shape\":\"Body\",\
-          \"documentation\":\"Object data.\",\
+          \"documentation\":\"<p>Object data.</p>\",\
           \"streaming\":true\
         },\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Name of the bucket to which the PUT operation was initiated.\",\
+          \"documentation\":\"<p>Name of the bucket to which the PUT operation was initiated.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"CacheControl\":{\
           \"shape\":\"CacheControl\",\
-          \"documentation\":\"Specifies caching behavior along the request/reply chain.\",\
+          \"documentation\":\"<p>Specifies caching behavior along the request/reply chain.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Cache-Control\"\
         },\
         \"ContentDisposition\":{\
           \"shape\":\"ContentDisposition\",\
-          \"documentation\":\"Specifies presentational information for the object.\",\
+          \"documentation\":\"<p>Specifies presentational information for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Disposition\"\
         },\
         \"ContentEncoding\":{\
           \"shape\":\"ContentEncoding\",\
-          \"documentation\":\"Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.\",\
+          \"documentation\":\"<p>Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Encoding\"\
         },\
         \"ContentLanguage\":{\
           \"shape\":\"ContentLanguage\",\
-          \"documentation\":\"The language the content is in.\",\
+          \"documentation\":\"<p>The language the content is in.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Language\"\
         },\
         \"ContentLength\":{\
           \"shape\":\"ContentLength\",\
-          \"documentation\":\"Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.\",\
+          \"documentation\":\"<p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Length\"\
         },\
         \"ContentMD5\":{\
           \"shape\":\"ContentMD5\",\
-          \"documentation\":\"The base64-encoded 128-bit MD5 digest of the part data.\",\
+          \"documentation\":\"<p>The base64-encoded 128-bit MD5 digest of the part data.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-MD5\"\
         },\
         \"ContentType\":{\
           \"shape\":\"ContentType\",\
-          \"documentation\":\"A standard MIME type describing the format of the object data.\",\
+          \"documentation\":\"<p>A standard MIME type describing the format of the object data.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Type\"\
         },\
         \"Expires\":{\
           \"shape\":\"Expires\",\
-          \"documentation\":\"The date and time at which the object is no longer cacheable.\",\
+          \"documentation\":\"<p>The date and time at which the object is no longer cacheable.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Expires\"\
         },\
         \"GrantFullControl\":{\
           \"shape\":\"GrantFullControl\",\
-          \"documentation\":\"Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.\",\
+          \"documentation\":\"<p>Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-full-control\"\
         },\
         \"GrantRead\":{\
           \"shape\":\"GrantRead\",\
-          \"documentation\":\"Allows grantee to read the object data and its metadata.\",\
+          \"documentation\":\"<p>Allows grantee to read the object data and its metadata.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read\"\
         },\
         \"GrantReadACP\":{\
           \"shape\":\"GrantReadACP\",\
-          \"documentation\":\"Allows grantee to read the object ACL.\",\
+          \"documentation\":\"<p>Allows grantee to read the object ACL.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-read-acp\"\
         },\
         \"GrantWriteACP\":{\
           \"shape\":\"GrantWriteACP\",\
-          \"documentation\":\"Allows grantee to write the ACL for the applicable object.\",\
+          \"documentation\":\"<p>Allows grantee to write the ACL for the applicable object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-write-acp\"\
         },\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"Object key for which the PUT operation was initiated.\",\
+          \"documentation\":\"<p>Object key for which the PUT operation was initiated.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Key\"\
         },\
         \"Metadata\":{\
           \"shape\":\"Metadata\",\
-          \"documentation\":\"A map of metadata to store with the object in S3.\",\
+          \"documentation\":\"<p>A map of metadata to store with the object in S3.</p>\",\
           \"location\":\"headers\",\
           \"locationName\":\"x-amz-meta-\"\
         },\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"StorageClass\":{\
           \"shape\":\"StorageClass\",\
-          \"documentation\":\"The type of storage to use for the object. Defaults to 'STANDARD'.\",\
+          \"documentation\":\"<p>The type of storage to use for the object. Defaults to 'STANDARD'.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-storage-class\"\
         },\
         \"WebsiteRedirectLocation\":{\
           \"shape\":\"WebsiteRedirectLocation\",\
-          \"documentation\":\"If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.\",\
+          \"documentation\":\"<p>If the bucket is configured as a website, redirects requests for this object to another object in the same bucket or to an external URL. Amazon S3 stores the value of this header in the object metadata.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-website-redirect-location\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"Specifies the algorithm to use to when encrypting the object (e.g., AES256).\",\
+          \"documentation\":\"<p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.\",\
+          \"documentation\":\"<p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.\",\
+          \"documentation\":\"<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version\",\
+          \"documentation\":\"<p>Specifies the AWS KMS key ID to use for object encryption. All GET and PUT requests for an object protected by AWS KMS will fail if not made via SSL or using SigV4. Documentation on configuring any of the officially supported AWS SDKs and CLI can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingAWSSDK.html#specify-signature-version</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
@@ -5528,7 +5963,7 @@
         },\
         \"Tagging\":{\
           \"shape\":\"TaggingHeader\",\
-          \"documentation\":\"The tag-set for the object. The tag-set must be encoded as URL Query parameters\",\
+          \"documentation\":\"<p>The tag-set for the object. The tag-set must be encoded as URL Query parameters</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-tagging\"\
         }\
@@ -5592,7 +6027,7 @@
         \"Id\":{\"shape\":\"NotificationId\"},\
         \"QueueArn\":{\
           \"shape\":\"QueueArn\",\
-          \"documentation\":\"Amazon SQS queue ARN to which Amazon S3 will publish a message when it detects events of specified type.\",\
+          \"documentation\":\"<p>Amazon SQS queue ARN to which Amazon S3 will publish a message when it detects events of specified type.</p>\",\
           \"locationName\":\"Queue\"\
         },\
         \"Events\":{\
@@ -5601,7 +6036,7 @@
         },\
         \"Filter\":{\"shape\":\"NotificationConfigurationFilter\"}\
       },\
-      \"documentation\":\"Container for specifying an configuration when you want Amazon S3 to publish events to an Amazon Simple Queue Service (Amazon SQS) queue.\"\
+      \"documentation\":\"<p>Container for specifying an configuration when you want Amazon S3 to publish events to an Amazon Simple Queue Service (Amazon SQS) queue.</p>\"\
     },\
     \"QueueConfigurationDeprecated\":{\
       \"type\":\"structure\",\
@@ -5624,29 +6059,50 @@
       \"flattened\":true\
     },\
     \"Quiet\":{\"type\":\"boolean\"},\
+    \"QuoteCharacter\":{\"type\":\"string\"},\
+    \"QuoteEscapeCharacter\":{\"type\":\"string\"},\
+    \"QuoteFields\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ALWAYS\",\
+        \"ASNEEDED\"\
+      ]\
+    },\
     \"Range\":{\"type\":\"string\"},\
+    \"RecordDelimiter\":{\"type\":\"string\"},\
+    \"RecordsEvent\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Payload\":{\
+          \"shape\":\"Body\",\
+          \"documentation\":\"<p>The byte array of partial, one or more result records.</p>\",\
+          \"eventpayload\":true\
+        }\
+      },\
+      \"event\":true\
+    },\
     \"Redirect\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"HostName\":{\
           \"shape\":\"HostName\",\
-          \"documentation\":\"The host name to use in the redirect request.\"\
+          \"documentation\":\"<p>The host name to use in the redirect request.</p>\"\
         },\
         \"HttpRedirectCode\":{\
           \"shape\":\"HttpRedirectCode\",\
-          \"documentation\":\"The HTTP redirect code to use on the response. Not required if one of the siblings is present.\"\
+          \"documentation\":\"<p>The HTTP redirect code to use on the response. Not required if one of the siblings is present.</p>\"\
         },\
         \"Protocol\":{\
           \"shape\":\"Protocol\",\
-          \"documentation\":\"Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.\"\
+          \"documentation\":\"<p>Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.</p>\"\
         },\
         \"ReplaceKeyPrefixWith\":{\
           \"shape\":\"ReplaceKeyPrefixWith\",\
-          \"documentation\":\"The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the docs/ folder) to documents/, you can set a condition block with KeyPrefixEquals set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.\"\
+          \"documentation\":\"<p>The object key prefix to use in the redirect request. For example, to redirect requests for all pages with prefix docs/ (objects in the docs/ folder) to documents/, you can set a condition block with KeyPrefixEquals set to docs/ and in the Redirect set ReplaceKeyPrefixWith to /documents. Not required if one of the siblings is present. Can be present only if ReplaceKeyWith is not provided.</p>\"\
         },\
         \"ReplaceKeyWith\":{\
           \"shape\":\"ReplaceKeyWith\",\
-          \"documentation\":\"The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is present. Can be present only if ReplaceKeyPrefixWith is not provided.\"\
+          \"documentation\":\"<p>The specific object key to use in the redirect request. For example, redirect request to error.html. Not required if one of the sibling is present. Can be present only if ReplaceKeyPrefixWith is not provided.</p>\"\
         }\
       }\
     },\
@@ -5656,16 +6112,17 @@
       \"members\":{\
         \"HostName\":{\
           \"shape\":\"HostName\",\
-          \"documentation\":\"Name of the host where requests will be redirected.\"\
+          \"documentation\":\"<p>Name of the host where requests will be redirected.</p>\"\
         },\
         \"Protocol\":{\
           \"shape\":\"Protocol\",\
-          \"documentation\":\"Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.\"\
+          \"documentation\":\"<p>Protocol to use (http, https) when redirecting requests. The default is the protocol that is used in the original request.</p>\"\
         }\
       }\
     },\
     \"ReplaceKeyPrefixWith\":{\"type\":\"string\"},\
     \"ReplaceKeyWith\":{\"type\":\"string\"},\
+    \"ReplicaKmsKeyID\":{\"type\":\"string\"},\
     \"ReplicationConfiguration\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -5675,38 +6132,81 @@
       \"members\":{\
         \"Role\":{\
           \"shape\":\"Role\",\
-          \"documentation\":\"Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when replicating the objects.\"\
+          \"documentation\":\"<p>Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when replicating the objects.</p>\"\
         },\
         \"Rules\":{\
           \"shape\":\"ReplicationRules\",\
-          \"documentation\":\"Container for information about a particular replication rule. Replication configuration must have at least one rule and can contain up to 1,000 rules.\",\
+          \"documentation\":\"<p>Container for one or more replication rules. Replication configuration must have at least one rule and can contain up to 1,000 rules. </p>\",\
           \"locationName\":\"Rule\"\
         }\
       },\
-      \"documentation\":\"Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.\"\
+      \"documentation\":\"<p>Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.</p>\"\
     },\
     \"ReplicationRule\":{\
       \"type\":\"structure\",\
       \"required\":[\
-        \"Prefix\",\
         \"Status\",\
         \"Destination\"\
       ],\
       \"members\":{\
         \"ID\":{\
           \"shape\":\"ID\",\
-          \"documentation\":\"Unique identifier for the rule. The value cannot be longer than 255 characters.\"\
+          \"documentation\":\"<p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>\"\
+        },\
+        \"Priority\":{\
+          \"shape\":\"Priority\",\
+          \"documentation\":\"<p>The priority associated with the rule. If you specify multiple rules in a replication configuration, then Amazon S3 applies rule priority in the event there are conflicts (two or more rules identify the same object based on filter specified). The rule with higher priority takes precedence. For example,</p> <ul> <li> <p>Same object quality prefix based filter criteria If prefixes you specified in multiple rules overlap. </p> </li> <li> <p>Same object qualify tag based filter criteria specified in multiple rules</p> </li> </ul> <p>For more information, see <a href=\\\" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html\\\">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide.</p>\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes are not supported.\"\
+          \"documentation\":\"<p>Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. </p>\",\
+          \"deprecated\":true\
         },\
+        \"Filter\":{\"shape\":\"ReplicationRuleFilter\"},\
         \"Status\":{\
           \"shape\":\"ReplicationRuleStatus\",\
-          \"documentation\":\"The rule is ignored if status is not Enabled.\"\
+          \"documentation\":\"<p>The rule is ignored if status is not Enabled.</p>\"\
         },\
-        \"Destination\":{\"shape\":\"Destination\"}\
+        \"SourceSelectionCriteria\":{\
+          \"shape\":\"SourceSelectionCriteria\",\
+          \"documentation\":\"<p> Container that describes additional filters in identifying source objects that you want to replicate. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using an AWS KMS-managed key. You can choose to enable or disable replication of these objects. </p> <p> if you want Amazon S3 to replicate objects created with server-side encryption using AWS KMS-managed keys. </p>\"\
+        },\
+        \"Destination\":{\
+          \"shape\":\"Destination\",\
+          \"documentation\":\"<p>Container for replication destination information.</p>\"\
+        },\
+        \"DeleteMarkerReplication\":{\"shape\":\"DeleteMarkerReplication\"}\
+      },\
+      \"documentation\":\"<p>Container for information about a particular replication rule.</p>\"\
+    },\
+    \"ReplicationRuleAndOperator\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Prefix\":{\"shape\":\"Prefix\"},\
+        \"Tags\":{\
+          \"shape\":\"TagSet\",\
+          \"flattened\":true,\
+          \"locationName\":\"Tag\"\
+        }\
       }\
+    },\
+    \"ReplicationRuleFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Prefix\":{\
+          \"shape\":\"Prefix\",\
+          \"documentation\":\"<p>Object keyname prefix that identifies subset of objects to which the rule applies.</p>\"\
+        },\
+        \"Tag\":{\
+          \"shape\":\"Tag\",\
+          \"documentation\":\"<p>Container for specifying a tag key and value. </p> <p>The rule applies only to objects having the tag in its tagset.</p>\"\
+        },\
+        \"And\":{\
+          \"shape\":\"ReplicationRuleAndOperator\",\
+          \"documentation\":\"<p>Container for specifying rule filters. These filters determine the subset of objects to which the rule applies. The element is required only if you specify more than one filter. For example: </p> <ul> <li> <p>You specify both a <code>Prefix</code> and a <code>Tag</code> filters. Then you wrap these in an <code>And</code> tag.</p> </li> <li> <p>You specify filter based on multiple tags. Then you wrap the <code>Tag</code> elements in an <code>And</code> tag.</p> </li> </ul>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Filter that identifies subset of objects to which the replication rule applies. A <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or an <code>And</code> child element.</p>\"\
     },\
     \"ReplicationRuleStatus\":{\
       \"type\":\"string\",\
@@ -5731,12 +6231,12 @@
     },\
     \"RequestCharged\":{\
       \"type\":\"string\",\
-      \"documentation\":\"If present, indicates that the requester was successfully charged for the request.\",\
+      \"documentation\":\"<p>If present, indicates that the requester was successfully charged for the request.</p>\",\
       \"enum\":[\"requester\"]\
     },\
     \"RequestPayer\":{\
       \"type\":\"string\",\
-      \"documentation\":\"Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html\",\
+      \"documentation\":\"<p>Confirms that the requester knows that she or he will be charged for the request. Bucket owners need not specify this parameter in their requests. Documentation on downloading objects from requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/ObjectsinRequesterPaysBuckets.html</p>\",\
       \"enum\":[\"requester\"]\
     },\
     \"RequestPaymentConfiguration\":{\
@@ -5745,7 +6245,16 @@
       \"members\":{\
         \"Payer\":{\
           \"shape\":\"Payer\",\
-          \"documentation\":\"Specifies who pays for the download and request fees.\"\
+          \"documentation\":\"<p>Specifies who pays for the download and request fees.</p>\"\
+        }\
+      }\
+    },\
+    \"RequestProgress\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Enabled\":{\
+          \"shape\":\"EnableRequestProgress\",\
+          \"documentation\":\"<p>Specifies whether periodic QueryProgress frames should be sent. Valid values: TRUE, FALSE. Default value: FALSE.</p>\"\
         }\
       }\
     },\
@@ -5763,6 +6272,12 @@
           \"shape\":\"RequestCharged\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-request-charged\"\
+        },\
+        \"RestoreOutputPath\":{\
+          \"shape\":\"RestoreOutputPath\",\
+          \"documentation\":\"<p>Indicates the path in the provided S3 output location where Select results will be restored to.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-restore-output-path\"\
         }\
       }\
     },\
@@ -5801,19 +6316,44 @@
       },\
       \"payload\":\"RestoreRequest\"\
     },\
+    \"RestoreOutputPath\":{\"type\":\"string\"},\
     \"RestoreRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\"Days\"],\
       \"members\":{\
         \"Days\":{\
           \"shape\":\"Days\",\
-          \"documentation\":\"Lifetime of the active copy in days\"\
+          \"documentation\":\"<p>Lifetime of the active copy in days. Do not use with restores that specify OutputLocation.</p>\"\
         },\
         \"GlacierJobParameters\":{\
           \"shape\":\"GlacierJobParameters\",\
-          \"documentation\":\"Glacier related prameters pertaining to this job.\"\
+          \"documentation\":\"<p>Glacier related parameters pertaining to this job. Do not use with restores that specify OutputLocation.</p>\"\
+        },\
+        \"Type\":{\
+          \"shape\":\"RestoreRequestType\",\
+          \"documentation\":\"<p>Type of restore request.</p>\"\
+        },\
+        \"Tier\":{\
+          \"shape\":\"Tier\",\
+          \"documentation\":\"<p>Glacier retrieval tier at which the restore will be processed.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"Description\",\
+          \"documentation\":\"<p>The optional description for the job.</p>\"\
+        },\
+        \"SelectParameters\":{\
+          \"shape\":\"SelectParameters\",\
+          \"documentation\":\"<p>Describes the parameters for Select job types.</p>\"\
+        },\
+        \"OutputLocation\":{\
+          \"shape\":\"OutputLocation\",\
+          \"documentation\":\"<p>Describes the location where the restore job's output is stored.</p>\"\
         }\
-      }\
+      },\
+      \"documentation\":\"<p>Container for restore job parameters.</p>\"\
+    },\
+    \"RestoreRequestType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"SELECT\"]\
     },\
     \"Role\":{\"type\":\"string\"},\
     \"RoutingRule\":{\
@@ -5822,11 +6362,11 @@
       \"members\":{\
         \"Condition\":{\
           \"shape\":\"Condition\",\
-          \"documentation\":\"A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.\"\
+          \"documentation\":\"<p>A container for describing a condition that must be met for the specified redirect to apply. For example, 1. If request is for pages in the /docs folder, redirect to the /documents folder. 2. If request results in HTTP error 4xx, redirect request to another host where you might process the error.</p>\"\
         },\
         \"Redirect\":{\
           \"shape\":\"Redirect\",\
-          \"documentation\":\"Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return.\"\
+          \"documentation\":\"<p>Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return.</p>\"\
         }\
       }\
     },\
@@ -5847,15 +6387,15 @@
         \"Expiration\":{\"shape\":\"LifecycleExpiration\"},\
         \"ID\":{\
           \"shape\":\"ID\",\
-          \"documentation\":\"Unique identifier for the rule. The value cannot be longer than 255 characters.\"\
+          \"documentation\":\"<p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"Prefix identifying one or more objects to which the rule applies.\"\
+          \"documentation\":\"<p>Prefix identifying one or more objects to which the rule applies.</p>\"\
         },\
         \"Status\":{\
           \"shape\":\"ExpirationStatus\",\
-          \"documentation\":\"If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.\"\
+          \"documentation\":\"<p>If 'Enabled', the rule is currently being applied. If 'Disabled', the rule is not currently being applied.</p>\"\
         },\
         \"Transition\":{\"shape\":\"Transition\"},\
         \"NoncurrentVersionTransition\":{\"shape\":\"NoncurrentVersionTransition\"},\
@@ -5876,7 +6416,46 @@
           \"locationName\":\"FilterRule\"\
         }\
       },\
-      \"documentation\":\"Container for object key name prefix and suffix filtering rules.\"\
+      \"documentation\":\"<p>Container for object key name prefix and suffix filtering rules.</p>\"\
+    },\
+    \"S3Location\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"BucketName\",\
+        \"Prefix\"\
+      ],\
+      \"members\":{\
+        \"BucketName\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The name of the bucket where the restore results will be placed.</p>\"\
+        },\
+        \"Prefix\":{\
+          \"shape\":\"LocationPrefix\",\
+          \"documentation\":\"<p>The prefix that is prepended to the restore results for this request.</p>\"\
+        },\
+        \"Encryption\":{\"shape\":\"Encryption\"},\
+        \"CannedACL\":{\
+          \"shape\":\"ObjectCannedACL\",\
+          \"documentation\":\"<p>The canned ACL to apply to the restore results.</p>\"\
+        },\
+        \"AccessControlList\":{\
+          \"shape\":\"Grants\",\
+          \"documentation\":\"<p>A list of grants that control access to the staged results.</p>\"\
+        },\
+        \"Tagging\":{\
+          \"shape\":\"Tagging\",\
+          \"documentation\":\"<p>The tag-set that is applied to the restore results.</p>\"\
+        },\
+        \"UserMetadata\":{\
+          \"shape\":\"UserMetadata\",\
+          \"documentation\":\"<p>A list of metadata to store with the restore results in S3.</p>\"\
+        },\
+        \"StorageClass\":{\
+          \"shape\":\"StorageClass\",\
+          \"documentation\":\"<p>The class of storage used to store the restore results.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes an S3 location that will receive the results of the restore request.</p>\"\
     },\
     \"SSECustomerAlgorithm\":{\"type\":\"string\"},\
     \"SSECustomerKey\":{\
@@ -5884,9 +6463,153 @@
       \"sensitive\":true\
     },\
     \"SSECustomerKeyMD5\":{\"type\":\"string\"},\
+    \"SSEKMS\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"KeyId\"],\
+      \"members\":{\
+        \"KeyId\":{\
+          \"shape\":\"SSEKMSKeyId\",\
+          \"documentation\":\"<p>Specifies the ID of the AWS Key Management Service (KMS) master encryption key to use for encrypting Inventory reports.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Specifies the use of SSE-KMS to encrypt delievered Inventory reports.</p>\",\
+      \"locationName\":\"SSE-KMS\"\
+    },\
     \"SSEKMSKeyId\":{\
       \"type\":\"string\",\
       \"sensitive\":true\
+    },\
+    \"SSES3\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"documentation\":\"<p>Specifies the use of SSE-S3 to encrypt delievered Inventory reports.</p>\",\
+      \"locationName\":\"SSE-S3\"\
+    },\
+    \"SelectObjectContentEventStream\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Records\":{\
+          \"shape\":\"RecordsEvent\",\
+          \"documentation\":\"<p>The Records Event.</p>\"\
+        },\
+        \"Stats\":{\
+          \"shape\":\"StatsEvent\",\
+          \"documentation\":\"<p>The Stats Event.</p>\"\
+        },\
+        \"Progress\":{\
+          \"shape\":\"ProgressEvent\",\
+          \"documentation\":\"<p>The Progress Event.</p>\"\
+        },\
+        \"Cont\":{\
+          \"shape\":\"ContinuationEvent\",\
+          \"documentation\":\"<p>The Continuation Event.</p>\"\
+        },\
+        \"End\":{\
+          \"shape\":\"EndEvent\",\
+          \"documentation\":\"<p>The End Event.</p>\"\
+        }\
+      },\
+      \"eventstream\":true\
+    },\
+    \"SelectObjectContentOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Payload\":{\"shape\":\"SelectObjectContentEventStream\"}\
+      },\
+      \"payload\":\"Payload\"\
+    },\
+    \"SelectObjectContentRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Bucket\",\
+        \"Key\",\
+        \"Expression\",\
+        \"ExpressionType\",\
+        \"InputSerialization\",\
+        \"OutputSerialization\"\
+      ],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The S3 Bucket.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        },\
+        \"Key\":{\
+          \"shape\":\"ObjectKey\",\
+          \"documentation\":\"<p>The Object Key.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Key\"\
+        },\
+        \"SSECustomerAlgorithm\":{\
+          \"shape\":\"SSECustomerAlgorithm\",\
+          \"documentation\":\"<p>The SSE Algorithm used to encrypt the object. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\\\"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
+        },\
+        \"SSECustomerKey\":{\
+          \"shape\":\"SSECustomerKey\",\
+          \"documentation\":\"<p>The SSE Customer Key. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\\\"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
+        },\
+        \"SSECustomerKeyMD5\":{\
+          \"shape\":\"SSECustomerKeyMD5\",\
+          \"documentation\":\"<p>The SSE Customer Key MD5. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\\\"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
+        },\
+        \"Expression\":{\
+          \"shape\":\"Expression\",\
+          \"documentation\":\"<p>The expression that is used to query the object.</p>\"\
+        },\
+        \"ExpressionType\":{\
+          \"shape\":\"ExpressionType\",\
+          \"documentation\":\"<p>The type of the provided expression (e.g., SQL).</p>\"\
+        },\
+        \"RequestProgress\":{\
+          \"shape\":\"RequestProgress\",\
+          \"documentation\":\"<p>Specifies if periodic request progress information should be enabled.</p>\"\
+        },\
+        \"InputSerialization\":{\
+          \"shape\":\"InputSerialization\",\
+          \"documentation\":\"<p>Describes the format of the data in the object that is being queried.</p>\"\
+        },\
+        \"OutputSerialization\":{\
+          \"shape\":\"OutputSerialization\",\
+          \"documentation\":\"<p>Describes the format of the data that you want Amazon S3 to return in response.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html\\\">S3Select API Documentation</a>.</p>\"\
+    },\
+    \"SelectParameters\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InputSerialization\",\
+        \"ExpressionType\",\
+        \"Expression\",\
+        \"OutputSerialization\"\
+      ],\
+      \"members\":{\
+        \"InputSerialization\":{\
+          \"shape\":\"InputSerialization\",\
+          \"documentation\":\"<p>Describes the serialization format of the object.</p>\"\
+        },\
+        \"ExpressionType\":{\
+          \"shape\":\"ExpressionType\",\
+          \"documentation\":\"<p>The type of the provided expression (e.g., SQL).</p>\"\
+        },\
+        \"Expression\":{\
+          \"shape\":\"Expression\",\
+          \"documentation\":\"<p>The expression that is used to query the object.</p>\"\
+        },\
+        \"OutputSerialization\":{\
+          \"shape\":\"OutputSerialization\",\
+          \"documentation\":\"<p>Describes how the results of the Select job are serialized.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the parameters for Select job types.</p>\"\
     },\
     \"ServerSideEncryption\":{\
       \"type\":\"string\",\
@@ -5895,14 +6618,113 @@
         \"aws:kms\"\
       ]\
     },\
+    \"ServerSideEncryptionByDefault\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"SSEAlgorithm\"],\
+      \"members\":{\
+        \"SSEAlgorithm\":{\
+          \"shape\":\"ServerSideEncryption\",\
+          \"documentation\":\"<p>Server-side encryption algorithm to use for the default encryption.</p>\"\
+        },\
+        \"KMSMasterKeyID\":{\
+          \"shape\":\"SSEKMSKeyId\",\
+          \"documentation\":\"<p>KMS master key ID to use for the default encryption. This parameter is allowed if SSEAlgorithm is aws:kms.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the default server-side encryption to apply to new objects in the bucket. If Put Object request does not specify any server-side encryption, this default encryption will be applied.</p>\"\
+    },\
+    \"ServerSideEncryptionConfiguration\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Rules\"],\
+      \"members\":{\
+        \"Rules\":{\
+          \"shape\":\"ServerSideEncryptionRules\",\
+          \"documentation\":\"<p>Container for information about a particular server-side encryption configuration rule.</p>\",\
+          \"locationName\":\"Rule\"\
+        }\
+      },\
+      \"documentation\":\"<p>Container for server-side encryption configuration rules. Currently S3 supports one rule only.</p>\"\
+    },\
+    \"ServerSideEncryptionRule\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ApplyServerSideEncryptionByDefault\":{\
+          \"shape\":\"ServerSideEncryptionByDefault\",\
+          \"documentation\":\"<p>Describes the default server-side encryption to apply to new objects in the bucket. If Put Object request does not specify any server-side encryption, this default encryption will be applied.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Container for information about a particular server-side encryption configuration rule.</p>\"\
+    },\
+    \"ServerSideEncryptionRules\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ServerSideEncryptionRule\"},\
+      \"flattened\":true\
+    },\
     \"Size\":{\"type\":\"integer\"},\
+    \"SourceSelectionCriteria\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SseKmsEncryptedObjects\":{\
+          \"shape\":\"SseKmsEncryptedObjects\",\
+          \"documentation\":\"<p> Container for filter information of selection of KMS Encrypted S3 objects. The element is required if you include <code>SourceSelectionCriteria</code> in the replication configuration. </p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Container for filters that define which source objects should be replicated.</p>\"\
+    },\
+    \"SseKmsEncryptedObjects\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Status\"],\
+      \"members\":{\
+        \"Status\":{\
+          \"shape\":\"SseKmsEncryptedObjectsStatus\",\
+          \"documentation\":\"<p>The replication for KMS encrypted S3 objects is disabled if status is not Enabled.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Container for filter information of selection of KMS Encrypted S3 objects.</p>\"\
+    },\
+    \"SseKmsEncryptedObjectsStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"Enabled\",\
+        \"Disabled\"\
+      ]\
+    },\
     \"StartAfter\":{\"type\":\"string\"},\
+    \"Stats\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"BytesScanned\":{\
+          \"shape\":\"BytesScanned\",\
+          \"documentation\":\"<p>Total number of object bytes scanned.</p>\"\
+        },\
+        \"BytesProcessed\":{\
+          \"shape\":\"BytesProcessed\",\
+          \"documentation\":\"<p>Total number of uncompressed object bytes processed.</p>\"\
+        },\
+        \"BytesReturned\":{\
+          \"shape\":\"BytesReturned\",\
+          \"documentation\":\"<p>Total number of bytes of records payload data returned.</p>\"\
+        }\
+      }\
+    },\
+    \"StatsEvent\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Details\":{\
+          \"shape\":\"Stats\",\
+          \"documentation\":\"<p>The Stats event details.</p>\",\
+          \"eventpayload\":true\
+        }\
+      },\
+      \"event\":true\
+    },\
     \"StorageClass\":{\
       \"type\":\"string\",\
       \"enum\":[\
         \"STANDARD\",\
         \"REDUCED_REDUNDANCY\",\
-        \"STANDARD_IA\"\
+        \"STANDARD_IA\",\
+        \"ONEZONE_IA\"\
       ]\
     },\
     \"StorageClassAnalysis\":{\
@@ -5910,7 +6732,7 @@
       \"members\":{\
         \"DataExport\":{\
           \"shape\":\"StorageClassAnalysisDataExport\",\
-          \"documentation\":\"A container used to describe how data related to the storage class analysis should be exported.\"\
+          \"documentation\":\"<p>A container used to describe how data related to the storage class analysis should be exported.</p>\"\
         }\
       }\
     },\
@@ -5923,11 +6745,11 @@
       \"members\":{\
         \"OutputSchemaVersion\":{\
           \"shape\":\"StorageClassAnalysisSchemaVersion\",\
-          \"documentation\":\"The version of the output schema to use when exporting data. Must be V_1.\"\
+          \"documentation\":\"<p>The version of the output schema to use when exporting data. Must be V_1.</p>\"\
         },\
         \"Destination\":{\
           \"shape\":\"AnalyticsExportDestination\",\
-          \"documentation\":\"The place to store the data for an analysis.\"\
+          \"documentation\":\"<p>The place to store the data for an analysis.</p>\"\
         }\
       }\
     },\
@@ -5945,11 +6767,11 @@
       \"members\":{\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"Name of the tag.\"\
+          \"documentation\":\"<p>Name of the tag.</p>\"\
         },\
         \"Value\":{\
           \"shape\":\"Value\",\
-          \"documentation\":\"Value of the tag.\"\
+          \"documentation\":\"<p>Value of the tag.</p>\"\
         }\
       }\
     },\
@@ -5983,7 +6805,7 @@
         \"Grantee\":{\"shape\":\"Grantee\"},\
         \"Permission\":{\
           \"shape\":\"BucketLogsPermission\",\
-          \"documentation\":\"Logging permissions assigned to the Grantee for the bucket.\"\
+          \"documentation\":\"<p>Logging permissions assigned to the Grantee for the bucket.</p>\"\
         }\
       }\
     },\
@@ -6015,7 +6837,7 @@
         \"Id\":{\"shape\":\"NotificationId\"},\
         \"TopicArn\":{\
           \"shape\":\"TopicArn\",\
-          \"documentation\":\"Amazon SNS topic ARN to which Amazon S3 will publish a message when it detects events of specified type.\",\
+          \"documentation\":\"<p>Amazon SNS topic ARN to which Amazon S3 will publish a message when it detects events of specified type.</p>\",\
           \"locationName\":\"Topic\"\
         },\
         \"Events\":{\
@@ -6024,7 +6846,7 @@
         },\
         \"Filter\":{\"shape\":\"NotificationConfigurationFilter\"}\
       },\
-      \"documentation\":\"Container for specifying the configuration when you want Amazon S3 to publish events to an Amazon Simple Notification Service (Amazon SNS) topic.\"\
+      \"documentation\":\"<p>Container for specifying the configuration when you want Amazon S3 to publish events to an Amazon Simple Notification Service (Amazon SNS) topic.</p>\"\
     },\
     \"TopicConfigurationDeprecated\":{\
       \"type\":\"structure\",\
@@ -6036,12 +6858,12 @@
         },\
         \"Event\":{\
           \"shape\":\"Event\",\
-          \"documentation\":\"Bucket event for which to send notifications.\",\
+          \"documentation\":\"<p>Bucket event for which to send notifications.</p>\",\
           \"deprecated\":true\
         },\
         \"Topic\":{\
           \"shape\":\"TopicArn\",\
-          \"documentation\":\"Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket.\"\
+          \"documentation\":\"<p>Amazon SNS topic to which Amazon S3 will publish a message to report the specified events for the bucket.</p>\"\
         }\
       }\
     },\
@@ -6055,15 +6877,15 @@
       \"members\":{\
         \"Date\":{\
           \"shape\":\"Date\",\
-          \"documentation\":\"Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.\"\
+          \"documentation\":\"<p>Indicates at what date the object is to be moved or deleted. Should be in GMT ISO 8601 Format.</p>\"\
         },\
         \"Days\":{\
           \"shape\":\"Days\",\
-          \"documentation\":\"Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.\"\
+          \"documentation\":\"<p>Indicates the lifetime, in days, of the objects that are subject to the rule. The value must be a non-zero positive integer.</p>\"\
         },\
         \"StorageClass\":{\
           \"shape\":\"TransitionStorageClass\",\
-          \"documentation\":\"The class of storage used to store the object.\"\
+          \"documentation\":\"<p>The class of storage used to store the object.</p>\"\
         }\
       }\
     },\
@@ -6076,7 +6898,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"GLACIER\",\
-        \"STANDARD_IA\"\
+        \"STANDARD_IA\",\
+        \"ONEZONE_IA\"\
       ]\
     },\
     \"Type\":{\
@@ -6094,32 +6917,32 @@
       \"members\":{\
         \"CopySourceVersionId\":{\
           \"shape\":\"CopySourceVersionId\",\
-          \"documentation\":\"The version of the source object that was copied, if you have enabled versioning on the source bucket.\",\
+          \"documentation\":\"<p>The version of the source object that was copied, if you have enabled versioning on the source bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-version-id\"\
         },\
         \"CopyPartResult\":{\"shape\":\"CopyPartResult\"},\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.\",\
+          \"documentation\":\"<p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
@@ -6148,37 +6971,37 @@
         },\
         \"CopySource\":{\
           \"shape\":\"CopySource\",\
-          \"documentation\":\"The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.\",\
+          \"documentation\":\"<p>The name of the source bucket and key name of the source object, separated by a slash (/). Must be URL-encoded.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source\"\
         },\
         \"CopySourceIfMatch\":{\
           \"shape\":\"CopySourceIfMatch\",\
-          \"documentation\":\"Copies the object if its entity tag (ETag) matches the specified tag.\",\
+          \"documentation\":\"<p>Copies the object if its entity tag (ETag) matches the specified tag.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-if-match\"\
         },\
         \"CopySourceIfModifiedSince\":{\
           \"shape\":\"CopySourceIfModifiedSince\",\
-          \"documentation\":\"Copies the object if it has been modified since the specified time.\",\
+          \"documentation\":\"<p>Copies the object if it has been modified since the specified time.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-if-modified-since\"\
         },\
         \"CopySourceIfNoneMatch\":{\
           \"shape\":\"CopySourceIfNoneMatch\",\
-          \"documentation\":\"Copies the object if its entity tag (ETag) is different than the specified ETag.\",\
+          \"documentation\":\"<p>Copies the object if its entity tag (ETag) is different than the specified ETag.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-if-none-match\"\
         },\
         \"CopySourceIfUnmodifiedSince\":{\
           \"shape\":\"CopySourceIfUnmodifiedSince\",\
-          \"documentation\":\"Copies the object if it hasn't been modified since the specified time.\",\
+          \"documentation\":\"<p>Copies the object if it hasn't been modified since the specified time.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-if-unmodified-since\"\
         },\
         \"CopySourceRange\":{\
           \"shape\":\"CopySourceRange\",\
-          \"documentation\":\"The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.\",\
+          \"documentation\":\"<p>The range of bytes to copy from the source object. The range value must use the form bytes=first-last, where the first and last are the zero-based byte offsets to copy. For example, bytes=0-9 indicates that you want to copy the first ten bytes of the source. You can copy a range only if the source object is greater than 5 GB.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-range\"\
         },\
@@ -6189,49 +7012,49 @@
         },\
         \"PartNumber\":{\
           \"shape\":\"PartNumber\",\
-          \"documentation\":\"Part number of part being copied. This is a positive integer between 1 and 10,000.\",\
+          \"documentation\":\"<p>Part number of part being copied. This is a positive integer between 1 and 10,000.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"partNumber\"\
         },\
         \"UploadId\":{\
           \"shape\":\"MultipartUploadId\",\
-          \"documentation\":\"Upload ID identifying the multipart upload whose part is being copied.\",\
+          \"documentation\":\"<p>Upload ID identifying the multipart upload whose part is being copied.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"uploadId\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"Specifies the algorithm to use to when encrypting the object (e.g., AES256).\",\
+          \"documentation\":\"<p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.\",\
+          \"documentation\":\"<p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.\",\
+          \"documentation\":\"<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"CopySourceSSECustomerAlgorithm\":{\
           \"shape\":\"CopySourceSSECustomerAlgorithm\",\
-          \"documentation\":\"Specifies the algorithm to use when decrypting the source object (e.g., AES256).\",\
+          \"documentation\":\"<p>Specifies the algorithm to use when decrypting the source object (e.g., AES256).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-server-side-encryption-customer-algorithm\"\
         },\
         \"CopySourceSSECustomerKey\":{\
           \"shape\":\"CopySourceSSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.\",\
+          \"documentation\":\"<p>Specifies the customer-provided encryption key for Amazon S3 to use to decrypt the source object. The encryption key provided in this header must be one that was used when the source object was created.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-server-side-encryption-customer-key\"\
         },\
         \"CopySourceSSECustomerKeyMD5\":{\
           \"shape\":\"CopySourceSSECustomerKeyMD5\",\
-          \"documentation\":\"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.\",\
+          \"documentation\":\"<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-copy-source-server-side-encryption-customer-key-MD5\"\
         },\
@@ -6247,31 +7070,31 @@
       \"members\":{\
         \"ServerSideEncryption\":{\
           \"shape\":\"ServerSideEncryption\",\
-          \"documentation\":\"The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).\",\
+          \"documentation\":\"<p>The Server-side encryption algorithm used when storing this object in S3 (e.g., AES256, aws:kms).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption\"\
         },\
         \"ETag\":{\
           \"shape\":\"ETag\",\
-          \"documentation\":\"Entity tag for the uploaded object.\",\
+          \"documentation\":\"<p>Entity tag for the uploaded object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"ETag\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header confirming the encryption algorithm used.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.\",\
+          \"documentation\":\"<p>If server-side encryption with a customer-provided encryption key was requested, the response will include this header to provide round trip message integrity verification of the customer-provided encryption key.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
         \"SSEKMSKeyId\":{\
           \"shape\":\"SSEKMSKeyId\",\
-          \"documentation\":\"If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.\",\
+          \"documentation\":\"<p>If present, specifies the ID of the AWS Key Management Service (KMS) master encryption key that was used for the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-aws-kms-key-id\"\
         },\
@@ -6293,60 +7116,60 @@
       \"members\":{\
         \"Body\":{\
           \"shape\":\"Body\",\
-          \"documentation\":\"Object data.\",\
+          \"documentation\":\"<p>Object data.</p>\",\
           \"streaming\":true\
         },\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"Name of the bucket to which the multipart upload was initiated.\",\
+          \"documentation\":\"<p>Name of the bucket to which the multipart upload was initiated.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"ContentLength\":{\
           \"shape\":\"ContentLength\",\
-          \"documentation\":\"Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.\",\
+          \"documentation\":\"<p>Size of the body in bytes. This parameter is useful when the size of the body cannot be determined automatically.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-Length\"\
         },\
         \"ContentMD5\":{\
           \"shape\":\"ContentMD5\",\
-          \"documentation\":\"The base64-encoded 128-bit MD5 digest of the part data.\",\
+          \"documentation\":\"<p>The base64-encoded 128-bit MD5 digest of the part data.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"Content-MD5\"\
         },\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"Object key for which the multipart upload was initiated.\",\
+          \"documentation\":\"<p>Object key for which the multipart upload was initiated.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Key\"\
         },\
         \"PartNumber\":{\
           \"shape\":\"PartNumber\",\
-          \"documentation\":\"Part number of part being uploaded. This is a positive integer between 1 and 10,000.\",\
+          \"documentation\":\"<p>Part number of part being uploaded. This is a positive integer between 1 and 10,000.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"partNumber\"\
         },\
         \"UploadId\":{\
           \"shape\":\"MultipartUploadId\",\
-          \"documentation\":\"Upload ID identifying the multipart upload whose part is being uploaded.\",\
+          \"documentation\":\"<p>Upload ID identifying the multipart upload whose part is being uploaded.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"uploadId\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"Specifies the algorithm to use to when encrypting the object (e.g., AES256).\",\
+          \"documentation\":\"<p>Specifies the algorithm to use to when encrypting the object (e.g., AES256).</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.\",\
+          \"documentation\":\"<p>Specifies the customer-provided encryption key for Amazon S3 to use in encrypting data. This value is used to store the object and then it is discarded; Amazon does not store the encryption key. The key must be appropriate for use with the algorithm specified in the x-amz-server-sideâ-encryptionâ-customer-algorithm header. This must be the same encryption key specified in the initiate multipart upload request.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.\",\
+          \"documentation\":\"<p>Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure the encryption key was transmitted without error.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
@@ -6358,6 +7181,13 @@
       },\
       \"payload\":\"Body\"\
     },\
+    \"UserMetadata\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"MetadataEntry\",\
+        \"locationName\":\"MetadataEntry\"\
+      }\
+    },\
     \"Value\":{\"type\":\"string\"},\
     \"VersionIdMarker\":{\"type\":\"string\"},\
     \"VersioningConfiguration\":{\
@@ -6365,12 +7195,12 @@
       \"members\":{\
         \"MFADelete\":{\
           \"shape\":\"MFADelete\",\
-          \"documentation\":\"Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.\",\
+          \"documentation\":\"<p>Specifies whether MFA delete is enabled in the bucket versioning configuration. This element is only returned if the bucket has been configured with MFA delete. If the bucket has never been so configured, this element is not returned.</p>\",\
           \"locationName\":\"MfaDelete\"\
         },\
         \"Status\":{\
           \"shape\":\"BucketVersioningStatus\",\
-          \"documentation\":\"The versioning state of the bucket.\"\
+          \"documentation\":\"<p>The versioning state of the bucket.</p>\"\
         }\
       }\
     },\

@@ -26,7 +26,7 @@
 #import "AWSLogsResources.h"
 
 static NSString *const AWSInfoLogs = @"Logs";
-static NSString *const AWSLogsSDKVersion = @"2.6.12";
+NSString *const AWSLogsSDKVersion = @"2.7.0";
 
 
 @interface AWSLogsResponseSerializer : AWSJSONResponseSerializer
@@ -49,6 +49,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ResourceAlreadyExistsException" : @(AWSLogsErrorResourceAlreadyExists),
                             @"ResourceNotFoundException" : @(AWSLogsErrorResourceNotFound),
                             @"ServiceUnavailableException" : @(AWSLogsErrorServiceUnavailable),
+                            @"UnrecognizedClientException" : @(AWSLogsErrorUnrecognizedClient),
                             };
 }
 
@@ -283,6 +284,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
+- (AWSTask *)associateKmsKey:(AWSLogsAssociateKmsKeyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"AssociateKmsKey"
+                   outputClass:nil];
+}
+
+- (void)associateKmsKey:(AWSLogsAssociateKmsKeyRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self associateKmsKey:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)cancelExportTask:(AWSLogsCancelExportTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -460,6 +483,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteResourcePolicy:(AWSLogsDeleteResourcePolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DeleteResourcePolicy"
+                   outputClass:nil];
+}
+
+- (void)deleteResourcePolicy:(AWSLogsDeleteResourcePolicyRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteRetentionPolicy:(AWSLogsDeleteRetentionPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -619,6 +664,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLogsDescribeResourcePoliciesResponse *> *)describeResourcePolicies:(AWSLogsDescribeResourcePoliciesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DescribeResourcePolicies"
+                   outputClass:[AWSLogsDescribeResourcePoliciesResponse class]];
+}
+
+- (void)describeResourcePolicies:(AWSLogsDescribeResourcePoliciesRequest *)request
+     completionHandler:(void (^)(AWSLogsDescribeResourcePoliciesResponse *response, NSError *error))completionHandler {
+    [[self describeResourcePolicies:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsDescribeResourcePoliciesResponse *> * _Nonnull task) {
+        AWSLogsDescribeResourcePoliciesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLogsDescribeSubscriptionFiltersResponse *> *)describeSubscriptionFilters:(AWSLogsDescribeSubscriptionFiltersRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -636,6 +704,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)disassociateKmsKey:(AWSLogsDisassociateKmsKeyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DisassociateKmsKey"
+                   outputClass:nil];
+}
+
+- (void)disassociateKmsKey:(AWSLogsDisassociateKmsKeyRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self disassociateKmsKey:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;
@@ -795,6 +885,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsPutResourcePolicyResponse *> *)putResourcePolicy:(AWSLogsPutResourcePolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"PutResourcePolicy"
+                   outputClass:[AWSLogsPutResourcePolicyResponse class]];
+}
+
+- (void)putResourcePolicy:(AWSLogsPutResourcePolicyRequest *)request
+     completionHandler:(void (^)(AWSLogsPutResourcePolicyResponse *response, NSError *error))completionHandler {
+    [[self putResourcePolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsPutResourcePolicyResponse *> * _Nonnull task) {
+        AWSLogsPutResourcePolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

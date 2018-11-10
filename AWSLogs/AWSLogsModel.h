@@ -32,6 +32,7 @@ typedef NS_ENUM(NSInteger, AWSLogsErrorType) {
     AWSLogsErrorResourceAlreadyExists,
     AWSLogsErrorResourceNotFound,
     AWSLogsErrorServiceUnavailable,
+    AWSLogsErrorUnrecognizedClient,
 };
 
 typedef NS_ENUM(NSInteger, AWSLogsDistribution) {
@@ -56,6 +57,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
     AWSLogsOrderByLastEventTime,
 };
 
+@class AWSLogsAssociateKmsKeyRequest;
 @class AWSLogsCancelExportTaskRequest;
 @class AWSLogsCreateExportTaskRequest;
 @class AWSLogsCreateExportTaskResponse;
@@ -65,6 +67,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @class AWSLogsDeleteLogGroupRequest;
 @class AWSLogsDeleteLogStreamRequest;
 @class AWSLogsDeleteMetricFilterRequest;
+@class AWSLogsDeleteResourcePolicyRequest;
 @class AWSLogsDeleteRetentionPolicyRequest;
 @class AWSLogsDeleteSubscriptionFilterRequest;
 @class AWSLogsDescribeDestinationsRequest;
@@ -77,9 +80,12 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @class AWSLogsDescribeLogStreamsResponse;
 @class AWSLogsDescribeMetricFiltersRequest;
 @class AWSLogsDescribeMetricFiltersResponse;
+@class AWSLogsDescribeResourcePoliciesRequest;
+@class AWSLogsDescribeResourcePoliciesResponse;
 @class AWSLogsDescribeSubscriptionFiltersRequest;
 @class AWSLogsDescribeSubscriptionFiltersResponse;
 @class AWSLogsDestination;
+@class AWSLogsDisassociateKmsKeyRequest;
 @class AWSLogsExportTask;
 @class AWSLogsExportTaskExecutionInfo;
 @class AWSLogsExportTaskStatus;
@@ -103,15 +109,36 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @class AWSLogsPutLogEventsRequest;
 @class AWSLogsPutLogEventsResponse;
 @class AWSLogsPutMetricFilterRequest;
+@class AWSLogsPutResourcePolicyRequest;
+@class AWSLogsPutResourcePolicyResponse;
 @class AWSLogsPutRetentionPolicyRequest;
 @class AWSLogsPutSubscriptionFilterRequest;
 @class AWSLogsRejectedLogEventsInfo;
+@class AWSLogsResourcePolicy;
 @class AWSLogsSearchedLogStream;
 @class AWSLogsSubscriptionFilter;
 @class AWSLogsTagLogGroupRequest;
 @class AWSLogsTestMetricFilterRequest;
 @class AWSLogsTestMetricFilterResponse;
 @class AWSLogsUntagLogGroupRequest;
+
+/**
+ 
+ */
+@interface AWSLogsAssociateKmsKeyRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>The name of the log group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logGroupName;
+
+@end
 
 /**
  
@@ -143,7 +170,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable destinationPrefix;
 
 /**
- <p>The start time of the range for the request, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not exported.</p>
+ <p>The start time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not exported.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable from;
 
@@ -163,7 +190,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable taskName;
 
 /**
- <p>The end time of the range for the request, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.</p>
+ <p>The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable to;
 
@@ -187,6 +214,11 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
  */
 @interface AWSLogsCreateLogGroupRequest : AWSRequest
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon Resource Names - AWS Key Management Service (AWS KMS)</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
  <p>The name of the log group.</p>
@@ -277,6 +309,19 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
  <p>The name of the log group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDeleteResourcePolicyRequest : AWSRequest
+
+
+/**
+ <p>The name of the policy to be revoked. This parameter is required.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
 
 @end
 
@@ -461,7 +506,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The prefix to match.</p><p>You cannot specify this parameter if <code>orderBy</code> is <code>LastEventTime</code>.</p>
+ <p>The prefix to match.</p><p>If <code>orderBy</code> is <code>LastEventTime</code>,you cannot specify this parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logStreamNamePrefix;
 
@@ -471,7 +516,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p><p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p>
+ <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p><p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p><p>lastEventTimestamp represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.</p>
  */
 @property (nonatomic, assign) AWSLogsOrderBy orderBy;
 
@@ -517,12 +562,12 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The name of the CloudWatch metric.</p>
+ <p>Filters results to include only those with the specified metric name. If you include this parameter in your request, you must also include the <code>metricNamespace</code> parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p>The namespace of the CloudWatch metric.</p>
+ <p>Filters results to include only those in the specified namespace. If you include this parameter in your request, you must also include the <code>metricName</code> parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricNamespace;
 
@@ -548,6 +593,42 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
  <p>The token for the next set of items to return. The token expires after 24 hours.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeResourcePoliciesRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of resource policies to be displayed with one call of this API.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable limit;
+
+/**
+ <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeResourcePoliciesResponse : AWSModel
+
+
+/**
+ <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The resource policies that exist in this account.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLogsResourcePolicy *> * _Nullable resourcePolicies;
 
 @end
 
@@ -614,7 +695,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The creation time of the destination.</p>
+ <p>The creation time of the destination, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable creationTime;
 
@@ -629,9 +710,22 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable roleArn;
 
 /**
- <p>The Amazon Resource Name (ARN) of the physical target where the log events will be delivered (for example, a Kinesis stream).</p>
+ <p>The Amazon Resource Name (ARN) of the physical target to where the log events are delivered (for example, a Kinesis stream).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDisassociateKmsKeyRequest : AWSRequest
+
+
+/**
+ <p>The name of the log group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 @end
 
@@ -657,7 +751,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) AWSLogsExportTaskExecutionInfo * _Nullable executionInfo;
 
 /**
- <p>The start time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not exported.</p>
+ <p>The start time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not exported.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable from;
 
@@ -682,7 +776,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable taskName;
 
 /**
- <p>The end time, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.</p>
+ <p>The end time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not exported.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable to;
 
@@ -695,12 +789,12 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>The completion time of the export task.</p>
+ <p>The completion time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable completionTime;
 
 /**
- <p>The creation time of the export task.</p>
+ <p>The creation time of the export task, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable creationTime;
 
@@ -731,17 +825,17 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>The end of the time range, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not returned.</p>
+ <p>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp later than this time are not returned.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable endTime;
 
 /**
- <p>The filter pattern to use. If not provided, all the events are matched.</p>
+ <p>The filter pattern to use. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">Filter and Pattern Syntax</a>.</p><p>If not provided, all the events are matched.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterPattern;
 
 /**
- <p>If the value is true, the operation makes a best effort to provide responses that contain events from multiple log streams within the log group interleaved in a single response. If the value is false all the matched log events in the first log stream are searched first, then those in the next log stream, and so on. The default is false.</p>
+ <p>If the value is true, the operation makes a best effort to provide responses that contain events from multiple log streams within the log group, interleaved in a single response. If the value is false, all the matched log events in the first log stream are searched first, then those in the next log stream, and so on. The default is false.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable interleaved;
 
@@ -751,12 +845,17 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>The name of the log group.</p>
+ <p>The name of the log group to search.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>Optional list of log stream names.</p>
+ <p>Filters the results to include only events from log streams that have names starting with this prefix.</p><p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, but the value for <code>logStreamNamePrefix</code> does not match any log stream names specified in <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code> error.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable logStreamNamePrefix;
+
+/**
+ <p>Filters the results to only logs from the log streams in this list.</p><p>If you specify a value for both <code>logStreamNamePrefix</code> and <code>logStreamNames</code>, but the value for <code>logStreamNamePrefix</code> does not match any log stream names specified in <code>logStreamNames</code>, the action returns an <code>InvalidParameterException</code> error.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable logStreamNames;
 
@@ -766,7 +865,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The start of the time range, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp prior to this time are not returned.</p>
+ <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp before this time are not returned.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable startTime;
 
@@ -807,7 +906,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable eventId;
 
 /**
- <p>The time the event was ingested.</p>
+ <p>The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ingestionTime;
 
@@ -822,7 +921,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable message;
 
 /**
- <p>The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
+ <p>The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timestamp;
 
@@ -835,12 +934,12 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>The end of the time range, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not included.</p>
+ <p>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp equal to or later than this time are not included.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable endTime;
 
 /**
- <p>The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1MB, up to 10,000 log events.</p>
+ <p>The maximum number of log events returned. If you don't specify a value, the maximum is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
@@ -865,7 +964,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSNumber * _Nullable startFromHead;
 
 /**
- <p>The start of the time range, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not included.</p>
+ <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a time stamp equal to this time or later than this time are included. Events with a time stamp earlier than this time are not included.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable startTime;
 
@@ -883,12 +982,12 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSArray<AWSLogsOutputLogEvent *> * _Nullable events;
 
 /**
- <p>The token for the next set of items in the backward direction. The token expires after 24 hours.</p>
+ <p>The token for the next set of items in the backward direction. The token expires after 24 hours. This token will never be null. If you have reached the end of the stream, it will return the same token you passed in.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextBackwardToken;
 
 /**
- <p>The token for the next set of items in the forward direction. The token expires after 24 hours.</p>
+ <p>The token for the next set of items in the forward direction. The token expires after 24 hours. If you have reached the end of the stream, it will return the same token you passed in.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextForwardToken;
 
@@ -907,7 +1006,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable message;
 
 /**
- <p>The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
+ <p>The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timestamp;
 
@@ -933,7 +1032,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>The tags.</p>
+ <p>The tags for the log group.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
@@ -951,9 +1050,14 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The creation time of the log group.</p>
+ <p>The creation time of the log group, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable creationTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
  <p>The name of the log group.</p>
@@ -989,22 +1093,22 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The creation time of the stream.</p>
+ <p>The creation time of the stream, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable creationTime;
 
 /**
- <p>The time of the first event, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
+ <p>The time of the first event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable firstEventTimestamp;
 
 /**
- <p>The time of the last event, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
+ <p> the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTime updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable lastEventTimestamp;
 
 /**
- <p>The ingestion time.</p>
+ <p>The ingestion time, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable lastIngestionTime;
 
@@ -1032,7 +1136,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>The creation time of the metric filter.</p>
+ <p>The creation time of the metric filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable creationTime;
 
@@ -1042,7 +1146,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable filterName;
 
 /**
- <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event may contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
+ <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event may contain time stamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterPattern;
 
@@ -1082,7 +1186,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @end
 
 /**
- <p>Indicates how to transform ingested log events into metric data in a CloudWatch metric.</p>
+ <p>Indicates how to transform ingested log events in to metric data in a CloudWatch metric.</p>
  Required parameters: [metricName, metricNamespace, metricValue]
  */
 @interface AWSLogsMetricTransformation : AWSModel
@@ -1117,7 +1221,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>The time the event was ingested.</p>
+ <p>The time the event was ingested, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ingestionTime;
 
@@ -1127,7 +1231,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable message;
 
 /**
- <p>The time the event occurred, expressed as the number of milliseconds since Jan 1, 1970 00:00:00 UTC.</p>
+ <p>The time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timestamp;
 
@@ -1163,12 +1267,12 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable destinationName;
 
 /**
- <p>The ARN of an IAM role that grants CloudWatch Logs permissions to call Amazon Kinesis PutRecord on the destination stream.</p>
+ <p>The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon Kinesis PutRecord operation on the destination stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleArn;
 
 /**
- <p>The ARN of an Amazon Kinesis stream to deliver matching log events to.</p>
+ <p>The ARN of an Amazon Kinesis stream to which to deliver matching log events.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetArn;
 
@@ -1209,7 +1313,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable logStreamName;
 
 /**
- <p>The sequence token.</p>
+ <p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sequenceToken;
 
@@ -1255,9 +1359,40 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>A collection of information needed to define how metric data gets emitted.</p>
+ <p>A collection of information that defines how metric data gets emitted.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLogsMetricTransformation *> * _Nullable metricTransformations;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutResourcePolicyRequest : AWSRequest
+
+
+/**
+ <p>Details of the new policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string.</p><p>The following example creates a resource policy enabling the Route 53 service to put DNS query logs in to the specified log group. Replace "logArn" with the ARN of your CloudWatch Logs resource, such as a log group or log stream.</p><p><code>{ "Version": "2012-10-17", "Statement": [ { "Sid": "Route53LogsToCloudWatchLogs", "Effect": "Allow", "Principal": { "Service": [ "route53.amazonaws.com" ] }, "Action":"logs:PutLogEvents", "Resource": "logArn" } ] } </code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>Name of the new policy. This parameter is required.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutResourcePolicyResponse : AWSModel
+
+
+/**
+ <p>The new policy.</p>
+ */
+@property (nonatomic, strong) AWSLogsResourcePolicy * _Nullable resourcePolicy;
 
 @end
 
@@ -1286,17 +1421,17 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination (specified using an ARN) belonging to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.</p></li></ul>
+ <p>The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination (specified using an ARN) belonging to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationArn;
 
 /**
- <p>The method used to distribute log data to the destination, when the destination is an Amazon Kinesis stream. By default, log data is grouped by log stream. For a more even distribution, you can group log data randomly.</p>
+ <p>The method used to distribute log data to the destination. By default log data is grouped by log stream, but the grouping can be set to random for a more even distribution. This property is only applicable when the destination is an Amazon Kinesis stream. </p>
  */
 @property (nonatomic, assign) AWSLogsDistribution distribution;
 
 /**
- <p>A name for the subscription filter.</p>
+ <p>A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use <a>DescribeSubscriptionFilters</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterName;
 
@@ -1341,6 +1476,29 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @end
 
 /**
+ <p>A policy enabling one or more entities to put logs to a log group in this account.</p>
+ */
+@interface AWSLogsResourcePolicy : AWSModel
+
+
+/**
+ <p>Time stamp showing when this policy was last updated, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable lastUpdatedTime;
+
+/**
+ <p>The details of the policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyDocument;
+
+/**
+ <p>The name of the resource policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+@end
+
+/**
  <p>Represents the search status of a log stream.</p>
  */
 @interface AWSLogsSearchedLogStream : AWSModel
@@ -1365,7 +1523,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>The creation time of the subscription filter.</p>
+ <p>The creation time of the subscription filter, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable creationTime;
 
@@ -1375,7 +1533,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable destinationArn;
 
 /**
- <p>The method used to distribute log data to the destination, when the destination is an Amazon Kinesis stream.</p>
+ <p>The method used to distribute log data to the destination, which can be either random or grouped by log stream.</p>
  */
 @property (nonatomic, assign) AWSLogsDistribution distribution;
 
@@ -1385,7 +1543,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 @property (nonatomic, strong) NSString * _Nullable filterName;
 
 /**
- <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event may contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
+ <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event may contain time stamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterPattern;
 
@@ -1426,7 +1584,7 @@ typedef NS_ENUM(NSInteger, AWSLogsOrderBy) {
 
 
 /**
- <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event may contain timestamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
+ <p>A symbolic description of how CloudWatch Logs should interpret the data in each log event. For example, a log event may contain time stamps, IP addresses, strings, and so on. You use the filter pattern to specify what to look for in the log event message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterPattern;
 

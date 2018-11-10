@@ -39,7 +39,7 @@ FOUNDATION_EXPORT NSString *const AWSFirehoseRecorderByteThresholdReachedNotific
 
 /**
   The AWSFirehoseRecorder is a high level client meant for storing put record requests on the user's device. This allows developers to retain requests when the device is offline. It can also increase performance and battery efficiency since the Wi-Fi or cell network does not need to be woken up as frequently.
- @discussion AWSFirehoseRecorder stores the requests unencripted and does not perform additional security measures outside of what the iOS offers by default. Therefore, it is recommended not to store highly sensitive information using AWSFirehoseRecorder.
+ @discussion AWSFirehoseRecorder stores the requests unencrypted and does not perform additional security measures outside of what the iOS offers by default. Therefore, it is recommended not to store highly sensitive information using AWSFirehoseRecorder.
  */
 @interface AWSFirehoseRecorder : AWSAbstractKinesisRecorder
 

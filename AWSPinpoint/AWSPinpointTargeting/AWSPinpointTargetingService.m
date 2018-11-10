@@ -26,7 +26,7 @@
 #import "AWSPinpointTargetingResources.h"
 
 static NSString *const AWSInfoPinpointTargeting = @"PinpointTargeting";
-static NSString *const AWSPinpointTargetingSDKVersion = @"2.6.12";
+NSString *const AWSPinpointTargetingSDKVersion = @"2.7.0";
 
 
 @interface AWSPinpointTargetingResponseSerializer : AWSJSONResponseSerializer
@@ -40,11 +40,15 @@ static NSString *const AWSPinpointTargetingSDKVersion = @"2.6.12";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"BadGatewayException" : @(AWSPinpointTargetingErrorBadGateway),
                             @"BadRequestException" : @(AWSPinpointTargetingErrorBadRequest),
                             @"ForbiddenException" : @(AWSPinpointTargetingErrorForbidden),
                             @"InternalServerErrorException" : @(AWSPinpointTargetingErrorInternalServerError),
                             @"MethodNotAllowedException" : @(AWSPinpointTargetingErrorMethodNotAllowed),
                             @"NotFoundException" : @(AWSPinpointTargetingErrorNotFound),
+                            @"RequestEntityTooLargeException" : @(AWSPinpointTargetingErrorRequestEntityTooLarge),
+                            @"RequestTimedOutException" : @(AWSPinpointTargetingErrorRequestTimedOut),
+                            @"ServiceUnavailableException" : @(AWSPinpointTargetingErrorServiceUnavailable),
                             @"TooManyRequestsException" : @(AWSPinpointTargetingErrorTooManyRequests),
                             };
 }
@@ -1043,6 +1047,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSPinpointTargetingPutEventStreamResponse *response, NSError *error))completionHandler {
     [[self putEventStream:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingPutEventStreamResponse *> * _Nonnull task) {
         AWSPinpointTargetingPutEventStreamResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSPinpointTargetingEventsResponse *> *)putEvents:(AWSPinpointTargetingEventsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/v1/apps/{application-id}/events/legacy"
+                  targetPrefix:@""
+                 operationName:@"PutEvents"
+                   outputClass:[AWSPinpointTargetingEventsResponse class]];
+}
+
+- (void)putEvents:(AWSPinpointTargetingEventsRequest *)request
+     completionHandler:(void (^)(AWSPinpointTargetingEventsResponse *response, NSError *error))completionHandler {
+    [[self putEvents:request] continueWithBlock:^id _Nullable(AWSTask<AWSPinpointTargetingEventsResponse *> * _Nonnull task) {
+        AWSPinpointTargetingEventsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

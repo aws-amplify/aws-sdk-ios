@@ -25,6 +25,7 @@
 
 #define DEFAULT_BACKGROUND_COLOR_TOP [UIColor darkGrayColor]
 #define DEFAULT_BACKGROUND_COLOR_BOTTOM [UIColor whiteColor]
+#define NAVIGATION_BAR_HEIGHT 64
 
 static NSString *const RESOURCES_BUNDLE = @"AWSAuthUI.bundle";
 static NSString *const SMALL_IMAGE_NAME = @"logo-aws-small";
@@ -47,6 +48,15 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 @property (weak, nonatomic) IBOutlet UIButton *providerRow1;
 @property (weak, nonatomic) IBOutlet UIButton *providerRow2;
 @property (weak, nonatomic) IBOutlet UIButton *providerRow3;
+
+@end
+
+@interface AWSSignInManager()
+
+@property (nonatomic) BOOL shouldFederate;
+@property (nonatomic) BOOL pendingSignIn;
+@property (strong, atomic) NSString *pendingUsername;
+@property (strong, atomic) NSString *pendingPassword;
 
 @end
 
@@ -102,9 +112,30 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 #pragma mark - UIViewController
 
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    CGSize keyboardSize = ((NSValue *)[[notification userInfo]
+                                       valueForKey:UIKeyboardFrameBeginUserInfoKey]).CGRectValue.size;
+    
+    CGPoint buttonOrigin = self.signInButton.frame.origin;
+    CGRect visibleRect = self.view.frame;
+    
+    visibleRect.size.height -= keyboardSize.height;
+    
+    if (visibleRect.size.height < buttonOrigin.y) {
+        [self.view setFrame:CGRectMake(0,visibleRect.size.height - buttonOrigin.y, self.view.frame.size.width, self.view.frame.size.height)];
+    }
+}
+
+- (void)keyboardDidHide:(NSNotification *)notification {
+    [self.view setFrame:CGRectMake(0, NAVIGATION_BAR_HEIGHT ,self.view.frame.size.width,self.view.frame.size.height)];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     AWSDDLogDebug(@"Sign-In Loading...");
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHide:) name:UIKeyboardDidHideNotification object:nil];
     
     // set up the navigation controller
     [self setUpNavigationController];
@@ -126,6 +157,23 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         [self setUpFont];
     }
 }
+    
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if ([AWSSignInManager sharedInstance].pendingSignIn) {
+        
+        Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);
+        AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
+        [userPoolsOperations loginWithUserName:[AWSSignInManager sharedInstance].pendingUsername
+                                      password:[AWSSignInManager sharedInstance].pendingPassword
+                          navigationController:self.navigationController
+                             completionHandler:self.completionHandler];
+    }
+    [AWSSignInManager sharedInstance].pendingSignIn = NO;
+    [AWSSignInManager sharedInstance].pendingUsername = @"";
+    [AWSSignInManager sharedInstance].pendingPassword = @"";
+    
+}
 
 // This is used to dismiss the keyboard, user just has to tap outside the
 // user name and password views and it will dismiss
@@ -144,7 +192,21 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     [[AWSSignInManager sharedInstance]
      loginWithSignInProviderKey:[signInProvider identityProviderName]
      completionHandler:^(id result, NSError *error) {
-         if (!error) {
+         
+         if (![[AWSSignInManager sharedInstance] shouldFederate]) {
+             if (error) {
+                 self.completionHandlerCustom(nil, nil, error);
+             } else {
+                 [[signInProvider token] continueWithBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
+                     if (task.result) {
+                         NSString *token = task.result;
+                         NSString *provider = signInProvider.identityProviderName;
+                         self.completionHandlerCustom(provider, token, nil);
+                     }
+                     return nil;
+                 }];
+             }
+         } else if (!error) {
              dispatch_async(dispatch_get_main_queue(), ^{
                  [self dismissViewControllerAnimated:YES
                                           completion:nil];
@@ -321,6 +383,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 - (void)barButtonClosePressed {
     [self dismissViewControllerAnimated:YES completion:nil];
+    self.completionHandlerCustom(nil, nil, [[NSError alloc] initWithDomain:@"AWSMobileClientError" code:-2 userInfo:@{@"message": @"The user cancelled the sign in operation"}]);
     AWSDDLogDebug(@"User closed sign in screen.");
 }
 
@@ -408,6 +471,24 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 #pragma mark - IBActions
+
+-(void)createInternalCompletionHandler {
+    __weak AWSSignInViewController *weakSelf = self;
+    self.completionHandler = ^(id<AWSSignInProvider>  _Nonnull signInProvider, NSError * _Nullable error) {
+        if (error) {
+            weakSelf.completionHandlerCustom(nil, nil, error);
+        } else{
+            [[signInProvider token] continueWithBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
+                if (task.result) {
+                    weakSelf.completionHandlerCustom(signInProvider.identityProviderName, task.result, nil);
+                } else {
+                    weakSelf.completionHandlerCustom(nil, nil, task.error);
+                }
+                return nil;
+            }];
+        }
+    };
+}
 
 - (void)handleUserPoolSignIn {
     Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);

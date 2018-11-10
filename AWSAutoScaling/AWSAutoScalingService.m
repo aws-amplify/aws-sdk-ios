@@ -26,7 +26,7 @@
 #import "AWSAutoScalingResources.h"
 
 static NSString *const AWSInfoAutoScaling = @"AutoScaling";
-static NSString *const AWSAutoScalingSDKVersion = @"2.6.12";
+NSString *const AWSAutoScalingSDKVersion = @"2.7.0";
 
 
 @interface AWSAutoScalingResponseSerializer : AWSXMLResponseSerializer
@@ -46,6 +46,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ResourceContention" : @(AWSAutoScalingErrorResourceContention),
                             @"ResourceInUse" : @(AWSAutoScalingErrorResourceInUse),
                             @"ScalingActivityInProgress" : @(AWSAutoScalingErrorScalingActivityInProgress),
+                            @"ServiceLinkedRoleFailure" : @(AWSAutoScalingErrorServiceLinkedRoleFailure),
                             };
 }
 
@@ -336,6 +337,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSAutoScalingAttachLoadBalancersResultType *response, NSError *error))completionHandler {
     [[self attachLoadBalancers:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingAttachLoadBalancersResultType *> * _Nonnull task) {
         AWSAutoScalingAttachLoadBalancersResultType *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSAutoScalingBatchDeleteScheduledActionAnswer *> *)batchDeleteScheduledAction:(AWSAutoScalingBatchDeleteScheduledActionType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"BatchDeleteScheduledAction"
+                   outputClass:[AWSAutoScalingBatchDeleteScheduledActionAnswer class]];
+}
+
+- (void)batchDeleteScheduledAction:(AWSAutoScalingBatchDeleteScheduledActionType *)request
+     completionHandler:(void (^)(AWSAutoScalingBatchDeleteScheduledActionAnswer *response, NSError *error))completionHandler {
+    [[self batchDeleteScheduledAction:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingBatchDeleteScheduledActionAnswer *> * _Nonnull task) {
+        AWSAutoScalingBatchDeleteScheduledActionAnswer *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *> *)batchPutScheduledUpdateGroupAction:(AWSAutoScalingBatchPutScheduledUpdateGroupActionType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"BatchPutScheduledUpdateGroupAction"
+                   outputClass:[AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer class]];
+}
+
+- (void)batchPutScheduledUpdateGroupAction:(AWSAutoScalingBatchPutScheduledUpdateGroupActionType *)request
+     completionHandler:(void (^)(AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *response, NSError *error))completionHandler {
+    [[self batchPutScheduledUpdateGroupAction:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *> * _Nonnull task) {
+        AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

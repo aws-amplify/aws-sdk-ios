@@ -20,6 +20,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+//! SDK version for AWSS3
+FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
+
 /**
  
  */
@@ -197,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)abortMultipartUpload:(AWSS3AbortMultipartUploadRequest *)request completionHandler:(void (^ _Nullable)(AWSS3AbortMultipartUploadOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Completes a multipart upload by assembling previously uploaded parts.
+ <p>Completes a multipart upload by assembling previously uploaded parts.</p>
  
  @param request A container for the necessary parameters to execute the CompleteMultipartUpload service method.
 
@@ -209,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3CompleteMultipartUploadOutput *> *)completeMultipartUpload:(AWSS3CompleteMultipartUploadRequest *)request;
 
 /**
- Completes a multipart upload by assembling previously uploaded parts.
+ <p>Completes a multipart upload by assembling previously uploaded parts.</p>
  
  @param request A container for the necessary parameters to execute the CompleteMultipartUpload service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -222,7 +225,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)completeMultipartUpload:(AWSS3CompleteMultipartUploadRequest *)request completionHandler:(void (^ _Nullable)(AWSS3CompleteMultipartUploadOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Creates a copy of an object that is already stored in Amazon S3.
+ <p>Creates a copy of an object that is already stored in Amazon S3.</p>
  
  @param request A container for the necessary parameters to execute the CopyObject service method.
 
@@ -234,7 +237,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3ReplicateObjectOutput *> *)replicateObject:(AWSS3ReplicateObjectRequest *)request;
 
 /**
- Creates a copy of an object that is already stored in Amazon S3.
+ <p>Creates a copy of an object that is already stored in Amazon S3.</p>
  
  @param request A container for the necessary parameters to execute the CopyObject service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -247,7 +250,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)replicateObject:(AWSS3ReplicateObjectRequest *)request completionHandler:(void (^ _Nullable)(AWSS3ReplicateObjectOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Creates a new bucket.
+ <p>Creates a new bucket.</p>
  
  @param request A container for the necessary parameters to execute the CreateBucket service method.
 
@@ -259,7 +262,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3CreateBucketOutput *> *)createBucket:(AWSS3CreateBucketRequest *)request;
 
 /**
- Creates a new bucket.
+ <p>Creates a new bucket.</p>
  
  @param request A container for the necessary parameters to execute the CreateBucket service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -297,7 +300,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)createMultipartUpload:(AWSS3CreateMultipartUploadRequest *)request completionHandler:(void (^ _Nullable)(AWSS3CreateMultipartUploadOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.
+ <p>Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucket service method.
 
@@ -308,7 +311,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteBucket:(AWSS3DeleteBucketRequest *)request;
 
 /**
- Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.
+ <p>Deletes the bucket. All objects (including all object versions and Delete Markers) in the bucket must be deleted before the bucket itself can be deleted.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucket service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -319,7 +322,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucket:(AWSS3DeleteBucketRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).
+ <p>Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketAnalyticsConfiguration service method.
 
@@ -330,7 +333,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteBucketAnalyticsConfiguration:(AWSS3DeleteBucketAnalyticsConfigurationRequest *)request;
 
 /**
- Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).
+ <p>Deletes an analytics configuration for the bucket (specified by the analytics configuration ID).</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketAnalyticsConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -341,7 +344,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucketAnalyticsConfiguration:(AWSS3DeleteBucketAnalyticsConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Deletes the cors configuration information set for the bucket.
+ <p>Deletes the cors configuration information set for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketCors service method.
 
@@ -352,7 +355,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteBucketCors:(AWSS3DeleteBucketCorsRequest *)request;
 
 /**
- Deletes the cors configuration information set for the bucket.
+ <p>Deletes the cors configuration information set for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketCors service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -363,7 +366,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucketCors:(AWSS3DeleteBucketCorsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Deletes an inventory configuration (identified by the inventory ID) from the bucket.
+ <p>Deletes the server-side encryption configuration from the bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteBucketEncryption service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ 
+ @see AWSS3DeleteBucketEncryptionRequest
+ */
+- (AWSTask *)deleteBucketEncryption:(AWSS3DeleteBucketEncryptionRequest *)request;
+
+/**
+ <p>Deletes the server-side encryption configuration from the bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteBucketEncryption service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3DeleteBucketEncryptionRequest
+ */
+- (void)deleteBucketEncryption:(AWSS3DeleteBucketEncryptionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes an inventory configuration (identified by the inventory ID) from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketInventoryConfiguration service method.
 
@@ -374,7 +399,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteBucketInventoryConfiguration:(AWSS3DeleteBucketInventoryConfigurationRequest *)request;
 
 /**
- Deletes an inventory configuration (identified by the inventory ID) from the bucket.
+ <p>Deletes an inventory configuration (identified by the inventory ID) from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketInventoryConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -385,7 +410,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucketInventoryConfiguration:(AWSS3DeleteBucketInventoryConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Deletes the lifecycle configuration from the bucket.
+ <p>Deletes the lifecycle configuration from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketLifecycle service method.
 
@@ -396,7 +421,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteBucketLifecycle:(AWSS3DeleteBucketLifecycleRequest *)request;
 
 /**
- Deletes the lifecycle configuration from the bucket.
+ <p>Deletes the lifecycle configuration from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketLifecycle service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -407,7 +432,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucketLifecycle:(AWSS3DeleteBucketLifecycleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Deletes a metrics configuration (specified by the metrics configuration ID) from the bucket.
+ <p>Deletes a metrics configuration (specified by the metrics configuration ID) from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketMetricsConfiguration service method.
 
@@ -418,7 +443,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteBucketMetricsConfiguration:(AWSS3DeleteBucketMetricsConfigurationRequest *)request;
 
 /**
- Deletes a metrics configuration (specified by the metrics configuration ID) from the bucket.
+ <p>Deletes a metrics configuration (specified by the metrics configuration ID) from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketMetricsConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -429,7 +454,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucketMetricsConfiguration:(AWSS3DeleteBucketMetricsConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Deletes the policy from the bucket.
+ <p>Deletes the policy from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketPolicy service method.
 
@@ -440,7 +465,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteBucketPolicy:(AWSS3DeleteBucketPolicyRequest *)request;
 
 /**
- Deletes the policy from the bucket.
+ <p>Deletes the policy from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -451,7 +476,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucketPolicy:(AWSS3DeleteBucketPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Deletes the replication configuration from the bucket.
+ <p>Deletes the replication configuration from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketReplication service method.
 
@@ -462,7 +487,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteBucketReplication:(AWSS3DeleteBucketReplicationRequest *)request;
 
 /**
- Deletes the replication configuration from the bucket.
+ <p>Deletes the replication configuration from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketReplication service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -473,7 +498,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucketReplication:(AWSS3DeleteBucketReplicationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Deletes the tags from the bucket.
+ <p>Deletes the tags from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketTagging service method.
 
@@ -484,7 +509,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteBucketTagging:(AWSS3DeleteBucketTaggingRequest *)request;
 
 /**
- Deletes the tags from the bucket.
+ <p>Deletes the tags from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketTagging service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -495,7 +520,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucketTagging:(AWSS3DeleteBucketTaggingRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- This operation removes the website configuration from the bucket.
+ <p>This operation removes the website configuration from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketWebsite service method.
 
@@ -506,7 +531,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)deleteBucketWebsite:(AWSS3DeleteBucketWebsiteRequest *)request;
 
 /**
- This operation removes the website configuration from the bucket.
+ <p>This operation removes the website configuration from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketWebsite service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -517,7 +542,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteBucketWebsite:(AWSS3DeleteBucketWebsiteRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.
+ <p>Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.</p>
  
  @param request A container for the necessary parameters to execute the DeleteObject service method.
 
@@ -529,7 +554,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3DeleteObjectOutput *> *)deleteObject:(AWSS3DeleteObjectRequest *)request;
 
 /**
- Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.
+ <p>Removes the null version (if there is one) of an object and inserts a delete marker, which becomes the latest version of the object. If there isn't a null version, Amazon S3 does not remove any objects.</p>
  
  @param request A container for the necessary parameters to execute the DeleteObject service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -542,7 +567,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteObject:(AWSS3DeleteObjectRequest *)request completionHandler:(void (^ _Nullable)(AWSS3DeleteObjectOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Removes the tag-set from an existing object.
+ <p>Removes the tag-set from an existing object.</p>
  
  @param request A container for the necessary parameters to execute the DeleteObjectTagging service method.
 
@@ -554,7 +579,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3DeleteObjectTaggingOutput *> *)deleteObjectTagging:(AWSS3DeleteObjectTaggingRequest *)request;
 
 /**
- Removes the tag-set from an existing object.
+ <p>Removes the tag-set from an existing object.</p>
  
  @param request A container for the necessary parameters to execute the DeleteObjectTagging service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -567,7 +592,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteObjectTagging:(AWSS3DeleteObjectTaggingRequest *)request completionHandler:(void (^ _Nullable)(AWSS3DeleteObjectTaggingOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
+ <p>This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.</p>
  
  @param request A container for the necessary parameters to execute the DeleteObjects service method.
 
@@ -579,7 +604,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3DeleteObjectsOutput *> *)deleteObjects:(AWSS3DeleteObjectsRequest *)request;
 
 /**
- This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.
+ <p>This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.</p>
  
  @param request A container for the necessary parameters to execute the DeleteObjects service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -592,7 +617,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)deleteObjects:(AWSS3DeleteObjectsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3DeleteObjectsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the accelerate configuration of a bucket.
+ <p>Returns the accelerate configuration of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketAccelerateConfiguration service method.
 
@@ -604,7 +629,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketAccelerateConfigurationOutput *> *)getBucketAccelerateConfiguration:(AWSS3GetBucketAccelerateConfigurationRequest *)request;
 
 /**
- Returns the accelerate configuration of a bucket.
+ <p>Returns the accelerate configuration of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketAccelerateConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -617,7 +642,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketAccelerateConfiguration:(AWSS3GetBucketAccelerateConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketAccelerateConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Gets the access control policy for the bucket.
+ <p>Gets the access control policy for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketAcl service method.
 
@@ -629,7 +654,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketAclOutput *> *)getBucketAcl:(AWSS3GetBucketAclRequest *)request;
 
 /**
- Gets the access control policy for the bucket.
+ <p>Gets the access control policy for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketAcl service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -642,7 +667,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketAcl:(AWSS3GetBucketAclRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketAclOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Gets an analytics configuration for the bucket (specified by the analytics configuration ID).
+ <p>Gets an analytics configuration for the bucket (specified by the analytics configuration ID).</p>
  
  @param request A container for the necessary parameters to execute the GetBucketAnalyticsConfiguration service method.
 
@@ -654,7 +679,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketAnalyticsConfigurationOutput *> *)getBucketAnalyticsConfiguration:(AWSS3GetBucketAnalyticsConfigurationRequest *)request;
 
 /**
- Gets an analytics configuration for the bucket (specified by the analytics configuration ID).
+ <p>Gets an analytics configuration for the bucket (specified by the analytics configuration ID).</p>
  
  @param request A container for the necessary parameters to execute the GetBucketAnalyticsConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -667,7 +692,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketAnalyticsConfiguration:(AWSS3GetBucketAnalyticsConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketAnalyticsConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the cors configuration for the bucket.
+ <p>Returns the cors configuration for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketCors service method.
 
@@ -679,7 +704,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketCorsOutput *> *)getBucketCors:(AWSS3GetBucketCorsRequest *)request;
 
 /**
- Returns the cors configuration for the bucket.
+ <p>Returns the cors configuration for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketCors service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -692,7 +717,32 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketCors:(AWSS3GetBucketCorsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketCorsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns an inventory configuration (identified by the inventory ID) from the bucket.
+ <p>Returns the server-side encryption configuration of a bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetBucketEncryption service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetBucketEncryptionOutput`.
+ 
+ @see AWSS3GetBucketEncryptionRequest
+ @see AWSS3GetBucketEncryptionOutput
+ */
+- (AWSTask<AWSS3GetBucketEncryptionOutput *> *)getBucketEncryption:(AWSS3GetBucketEncryptionRequest *)request;
+
+/**
+ <p>Returns the server-side encryption configuration of a bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetBucketEncryption service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3GetBucketEncryptionRequest
+ @see AWSS3GetBucketEncryptionOutput
+ */
+- (void)getBucketEncryption:(AWSS3GetBucketEncryptionRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketEncryptionOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns an inventory configuration (identified by the inventory ID) from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketInventoryConfiguration service method.
 
@@ -704,7 +754,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketInventoryConfigurationOutput *> *)getBucketInventoryConfiguration:(AWSS3GetBucketInventoryConfigurationRequest *)request;
 
 /**
- Returns an inventory configuration (identified by the inventory ID) from the bucket.
+ <p>Returns an inventory configuration (identified by the inventory ID) from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketInventoryConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -717,7 +767,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketInventoryConfiguration:(AWSS3GetBucketInventoryConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketInventoryConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deprecated, see the GetBucketLifecycleConfiguration operation.
+ <p>Deprecated, see the GetBucketLifecycleConfiguration operation.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketLifecycle service method.
 
@@ -729,7 +779,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketLifecycleOutput *> *)getBucketLifecycle:(AWSS3GetBucketLifecycleRequest *)request;
 
 /**
- Deprecated, see the GetBucketLifecycleConfiguration operation.
+ <p>Deprecated, see the GetBucketLifecycleConfiguration operation.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketLifecycle service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -742,7 +792,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketLifecycle:(AWSS3GetBucketLifecycleRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketLifecycleOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the lifecycle configuration information set on the bucket.
+ <p>Returns the lifecycle configuration information set on the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketLifecycleConfiguration service method.
 
@@ -754,7 +804,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketLifecycleConfigurationOutput *> *)getBucketLifecycleConfiguration:(AWSS3GetBucketLifecycleConfigurationRequest *)request;
 
 /**
- Returns the lifecycle configuration information set on the bucket.
+ <p>Returns the lifecycle configuration information set on the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketLifecycleConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -767,7 +817,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketLifecycleConfiguration:(AWSS3GetBucketLifecycleConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketLifecycleConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the region the bucket resides in.
+ <p>Returns the region the bucket resides in.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketLocation service method.
 
@@ -779,7 +829,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketLocationOutput *> *)getBucketLocation:(AWSS3GetBucketLocationRequest *)request;
 
 /**
- Returns the region the bucket resides in.
+ <p>Returns the region the bucket resides in.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketLocation service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -792,7 +842,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketLocation:(AWSS3GetBucketLocationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketLocationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the logging status of a bucket and the permissions users have to view and modify that status. To use GET, you must be the bucket owner.
+ <p>Returns the logging status of a bucket and the permissions users have to view and modify that status. To use GET, you must be the bucket owner.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketLogging service method.
 
@@ -804,7 +854,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketLoggingOutput *> *)getBucketLogging:(AWSS3GetBucketLoggingRequest *)request;
 
 /**
- Returns the logging status of a bucket and the permissions users have to view and modify that status. To use GET, you must be the bucket owner.
+ <p>Returns the logging status of a bucket and the permissions users have to view and modify that status. To use GET, you must be the bucket owner.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketLogging service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -817,7 +867,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketLogging:(AWSS3GetBucketLoggingRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketLoggingOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.
+ <p>Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketMetricsConfiguration service method.
 
@@ -829,7 +879,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketMetricsConfigurationOutput *> *)getBucketMetricsConfiguration:(AWSS3GetBucketMetricsConfigurationRequest *)request;
 
 /**
- Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.
+ <p>Gets a metrics configuration (specified by the metrics configuration ID) from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketMetricsConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -842,7 +892,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketMetricsConfiguration:(AWSS3GetBucketMetricsConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketMetricsConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Deprecated, see the GetBucketNotificationConfiguration operation.
+ <p>Deprecated, see the GetBucketNotificationConfiguration operation.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketNotification service method.
 
@@ -854,7 +904,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3NotificationConfigurationDeprecated *> *)getBucketNotification:(AWSS3GetBucketNotificationConfigurationRequest *)request;
 
 /**
- Deprecated, see the GetBucketNotificationConfiguration operation.
+ <p>Deprecated, see the GetBucketNotificationConfiguration operation.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketNotification service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -867,7 +917,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketNotification:(AWSS3GetBucketNotificationConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3NotificationConfigurationDeprecated * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the notification configuration of a bucket.
+ <p>Returns the notification configuration of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketNotificationConfiguration service method.
 
@@ -879,7 +929,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3NotificationConfiguration *> *)getBucketNotificationConfiguration:(AWSS3GetBucketNotificationConfigurationRequest *)request;
 
 /**
- Returns the notification configuration of a bucket.
+ <p>Returns the notification configuration of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketNotificationConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -892,7 +942,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketNotificationConfiguration:(AWSS3GetBucketNotificationConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3NotificationConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the policy of a specified bucket.
+ <p>Returns the policy of a specified bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketPolicy service method.
 
@@ -904,7 +954,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketPolicyOutput *> *)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request;
 
 /**
- Returns the policy of a specified bucket.
+ <p>Returns the policy of a specified bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -917,7 +967,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketPolicyOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the replication configuration of a bucket.
+ <p>Returns the replication configuration of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketReplication service method.
 
@@ -929,7 +979,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketReplicationOutput *> *)getBucketReplication:(AWSS3GetBucketReplicationRequest *)request;
 
 /**
- Returns the replication configuration of a bucket.
+ <p>Returns the replication configuration of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketReplication service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -942,7 +992,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketReplication:(AWSS3GetBucketReplicationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketReplicationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the request payment configuration of a bucket.
+ <p>Returns the request payment configuration of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketRequestPayment service method.
 
@@ -954,7 +1004,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketRequestPaymentOutput *> *)getBucketRequestPayment:(AWSS3GetBucketRequestPaymentRequest *)request;
 
 /**
- Returns the request payment configuration of a bucket.
+ <p>Returns the request payment configuration of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketRequestPayment service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -967,7 +1017,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketRequestPayment:(AWSS3GetBucketRequestPaymentRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketRequestPaymentOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the tag set associated with the bucket.
+ <p>Returns the tag set associated with the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketTagging service method.
 
@@ -979,7 +1029,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketTaggingOutput *> *)getBucketTagging:(AWSS3GetBucketTaggingRequest *)request;
 
 /**
- Returns the tag set associated with the bucket.
+ <p>Returns the tag set associated with the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketTagging service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -992,7 +1042,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketTagging:(AWSS3GetBucketTaggingRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketTaggingOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the versioning state of a bucket.
+ <p>Returns the versioning state of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketVersioning service method.
 
@@ -1004,7 +1054,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketVersioningOutput *> *)getBucketVersioning:(AWSS3GetBucketVersioningRequest *)request;
 
 /**
- Returns the versioning state of a bucket.
+ <p>Returns the versioning state of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketVersioning service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1017,7 +1067,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketVersioning:(AWSS3GetBucketVersioningRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketVersioningOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the website configuration for a bucket.
+ <p>Returns the website configuration for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketWebsite service method.
 
@@ -1029,7 +1079,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetBucketWebsiteOutput *> *)getBucketWebsite:(AWSS3GetBucketWebsiteRequest *)request;
 
 /**
- Returns the website configuration for a bucket.
+ <p>Returns the website configuration for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketWebsite service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1042,7 +1092,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getBucketWebsite:(AWSS3GetBucketWebsiteRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketWebsiteOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Retrieves objects from Amazon S3.
+ <p>Retrieves objects from Amazon S3.</p>
  
  @param request A container for the necessary parameters to execute the GetObject service method.
 
@@ -1054,7 +1104,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetObjectOutput *> *)getObject:(AWSS3GetObjectRequest *)request;
 
 /**
- Retrieves objects from Amazon S3.
+ <p>Retrieves objects from Amazon S3.</p>
  
  @param request A container for the necessary parameters to execute the GetObject service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1067,7 +1117,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getObject:(AWSS3GetObjectRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetObjectOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the access control list (ACL) of an object.
+ <p>Returns the access control list (ACL) of an object.</p>
  
  @param request A container for the necessary parameters to execute the GetObjectAcl service method.
 
@@ -1079,7 +1129,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetObjectAclOutput *> *)getObjectAcl:(AWSS3GetObjectAclRequest *)request;
 
 /**
- Returns the access control list (ACL) of an object.
+ <p>Returns the access control list (ACL) of an object.</p>
  
  @param request A container for the necessary parameters to execute the GetObjectAcl service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1092,7 +1142,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getObjectAcl:(AWSS3GetObjectAclRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetObjectAclOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns the tag-set of an object.
+ <p>Returns the tag-set of an object.</p>
  
  @param request A container for the necessary parameters to execute the GetObjectTagging service method.
 
@@ -1104,7 +1154,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetObjectTaggingOutput *> *)getObjectTagging:(AWSS3GetObjectTaggingRequest *)request;
 
 /**
- Returns the tag-set of an object.
+ <p>Returns the tag-set of an object.</p>
  
  @param request A container for the necessary parameters to execute the GetObjectTagging service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1117,7 +1167,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getObjectTagging:(AWSS3GetObjectTaggingRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetObjectTaggingOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Return torrent files from a bucket.
+ <p>Return torrent files from a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetObjectTorrent service method.
 
@@ -1129,7 +1179,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3GetObjectTorrentOutput *> *)getObjectTorrent:(AWSS3GetObjectTorrentRequest *)request;
 
 /**
- Return torrent files from a bucket.
+ <p>Return torrent files from a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetObjectTorrent service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1142,7 +1192,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getObjectTorrent:(AWSS3GetObjectTorrentRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetObjectTorrentOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- This operation is useful to determine if a bucket exists and you have permission to access it.
+ <p>This operation is useful to determine if a bucket exists and you have permission to access it.</p>
  
  @param request A container for the necessary parameters to execute the HeadBucket service method.
 
@@ -1153,7 +1203,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)headBucket:(AWSS3HeadBucketRequest *)request;
 
 /**
- This operation is useful to determine if a bucket exists and you have permission to access it.
+ <p>This operation is useful to determine if a bucket exists and you have permission to access it.</p>
  
  @param request A container for the necessary parameters to execute the HeadBucket service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1164,7 +1214,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)headBucket:(AWSS3HeadBucketRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.
+ <p>The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.</p>
  
  @param request A container for the necessary parameters to execute the HeadObject service method.
 
@@ -1176,7 +1226,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3HeadObjectOutput *> *)headObject:(AWSS3HeadObjectRequest *)request;
 
 /**
- The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.
+ <p>The HEAD operation retrieves metadata from an object without returning the object itself. This operation is useful if you're only interested in an object's metadata. To use HEAD, you must have READ access to the object.</p>
  
  @param request A container for the necessary parameters to execute the HeadObject service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1189,7 +1239,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)headObject:(AWSS3HeadObjectRequest *)request completionHandler:(void (^ _Nullable)(AWSS3HeadObjectOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Lists the analytics configurations for the bucket.
+ <p>Lists the analytics configurations for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the ListBucketAnalyticsConfigurations service method.
 
@@ -1201,7 +1251,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3ListBucketAnalyticsConfigurationsOutput *> *)listBucketAnalyticsConfigurations:(AWSS3ListBucketAnalyticsConfigurationsRequest *)request;
 
 /**
- Lists the analytics configurations for the bucket.
+ <p>Lists the analytics configurations for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the ListBucketAnalyticsConfigurations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1214,7 +1264,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listBucketAnalyticsConfigurations:(AWSS3ListBucketAnalyticsConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3ListBucketAnalyticsConfigurationsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns a list of inventory configurations for the bucket.
+ <p>Returns a list of inventory configurations for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the ListBucketInventoryConfigurations service method.
 
@@ -1226,7 +1276,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3ListBucketInventoryConfigurationsOutput *> *)listBucketInventoryConfigurations:(AWSS3ListBucketInventoryConfigurationsRequest *)request;
 
 /**
- Returns a list of inventory configurations for the bucket.
+ <p>Returns a list of inventory configurations for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the ListBucketInventoryConfigurations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1239,7 +1289,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listBucketInventoryConfigurations:(AWSS3ListBucketInventoryConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3ListBucketInventoryConfigurationsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Lists the metrics configurations for the bucket.
+ <p>Lists the metrics configurations for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the ListBucketMetricsConfigurations service method.
 
@@ -1251,7 +1301,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3ListBucketMetricsConfigurationsOutput *> *)listBucketMetricsConfigurations:(AWSS3ListBucketMetricsConfigurationsRequest *)request;
 
 /**
- Lists the metrics configurations for the bucket.
+ <p>Lists the metrics configurations for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the ListBucketMetricsConfigurations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1264,7 +1314,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listBucketMetricsConfigurations:(AWSS3ListBucketMetricsConfigurationsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3ListBucketMetricsConfigurationsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns a list of all buckets owned by the authenticated sender of the request.
+ <p>Returns a list of all buckets owned by the authenticated sender of the request.</p>
  
  @param request A container for the necessary parameters to execute the ListBuckets service method.
 
@@ -1276,7 +1326,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3ListBucketsOutput *> *)listBuckets:(AWSRequest *)request;
 
 /**
- Returns a list of all buckets owned by the authenticated sender of the request.
+ <p>Returns a list of all buckets owned by the authenticated sender of the request.</p>
  
  @param request A container for the necessary parameters to execute the ListBuckets service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1289,7 +1339,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listBuckets:(AWSRequest *)request completionHandler:(void (^ _Nullable)(AWSS3ListBucketsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- This operation lists in-progress multipart uploads.
+ <p>This operation lists in-progress multipart uploads.</p>
  
  @param request A container for the necessary parameters to execute the ListMultipartUploads service method.
 
@@ -1301,7 +1351,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3ListMultipartUploadsOutput *> *)listMultipartUploads:(AWSS3ListMultipartUploadsRequest *)request;
 
 /**
- This operation lists in-progress multipart uploads.
+ <p>This operation lists in-progress multipart uploads.</p>
  
  @param request A container for the necessary parameters to execute the ListMultipartUploads service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1314,7 +1364,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listMultipartUploads:(AWSS3ListMultipartUploadsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3ListMultipartUploadsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns metadata about all of the versions of objects in a bucket.
+ <p>Returns metadata about all of the versions of objects in a bucket.</p>
  
  @param request A container for the necessary parameters to execute the ListObjectVersions service method.
 
@@ -1326,7 +1376,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3ListObjectVersionsOutput *> *)listObjectVersions:(AWSS3ListObjectVersionsRequest *)request;
 
 /**
- Returns metadata about all of the versions of objects in a bucket.
+ <p>Returns metadata about all of the versions of objects in a bucket.</p>
  
  @param request A container for the necessary parameters to execute the ListObjectVersions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1339,7 +1389,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listObjectVersions:(AWSS3ListObjectVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3ListObjectVersionsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.
+ <p>Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.</p>
  
  @param request A container for the necessary parameters to execute the ListObjects service method.
 
@@ -1351,7 +1401,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3ListObjectsOutput *> *)listObjects:(AWSS3ListObjectsRequest *)request;
 
 /**
- Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.
+ <p>Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket.</p>
  
  @param request A container for the necessary parameters to execute the ListObjects service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1364,7 +1414,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listObjects:(AWSS3ListObjectsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3ListObjectsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. Note: ListObjectsV2 is the revised List Objects API and we recommend you use this revised API for new application development.
+ <p>Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. Note: ListObjectsV2 is the revised List Objects API and we recommend you use this revised API for new application development.</p>
  
  @param request A container for the necessary parameters to execute the ListObjectsV2 service method.
 
@@ -1376,7 +1426,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3ListObjectsV2Output *> *)listObjectsV2:(AWSS3ListObjectsV2Request *)request;
 
 /**
- Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. Note: ListObjectsV2 is the revised List Objects API and we recommend you use this revised API for new application development.
+ <p>Returns some or all (up to 1000) of the objects in a bucket. You can use the request parameters as selection criteria to return a subset of the objects in a bucket. Note: ListObjectsV2 is the revised List Objects API and we recommend you use this revised API for new application development.</p>
  
  @param request A container for the necessary parameters to execute the ListObjectsV2 service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1389,7 +1439,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listObjectsV2:(AWSS3ListObjectsV2Request *)request completionHandler:(void (^ _Nullable)(AWSS3ListObjectsV2Output * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Lists the parts that have been uploaded for a specific multipart upload.
+ <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
  
  @param request A container for the necessary parameters to execute the ListParts service method.
 
@@ -1401,7 +1451,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3ListPartsOutput *> *)listParts:(AWSS3ListPartsRequest *)request;
 
 /**
- Lists the parts that have been uploaded for a specific multipart upload.
+ <p>Lists the parts that have been uploaded for a specific multipart upload.</p>
  
  @param request A container for the necessary parameters to execute the ListParts service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1414,7 +1464,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)listParts:(AWSS3ListPartsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3ListPartsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Sets the accelerate configuration of an existing bucket.
+ <p>Sets the accelerate configuration of an existing bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketAccelerateConfiguration service method.
 
@@ -1425,7 +1475,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketAccelerateConfiguration:(AWSS3PutBucketAccelerateConfigurationRequest *)request;
 
 /**
- Sets the accelerate configuration of an existing bucket.
+ <p>Sets the accelerate configuration of an existing bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketAccelerateConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1436,7 +1486,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketAccelerateConfiguration:(AWSS3PutBucketAccelerateConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Sets the permissions on a bucket using access control lists (ACL).
+ <p>Sets the permissions on a bucket using access control lists (ACL).</p>
  
  @param request A container for the necessary parameters to execute the PutBucketAcl service method.
 
@@ -1447,7 +1497,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketAcl:(AWSS3PutBucketAclRequest *)request;
 
 /**
- Sets the permissions on a bucket using access control lists (ACL).
+ <p>Sets the permissions on a bucket using access control lists (ACL).</p>
  
  @param request A container for the necessary parameters to execute the PutBucketAcl service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1458,7 +1508,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketAcl:(AWSS3PutBucketAclRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Sets an analytics configuration for the bucket (specified by the analytics configuration ID).
+ <p>Sets an analytics configuration for the bucket (specified by the analytics configuration ID).</p>
  
  @param request A container for the necessary parameters to execute the PutBucketAnalyticsConfiguration service method.
 
@@ -1469,7 +1519,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketAnalyticsConfiguration:(AWSS3PutBucketAnalyticsConfigurationRequest *)request;
 
 /**
- Sets an analytics configuration for the bucket (specified by the analytics configuration ID).
+ <p>Sets an analytics configuration for the bucket (specified by the analytics configuration ID).</p>
  
  @param request A container for the necessary parameters to execute the PutBucketAnalyticsConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1480,7 +1530,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketAnalyticsConfiguration:(AWSS3PutBucketAnalyticsConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Sets the cors configuration for a bucket.
+ <p>Sets the cors configuration for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketCors service method.
 
@@ -1491,7 +1541,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketCors:(AWSS3PutBucketCorsRequest *)request;
 
 /**
- Sets the cors configuration for a bucket.
+ <p>Sets the cors configuration for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketCors service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1502,7 +1552,29 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketCors:(AWSS3PutBucketCorsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Adds an inventory configuration (identified by the inventory ID) from the bucket.
+ <p>Creates a new server-side encryption configuration (or replaces an existing one, if present).</p>
+ 
+ @param request A container for the necessary parameters to execute the PutBucketEncryption service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ 
+ @see AWSS3PutBucketEncryptionRequest
+ */
+- (AWSTask *)putBucketEncryption:(AWSS3PutBucketEncryptionRequest *)request;
+
+/**
+ <p>Creates a new server-side encryption configuration (or replaces an existing one, if present).</p>
+ 
+ @param request A container for the necessary parameters to execute the PutBucketEncryption service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3PutBucketEncryptionRequest
+ */
+- (void)putBucketEncryption:(AWSS3PutBucketEncryptionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Adds an inventory configuration (identified by the inventory ID) from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketInventoryConfiguration service method.
 
@@ -1513,7 +1585,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketInventoryConfiguration:(AWSS3PutBucketInventoryConfigurationRequest *)request;
 
 /**
- Adds an inventory configuration (identified by the inventory ID) from the bucket.
+ <p>Adds an inventory configuration (identified by the inventory ID) from the bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketInventoryConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1524,7 +1596,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketInventoryConfiguration:(AWSS3PutBucketInventoryConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Deprecated, see the PutBucketLifecycleConfiguration operation.
+ <p>Deprecated, see the PutBucketLifecycleConfiguration operation.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketLifecycle service method.
 
@@ -1535,7 +1607,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketLifecycle:(AWSS3PutBucketLifecycleRequest *)request;
 
 /**
- Deprecated, see the PutBucketLifecycleConfiguration operation.
+ <p>Deprecated, see the PutBucketLifecycleConfiguration operation.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketLifecycle service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1546,7 +1618,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketLifecycle:(AWSS3PutBucketLifecycleRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.
+ <p>Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketLifecycleConfiguration service method.
 
@@ -1557,7 +1629,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketLifecycleConfiguration:(AWSS3PutBucketLifecycleConfigurationRequest *)request;
 
 /**
- Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.
+ <p>Sets lifecycle configuration for your bucket. If a lifecycle configuration exists, it replaces it.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketLifecycleConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1568,7 +1640,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketLifecycleConfiguration:(AWSS3PutBucketLifecycleConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Set the logging parameters for a bucket and to specify permissions for who can view and modify the logging parameters. To set the logging status of a bucket, you must be the bucket owner.
+ <p>Set the logging parameters for a bucket and to specify permissions for who can view and modify the logging parameters. To set the logging status of a bucket, you must be the bucket owner.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketLogging service method.
 
@@ -1579,7 +1651,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketLogging:(AWSS3PutBucketLoggingRequest *)request;
 
 /**
- Set the logging parameters for a bucket and to specify permissions for who can view and modify the logging parameters. To set the logging status of a bucket, you must be the bucket owner.
+ <p>Set the logging parameters for a bucket and to specify permissions for who can view and modify the logging parameters. To set the logging status of a bucket, you must be the bucket owner.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketLogging service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1590,7 +1662,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketLogging:(AWSS3PutBucketLoggingRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
+ <p>Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketMetricsConfiguration service method.
 
@@ -1601,7 +1673,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketMetricsConfiguration:(AWSS3PutBucketMetricsConfigurationRequest *)request;
 
 /**
- Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.
+ <p>Sets a metrics configuration (specified by the metrics configuration ID) for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketMetricsConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1612,7 +1684,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketMetricsConfiguration:(AWSS3PutBucketMetricsConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Deprecated, see the PutBucketNotificationConfiguraiton operation.
+ <p>Deprecated, see the PutBucketNotificationConfiguraiton operation.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketNotification service method.
 
@@ -1623,7 +1695,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketNotification:(AWSS3PutBucketNotificationRequest *)request;
 
 /**
- Deprecated, see the PutBucketNotificationConfiguraiton operation.
+ <p>Deprecated, see the PutBucketNotificationConfiguraiton operation.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketNotification service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1634,7 +1706,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketNotification:(AWSS3PutBucketNotificationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Enables notifications of specified events for a bucket.
+ <p>Enables notifications of specified events for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketNotificationConfiguration service method.
 
@@ -1645,7 +1717,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketNotificationConfiguration:(AWSS3PutBucketNotificationConfigurationRequest *)request;
 
 /**
- Enables notifications of specified events for a bucket.
+ <p>Enables notifications of specified events for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketNotificationConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1656,7 +1728,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketNotificationConfiguration:(AWSS3PutBucketNotificationConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.
+ <p>Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketPolicy service method.
 
@@ -1667,7 +1739,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketPolicy:(AWSS3PutBucketPolicyRequest *)request;
 
 /**
- Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.
+ <p>Replaces a policy on a bucket. If the bucket already has a policy, the one in this request completely replaces it.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1678,7 +1750,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketPolicy:(AWSS3PutBucketPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Creates a new replication configuration (or replaces an existing one, if present).
+ <p> Creates a new replication configuration (or replaces an existing one, if present). For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the PutBucketReplication service method.
 
@@ -1689,7 +1761,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketReplication:(AWSS3PutBucketReplicationRequest *)request;
 
 /**
- Creates a new replication configuration (or replaces an existing one, if present).
+ <p> Creates a new replication configuration (or replaces an existing one, if present). For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>
  
  @param request A container for the necessary parameters to execute the PutBucketReplication service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1700,7 +1772,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketReplication:(AWSS3PutBucketReplicationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
+ <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html</p>
  
  @param request A container for the necessary parameters to execute the PutBucketRequestPayment service method.
 
@@ -1711,7 +1783,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketRequestPayment:(AWSS3PutBucketRequestPaymentRequest *)request;
 
 /**
- Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html
+ <p>Sets the request payment configuration for a bucket. By default, the bucket owner pays for downloads from the bucket. This configuration parameter enables the bucket owner (only) to specify that the person requesting the download will be charged for the download. Documentation on requester pays buckets can be found at http://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html</p>
  
  @param request A container for the necessary parameters to execute the PutBucketRequestPayment service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1722,7 +1794,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketRequestPayment:(AWSS3PutBucketRequestPaymentRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Sets the tags for a bucket.
+ <p>Sets the tags for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketTagging service method.
 
@@ -1733,7 +1805,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketTagging:(AWSS3PutBucketTaggingRequest *)request;
 
 /**
- Sets the tags for a bucket.
+ <p>Sets the tags for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketTagging service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1744,7 +1816,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketTagging:(AWSS3PutBucketTaggingRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.
+ <p>Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketVersioning service method.
 
@@ -1755,7 +1827,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketVersioning:(AWSS3PutBucketVersioningRequest *)request;
 
 /**
- Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.
+ <p>Sets the versioning state of an existing bucket. To set the versioning state, you must be the bucket owner.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketVersioning service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1766,7 +1838,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketVersioning:(AWSS3PutBucketVersioningRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Set the website configuration for a bucket.
+ <p>Set the website configuration for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketWebsite service method.
 
@@ -1777,7 +1849,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask *)putBucketWebsite:(AWSS3PutBucketWebsiteRequest *)request;
 
 /**
- Set the website configuration for a bucket.
+ <p>Set the website configuration for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketWebsite service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1788,7 +1860,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putBucketWebsite:(AWSS3PutBucketWebsiteRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- Adds an object to a bucket.
+ <p>Adds an object to a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutObject service method.
 
@@ -1800,7 +1872,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3PutObjectOutput *> *)putObject:(AWSS3PutObjectRequest *)request;
 
 /**
- Adds an object to a bucket.
+ <p>Adds an object to a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutObject service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1813,7 +1885,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putObject:(AWSS3PutObjectRequest *)request completionHandler:(void (^ _Nullable)(AWSS3PutObjectOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket
+ <p>uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket</p>
  
  @param request A container for the necessary parameters to execute the PutObjectAcl service method.
 
@@ -1825,7 +1897,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3PutObjectAclOutput *> *)putObjectAcl:(AWSS3PutObjectAclRequest *)request;
 
 /**
- uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket
+ <p>uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket</p>
  
  @param request A container for the necessary parameters to execute the PutObjectAcl service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1838,7 +1910,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putObjectAcl:(AWSS3PutObjectAclRequest *)request completionHandler:(void (^ _Nullable)(AWSS3PutObjectAclOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Sets the supplied tag-set to an object that already exists in a bucket
+ <p>Sets the supplied tag-set to an object that already exists in a bucket</p>
  
  @param request A container for the necessary parameters to execute the PutObjectTagging service method.
 
@@ -1850,7 +1922,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3PutObjectTaggingOutput *> *)putObjectTagging:(AWSS3PutObjectTaggingRequest *)request;
 
 /**
- Sets the supplied tag-set to an object that already exists in a bucket
+ <p>Sets the supplied tag-set to an object that already exists in a bucket</p>
  
  @param request A container for the necessary parameters to execute the PutObjectTagging service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1863,7 +1935,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)putObjectTagging:(AWSS3PutObjectTaggingRequest *)request completionHandler:(void (^ _Nullable)(AWSS3PutObjectTaggingOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Restores an archived copy of an object back into Amazon S3
+ <p>Restores an archived copy of an object back into Amazon S3</p>
  
  @param request A container for the necessary parameters to execute the RestoreObject service method.
 
@@ -1875,7 +1947,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3RestoreObjectOutput *> *)restoreObject:(AWSS3RestoreObjectRequest *)request;
 
 /**
- Restores an archived copy of an object back into Amazon S3
+ <p>Restores an archived copy of an object back into Amazon S3</p>
  
  @param request A container for the necessary parameters to execute the RestoreObject service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1886,6 +1958,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSS3RestoreObjectOutput
  */
 - (void)restoreObject:(AWSS3RestoreObjectRequest *)request completionHandler:(void (^ _Nullable)(AWSS3RestoreObjectOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This operation filters the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response.</p>
+ 
+ @param request A container for the necessary parameters to execute the SelectObjectContent service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3SelectObjectContentOutput`.
+ 
+ @see AWSS3SelectObjectContentRequest
+ @see AWSS3SelectObjectContentOutput
+ */
+- (AWSTask<AWSS3SelectObjectContentOutput *> *)selectObjectContent:(AWSS3SelectObjectContentRequest *)request;
+
+/**
+ <p>This operation filters the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response.</p>
+ 
+ @param request A container for the necessary parameters to execute the SelectObjectContent service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3SelectObjectContentRequest
+ @see AWSS3SelectObjectContentOutput
+ */
+- (void)selectObjectContent:(AWSS3SelectObjectContentRequest *)request completionHandler:(void (^ _Nullable)(AWSS3SelectObjectContentOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Uploads a part in a multipart upload.</p><p><b>Note:</b> After you initiate multipart upload and upload one or more parts, you must either complete or abort multipart upload in order to stop getting charged for storage of the uploaded parts. Only after you either complete or abort multipart upload, Amazon S3 frees up the parts storage and stops charging you for the parts storage.</p>
@@ -1913,7 +2010,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)uploadPart:(AWSS3UploadPartRequest *)request completionHandler:(void (^ _Nullable)(AWSS3UploadPartOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- Uploads a part by copying data from an existing object as data source.
+ <p>Uploads a part by copying data from an existing object as data source.</p>
  
  @param request A container for the necessary parameters to execute the UploadPartCopy service method.
 
@@ -1925,7 +2022,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSS3UploadPartCopyOutput *> *)uploadPartCopy:(AWSS3UploadPartCopyRequest *)request;
 
 /**
- Uploads a part by copying data from an existing object as data source.
+ <p>Uploads a part by copying data from an existing object as data source.</p>
  
  @param request A container for the necessary parameters to execute the UploadPartCopy service method.
  @param completionHandler The completion handler to call when the load request is complete.

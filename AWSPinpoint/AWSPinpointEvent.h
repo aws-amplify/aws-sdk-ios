@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) UTCTimeMillis eventTimestamp;
 
 /**
- Returns the sesion of the event.
+ Returns the session of the event.
  The session should be populated with the current session in AWSPinpointSessionClient. If no session exists a session is started.
  
  @returns the session of this AWSPinpointEvent.

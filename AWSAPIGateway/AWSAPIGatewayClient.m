@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@ NSString *const AWSAPIGatewayErrorHTTPHeaderFieldsKey = @"HTTPHeaderFields";
 
 static NSString *const AWSAPIGatewayAPIKeyHeader = @"x-api-key";
 
-static NSString *const AWSAPIGatewaySDKVersion = @"2.6.12";
+NSString *const AWSAPIGatewaySDKVersion = @"2.7.0";
 
 static int defaultChunkSize = 1024;
 
@@ -62,10 +62,11 @@ static int defaultChunkSize = 1024;
 
 + (void)initialize {
     [super initialize];
-
     if (![AWSiOSSDKVersion isEqualToString:AWSAPIGatewaySDKVersion]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                       reason:[NSString stringWithFormat:@"AWSCore and AWSAPIGateway versions need to match. Check your SDK installation. AWSCore: %@ AWSAPIGateway: %@", AWSiOSSDKVersion, AWSAPIGatewaySDKVersion]
+                                       reason:[NSString stringWithFormat:@"AWSCore and AWSAPIGateway versions need to match. Check your SDK installation. AWSCore: %@ AWSAPIGateway: %@",
+                                               AWSiOSSDKVersion,
+                                               AWSAPIGatewaySDKVersion]
                                      userInfo:nil];
     }
 }
@@ -128,7 +129,7 @@ static int defaultChunkSize = 1024;
                 uint8_t buf[len];
                 
                 while (YES) {
-                    if ( [oStream hasSpaceAvailable] ) {
+                    if ([oStream hasSpaceAvailable]) {
                         NSInteger bytesRead = [iStream read:buf maxLength:len];
                         
                         if ([oStream write:(const uint8_t *)buf maxLength:bytesRead] == -1) {

@@ -25,10 +25,12 @@
     return AWSFMDBReturnAutoreleased(rs);
 }
 
+#if ! __has_feature(objc_arc)
 - (void)finalize {
     [self close];
     [super finalize];
 }
+#endif
 
 - (void)dealloc {
     [self close];
@@ -212,7 +214,7 @@
     
     NSNumber *n = [[self columnNameToIndexMap] objectForKey:columnName];
     
-    if (n) {
+    if (n != nil) {
         return [n intValue];
     }
     

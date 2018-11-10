@@ -302,7 +302,7 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
 
 - (void)testUpdateAttribute {
     XCTestExpectation *expectation =
-    [self expectationWithDescription:@"testRegisterUser"];
+    [self expectationWithDescription:@"testUpdateAttribute"];
     AWSCognitoIdentityUserAttributeType * name = [AWSCognitoIdentityUserAttributeType new];
     name.name = @"name";
     name.value = @"Joe Test";
@@ -319,6 +319,22 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
             NSLog(@"Timeout Error: %@", error);
         }
     }];
+    expectation =
+    [self expectationWithDescription:@"testSessionNowHasUpdatedAttribute"];
+    [[user getSession] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+        if(task.isCancelled || task.error){
+            XCTFail(@"Request returned an error %@",task.error);
+        }
+        XCTAssertTrue([name.value isEqualToString:task.result.idToken.claims[@"name"]]);
+        [expectation fulfill];
+        return task;
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+    
 }
 
 

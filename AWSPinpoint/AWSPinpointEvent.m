@@ -17,6 +17,7 @@
 #import "AWSPinpointStringUtils.h"
 #import "AWSPinpointContext.h"
 #import "AWSPinpointDateUtils.h"
+#import "AWSPinpointSessionClient.h"
 
 static int const MAX_NUM_OF_METRICS_AND_ATTRIBUTES = 50;
 static int const MAX_EVENT_TYPE_ATTRIBUTE_METRIC_KEY_LENGTH = 50;
@@ -37,7 +38,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
 @implementation AWSPinpointEvent
 
 -(instancetype)initWithEventType:(NSString*) theEventType
-                         session:(AWSPinpointSession*) session {
+                         session:(AWSPinpointSession*) session{
     return [self initWithEventType:theEventType
                     eventTimestamp:[AWSPinpointDateUtils utcTimeMillisNow]
                            session:session];
@@ -45,7 +46,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
 
 -(instancetype)initWithEventType:(NSString*) theEventType
                   eventTimestamp:(UTCTimeMillis) theEventTimestamp
-                         session:(AWSPinpointSession*) session {
+                         session:(AWSPinpointSession*) session{
     return [self initWithEventType:theEventType
                     eventTimestamp:theEventTimestamp
                            session:session
@@ -57,7 +58,7 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
                   eventTimestamp:(UTCTimeMillis) theEventTimestamp
                          session:(AWSPinpointSession*) session
                       attributes:(NSMutableDictionary*) attributes
-                         metrics:(NSMutableDictionary*) metrics {
+                         metrics:(NSMutableDictionary*) metrics{
     if (self = [super init]) {
         _eventType = [self validateEventType:theEventType];
         _eventTimestamp = theEventTimestamp;
@@ -65,7 +66,6 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
         _attributes = attributes;
         _metrics = metrics;
     }
-    
     return self;
 }
 
@@ -153,6 +153,12 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
 - (void)addMetric:(NSNumber *)theValue forKey:(NSString *)theKey {
     if(!theKey) return;
     
+    if([theValue isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+        theValue = [NSNumber numberWithInteger:1];
+    } else if([theValue isEqualToNumber:[NSNumber numberWithBool:NO]]) {
+        theValue = [NSNumber numberWithInteger:0];
+    }
+    
     @synchronized(self.metrics) {
         if(self.currentNumOfAttributesAndMetrics < MAX_NUM_OF_METRICS_AND_ATTRIBUTES) {
             NSString* trimmedKey = [AWSPinpointEvent trimKey:theKey forType:@"attribute"];
@@ -219,6 +225,17 @@ NSString *const AWSPinpointEventErrorDomain = @"com.amazonaws.AWSPinpointEventEr
     }
     
     return dictionary;
+}
+
+- (id)copyWithZone:(nullable NSZone *)zone {
+    @synchronized(self) {
+        AWSPinpointEvent *copy = [[AWSPinpointEvent alloc] initWithEventType:[_eventType copyWithZone:zone]
+                 eventTimestamp:_eventTimestamp
+                        session:[_session copyWithZone:zone]
+                     attributes:[_attributes copyWithZone:zone]
+                        metrics:[_metrics copyWithZone:zone]];
+        return copy;
+    }
 }
 
 @end

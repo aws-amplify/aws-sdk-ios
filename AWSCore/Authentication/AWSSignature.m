@@ -61,7 +61,15 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
 + (NSString *)hexEncode:(NSString *)string {
     NSUInteger len = [string length];
+    if (len == 0) {
+        return @"";
+    }
     unichar *chars = malloc(len * sizeof(unichar));
+    if (chars == NULL) {
+        // this situation is irrecoverable and we don't want to return something corrupted, so we raise an exception (avoiding NSAssert that may be disabled)
+        [NSException raise:@"NSInternalInconsistencyException" format:@"failed malloc" arguments:nil];
+        return nil;
+    }
 
     [string getCharacters:chars];
 
@@ -171,7 +179,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
 - (NSString *)signS3RequestV4:(NSMutableURLRequest *)urlRequest
                   credentials:(AWSCredentials *)credentials {
-    if ( [urlRequest valueForHTTPHeaderField:@"Content-Type"] == nil) {
+    if ([urlRequest valueForHTTPHeaderField:@"Content-Type"] == nil) {
         [urlRequest addValue:@"binary/octet-stream" forHTTPHeaderField:@"Content-Type"];
     }
 
@@ -197,7 +205,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
     NSString *httpMethod = urlRequest.HTTPMethod;
     // URL.path returns unescaped path
     // For S3,  url-encoded URI need to be decoded before generate  CanonicalURI, otherwise, signature doesn't match occurs. (I.e. CanonicalURI for "/ios-v2-test-445901470/name%3A" will still be  "/ios-v2-test-445901470/name%3A".  "%3A" -> ":" -> "%3A")
-    NSString *cfPath = (NSString*)CFBridgingRelease(CFURLCopyPath((CFURLRef)urlRequest.URL)) ;
+    NSString *cfPath = (NSString*)CFBridgingRelease(CFURLCopyPath((CFURLRef)urlRequest.URL));
     NSString *path = [cfPath aws_stringWithURLEncodingPath];
     
     if (path.length == 0) {
@@ -523,16 +531,24 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
     NSMutableDictionary<NSString *, NSMutableArray<NSString *> *> *queryDictionary = [NSMutableDictionary new];
     [[query componentsSeparatedByString:@"&"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         NSArray *components = [obj componentsSeparatedByString:@"="];
-        if ([components count] == 2) {
-            // ?a=b
-            NSString *key = components[0]; // a
-            NSString *value = components[1]; // b
-            if (queryDictionary[key]) {
-                // If the query parameter has multiple values, add it in the mutable array
-                [[queryDictionary objectForKey:key] addObject:value];
-            } else {
-                // Insert the value for query parameter as an element in mutable array
-                [queryDictionary setObject:[@[value] mutableCopy] forKey:key];
+        NSString *key;
+        NSString *value = @"";
+        NSUInteger count = [components count];
+        if (count > 0 && count <= 2) {
+            //can be ?a=b or ?a
+            key = components[0];
+            if  (! [key isEqualToString:@""] ) {
+                if (count == 2) {
+                    //is ?a=b
+                    value = components[1];
+                }
+                if (queryDictionary[key]) {
+                    // If the query parameter has multiple values, add it in the mutable array
+                    [[queryDictionary objectForKey:key] addObject:value];
+                } else {
+                    // Insert the value for query parameter as an element in mutable array
+                    [queryDictionary setObject:[@[value] mutableCopy] forKey:key];
+                }
             }
         }
     }];
@@ -588,7 +604,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
     NSMutableString *headerString = [NSMutableString new];
     for (NSString *header in sortedHeaders) {
-        if ( [headerString length] > 0) {
+        if ([headerString length] > 0) {
             [headerString appendString:@";"];
         }
         [headerString appendString:[header lowercaseString]];
@@ -805,6 +821,7 @@ static NSString *const emptyStringSha256 = @"e3b0c44298fc1c149afbf4c8996fb92427a
 
     // return NO if stream read failed
     if (read < 0) {
+        free(chunkBuffer);
         AWSDDLogError(@"stream read failed streamStatus: %lu streamError: %@", (unsigned long)[self.stream streamStatus], [self.stream streamError].description);
         return NO;
     }

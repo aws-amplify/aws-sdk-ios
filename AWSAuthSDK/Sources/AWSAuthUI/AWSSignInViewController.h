@@ -82,6 +82,8 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 @property (nonatomic, copy) void (^completionHandler)(id<AWSSignInProvider> signInProvider, NSError * _Nullable error);
 
+@property (nonatomic, copy) void (^completionHandlerCustom)(NSString  * _Nullable providerKey, NSString * _Nullable token, NSError * _Nullable error);
+
 /**
  @property config
  @brief Auth UI Confguration

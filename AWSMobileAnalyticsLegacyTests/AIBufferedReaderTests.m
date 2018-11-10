@@ -46,7 +46,7 @@
         assertThat(lineRead, is(nilValue()));
     }
     
-    if(expectedErrorCode)
+    if(expectedErrorCode != nil)
     {
         assertThatInteger([error code], equalToInteger([expectedErrorCode integerValue]));
     }

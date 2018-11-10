@@ -46,7 +46,6 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @class AWSSimpleDBBatchDeleteAttributesRequest;
 @class AWSSimpleDBBatchPutAttributesRequest;
 @class AWSSimpleDBCreateDomainRequest;
-@class AWSSimpleDBDeletableAttribute;
 @class AWSSimpleDBDeletableItem;
 @class AWSSimpleDBDeleteAttributesRequest;
 @class AWSSimpleDBDeleteDomainRequest;
@@ -65,19 +64,19 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @class AWSSimpleDBUpdateCondition;
 
 /**
- <p/>
+ <p></p>
  Required parameters: [Name, Value]
  */
 @interface AWSSimpleDBAttribute : AWSModel
 
 
 /**
- <p/>
+ <p></p>
  */
 @property (nonatomic, strong) NSString * _Nullable alternateNameEncoding;
 
 /**
- <p/>
+ <p></p>
  */
 @property (nonatomic, strong) NSString * _Nullable alternateValueEncoding;
 
@@ -143,25 +142,6 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @end
 
 /**
- <p/>
- Required parameters: [Name]
- */
-@interface AWSSimpleDBDeletableAttribute : AWSModel
-
-
-/**
- The name of the attribute.
- */
-@property (nonatomic, strong) NSString * _Nullable name;
-
-/**
- The value of the attribute.
- */
-@property (nonatomic, strong) NSString * _Nullable value;
-
-@end
-
-/**
  
  */
 @interface AWSSimpleDBDeletableItem : AWSModel
@@ -170,7 +150,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  
  */
-@property (nonatomic, strong) NSArray<AWSSimpleDBDeletableAttribute *> * _Nullable attributes;
+@property (nonatomic, strong) NSArray<AWSSimpleDBAttribute *> * _Nullable attributes;
 
 /**
  
@@ -188,7 +168,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 /**
  A list of Attributes. Similar to columns on a spreadsheet, attributes represent categories of data that can be assigned to items.
  */
-@property (nonatomic, strong) NSArray<AWSSimpleDBDeletableAttribute *> * _Nullable attributes;
+@property (nonatomic, strong) NSArray<AWSSimpleDBAttribute *> * _Nullable attributes;
 
 /**
  The name of the domain in which to perform the operation.
@@ -318,14 +298,14 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @end
 
 /**
- <p/>
+ <p></p>
  Required parameters: [Name, Attributes]
  */
 @interface AWSSimpleDBItem : AWSModel
 
 
 /**
- <p/>
+ <p></p>
  */
 @property (nonatomic, strong) NSString * _Nullable alternateNameEncoding;
 
@@ -406,7 +386,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @end
 
 /**
- <p/>
+ <p></p>
  Required parameters: [Name, Value]
  */
 @interface AWSSimpleDBReplaceableAttribute : AWSModel
@@ -430,7 +410,7 @@ typedef NS_ENUM(NSInteger, AWSSimpleDBErrorType) {
 @end
 
 /**
- <p/>
+ <p></p>
  Required parameters: [Name, Attributes]
  */
 @interface AWSSimpleDBReplaceableItem : AWSModel
