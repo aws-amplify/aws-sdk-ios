@@ -4,7 +4,7 @@ The `aws-sdk-macos` branch of this fork is a port of version 2.7.0 of the AWS Mo
 
 To use the port in your macOS project:
 1. first clone or download this project to your Mac. 
-1. Switch over to the `aws-sdk-macos` branch if it did not default to it. 
+1. Be sure you are on the`aws-sdk-macos` branch, it's the default. Switch over to it if you are not. 
 1. Open the AWSmacOSSDKv2.xcodeproj. 
 1. Build each framework target you need. 
 1. Find the frameworks you need in the Products folder in Xcode. 
