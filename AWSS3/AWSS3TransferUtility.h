@@ -18,6 +18,7 @@
 #endif
 
 #import <AWSCore/AWSCore.h>
+#import "AWSS3TransferUtilityTasks.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -395,7 +396,11 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
  @param identifier        The identifier of the URL session requiring attention.
  @param completionHandler The completion handler to call when you finish processing the events.
  */
+#if TARGET_OS_MAC && !TARGET_OS_IPHONE
++ (void)interceptApplication:(NSApplication *)application
+#else
 + (void)interceptApplication:(UIApplication *)application
+#endif
 handleEventsForBackgroundURLSession:(NSString *)identifier
            completionHandler:(void (^)(void))completionHandler;
 
