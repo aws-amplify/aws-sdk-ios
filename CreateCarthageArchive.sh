@@ -1,4 +1,7 @@
-frameworkfilename=$(carthage archive |  grep -o 'Created .*\.zip$'  | grep -o   '\S*\.zip$')
+date
+carthage archive
+ls *.framework.zip
+frameworkfilename=$(ls *.framework.zip | grep -o   '\S*\.zip$')
 
 if [ -z  "$frameworkfilename" ];then
 	echo "Cannot find framework zip file from output of carthage archive"
@@ -8,7 +11,17 @@ fi
 if [ ! -f "$frameworkfilename" ]; then
 	echo "$frameworkfilename is not present"
 	exit 1
+else
+    echo "$frameworkfilename is  present"
 fi
 
 mv $frameworkfilename   aws-sdk-ios-carthage.framework.zip
+if [ ! -f aws-sdk-ios-carthage.framework.zip ]; then
+echo "aws-sdk-ios-carthage.framework.zip is not present"
+exit 1
+else
+echo "aws-sdk-ios-carthage.framework.zip  is  present"
+fi
+
+date
 
