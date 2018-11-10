@@ -111,6 +111,10 @@ static NSString *const AWSInfoIdentityManager = @"IdentityManager";
     return _defaultAWSInfo;
 }
 
++ (void)overrideCredentialsProvider:(AWSCognitoCredentialsProvider *)cognitoCredentialsProvider {
+    AWSInfo.defaultAWSInfo.defaultCognitoCredentialsProvider = cognitoCredentialsProvider;
+}
+
 - (AWSServiceInfo *)serviceInfo:(NSString *)serviceName
                          forKey:(NSString *)key {
     NSDictionary <NSString *, id> *infoDictionary = [[self.rootInfoDictionary objectForKey:serviceName] objectForKey:key];

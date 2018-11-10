@@ -200,7 +200,7 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
             [theEvent addMetric:[self.globalMetrics objectForKey:key] forKey:key];
         }
         
-        //Apply Campaign Attributes
+        // Apply Campaign Attributes
         for (NSString *key in [self.globalCampaignAttributes allKeys]) {
             [theEvent addAttribute:[self.globalCampaignAttributes objectForKey:key] forKey:key];
         }

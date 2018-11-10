@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "1010"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "176375241F328AB10086588B"
+               BlueprintIdentifier = "B5170D971F466CE5008FD811"
                BuildableName = "AWSAuthCore.framework"
                BlueprintName = "AWSAuthCore"
                ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "176375241F328AB10086588B"
+            BlueprintIdentifier = "B5170D971F466CE5008FD811"
             BuildableName = "AWSAuthCore.framework"
             BlueprintName = "AWSAuthCore"
             ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
@@ -63,7 +63,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "176375241F328AB10086588B"
+            BlueprintIdentifier = "B5170D971F466CE5008FD811"
             BuildableName = "AWSAuthCore.framework"
             BlueprintName = "AWSAuthCore"
             ReferencedContainer = "container:AWSAuthSDK.xcodeproj">

@@ -28,7 +28,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         let PolicyName = "AWSiOSSDKv2Test"
         
         //Setup Log level
-        AWSDDLog.sharedInstance.logLevel = .verbose
+        AWSDDLog.sharedInstance.logLevel = .debug
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
         
         //Setup creds
@@ -65,6 +65,8 @@ class AWSIoTDataManagerTests: XCTestCase {
                 credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
         AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with: mqttConfig, forKey:"iot-data-manager-broker1")
         AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with:mqttConfig, forKey:"iot-data-manager-broker")
+        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with:mqttConfig, forKey:"iot-data-manager-broker-test-subscribe-without-connect")
+        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with:mqttConfig, forKey:"iot-data-manager-broker-test-without-connect")
         
         
         //Setup iOT Data Manager for Broker 2
@@ -199,7 +201,8 @@ class AWSIoTDataManagerTests: XCTestCase {
     }
    
     func testPublishWithoutConnect() {
-        let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker")
+        let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker-test-without-connect")
+        
         XCTAssertFalse( iotDataManager.publishString("Test", onTopic:"TestTopic", qoS:.messageDeliveryAttemptedAtLeastOnce))
         XCTAssertFalse( iotDataManager.publishString("Test", onTopic:"TestTopic", qoS:.messageDeliveryAttemptedAtLeastOnce, ackCallback: {}))
         
@@ -209,7 +212,7 @@ class AWSIoTDataManagerTests: XCTestCase {
     }
     
     func testSubscribeWithoutConnect() {
-        let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker")
+        let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker-test-without-connect")
         
         var result = iotDataManager.subscribe(toTopic: "testTopic", qoS: .messageDeliveryAttemptedAtLeastOnce, messageCallback: {
             (payload) ->Void in
@@ -238,12 +241,12 @@ class AWSIoTDataManagerTests: XCTestCase {
     }
     
     func testUnsubscribeWithoutConnect() {
-        let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker")
+        let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker-test-without-connect")
         iotDataManager.unsubscribeTopic("Topic")
     }
     
     func testDisconnectWithoutConnect() {
-        let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker")
+        let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker-test-without-connect")
         iotDataManager.disconnect()
     }
     
@@ -940,6 +943,7 @@ class AWSIoTDataManagerTests: XCTestCase {
             XCTAssertTrue(disconnected)
             print("Test: Disconnected successfully" )
             iteration = iteration + 1
+            sleep(2)
         }
         
     }

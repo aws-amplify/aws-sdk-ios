@@ -207,6 +207,11 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  */
 @property (nonatomic, assign, readonly,getter=isASFEnabled) BOOL asfEnabled;
 
+/**
+ If using iOS 11 or above, the SDK will use `SFAuthenticationSession` for signIn and signOut operations if this flag is set. Below iOS 11, the SDK will use SFSafariViewController regardless of this setting.
+ */
+@property (nonatomic, assign, readonly) BOOL isSFAuthenticationSessionEnabled;
+
 
 /**
  Configuration object for CognitoAuth
@@ -245,6 +250,31 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
                    identityProvider:(nullable NSString *) identityProvider
                       idpIdentifier:(nullable NSString *) idpIdentifier
                          userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF;
+
+/**
+ Configuration object for CognitoAuth
+ @param appClientId The app client id
+ @param appClientSecret The optional app client secret
+ @param scopes Set of scopes to obtain
+ @param signInRedirectUri uri to redirect on sign in.  Must be configured as a uri scheme in your info.plist
+ @param signOutRedirectUri uri to redirect on sign out.  Must be configured as a uri scheme in your info.plist
+ @param webDomain The FQDN of your Cognito endpoint, something like https://mydomain.region.auth.amazoncognito.com
+ @param identityProvider Optional provider name to authenticate with directly
+ @param idpIdentifier Optional provider identifier to authenticate with directly
+ @param userPoolIdForEnablingASF Optional user pool id for enabling advanced security features
+ @param enableSFAuthSession If set true, will use `SFAuthenticationSession` if available. Below iOS 11, the SDK will use SFSafariViewController regardless of this setting
+ */
+- (instancetype)initWithAppClientId:(NSString *) appClientId
+                    appClientSecret:(nullable NSString *) appClientSecret
+                             scopes:(NSSet<NSString *> *) scopes
+                  signInRedirectUri:(NSString *) signInRedirectUri
+                 signOutRedirectUri:(NSString *) signOutRedirectUri
+                          webDomain:(NSString *) webDomain
+                   identityProvider:(nullable NSString *) identityProvider
+                      idpIdentifier:(nullable NSString *) idpIdentifier
+           userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF
+     enableSFAuthSessionIfAvailable:(BOOL) enableSFAuthSession;
+
 @end
 
 

@@ -39,7 +39,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointEventByteThresholdReachedNotificati
 FOUNDATION_EXPORT NSString *const AWSPinpointEventByteThresholdReachedNotificationDiskBytesUsedKey;
 
 /**
- `AWSPinpointEventRecorder` stores events to a local sql lite databse and submits them to Pinpoint.
+ `AWSPinpointEventRecorder` stores events to a local SQLite database and submits them to Pinpoint.
  
  This is the low level client used to record events to local storage.
  

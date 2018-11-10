@@ -19,7 +19,19 @@
 #import "AWSTableInputCell.h"
 #import "AWSFormTableDelegate.h"
 #import "AWSUserPoolsUIHelper.h"
+#import <AWSAuthCore/AWSSignInManager.h>
 #import <AWSAuthCore/AWSUIConfiguration.h>
+
+
+@interface AWSSignInManager()
+    
+@property (nonatomic) BOOL pendingSignIn;
+@property (strong, atomic) NSString *pendingUsername;
+@property (strong, atomic) NSString *pendingPassword;
+    
+-(void)reSignInWithUsername:(NSString *)username
+               password:(NSString *)password;
+@end
 
 @interface AWSUserPoolSignUpViewController()
 
@@ -157,6 +169,7 @@ id<AWSUIConfiguration> config = nil;
               password:password
         userAttributes:attributes validationData:nil]
      continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserPoolSignUpResponse *> * _Nonnull task) {
+        [[AWSSignInManager sharedInstance] reSignInWithUsername:userName password:password];
         AWSDDLogDebug(@"Successful signUp user: %@",task.result.user.username);
         dispatch_async(dispatch_get_main_queue(), ^{
             if(task.error){
@@ -173,6 +186,7 @@ id<AWSUIConfiguration> config = nil;
                 [self performSegueWithIdentifier:@"SignUpConfirmSegue" sender:sender];
             }
             else{
+                [AWSSignInManager sharedInstance].pendingSignIn = YES;
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Registration Complete"
                                                                                          message:@"Registration was successful."
                                                                                   preferredStyle:UIAlertControllerStyleAlert];
@@ -260,6 +274,7 @@ id<AWSUIConfiguration> config = nil;
                 }
             } else {
                 //return to initial screen
+                [AWSSignInManager sharedInstance].pendingSignIn = YES;
                 UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Registration Complete"
                                                                                          message:@"Registration was successful."
                                                                                   preferredStyle:UIAlertControllerStyleAlert];

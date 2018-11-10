@@ -166,6 +166,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"networkInterfaceOwnerId" : @"NetworkInterfaceOwnerId",
              @"privateIpAddress" : @"PrivateIpAddress",
              @"publicIp" : @"PublicIp",
+             @"publicIpv4Pool" : @"PublicIpv4Pool",
              @"tags" : @"Tags",
              };
 }
@@ -197,6 +198,31 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2AdvertiseByoipCidrRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2AdvertiseByoipCidrResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"byoipCidr" : @"ByoipCidr",
+             };
+}
+
++ (NSValueTransformer *)byoipCidrJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ByoipCidr class]];
+}
+
+@end
+
 @implementation AWSEC2AllocateAddressRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -204,6 +230,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"address" : @"Address",
              @"domain" : @"Domain",
              @"dryRun" : @"DryRun",
+             @"publicIpv4Pool" : @"PublicIpv4Pool",
              };
 }
 
@@ -237,6 +264,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"allocationId" : @"AllocationId",
              @"domain" : @"Domain",
              @"publicIp" : @"PublicIp",
+             @"publicIpv4Pool" : @"PublicIpv4Pool",
              };
 }
 
@@ -938,6 +966,65 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2ByoipCidr
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             @"detail" : @"Description",
+             @"state" : @"State",
+             @"statusMessage" : @"StatusMessage",
+             };
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"advertised"] == NSOrderedSame) {
+            return @(AWSEC2ByoipCidrStateAdvertised);
+        }
+        if ([value caseInsensitiveCompare:@"deprovisioned"] == NSOrderedSame) {
+            return @(AWSEC2ByoipCidrStateDeprovisioned);
+        }
+        if ([value caseInsensitiveCompare:@"failed-deprovision"] == NSOrderedSame) {
+            return @(AWSEC2ByoipCidrStateFailedDeprovision);
+        }
+        if ([value caseInsensitiveCompare:@"failed-provision"] == NSOrderedSame) {
+            return @(AWSEC2ByoipCidrStateFailedProvision);
+        }
+        if ([value caseInsensitiveCompare:@"pending-deprovision"] == NSOrderedSame) {
+            return @(AWSEC2ByoipCidrStatePendingDeprovision);
+        }
+        if ([value caseInsensitiveCompare:@"pending-provision"] == NSOrderedSame) {
+            return @(AWSEC2ByoipCidrStatePendingProvision);
+        }
+        if ([value caseInsensitiveCompare:@"provisioned"] == NSOrderedSame) {
+            return @(AWSEC2ByoipCidrStateProvisioned);
+        }
+        return @(AWSEC2ByoipCidrStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2ByoipCidrStateAdvertised:
+                return @"advertised";
+            case AWSEC2ByoipCidrStateDeprovisioned:
+                return @"deprovisioned";
+            case AWSEC2ByoipCidrStateFailedDeprovision:
+                return @"failed-deprovision";
+            case AWSEC2ByoipCidrStateFailedProvision:
+                return @"failed-provision";
+            case AWSEC2ByoipCidrStatePendingDeprovision:
+                return @"pending-deprovision";
+            case AWSEC2ByoipCidrStatePendingProvision:
+                return @"pending-provision";
+            case AWSEC2ByoipCidrStateProvisioned:
+                return @"provisioned";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSEC2CancelBundleTaskRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -959,6 +1046,27 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)bundleTaskJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2BundleTask class]];
+}
+
+@end
+
+@implementation AWSEC2CancelCapacityReservationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservationId" : @"CapacityReservationId",
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2CancelCapacityReservationResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
+             };
 }
 
 @end
@@ -1297,6 +1405,303 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2CapacityReservation
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"availabilityZone" : @"AvailabilityZone",
+             @"availableInstanceCount" : @"AvailableInstanceCount",
+             @"capacityReservationId" : @"CapacityReservationId",
+             @"createDate" : @"CreateDate",
+             @"ebsOptimized" : @"EbsOptimized",
+             @"endDate" : @"EndDate",
+             @"endDateType" : @"EndDateType",
+             @"ephemeralStorage" : @"EphemeralStorage",
+             @"instanceMatchCriteria" : @"InstanceMatchCriteria",
+             @"instancePlatform" : @"InstancePlatform",
+             @"instanceType" : @"InstanceType",
+             @"state" : @"State",
+             @"tags" : @"Tags",
+             @"tenancy" : @"Tenancy",
+             @"totalInstanceCount" : @"TotalInstanceCount",
+             };
+}
+
++ (NSValueTransformer *)createDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)endDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)endDateTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"unlimited"] == NSOrderedSame) {
+            return @(AWSEC2EndDateTypeUnlimited);
+        }
+        if ([value caseInsensitiveCompare:@"limited"] == NSOrderedSame) {
+            return @(AWSEC2EndDateTypeLimited);
+        }
+        return @(AWSEC2EndDateTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2EndDateTypeUnlimited:
+                return @"unlimited";
+            case AWSEC2EndDateTypeLimited:
+                return @"limited";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)instanceMatchCriteriaJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"open"] == NSOrderedSame) {
+            return @(AWSEC2InstanceMatchCriteriaOpen);
+        }
+        if ([value caseInsensitiveCompare:@"targeted"] == NSOrderedSame) {
+            return @(AWSEC2InstanceMatchCriteriaTargeted);
+        }
+        return @(AWSEC2InstanceMatchCriteriaUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2InstanceMatchCriteriaOpen:
+                return @"open";
+            case AWSEC2InstanceMatchCriteriaTargeted:
+                return @"targeted";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)instancePlatformJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Linux/UNIX"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformLinuxUNIX);
+        }
+        if ([value caseInsensitiveCompare:@"Red Hat Enterprise Linux"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformRedHatEnterpriseLinux);
+        }
+        if ([value caseInsensitiveCompare:@"SUSE Linux"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformSUSELinux);
+        }
+        if ([value caseInsensitiveCompare:@"Windows"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformWindows);
+        }
+        if ([value caseInsensitiveCompare:@"Windows with SQL Server"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServer);
+        }
+        if ([value caseInsensitiveCompare:@"Windows with SQL Server Enterprise"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerEnterprise);
+        }
+        if ([value caseInsensitiveCompare:@"Windows with SQL Server Standard"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerStandard);
+        }
+        if ([value caseInsensitiveCompare:@"Windows with SQL Server Web"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerWeb);
+        }
+        return @(AWSEC2CapacityReservationInstancePlatformUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CapacityReservationInstancePlatformLinuxUNIX:
+                return @"Linux/UNIX";
+            case AWSEC2CapacityReservationInstancePlatformRedHatEnterpriseLinux:
+                return @"Red Hat Enterprise Linux";
+            case AWSEC2CapacityReservationInstancePlatformSUSELinux:
+                return @"SUSE Linux";
+            case AWSEC2CapacityReservationInstancePlatformWindows:
+                return @"Windows";
+            case AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServer:
+                return @"Windows with SQL Server";
+            case AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerEnterprise:
+                return @"Windows with SQL Server Enterprise";
+            case AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerStandard:
+                return @"Windows with SQL Server Standard";
+            case AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerWeb:
+                return @"Windows with SQL Server Web";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"active"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"expired"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationStateExpired);
+        }
+        if ([value caseInsensitiveCompare:@"cancelled"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationStateCancelled);
+        }
+        if ([value caseInsensitiveCompare:@"pending"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationStatePending);
+        }
+        if ([value caseInsensitiveCompare:@"failed"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationStateFailed);
+        }
+        return @(AWSEC2CapacityReservationStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CapacityReservationStateActive:
+                return @"active";
+            case AWSEC2CapacityReservationStateExpired:
+                return @"expired";
+            case AWSEC2CapacityReservationStateCancelled:
+                return @"cancelled";
+            case AWSEC2CapacityReservationStatePending:
+                return @"pending";
+            case AWSEC2CapacityReservationStateFailed:
+                return @"failed";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
++ (NSValueTransformer *)tenancyJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"default"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationTenancyDefault);
+        }
+        if ([value caseInsensitiveCompare:@"dedicated"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationTenancyDedicated);
+        }
+        return @(AWSEC2CapacityReservationTenancyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CapacityReservationTenancyDefault:
+                return @"default";
+            case AWSEC2CapacityReservationTenancyDedicated:
+                return @"dedicated";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2CapacityReservationSpecification
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservationPreference" : @"CapacityReservationPreference",
+             @"capacityReservationTarget" : @"CapacityReservationTarget",
+             };
+}
+
++ (NSValueTransformer *)capacityReservationPreferenceJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"open"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationPreferenceOpen);
+        }
+        if ([value caseInsensitiveCompare:@"none"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationPreferenceNone);
+        }
+        return @(AWSEC2CapacityReservationPreferenceUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CapacityReservationPreferenceOpen:
+                return @"open";
+            case AWSEC2CapacityReservationPreferenceNone:
+                return @"none";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)capacityReservationTargetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CapacityReservationTarget class]];
+}
+
+@end
+
+@implementation AWSEC2CapacityReservationSpecificationResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservationPreference" : @"CapacityReservationPreference",
+             @"capacityReservationTarget" : @"CapacityReservationTarget",
+             };
+}
+
++ (NSValueTransformer *)capacityReservationPreferenceJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"open"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationPreferenceOpen);
+        }
+        if ([value caseInsensitiveCompare:@"none"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationPreferenceNone);
+        }
+        return @(AWSEC2CapacityReservationPreferenceUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CapacityReservationPreferenceOpen:
+                return @"open";
+            case AWSEC2CapacityReservationPreferenceNone:
+                return @"none";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)capacityReservationTargetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CapacityReservationTargetResponse class]];
+}
+
+@end
+
+@implementation AWSEC2CapacityReservationTarget
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservationId" : @"CapacityReservationId",
+             };
+}
+
+@end
+
+@implementation AWSEC2CapacityReservationTargetResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservationId" : @"CapacityReservationId",
+             };
+}
+
+@end
+
+@implementation AWSEC2CidrAuthorizationContext
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"message" : @"Message",
+             @"signature" : @"Signature",
+             };
+}
+
+@end
+
 @implementation AWSEC2CidrBlock
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1624,6 +2029,168 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"coreCount" : @"CoreCount",
              @"threadsPerCore" : @"ThreadsPerCore",
              };
+}
+
+@end
+
+@implementation AWSEC2CreateCapacityReservationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"availabilityZone" : @"AvailabilityZone",
+             @"clientToken" : @"ClientToken",
+             @"dryRun" : @"DryRun",
+             @"ebsOptimized" : @"EbsOptimized",
+             @"endDate" : @"EndDate",
+             @"endDateType" : @"EndDateType",
+             @"ephemeralStorage" : @"EphemeralStorage",
+             @"instanceCount" : @"InstanceCount",
+             @"instanceMatchCriteria" : @"InstanceMatchCriteria",
+             @"instancePlatform" : @"InstancePlatform",
+             @"instanceType" : @"InstanceType",
+             @"tagSpecifications" : @"TagSpecifications",
+             @"tenancy" : @"Tenancy",
+             };
+}
+
++ (NSValueTransformer *)endDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)endDateTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"unlimited"] == NSOrderedSame) {
+            return @(AWSEC2EndDateTypeUnlimited);
+        }
+        if ([value caseInsensitiveCompare:@"limited"] == NSOrderedSame) {
+            return @(AWSEC2EndDateTypeLimited);
+        }
+        return @(AWSEC2EndDateTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2EndDateTypeUnlimited:
+                return @"unlimited";
+            case AWSEC2EndDateTypeLimited:
+                return @"limited";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)instanceMatchCriteriaJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"open"] == NSOrderedSame) {
+            return @(AWSEC2InstanceMatchCriteriaOpen);
+        }
+        if ([value caseInsensitiveCompare:@"targeted"] == NSOrderedSame) {
+            return @(AWSEC2InstanceMatchCriteriaTargeted);
+        }
+        return @(AWSEC2InstanceMatchCriteriaUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2InstanceMatchCriteriaOpen:
+                return @"open";
+            case AWSEC2InstanceMatchCriteriaTargeted:
+                return @"targeted";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)instancePlatformJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Linux/UNIX"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformLinuxUNIX);
+        }
+        if ([value caseInsensitiveCompare:@"Red Hat Enterprise Linux"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformRedHatEnterpriseLinux);
+        }
+        if ([value caseInsensitiveCompare:@"SUSE Linux"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformSUSELinux);
+        }
+        if ([value caseInsensitiveCompare:@"Windows"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformWindows);
+        }
+        if ([value caseInsensitiveCompare:@"Windows with SQL Server"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServer);
+        }
+        if ([value caseInsensitiveCompare:@"Windows with SQL Server Enterprise"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerEnterprise);
+        }
+        if ([value caseInsensitiveCompare:@"Windows with SQL Server Standard"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerStandard);
+        }
+        if ([value caseInsensitiveCompare:@"Windows with SQL Server Web"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerWeb);
+        }
+        return @(AWSEC2CapacityReservationInstancePlatformUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CapacityReservationInstancePlatformLinuxUNIX:
+                return @"Linux/UNIX";
+            case AWSEC2CapacityReservationInstancePlatformRedHatEnterpriseLinux:
+                return @"Red Hat Enterprise Linux";
+            case AWSEC2CapacityReservationInstancePlatformSUSELinux:
+                return @"SUSE Linux";
+            case AWSEC2CapacityReservationInstancePlatformWindows:
+                return @"Windows";
+            case AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServer:
+                return @"Windows with SQL Server";
+            case AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerEnterprise:
+                return @"Windows with SQL Server Enterprise";
+            case AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerStandard:
+                return @"Windows with SQL Server Standard";
+            case AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerWeb:
+                return @"Windows with SQL Server Web";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
+}
+
++ (NSValueTransformer *)tenancyJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"default"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationTenancyDefault);
+        }
+        if ([value caseInsensitiveCompare:@"dedicated"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationTenancyDedicated);
+        }
+        return @(AWSEC2CapacityReservationTenancyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CapacityReservationTenancyDefault:
+                return @"default";
+            case AWSEC2CapacityReservationTenancyDedicated:
+                return @"dedicated";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2CreateCapacityReservationResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservation" : @"CapacityReservation",
+             };
+}
+
++ (NSValueTransformer *)capacityReservationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CapacityReservation class]];
 }
 
 @end
@@ -3767,6 +4334,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2DeprovisionByoipCidrRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2DeprovisionByoipCidrResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"byoipCidr" : @"ByoipCidr",
+             };
+}
+
++ (NSValueTransformer *)byoipCidrJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ByoipCidr class]];
+}
+
+@end
+
 @implementation AWSEC2DeregisterImageRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -3915,6 +4507,66 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)bundleTasksJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2BundleTask class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeByoipCidrsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSEC2DescribeByoipCidrsResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"byoipCidrs" : @"ByoipCidrs",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)byoipCidrsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2ByoipCidr class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeCapacityReservationsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservationIds" : @"CapacityReservationIds",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeCapacityReservationsResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservations" : @"CapacityReservations",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)capacityReservationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2CapacityReservation class]];
 }
 
 @end
@@ -5376,6 +6028,33 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)principalsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2PrincipalIdFormat class]];
+}
+
+@end
+
+@implementation AWSEC2DescribePublicIpv4PoolsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"poolIds" : @"PoolIds",
+             };
+}
+
+@end
+
+@implementation AWSEC2DescribePublicIpv4PoolsResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"publicIpv4Pools" : @"PublicIpv4Pools",
+             };
+}
+
++ (NSValueTransformer *)publicIpv4PoolsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2PublicIpv4Pool class]];
 }
 
 @end
@@ -12784,6 +13463,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"amiLaunchIndex" : @"AmiLaunchIndex",
              @"architecture" : @"Architecture",
              @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"capacityReservationId" : @"CapacityReservationId",
+             @"capacityReservationSpecification" : @"CapacityReservationSpecification",
              @"clientToken" : @"ClientToken",
              @"cpuOptions" : @"CpuOptions",
              @"ebsOptimized" : @"EbsOptimized",
@@ -12847,6 +13528,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceBlockDeviceMapping class]];
+}
+
++ (NSValueTransformer *)capacityReservationSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CapacityReservationSpecificationResponse class]];
 }
 
 + (NSValueTransformer *)cpuOptionsJSONTransformer {
@@ -15638,6 +16323,78 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2LaunchTemplateCapacityReservationSpecificationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservationPreference" : @"CapacityReservationPreference",
+             @"capacityReservationTarget" : @"CapacityReservationTarget",
+             };
+}
+
++ (NSValueTransformer *)capacityReservationPreferenceJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"open"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationPreferenceOpen);
+        }
+        if ([value caseInsensitiveCompare:@"none"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationPreferenceNone);
+        }
+        return @(AWSEC2CapacityReservationPreferenceUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CapacityReservationPreferenceOpen:
+                return @"open";
+            case AWSEC2CapacityReservationPreferenceNone:
+                return @"none";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)capacityReservationTargetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CapacityReservationTarget class]];
+}
+
+@end
+
+@implementation AWSEC2LaunchTemplateCapacityReservationSpecificationResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservationPreference" : @"CapacityReservationPreference",
+             @"capacityReservationTarget" : @"CapacityReservationTarget",
+             };
+}
+
++ (NSValueTransformer *)capacityReservationPreferenceJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"open"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationPreferenceOpen);
+        }
+        if ([value caseInsensitiveCompare:@"none"] == NSOrderedSame) {
+            return @(AWSEC2CapacityReservationPreferenceNone);
+        }
+        return @(AWSEC2CapacityReservationPreferenceUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CapacityReservationPreferenceOpen:
+                return @"open";
+            case AWSEC2CapacityReservationPreferenceNone:
+                return @"none";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)capacityReservationTargetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CapacityReservationTargetResponse class]];
+}
+
+@end
+
 @implementation AWSEC2LaunchTemplateConfig
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -17326,6 +18083,59 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2ModifyCapacityReservationRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservationId" : @"CapacityReservationId",
+             @"dryRun" : @"DryRun",
+             @"endDate" : @"EndDate",
+             @"endDateType" : @"EndDateType",
+             @"instanceCount" : @"InstanceCount",
+             };
+}
+
++ (NSValueTransformer *)endDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)endDateTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"unlimited"] == NSOrderedSame) {
+            return @(AWSEC2EndDateTypeUnlimited);
+        }
+        if ([value caseInsensitiveCompare:@"limited"] == NSOrderedSame) {
+            return @(AWSEC2EndDateTypeLimited);
+        }
+        return @(AWSEC2EndDateTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2EndDateTypeUnlimited:
+                return @"unlimited";
+            case AWSEC2EndDateTypeLimited:
+                return @"limited";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2ModifyCapacityReservationResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
+             };
+}
+
+@end
+
 @implementation AWSEC2ModifyFleetRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -17727,6 +18537,32 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)userDataJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2BlobAttributeValue class]];
+}
+
+@end
+
+@implementation AWSEC2ModifyInstanceCapacityReservationAttributesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"capacityReservationSpecification" : @"CapacityReservationSpecification",
+             @"dryRun" : @"DryRun",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
++ (NSValueTransformer *)capacityReservationSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CapacityReservationSpecification class]];
+}
+
+@end
+
+@implementation AWSEC2ModifyInstanceCapacityReservationAttributesResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
+             };
 }
 
 @end
@@ -19328,6 +20164,37 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2ProvisionByoipCidrRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             @"cidrAuthorizationContext" : @"CidrAuthorizationContext",
+             @"detail" : @"Description",
+             @"dryRun" : @"DryRun",
+             };
+}
+
++ (NSValueTransformer *)cidrAuthorizationContextJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CidrAuthorizationContext class]];
+}
+
+@end
+
+@implementation AWSEC2ProvisionByoipCidrResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"byoipCidr" : @"ByoipCidr",
+             };
+}
+
++ (NSValueTransformer *)byoipCidrJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ByoipCidr class]];
+}
+
+@end
+
 @implementation AWSEC2ProvisionedBandwidth
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -19354,6 +20221,37 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     } reverseBlock:^id(NSDate *date) {
 return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
+}
+
+@end
+
+@implementation AWSEC2PublicIpv4Pool
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"poolAddressRanges" : @"PoolAddressRanges",
+             @"poolId" : @"PoolId",
+             @"totalAddressCount" : @"TotalAddressCount",
+             @"totalAvailableAddressCount" : @"TotalAvailableAddressCount",
+             };
+}
+
++ (NSValueTransformer *)poolAddressRangesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2PublicIpv4PoolRange class]];
+}
+
+@end
+
+@implementation AWSEC2PublicIpv4PoolRange
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"addressCount" : @"AddressCount",
+             @"availableAddressCount" : @"AvailableAddressCount",
+             @"firstAddress" : @"FirstAddress",
+             @"lastAddress" : @"LastAddress",
+             };
 }
 
 @end
@@ -19937,6 +20835,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"capacityReservationSpecification" : @"CapacityReservationSpecification",
              @"cpuOptions" : @"CpuOptions",
              @"creditSpecification" : @"CreditSpecification",
              @"disableApiTermination" : @"DisableApiTermination",
@@ -19962,6 +20861,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LaunchTemplateBlockDeviceMappingRequest class]];
+}
+
++ (NSValueTransformer *)capacityReservationSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchTemplateCapacityReservationSpecificationRequest class]];
 }
 
 + (NSValueTransformer *)cpuOptionsJSONTransformer {
@@ -25051,6 +25954,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"capacityReservationSpecification" : @"CapacityReservationSpecification",
              @"cpuOptions" : @"CpuOptions",
              @"creditSpecification" : @"CreditSpecification",
              @"disableApiTermination" : @"DisableApiTermination",
@@ -25076,6 +25980,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LaunchTemplateBlockDeviceMapping class]];
+}
+
++ (NSValueTransformer *)capacityReservationSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchTemplateCapacityReservationSpecificationResponse class]];
 }
 
 + (NSValueTransformer *)cpuOptionsJSONTransformer {
@@ -26139,6 +27047,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"additionalInfo" : @"AdditionalInfo",
              @"blockDeviceMappings" : @"BlockDeviceMappings",
+             @"capacityReservationSpecification" : @"CapacityReservationSpecification",
              @"clientToken" : @"ClientToken",
              @"cpuOptions" : @"CpuOptions",
              @"creditSpecification" : @"CreditSpecification",
@@ -26173,6 +27082,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)blockDeviceMappingsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2BlockDeviceMapping class]];
+}
+
++ (NSValueTransformer *)capacityReservationSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CapacityReservationSpecification class]];
 }
 
 + (NSValueTransformer *)cpuOptionsJSONTransformer {
@@ -32434,6 +33347,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"preSharedKey" : @"PreSharedKey",
              @"tunnelInsideCidr" : @"TunnelInsideCidr",
              };
+}
+
+@end
+
+@implementation AWSEC2WithdrawByoipCidrRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2WithdrawByoipCidrResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"byoipCidr" : @"ByoipCidr",
+             };
+}
+
++ (NSValueTransformer *)byoipCidrJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ByoipCidr class]];
 }
 
 @end
