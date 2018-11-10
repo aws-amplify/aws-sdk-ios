@@ -919,8 +919,12 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
         if (task.result) {
             [self processEndpointResponse:self.profile.endpointId resultResponse:task.result];
             NSDictionary *_processedEvents = [self processEventsResponse:_temporaryEvents endpointId:self.profile.endpointId resultResponse:task.result returnedEvents:events];
-            
-            AWSDDLogInfo(@"Successful submission of %lu events. Response code: 202", (unsigned long)[[_processedEvents objectForKey:@"removeEvents"] count]);
+
+            AWSDDLogInfo(@"Successfully put events to server--response code: 202. accepted: %u; retryable: %u; dirty: %u",
+                         (unsigned int)[[_processedEvents objectForKey:@"acceptedEvents"] count],
+                         (unsigned int)[[_processedEvents objectForKey:@"retryableEvents"] count],
+                         (unsigned int)[[_processedEvents objectForKey:@"dirtyEvents"] count]);
+
             return [[AWSTask taskForCompletionOfAllTasksWithResults:@[[AWSTask taskFromExecutor:[AWSExecutor executorWithDispatchQueue:[AWSPinpointEventRecorder sharedQueue]] withBlock:^id _Nonnull{
                 //submitted events, update database
                 for (__block NSString *eventID in [_processedEvents objectForKey:@"acceptedEvents"]) {

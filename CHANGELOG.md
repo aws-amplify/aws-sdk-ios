@@ -1,6 +1,57 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.7.0
+
+### New Features
+
+* ** AWS Mobile Client**
+  * The `AWSMobileClient` provides client APIs and building blocks for developers who want to create user authentication experiences.  It supports the following new features:
+    - User state tracking: `AWSMobileClient` offers on-demand querying for the “login state” of a user in the application. 
+    - Credentials management: Automatic refreshing of `Cognito User Pools` `JWT Token` and `AWS Credentials` from `Cognito Identity`.
+    - Offline support: `AWSMobileClient` is optimized to account for applications transitioning from offline to online connectivity, and refreshing credentials at the appropriate time so that errors do not occur when actions are taken and connectivity is not available. 
+    - Drop-in Auth UI: `AWSMobileClient` client supports easy “drop-in” UI for your application.
+    - Simple, declarative APIs `signUp`, `signIn`, `confirmSignIn`, etc.
+
+> Note: The existing methods of `AWSMobileClient` are deprecated and will be removed in a future minor version. `AWSMobileClient` now takes a dependency on `AWSCognitoIdentityProvider`(Cognito User Pools SDK) package to offer integration with `CognitoUserPools`. When using the new drop-in UI, `AWSAuthUI` and `Social sign-in` features continue to be pluggable dependencies for `AWSMobileClient`.
+
+All documentation is now centralized at https://aws-amplify.github.io/
+
+## 2.6.35
+
+### Bug Fixes
+
+* **AWS CognitoAuth**
+    * Fixes regression in AWSCognitoAuthConfiguration constructor. See [issue#1090](https://github.com/aws-amplify/aws-sdk-ios/issues/1090)
+
+## 2.6.34
+
+### Enhancements
+
+* **Amazon CognitoAuth**
+   * Added capability to use `SFAuthenticationSession` for devices running iOS 11+. It can be enabled using the `enableSFAuthSessionIfAvailable` in the initializer or through `EnableSFAuthenticationSesssion` property in the  `awsconfiguration.json`.
+
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed bug in AWSTransferUtility that was reporting incorrect status for transfers when the app was force-closed. See [issue#1058](https://github.com/aws/aws-sdk-ios/issues/1058)
+  * Fixed crash in AWSTransferUtility due to a null value for MultiPartUpload ID. See [issue#1060](https://github.com/aws/aws-sdk-ios/issues/1060)
+
+* **Amazon Pinpoint**
+  * `putEvents` now correctly logs the number of accepted, retryable, and dirty
+    events. See [issue#1074](https://github.com/aws/aws-sdk-ios/issues/1074)
+  * Fixed data race issues in AWSPinpointSessionEventClient
+
+* **AWS IoT**
+  * Fixed crash in the drainSenderQueue routine by using a semaphore to manage access of the underlying queue. See [issue#1071](https://github.com/aws/aws-sdk-ios/issues/1071)
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon EC2
+  * AWS Lambda
+  * Amazon S3
+
 ## 2.6.33
 
 ### Bug Fixes

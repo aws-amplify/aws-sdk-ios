@@ -110,6 +110,17 @@ typedef NS_ENUM(NSInteger, AWSEC2BundleTaskState) {
     AWSEC2BundleTaskStateFailed,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2ByoipCidrState) {
+    AWSEC2ByoipCidrStateUnknown,
+    AWSEC2ByoipCidrStateAdvertised,
+    AWSEC2ByoipCidrStateDeprovisioned,
+    AWSEC2ByoipCidrStateFailedDeprovision,
+    AWSEC2ByoipCidrStateFailedProvision,
+    AWSEC2ByoipCidrStatePendingDeprovision,
+    AWSEC2ByoipCidrStatePendingProvision,
+    AWSEC2ByoipCidrStateProvisioned,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2CancelBatchErrorCode) {
     AWSEC2CancelBatchErrorCodeUnknown,
     AWSEC2CancelBatchErrorCodeFleetRequestIdDoesNotExist,
@@ -125,6 +136,39 @@ typedef NS_ENUM(NSInteger, AWSEC2CancelSpotInstanceRequestState) {
     AWSEC2CancelSpotInstanceRequestStateClosed,
     AWSEC2CancelSpotInstanceRequestStateCancelled,
     AWSEC2CancelSpotInstanceRequestStateCompleted,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2CapacityReservationInstancePlatform) {
+    AWSEC2CapacityReservationInstancePlatformUnknown,
+    AWSEC2CapacityReservationInstancePlatformLinuxUNIX,
+    AWSEC2CapacityReservationInstancePlatformRedHatEnterpriseLinux,
+    AWSEC2CapacityReservationInstancePlatformSUSELinux,
+    AWSEC2CapacityReservationInstancePlatformWindows,
+    AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServer,
+    AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerEnterprise,
+    AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerStandard,
+    AWSEC2CapacityReservationInstancePlatformWindowsWithSQLServerWeb,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2CapacityReservationPreference) {
+    AWSEC2CapacityReservationPreferenceUnknown,
+    AWSEC2CapacityReservationPreferenceOpen,
+    AWSEC2CapacityReservationPreferenceNone,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2CapacityReservationState) {
+    AWSEC2CapacityReservationStateUnknown,
+    AWSEC2CapacityReservationStateActive,
+    AWSEC2CapacityReservationStateExpired,
+    AWSEC2CapacityReservationStateCancelled,
+    AWSEC2CapacityReservationStatePending,
+    AWSEC2CapacityReservationStateFailed,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2CapacityReservationTenancy) {
+    AWSEC2CapacityReservationTenancyUnknown,
+    AWSEC2CapacityReservationTenancyDefault,
+    AWSEC2CapacityReservationTenancyDedicated,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ConnectionNotificationState) {
@@ -204,6 +248,12 @@ typedef NS_ENUM(NSInteger, AWSEC2ElasticGpuStatus) {
     AWSEC2ElasticGpuStatusUnknown,
     AWSEC2ElasticGpuStatusOK,
     AWSEC2ElasticGpuStatusImpaired,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2EndDateType) {
+    AWSEC2EndDateTypeUnknown,
+    AWSEC2EndDateTypeUnlimited,
+    AWSEC2EndDateTypeLimited,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2EventCode) {
@@ -399,6 +449,12 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceLifecycleType) {
     AWSEC2InstanceLifecycleTypeUnknown,
     AWSEC2InstanceLifecycleTypeSpot,
     AWSEC2InstanceLifecycleTypeScheduled,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2InstanceMatchCriteria) {
+    AWSEC2InstanceMatchCriteriaUnknown,
+    AWSEC2InstanceMatchCriteriaOpen,
+    AWSEC2InstanceMatchCriteriaTargeted,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceStateName) {
@@ -1123,6 +1179,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AccountAttributeValue;
 @class AWSEC2ActiveInstance;
 @class AWSEC2Address;
+@class AWSEC2AdvertiseByoipCidrRequest;
+@class AWSEC2AdvertiseByoipCidrResult;
 @class AWSEC2AllocateAddressRequest;
 @class AWSEC2AllocateAddressResult;
 @class AWSEC2AllocateHostsRequest;
@@ -1163,8 +1221,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2BundleInstanceResult;
 @class AWSEC2BundleTask;
 @class AWSEC2BundleTaskError;
+@class AWSEC2ByoipCidr;
 @class AWSEC2CancelBundleTaskRequest;
 @class AWSEC2CancelBundleTaskResult;
+@class AWSEC2CancelCapacityReservationRequest;
+@class AWSEC2CancelCapacityReservationResult;
 @class AWSEC2CancelConversionRequest;
 @class AWSEC2CancelExportTaskRequest;
 @class AWSEC2CancelImportTaskRequest;
@@ -1179,6 +1240,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CancelSpotInstanceRequestsRequest;
 @class AWSEC2CancelSpotInstanceRequestsResult;
 @class AWSEC2CancelledSpotInstanceRequest;
+@class AWSEC2CapacityReservation;
+@class AWSEC2CapacityReservationSpecification;
+@class AWSEC2CapacityReservationSpecificationResponse;
+@class AWSEC2CapacityReservationTarget;
+@class AWSEC2CapacityReservationTargetResponse;
+@class AWSEC2CidrAuthorizationContext;
 @class AWSEC2CidrBlock;
 @class AWSEC2ClassicLinkDnsSupport;
 @class AWSEC2ClassicLinkInstance;
@@ -1197,6 +1264,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ReplicateSnapshotResult;
 @class AWSEC2CpuOptions;
 @class AWSEC2CpuOptionsRequest;
+@class AWSEC2CreateCapacityReservationRequest;
+@class AWSEC2CreateCapacityReservationResult;
 @class AWSEC2CreateCustomerGatewayRequest;
 @class AWSEC2CreateCustomerGatewayResult;
 @class AWSEC2CreateDefaultSubnetRequest;
@@ -1318,6 +1387,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteVpnConnectionRequest;
 @class AWSEC2DeleteVpnConnectionRouteRequest;
 @class AWSEC2DeleteVpnGatewayRequest;
+@class AWSEC2DeprovisionByoipCidrRequest;
+@class AWSEC2DeprovisionByoipCidrResult;
 @class AWSEC2DeregisterImageRequest;
 @class AWSEC2DescribeAccountAttributesRequest;
 @class AWSEC2DescribeAccountAttributesResult;
@@ -1329,6 +1400,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeAvailabilityZonesResult;
 @class AWSEC2DescribeBundleTasksRequest;
 @class AWSEC2DescribeBundleTasksResult;
+@class AWSEC2DescribeByoipCidrsRequest;
+@class AWSEC2DescribeByoipCidrsResult;
+@class AWSEC2DescribeCapacityReservationsRequest;
+@class AWSEC2DescribeCapacityReservationsResult;
 @class AWSEC2DescribeClassicLinkInstancesRequest;
 @class AWSEC2DescribeClassicLinkInstancesResult;
 @class AWSEC2DescribeConversionTasksRequest;
@@ -1407,6 +1482,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribePrefixListsResult;
 @class AWSEC2DescribePrincipalIdFormatRequest;
 @class AWSEC2DescribePrincipalIdFormatResult;
+@class AWSEC2DescribePublicIpv4PoolsRequest;
+@class AWSEC2DescribePublicIpv4PoolsResult;
 @class AWSEC2DescribeRegionsRequest;
 @class AWSEC2DescribeRegionsResult;
 @class AWSEC2DescribeReservedInstancesListingsRequest;
@@ -1622,6 +1699,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2LaunchTemplate;
 @class AWSEC2LaunchTemplateBlockDeviceMapping;
 @class AWSEC2LaunchTemplateBlockDeviceMappingRequest;
+@class AWSEC2LaunchTemplateCapacityReservationSpecificationRequest;
+@class AWSEC2LaunchTemplateCapacityReservationSpecificationResponse;
 @class AWSEC2LaunchTemplateConfig;
 @class AWSEC2LaunchTemplateCpuOptions;
 @class AWSEC2LaunchTemplateCpuOptionsRequest;
@@ -1648,6 +1727,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2LoadPermission;
 @class AWSEC2LoadPermissionModifications;
 @class AWSEC2LoadPermissionRequest;
+@class AWSEC2ModifyCapacityReservationRequest;
+@class AWSEC2ModifyCapacityReservationResult;
 @class AWSEC2ModifyFleetRequest;
 @class AWSEC2ModifyFleetResult;
 @class AWSEC2ModifyFpgaImageAttributeRequest;
@@ -1658,6 +1739,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ModifyIdentityIdFormatRequest;
 @class AWSEC2ModifyImageAttributeRequest;
 @class AWSEC2ModifyInstanceAttributeRequest;
+@class AWSEC2ModifyInstanceCapacityReservationAttributesRequest;
+@class AWSEC2ModifyInstanceCapacityReservationAttributesResult;
 @class AWSEC2ModifyInstanceCreditSpecificationRequest;
 @class AWSEC2ModifyInstanceCreditSpecificationResult;
 @class AWSEC2ModifyInstancePlacementRequest;
@@ -1724,7 +1807,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2PrivateIpAddressSpecification;
 @class AWSEC2ProductCode;
 @class AWSEC2PropagatingVgw;
+@class AWSEC2ProvisionByoipCidrRequest;
+@class AWSEC2ProvisionByoipCidrResult;
 @class AWSEC2ProvisionedBandwidth;
+@class AWSEC2PublicIpv4Pool;
+@class AWSEC2PublicIpv4PoolRange;
 @class AWSEC2Purchase;
 @class AWSEC2PurchaseHostReservationRequest;
 @class AWSEC2PurchaseHostReservationResult;
@@ -1900,6 +1987,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2VpnGateway;
 @class AWSEC2VpnStaticRoute;
 @class AWSEC2VpnTunnelOptionsSpecification;
+@class AWSEC2WithdrawByoipCidrRequest;
+@class AWSEC2WithdrawByoipCidrResult;
 
 /**
  <p>Contains the parameters for accepting the quote.</p>
@@ -2111,6 +2200,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable publicIp;
 
 /**
+ <p>The ID of an address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable publicIpv4Pool;
+
+/**
  <p>Any tags assigned to the Elastic IP address.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
@@ -2118,13 +2212,44 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for AllocateAddress.</p>
+ 
+ */
+@interface AWSEC2AdvertiseByoipCidrRequest : AWSRequest
+
+
+/**
+ <p>The IPv4 address range, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AdvertiseByoipCidrResult : AWSModel
+
+
+/**
+ <p>Information about the address range.</p>
+ */
+@property (nonatomic, strong) AWSEC2ByoipCidr * _Nullable byoipCidr;
+
+@end
+
+/**
+ 
  */
 @interface AWSEC2AllocateAddressRequest : AWSRequest
 
 
 /**
- <p>[EC2-VPC] The Elastic IP address to recover.</p>
+ <p>[EC2-VPC] The Elastic IP address to recover or an IPv4 address from an address pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable address;
 
@@ -2138,10 +2263,15 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
+/**
+ <p>The ID of an address pool that you own. Use this parameter to let Amazon EC2 select an address from the address pool. To specify a specific address from the address pool, use the <code>Address</code> parameter instead.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable publicIpv4Pool;
+
 @end
 
 /**
- <p>Contains the output of AllocateAddress.</p>
+ 
  */
 @interface AWSEC2AllocateAddressResult : AWSModel
 
@@ -2160,6 +2290,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The Elastic IP address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
+
+/**
+ <p>The ID of an address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable publicIpv4Pool;
 
 @end
 
@@ -2303,7 +2438,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for AssociateAddress.</p>
+ 
  */
 @interface AWSEC2AssociateAddressRequest : AWSRequest
 
@@ -2346,7 +2481,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output of AssociateAddress.</p>
+ 
  */
 @interface AWSEC2AssociateAddressResult : AWSModel
 
@@ -3043,6 +3178,34 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Information about an address range that is provisioned for use with your AWS resources through bring your own IP addresses (BYOIP).</p>
+ */
+@interface AWSEC2ByoipCidr : AWSModel
+
+
+/**
+ <p>The public IPv4 address range, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p>The description of the address range.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The state of the address pool.</p>
+ */
+@property (nonatomic, assign) AWSEC2ByoipCidrState state;
+
+/**
+ <p>Upon success, contains the ID of the address pool. Otherwise, contains an error message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+@end
+
+/**
  <p>Contains the parameters for CancelBundleTask.</p>
  Required parameters: [BundleId]
  */
@@ -3071,6 +3234,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the bundle task.</p>
  */
 @property (nonatomic, strong) AWSEC2BundleTask * _Nullable bundleTask;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CancelCapacityReservationRequest : AWSRequest
+
+
+/**
+ <p>The ID of the Capacity Reservation to be cancelled.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable capacityReservationId;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CancelCapacityReservationResult : AWSModel
+
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
 
 @end
 
@@ -3336,6 +3530,170 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The state of the Spot Instance request.</p>
  */
 @property (nonatomic, assign) AWSEC2CancelSpotInstanceRequestState state;
+
+@end
+
+/**
+ <p>Describes a Capacity Reservation.</p>
+ */
+@interface AWSEC2CapacityReservation : AWSModel
+
+
+/**
+ <p>The Availability Zone in which the capacity is reserved.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable availabilityZone;
+
+/**
+ <p>The remaining capacity. Indicates the number of instances that can be launched in the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable availableInstanceCount;
+
+/**
+ <p>The ID of the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable capacityReservationId;
+
+/**
+ <p>The date and time at which the Capacity Reservation was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createDate;
+
+/**
+ <p>Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ebsOptimized;
+
+/**
+ <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to <code>expired</code> when it reaches its end date and time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endDate;
+
+/**
+ <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:</p><ul><li><p><code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p></li><li><p><code>limited</code> - The Capacity Reservation expires automatically at a specified date and time.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2EndDateType endDateType;
+
+/**
+ <p>Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ephemeralStorage;
+
+/**
+ <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options include:</p><ul><li><p><code>open</code> - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes launch into the Capacity Reservation automatically without specifying any additional parameters.</p></li><li><p><code>targeted</code> - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity. </p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2InstanceMatchCriteria instanceMatchCriteria;
+
+/**
+ <p>The type of operating system for which the Capacity Reservation reserves capacity.</p>
+ */
+@property (nonatomic, assign) AWSEC2CapacityReservationInstancePlatform instancePlatform;
+
+/**
+ <p>The type of instance for which the Capacity Reservation reserves capacity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceType;
+
+/**
+ <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p><ul><li><p><code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p></li><li><p><code>cancelled</code> - The Capacity Reservation expired automatically at the date and time specified in your request. The reserved capacity is no longer available for your use.</p></li><li><p><code>expired</code> - The Capacity Reservation was manually cancelled. The reserved capacity is no longer available for your use.</p></li><li><p><code>pending</code> - The Capacity Reservation request was successful but the capacity provisioning is still pending.</p></li><li><p><code>failed</code> - The Capacity Reservation request has failed. A request might fail due to invalid request parameters, capacity constraints, or instance limit constraints. Failed requests are retained for 60 minutes.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2CapacityReservationState state;
+
+/**
+ <p>Any tags assigned to the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p><ul><li><p><code>default</code> - The Capacity Reservation is created on hardware that is shared with other AWS accounts.</p></li><li><p><code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2CapacityReservationTenancy tenancy;
+
+/**
+ <p>The number of instances for which the Capacity Reservation reserves capacity.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable totalInstanceCount;
+
+@end
+
+/**
+ <p>Describes an instance's Capacity Reservation targeting option. You can specify only one option at a time. Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation.</p>
+ */
+@interface AWSEC2CapacityReservationSpecification : AWSModel
+
+
+/**
+ <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p><ul><li><p><code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).</p></li><li><p><code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance runs as an On-Demand Instance.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2CapacityReservationPreference capacityReservationPreference;
+
+/**
+ <p>Information about the target Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) AWSEC2CapacityReservationTarget * _Nullable capacityReservationTarget;
+
+@end
+
+/**
+ <p>Describes the instance's Capacity Reservation targeting preferences. The action returns the <code>capacityReservationPreference</code> response element if the instance is configured to run in On-Demand capacity, or if it is configured in run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). The action returns the <code>capacityReservationTarget</code> response element if the instance explicily targets a specific Capacity Reservation.</p>
+ */
+@interface AWSEC2CapacityReservationSpecificationResponse : AWSModel
+
+
+/**
+ <p>Describes the instance's Capacity Reservation preferences. Possible preferences include:</p><ul><li><p><code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).</p></li><li><p><code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2CapacityReservationPreference capacityReservationPreference;
+
+/**
+ <p>Information about the targeted Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) AWSEC2CapacityReservationTargetResponse * _Nullable capacityReservationTarget;
+
+@end
+
+/**
+ <p>Describes a target Capacity Reservation.</p>
+ */
+@interface AWSEC2CapacityReservationTarget : AWSModel
+
+
+/**
+ <p>The ID of the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable capacityReservationId;
+
+@end
+
+/**
+ <p>Describes a target Capacity Reservation.</p>
+ */
+@interface AWSEC2CapacityReservationTargetResponse : AWSModel
+
+
+/**
+ <p>The ID of the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable capacityReservationId;
+
+@end
+
+/**
+ <p>Provides authorization for Amazon to bring a specific IP address range to a specific AWS account using bring your own IP addresses (BYOIP).</p>
+ Required parameters: [Message, Signature]
+ */
+@interface AWSEC2CidrAuthorizationContext : AWSModel
+
+
+/**
+ <p>The plain-text authorization message for the prefix and account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>The signed authorization message for the prefix and account.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable signature;
 
 @end
 
@@ -3790,6 +4148,92 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The number of threads per CPU core. To disable Intel Hyper-Threading Technology for the instance, specify a value of <code>1</code>. Otherwise, specify the default value of <code>2</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable threadsPerCore;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateCapacityReservationRequest : AWSRequest
+
+
+/**
+ <p>The Availability Zone in which to create the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable availabilityZone;
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p><p>Constraint: Maximum 64 ASCII characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ebsOptimized;
+
+/**
+ <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to <code>expired</code> when it reaches its end date and time.</p><p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is <code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is <code>unlimited</code>.</p><p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endDate;
+
+/**
+ <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:</p><ul><li><p><code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an <code>EndDate</code> if the <code>EndDateType</code> is <code>unlimited</code>.</p></li><li><p><code>limited</code> - The Capacity Reservation expires automatically at a specified date and time. You must provide an <code>EndDate</code> value if the <code>EndDateType</code> value is <code>limited</code>.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2EndDateType endDateType;
+
+/**
+ <p>Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ephemeralStorage;
+
+/**
+ <p>The number of instances for which to reserve capacity.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable instanceCount;
+
+/**
+ <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options include:</p><ul><li><p><code>open</code> - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.</p></li><li><p><code>targeted</code> - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity. </p></li></ul><p>Default: <code>open</code></p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceMatchCriteria instanceMatchCriteria;
+
+/**
+ <p>The type of operating system for which to reserve capacity.</p>
+ */
+@property (nonatomic, assign) AWSEC2CapacityReservationInstancePlatform instancePlatform;
+
+/**
+ <p>The instance type for which to reserve capacity. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceType;
+
+/**
+ <p>The tags to apply to the Capacity Reservation during launch.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p><ul><li><p><code>default</code> - The Capacity Reservation is created on hardware that is shared with other AWS accounts.</p></li><li><p><code>dedicated</code> - The Capacity Reservation is created on single-tenant hardware that is dedicated to a single AWS account.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2CapacityReservationTenancy tenancy;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateCapacityReservationResult : AWSModel
+
+
+/**
+ <p>Information about the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) AWSEC2CapacityReservation * _Nullable capacityReservation;
 
 @end
 
@@ -4485,7 +4929,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable egress;
 
 /**
- <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying the ICMP protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
+ <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
  */
 @property (nonatomic, strong) AWSEC2IcmpTypeCode * _Nullable icmpTypeCode;
 
@@ -4500,12 +4944,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable networkAclId;
 
 /**
- <p>TCP or UDP protocols: The range of ports the rule applies to.</p>
+ <p>TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
  */
 @property (nonatomic, strong) AWSEC2PortRange * _Nullable portRange;
 
 /**
- <p>The protocol. A value of <code>-1</code> or <code>all</code> means all protocols. If you specify <code>all</code>, <code>-1</code>, or a protocol number other than <code>6</code> (tcp), <code>17</code> (udp), or <code>1</code> (icmp), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
+ <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable protocols;
 
@@ -4999,7 +5443,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The IDs of one or more resources to tag. For example, ami-1a2b3c4d.</p>
+ <p>The IDs of one or more resources, separated by spaces.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable resources;
 
@@ -6216,7 +6660,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The IDs of one or more resources.</p>
+ <p>The IDs of one or more resources, separated by spaces.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable resources;
 
@@ -6447,6 +6891,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2DeprovisionByoipCidrRequest : AWSRequest
+
+
+/**
+ <p>The public IPv4 address range, in CIDR notation. The prefix must be the same prefix that you specified when you provisioned the address range.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeprovisionByoipCidrResult : AWSModel
+
+
+/**
+ <p>Information about the address range.</p>
+ */
+@property (nonatomic, strong) AWSEC2ByoipCidr * _Nullable byoipCidr;
+
+@end
+
+/**
  <p>Contains the parameters for DeregisterImage.</p>
  Required parameters: [ImageId]
  */
@@ -6497,7 +6972,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for DescribeAddresses.</p>
+ 
  */
 @interface AWSEC2DescribeAddressesRequest : AWSRequest
 
@@ -6525,7 +7000,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output of DescribeAddresses.</p>
+ 
  */
 @interface AWSEC2DescribeAddressesResult : AWSModel
 
@@ -6637,6 +7112,98 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about one or more bundle tasks.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2BundleTask *> * _Nullable bundleTasks;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeByoipCidrsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeByoipCidrsResult : AWSModel
+
+
+/**
+ <p>Information about your address ranges.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2ByoipCidr *> * _Nullable byoipCidrs;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeCapacityReservationsRequest : AWSRequest
+
+
+/**
+ <p>The ID of the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable capacityReservationIds;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned nextToken value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeCapacityReservationsResult : AWSModel
+
+
+/**
+ <p>Information about the Capacity Reservations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2CapacityReservation *> * _Nullable capacityReservations;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -8049,7 +8616,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for DescribeMovingAddresses.</p>
+ 
  */
 @interface AWSEC2DescribeMovingAddressesRequest : AWSRequest
 
@@ -8070,7 +8637,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to use to retrieve the next page of results.</p>
+ <p>The token for the next page of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -8082,7 +8649,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output of DescribeMovingAddresses.</p>
+ 
  */
 @interface AWSEC2DescribeMovingAddressesResult : AWSModel
 
@@ -8465,6 +9032,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the ID format settings for the ARN.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2PrincipalIdFormat *> * _Nullable principals;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribePublicIpv4PoolsRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the address pools.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable poolIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribePublicIpv4PoolsResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the address pools.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PublicIpv4Pool *> * _Nullable publicIpv4Pools;
 
 @end
 
@@ -10563,7 +11171,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for DisassociateAddress.</p>
+ 
  */
 @interface AWSEC2DisassociateAddressRequest : AWSRequest
 
@@ -13195,6 +13803,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InstanceBlockDeviceMapping *> * _Nullable blockDeviceMappings;
 
 /**
+ <p>The ID of the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable capacityReservationId;
+
+/**
+ <p>Information about the Capacity Reservation targeting option.</p>
+ */
+@property (nonatomic, strong) AWSEC2CapacityReservationSpecificationResponse * _Nullable capacityReservationSpecification;
+
+/**
  <p>The idempotency token you provided when you launched the instance, if applicable.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
@@ -14443,6 +15061,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes an instance's Capacity Reservation targeting option. You can specify only one option at a time. Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run in On-Demand capacity or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation.</p>
+ */
+@interface AWSEC2LaunchTemplateCapacityReservationSpecificationRequest : AWSModel
+
+
+/**
+ <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p><ul><li><p><code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).</p></li><li><p><code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2CapacityReservationPreference capacityReservationPreference;
+
+/**
+ <p>Information about the target Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) AWSEC2CapacityReservationTarget * _Nullable capacityReservationTarget;
+
+@end
+
+/**
+ <p>Information about the Capacity Reservation targeting option.</p>
+ */
+@interface AWSEC2LaunchTemplateCapacityReservationSpecificationResponse : AWSModel
+
+
+/**
+ <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p><ul><li><p><code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).</p></li><li><p><code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2CapacityReservationPreference capacityReservationPreference;
+
+/**
+ <p>Information about the target Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) AWSEC2CapacityReservationTargetResponse * _Nullable capacityReservationTarget;
+
+@end
+
+/**
  <p>Describes a launch template and overrides.</p>
  */
 @interface AWSEC2LaunchTemplateConfig : AWSModel
@@ -15178,6 +15832,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2ModifyCapacityReservationRequest : AWSRequest
+
+
+/**
+ <p>The ID of the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable capacityReservationId;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to <code>expired</code> when it reaches its end date and time.</p><p>The Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</p><p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is <code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is <code>unlimited</code>.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endDate;
+
+/**
+ <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:</p><ul><li><p><code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it. Do not provide an <code>EndDate</code> value if <code>EndDateType</code> is <code>unlimited</code>.</p></li><li><p><code>limited</code> - The Capacity Reservation expires automatically at a specified date and time. You must provide an <code>EndDate</code> value if <code>EndDateType</code> is <code>limited</code>.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSEC2EndDateType endDateType;
+
+/**
+ <p>The number of instances for which to reserve capacity.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable instanceCount;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyCapacityReservationResult : AWSModel
+
+
+/**
+ <p>Information about the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2ModifyFleetRequest : AWSRequest
 
 
@@ -15511,6 +16211,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>A new value for the attribute. Use only with the <code>kernel</code>, <code>ramdisk</code>, <code>userData</code>, <code>disableApiTermination</code>, or <code>instanceInitiatedShutdownBehavior</code> attribute.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyInstanceCapacityReservationAttributesRequest : AWSRequest
+
+
+/**
+ <p>Information about the Capacity Reservation targeting option.</p>
+ */
+@property (nonatomic, strong) AWSEC2CapacityReservationSpecification * _Nullable capacityReservationSpecification;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the instance to be modified.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyInstanceCapacityReservationAttributesResult : AWSModel
+
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
 
 @end
 
@@ -16253,8 +16989,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for MoveAddressToVpc.</p>
- Required parameters: [PublicIp]
+ 
  */
 @interface AWSEC2MoveAddressToVpcRequest : AWSRequest
 
@@ -16272,7 +17007,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output of MoveAddressToVpc.</p>
+ 
  */
 @interface AWSEC2MoveAddressToVpcResult : AWSModel
 
@@ -16491,7 +17226,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2PortRange * _Nullable portRange;
 
 /**
- <p>The protocol. A value of <code>-1</code> means all protocols.</p>
+ <p>The protocol number. A value of "-1" means all protocols.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable protocols;
 
@@ -17181,6 +17916,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2ProvisionByoipCidrRequest : AWSRequest
+
+
+/**
+ <p>The public IPv4 address range, in CIDR notation. The most specific prefix that you can specify is /24. The address range cannot overlap with another address range that you've brought to this or another region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p>A signed document that proves that you are authorized to bring the specified IP address range to Amazon using BYOIP.</p>
+ */
+@property (nonatomic, strong) AWSEC2CidrAuthorizationContext * _Nullable cidrAuthorizationContext;
+
+/**
+ <p>A description for the address range and the address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ProvisionByoipCidrResult : AWSModel
+
+
+/**
+ <p>Information about the address pool.</p>
+ */
+@property (nonatomic, strong) AWSEC2ByoipCidr * _Nullable byoipCidr;
+
+@end
+
+/**
  <p>Reserved. If you need to sustain traffic greater than the <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 @interface AWSEC2ProvisionedBandwidth : AWSModel
@@ -17210,6 +17986,67 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Reserved. If you need to sustain traffic greater than the <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-nat-gateway.html">documented limits</a>, contact us through the <a href="https://console.aws.amazon.com/support/home?">Support Center</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable status;
+
+@end
+
+/**
+ <p>Describes an address pool.</p>
+ */
+@interface AWSEC2PublicIpv4Pool : AWSModel
+
+
+/**
+ <p>A description of the address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The address ranges.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PublicIpv4PoolRange *> * _Nullable poolAddressRanges;
+
+/**
+ <p>The ID of the IPv4 address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable poolId;
+
+/**
+ <p>The total number of addresses.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable totalAddressCount;
+
+/**
+ <p>The total number of available addresses.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable totalAvailableAddressCount;
+
+@end
+
+/**
+ <p>Describes an address range of an IPv4 address pool.</p>
+ */
+@interface AWSEC2PublicIpv4PoolRange : AWSModel
+
+
+/**
+ <p>The number of addresses in the range.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable addressCount;
+
+/**
+ <p>The number of available addresses in the range.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable availableAddressCount;
+
+/**
+ <p>The first IP address in the range.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable firstAddress;
+
+/**
+ <p>The last IP address in the range.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastAddress;
 
 @end
 
@@ -17635,7 +18472,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for ReleaseAddress.</p>
+ 
  */
 @interface AWSEC2ReleaseAddressRequest : AWSRequest
 
@@ -17777,7 +18614,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable egress;
 
 /**
- <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying the ICMP (1) protocol, or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
+ <p>ICMP protocol: The ICMP or ICMPv6 type and code. Required if specifying protocol 1 (ICMP) or protocol 58 (ICMPv6) with an IPv6 CIDR block.</p>
  */
 @property (nonatomic, strong) AWSEC2IcmpTypeCode * _Nullable icmpTypeCode;
 
@@ -17792,12 +18629,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable networkAclId;
 
 /**
- <p>TCP or UDP protocols: The range of ports the rule applies to. Required if specifying TCP (6) or UDP (17) for the protocol.</p>
+ <p>TCP or UDP protocols: The range of ports the rule applies to. Required if specifying protocol 6 (TCP) or 17 (UDP).</p>
  */
 @property (nonatomic, strong) AWSEC2PortRange * _Nullable portRange;
 
 /**
- <p>The IP protocol. You can specify <code>all</code> or <code>-1</code> to mean all protocols. If you specify <code>all</code>, <code>-1</code>, or a protocol number other than <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports is allowed, regardless of any ports or ICMP types or codes you that specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol <code>58</code> (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
+ <p>The protocol number. A value of "-1" means all protocols. If you specify "-1" or a protocol number other than "6" (TCP), "17" (UDP), or "1" (ICMP), traffic on all ports is allowed, regardless of any ports or ICMP types or codes that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv4 CIDR block, traffic for all ICMP types and codes allowed, regardless of any that you specify. If you specify protocol "58" (ICMPv6) and specify an IPv6 CIDR block, you must specify an ICMP type and code.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable protocols;
 
@@ -17961,6 +18798,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The block device mapping.</p><important><p>Supplying both a snapshot ID and an encryption value as arguments for block-device mapping results in an error. This is because only blank volumes can be encrypted on start, and these are not created from a snapshot. If a snapshot is the basis for the volume, it contains data by definition and its encryption status cannot be changed using this action.</p></important>
  */
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateBlockDeviceMappingRequest *> * _Nullable blockDeviceMappings;
+
+/**
+ <p>Information about the Capacity Reservation targeting option.</p>
+ */
+@property (nonatomic, strong) AWSEC2LaunchTemplateCapacityReservationSpecificationRequest * _Nullable capacityReservationSpecification;
 
 /**
  <p>The CPU options for the instance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU Options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -18876,6 +19718,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateBlockDeviceMapping *> * _Nullable blockDeviceMappings;
 
 /**
+ <p>Information about the Capacity Reservation targeting option.</p>
+ */
+@property (nonatomic, strong) AWSEC2LaunchTemplateCapacityReservationSpecificationResponse * _Nullable capacityReservationSpecification;
+
+/**
  <p>The CPU options for the instance. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimizing CPU Options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSEC2LaunchTemplateCpuOptions * _Nullable cpuOptions;
@@ -18978,8 +19825,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the parameters for RestoreAddressToClassic.</p>
- Required parameters: [PublicIp]
+ 
  */
 @interface AWSEC2RestoreAddressToClassicRequest : AWSRequest
 
@@ -18997,7 +19843,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Contains the output of RestoreAddressToClassic.</p>
+ 
  */
 @interface AWSEC2RestoreAddressToClassicResult : AWSModel
 
@@ -19289,6 +20135,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>One or more block device mapping entries. You can't specify both a snapshot ID and an encryption value. This is because only blank volumes can be encrypted on creation. If a snapshot is the basis for a volume, it is not blank and its encryption status is used for the volume encryption status.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2BlockDeviceMapping *> * _Nullable blockDeviceMappings;
+
+/**
+ <p>Information about the Capacity Reservation targeting option.</p>
+ */
+@property (nonatomic, strong) AWSEC2CapacityReservationSpecification * _Nullable capacityReservationSpecification;
 
 /**
  <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p><p>Constraints: Maximum 64 ASCII characters</p>
@@ -20691,7 +21542,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2ExcessCapacityTerminationPolicy excessCapacityTerminationPolicy;
 
 /**
- <p>The number of units fulfilled by this request compared to the set target capacity.</p>
+ <p>The number of units fulfilled by this request compared to the set target capacity. You cannot set this value.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable fulfilledCapacity;
 
@@ -21421,7 +22272,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable key;
 
 /**
- <p>The ID of the resource. For example, <code>ami-1a2b3c4d</code>.</p>
+ <p>The ID of the resource.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceId;
 
@@ -22874,6 +23725,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. </p><p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The following CIDR blocks are reserved and cannot be used:</p><ul><li><p><code>169.254.0.0/30</code></p></li><li><p><code>169.254.1.0/30</code></p></li><li><p><code>169.254.2.0/30</code></p></li><li><p><code>169.254.3.0/30</code></p></li><li><p><code>169.254.4.0/30</code></p></li><li><p><code>169.254.5.0/30</code></p></li><li><p><code>169.254.169.252/30</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable tunnelInsideCidr;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2WithdrawByoipCidrRequest : AWSRequest
+
+
+/**
+ <p>The public IPv4 address range, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2WithdrawByoipCidrResult : AWSModel
+
+
+/**
+ <p>Information about the address pool.</p>
+ */
+@property (nonatomic, strong) AWSEC2ByoipCidr * _Nullable byoipCidr;
 
 @end
 
