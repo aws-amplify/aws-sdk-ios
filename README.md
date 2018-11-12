@@ -11,7 +11,7 @@
 - [__Analytics__](https://aws-amplify.github.io/docs/ios/analytics): Easily collect analytics data for your app. Analytics data includes user sessions and other custom events that you want to track in your app.  
 - [__API__](https://aws-amplify.github.io/docs/ios/api): Provides a simple solution when making HTTP requests. It provides an automatic, lightweight signing process which complies with AWS Signature Version 4.
 - [__Storage__](https://aws-amplify.github.io/docs/ios/storage): Provides a simple mechanism for managing user content for your app in public, protected or private storage buckets.  
-- [__Push Notifications__](https://aws-amplify.github.io/docs/ios/push_notifications): Allows you to integrate push notifications in your app with Amazon Pinpoint targeting and campaign management support.
+- [__Push Notifications__](https://aws-amplify.github.io/docs/ios/push-notifications): Allows you to integrate push notifications in your app with Amazon Pinpoint targeting and campaign management support.
 - [__PubSub__](https://aws-amplify.github.io/docs/ios/pubsub): Provides connectivity with cloud-based message-oriented middleware.  
 
 #### Visit our [Web Site](https://aws-amplify.github.io) to learn more about AWS Amplify.
