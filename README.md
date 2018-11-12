@@ -21,7 +21,7 @@ The AWS SDK for iOS provides a library and documentation for developers to build
 
 * [Documentation](https://aws-amplify.github.io/docs)
 * [Setup](#setup)
-* [Examples](https://github.com/awslabs/aws-sdk-android-samples)
+* [Examples](https://github.com/awslabs/aws-sdk-ios-samples)
 
 ## Setup
 
