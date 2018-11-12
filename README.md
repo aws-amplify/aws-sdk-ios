@@ -5,6 +5,8 @@
 [![CocoaPods Downloads](https://img.shields.io/cocoapods/dt/AWSCore.svg)](https://cocoapods.org/pods/AWSiOSSDKv2)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
+The AWS SDK for iOS provides a library and documentation for developers to build connected mobile applications using AWS.
+
 ### Features / APIs
 
 - [__Authentication__](https://aws-amplify.github.io/docs/ios/authentication): APIs and building blocks for developers who want to create user authentication experiences.  
