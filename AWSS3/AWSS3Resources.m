@@ -1197,7 +1197,8 @@
         \"cn-northwest-1\",\
         \"us-gov-west-1\",\
         \"eu-central-1\",\
-        \"ca-central-1\"\
+        \"ca-central-1\",\
+        \"us-gov-east-1\"\
       ]\
     },\
     \"BucketLoggingStatus\":{\

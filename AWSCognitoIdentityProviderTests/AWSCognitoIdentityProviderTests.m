@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -325,7 +325,7 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
         if(task.isCancelled || task.error){
             XCTFail(@"Request returned an error %@",task.error);
         }
-        XCTAssertTrue([name.value isEqualToString:task.result.idToken.claims[@"name"]]);
+        XCTAssertTrue([name.value isEqualToString:task.result.idToken.tokenClaims[@"name"]]);
         [expectation fulfill];
         return task;
     }];

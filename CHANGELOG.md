@@ -1,6 +1,29 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.7.1
+
+### New Features
+
+* **AWS Core**
+  * Added support for `us-gov-east-1` - AWS GovCloud (US East) region.
+
+### Bug Fixes
+
+* **Amazon Cognito Identity Provider**
+    - Deprecate `claims` property of `AWSCognitoIdentityUserSessionToken` since
+      it incorrectly declares the type as `NSDictionary<NSString*, NSString*>`.
+      Instead, callers should use `tokenClaims`, which has the proper type of
+      `NSDictionary<NSString*, id>`. See [PR
+      #1068](https://github.com/aws-amplify/aws-sdk-ios/pull/1068)
+
+       > Note: The existing `claims` property is deprecated and will be removed in a future minor version.
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon EC2
+
 ## 2.7.0
 
 ### New Features

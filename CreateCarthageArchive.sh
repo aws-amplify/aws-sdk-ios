@@ -1,6 +1,6 @@
-carthage archive | tee "carthageout.txt"
-ls *.zip
-frameworkfilename=$(cat carthageout.txt |  grep -o 'Created .*\.zip$'  | grep -o   '\S*\.zip$')
+# carthage archive | tee "carthageout.txt"
+frameworkfilename=$(carthage archive |  grep -o 'Created .*\.zip$'  | grep -o   '\S*\.zip$')
+
 if [ -z  "$frameworkfilename" ];then
 	echo "Cannot find framework zip file from output of carthage archive"
 	exit 1

@@ -145,7 +145,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
 
 ### Frameworks
 
-1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.5.0, the filename is `aws-ios-sdk-2.5.0`).
+1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.7.0, the filename is `aws-ios-sdk-2.7.0`).
 
 2. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
 
@@ -426,7 +426,7 @@ The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format
 
         $ mv Documentation/com.amazon.aws.ios.docset ~/Library/Developer/Shared/Documentation/DocSets/
 
-4. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.5.0 Documentation** (where '2.5.0' is the appropriate version number).
+4. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.7.0 Documentation** (where '2.7.0' is the appropriate version number).
 
 ## Talk to Us
 
