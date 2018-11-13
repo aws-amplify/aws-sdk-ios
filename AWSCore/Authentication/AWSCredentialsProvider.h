@@ -222,7 +222,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                      unauthRoleArn:(nullable NSString *)unauthRoleArn
                        authRoleArn:(nullable NSString *)authRoleArn
-                  identityProvider:(id<AWSCognitoCredentialsProviderHelper>)identityProvider;
+                  identityProvider:(id<AWSCognitoCredentialsProviderHelper>)identityProvider
+				   sessionDuration:(NSUInteger)sessionDuration;
 
 /**
  Initializer for credentials provider with basic auth flow. Only use this method if you still need to set your IAM roles client side. This method will create an instance of `AWSBasicCognitoIdentityProvider`.
@@ -237,7 +238,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
                     identityPoolId:(NSString *)identityPoolId
                      unauthRoleArn:(nullable NSString *)unauthRoleArn
                        authRoleArn:(nullable NSString *)authRoleArn
-           identityProviderManager:(nullable id<AWSIdentityProviderManager>)identityProviderManager;
+           identityProviderManager:(nullable id<AWSIdentityProviderManager>)identityProviderManager
+				   sessionDuration:(NSUInteger)sessionDuration;
 
 /**
  Get/retrieve the identity id for this provider. If an identity id is already set on this provider, no remote call is made and the identity will be returned as a result of the AWSTask (the identityId is also available as a property). If no identityId is set on this provider, one will be retrieved from the service.

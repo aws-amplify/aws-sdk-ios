@@ -264,6 +264,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @property (nonatomic, strong) NSString *unAuthRoleArn;
 @property (nonatomic, strong) AWSSTS *sts;
 @property (nonatomic, strong) AWSCognitoIdentity *cognitoIdentity;
+@property (nonatomic) NSUInteger sessionDuration;
 @property (nonatomic, strong) AWSUICKeyChainStore *keychain;
 @property (nonatomic, strong) AWSExecutor *refreshExecutor;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
@@ -288,7 +289,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         [self setUpWithRegionType:regionType
                  identityProvider:identityProvider
                     unauthRoleArn:nil
-                      authRoleArn:nil];
+                      authRoleArn:nil
+				  sessionDuration:0];
     }
 
     return self;
@@ -305,7 +307,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         [self setUpWithRegionType:regionType
                  identityProvider:identityProvider
                     unauthRoleArn:nil
-                      authRoleArn:nil];
+                      authRoleArn:nil
+				  sessionDuration:0];
     }
 
     return self;
@@ -317,7 +320,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         [self setUpWithRegionType:regionType
                  identityProvider:identityProvider
                     unauthRoleArn:nil
-                      authRoleArn:nil];
+                      authRoleArn:nil
+				  sessionDuration:0];
     }
 
     return self;
@@ -326,12 +330,14 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                      unauthRoleArn:(NSString *)unauthRoleArn
                        authRoleArn:(NSString *)authRoleArn
-                  identityProvider:(id<AWSCognitoCredentialsProviderHelper>)identityProvider {
+                  identityProvider:(id<AWSCognitoCredentialsProviderHelper>)identityProvider
+				   sessionDuration:(NSUInteger)sessionDuration {
     if (self = [super init]) {
         [self setUpWithRegionType:regionType
                  identityProvider:identityProvider
                     unauthRoleArn:unauthRoleArn
-                      authRoleArn:authRoleArn];
+                      authRoleArn:authRoleArn
+				  sessionDuration:sessionDuration];
     }
 
     return self;
@@ -341,7 +347,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                     identityPoolId:(NSString *)identityPoolId
                      unauthRoleArn:(nullable NSString *)unauthRoleArn
                        authRoleArn:(nullable NSString *)authRoleArn
-           identityProviderManager:(nullable id<AWSIdentityProviderManager>)identityProviderManager {
+           identityProviderManager:(nullable id<AWSIdentityProviderManager>)identityProviderManager
+				   sessionDuration:(NSUInteger)sessionDuration {
     if (self = [super init]) {
         AWSCognitoCredentialsProviderHelper *identityProvider = [[AWSCognitoCredentialsProviderHelper alloc] initWithRegionType:regionType
                                                                                                                  identityPoolId:identityPoolId
@@ -350,7 +357,8 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         [self setUpWithRegionType:regionType
                  identityProvider:identityProvider
                     unauthRoleArn:unauthRoleArn
-                      authRoleArn:authRoleArn];
+                      authRoleArn:authRoleArn
+				  sessionDuration:sessionDuration];
     }
 
     return self;
@@ -359,10 +367,12 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 - (void)setUpWithRegionType:(AWSRegionType)regionType
            identityProvider:(id<AWSCognitoCredentialsProviderHelper>)identityProvider
               unauthRoleArn:(NSString *)unauthRoleArn
-                authRoleArn:(NSString *)authRoleArn {
+                authRoleArn:(NSString *)authRoleArn
+			sessionDuration:(NSUInteger *)sessionDuration {
     _refreshExecutor = [AWSExecutor executorWithOperationQueue:[NSOperationQueue new]];
     _refreshingCredentials = NO;
     _semaphore = dispatch_semaphore_create(0);
+	_sessionDuration = sessionDuration;
 
     _identityProvider = identityProvider;
     _unAuthRoleArn = unauthRoleArn;
@@ -415,6 +425,10 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     webIdentityRequest.roleArn = roleArn;
     webIdentityRequest.webIdentityToken = [logins objectForKey:AWSIdentityProviderAmazonCognitoIdentity];
     webIdentityRequest.roleSessionName = @"iOS-Provider";
+	
+	if(_sessionDuration > 0)
+		webIdentityRequest.durationSeconds = @(_sessionDuration);
+	
     return [[self.sts assumeRoleWithWebIdentity:webIdentityRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.result) {
             AWSSTSAssumeRoleWithWebIdentityResponse *webIdentityResponse = task.result;
