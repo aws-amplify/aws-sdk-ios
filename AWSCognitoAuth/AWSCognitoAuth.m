@@ -40,6 +40,7 @@ NSString *const AWSCognitoAuthErrorDomain = @"com.amazon.cognito.AWSCognitoAuthE
 
 @property (nonatomic) BOOL useSFAuthenticationSession;
 @property (nonatomic) BOOL sfAuthenticationSessionAvailable;
+@property (nonatomic) BOOL isHandlingRedirection;
 
 @end
 
@@ -537,7 +538,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
  to its initializer. It is not invoked for any subsequent page loads in the same SFSafariViewController instance.
  */
 - (void)safariViewController:(SFSafariViewController *)controller didCompleteInitialLoad:(BOOL)didLoadSuccessfully {
-    if(!didLoadSuccessfully){
+    if(!didLoadSuccessfully && !self.isHandlingRedirection){
         NSError *error = [self getError:@"Loading page failed" code:AWSCognitoAuthClientErrorLoadingPageFailed];
         if(self.getSessionBlock){
             [self completeGetSession:nil error:error];
@@ -589,6 +590,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 }
     
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
+    self.isHandlingRedirection = YES;
     return [self processURL:url];
 }
 
@@ -698,6 +700,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    self.isHandlingRedirection = NO;
     NSError * error;
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:self.responseData options:kNilOptions error:&error];
     if(error){
