@@ -679,9 +679,9 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     dispatch_async(dispatch_get_main_queue(), ^{
         if(self.svc){
             [self.svc dismissViewControllerAnimated:NO completion:^{
+                dismissBlock();
                 //clean up vc
                 self.svc = nil;
-                dismissBlock();
             }];
         }else {
             dismissBlock();
