@@ -1,6 +1,18 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.7.2
+
+### Bug Fixes
+
+* **AWSCognitoAuth**
+  - Fixed bug where the `completeGetSession:` callback would be invoked with an
+    error if `safariViewController:didCompleteInitialLoad:` is invoked after a
+    redirection (e.g., as can happen if an external identity provider bypasses
+    the login screen for an already-authenticated user). See
+    (PR#1100)[https://github.com/aws-amplify/aws-sdk-ios/pull/1110]
+  - Fixed bug where the callback to `getSession` would not be given in case the customer dismisses the `SFSafariViewController`. See (PR#1109)[https://github.com/aws-amplify/aws-sdk-ios/pull/1109]
+
 ## 2.7.1
 
 ### New Features

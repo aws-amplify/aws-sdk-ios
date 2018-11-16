@@ -53,7 +53,7 @@ API_AVAILABLE(ios(11.0))
 
 @implementation AWSCognitoAuth
 
-NSString *const AWSCognitoAuthSDKVersion = @"2.7.1";
+NSString *const AWSCognitoAuthSDKVersion = @"2.7.2";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -109,7 +109,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         NSString *identityProvider = infoDictionary[AWSCognitoAuthIdentityProvider];
         NSString *userPoolId = infoDictionary[AWSCognitoAuthPoolId];
         BOOL useSFAuthSession = infoDictionary[AWSCognitoAuthUseSFAuthSession];
-        
+
         if (appClientId && webDomain && scopes && signOutRedirectUri && signInRedirectUri) {
             AWSCognitoAuthConfiguration *authConfiguration = [[AWSCognitoAuthConfiguration alloc] initWithAppClientId:appClientId
                                                                                                       appClientSecret:appClientSecret
@@ -119,7 +119,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                                                                                                             webDomain:webDomain
                                                                                                      identityProvider:identityProvider
                                                                                                         idpIdentifier:idpIdentifier
-                                                                                                           userPoolIdForEnablingASF:userPoolId
+                                                                                             userPoolIdForEnablingASF:userPoolId
                                                                                        enableSFAuthSessionIfAvailable:useSFAuthSession];
             _defaultAuth = [[AWSCognitoAuth alloc] initWithConfiguration:authConfiguration];
         } else {
@@ -128,7 +128,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                                          userInfo:nil];
         }
     });
-    
+
     return _defaultAuth;
 }
 
@@ -164,12 +164,12 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     if (self = [super init]) {
         _signOutQueue = [NSOperationQueue new];
         _signOutQueue.maxConcurrentOperationCount = 1;
-        
+
         _getSessionQueue = [NSOperationQueue new];
         _getSessionQueue.maxConcurrentOperationCount = 1;
-        
+
         _authConfiguration = [authConfiguration copy];
-        
+
         _useSFAuthenticationSession = authConfiguration.isSFAuthenticationSessionEnabled;
         _sfAuthenticationSessionAvailable = NO;
         _keychain = [AWSCognitoAuthUICKeyChainStore keyChainStoreWithService:[NSString stringWithFormat:@"%@.%@", [NSBundle mainBundle].bundleIdentifier, @"AWSCognitoIdentityUserPool"]];  //Consistent with AWSCognitoIdentityUserPool
@@ -209,7 +209,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
             [self completeGetSession:nil error:self.getSessionError];
         }
     }];
-    
+
     [self.getSessionQueue addOperation:getSessionOperation];
 }
 
@@ -242,15 +242,15 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         NSString * userContext = [NSString stringWithFormat:@"&userContextData=%@",[self urlEncode:userContextEncoded]];
         suffix = [suffix stringByAppendingString:userContext];
     }
-    
+
     NSString *url = [NSString stringWithFormat:@"%@/oauth2/authorize?response_type=code&client_id=%@&state=%@&redirect_uri=%@&scope=%@&code_challenge=%@&code_challenge_method=S256%@",self.authConfiguration.webDomain, self.authConfiguration.appClientId, self.state,[self urlEncode:self.authConfiguration.signInRedirectUri], [self urlEncode:[self normalizeScopes]], self.proofKeyHash, suffix];
-    
+
     if (self.useSFAuthenticationSession) {
         if (@available(iOS 11.0, *)) {
             self.sfAuthenticationSessionAvailable = YES;
             self.sfAuthSession = [[SFAuthenticationSession alloc] initWithURL:[NSURL URLWithString:url] callbackURLScheme:[self urlEncode:self.authConfiguration.signInRedirectUri] completionHandler:^(NSURL * _Nullable url, NSError * _Nullable error) {
                 if (url) {
-                    [self processURL:url];
+                    [self processURL:url forRedirection:NO];
                 } else {
                     [self completeGetSession:nil error:error];
                 }
@@ -295,7 +295,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     [popover.popoverPresentationController setPermittedArrowDirections:0];
     return popover;
 }
-    
+
 /**
  Check keychain for valid session, if expired or not available, prompt end user via ui
  */
@@ -305,8 +305,8 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     self.proofKey = [self generateRandom:32];
     self.proofKeyHash = [self calculateSHA256Hash:self.proofKey];
     self.pvc = vc;
-    
-    
+
+
     //check to see if we have valid tokens
     NSString * username = [self currentUsername];
     if(username){
@@ -315,11 +315,11 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         NSString * expirationDate = self.keychain[expirationDateKey];
         NSString * scopesKey = [self keyChainKey:keyChainNamespace key:AWSCognitoAuthUserScopes];
         NSString * scopes = self.keychain[scopesKey];
-        
+
         if(expirationDate && scopes != nil && [scopes isEqualToString:[self normalizeScopes]]){
             NSDate *expiration = [self dateFromString:expirationDate];
             NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
-            
+
             //if the session expires > 5 minutes return it.
             if(expiration && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:5 * 60]] == NSOrderedDescending){
                 NSString * idTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoAuthUserIdToken];
@@ -384,7 +384,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         self.signOutError = error;
         [self.signOutQueue cancelAllOperations];
     }
-    
+
     if (self.sfAuthenticationSessionAvailable) {
         [self cleanUpAndCallSignOutBlock:error];
     } else {
@@ -418,7 +418,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         [self signOutInternal:vc completion:completion];
     }];
     [self.signOutQueue addOperation:signOutOperation];
-    
+
 }
 
 
@@ -428,13 +428,13 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 - (void) signOutInternal: (UIViewController *) vc completion: (AWSCognitoAuthSignOutBlock) completion {
     self.signOutBlock = completion;
     NSString *url = [NSString stringWithFormat:@"%@/logout?client_id=%@&logout_uri=%@",self.authConfiguration.webDomain, self.authConfiguration.appClientId, [self urlEncode:self.authConfiguration.signOutRedirectUri]];
-    
+
     if (self.useSFAuthenticationSession) {
         if (@available(iOS 11.0, *)) {
             self.sfAuthenticationSessionAvailable = YES;
             self.sfAuthSession = [[SFAuthenticationSession alloc] initWithURL:[NSURL URLWithString:url] callbackURLScheme:[self urlEncode:self.authConfiguration.signOutRedirectUri] completionHandler:^(NSURL * _Nullable url, NSError * _Nullable error) {
                 if (url) {
-                    [self processURL:url];
+                    [self processURL:url forRedirection:NO];
                 } else {
                     [self signOutLocallyAndClearLastKnownUser];
                     [self completeSignOut:error];
@@ -493,7 +493,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
  */
 -(NSDateFormatter *) getDateFormatter {
     static NSDateFormatter *_dateFormatter = nil;
-    
+
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _dateFormatter = [NSDateFormatter new];
@@ -556,11 +556,11 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 -(NSString *) generateRandom: (int) size {
     NSMutableData *data = [NSMutableData dataWithLength:size];
     int result = SecRandomCopyBytes(kSecRandomDefault, size, data.mutableBytes);
-    
+
     if(result){
         return nil;
     }
-    
+
     return [self urlSafeBase64:[data base64EncodedStringWithOptions:0]];
 }
 
@@ -588,20 +588,19 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 - (NSString *) urlEncode: (NSString *) stringToEncode {
     return  [stringToEncode stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
 }
-    
+
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options {
-    self.isHandlingRedirection = YES;
-    return [self processURL:url];
+    return [self processURL:url forRedirection:YES];
 }
 
-- (BOOL)processURL:(NSURL *)url {
+- (BOOL)processURL:(NSURL *)url forRedirection:(BOOL)isProcessingRedirection {
     NSURLComponents *urlComponents = [NSURLComponents componentsWithURL:url
                                                 resolvingAgainstBaseURL:NO];
     NSArray<NSURLQueryItem *>* queryItems = [urlComponents queryItems];
     NSMutableDictionary *queryItemsDict = nil;
     if(queryItems) {
         queryItemsDict = [NSMutableDictionary new];
-        
+
         for(NSURLQueryItem * queryItem in queryItems){
             [queryItemsDict setObject:queryItem.value forKey:queryItem.name];
         }
@@ -616,10 +615,18 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 //continue with authorization code request
                 NSString * code = queryItemsDict[@"code"];
                 if(code){
+                    // If we are processing this request on behalf of a redirection request from SFSafariViewController, then
+                    // set a flag to prevent us from interpreting a "NO" callback to `safariViewController:didCompleteInitialLoad:`
+                    // as an error. We will clear this flag in `connectionDidFinishLoading:` after the auth token request has
+                    // completed
+                    if (isProcessingRedirection) {
+                        self.isHandlingRedirection = YES;
+                    }
+
                     NSString *url = [NSString stringWithFormat:@"%@/oauth2/token",self.authConfiguration.webDomain];
                     NSString *body = [NSString stringWithFormat:@"grant_type=authorization_code&client_id=%@&code=%@&redirect_uri=%@&code_verifier=%@",
                                       self.authConfiguration.appClientId, code, self.authConfiguration.signInRedirectUri, self.proofKey];
-                    
+
                     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
                     request.HTTPMethod = @"POST";
                     request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
@@ -799,7 +806,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 - (void) updateUsernameAndPersistTokens: (AWSCognitoAuthUserSession *) session {
     NSString * keyChainNamespace = [self keyChainNamespaceClientId:session.username];
     NSString * idTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoAuthUserIdToken];
-    
+
     if(session.idToken){
         self.keychain[idTokenKey] = session.idToken.tokenString;
     }
@@ -866,11 +873,11 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
  */
 + (id)objectForKey:(id)aKey {
     __block id returnObject = nil;
-    
+
     dispatch_sync(_dispatchQueue, ^{
         returnObject = [_instanceDictionary objectForKey:aKey];
     });
-    
+
     return returnObject;
 }
 
@@ -914,7 +921,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         }
         _userAgent = [NSString stringWithFormat:@"aws-sdk-iOS/%@ %@/%@ %@/lite", AWSCognitoAuthSDKVersion, systemName, systemVersion, localeIdentifier];
     });
-    
+
     return _userAgent;
 }
 
@@ -967,7 +974,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         //JWT is not padded with =, pad it if necessary
         NSUInteger paddedLength = claims.length + (4 - (claims.length % 4)) % 4;;
         claims = [claims stringByPaddingToLength:paddedLength withString:@"=" startingAtIndex:0];
-        
+
         NSData * claimsData = [[NSData alloc] initWithBase64EncodedString:claims options:NSDataBase64DecodingIgnoreUnknownCharacters];
         NSError *error = nil;
         if(claimsData != nil){
@@ -1047,7 +1054,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         _userPoolId = userPoolIdForEnablingASF;
         _isSFAuthenticationSessionEnabled = enableSFAuthSession;
     }
-    
+
     return self;
 }
 
