@@ -1,17 +1,32 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.7.3
+
+### Enhancements
+
+* **Amazon Polly**
+   * Add support for new voices - `Bianca`, `Lucia` and `Mia`.
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Auto Scaling
+  * Amazon Kinesis Firehose
+  * Amazon Polly
+  * Amazon Simple Notification Service (SNS)
+
 ## 2.7.2
 
 ### Bug Fixes
 
 * **AWSCognitoAuth**
-  - Fixed bug where the `completeGetSession:` callback would be invoked with an
+  * Fixed bug where the `completeGetSession:` callback would be invoked with an
     error if `safariViewController:didCompleteInitialLoad:` is invoked after a
     redirection (e.g., as can happen if an external identity provider bypasses
     the login screen for an already-authenticated user). See
-    (PR#1100)[https://github.com/aws-amplify/aws-sdk-ios/pull/1110]
-  - Fixed bug where the callback to `getSession` would not be given in case the customer dismisses the `SFSafariViewController`. See (PR#1109)[https://github.com/aws-amplify/aws-sdk-ios/pull/1109]
+    [PR #1100](https://github.com/aws-amplify/aws-sdk-ios/pull/1110)
+  * Fixed bug where the callback to `getSession` would not be given in case the customer dismisses the `SFSafariViewController`. See [PR #1109](https://github.com/aws-amplify/aws-sdk-ios/pull/1109)
 
 ## 2.7.1
 
@@ -23,11 +38,10 @@
 ### Bug Fixes
 
 * **Amazon Cognito Identity Provider**
-    - Deprecate `claims` property of `AWSCognitoIdentityUserSessionToken` since
+  * Deprecate `claims` property of `AWSCognitoIdentityUserSessionToken` since
       it incorrectly declares the type as `NSDictionary<NSString*, NSString*>`.
       Instead, callers should use `tokenClaims`, which has the proper type of
-      `NSDictionary<NSString*, id>`. See [PR
-      #1068](https://github.com/aws-amplify/aws-sdk-ios/pull/1068)
+      `NSDictionary<NSString*, id>`. See [PR #1068](https://github.com/aws-amplify/aws-sdk-ios/pull/1068)
 
        > Note: The existing `claims` property is deprecated and will be removed in a future minor version.
 
@@ -40,7 +54,7 @@
 
 ### New Features
 
-* ** AWS Mobile Client**
+* **AWS Mobile Client**
   * The `AWSMobileClient` provides client APIs and building blocks for developers who want to create user authentication experiences.  It supports the following new features:
     - User state tracking: `AWSMobileClient` offers on-demand querying for the “login state” of a user in the application. 
     - Credentials management: Automatic refreshing of `Cognito User Pools` `JWT Token` and `AWS Credentials` from `Cognito Identity`.
@@ -50,7 +64,7 @@
 
 > Note: The existing methods of `AWSMobileClient` are deprecated and will be removed in a future minor version. `AWSMobileClient` now takes a dependency on `AWSCognitoIdentityProvider`(Cognito User Pools SDK) package to offer integration with `CognitoUserPools`. When using the new drop-in UI, `AWSAuthUI` and `Social sign-in` features continue to be pluggable dependencies for `AWSMobileClient`.
 
-All documentation is now centralized at https://aws-amplify.github.io/
+All documentation is now centralized at [https://aws-amplify.github.io/](https://aws-amplify.github.io/)
 
 ## 2.6.35
 

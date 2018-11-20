@@ -26,7 +26,7 @@
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
-NSString *const AWSSNSSDKVersion = @"2.7.2";
+NSString *const AWSSNSSDKVersion = @"2.7.3";
 
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer
@@ -46,6 +46,13 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InternalError" : @(AWSSNSErrorInternalError),
                             @"InvalidParameter" : @(AWSSNSErrorInvalidParameter),
                             @"ParameterValueInvalid" : @(AWSSNSErrorInvalidParameterValue),
+                            @"InvalidSecurity" : @(AWSSNSErrorInvalidSecurity),
+                            @"KMSAccessDenied" : @(AWSSNSErrorKMSAccessDenied),
+                            @"KMSDisabled" : @(AWSSNSErrorKMSDisabled),
+                            @"KMSInvalidState" : @(AWSSNSErrorKMSInvalidState),
+                            @"KMSNotFound" : @(AWSSNSErrorKMSNotFound),
+                            @"KMSOptInRequired" : @(AWSSNSErrorKMSOptInRequired),
+                            @"KMSThrottling" : @(AWSSNSErrorKMSThrottling),
                             @"NotFound" : @(AWSSNSErrorNotFound),
                             @"PlatformApplicationDisabled" : @(AWSSNSErrorPlatformApplicationDisabled),
                             @"SubscriptionLimitExceeded" : @(AWSSNSErrorSubscriptionLimitExceeded),

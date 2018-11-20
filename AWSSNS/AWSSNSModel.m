@@ -122,6 +122,7 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"attributes" : @"Attributes",
              @"name" : @"Name",
              };
 }
