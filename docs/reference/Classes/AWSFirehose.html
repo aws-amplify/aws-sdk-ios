@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.7.2 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.7.3 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -105,6 +105,14 @@
 		<option value="//api/name/putRecordBatch:">- putRecordBatch:</option>
 		
 		<option value="//api/name/putRecordBatch:completionHandler:">- putRecordBatch:completionHandler:</option>
+		
+		<option value="//api/name/startDeliveryStreamEncryption:">- startDeliveryStreamEncryption:</option>
+		
+		<option value="//api/name/startDeliveryStreamEncryption:completionHandler:">- startDeliveryStreamEncryption:completionHandler:</option>
+		
+		<option value="//api/name/stopDeliveryStreamEncryption:">- stopDeliveryStreamEncryption:</option>
+		
+		<option value="//api/name/stopDeliveryStreamEncryption:completionHandler:">- stopDeliveryStreamEncryption:completionHandler:</option>
 		
 		<option value="//api/name/tagDeliveryStream:">- tagDeliveryStream:</option>
 		
@@ -1062,10 +1070,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Lists your delivery streams.</p>
+				<p>Lists your delivery streams in alphabetical order of their names.</p>
 
 
-<p>The number of delivery streams might be too large to return using a single call to <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned, using the <b>Limit</b> parameter. To determine whether there are more delivery streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the <code>ExclusiveStartDeliveryStreamName</code> parameter of a subsequent call.</p>
+<p>The number of delivery streams might be too large to return using a single call to <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned, using the <b>Limit</b> parameter. To determine whether there are more delivery streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If there are more delivery streams to list, you can request them by calling this operation again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the name of the last delivery stream returned in the last call.</p>
 
 			</div>
 			
@@ -1135,10 +1143,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Lists your delivery streams.</p>
+				<p>Lists your delivery streams in alphabetical order of their names.</p>
 
 
-<p>The number of delivery streams might be too large to return using a single call to <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned, using the <b>Limit</b> parameter. To determine whether there are more delivery streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If there are more delivery streams to list, you can request them by specifying the name of the last delivery stream returned in the call in the <code>ExclusiveStartDeliveryStreamName</code> parameter of a subsequent call.</p>
+<p>The number of delivery streams might be too large to return using a single call to <code>ListDeliveryStreams</code>. You can limit the number of delivery streams returned, using the <b>Limit</b> parameter. To determine whether there are more delivery streams to list, check the value of <code>HasMoreDeliveryStreams</code> in the output. If there are more delivery streams to list, you can request them by calling this operation again and setting the <code>ExclusiveStartDeliveryStreamName</code> parameter to the name of the last delivery stream returned in the last call.</p>
 
 			</div>
 			
@@ -1372,6 +1380,8 @@
 
 <p>Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it tries to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.</p>
 
+
+<p><important><p>Don&rsquo;t concatenate two or more base64 strings to form the data fields of your records. Instead, concatenate the raw data, then perform base64 encoding.</p></important></p>
 			</div>
 			
 		    
@@ -1460,6 +1470,8 @@
 
 <p>Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it tries to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.</p>
 
+
+<p><important><p>Don&rsquo;t concatenate two or more base64 strings to form the data fields of your records. Instead, concatenate the raw data, then perform base64 encoding.</p></important></p>
 			</div>
 			
 		    
@@ -1545,10 +1557,10 @@
 <p>Kinesis Data Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (<code>\n</code>) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination.</p>
 
 
-<p>The <a>PutRecordBatch</a> response includes a count of failed records, <b>FailedPutCount</b>, and an array of responses, <b>RequestResponses</b>. Each entry in the <b>RequestResponses</b> array provides additional information about the processed record. It directly correlates with a record in the request array using the same ordering, from the top to the bottom. The response array always includes the same number of records as the request array. <b>RequestResponses</b> includes both successfully and unsuccessfully processed records. Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a> request. A single record failure does not stop the processing of subsequent records.</p>
+<p>The <a>PutRecordBatch</a> response includes a count of failed records, <b>FailedPutCount</b>, and an array of responses, <b>RequestResponses</b>. Even if the <a>PutRecordBatch</a> call succeeds, the value of <b>FailedPutCount</b> may be greater than 0, indicating that there are records for which the operation didn't succeed. Each entry in the <b>RequestResponses</b> array provides additional information about the processed record. It directly correlates with a record in the request array using the same ordering, from the top to the bottom. The response array always includes the same number of records as the request array. <b>RequestResponses</b> includes both successfully and unsuccessfully processed records. Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a> request. A single record failure does not stop the processing of subsequent records. </p>
 
 
-<p>A successfully processed record includes a <b>RecordId</b> value, which is unique for the record. An unsuccessfully processed record includes <b>ErrorCode</b> and <b>ErrorMessage</b> values. <b>ErrorCode</b> reflects the type of error, and is one of the following values: <code>ServiceUnavailable</code> or <code>InternalFailure</code>. <b>ErrorMessage</b> provides more detailed information about the error.</p>
+<p>A successfully processed record includes a <b>RecordId</b> value, which is unique for the record. An unsuccessfully processed record includes <b>ErrorCode</b> and <b>ErrorMessage</b> values. <b>ErrorCode</b> reflects the type of error, and is one of the following values: <code>ServiceUnavailableException</code> or <code>InternalFailure</code>. <b>ErrorMessage</b> provides more detailed information about the error.</p>
 
 
 <p>If there is an internal server error or a timeout, the write might have completed or it might have failed. If <b>FailedPutCount</b> is greater than 0, retry the request, resending only those records that might have failed processing. This minimizes the possible duplicate records and also reduces the total bytes sent (and corresponding charges). We recommend that you handle any duplicates at the destination.</p>
@@ -1559,6 +1571,8 @@
 
 <p>Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it attempts to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.</p>
 
+
+<p><important><p>Don&rsquo;t concatenate two or more base64 strings to form the data fields of your records. Instead, concatenate the raw data, then perform base64 encoding.</p></important></p>
 			</div>
 			
 		    
@@ -1642,10 +1656,10 @@
 <p>Kinesis Data Firehose buffers records before delivering them to the destination. To disambiguate the data blobs at the destination, a common solution is to use delimiters in the data, such as a newline (<code>\n</code>) or some other character unique within the data. This allows the consumer application to parse individual data items when reading the data from the destination.</p>
 
 
-<p>The <a>PutRecordBatch</a> response includes a count of failed records, <b>FailedPutCount</b>, and an array of responses, <b>RequestResponses</b>. Each entry in the <b>RequestResponses</b> array provides additional information about the processed record. It directly correlates with a record in the request array using the same ordering, from the top to the bottom. The response array always includes the same number of records as the request array. <b>RequestResponses</b> includes both successfully and unsuccessfully processed records. Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a> request. A single record failure does not stop the processing of subsequent records.</p>
+<p>The <a>PutRecordBatch</a> response includes a count of failed records, <b>FailedPutCount</b>, and an array of responses, <b>RequestResponses</b>. Even if the <a>PutRecordBatch</a> call succeeds, the value of <b>FailedPutCount</b> may be greater than 0, indicating that there are records for which the operation didn't succeed. Each entry in the <b>RequestResponses</b> array provides additional information about the processed record. It directly correlates with a record in the request array using the same ordering, from the top to the bottom. The response array always includes the same number of records as the request array. <b>RequestResponses</b> includes both successfully and unsuccessfully processed records. Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a> request. A single record failure does not stop the processing of subsequent records. </p>
 
 
-<p>A successfully processed record includes a <b>RecordId</b> value, which is unique for the record. An unsuccessfully processed record includes <b>ErrorCode</b> and <b>ErrorMessage</b> values. <b>ErrorCode</b> reflects the type of error, and is one of the following values: <code>ServiceUnavailable</code> or <code>InternalFailure</code>. <b>ErrorMessage</b> provides more detailed information about the error.</p>
+<p>A successfully processed record includes a <b>RecordId</b> value, which is unique for the record. An unsuccessfully processed record includes <b>ErrorCode</b> and <b>ErrorMessage</b> values. <b>ErrorCode</b> reflects the type of error, and is one of the following values: <code>ServiceUnavailableException</code> or <code>InternalFailure</code>. <b>ErrorMessage</b> provides more detailed information about the error.</p>
 
 
 <p>If there is an internal server error or a timeout, the write might have completed or it might have failed. If <b>FailedPutCount</b> is greater than 0, retry the request, resending only those records that might have failed processing. This minimizes the possible duplicate records and also reduces the total bytes sent (and corresponding charges). We recommend that you handle any duplicates at the destination.</p>
@@ -1656,6 +1670,8 @@
 
 <p>Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they are added to a delivery stream as it attempts to send the records to the destination. If the destination is unreachable for more than 24 hours, the data is no longer available.</p>
 
+
+<p><important><p>Don&rsquo;t concatenate two or more base64 strings to form the data fields of your records. Instead, concatenate the raw data, then perform base64 encoding.</p></important></p>
 			</div>
 			
 		    
@@ -1700,6 +1716,320 @@
 					<li><code><p><a href="../Classes/AWSFirehosePutRecordBatchInput.html">AWSFirehosePutRecordBatchInput</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSFirehosePutRecordBatchOutput.html">AWSFirehosePutRecordBatchOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startDeliveryStreamEncryption:" title="startDeliveryStreamEncryption:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startDeliveryStreamEncryption:">&ndash;&nbsp;startDeliveryStreamEncryption:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Enables server-side encryption (SSE) for the delivery stream. This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Firehose first sets the status of the stream to <code>ENABLING</code> then to <code>ENABLED</code>. You can continue to read and write data to your stream while its status is <code>ENABLING</code> but they won't get encrypted. It can take up to 5 seconds after the encryption status changes to <code>ENABLED</code> before all records written to the delivery stream are encrypted.</p>
+
+
+<p>To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>. </p>
+
+
+<p>You can only enable SSE for a delivery stream that uses <code>DirectPut</code> as its source. </p>
+
+
+<p>The <code>StartDeliveryStreamEncryption</code> and <code>StopDeliveryStreamEncryption</code> operations have a combined limit of 25 calls per delivery stream per 24 hours. For example, you reach the limit if you call <code>StartDeliveryStreamEncryption</code> thirteen times and <code>StopDeliveryStreamEncryption</code> twelve times for the same stream in a 24-hour period.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSFirehoseStartDeliveryStreamEncryptionOutput*&gt; *)startDeliveryStreamEncryption:(AWSFirehoseStartDeliveryStreamEncryptionInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StartDeliveryStreamEncryption service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSFirehoseStartDeliveryStreamEncryptionOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSFirehoseErrorDomain</code> domain and the following error code: <code>AWSFirehoseErrorResourceNotFound</code>, <code>AWSFirehoseErrorResourceInUse</code>, <code>AWSFirehoseErrorInvalidArgument</code>, <code>AWSFirehoseErrorLimitExceeded</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSFirehoseStartDeliveryStreamEncryptionInput.html">AWSFirehoseStartDeliveryStreamEncryptionInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSFirehoseStartDeliveryStreamEncryptionOutput.html">AWSFirehoseStartDeliveryStreamEncryptionOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startDeliveryStreamEncryption:completionHandler:" title="startDeliveryStreamEncryption:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startDeliveryStreamEncryption:completionHandler:">&ndash;&nbsp;startDeliveryStreamEncryption:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Enables server-side encryption (SSE) for the delivery stream. This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Firehose first sets the status of the stream to <code>ENABLING</code> then to <code>ENABLED</code>. You can continue to read and write data to your stream while its status is <code>ENABLING</code> but they won't get encrypted. It can take up to 5 seconds after the encryption status changes to <code>ENABLED</code> before all records written to the delivery stream are encrypted.</p>
+
+
+<p>To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>. </p>
+
+
+<p>You can only enable SSE for a delivery stream that uses <code>DirectPut</code> as its source. </p>
+
+
+<p>The <code>StartDeliveryStreamEncryption</code> and <code>StopDeliveryStreamEncryption</code> operations have a combined limit of 25 calls per delivery stream per 24 hours. For example, you reach the limit if you call <code>StartDeliveryStreamEncryption</code> thirteen times and <code>StopDeliveryStreamEncryption</code> twelve times for the same stream in a 24-hour period.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)startDeliveryStreamEncryption:(AWSFirehoseStartDeliveryStreamEncryptionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseStartDeliveryStreamEncryptionOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StartDeliveryStreamEncryption service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSFirehoseErrorDomain</code> domain and the following error code: <code>AWSFirehoseErrorResourceNotFound</code>, <code>AWSFirehoseErrorResourceInUse</code>, <code>AWSFirehoseErrorInvalidArgument</code>, <code>AWSFirehoseErrorLimitExceeded</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSFirehoseStartDeliveryStreamEncryptionInput.html">AWSFirehoseStartDeliveryStreamEncryptionInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSFirehoseStartDeliveryStreamEncryptionOutput.html">AWSFirehoseStartDeliveryStreamEncryptionOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopDeliveryStreamEncryption:" title="stopDeliveryStreamEncryption:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopDeliveryStreamEncryption:">&ndash;&nbsp;stopDeliveryStreamEncryption:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Disables server-side encryption (SSE) for the delivery stream. This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Firehose first sets the status of the stream to <code>DISABLING</code> then to <code>DISABLED</code>. You can continue to read and write data to your stream while its status is <code>DISABLING</code>. It can take up to 5 seconds after the encryption status changes to <code>DISABLED</code> before all records written to the delivery stream are no longer subject to encryption.</p>
+
+
+<p>To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>. </p>
+
+
+<p>The <code>StartDeliveryStreamEncryption</code> and <code>StopDeliveryStreamEncryption</code> operations have a combined limit of 25 calls per delivery stream per 24 hours. For example, you reach the limit if you call <code>StartDeliveryStreamEncryption</code> thirteen times and <code>StopDeliveryStreamEncryption</code> twelve times for the same stream in a 24-hour period.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSFirehoseStopDeliveryStreamEncryptionOutput*&gt; *)stopDeliveryStreamEncryption:(AWSFirehoseStopDeliveryStreamEncryptionInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StopDeliveryStreamEncryption service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSFirehoseStopDeliveryStreamEncryptionOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSFirehoseErrorDomain</code> domain and the following error code: <code>AWSFirehoseErrorResourceNotFound</code>, <code>AWSFirehoseErrorResourceInUse</code>, <code>AWSFirehoseErrorInvalidArgument</code>, <code>AWSFirehoseErrorLimitExceeded</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSFirehoseStopDeliveryStreamEncryptionInput.html">AWSFirehoseStopDeliveryStreamEncryptionInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSFirehoseStopDeliveryStreamEncryptionOutput.html">AWSFirehoseStopDeliveryStreamEncryptionOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSFirehoseService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopDeliveryStreamEncryption:completionHandler:" title="stopDeliveryStreamEncryption:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopDeliveryStreamEncryption:completionHandler:">&ndash;&nbsp;stopDeliveryStreamEncryption:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Disables server-side encryption (SSE) for the delivery stream. This operation is asynchronous. It returns immediately. When you invoke it, Kinesis Firehose first sets the status of the stream to <code>DISABLING</code> then to <code>DISABLED</code>. You can continue to read and write data to your stream while its status is <code>DISABLING</code>. It can take up to 5 seconds after the encryption status changes to <code>DISABLED</code> before all records written to the delivery stream are no longer subject to encryption.</p>
+
+
+<p>To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>. </p>
+
+
+<p>The <code>StartDeliveryStreamEncryption</code> and <code>StopDeliveryStreamEncryption</code> operations have a combined limit of 25 calls per delivery stream per 24 hours. For example, you reach the limit if you call <code>StartDeliveryStreamEncryption</code> thirteen times and <code>StopDeliveryStreamEncryption</code> twelve times for the same stream in a 24-hour period.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)stopDeliveryStreamEncryption:(AWSFirehoseStopDeliveryStreamEncryptionInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSFirehoseStopDeliveryStreamEncryptionOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StopDeliveryStreamEncryption service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSFirehoseErrorDomain</code> domain and the following error code: <code>AWSFirehoseErrorResourceNotFound</code>, <code>AWSFirehoseErrorResourceInUse</code>, <code>AWSFirehoseErrorInvalidArgument</code>, <code>AWSFirehoseErrorLimitExceeded</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSFirehoseStopDeliveryStreamEncryptionInput.html">AWSFirehoseStopDeliveryStreamEncryptionInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSFirehoseStopDeliveryStreamEncryptionOutput.html">AWSFirehoseStopDeliveryStreamEncryptionOutput</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -2209,7 +2539,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-15</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-19</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

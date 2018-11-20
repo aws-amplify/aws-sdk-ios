@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.7.2 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.7.3 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -328,7 +328,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p><fullname>Amazon EC2 Auto Scaling</fullname><p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing services.</p></p>
+						<p><fullname>Amazon EC2 Auto Scaling</fullname><p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service with AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing.</p><p>For more information, see the <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling User Guide</a>.</p></p>
 					</div>
 					
 					
@@ -1357,7 +1357,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged.</p>
+				<p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p>
 
 			</div>
 			
@@ -1427,7 +1427,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged.</p>
+				<p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p>
 
 			</div>
 			
@@ -2115,7 +2115,7 @@
 <p>If the group has policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p>
 
 
-<p>To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of instances and the option to decrement the desired capacity so that Amazon EC2 Auto Scaling does not launch replacement instances.</p>
+<p>To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement instances.</p>
 
 
 <p>To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a> and set the minimum size and desired capacity of the Auto Scaling group to zero.</p>
@@ -2195,7 +2195,7 @@
 <p>If the group has policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p>
 
 
-<p>To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of instances and the option to decrement the desired capacity so that Amazon EC2 Auto Scaling does not launch replacement instances.</p>
+<p>To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement instances.</p>
 
 
 <p>To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a> and set the minimum size and desired capacity of the Auto Scaling group to zero.</p>
@@ -3156,6 +3156,8 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
+					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeAccountLimitsAnswer.html">AWSAutoScalingDescribeAccountLimitsAnswer</a></p></code></li>
 					
 				</ul>
@@ -3229,6 +3231,8 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
+					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeAccountLimitsAnswer.html">AWSAutoScalingDescribeAccountLimitsAnswer</a></p></code></li>
 					
 				</ul>
@@ -3296,6 +3300,8 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
+					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeAdjustmentTypesAnswer.html">AWSAutoScalingDescribeAdjustmentTypesAnswer</a></p></code></li>
 					
@@ -3366,6 +3372,8 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
+					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeAdjustmentTypesAnswer.html">AWSAutoScalingDescribeAdjustmentTypesAnswer</a></p></code></li>
 					
@@ -3719,6 +3727,8 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
+					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer.html">AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer</a></p></code></li>
 					
 				</ul>
@@ -3788,6 +3798,8 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
+					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer.html">AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer</a></p></code></li>
 					
@@ -4005,6 +4017,8 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
+					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeLifecycleHookTypesAnswer.html">AWSAutoScalingDescribeLifecycleHookTypesAnswer</a></p></code></li>
 					
 				</ul>
@@ -4080,6 +4094,8 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
+					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeLifecycleHookTypesAnswer.html">AWSAutoScalingDescribeLifecycleHookTypesAnswer</a></p></code></li>
 					
@@ -4395,7 +4411,7 @@
 				<p>Describes the load balancers for the specified Auto Scaling group.</p>
 
 
-<p>Note that this operation describes only Classic Load Balancers. If you have Application Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.</p>
+<p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.</p>
 
 			</div>
 			
@@ -4468,7 +4484,7 @@
 				<p>Describes the load balancers for the specified Auto Scaling group.</p>
 
 
-<p>Note that this operation describes only Classic Load Balancers. If you have Application Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.</p>
+<p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.</p>
 
 			</div>
 			
@@ -4543,7 +4559,7 @@
 				<p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>
 
 
-<p>Note that the <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.</p>
+<p>The <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.</p>
 
 			</div>
 			
@@ -4584,6 +4600,8 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
+					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeMetricCollectionTypesAnswer.html">AWSAutoScalingDescribeMetricCollectionTypesAnswer</a></p></code></li>
 					
 				</ul>
@@ -4614,7 +4632,7 @@
 				<p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p>
 
 
-<p>Note that the <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.</p>
+<p>The <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.</p>
 
 			</div>
 			
@@ -4656,6 +4674,8 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
+					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeMetricCollectionTypesAnswer.html">AWSAutoScalingDescribeMetricCollectionTypesAnswer</a></p></code></li>
 					
@@ -5151,6 +5171,8 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
+					
 					<li><code><p><a href="../Classes/AWSAutoScalingProcessesType.html">AWSAutoScalingProcessesType</a></p></code></li>
 					
 				</ul>
@@ -5220,6 +5242,8 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
+					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSAutoScalingProcessesType.html">AWSAutoScalingProcessesType</a></p></code></li>
 					
@@ -5546,6 +5570,9 @@
 			<div class="method-subsection brief-description">
 				<p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
 
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which Auto Scaling Instances Terminate During Scale In</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+
 			</div>
 			
 		    
@@ -5585,6 +5612,8 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
+					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeTerminationPolicyTypesAnswer.html">AWSAutoScalingDescribeTerminationPolicyTypesAnswer</a></p></code></li>
 					
 				</ul>
@@ -5613,6 +5642,9 @@
 			
 			<div class="method-subsection brief-description">
 				<p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which Auto Scaling Instances Terminate During Scale In</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -5654,6 +5686,8 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
+					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSAutoScalingDescribeTerminationPolicyTypesAnswer.html">AWSAutoScalingDescribeTerminationPolicyTypesAnswer</a></p></code></li>
 					
@@ -5993,10 +6027,10 @@
 				<p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
 
 
-<p>Note that this operation detaches only Classic Load Balancers. If you have Application Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.</p>
+<p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.</p>
 
 
-<p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using <a>DescribeLoadBalancers</a>. Note that the instances remain running.</p>
+<p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using <a>DescribeLoadBalancers</a>. The instances remain running.</p>
 
 			</div>
 			
@@ -6069,10 +6103,10 @@
 				<p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
 
 
-<p>Note that this operation detaches only Classic Load Balancers. If you have Application Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.</p>
+<p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.</p>
 
 
-<p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using <a>DescribeLoadBalancers</a>. Note that the instances remain running.</p>
+<p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using <a>DescribeLoadBalancers</a>. The instances remain running.</p>
 
 			</div>
 			
@@ -6851,10 +6885,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates or updates a lifecycle hook for the specified Auto Scaling Group.</p>
+				<p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p>
 
 
-<p>A lifecycle hook tells Amazon EC2 Auto Scaling that you want to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p>
+<p>A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p>
 
 
 <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p>
@@ -6936,10 +6970,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates or updates a lifecycle hook for the specified Auto Scaling Group.</p>
+				<p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p>
 
 
-<p>A lifecycle hook tells Amazon EC2 Auto Scaling that you want to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p>
+<p>A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p>
 
 
 <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p>
@@ -7029,7 +7063,7 @@
 <p>This configuration overwrites any existing configuration.</p>
 
 
-<p>For more information see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -7103,7 +7137,7 @@
 <p>This configuration overwrites any existing configuration.</p>
 
 
-<p>For more information see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User Guide</i>.</p>
+<p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User Guide</i>.</p>
 
 			</div>
 			
@@ -7172,7 +7206,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.</p>
+				<p>Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.</p>
 
 
 <p>If you exceed your maximum limit of step adjustments, which by default is 20 per region, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -7245,7 +7279,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.</p>
+				<p>Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.</p>
 
 
 <p>If you exceed your maximum limit of step adjustments, which by default is 20 per region, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
@@ -7320,7 +7354,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged.</p>
+				<p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p>
 
 
 <p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -7391,7 +7425,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged.</p>
+				<p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p>
 
 
 <p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -8203,7 +8237,7 @@
 				<p>Suspends the specified automatic scaling processes, or all processes, for the specified Auto Scaling group.</p>
 
 
-<p>Note that if you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly.</p>
+<p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly.</p>
 
 
 <p>To resume processes that have been suspended, use <a>ResumeProcesses</a>.</p>
@@ -8280,7 +8314,7 @@
 				<p>Suspends the specified automatic scaling processes, or all processes, for the specified Auto Scaling group.</p>
 
 
-<p>Note that if you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly.</p>
+<p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly.</p>
 
 
 <p>To resume processes that have been suspended, use <a>ResumeProcesses</a>.</p>
@@ -8509,7 +8543,7 @@
 <p>The new settings take effect on any scaling activities after this call returns. Scaling activities that are currently in progress aren't affected.</p>
 
 
-<p>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to <code>false</code>, you must first disable the collection of group metrics. Otherwise, you will get an error. If you have previously enabled the collection of group metrics, you can disable it using <a>DisableMetricsCollection</a>.</p>
+<p>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to <code>false</code>, you must first disable the collection of group metrics. Otherwise, you get an error. If you have previously enabled the collection of group metrics, you can disable it using <a>DisableMetricsCollection</a>.</p>
 
 
 <p>Note the following:</p>
@@ -8589,7 +8623,7 @@
 <p>The new settings take effect on any scaling activities after this call returns. Scaling activities that are currently in progress aren't affected.</p>
 
 
-<p>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to <code>false</code>, you must first disable the collection of group metrics. Otherwise, you will get an error. If you have previously enabled the collection of group metrics, you can disable it using <a>DisableMetricsCollection</a>.</p>
+<p>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to <code>false</code>, you must first disable the collection of group metrics. Otherwise, you get an error. If you have previously enabled the collection of group metrics, you can disable it using <a>DisableMetricsCollection</a>.</p>
 
 
 <p>Note the following:</p>
@@ -8667,7 +8701,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-15</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-19</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

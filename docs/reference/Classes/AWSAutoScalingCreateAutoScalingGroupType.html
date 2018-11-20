@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.7.2 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.7.3 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -85,6 +85,8 @@
 		<option value="//api/name/maxSize">maxSize</option>
 		
 		<option value="//api/name/minSize">minSize</option>
+		
+		<option value="//api/name/mixedInstancesPolicy">mixedInstancesPolicy</option>
 		
 		<option value="//api/name/placementGroup">placementGroup</option>
 		
@@ -419,10 +421,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ID of the instance used to create a launch configuration for the group. You must specify one of the following: an EC2 instance, a launch configuration, or a launch template.</p>
+				<p>The ID of the instance used to create a launch configuration for the group. This parameter, a launch configuration, a launch template, or a mixed instances policy must be specified.</p>
 
 
-<p>When you specify an ID of an instance, Amazon EC2 Auto Scaling creates a new launch configuration and associates it with the group. This launch configuration derives its attributes from the specified instance, with the exception of the block device mapping.</p>
+<p>When you specify an ID of an instance, Amazon EC2 Auto Scaling creates a new launch configuration and associates it with the group. This launch configuration derives its attributes from the specified instance, except for the block device mapping.</p>
 
 
 <p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-from-instance.html">Create an Auto Scaling Group Using an EC2 Instance</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -467,7 +469,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the launch configuration. You must specify one of the following: a launch configuration, a launch template, or an EC2 instance.</p>
+				<p>The name of the launch configuration. This parameter, a launch template, a mixed instances policy, or an EC2 instance must be specified.</p>
 
 			</div>
 			
@@ -509,7 +511,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The launch template to use to launch instances. You must specify one of the following: a launch template, a launch configuration, or an EC2 instance.</p>
+				<p>The launch template to use to launch instances. This parameter, a launch configuration, a mixed instances policy, or an EC2 instance must be specified.</p>
 
 			</div>
 			
@@ -711,6 +713,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/mixedInstancesPolicy" title="mixedInstancesPolicy"></a>
+	<h3 class="method-title"><code><a href="#//api/name/mixedInstancesPolicy">&nbsp;&nbsp;mixedInstancesPolicy</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The mixed instances policy to use to launch instances. This parameter, a launch template, a launch configuration, or an EC2 instance must be specified.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSAutoScalingMixedInstancesPolicy *mixedInstancesPolicy</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSAutoScalingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/latestInstancesProtectedFromScaleIn" title="latestInstancesProtectedFromScaleIn"></a>
 	<h3 class="method-title"><code><a href="#//api/name/latestInstancesProtectedFromScaleIn">&nbsp;&nbsp;latestInstancesProtectedFromScaleIn</a></code>
 </h3>
@@ -764,7 +808,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the placement group into which you'll launch your instances, if any. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+				<p>The name of the placement group into which to launch your instances, if any. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
 			</div>
 			
@@ -1031,7 +1075,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-15</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-19</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
