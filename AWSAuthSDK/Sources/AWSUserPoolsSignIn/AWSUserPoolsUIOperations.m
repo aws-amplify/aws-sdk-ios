@@ -157,7 +157,7 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
 
 + (UIStoryboard *)getUIStoryboardFromBundle:(NSString *)storyboardName {
     NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
-    NSURL *url = [[currentBundle resourceURL] URLByAppendingPathComponent:RESOURCES_BUNDLE];
+    NSURL *url = [currentBundle resourceURL];
     AWSDDLogDebug(@"URL: %@", url);
     
     NSBundle *resourcesBundle = [NSBundle bundleWithURL:url];
