@@ -16,12 +16,12 @@
 #import "AWSS3TransferUtility.h"
 #import "AWSS3PreSignedURL.h"
 #import "AWSS3Service.h"
-#import "AWSSynchronizedMutableDictionary.h"
 #import "AWSXMLDictionary.h"
 #import "AWSS3TransferUtilityDatabaseHelper.h"
 #import "AWSS3TransferUtilityTasks.h"
 
-#import "AWSFMDB.h"
+#import <AWSCore/AWSFMDB.h>
+#import <AWSCore/AWSSynchronizedMutableDictionary.h>
 
 // Public constants
 NSString *const AWSS3TransferUtilityErrorDomain = @"com.amazonaws.AWSS3TransferUtilityErrorDomain";
