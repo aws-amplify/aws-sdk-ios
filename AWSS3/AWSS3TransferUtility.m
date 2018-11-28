@@ -1857,7 +1857,12 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
 #pragma mark - UIApplicationDelegate interceptor
 
+
+#if TARGET_OS_MAC && !TARGET_OS_IPHONE
++ (void)interceptApplication:(NSApplication *)application
+#else
 + (void)interceptApplication:(UIApplication *)application
+#endif
 handleEventsForBackgroundURLSession:(NSString *)identifier
            completionHandler:(void (^)(void))completionHandler {
     AWSDDLogDebug(@"interceptApplication called for URLSession [%@]", identifier);

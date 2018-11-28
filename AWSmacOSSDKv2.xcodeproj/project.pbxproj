@@ -1159,7 +1159,6 @@
 		EFF1B9F21CBC42FF001F4CF1 /* aws_tommath_class.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF1B9EE1CBC42FF001F4CF1 /* aws_tommath_class.h */; };
 		EFF1B9F31CBC42FF001F4CF1 /* aws_tommath_superclass.h in Headers */ = {isa = PBXBuildFile; fileRef = EFF1B9EF1CBC42FF001F4CF1 /* aws_tommath_superclass.h */; };
 		EFF1B9F41CBC42FF001F4CF1 /* tommath.c in Sources */ = {isa = PBXBuildFile; fileRef = EFF1B9F01CBC42FF001F4CF1 /* tommath.c */; };
-		FA4DB84D2199E33C00AE7F20 /* AWSCognitoIdentityProviderSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4DB84C2199E33C00AE7F20 /* AWSCognitoIdentityProviderSwiftTests.swift */; };
 		FA62A7172167C9F100EFB444 /* AWSGZIPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */; };
 		FA99CF25216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h in Headers */ = {isa = PBXBuildFile; fileRef = FA99CF23216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h */; };
 		FA99CF26216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF24216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.m */; };
@@ -4100,8 +4099,6 @@
 		EFF1B9EE1CBC42FF001F4CF1 /* aws_tommath_class.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aws_tommath_class.h; sourceTree = "<group>"; };
 		EFF1B9EF1CBC42FF001F4CF1 /* aws_tommath_superclass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aws_tommath_superclass.h; sourceTree = "<group>"; };
 		EFF1B9F01CBC42FF001F4CF1 /* tommath.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tommath.c; sourceTree = "<group>"; };
-		FA4DB84B2199E33B00AE7F20 /* AWSCognitoIdentityProviderUnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoIdentityProviderUnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		FA4DB84C2199E33C00AE7F20 /* AWSCognitoIdentityProviderSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSCognitoIdentityProviderSwiftTests.swift; sourceTree = "<group>"; };
 		FA62A7152167C9F100EFB444 /* AWSGZIPBaseTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSGZIPBaseTestCase.h; sourceTree = "<group>"; };
 		FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPBaseTestCase.m; sourceTree = "<group>"; };
 		FA99CF23216C0E190086F9A7 /* AWSGZIPEncodingJSONRequestSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSGZIPEncodingJSONRequestSerializer.h; sourceTree = "<group>"; };
@@ -4110,7 +4107,6 @@
 		FA99CF2C216C13E30086F9A7 /* AWSFirehoseSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSFirehoseSerializer.h; sourceTree = "<group>"; };
 		FA99CF2F216C14240086F9A7 /* AWSFirehoseSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSFirehoseSerializer.m; sourceTree = "<group>"; };
 		FA99CF31216C144F0086F9A7 /* AWSKinesisSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisSerializer.m; sourceTree = "<group>"; };
-		FA9E3E1A2199ED2600C65B0A /* AWSCognitoIdentityProvider+TestUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoIdentityProvider+TestUtils.h"; sourceTree = "<group>"; };
 		FABCFA622167D1F800C6F1FF /* AWSGZIPEncodingFirehoseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingFirehoseTests.m; sourceTree = "<group>"; };
 		FAEE86AB2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingKinesisTests.m; sourceTree = "<group>"; };
 		FAF13AAE2167C6AA008115D1 /* AWSGZIPTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSGZIPTestHelper.h; sourceTree = "<group>"; };
@@ -6881,9 +6877,6 @@
 		CEA316C11C93A415002A9F58 /* AWSCognitoIdentityProviderUnitTests */ = {
 			isa = PBXGroup;
 			children = (
-				FA9E3E1A2199ED2600C65B0A /* AWSCognitoIdentityProvider+TestUtils.h */,
-				FA4DB84C2199E33C00AE7F20 /* AWSCognitoIdentityProviderSwiftTests.swift */,
-				FA4DB84B2199E33B00AE7F20 /* AWSCognitoIdentityProviderUnitTests-Bridging-Header.h */,
 				CEE5AF301CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m */,
 				CEE5AF311CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m */,
 				CEA316C41C93A415002A9F58 /* Info.plist */,
@@ -9613,7 +9606,6 @@
 					};
 					181154751E201403008F184C = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = PXZ9H8P4AQ;
 						ProvisioningStyle = Automatic;
 					};
 					181270C01E8EB53900174785 = {
@@ -9886,7 +9878,6 @@
 					};
 					CEA316BF1C93A415002A9F58 = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 1000;
 					};
 					CEEF67961CEF8E37000110B0 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -11830,7 +11821,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA4DB84D2199E33C00AE7F20 /* AWSCognitoIdentityProviderSwiftTests.swift in Sources */,
 				CEA316CC1C93A460002A9F58 /* AWSTestUtility.m in Sources */,
 				CEE5AF331CE126C3008265A3 /* AWSGeneralCognitoIdentityProviderTests.m in Sources */,
 				CEE5AF321CE126C3008265A3 /* AWSCognitoIdentityProviderUnitTests.m in Sources */,
@@ -13473,7 +13463,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = PXZ9H8P4AQ;
 				INFOPLIST_FILE = AWSAllTestsHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -13491,7 +13480,6 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = PXZ9H8P4AQ;
 				INFOPLIST_FILE = AWSAllTestsHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -16519,7 +16507,6 @@
 		CEA316C91C93A415002A9F58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSCognitoIdentityProviderUnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -16530,16 +16517,12 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSCognitoIdentityProviderUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AWSCognitoIdentityProviderUnitTests/AWSCognitoIdentityProviderUnitTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		CEA316CA1C93A415002A9F58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSCognitoIdentityProviderUnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -16550,8 +16533,6 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSCognitoIdentityProviderUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "AWSCognitoIdentityProviderUnitTests/AWSCognitoIdentityProviderUnitTests-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

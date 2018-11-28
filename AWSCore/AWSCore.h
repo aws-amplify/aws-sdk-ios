@@ -13,7 +13,17 @@
 // permissions and limitations under the License.
 //
 
+#import <Foundation/Foundation.h>
+
+#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
+#endif
+
+//! Project version number for AWSCore.
+FOUNDATION_EXPORT double AWSCoreVersionNumber;
+
+//! Project version string for AWSCore.
+FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[];
 
 /*!
  Project version number for the AWSCore framework.
