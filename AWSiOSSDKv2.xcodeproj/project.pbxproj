@@ -336,7 +336,6 @@
 		9A2562ED20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2562EB20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.m */; };
 		9A2562F320E2E4D400D2451E /* AWSS3TransferUtilityTasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A2562F220E2E4D400D2451E /* AWSS3TransferUtilityTasks.m */; };
 		9A2562F520E31B7A00D2451E /* AWSS3TransferUtilityTasks.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A2562F420E2E50A00D2451E /* AWSS3TransferUtilityTasks.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9A293CF0203885A300A12241 /* AWSS3TransferUtility+Validation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A293CEE203885A300A12241 /* AWSS3TransferUtility+Validation.h */; };
 		9A293CF1203885A300A12241 /* AWSS3TransferUtility+Validation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A293CEF203885A300A12241 /* AWSS3TransferUtility+Validation.m */; };
 		9A7ACC3520B0E85100DDBEC1 /* AWSTranslate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7ACC2020B0E85000DDBEC1 /* AWSTranslate.framework */; };
 		9A7ACC3620B0E85100DDBEC1 /* AWSTranslate.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9A7ACC2020B0E85000DDBEC1 /* AWSTranslate.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -3274,7 +3273,6 @@
 		9A2562EB20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSS3TransferUtility+HeaderHelper.m"; sourceTree = "<group>"; };
 		9A2562F220E2E4D400D2451E /* AWSS3TransferUtilityTasks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtilityTasks.m; sourceTree = "<group>"; };
 		9A2562F420E2E50A00D2451E /* AWSS3TransferUtilityTasks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSS3TransferUtilityTasks.h; sourceTree = "<group>"; };
-		9A293CEE203885A300A12241 /* AWSS3TransferUtility+Validation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSS3TransferUtility+Validation.h"; sourceTree = "<group>"; };
 		9A293CEF203885A300A12241 /* AWSS3TransferUtility+Validation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSS3TransferUtility+Validation.m"; sourceTree = "<group>"; };
 		9A7ACC2020B0E85000DDBEC1 /* AWSTranslate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSTranslate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A7ACC2320B0E85100DDBEC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -6538,7 +6536,6 @@
 				CE9DE9E01C6A7C5E0060793F /* AWSS3TransferUtility.m */,
 				9A2562EA20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.h */,
 				9A2562EB20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.m */,
-				9A293CEE203885A300A12241 /* AWSS3TransferUtility+Validation.h */,
 				9A293CEF203885A300A12241 /* AWSS3TransferUtility+Validation.m */,
 				9A82CE5420E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.h */,
 				9A82CE5520E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.m */,
@@ -7566,7 +7563,6 @@
 			files = (
 				CE9DE9E31C6A7C5E0060793F /* AWSS3PreSignedURL.h in Headers */,
 				9A2562EC20E2E0D100D2451E /* AWSS3TransferUtility+HeaderHelper.h in Headers */,
-				9A293CF0203885A300A12241 /* AWSS3TransferUtility+Validation.h in Headers */,
 				CE9DE9E91C6A7C5E0060793F /* AWSS3TransferManager.h in Headers */,
 				18CDFB281D66561F0021B1DE /* AWSS3Serializer.h in Headers */,
 				CE9DE9E11C6A7C5E0060793F /* AWSS3Model.h in Headers */,
