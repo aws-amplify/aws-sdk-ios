@@ -763,7 +763,7 @@ static AWSPinpointEvent * extracted() {
     [[[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         XCTAssertNil(task.error);
-        XCTAssertTrue([[NSNumber numberWithInt:[task.result count]] isEqualToNumber:[NSNumber numberWithInt:0]]);
+        XCTAssertEqual([task.result count], 0);
         return nil;
     }] waitUntilFinished];
     
@@ -839,7 +839,7 @@ static AWSPinpointEvent * extracted() {
     [[[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         XCTAssertNil(task.error);
-        XCTAssertTrue([[NSNumber numberWithInt:[task.result count]] isEqualToNumber:[NSNumber numberWithInt:0]]);
+        XCTAssertEqual([task.result count], 0);
         return nil;
     }] waitUntilFinished];
     
@@ -914,7 +914,7 @@ static AWSPinpointEvent * extracted() {
     [[[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         XCTAssertNil(task.error);
-        XCTAssertTrue([[NSNumber numberWithInt:[task.result count]] isEqualToNumber:[NSNumber numberWithInt:0]]);
+        XCTAssertEqual([task.result count], 0);
         return nil;
     }] waitUntilFinished];
     
@@ -989,7 +989,7 @@ static AWSPinpointEvent * extracted() {
     [[[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         XCTAssertNil(task.error);
-        XCTAssertTrue([[NSNumber numberWithInt:[task.result count]] isEqualToNumber:[NSNumber numberWithInt:0]]);
+        XCTAssertEqual([task.result count], 0);
         return nil;
     }] waitUntilFinished];
     
@@ -1064,7 +1064,7 @@ static AWSPinpointEvent * extracted() {
     [[[pinpoint.analyticsClient.eventRecorder submitAllEvents] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         XCTAssertNotNil(task.result);
         XCTAssertNil(task.error);
-        XCTAssertTrue([[NSNumber numberWithInt:[task.result count]] isEqualToNumber:[NSNumber numberWithInt:0]]);
+        XCTAssertEqual([task.result count], 0);
         return nil;
     }] waitUntilFinished];
     

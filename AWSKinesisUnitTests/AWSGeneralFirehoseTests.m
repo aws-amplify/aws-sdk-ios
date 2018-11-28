@@ -393,6 +393,102 @@ static id mockNetworking = nil;
     [AWSFirehose removeFirehoseForKey:key];
 }
 
+- (void)testStartDeliveryStreamEncryption {
+    NSString *key = @"testStartDeliveryStreamEncryption";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSFirehose registerFirehoseWithConfiguration:configuration forKey:key];
+
+    AWSFirehose *awsClient = [AWSFirehose FirehoseForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSFirehose FirehoseForKey:key] startDeliveryStreamEncryption:[AWSFirehoseStartDeliveryStreamEncryptionInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSFirehose removeFirehoseForKey:key];
+}
+
+- (void)testStartDeliveryStreamEncryptionCompletionHandler {
+    NSString *key = @"testStartDeliveryStreamEncryption";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSFirehose registerFirehoseWithConfiguration:configuration forKey:key];
+
+    AWSFirehose *awsClient = [AWSFirehose FirehoseForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSFirehose FirehoseForKey:key] startDeliveryStreamEncryption:[AWSFirehoseStartDeliveryStreamEncryptionInput new] completionHandler:^(AWSFirehoseStartDeliveryStreamEncryptionOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSFirehose removeFirehoseForKey:key];
+}
+
+- (void)testStopDeliveryStreamEncryption {
+    NSString *key = @"testStopDeliveryStreamEncryption";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSFirehose registerFirehoseWithConfiguration:configuration forKey:key];
+
+    AWSFirehose *awsClient = [AWSFirehose FirehoseForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSFirehose FirehoseForKey:key] stopDeliveryStreamEncryption:[AWSFirehoseStopDeliveryStreamEncryptionInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSFirehose removeFirehoseForKey:key];
+}
+
+- (void)testStopDeliveryStreamEncryptionCompletionHandler {
+    NSString *key = @"testStopDeliveryStreamEncryption";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSFirehose registerFirehoseWithConfiguration:configuration forKey:key];
+
+    AWSFirehose *awsClient = [AWSFirehose FirehoseForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSFirehose FirehoseForKey:key] stopDeliveryStreamEncryption:[AWSFirehoseStopDeliveryStreamEncryptionInput new] completionHandler:^(AWSFirehoseStopDeliveryStreamEncryptionOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSFirehose removeFirehoseForKey:key];
+}
+
 - (void)testTagDeliveryStream {
     NSString *key = @"testTagDeliveryStream";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
