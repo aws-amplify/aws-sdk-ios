@@ -1,6 +1,6 @@
 # AWS Mobile SDK for macOS
 
-The `aws-sdk-macos` branch of this fork is a port of version 2.7.0 of the AWS Mobile SDK for iOS to macOS. The port is only missing `AWSLex`, `AWSPinpoint`, and the `Cognito Auth` frameworks.
+The `aws-sdk-macos` branch of this fork is a port of version 2.7.3 of the AWS Mobile SDK for iOS to macOS. The port is only missing `AWSLex`, `AWSPinpoint`, and the `Cognito Auth` frameworks.
 
 To use the port in your macOS project:
 1. first clone or download this project to your Mac. 
@@ -13,23 +13,39 @@ To use the port in your macOS project:
 
 NOTE: while all these frameworks build, they have not been tested against the SDKs unit tests. I have not figured out how to run them yet.
 
-# AWS Mobile SDK for iOS
+# AWS SDK for iOS
 
-[![Release](https://img.shields.io/github/release/aws/aws-sdk-ios.svg)]()
-[![CocoaPods](https://img.shields.io/cocoapods/v/AWSiOSSDKv2.svg)]()
+[![Release](https://img.shields.io/github/release/aws/aws-sdk-ios.svg)](../../releases)
+[![CocoaPods](https://img.shields.io/cocoapods/v/AWSiOSSDKv2.svg)](https://cocoapods.org/pods/AWSiOSSDKv2)
+[![CocoaPods Downloads](https://img.shields.io/cocoapods/dt/AWSCore.svg)](https://cocoapods.org/pods/AWSiOSSDKv2)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Twitter Follow](https://img.shields.io/twitter/follow/AWSforMobile.svg?style=social&label=Follow)](https://twitter.com/AWSforMobile)
 
-## Setting Up
+The AWS SDK for iOS provides a library and documentation for developers to build connected mobile applications using AWS.
 
-To get started with the AWS SDK for iOS, check out the [AWS Mobile Developer Guide for iOS](https://docs.aws.amazon.com/aws-mobile/latest/developerguide/getting-started.html). You can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
+### Features / APIs
+
+- [__Authentication__](https://aws-amplify.github.io/docs/ios/authentication): APIs and building blocks for developers who want to create user authentication experiences.  
+- [__Analytics__](https://aws-amplify.github.io/docs/ios/analytics): Easily collect analytics data for your app. Analytics data includes user sessions and other custom events that you want to track in your app.  
+- [__API__](https://aws-amplify.github.io/docs/ios/api): Provides a simple solution when making HTTP requests. It provides an automatic, lightweight signing process which complies with AWS Signature Version 4.
+- [__Storage__](https://aws-amplify.github.io/docs/ios/storage): Provides a simple mechanism for managing user content for your app in public, protected or private storage buckets.  
+- [__Push Notifications__](https://aws-amplify.github.io/docs/ios/push-notifications): Allows you to integrate push notifications in your app with Amazon Pinpoint targeting and campaign management support.
+- [__PubSub__](https://aws-amplify.github.io/docs/ios/pubsub): Provides connectivity with cloud-based message-oriented middleware.  
+- [__Generated AWS Service Interfaces__](https://aws-amplify.github.io/docs/ios/manualsetup): Provides direct interaction with any AWS service. 
+
+#### Visit our [Web Site](https://aws-amplify.github.io) to learn more about Amplify Framework.
+
+* [Documentation](https://aws-amplify.github.io/docs)
+* [Setup](#setup)
+* [Examples](https://github.com/awslabs/aws-sdk-ios-samples)
+
+## Setup
+
+To get started with the AWS SDK for iOS, check out the [Developer Guide for iOS](https://aws-amplify.github.io/docs/ios/start). You can set up the SDK and start building a new project, or you integrate the SDK in an existing project. You can also run the samples to get a sense of how the SDK works.
 
 To use the AWS SDK for iOS, you will need the following installed on your development machine:
 
-* Xcode 7 or later
+* Xcode 9.2 or later
 * iOS 8 or later
-
-At the AWS GitHub repo, you can check out the [SDK source code](https://github.com/aws/aws-sdk-ios).
 
 ## Include the SDK for iOS in an Existing Application
 
@@ -144,7 +160,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
 
 ### Frameworks
 
-1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.5.0, the filename is `aws-ios-sdk-2.5.0`).
+1. Download the SDK from our [AWS Mobile SDK](http://aws.amazon.com/mobile/sdk) page. The SDK is stored in a compressed file archive named `aws-ios-sdk-#.#.#` (where `#.#.#` represents the version number, so for version 2.7.0, the filename is `aws-ios-sdk-2.7.0`).
 
 2. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
 
@@ -225,38 +241,6 @@ When we release a new version of the SDK, you can pick up the changes as describ
     * `AWSSQS.framework`
 
 2. Follow the installation process above to include the new version of the SDK.
-
-## Preparing your apps for iOS 9
-The release of iOS 9 includes changes that might impact how your apps interact with some AWS services. If you compile your apps with Apple’s iOS 9 SDK (or Xcode 7), Apple’s [App Transport Security (ATS)](https://developer.apple.com/library/prerelease/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html) feature may affect the ability of apps to connect to certain AWS service endpoints. In order to ensure affected apps continue to successfully connect to AWS endpoints, you’ll need to configure them to interact properly with Apple’s ATS by adding these properties to your `Info.plist` file:
-
-```xml
-<key>NSAppTransportSecurity</key>
-<dict>
-        <key>NSExceptionDomains</key>
-        <dict>
-        <key>amazonaws.com</key>
-        <dict>
-                <key>NSThirdPartyExceptionMinimumTLSVersion</key>
-                <string>TLSv1.0</string>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <false/>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-        </dict>
-        <key>amazonaws.com.cn</key>
-        <dict>
-                <key>NSThirdPartyExceptionMinimumTLSVersion</key>
-                <string>TLSv1.0</string>
-                <key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
-                <false/>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-        </dict>
-        </dict>
-</dict>
-```
-
-For more information, see [Preparing Your Apps for iOS 9](http://docs.aws.amazon.com/mobile/sdkforios/developerguide/ats.html).
 
 ## Getting Started with Swift
 
@@ -439,80 +423,15 @@ AWSDDLog.add(AWSDDTTYLogger.sharedInstance()) // TTY = Xcode console
 [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]]; // TTY = Xcode console
 ```
 
-## Sample Apps
-
-The AWS SDK for iOS includes sample apps that demonstrate common use cases.
-
-### Cognito Your User Pools Sample  ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/CognitoYourUserPools-Sample/Objective-C/))
-
-This sample demonstrates how sign up and sign in a user to display an authenticated portion of your app.
-
-### [DEPRECATED]Cognito Sync Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]CognitoSync-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]CognitoSync-Sample/Objective-C/))
-
-This sample demonstrates how to securely manage and sync your mobile app data and create unique identities via login providers including Facebook, Google, and Login with Amazon.
-This sample has been deprecated. Please use [AppSync Sample](https://github.com/aws-samples/aws-mobile-appsync-events-starter-ios) instead.
-
-#### AWS Services Demonstrated:
-
-* [Amazon Cognito Sync](http://aws.amazon.com/cognito/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-### [DEPRECATED]DynamoDB Object Mapper Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]DynamoDBObjectMapper-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]DynamoDBObjectMapper-Sample/Objective-C/))
-
-This sample demonstrates how to insert / update / delete / query items using DynamoDB Object Mapper.
-This sample has been deprecated. Please use [AppSync Sample](https://github.com/aws-samples/aws-mobile-appsync-events-starter-ios) instead.
-
-#### AWS Services Demonstrated:
-
-* [Amazon DynamoDB](http://aws.amazon.com/dynamodb/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-### [DEPRECATED]S3 Transfer Manager Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]S3TransferManager-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/[DEPRECATED]S3TransferManager-Sample/Objective-C/))
-
-This sample demonstrates how to upload / download multiple files simultaneously using S3 Transfer Manager. It also shows how to pause, resume, and cancel file upload / download.
-This sample has been deprecated. Please use [S3 TransferUtility Sample](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferUtility-Sample) instead.
-
-#### AWS Services Demonstrated:
-
-* [Amazon S3](http://aws.amazon.com/s3/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-### S3 Transfer Utility Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferUtility-Sample/Swift/), [Objective-C](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/S3TransferUtility-Sample/Objective-C/))
-
-This sample demonstrates how to use the Amazon S3 PreSigned URL Builder to download / upload files in background.
-
-#### AWS Services Demonstrated:
-
-* [Amazon S3](http://aws.amazon.com/s3/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-### IoT Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoT-Sample/Swift/))
-
-This sample demonstrates how to publish and subscribe to data using AWS IoT.
-
-#### AWS Services Demonstrated:
-
-* [Amazon AWS IoT](http://aws.amazon.com/iot/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
-### IoT Temperature Control Sample ([Swift](https://github.com/awslabs/aws-sdk-ios-samples/tree/master/IoTTemperatureControl-Sample/Swift/))
-
-This sample demonstrates accessing device shadows using Cognito authentication; it works in conjunction with the Temperature Control Example Program in the [AWS IoT JavaScript SDK for Embedded Devices](https://github.com/aws/aws-iot-device-sdk-js).
-
-#### AWS Services Demonstrated:
-
-* [Amazon AWS IoT](http://aws.amazon.com/iot/)
-* [Amazon Cognito Identity](http://aws.amazon.com/cognito/)
-
 ## Install the Reference Documentation in Xcode
 
 The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format that you can view within Xcode. The easiest way to install the documentation is to use the Mac OS X terminal.
 
 1. Open the Mac OS X terminal and go to the directory containing the expanded archive. For example:
 
-        $ cd ~/Downloads/aws-ios-sdk-2.5.0
+        $ cd ~/Downloads/aws-ios-sdk-2.7.0
 
-    **Note**: Remember to replace 2.5.0 in the example above with the actual version number of the AWS SDK for iOS that you downloaded.
+    **Note**: Remember to replace 2.7.0 in the example above with the actual version number of the AWS SDK for iOS that you downloaded.
 
 2. Create a directory called `~/Library/Developer/Shared/Documentation/DocSets`:
 
@@ -522,11 +441,11 @@ The AWS Mobile SDK for iOS zip file includes documentation in the DocSets format
 
         $ mv Documentation/com.amazon.aws.ios.docset ~/Library/Developer/Shared/Documentation/DocSets/
 
-4. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.5.0 Documentation** (where '2.5.0' is the appropriate version number).
+4. If Xcode was running during this procedure, restart Xcode. To browse the documentation, go to **Help**, click **Documentation and API Reference**, and select **AWS Mobile SDK for iOS v2.7.0 Documentation** (where '2.7.0' is the appropriate version number).
 
 ## Talk to Us
 
-Visit our GitHub [Issues](https://github.com/aws/aws-sdk-ios/issues) to leave feedback and to connect with other users of the SDK.
+Visit our GitHub [Issues](https://github.com/aws-amplify/aws-sdk-ios/issues) to leave feedback and to connect with other users of the SDK.
 
 ## Author
 

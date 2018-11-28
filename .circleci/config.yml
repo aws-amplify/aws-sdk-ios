@@ -8,7 +8,7 @@ jobs:
   release_carthage:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.0.0"
+      xcode: "9.2.0"
 
     steps: 
       - checkout
@@ -19,11 +19,11 @@ jobs:
           name: install github-release
           command: brew install github-release
       - run:
-          name: Build Cathage
+          name: Build Carthage
           command: carthage build --no-skip-current
 
       - run:
-          name: Create Cathage Archive
+          name: Create Carthage Archive
           command: bash CreateCarthageArchive.sh   
 
       - run:
@@ -70,6 +70,7 @@ jobs:
       - run:
           name: copy documents
           command: |
+            git config --local user.name "AWS"
             git checkout  gh-pages
             cp -R docs/html/*   docs/reference/
 

@@ -39,6 +39,14 @@ typedef NS_ENUM(NSInteger, AWSFirehoseCompressionFormat) {
     AWSFirehoseCompressionFormatSnappy,
 };
 
+typedef NS_ENUM(NSInteger, AWSFirehoseDeliveryStreamEncryptionStatus) {
+    AWSFirehoseDeliveryStreamEncryptionStatusUnknown,
+    AWSFirehoseDeliveryStreamEncryptionStatusEnabled,
+    AWSFirehoseDeliveryStreamEncryptionStatusEnabling,
+    AWSFirehoseDeliveryStreamEncryptionStatusDisabled,
+    AWSFirehoseDeliveryStreamEncryptionStatusDisabling,
+};
+
 typedef NS_ENUM(NSInteger, AWSFirehoseDeliveryStreamStatus) {
     AWSFirehoseDeliveryStreamStatusUnknown,
     AWSFirehoseDeliveryStreamStatusCreating,
@@ -145,6 +153,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseDeleteDeliveryStreamInput;
 @class AWSFirehoseDeleteDeliveryStreamOutput;
 @class AWSFirehoseDeliveryStreamDescription;
+@class AWSFirehoseDeliveryStreamEncryptionConfiguration;
 @class AWSFirehoseDescribeDeliveryStreamInput;
 @class AWSFirehoseDescribeDeliveryStreamOutput;
 @class AWSFirehoseDeserializer;
@@ -194,6 +203,10 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @class AWSFirehoseSplunkDestinationDescription;
 @class AWSFirehoseSplunkDestinationUpdate;
 @class AWSFirehoseSplunkRetryOptions;
+@class AWSFirehoseStartDeliveryStreamEncryptionInput;
+@class AWSFirehoseStartDeliveryStreamEncryptionOutput;
+@class AWSFirehoseStopDeliveryStreamEncryptionInput;
+@class AWSFirehoseStopDeliveryStreamEncryptionOutput;
 @class AWSFirehoseTag;
 @class AWSFirehoseTagDeliveryStreamInput;
 @class AWSFirehoseTagDeliveryStreamOutput;
@@ -313,6 +326,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  */
 @property (nonatomic, strong) AWSFirehoseSplunkDestinationConfiguration * _Nullable splunkDestinationConfiguration;
 
+/**
+ <p>A set of tags to assign to the delivery stream. A tag is a key-value pair that you can define and assign to AWS resources. Tags are metadata. For example, you can add friendly names and descriptions or other types of information that can help you distinguish the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the AWS Billing and Cost Management User Guide.</p><p>You can specify up to 50 tags when creating a delivery stream.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSFirehoseTag *> * _Nullable tags;
+
 @end
 
 /**
@@ -395,6 +413,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable deliveryStreamARN;
 
 /**
+ <p>Indicates the server-side encryption (SSE) status for the delivery stream.</p>
+ */
+@property (nonatomic, strong) AWSFirehoseDeliveryStreamEncryptionConfiguration * _Nullable deliveryStreamEncryptionConfiguration;
+
+/**
  <p>The name of the delivery stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable deliveryStreamName;
@@ -433,6 +456,19 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>Each time the destination is updated for a delivery stream, the version ID is changed, and the current version ID is required when updating the destination. This is so that the service knows it is applying the changes to the correct version of the delivery stream.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable versionId;
+
+@end
+
+/**
+ <p>Indicates the server-side encryption (SSE) status for the delivery stream.</p>
+ */
+@interface AWSFirehoseDeliveryStreamEncryptionConfiguration : AWSModel
+
+
+/**
+ <p>For a full description of the different values of this status, see <a>StartDeliveryStreamEncryption</a> and <a>StopDeliveryStreamEncryption</a>.</p>
+ */
+@property (nonatomic, assign) AWSFirehoseDeliveryStreamEncryptionStatus status;
 
 @end
 
@@ -1048,7 +1084,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, assign) AWSFirehoseDeliveryStreamType deliveryStreamType;
 
 /**
- <p>The name of the delivery stream to start the list with.</p>
+ <p>The list of delivery streams returned by this call to <code>ListDeliveryStreams</code> will start with the delivery stream whose name comes alphabetically immediately after the name you specify in <code>ExclusiveStartDeliveryStreamName</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable exclusiveStartDeliveryStreamName;
 
@@ -1331,7 +1367,12 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 
 /**
- <p>The number of records that might have failed processing.</p>
+ <p>Indicates whether server-side encryption (SSE) was enabled during this operation.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable encrypted;
+
+/**
+ <p>The number of records that might have failed processing. This number might be greater than 0 even if the <a>PutRecordBatch</a> call succeeds. Check <code>FailedPutCount</code> to determine whether there are records that you need to resend.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable failedPutCount;
 
@@ -1390,6 +1431,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 
 /**
+ <p>Indicates whether server-side encryption (SSE) was enabled during this operation.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable encrypted;
+
+/**
  <p>The ID of the record.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable recordId;
@@ -1404,7 +1450,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 
 /**
- <p>The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KB.</p>
+ <p>The data blob, which is base64-encoded when the blob is serialized. The maximum size of the data blob, before base64-encoding, is 1,000 KiB.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable data;
 
@@ -1979,6 +2025,48 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The total amount of time that Kinesis Data Firehose spends on retries. This duration starts after the initial attempt to send data to Splunk fails. It doesn't include the periods during which Kinesis Data Firehose waits for acknowledgment from Splunk after each attempt.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable durationInSeconds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSFirehoseStartDeliveryStreamEncryptionInput : AWSRequest
+
+
+/**
+ <p>The name of the delivery stream for which you want to enable server-side encryption (SSE).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryStreamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSFirehoseStartDeliveryStreamEncryptionOutput : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSFirehoseStopDeliveryStreamEncryptionInput : AWSRequest
+
+
+/**
+ <p>The name of the delivery stream for which you want to disable server-side encryption (SSE).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryStreamName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSFirehoseStopDeliveryStreamEncryptionOutput : AWSModel
+
 
 @end
 
