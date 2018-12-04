@@ -401,7 +401,7 @@ extension AWSMobileClient {
         } else {
             user!.getSession(username, password: password, validationData: validationAttributes).continueWith { (task) -> Any? in
                 if let error = task.error {
-                    self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, error)
+                    self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, self.getMobileError(for: error))
                     self.userpoolOpsHelper.currentSignInHandlerCallback = nil
                 } else if let result = task.result {
                     self.internalCredentialsProvider?.clearCredentials()
