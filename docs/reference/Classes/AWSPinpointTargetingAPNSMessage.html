@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.7.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.7.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -64,9 +64,15 @@
 		
 		<option value="//api/name/category">category</option>
 		
+		<option value="//api/name/collapseId">collapseId</option>
+		
 		<option value="//api/name/data">data</option>
 		
 		<option value="//api/name/mediaUrl">mediaUrl</option>
+		
+		<option value="//api/name/preferredAuthenticationMethod">preferredAuthenticationMethod</option>
+		
+		<option value="//api/name/priority">priority</option>
 		
 		<option value="//api/name/rawContent">rawContent</option>
 		
@@ -77,6 +83,8 @@
 		<option value="//api/name/substitutions">substitutions</option>
 		
 		<option value="//api/name/threadId">threadId</option>
+		
+		<option value="//api/name/timeToLive">timeToLive</option>
 		
 		<option value="//api/name/title">title</option>
 		
@@ -229,7 +237,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The message body of the notification, the email body or the text message.</p>
+				<p>The message body of the notification.</p>
 			</div>
 			
 		    
@@ -276,6 +284,47 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *category</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/collapseId" title="collapseId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/collapseId">&nbsp;&nbsp;collapseId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>An ID that, if assigned to multiple messages, causes APNs to coalesce the messages into a single push notification instead of delivering each message individually. The value must not exceed 64 bytes. Amazon Pinpoint uses this value to set the apns-collapse-id request header when it sends the message to APNs.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *collapseId</code></div>
 
 		    
 			
@@ -352,12 +401,94 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The URL that points to a video used in the push notification.</p>
+				<p>A URL that refers to the location of an image or video that you want to display in the push notification.</p>
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *mediaUrl</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/preferredAuthenticationMethod" title="preferredAuthenticationMethod"></a>
+	<h3 class="method-title"><code><a href="#//api/name/preferredAuthenticationMethod">&nbsp;&nbsp;preferredAuthenticationMethod</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The preferred authentication method, either &ldquo;CERTIFICATE&rdquo; or &ldquo;TOKEN&rdquo;</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *preferredAuthenticationMethod</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/priority" title="priority"></a>
+	<h3 class="method-title"><code><a href="#//api/name/priority">&nbsp;&nbsp;priority</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The message priority. Amazon Pinpoint uses this value to set the apns-priority request header when it sends the message to APNs. Accepts the following values:&ldquo;5&rdquo; - Low priority. Messages might be delayed, delivered in groups, and throttled.&ldquo;10&rdquo; - High priority. Messages are sent immediately. High priority messages must cause an alert, sound, or badge on the receiving device.The default value is &ldquo;10&rdquo;.The equivalent values for FCM or GCM messages are &ldquo;normal&rdquo; and &ldquo;high&rdquo;. Amazon Pinpoint accepts these values for APNs messages and converts them.For more information about the apns-priority parameter, see Communicating with APNs in the APNs Local and Remote Notification Programming Guide.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *priority</code></div>
 
 		    
 			
@@ -587,6 +718,47 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/timeToLive" title="timeToLive"></a>
+	<h3 class="method-title"><code><a href="#//api/name/timeToLive">&nbsp;&nbsp;timeToLive</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The length of time (in seconds) that APNs stores and attempts to deliver the message. If the value is 0, APNs does not store the message or attempt to deliver it more than once. Amazon Pinpoint uses this value to set the apns-expiration request header when it sends the message to APNs.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *timeToLive</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/title" title="title"></a>
 	<h3 class="method-title"><code><a href="#//api/name/title">&nbsp;&nbsp;title</a></code>
 </h3>
@@ -683,7 +855,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-19</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-12-06</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

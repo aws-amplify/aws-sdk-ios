@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.7.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.7.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -84,8 +84,6 @@
 		
 		<option value="//api/name/requestId">requestId</option>
 		
-		<option value="//api/name/shardId">shardId</option>
-		
 		<option value="//api/name/user">user</option>
 		
 	</optgroup>
@@ -153,7 +151,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The address or token of the endpoint as provided by your push provider (e.g. DeviceToken or RegistrationId).</p>
+				<p>The address of the endpoint as provided by your push provider. For example, the DeviceToken or RegistrationId.</p>
 			</div>
 			
 		    
@@ -194,7 +192,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ID of the application associated with the endpoint.</p>
+				<p>The ID of the application that is associated with the endpoint.</p>
 			</div>
 			
 		    
@@ -235,7 +233,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Custom attributes that your app reports to Amazon Pinpoint. You can use these attributes as selection criteria when you create a segment.</p>
+				<p>Custom attributes that describe the endpoint by associating a name with an array of values. For example, an attribute named &ldquo;interests&rdquo; might have the following values: [&ldquo;science&rdquo;, &ldquo;politics&rdquo;, &ldquo;travel&rdquo;]. You can use these attributes as selection criteria when you create segments.The Amazon Pinpoint console can&rsquo;t display attribute names that include the following characters: hash/pound sign (#), colon (:), question mark (?), backslash (), and forward slash (/). For this reason, you should avoid using these characters in the names of custom attributes.</p>
 			</div>
 			
 		    
@@ -276,7 +274,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The channel type.Valid values: APNS, GCM</p>
+				<p>The channel type.Valid values: GCM | APNS | APNS_SANDBOX | APNS_VOIP | APNS_VOIP_SANDBOX | ADM | SMS | EMAIL | BAIDU</p>
 			</div>
 			
 		    
@@ -317,7 +315,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>A number from 0 - 99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.</p>
+				<p>A number from 0-99 that represents the cohort the endpoint is assigned to. Endpoints are grouped into cohorts randomly, and each cohort contains approximately 1 percent of the endpoints for an app. Amazon Pinpoint assigns cohorts to the holdout or treatment allocations for a campaign.</p>
 			</div>
 			
 		    
@@ -358,7 +356,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The last time the endpoint was created. Provided in ISO 8601 format.</p>
+				<p>The date and time when the endpoint was created, shown in ISO 8601 format.</p>
 			</div>
 			
 		    
@@ -440,7 +438,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The last time the endpoint was updated. Provided in ISO 8601 format.</p>
+				<p>The date and time when the endpoint was last updated, shown in ISO 8601 format.</p>
 			</div>
 			
 		    
@@ -481,7 +479,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The endpoint status. Can be either ACTIVE or INACTIVE. Will be set to INACTIVE if a delivery fails. Will be set to ACTIVE if the address is updated.</p>
+				<p>Unused.</p>
 			</div>
 			
 		    
@@ -522,7 +520,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it is unique compared to all other endpoints for the application.</p>
+				<p>The unique ID that you assigned to the endpoint. The ID should be a globally unique identifier (GUID) to ensure that it doesn&rsquo;t conflict with other endpoint IDs associated with the application.</p>
 			</div>
 			
 		    
@@ -645,7 +643,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Indicates whether a user has opted out of receiving messages with one of the following values:ALL â€“ User receives all messages. NONE â€“ User receives no messages.</p>
+				<p>Indicates whether a user has opted out of receiving messages with one of the following values:ALL - User has opted out of all messages.NONE - Users has not opted out and receives all messages.</p>
 			</div>
 			
 		    
@@ -692,47 +690,6 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *requestId</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/shardId" title="shardId"></a>
-	<h3 class="method-title"><code><a href="#//api/name/shardId">&nbsp;&nbsp;shardId</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The ShardId of endpoint</p>
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *shardId</code></div>
 
 		    
 			
@@ -812,7 +769,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-19</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-12-06</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

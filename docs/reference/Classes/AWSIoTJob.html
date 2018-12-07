@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.7.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.7.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,6 +56,8 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/abortConfig">abortConfig</option>
+		
 		<option value="//api/name/comment">comment</option>
 		
 		<option value="//api/name/completedAt">completedAt</option>
@@ -63,8 +65,6 @@
 		<option value="//api/name/createdAt">createdAt</option>
 		
 		<option value="//api/name/detail">detail</option>
-		
-		<option value="//api/name/documentParameters">documentParameters</option>
 		
 		<option value="//api/name/forceCanceled">forceCanceled</option>
 		
@@ -80,11 +80,15 @@
 		
 		<option value="//api/name/presignedUrlConfig">presignedUrlConfig</option>
 		
+		<option value="//api/name/reasonCode">reasonCode</option>
+		
 		<option value="//api/name/status">status</option>
 		
 		<option value="//api/name/targetSelection">targetSelection</option>
 		
 		<option value="//api/name/targets">targets</option>
+		
+		<option value="//api/name/timeoutConfig">timeoutConfig</option>
 		
 	</optgroup>
 	
@@ -141,6 +145,48 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/abortConfig" title="abortConfig"></a>
+	<h3 class="method-title"><code><a href="#//api/name/abortConfig">&nbsp;&nbsp;abortConfig</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Configuration for criteria to abort the job.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSIoTAbortConfig *abortConfig</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/comment" title="comment"></a>
 	<h3 class="method-title"><code><a href="#//api/name/comment">&nbsp;&nbsp;comment</a></code>
 </h3>
@@ -285,48 +331,6 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *detail</code></div>
-
-		    
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-
-			
-			<div class="method-subsection declared-in-section">
-				<h4 class="method-subtitle">Declared In</h4>
-				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
-			</div>
-			
-			
-		</div>
-	</div>
-</div><div class="section-method">
-	<a name="//api/name/documentParameters" title="documentParameters"></a>
-	<h3 class="method-title"><code><a href="#//api/name/documentParameters">&nbsp;&nbsp;documentParameters</a></code>
-</h3>
-
-	<div class="method-info">
-		<div class="pointy-thing"></div>
-
-		<div class="method-info-container">
-			
-			
-			<div class="method-subsection brief-description">
-				<p>The parameters specified for the job document.</p>
-
-			</div>
-			
-		    
-
-			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDictionary&lt;NSString*NSString*&gt; *documentParameters</code></div>
 
 		    
 			
@@ -645,6 +649,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/reasonCode" title="reasonCode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/reasonCode">&nbsp;&nbsp;reasonCode</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>If the job was updated, provides the reason code for the update.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *reasonCode</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/status" title="status"></a>
 	<h3 class="method-title"><code><a href="#//api/name/status">&nbsp;&nbsp;status</a></code>
 </h3>
@@ -656,7 +702,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, or <code>COMPLETED</code>. </p>
+				<p>The status of the job, one of <code>IN_PROGRESS</code>, <code>CANCELED</code>, <code>DELETION_IN_PROGRESS</code> or <code>COMPLETED</code>. </p>
 
 			</div>
 			
@@ -770,6 +816,48 @@
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/timeoutConfig" title="timeoutConfig"></a>
+	<h3 class="method-title"><code><a href="#//api/name/timeoutConfig">&nbsp;&nbsp;timeoutConfig</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSIoTTimeoutConfig *timeoutConfig</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -785,7 +873,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-19</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-12-06</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

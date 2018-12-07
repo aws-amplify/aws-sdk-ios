@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.7.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.7.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,6 +56,12 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/appPackageName">appPackageName</option>
+		
+		<option value="//api/name/appTitle">appTitle</option>
+		
+		<option value="//api/name/appVersionCode">appVersionCode</option>
+		
 		<option value="//api/name/attributes">attributes</option>
 		
 		<option value="//api/name/clientSdkVersion">clientSdkVersion</option>
@@ -63,6 +69,8 @@
 		<option value="//api/name/eventType">eventType</option>
 		
 		<option value="//api/name/metrics">metrics</option>
+		
+		<option value="//api/name/sdkName">sdkName</option>
 		
 		<option value="//api/name/session">session</option>
 		
@@ -103,6 +111,12 @@
 
                     
 					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p>Model for creating or updating events.</p>
+					</div>
+					
 					
 
 					
@@ -116,6 +130,117 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/appPackageName" title="appPackageName"></a>
+	<h3 class="method-title"><code><a href="#//api/name/appPackageName">&nbsp;&nbsp;appPackageName</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *appPackageName</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/appTitle" title="appTitle"></a>
+	<h3 class="method-title"><code><a href="#//api/name/appTitle">&nbsp;&nbsp;appTitle</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *appTitle</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/appVersionCode" title="appVersionCode"></a>
+	<h3 class="method-title"><code><a href="#//api/name/appVersionCode">&nbsp;&nbsp;appVersionCode</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *appVersionCode</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/attributes" title="attributes"></a>
 	<h3 class="method-title"><code><a href="#//api/name/attributes">&nbsp;&nbsp;attributes</a></code>
 </h3>
@@ -127,7 +252,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Event attributes.</p>
+				<p>Custom attributes that are associated with the event you&rsquo;re adding or updating.</p>
 			</div>
 			
 		    
@@ -168,7 +293,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The client sdk version.</p>
+				<p>The version of the SDK that&rsquo;s running on the client device.</p>
 			</div>
 			
 		    
@@ -209,7 +334,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The event type submitted.</p>
+				<p>The name of the custom event that you&rsquo;re recording.</p>
 			</div>
 			
 		    
@@ -250,12 +375,49 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Event metrics.</p>
+				<p>Custom metrics related to the event.</p>
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSDictionary&lt;NSString*NSNumber*&gt; *metrics</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/sdkName" title="sdkName"></a>
+	<h3 class="method-title"><code><a href="#//api/name/sdkName">&nbsp;&nbsp;sdkName</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *sdkName</code></div>
 
 		    
 			
@@ -291,7 +453,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The session associated with the event.</p>
+				<p>Information about the session in which the event occurred.</p>
 			</div>
 			
 		    
@@ -332,7 +494,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The timestamp associated with event.</p>
+				<p>The date and time when the event occurred, in ISO 8601 format.</p>
 			</div>
 			
 		    
@@ -376,7 +538,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-19</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-12-06</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

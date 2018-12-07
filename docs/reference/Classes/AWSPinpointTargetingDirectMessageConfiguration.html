@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.7.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.7.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -56,15 +56,23 @@
 	
 	<optgroup label="Properties">
 		
+		<option value="//api/name/ADMMessage">ADMMessage</option>
+		
 		<option value="//api/name/APNSMessage">APNSMessage</option>
 		
 		<option value="//api/name/GCMMessage">GCMMessage</option>
 		
 		<option value="//api/name/SMSMessage">SMSMessage</option>
 		
+		<option value="//api/name/baiduMessage">baiduMessage</option>
+		
 		<option value="//api/name/defaultMessage">defaultMessage</option>
 		
 		<option value="//api/name/defaultPushNotificationMessage">defaultPushNotificationMessage</option>
+		
+		<option value="//api/name/emailMessage">emailMessage</option>
+		
+		<option value="//api/name/voiceMessage">voiceMessage</option>
 		
 	</optgroup>
 	
@@ -104,7 +112,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>The message configuration.</p>
+						<p>Message definitions for the default message and any messages that are tailored for specific channels.</p>
 					</div>
 					
 					
@@ -120,6 +128,47 @@
 
 						<div class="task-list">
 							<div class="section-method">
+	<a name="//api/name/ADMMessage" title="ADMMessage"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADMMessage">&nbsp;&nbsp;ADMMessage</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The message to ADM channels. Overrides the default push notification message.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSPinpointTargetingADMMessage *ADMMessage</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/APNSMessage" title="APNSMessage"></a>
 	<h3 class="method-title"><code><a href="#//api/name/APNSMessage">&nbsp;&nbsp;APNSMessage</a></code>
 </h3>
@@ -137,6 +186,47 @@
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSPinpointTargetingAPNSMessage *APNSMessage</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/baiduMessage" title="baiduMessage"></a>
+	<h3 class="method-title"><code><a href="#//api/name/baiduMessage">&nbsp;&nbsp;baiduMessage</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The message to Baidu GCM channels. Overrides the default push notification message.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSPinpointTargetingBaiduMessage *baiduMessage</code></div>
 
 		    
 			
@@ -243,6 +333,47 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/emailMessage" title="emailMessage"></a>
+	<h3 class="method-title"><code><a href="#//api/name/emailMessage">&nbsp;&nbsp;emailMessage</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The message to Email channels. Overrides the default message.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSPinpointTargetingEmailMessage *emailMessage</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/GCMMessage" title="GCMMessage"></a>
 	<h3 class="method-title"><code><a href="#//api/name/GCMMessage">&nbsp;&nbsp;GCMMessage</a></code>
 </h3>
@@ -324,6 +455,47 @@
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/voiceMessage" title="voiceMessage"></a>
+	<h3 class="method-title"><code><a href="#//api/name/voiceMessage">&nbsp;&nbsp;voiceMessage</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The message to Voice channels. Overrides the default message.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) AWSPinpointTargetingVoiceMessage *voiceMessage</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -339,7 +511,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-19</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-12-06</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

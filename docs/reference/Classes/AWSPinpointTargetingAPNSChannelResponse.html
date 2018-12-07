@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.7.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.7.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -60,7 +60,13 @@
 		
 		<option value="//api/name/creationDate">creationDate</option>
 		
+		<option value="//api/name/defaultAuthenticationMethod">defaultAuthenticationMethod</option>
+		
 		<option value="//api/name/enabled">enabled</option>
+		
+		<option value="//api/name/hasCredential">hasCredential</option>
+		
+		<option value="//api/name/hasTokenKey">hasTokenKey</option>
 		
 		<option value="//api/name/identifier">identifier</option>
 		
@@ -139,7 +145,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ID of the application to which the channel applies.</p>
+				<p>The ID of the application that the channel applies to.</p>
 			</div>
 			
 		    
@@ -180,12 +186,53 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>When was this segment created</p>
+				<p>The date and time when this channel was created.</p>
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *creationDate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/defaultAuthenticationMethod" title="defaultAuthenticationMethod"></a>
+	<h3 class="method-title"><code><a href="#//api/name/defaultAuthenticationMethod">&nbsp;&nbsp;defaultAuthenticationMethod</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The default authentication method used for APNs.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *defaultAuthenticationMethod</code></div>
 
 		    
 			
@@ -251,6 +298,88 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/hasCredential" title="hasCredential"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hasCredential">&nbsp;&nbsp;hasCredential</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Not used. Retained for backwards compatibility.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *hasCredential</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/hasTokenKey" title="hasTokenKey"></a>
+	<h3 class="method-title"><code><a href="#//api/name/hasTokenKey">&nbsp;&nbsp;hasTokenKey</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Indicates whether the channel is configured with a key for APNs token authentication. Provide a token key by setting the TokenKey attribute.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSNumber *hasTokenKey</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSPinpointTargetingModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/identifier" title="identifier"></a>
 	<h3 class="method-title"><code><a href="#//api/name/identifier">&nbsp;&nbsp;identifier</a></code>
 </h3>
@@ -262,7 +391,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Channel ID. Not used, only for backwards compatibility.</p>
+				<p>(Deprecated) An identifier for the channel. Retained for backwards compatibility.</p>
 			</div>
 			
 		    
@@ -303,7 +432,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Is this channel archived</p>
+				<p>Indicates whether or not the channel is archived.</p>
 			</div>
 			
 		    
@@ -344,7 +473,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Who last updated this entry</p>
+				<p>The user who last updated this channel.</p>
 			</div>
 			
 		    
@@ -385,7 +514,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Last date this was updated</p>
+				<p>The date and time when this channel was last modified.</p>
 			</div>
 			
 		    
@@ -426,7 +555,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The platform type. Will be APNS.</p>
+				<p>The platform type. For this channel, the value is always &ldquo;ADM.&rdquo;</p>
 			</div>
 			
 		    
@@ -467,7 +596,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Version of channel</p>
+				<p>The channel version.</p>
 			</div>
 			
 		    
@@ -511,7 +640,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-11-19</p>
+						<p class="copyright">Copyright &copy; 2018 Amazon Web Services, Inc. All rights reserved. Updated: 2018-12-06</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
