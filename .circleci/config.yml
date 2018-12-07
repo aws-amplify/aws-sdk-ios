@@ -5,6 +5,22 @@
 version: 2
 jobs:
 
+  build:
+     macos: 
+       xcode: "10.1.0"
+     steps:
+       - checkout
+ 
+       - run:
+           name: create credentials
+           command: |
+             touch AWSCoreTests/Resources/credentials.json
+ 
+       - run:
+           name: build sdk
+           command: |
+             xcodebuild  build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'         
+
   release_carthage:
     # Specify the Xcode version to use
     macos:
@@ -97,6 +113,11 @@ workflows:
   version: 2
   build_and_test:
     jobs: 
+      - build:
+          filters:
+            branches:
+              only:
+                  - master
       - release_carthage:
           filters:
             branches:
