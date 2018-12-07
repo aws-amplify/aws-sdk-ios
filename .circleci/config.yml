@@ -116,7 +116,8 @@ workflows:
       - build:
           filters:
             branches:
-              ignore: /gh-.*/
+              only:
+                  - master
       - release_carthage:
           filters:
             branches:
