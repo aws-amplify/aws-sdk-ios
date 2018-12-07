@@ -192,6 +192,25 @@ class AWSMobileClientTests: XCTestCase {
         wait(for: [verifyAttrExpectation], timeout: 5)
     }
     
+    func testGetAttributes() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        let getAttrExpectation = expectation(description: "get attributes expectation.")
+        
+        AWSMobileClient.sharedInstance().getUserAttributes { (attributes, error) in
+            if let attributes = attributes {
+                XCTAssertTrue(attributes.count == 3, "Expected 3 attributes for user.")
+                XCTAssertTrue(attributes["email_verified"] == "false", "Email should not be verified.")
+            }else if let error = error {
+                XCTFail("Received un-expected error: \(error.localizedDescription)")
+            }
+            getAttrExpectation.fulfill()
+        }
+
+        wait(for: [getAttrExpectation], timeout: 5)
+    }
+    
     func testGetAWSCredentials() {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)

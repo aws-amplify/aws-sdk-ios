@@ -53,7 +53,7 @@ API_AVAILABLE(ios(11.0))
 
 @implementation AWSCognitoAuth
 
-NSString *const AWSCognitoAuthSDKVersion = @"2.7.3";
+NSString *const AWSCognitoAuthSDKVersion = @"2.7.4";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -203,13 +203,14 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
  Adds another getSession operation to the serialized queue of getSession requests
  */
 - (void)enqueueGetSession:(nullable UIViewController *) vc completion: (AWSCognitoAuthGetSessionBlock) completion {
-    __block NSOperation *getSessionOperation =  [NSBlockOperation blockOperationWithBlock:^{
+    __block __weak NSOperation *weakGetSessionOperation;
+    NSOperation *getSessionOperation =  [NSBlockOperation blockOperationWithBlock:^{
         [self getSessionInternal:vc completion:completion];
-        if(getSessionOperation.isCancelled){
+        if(weakGetSessionOperation.isCancelled){
             [self completeGetSession:nil error:self.getSessionError];
         }
     }];
-
+    weakGetSessionOperation = getSessionOperation;
     [self.getSessionQueue addOperation:getSessionOperation];
 }
 
@@ -411,12 +412,14 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 }
 
 - (void) signOut: (UIViewController *) vc completion: (AWSCognitoAuthSignOutBlock) completion {
-    __block NSOperation *signOutOperation =  [NSBlockOperation blockOperationWithBlock:^{
-        if(signOutOperation.isCancelled){
+    __block __weak NSOperation *weakSignOutOperation;
+    NSOperation *signOutOperation =  [NSBlockOperation blockOperationWithBlock:^{
+        if(weakSignOutOperation.isCancelled){
             completion(self.signOutError);
         }
         [self signOutInternal:vc completion:completion];
     }];
+    weakSignOutOperation = signOutOperation;
     [self.signOutQueue addOperation:signOutOperation];
 
 }

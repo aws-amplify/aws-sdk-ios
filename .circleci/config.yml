@@ -8,19 +8,31 @@ jobs:
   release_carthage:
     # Specify the Xcode version to use
     macos:
-      xcode: "9.2.0"
+      xcode: "10.1.0"
 
     steps: 
       - checkout
       - run:
-          name: upgrade carthage
-          command: brew outdated carthage || brew upgrade carthage
+          name: install aws cli
+          command: |
+            brew install awscli
       - run:
-          name: install github-release
-          command: brew install github-release
+          name: download custom carthage
+          command: |
+            aws s3 cp s3://custom-carthage/customcarthage.zip customcarthage.zip
+            unzip -a customcarthage.zip
+            ls customcarthage
+            chmod 111 customcarthage/carthage
+
+      - run:
+          name: build 
+          command: |
+            xcodebuild -project AWSiOSSDKv2.xcodeproj -scheme AWSCore -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=11.2' build     
       - run:
           name: Build Carthage
-          command: carthage build --no-skip-current
+          command: |
+            customcarthage/carthage build --no-skip-current | tee buildout.txt
+          no_output_timeout: 100m
 
       - run:
           name: Create Carthage Archive
@@ -39,7 +51,7 @@ jobs:
   release_cocoapods:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.0.0"
+      xcode: "10.1.0"
     steps:
       - checkout  
       - run:

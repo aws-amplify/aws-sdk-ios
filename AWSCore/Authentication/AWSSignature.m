@@ -150,26 +150,26 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
 
 - (AWSTask *)interceptRequest:(NSMutableURLRequest *)request {
     [request addValue:request.URL.host forHTTPHeaderField:@"Host"];
-    
     return [[self.credentialsProvider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
         AWSCredentials *credentials = task.result;
         // clear authorization header if set
         [request setValue:nil forHTTPHeaderField:@"Authorization"];
 
         if (credentials) {
-            [request setValue:credentials.sessionKey forHTTPHeaderField:@"X-Amz-Security-Token"];
-            
             NSString *authorization;
-            
-            if (self.endpoint.serviceType == AWSServiceS3) {
-                // If it is a S3 Request
+            NSArray *hostArray  = [[[request URL] host] componentsSeparatedByString:@"."];
+
+            [request setValue:credentials.sessionKey forHTTPHeaderField:@"X-Amz-Security-Token"];
+            if (self.endpoint.serviceType == AWSServiceS3 ||
+                ([hostArray firstObject] && [[hostArray firstObject] rangeOfString:@"s3"].location != NSNotFound) ) {
+                //If it is a S3 Request
                 authorization = [self signS3RequestV4:request
-                                          credentials:credentials];
+                                         credentials:credentials];
             } else {
                 authorization = [self signRequestV4:request
-                                        credentials:credentials];
+                                       credentials:credentials];
             }
-            
+
             if (authorization) {
                 [request setValue:authorization forHTTPHeaderField:@"Authorization"];
             }

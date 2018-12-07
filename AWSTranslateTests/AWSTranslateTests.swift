@@ -39,7 +39,7 @@ class AWSTranslateTests: XCTestCase {
         
         let callback: (AWSTranslateTranslateTextResponse?, Error?) -> Void = { (response, error) in
             guard let response = response else {
-                XCTAssertTrue(false,"Got error \(error)")
+                XCTAssertTrue(false,"Got error \(String(describing: error))")
                 return
             }
             XCTAssertNotNil(response.translatedText)
@@ -64,7 +64,7 @@ class AWSTranslateTests: XCTestCase {
         
         let callback: (AWSTranslateTranslateTextResponse?, Error?) -> Void = { (response, error) in
             guard let response = response else {
-                XCTAssertTrue(false,"Got error \(error)")
+                XCTAssertTrue(false,"Got error \(String(describing: error))")
                 return
             }
             XCTAssertNotNil(response.translatedText)

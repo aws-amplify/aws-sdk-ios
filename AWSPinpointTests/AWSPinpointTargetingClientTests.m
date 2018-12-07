@@ -23,6 +23,8 @@
 NSString *const AWSPinpointTargetingClientErrorDomain = @"com.amazonaws.AWSPinpointAnalyticsClientErrorDomain";
 NSString *const AWSDeviceTokenKey = @"com.amazonaws.AWSDeviceTokenKey";
 
+static NSString *userId;
+
 @interface AWSPinpointTargetingClientTests : XCTestCase
 @property (nonatomic, strong) AWSPinpoint *pinpoint;
 @property (nonatomic, strong) AWSPinpointConfiguration *configuration;
@@ -41,6 +43,11 @@ NSString *const AWSDeviceTokenKey = @"com.amazonaws.AWSDeviceTokenKey";
 
 @implementation AWSPinpointTargetingClientTests
 
++ (void) setUp {
+    //Create a random string prefixed with "TestUserId" for the EndpointProfile.UserId
+    userId = [NSString stringWithFormat:@"%s-%@", "TestUserId", [[NSUUID UUID] UUIDString]];
+}
+
 - (void)setUp {
     [super setUp];
 
@@ -53,6 +60,10 @@ NSString *const AWSDeviceTokenKey = @"com.amazonaws.AWSDeviceTokenKey";
     [self.userDefaults removeObjectForKey:@"AWSPinpointEndpointAttributesKey"];
     [self.userDefaults removeObjectForKey:@"AWSPinpointEndpointMetricsKey"];
     [self.userDefaults synchronize];
+}
+
+- (void)tearDown {
+    [super tearDown];
 }
 
 - (AWSPinpointConfiguration *)getDefaultAWSPinpointConfiguration {
@@ -119,10 +130,6 @@ NSString *const AWSDeviceTokenKey = @"com.amazonaws.AWSDeviceTokenKey";
     [self initializeMockApplicationWithOptOut:optOut];
 }
 
-- (void)tearDown {
-    [super tearDown];
-}
-
 - (void)testConstructors {
     @try {
         AWSPinpointTargetingClient *eventRecorder = [AWSPinpointTargetingClient new];
@@ -134,7 +141,6 @@ NSString *const AWSDeviceTokenKey = @"com.amazonaws.AWSDeviceTokenKey";
 }
 
 - (void)testEndpointProfileInformationPersistence {
-    NSString *userId = @"UserId";
     NSString *dummyAppId = @"dummyAppId";
     [self.pinpoint.configuration.userDefaults removeObjectForKey:@"AWSPinpointEndpointProfileKey"];
     [self.pinpoint.configuration.userDefaults synchronize];
@@ -340,11 +346,9 @@ NSString *const AWSDeviceTokenKey = @"com.amazonaws.AWSDeviceTokenKey";
         XCTAssertNil(task.error);
         return nil;
     }] waitUntilFinished];
-
 }
 
 - (void)testUpdateEndpointProfileWithProfile {
-    NSString *userId = @"TestUserId";
     AWSPinpointEndpointProfile *endpointProfile = [self.pinpoint.targetingClient currentEndpointProfile];
     endpointProfile.user.userId = userId;
     [[[self.pinpoint.targetingClient updateEndpointProfile:endpointProfile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -363,7 +367,6 @@ NSString *const AWSDeviceTokenKey = @"com.amazonaws.AWSDeviceTokenKey";
     XCTAssertNotNil(profile.demographic.appVersion);
     XCTAssertNotNil(profile.demographic.platform);
     XCTAssertNotNil(profile.demographic.platformVersion);
-    
 }
 
 - (void) testGlobalAttribute {

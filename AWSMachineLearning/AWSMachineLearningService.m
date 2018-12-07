@@ -27,7 +27,7 @@
 
 static NSString *const AWSInfoMachineLearning = @"MachineLearning";
 
-NSString *const AWSMachineLearningSDKVersion = @"2.7.3";
+NSString *const AWSMachineLearningSDKVersion = @"2.7.4";
 
 
 
