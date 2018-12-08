@@ -35,10 +35,13 @@ static NSString* const UNKNOWN = @"Unknown";
         NSString *bundleVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"];
         NSString *bundleIdentifier = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleIdentifier"];
         NSString *bundleDisplayName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
-        _appVersion = shortVersionString == nil ? UNKNOWN : shortVersionString;
-        _appBuild = bundleVersion == nil ? UNKNOWN : bundleVersion;
-        _appPackageName = bundleIdentifier == nil ? UNKNOWN : bundleIdentifier;
-        _appName = bundleDisplayName == nil ? UNKNOWN : bundleDisplayName;
+        _appVersion = shortVersionString ?: UNKNOWN;
+        _appBuild = bundleVersion ?: UNKNOWN;
+        _appPackageName = bundleIdentifier ?: UNKNOWN;
+        _appName = bundleDisplayName ?: UNKNOWN;
+        
+        AWSDDLogVerbose(@"App Version: [%@]; App Build: [%@]; App Package Name: [%@]; App Name: [%@]",
+                        _appVersion, _appBuild, _appPackageName, _appName);
     }
     return self;
 }

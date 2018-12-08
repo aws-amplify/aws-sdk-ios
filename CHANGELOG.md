@@ -1,6 +1,46 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.7.4
+
+### Enhancements
+
+* **AWS S3**
+   * Changed imports to include from module. See [PR #1133]( https://github.com/aws-amplify/aws-sdk-ios/pull/1133)
+   * Changed S3 endpoint check to include `self.endpoint.serviceType` in signing logic. See [PR #1114]( https://github.com/aws-amplify/aws-sdk-ios/pull/1114)
+
+### Misc. Updates
+
+* **AWS IoT**
+  * Update IOT client to the latest service model.
+
+* **Amazon Pinpoint**
+  * The following APIs have been changed:
+      * `PutEventsRequest`
+          * The type of `Endpoint` field is now changed back from `EndpointRequest` to `PublicEndpoint`.
+      * `PutEventsResponse`
+          * `PutEventsResponse` will have an `EventsResponse` field. The `Results` object in the `PutEventsResponse` is now nested under `EventsResponse`.
+
+### Bug Fixes
+
+* **AWSMobileClient**
+   * Fixed bug where the specified logoImage would not appear while using `showSignIn` method. See [issue #1113](https://github.com/aws-amplify/aws-sdk-ios/issues/1113), [issue #1115](https://github.com/aws-amplify/aws-sdk-ios/issues/1115)
+   * Fixed bug where errors were not mapped to `AWSMobileClientError` for `signIn` method. See [PR #1121](https://github.com/aws-amplify/aws-sdk-ios/pull/1121)
+   * Don't embed Swift libraries with AWSMobileClient.framework See [issue #1123](https://github.com/aws-amplify/aws-sdk-ios/issues/1123)
+   * Fixed issue where Xcode would log a warning for `AWSAuthUI.bundle` not being loaded as SDK would incorrectly try to load executable for `AWSAuthUI.bundle` which only contains resources. See [issue #1107](https://github.com/aws-amplify/aws-sdk-ios/issues/1107)
+   * Added `getUserAttributes` method which fetches attributes of signed in user. See [issue #123](https://github.com/awslabs/aws-mobile-appsync-sdk-ios/issues/123)
+   * Fixed an issue where the storyboard or logo file would not be loaded when consuming SDK via Cartahge. See [issue #1064](https://github.com/aws-amplify/aws-sdk-ios/issues/1064)
+   * Fixed an issue where in drop-in UI if `tab` key was pressed from keyboard, the text field would not show the active input. See [issue #984](https://github.com/aws-amplify/aws-sdk-ios/issues/984)
+
+* **Amazon Pinpoint**
+  * `AppPackageName`, `AppTitle`, `AppVersionCode`, `SdkName` fields will now be accepted as part of the `Event` when submitting events from your app to Amazon Pinpoint. This fixes the issue where the event when exported by Amazon Kinesis Streams was missing these fields in the exported event.
+
+* **Amazon S3**
+   * Fixed warning due to the Validation category being defined twice. See [PR #1132]( https://github.com/aws-amplify/aws-sdk-ios/pull/1132)
+
+* **AWSCognitoAuth**
+   * Fixed a memory leak due to retain cycle caused by `NSBlockOperation` retaining the `NSOperation` object. See [issue #1134](https://github.com/aws-amplify/aws-sdk-ios/issues/1134)
+
 ## 2.7.3
 
 ### Enhancements

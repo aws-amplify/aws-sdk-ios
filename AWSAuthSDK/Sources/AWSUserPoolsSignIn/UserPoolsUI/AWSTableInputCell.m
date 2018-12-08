@@ -31,6 +31,13 @@
     }
 }
 
+- (IBAction)textEditingDidBegin:(id)sender {
+    if (!self.placeHolderView.isHidden) {
+        [self onTap];
+    }
+}
+    
+
 - (void)onTap {
     dispatch_async(dispatch_get_main_queue(), ^{
        [UIView transitionWithView:self.placeHolderView

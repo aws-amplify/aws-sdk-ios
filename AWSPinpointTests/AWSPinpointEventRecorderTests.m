@@ -20,6 +20,7 @@
 #import "AWSPinpoint.h"
 #import "AWSTestUtility.h"
 #import "AWSPinpointContext.h"
+#import "OCMock.h"
 
 NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
 NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessionKey";
@@ -29,6 +30,8 @@ NSUInteger const AWSPinpointClientByteLimitDefault = 5 * 1024 * 1024; // 5MB
 NSUInteger const AWSPinpointClientBatchRecordByteLimitDefault = 512 * 1024;
 NSUInteger const AWSPinpointClientValidEvent = 0;
 NSUInteger const AWSPinpointClientInvalidEvent = 1;
+
+static id _mockNSBundle;
 
 @interface AWSPinpoint()
 @property (nonatomic, strong) AWSPinpointContext *pinpointContext;
@@ -90,6 +93,18 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
 
 @implementation AWSPinpointEventRecorderTests
 
++ (void)setUp {
+    //Mocking the NSBundle so the App specific information can be retrieved
+    //from Info.plist
+    _mockNSBundle = [OCMockObject niceMockForClass:[NSBundle class]];
+    NSBundle *correctMainBundle = [NSBundle bundleForClass:self.class];
+    [[[[_mockNSBundle stub] classMethod] andReturn:correctMainBundle] mainBundle];
+}
+
++ (void)tearDown {
+    [_mockNSBundle stopMocking];
+}
+
 - (void)setUp {
     [super setUp];
     
@@ -104,15 +119,14 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
                                                                       error:nil];
     [self initializePinpointIAD:credentialsJson];
     [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
-    
 }
 
-- (void)initializePinpointIAD: (NSDictionary *) credentialsJson{
+- (void) initializePinpointIAD:(NSDictionary *) credentialsJson {
     self.appIdIAD = credentialsJson[@"pinpointAppId"];
     self.configIAD = [[AWSPinpointConfiguration alloc] initWithAppId:self.appIdIAD
-                                                                         launchOptions:nil
-                                                                        maxStorageSize:AWSPinpointClientByteLimitDefault
-                                                                        sessionTimeout:0];
+                                                       launchOptions:nil
+                                                      maxStorageSize:AWSPinpointClientByteLimitDefault
+                                                      sessionTimeout:0];
     self.configIAD.userDefaults = self.userDefaults;
     self.pinpointIAD = [AWSPinpoint pinpointWithConfiguration:self.configIAD];
     [[self.pinpointIAD.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
@@ -211,7 +225,7 @@ static AWSPinpointEvent * extracted() {
     }];
 }
 
-- (void)testConstructors {
+- (void) testConstructors {
     @try {
         AWSPinpointEventRecorder *eventRecorder = [AWSPinpointEventRecorder new];
         XCTFail(@"Expected an exception to be thrown. %@", eventRecorder);
@@ -1204,6 +1218,7 @@ static AWSPinpointEvent * extracted() {
                                                                          launchOptions:nil
                                                                         maxStorageSize:AWSPinpointClientByteLimitDefault
                                                                         sessionTimeout:0];
+    
     config.userDefaults = [NSUserDefaults standardUserDefaults];
     AWSPinpoint *pinpoint = [AWSPinpoint pinpointWithConfiguration:config];
     [config.userDefaults setObject:nil forKey:AWSPinpointSessionKey];

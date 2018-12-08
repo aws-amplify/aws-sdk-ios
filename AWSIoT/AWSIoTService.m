@@ -26,7 +26,7 @@
 #import "AWSIoTResources.h"
 
 static NSString *const AWSInfoIoT = @"IoT";
-NSString *const AWSIoTSDKVersion = @"2.7.3";
+NSString *const AWSIoTSDKVersion = @"2.7.4";
 
 
 @interface AWSIoTResponseSerializer : AWSJSONResponseSerializer
@@ -325,6 +325,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTAddThingToBillingGroupResponse *> *)addThingToBillingGroup:(AWSIoTAddThingToBillingGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/billing-groups/addThingToBillingGroup"
+                  targetPrefix:@""
+                 operationName:@"AddThingToBillingGroup"
+                   outputClass:[AWSIoTAddThingToBillingGroupResponse class]];
+}
+
+- (void)addThingToBillingGroup:(AWSIoTAddThingToBillingGroupRequest *)request
+     completionHandler:(void (^)(AWSIoTAddThingToBillingGroupResponse *response, NSError *error))completionHandler {
+    [[self addThingToBillingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTAddThingToBillingGroupResponse *> * _Nonnull task) {
+        AWSIoTAddThingToBillingGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTAddThingToThingGroupResponse *> *)addThingToThingGroup:(AWSIoTAddThingToThingGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -415,6 +438,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTAttachSecurityProfileResponse *> *)attachSecurityProfile:(AWSIoTAttachSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/security-profiles/{securityProfileName}/targets"
+                  targetPrefix:@""
+                 operationName:@"AttachSecurityProfile"
+                   outputClass:[AWSIoTAttachSecurityProfileResponse class]];
+}
+
+- (void)attachSecurityProfile:(AWSIoTAttachSecurityProfileRequest *)request
+     completionHandler:(void (^)(AWSIoTAttachSecurityProfileResponse *response, NSError *error))completionHandler {
+    [[self attachSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTAttachSecurityProfileResponse *> * _Nonnull task) {
+        AWSIoTAttachSecurityProfileResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTAttachThingPrincipalResponse *> *)attachThingPrincipal:(AWSIoTAttachThingPrincipalRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -428,6 +474,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTAttachThingPrincipalResponse *response, NSError *error))completionHandler {
     [[self attachThingPrincipal:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTAttachThingPrincipalResponse *> * _Nonnull task) {
         AWSIoTAttachThingPrincipalResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCancelAuditTaskResponse *> *)cancelAuditTask:(AWSIoTCancelAuditTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/audit/tasks/{taskId}/cancel"
+                  targetPrefix:@""
+                 operationName:@"CancelAuditTask"
+                   outputClass:[AWSIoTCancelAuditTaskResponse class]];
+}
+
+- (void)cancelAuditTask:(AWSIoTCancelAuditTaskRequest *)request
+     completionHandler:(void (^)(AWSIoTCancelAuditTaskResponse *response, NSError *error))completionHandler {
+    [[self cancelAuditTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCancelAuditTaskResponse *> * _Nonnull task) {
+        AWSIoTCancelAuditTaskResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -551,6 +620,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTCreateBillingGroupResponse *> *)createBillingGroup:(AWSIoTCreateBillingGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/billing-groups/{billingGroupName}"
+                  targetPrefix:@""
+                 operationName:@"CreateBillingGroup"
+                   outputClass:[AWSIoTCreateBillingGroupResponse class]];
+}
+
+- (void)createBillingGroup:(AWSIoTCreateBillingGroupRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateBillingGroupResponse *response, NSError *error))completionHandler {
+    [[self createBillingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateBillingGroupResponse *> * _Nonnull task) {
+        AWSIoTCreateBillingGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTCreateCertificateFromCsrResponse *> *)createCertificateFromCsr:(AWSIoTCreateCertificateFromCsrRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -564,6 +656,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTCreateCertificateFromCsrResponse *response, NSError *error))completionHandler {
     [[self createCertificateFromCsr:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateCertificateFromCsrResponse *> * _Nonnull task) {
         AWSIoTCreateCertificateFromCsrResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateDynamicThingGroupResponse *> *)createDynamicThingGroup:(AWSIoTCreateDynamicThingGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/dynamic-thing-groups/{thingGroupName}"
+                  targetPrefix:@""
+                 operationName:@"CreateDynamicThingGroup"
+                   outputClass:[AWSIoTCreateDynamicThingGroupResponse class]];
+}
+
+- (void)createDynamicThingGroup:(AWSIoTCreateDynamicThingGroupRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateDynamicThingGroupResponse *response, NSError *error))completionHandler {
+    [[self createDynamicThingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateDynamicThingGroupResponse *> * _Nonnull task) {
+        AWSIoTCreateDynamicThingGroupResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -712,6 +827,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTCreateScheduledAuditResponse *> *)createScheduledAudit:(AWSIoTCreateScheduledAuditRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/audit/scheduledaudits/{scheduledAuditName}"
+                  targetPrefix:@""
+                 operationName:@"CreateScheduledAudit"
+                   outputClass:[AWSIoTCreateScheduledAuditResponse class]];
+}
+
+- (void)createScheduledAudit:(AWSIoTCreateScheduledAuditRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateScheduledAuditResponse *response, NSError *error))completionHandler {
+    [[self createScheduledAudit:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateScheduledAuditResponse *> * _Nonnull task) {
+        AWSIoTCreateScheduledAuditResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateSecurityProfileResponse *> *)createSecurityProfile:(AWSIoTCreateSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/security-profiles/{securityProfileName}"
+                  targetPrefix:@""
+                 operationName:@"CreateSecurityProfile"
+                   outputClass:[AWSIoTCreateSecurityProfileResponse class]];
+}
+
+- (void)createSecurityProfile:(AWSIoTCreateSecurityProfileRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateSecurityProfileResponse *response, NSError *error))completionHandler {
+    [[self createSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateSecurityProfileResponse *> * _Nonnull task) {
+        AWSIoTCreateSecurityProfileResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTCreateStreamResponse *> *)createStream:(AWSIoTCreateStreamRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -826,6 +987,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDeleteAccountAuditConfigurationResponse *> *)deleteAccountAuditConfiguration:(AWSIoTDeleteAccountAuditConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/audit/configuration"
+                  targetPrefix:@""
+                 operationName:@"DeleteAccountAuditConfiguration"
+                   outputClass:[AWSIoTDeleteAccountAuditConfigurationResponse class]];
+}
+
+- (void)deleteAccountAuditConfiguration:(AWSIoTDeleteAccountAuditConfigurationRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteAccountAuditConfigurationResponse *response, NSError *error))completionHandler {
+    [[self deleteAccountAuditConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteAccountAuditConfigurationResponse *> * _Nonnull task) {
+        AWSIoTDeleteAccountAuditConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDeleteAuthorizerResponse *> *)deleteAuthorizer:(AWSIoTDeleteAuthorizerRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -839,6 +1023,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDeleteAuthorizerResponse *response, NSError *error))completionHandler {
     [[self deleteAuthorizer:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteAuthorizerResponse *> * _Nonnull task) {
         AWSIoTDeleteAuthorizerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteBillingGroupResponse *> *)deleteBillingGroup:(AWSIoTDeleteBillingGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/billing-groups/{billingGroupName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteBillingGroup"
+                   outputClass:[AWSIoTDeleteBillingGroupResponse class]];
+}
+
+- (void)deleteBillingGroup:(AWSIoTDeleteBillingGroupRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteBillingGroupResponse *response, NSError *error))completionHandler {
+    [[self deleteBillingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteBillingGroupResponse *> * _Nonnull task) {
+        AWSIoTDeleteBillingGroupResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -888,6 +1095,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteDynamicThingGroupResponse *> *)deleteDynamicThingGroup:(AWSIoTDeleteDynamicThingGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/dynamic-thing-groups/{thingGroupName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteDynamicThingGroup"
+                   outputClass:[AWSIoTDeleteDynamicThingGroupResponse class]];
+}
+
+- (void)deleteDynamicThingGroup:(AWSIoTDeleteDynamicThingGroupRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteDynamicThingGroupResponse *response, NSError *error))completionHandler {
+    [[self deleteDynamicThingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteDynamicThingGroupResponse *> * _Nonnull task) {
+        AWSIoTDeleteDynamicThingGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -1041,6 +1271,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDeleteRoleAliasResponse *response, NSError *error))completionHandler {
     [[self deleteRoleAlias:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteRoleAliasResponse *> * _Nonnull task) {
         AWSIoTDeleteRoleAliasResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteScheduledAuditResponse *> *)deleteScheduledAudit:(AWSIoTDeleteScheduledAuditRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/audit/scheduledaudits/{scheduledAuditName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteScheduledAudit"
+                   outputClass:[AWSIoTDeleteScheduledAuditResponse class]];
+}
+
+- (void)deleteScheduledAudit:(AWSIoTDeleteScheduledAuditRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteScheduledAuditResponse *response, NSError *error))completionHandler {
+    [[self deleteScheduledAudit:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteScheduledAuditResponse *> * _Nonnull task) {
+        AWSIoTDeleteScheduledAuditResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteSecurityProfileResponse *> *)deleteSecurityProfile:(AWSIoTDeleteSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/security-profiles/{securityProfileName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteSecurityProfile"
+                   outputClass:[AWSIoTDeleteSecurityProfileResponse class]];
+}
+
+- (void)deleteSecurityProfile:(AWSIoTDeleteSecurityProfileRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteSecurityProfileResponse *response, NSError *error))completionHandler {
+    [[self deleteSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteSecurityProfileResponse *> * _Nonnull task) {
+        AWSIoTDeleteSecurityProfileResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1210,6 +1486,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDescribeAccountAuditConfigurationResponse *> *)describeAccountAuditConfiguration:(AWSIoTDescribeAccountAuditConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/configuration"
+                  targetPrefix:@""
+                 operationName:@"DescribeAccountAuditConfiguration"
+                   outputClass:[AWSIoTDescribeAccountAuditConfigurationResponse class]];
+}
+
+- (void)describeAccountAuditConfiguration:(AWSIoTDescribeAccountAuditConfigurationRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeAccountAuditConfigurationResponse *response, NSError *error))completionHandler {
+    [[self describeAccountAuditConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeAccountAuditConfigurationResponse *> * _Nonnull task) {
+        AWSIoTDescribeAccountAuditConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeAuditTaskResponse *> *)describeAuditTask:(AWSIoTDescribeAuditTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/tasks/{taskId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeAuditTask"
+                   outputClass:[AWSIoTDescribeAuditTaskResponse class]];
+}
+
+- (void)describeAuditTask:(AWSIoTDescribeAuditTaskRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeAuditTaskResponse *response, NSError *error))completionHandler {
+    [[self describeAuditTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeAuditTaskResponse *> * _Nonnull task) {
+        AWSIoTDescribeAuditTaskResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDescribeAuthorizerResponse *> *)describeAuthorizer:(AWSIoTDescribeAuthorizerRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1223,6 +1545,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDescribeAuthorizerResponse *response, NSError *error))completionHandler {
     [[self describeAuthorizer:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeAuthorizerResponse *> * _Nonnull task) {
         AWSIoTDescribeAuthorizerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeBillingGroupResponse *> *)describeBillingGroup:(AWSIoTDescribeBillingGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/billing-groups/{billingGroupName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeBillingGroup"
+                   outputClass:[AWSIoTDescribeBillingGroupResponse class]];
+}
+
+- (void)describeBillingGroup:(AWSIoTDescribeBillingGroupRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeBillingGroupResponse *response, NSError *error))completionHandler {
+    [[self describeBillingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeBillingGroupResponse *> * _Nonnull task) {
+        AWSIoTDescribeBillingGroupResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1440,6 +1785,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDescribeScheduledAuditResponse *> *)describeScheduledAudit:(AWSIoTDescribeScheduledAuditRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/scheduledaudits/{scheduledAuditName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeScheduledAudit"
+                   outputClass:[AWSIoTDescribeScheduledAuditResponse class]];
+}
+
+- (void)describeScheduledAudit:(AWSIoTDescribeScheduledAuditRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeScheduledAuditResponse *response, NSError *error))completionHandler {
+    [[self describeScheduledAudit:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeScheduledAuditResponse *> * _Nonnull task) {
+        AWSIoTDescribeScheduledAuditResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeSecurityProfileResponse *> *)describeSecurityProfile:(AWSIoTDescribeSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/security-profiles/{securityProfileName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeSecurityProfile"
+                   outputClass:[AWSIoTDescribeSecurityProfileResponse class]];
+}
+
+- (void)describeSecurityProfile:(AWSIoTDescribeSecurityProfileRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeSecurityProfileResponse *response, NSError *error))completionHandler {
+    [[self describeSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeSecurityProfileResponse *> * _Nonnull task) {
+        AWSIoTDescribeSecurityProfileResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDescribeStreamResponse *> *)describeStream:(AWSIoTDescribeStreamRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1593,6 +1984,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDetachSecurityProfileResponse *> *)detachSecurityProfile:(AWSIoTDetachSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/security-profiles/{securityProfileName}/targets"
+                  targetPrefix:@""
+                 operationName:@"DetachSecurityProfile"
+                   outputClass:[AWSIoTDetachSecurityProfileResponse class]];
+}
+
+- (void)detachSecurityProfile:(AWSIoTDetachSecurityProfileRequest *)request
+     completionHandler:(void (^)(AWSIoTDetachSecurityProfileResponse *response, NSError *error))completionHandler {
+    [[self detachSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDetachSecurityProfileResponse *> * _Nonnull task) {
+        AWSIoTDetachSecurityProfileResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -1896,6 +2310,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTListActiveViolationsResponse *> *)listActiveViolations:(AWSIoTListActiveViolationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/active-violations"
+                  targetPrefix:@""
+                 operationName:@"ListActiveViolations"
+                   outputClass:[AWSIoTListActiveViolationsResponse class]];
+}
+
+- (void)listActiveViolations:(AWSIoTListActiveViolationsRequest *)request
+     completionHandler:(void (^)(AWSIoTListActiveViolationsResponse *response, NSError *error))completionHandler {
+    [[self listActiveViolations:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListActiveViolationsResponse *> * _Nonnull task) {
+        AWSIoTListActiveViolationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTListAttachedPoliciesResponse *> *)listAttachedPolicies:(AWSIoTListAttachedPoliciesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1919,6 +2356,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTListAuditFindingsResponse *> *)listAuditFindings:(AWSIoTListAuditFindingsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/audit/findings"
+                  targetPrefix:@""
+                 operationName:@"ListAuditFindings"
+                   outputClass:[AWSIoTListAuditFindingsResponse class]];
+}
+
+- (void)listAuditFindings:(AWSIoTListAuditFindingsRequest *)request
+     completionHandler:(void (^)(AWSIoTListAuditFindingsResponse *response, NSError *error))completionHandler {
+    [[self listAuditFindings:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListAuditFindingsResponse *> * _Nonnull task) {
+        AWSIoTListAuditFindingsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListAuditTasksResponse *> *)listAuditTasks:(AWSIoTListAuditTasksRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/tasks"
+                  targetPrefix:@""
+                 operationName:@"ListAuditTasks"
+                   outputClass:[AWSIoTListAuditTasksResponse class]];
+}
+
+- (void)listAuditTasks:(AWSIoTListAuditTasksRequest *)request
+     completionHandler:(void (^)(AWSIoTListAuditTasksResponse *response, NSError *error))completionHandler {
+    [[self listAuditTasks:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListAuditTasksResponse *> * _Nonnull task) {
+        AWSIoTListAuditTasksResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTListAuthorizersResponse *> *)listAuthorizers:(AWSIoTListAuthorizersRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1932,6 +2415,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListAuthorizersResponse *response, NSError *error))completionHandler {
     [[self listAuthorizers:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListAuthorizersResponse *> * _Nonnull task) {
         AWSIoTListAuthorizersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListBillingGroupsResponse *> *)listBillingGroups:(AWSIoTListBillingGroupsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/billing-groups"
+                  targetPrefix:@""
+                 operationName:@"ListBillingGroups"
+                   outputClass:[AWSIoTListBillingGroupsResponse class]];
+}
+
+- (void)listBillingGroups:(AWSIoTListBillingGroupsRequest *)request
+     completionHandler:(void (^)(AWSIoTListBillingGroupsResponse *response, NSError *error))completionHandler {
+    [[self listBillingGroups:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListBillingGroupsResponse *> * _Nonnull task) {
+        AWSIoTListBillingGroupsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2287,6 +2793,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTListScheduledAuditsResponse *> *)listScheduledAudits:(AWSIoTListScheduledAuditsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/audit/scheduledaudits"
+                  targetPrefix:@""
+                 operationName:@"ListScheduledAudits"
+                   outputClass:[AWSIoTListScheduledAuditsResponse class]];
+}
+
+- (void)listScheduledAudits:(AWSIoTListScheduledAuditsRequest *)request
+     completionHandler:(void (^)(AWSIoTListScheduledAuditsResponse *response, NSError *error))completionHandler {
+    [[self listScheduledAudits:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListScheduledAuditsResponse *> * _Nonnull task) {
+        AWSIoTListScheduledAuditsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListSecurityProfilesResponse *> *)listSecurityProfiles:(AWSIoTListSecurityProfilesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/security-profiles"
+                  targetPrefix:@""
+                 operationName:@"ListSecurityProfiles"
+                   outputClass:[AWSIoTListSecurityProfilesResponse class]];
+}
+
+- (void)listSecurityProfiles:(AWSIoTListSecurityProfilesRequest *)request
+     completionHandler:(void (^)(AWSIoTListSecurityProfilesResponse *response, NSError *error))completionHandler {
+    [[self listSecurityProfiles:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListSecurityProfilesResponse *> * _Nonnull task) {
+        AWSIoTListSecurityProfilesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListSecurityProfilesForTargetResponse *> *)listSecurityProfilesForTarget:(AWSIoTListSecurityProfilesForTargetRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/security-profiles-for-target"
+                  targetPrefix:@""
+                 operationName:@"ListSecurityProfilesForTarget"
+                   outputClass:[AWSIoTListSecurityProfilesForTargetResponse class]];
+}
+
+- (void)listSecurityProfilesForTarget:(AWSIoTListSecurityProfilesForTargetRequest *)request
+     completionHandler:(void (^)(AWSIoTListSecurityProfilesForTargetResponse *response, NSError *error))completionHandler {
+    [[self listSecurityProfilesForTarget:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListSecurityProfilesForTargetResponse *> * _Nonnull task) {
+        AWSIoTListSecurityProfilesForTargetResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTListStreamsResponse *> *)listStreams:(AWSIoTListStreamsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2310,6 +2885,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTListTagsForResourceResponse *> *)listTagsForResource:(AWSIoTListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/tags"
+                  targetPrefix:@""
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSIoTListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSIoTListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSIoTListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListTagsForResourceResponse *> * _Nonnull task) {
+        AWSIoTListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTListTargetsForPolicyResponse *> *)listTargetsForPolicy:(AWSIoTListTargetsForPolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2323,6 +2921,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListTargetsForPolicyResponse *response, NSError *error))completionHandler {
     [[self listTargetsForPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListTargetsForPolicyResponse *> * _Nonnull task) {
         AWSIoTListTargetsForPolicyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListTargetsForSecurityProfileResponse *> *)listTargetsForSecurityProfile:(AWSIoTListTargetsForSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/security-profiles/{securityProfileName}/targets"
+                  targetPrefix:@""
+                 operationName:@"ListTargetsForSecurityProfile"
+                   outputClass:[AWSIoTListTargetsForSecurityProfileResponse class]];
+}
+
+- (void)listTargetsForSecurityProfile:(AWSIoTListTargetsForSecurityProfileRequest *)request
+     completionHandler:(void (^)(AWSIoTListTargetsForSecurityProfileResponse *response, NSError *error))completionHandler {
+    [[self listTargetsForSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListTargetsForSecurityProfileResponse *> * _Nonnull task) {
+        AWSIoTListTargetsForSecurityProfileResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2494,6 +3115,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTListThingsInBillingGroupResponse *> *)listThingsInBillingGroup:(AWSIoTListThingsInBillingGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/billing-groups/{billingGroupName}/things"
+                  targetPrefix:@""
+                 operationName:@"ListThingsInBillingGroup"
+                   outputClass:[AWSIoTListThingsInBillingGroupResponse class]];
+}
+
+- (void)listThingsInBillingGroup:(AWSIoTListThingsInBillingGroupRequest *)request
+     completionHandler:(void (^)(AWSIoTListThingsInBillingGroupResponse *response, NSError *error))completionHandler {
+    [[self listThingsInBillingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListThingsInBillingGroupResponse *> * _Nonnull task) {
+        AWSIoTListThingsInBillingGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTListThingsInThingGroupResponse *> *)listThingsInThingGroup:(AWSIoTListThingsInThingGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2553,6 +3197,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListV2LoggingLevelsResponse *response, NSError *error))completionHandler {
     [[self listV2LoggingLevels:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListV2LoggingLevelsResponse *> * _Nonnull task) {
         AWSIoTListV2LoggingLevelsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListViolationEventsResponse *> *)listViolationEvents:(AWSIoTListViolationEventsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/violation-events"
+                  targetPrefix:@""
+                 operationName:@"ListViolationEvents"
+                   outputClass:[AWSIoTListViolationEventsResponse class]];
+}
+
+- (void)listViolationEvents:(AWSIoTListViolationEventsRequest *)request
+     completionHandler:(void (^)(AWSIoTListViolationEventsResponse *response, NSError *error))completionHandler {
+    [[self listViolationEvents:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListViolationEventsResponse *> * _Nonnull task) {
+        AWSIoTListViolationEventsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2648,6 +3315,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTRemoveThingFromBillingGroupResponse *> *)removeThingFromBillingGroup:(AWSIoTRemoveThingFromBillingGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/billing-groups/removeThingFromBillingGroup"
+                  targetPrefix:@""
+                 operationName:@"RemoveThingFromBillingGroup"
+                   outputClass:[AWSIoTRemoveThingFromBillingGroupResponse class]];
+}
+
+- (void)removeThingFromBillingGroup:(AWSIoTRemoveThingFromBillingGroupRequest *)request
+     completionHandler:(void (^)(AWSIoTRemoveThingFromBillingGroupResponse *response, NSError *error))completionHandler {
+    [[self removeThingFromBillingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTRemoveThingFromBillingGroupResponse *> * _Nonnull task) {
+        AWSIoTRemoveThingFromBillingGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -2833,6 +3523,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTStartOnDemandAuditTaskResponse *> *)startOnDemandAuditTask:(AWSIoTStartOnDemandAuditTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/audit/tasks"
+                  targetPrefix:@""
+                 operationName:@"StartOnDemandAuditTask"
+                   outputClass:[AWSIoTStartOnDemandAuditTaskResponse class]];
+}
+
+- (void)startOnDemandAuditTask:(AWSIoTStartOnDemandAuditTaskRequest *)request
+     completionHandler:(void (^)(AWSIoTStartOnDemandAuditTaskResponse *response, NSError *error))completionHandler {
+    [[self startOnDemandAuditTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTStartOnDemandAuditTaskResponse *> * _Nonnull task) {
+        AWSIoTStartOnDemandAuditTaskResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTStartThingRegistrationTaskResponse *> *)startThingRegistrationTask:(AWSIoTStartThingRegistrationTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2869,6 +3582,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTStopThingRegistrationTaskResponse *response, NSError *error))completionHandler {
     [[self stopThingRegistrationTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTStopThingRegistrationTaskResponse *> * _Nonnull task) {
         AWSIoTStopThingRegistrationTaskResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTTagResourceResponse *> *)tagResource:(AWSIoTTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/tags"
+                  targetPrefix:@""
+                 operationName:@"TagResource"
+                   outputClass:[AWSIoTTagResourceResponse class]];
+}
+
+- (void)tagResource:(AWSIoTTagResourceRequest *)request
+     completionHandler:(void (^)(AWSIoTTagResourceResponse *response, NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTTagResourceResponse *> * _Nonnull task) {
+        AWSIoTTagResourceResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2948,6 +3684,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTUntagResourceResponse *> *)untagResource:(AWSIoTUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/untag"
+                  targetPrefix:@""
+                 operationName:@"UntagResource"
+                   outputClass:[AWSIoTUntagResourceResponse class]];
+}
+
+- (void)untagResource:(AWSIoTUntagResourceRequest *)request
+     completionHandler:(void (^)(AWSIoTUntagResourceResponse *response, NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUntagResourceResponse *> * _Nonnull task) {
+        AWSIoTUntagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdateAccountAuditConfigurationResponse *> *)updateAccountAuditConfiguration:(AWSIoTUpdateAccountAuditConfigurationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/audit/configuration"
+                  targetPrefix:@""
+                 operationName:@"UpdateAccountAuditConfiguration"
+                   outputClass:[AWSIoTUpdateAccountAuditConfigurationResponse class]];
+}
+
+- (void)updateAccountAuditConfiguration:(AWSIoTUpdateAccountAuditConfigurationRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateAccountAuditConfigurationResponse *response, NSError *error))completionHandler {
+    [[self updateAccountAuditConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateAccountAuditConfigurationResponse *> * _Nonnull task) {
+        AWSIoTUpdateAccountAuditConfigurationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTUpdateAuthorizerResponse *> *)updateAuthorizer:(AWSIoTUpdateAuthorizerRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -2961,6 +3743,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTUpdateAuthorizerResponse *response, NSError *error))completionHandler {
     [[self updateAuthorizer:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateAuthorizerResponse *> * _Nonnull task) {
         AWSIoTUpdateAuthorizerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdateBillingGroupResponse *> *)updateBillingGroup:(AWSIoTUpdateBillingGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/billing-groups/{billingGroupName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateBillingGroup"
+                   outputClass:[AWSIoTUpdateBillingGroupResponse class]];
+}
+
+- (void)updateBillingGroup:(AWSIoTUpdateBillingGroupRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateBillingGroupResponse *response, NSError *error))completionHandler {
+    [[self updateBillingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateBillingGroupResponse *> * _Nonnull task) {
+        AWSIoTUpdateBillingGroupResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3015,6 +3820,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTUpdateDynamicThingGroupResponse *> *)updateDynamicThingGroup:(AWSIoTUpdateDynamicThingGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/dynamic-thing-groups/{thingGroupName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateDynamicThingGroup"
+                   outputClass:[AWSIoTUpdateDynamicThingGroupResponse class]];
+}
+
+- (void)updateDynamicThingGroup:(AWSIoTUpdateDynamicThingGroupRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateDynamicThingGroupResponse *response, NSError *error))completionHandler {
+    [[self updateDynamicThingGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateDynamicThingGroupResponse *> * _Nonnull task) {
+        AWSIoTUpdateDynamicThingGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTUpdateEventConfigurationsResponse *> *)updateEventConfigurations:(AWSIoTUpdateEventConfigurationsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPATCH
@@ -3061,6 +3889,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)updateJob:(AWSIoTUpdateJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/jobs/{jobId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateJob"
+                   outputClass:nil];
+}
+
+- (void)updateJob:(AWSIoTUpdateJobRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateJob:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTUpdateRoleAliasResponse *> *)updateRoleAlias:(AWSIoTUpdateRoleAliasRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -3074,6 +3924,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTUpdateRoleAliasResponse *response, NSError *error))completionHandler {
     [[self updateRoleAlias:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateRoleAliasResponse *> * _Nonnull task) {
         AWSIoTUpdateRoleAliasResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdateScheduledAuditResponse *> *)updateScheduledAudit:(AWSIoTUpdateScheduledAuditRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/audit/scheduledaudits/{scheduledAuditName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateScheduledAudit"
+                   outputClass:[AWSIoTUpdateScheduledAuditResponse class]];
+}
+
+- (void)updateScheduledAudit:(AWSIoTUpdateScheduledAuditRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateScheduledAuditResponse *response, NSError *error))completionHandler {
+    [[self updateScheduledAudit:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateScheduledAuditResponse *> * _Nonnull task) {
+        AWSIoTUpdateScheduledAuditResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdateSecurityProfileResponse *> *)updateSecurityProfile:(AWSIoTUpdateSecurityProfileRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/security-profiles/{securityProfileName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateSecurityProfile"
+                   outputClass:[AWSIoTUpdateSecurityProfileResponse class]];
+}
+
+- (void)updateSecurityProfile:(AWSIoTUpdateSecurityProfileRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateSecurityProfileResponse *response, NSError *error))completionHandler {
+    [[self updateSecurityProfile:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateSecurityProfileResponse *> * _Nonnull task) {
+        AWSIoTUpdateSecurityProfileResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3166,6 +4062,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTUpdateThingGroupsForThingResponse *response, NSError *error))completionHandler {
     [[self updateThingGroupsForThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateThingGroupsForThingResponse *> * _Nonnull task) {
         AWSIoTUpdateThingGroupsForThingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTValidateSecurityProfileBehaviorsResponse *> *)validateSecurityProfileBehaviors:(AWSIoTValidateSecurityProfileBehaviorsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/security-profile-behaviors/validate"
+                  targetPrefix:@""
+                 operationName:@"ValidateSecurityProfileBehaviors"
+                   outputClass:[AWSIoTValidateSecurityProfileBehaviorsResponse class]];
+}
+
+- (void)validateSecurityProfileBehaviors:(AWSIoTValidateSecurityProfileBehaviorsRequest *)request
+     completionHandler:(void (^)(AWSIoTValidateSecurityProfileBehaviorsResponse *response, NSError *error))completionHandler {
+    [[self validateSecurityProfileBehaviors:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTValidateSecurityProfileBehaviorsResponse *> * _Nonnull task) {
+        AWSIoTValidateSecurityProfileBehaviorsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -122,7 +122,7 @@ signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
     #pragma clang diagnostic ignored "-Wundeclared-selector"
     if ([AuthUIClass respondsToSelector:@selector(presentViewControllerWithConfig:completionHandler:)]) {
         NSMutableDictionary<NSString *, id> *parameters = [NSMutableDictionary new];
-        parameters[@"logo"] = signInUIConfiguration.logoImage;
+        parameters[@"logoImage"] = signInUIConfiguration.logoImage;
         parameters[@"backgroundColor"] = signInUIConfiguration.backgroundColor;
         parameters[@"navigationController"] = navController;
         parameters[@"canCancel"] = signInUIConfiguration.canCancel ? @"YES" : @"NO";

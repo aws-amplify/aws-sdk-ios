@@ -401,7 +401,7 @@ extension AWSMobileClient {
         } else {
             user!.getSession(username, password: password, validationData: validationAttributes).continueWith { (task) -> Any? in
                 if let error = task.error {
-                    self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, error)
+                    self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, self.getMobileError(for: error))
                     self.userpoolOpsHelper.currentSignInHandlerCallback = nil
                 } else if let result = task.result {
                     self.internalCredentialsProvider?.clearCredentials()
@@ -517,6 +517,29 @@ extension AWSMobileClient {
                         codeDeliveryDetailsList.append(self.getUserCodeDeliveryDetails(codeDeliveryDetail))
                     }
                 }
+            }
+            return nil
+        }
+    }
+    
+    
+    /// Fetches the attributes for logged in user.
+    ///
+    /// - Parameter completionHandler: completion handler which will be invoked when result is available.
+    public func getUserAttributes(completionHandler: @escaping (([String: String]?, Error?) -> Void)) {
+        self.userpoolOpsHelper.currentActiveUser!.getDetails().continueWith { (task) -> Any? in
+            if let error = task.error {
+               completionHandler(nil, self.getMobileError(for: error))
+            } else if let result = task.result {
+                let userAttributes = result.userAttributes
+                var attributesMap = [String: String]()
+                if let userAttributes = userAttributes {
+                    for attribute in userAttributes {
+                        guard attribute.name != nil, attribute.value != nil else {continue}
+                        attributesMap[attribute.name!] = attribute.value!
+                    }
+                }
+                completionHandler(attributesMap, nil)
             }
             return nil
         }
