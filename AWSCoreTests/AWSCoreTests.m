@@ -962,10 +962,9 @@ static NSString* const awsConfigurationJsonFileName = @"awsconfiguration.json";
     // Clear contents of file
     [[NSFileManager defaultManager] createFileAtPath:filePath contents:[NSData data] attributes:nil];
     
-    NSData *invalidData = [NSData dataWithContentsOfFile:filePath];
-    
     @try {
         AWSInfo *defaultInfo = [AWSInfo defaultAWSInfo];
+        XCTAssertNotNil(defaultInfo, @"AWSInfo should be initialized.");
     } @catch (NSException *exception) {
         XCTFail(@"AWSInfo initilization failed and exception thrown.");
     }

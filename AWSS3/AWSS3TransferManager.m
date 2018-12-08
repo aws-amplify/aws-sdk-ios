@@ -13,13 +13,13 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSS3TransferManager.h"
 #import "AWSS3.h"
-#import "AWSBolts.h"
-#import "AWSTMCache.h"
-#import "AWSCategory.h"
-#import "AWSCocoaLumberjack.h"
-#import "AWSSynchronizedMutableDictionary.h"
+#import "AWSS3TransferManager.h"
+#import <AWSCore/AWSBolts.h>
+#import <AWSCore/AWSCategory.h>
+#import <AWSCore/AWSCocoaLumberjack.h>
+#import <AWSCore/AWSSynchronizedMutableDictionary.h>
+#import <AWSCore/AWSTMCache.h>
 
 static NSString *const AWSInfoS3TransferManager = @"S3TransferManager";
 
