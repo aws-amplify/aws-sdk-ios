@@ -46,7 +46,11 @@ typedef void (^AWSS3TransferManagerResumeAllBlock) (AWSRequest *request);
 
 /**
  High level utility for managing transfers to Amazon S3. S3TransferManager provides a simple API for uploading and downloading content to Amazon S3, and makes extensive use of Amazon S3 multipart uploads to achieve enhanced throughput, performance and reliability.
+ 
+ @warning The `AWSS3TransferManager` is deprecated. Please use `AWSS3TransferUtility` for Amazon S3 upload and download operations.
+ @deprecated Please use `AWSS3TransferUtility` for upload and download operations.
  */
+DEPRECATED_MSG_ATTRIBUTE("Use `AWSS3TransferUtility` for upload and download operations.")
 @interface AWSS3TransferManager : AWSService
 
 /**

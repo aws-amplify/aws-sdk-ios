@@ -120,6 +120,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionLandmarkType) {
     AWSRekognitionLandmarkTypeMouthDown,
     AWSRekognitionLandmarkTypeLeftPupil,
     AWSRekognitionLandmarkTypeRightPupil,
+    AWSRekognitionLandmarkTypeUpperJawlineLeft,
+    AWSRekognitionLandmarkTypeMidJawlineLeft,
+    AWSRekognitionLandmarkTypeChinBottom,
+    AWSRekognitionLandmarkTypeMidJawlineRight,
+    AWSRekognitionLandmarkTypeUpperJawlineRight,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionOrientationCorrection) {
@@ -134,6 +139,22 @@ typedef NS_ENUM(NSInteger, AWSRekognitionPersonTrackingSortBy) {
     AWSRekognitionPersonTrackingSortByUnknown,
     AWSRekognitionPersonTrackingSortByIndex,
     AWSRekognitionPersonTrackingSortByTimestamp,
+};
+
+typedef NS_ENUM(NSInteger, AWSRekognitionQualityFilter) {
+    AWSRekognitionQualityFilterUnknown,
+    AWSRekognitionQualityFilterNone,
+    AWSRekognitionQualityFilterAuto,
+};
+
+typedef NS_ENUM(NSInteger, AWSRekognitionReason) {
+    AWSRekognitionReasonUnknown,
+    AWSRekognitionReasonExceedsMaxFaces,
+    AWSRekognitionReasonExtremePose,
+    AWSRekognitionReasonLowBrightness,
+    AWSRekognitionReasonLowSharpness,
+    AWSRekognitionReasonLowConfidence,
+    AWSRekognitionReasonSmallBoundingBox,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionStreamProcessorStatus) {
@@ -221,6 +242,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionImageQuality;
 @class AWSRekognitionIndexFacesRequest;
 @class AWSRekognitionIndexFacesResponse;
+@class AWSRekognitionInstance;
 @class AWSRekognitionKinesisDataStream;
 @class AWSRekognitionKinesisVideoStream;
 @class AWSRekognitionLabel;
@@ -236,6 +258,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionMouthOpen;
 @class AWSRekognitionMustache;
 @class AWSRekognitionNotificationChannel;
+@class AWSRekognitionParent;
 @class AWSRekognitionPersonDetail;
 @class AWSRekognitionPersonDetection;
 @class AWSRekognitionPersonMatch;
@@ -248,7 +271,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionSearchFacesByImageResponse;
 @class AWSRekognitionSearchFacesRequest;
 @class AWSRekognitionSearchFacesResponse;
-@class AWSRekognitionSection;
 @class AWSRekognitionSmile;
 @class AWSRekognitionStartCelebrityRecognitionRequest;
 @class AWSRekognitionStartCelebrityRecognitionResponse;
@@ -272,12 +294,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionStreamProcessorSettings;
 @class AWSRekognitionSunglasses;
 @class AWSRekognitionTextDetection;
+@class AWSRekognitionUnindexedFace;
 @class AWSRekognitionVideo;
 @class AWSRekognitionVideoMetadata;
-@class AWSRekognitionWarning;
 
 /**
- <p>Structure containing the estimated age range, in years, for a face.</p><p>Rekognition estimates an age-range for faces detected in the input image. Estimated age ranges can overlap; a face of a 5 year old may have an estimated range of 4-6 whilst the face of a 6 year old may have an estimated range of 4-8.</p>
+ <p>Structure containing the estimated age range, in years, for a face.</p><p>Amazon Rekognition estimates an age range for faces detected in the input image. Estimated age ranges can overlap. A face of a 5-year-old might have an estimated range of 4-6, while the face of a 6-year-old might have an estimated range of 4-8.</p>
  */
 @interface AWSRekognitionAgeRange : AWSModel
 
@@ -313,7 +335,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Identifies the bounding box around the object, face or text. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p><note><p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p></note>
+ <p>Identifies the bounding box around the label, face, or text. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p><note><p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p></note>
  */
 @interface AWSRekognitionBoundingBox : AWSModel
 
@@ -357,7 +379,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The confidence, in percentage, that Rekognition has that the recognized face is the celebrity.</p>
+ <p>The confidence, in percentage, that Amazon Rekognition has that the recognized face is the celebrity.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable matchConfidence;
 
@@ -430,7 +452,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Provides information about a face in a target image that matches the source image face analysed by <code>CompareFaces</code>. The <code>Face</code> property contains the bounding box of the face in the target image. The <code>Similarity</code> property is the confidence that the source image face matches the face in the bounding box.</p>
+ <p>Provides information about a face in a target image that matches the source image face analyzed by <code>CompareFaces</code>. The <code>Face</code> property contains the bounding box of the face in the target image. The <code>Similarity</code> property is the confidence that the source image face matches the face in the bounding box.</p>
  */
 @interface AWSRekognitionCompareFacesMatch : AWSModel
 
@@ -487,12 +509,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionComparedSourceImageFace * _Nullable sourceImageFace;
 
 /**
- <p> The orientation of the source image (counterclockwise direction). If your application displays the source image, you can use this value to correct image orientation. The bounding box coordinates returned in <code>SourceImageFace</code> represent the location of the face before the image orientation is corrected. </p><note><p>If the source image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image's orientation. If the Exif metadata for the source image populates the orientation field, the value of <code>OrientationCorrection</code> is null and the <code>SourceImageFace</code> bounding box coordinates represent the location of the face after Exif metadata is used to correct the orientation. Images in .png format don't contain Exif metadata.</p></note>
+ <p>The value of <code>SourceImageOrientationCorrection</code> is always null.</p><p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.</p><p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated. </p>
  */
 @property (nonatomic, assign) AWSRekognitionOrientationCorrection sourceImageOrientationCorrection;
 
 /**
- <p> The orientation of the target image (in counterclockwise direction). If your application displays the target image, you can use this value to correct the orientation of the image. The bounding box coordinates returned in <code>FaceMatches</code> and <code>UnmatchedFaces</code> represent face locations before the image orientation is corrected. </p><note><p>If the target image is in .jpg format, it might contain Exif metadata that includes the orientation of the image. If the Exif metadata for the target image populates the orientation field, the value of <code>OrientationCorrection</code> is null and the bounding box coordinates in <code>FaceMatches</code> and <code>UnmatchedFaces</code> represent the location of the face after Exif metadata is used to correct the orientation. Images in .png format don't contain Exif metadata.</p></note>
+ <p>The value of <code>TargetImageOrientationCorrection</code> is always null.</p><p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.</p><p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated. </p>
  */
 @property (nonatomic, assign) AWSRekognitionOrientationCorrection targetImageOrientationCorrection;
 
@@ -504,7 +526,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Provides face metadata for target image faces that are analysed by <code>CompareFaces</code> and <code>RecognizeCelebrities</code>.</p>
+ <p>Provides face metadata for target image faces that are analyzed by <code>CompareFaces</code> and <code>RecognizeCelebrities</code>.</p>
  */
 @interface AWSRekognitionComparedFace : AWSModel
 
@@ -739,7 +761,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- 
+ <p>The ID of the collection to describe.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable collectionId;
 
@@ -752,22 +774,22 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- 
+ <p>The Amazon Resource Name (ARN) of the collection.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable collectionARN;
 
 /**
- 
+ <p>The number of milliseconds since the Unix epoch time until the creation of the collection. The Unix epoch time is 00:00:00 Coordinated Universal Time (UTC), Thursday, 1 January 1970.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationTimestamp;
 
 /**
- 
+ <p>The number of faces that are indexed into the collection. To index faces into a collection, use .</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable faceCount;
 
 /**
- 
+ <p>The version of the face model that's used by the collection for face detection.</p><p>For more information, see Model Versioning in the Amazon Rekognition Developer Guide.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable faceModelVersion;
 
@@ -851,7 +873,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code> and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned but the operation will take longer to complete.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
+ <p>An array of facial attributes you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned, but the operation takes longer to complete.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attributes;
 
@@ -874,7 +896,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceDetail *> * _Nullable faceDetails;
 
 /**
- <p> The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct image orientation. The bounding box coordinates returned in <code>FaceDetails</code> represent face locations before the image orientation is corrected. </p><note><p>If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image's orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of <code>OrientationCorrection</code> is null and the <code>FaceDetails</code> bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.</p></note>
+ <p>The value of <code>OrientationCorrection</code> is always null.</p><p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.</p><p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated. </p>
  */
 @property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection;
 
@@ -910,12 +932,17 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>Version number of the label detection model that was used to detect labels.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable labelModelVersion;
+
+/**
  <p>An array of labels for the real-world objects detected. </p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionLabel *> * _Nullable labels;
 
 /**
- <p> The orientation of the input image (counter-clockwise direction). If your application displays the image, you can use this value to correct the orientation. If Amazon Rekognition detects that the input image was rotated (for example, by 90 degrees), it first corrects the orientation before detecting the labels. </p><note><p>If the input image Exif metadata populates the orientation field, Amazon Rekognition does not perform orientation correction and the value of OrientationCorrection will be null.</p></note>
+ <p>The value of <code>OrientationCorrection</code> is always null.</p><p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction. The bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.</p><p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images without orientation information in the image Exif metadata. The bounding box coordinates aren't translated and represent the object locations before the image is rotated. </p>
  */
 @property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection;
 
@@ -1037,11 +1064,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @interface AWSRekognitionFace : AWSModel
 
-
-/**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable associationScore;
 
 /**
  <p>Bounding box of the face.</p>
@@ -1190,7 +1212,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Object containing both the face metadata (stored in the back-end database) and facial attributes that are detected but aren't stored in the database.</p>
+ <p>Object containing both the face metadata (stored in the backend database), and facial attributes that are detected but aren't stored in the database.</p>
  */
 @interface AWSRekognitionFaceRecord : AWSModel
 
@@ -1244,7 +1266,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Information about where text detected by is located on an image.</p>
+ <p>Information about where the text detected by is located on an image.</p>
  */
 @interface AWSRekognitionGeometry : AWSModel
 
@@ -1327,19 +1349,9 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
-
-/**
  <p>Array of celebrities recognized in the video.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionCelebrityRecognition *> * _Nullable celebrities;
-
-/**
- 
- */
-@property (nonatomic, strong) NSString * _Nullable errorCode;
 
 /**
  <p>The current status of the celebrity recognition job.</p>
@@ -1360,11 +1372,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
-
-/**
- 
- */
-@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -1403,16 +1410,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
-
-/**
- 
- */
-@property (nonatomic, strong) NSString * _Nullable errorCode;
-
-/**
  <p>The current status of the content moderation job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
@@ -1436,11 +1433,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from <code>GetContentModeration</code>. </p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
-
-/**
- 
- */
-@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -1474,16 +1466,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
-
-/**
- 
- */
-@property (nonatomic, strong) NSString * _Nullable errorCode;
-
-/**
  <p>An array of faces detected in the video. Each element contains a detected face's details and the time, in milliseconds from the start of the video, the face was detected. </p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceDetection *> * _Nullable faces;
@@ -1507,11 +1489,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
-
-/**
- 
- */
-@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -1550,16 +1527,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
-
-/**
- 
- */
-@property (nonatomic, strong) NSString * _Nullable errorCode;
-
-/**
  <p>The current status of the face search job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
@@ -1583,11 +1550,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition Video operation. </p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
-
-/**
- 
- */
-@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -1626,16 +1588,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
-
-/**
- 
- */
-@property (nonatomic, strong) NSString * _Nullable errorCode;
-
-/**
  <p>The current status of the label detection job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
@@ -1659,11 +1611,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Information about a video that Amazon Rekognition Video analyzed. <code>Videometadata</code> is returned in every page of paginated responses from a Amazon Rekognition video operation.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
-
-/**
- 
- */
-@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
 
 @end
 
@@ -1702,16 +1649,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable billableDurationSeconds;
-
-/**
- 
- */
-@property (nonatomic, strong) NSString * _Nullable errorCode;
-
-/**
  <p>The current status of the person tracking job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
@@ -1722,7 +1659,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>An array of the persons detected in the video and the times they are tracked throughout the video. An array element will exist for each time the person is tracked. </p>
+ <p>An array of the persons detected in the video and the time(s) their path was tracked throughout the video. An array element will exist for each time a person's path is tracked. </p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionPersonDetection *> * _Nullable persons;
 
@@ -1736,15 +1673,10 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @property (nonatomic, strong) AWSRekognitionVideoMetadata * _Nullable videoMetadata;
 
-/**
- 
- */
-@property (nonatomic, strong) NSArray<AWSRekognitionWarning *> * _Nullable warnings;
-
 @end
 
 /**
- <p>Provides the input image either as bytes or an S3 object.</p><p>You pass image bytes to a Rekognition API operation by using the <code>Bytes</code> property. For example, you would use the <code>Bytes</code> property to pass an image loaded from a local file system. Image bytes passed by using the <code>Bytes</code> property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Rekognition API operations. </p><p>For more information, see Analyzing an Image Loaded from a Local File System in the Amazon Rekognition Developer Guide.</p><p> You pass images stored in an S3 bucket to a Rekognition API operation by using the <code>S3Object</code> property. Images stored in an S3 bucket do not need to be base64-encoded.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>If you use the Amazon CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide. </p>
+ <p>Provides the input image either as bytes or an S3 object.</p><p>You pass image bytes to an Amazon Rekognition API operation by using the <code>Bytes</code> property. For example, you would use the <code>Bytes</code> property to pass an image loaded from a local file system. Image bytes passed by using the <code>Bytes</code> property must be base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to call Amazon Rekognition API operations. </p><p>For more information, see Analyzing an Image Loaded from a Local File System in the Amazon Rekognition Developer Guide.</p><p> You pass images stored in an S3 bucket to an Amazon Rekognition API operation by using the <code>S3Object</code> property. Images stored in an S3 bucket do not need to be base64-encoded.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes using the Bytes property is not supported. You must first upload the image to an Amazon S3 bucket and then call the operation using the S3Object property.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide. </p>
  */
 @interface AWSRekognitionImage : AWSModel
 
@@ -1791,19 +1723,29 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable collectionId;
 
 /**
- <p>An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code> and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned but the operation will take longer to complete.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
+ <p>An array of facial attributes that you want to be returned. This can be the default list of attributes or all attributes. If you don't specify a value for <code>Attributes</code> or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>, <code>Quality</code>, and <code>Landmarks</code>. If you provide <code>["ALL"]</code>, all facial attributes are returned, but the operation takes longer to complete.</p><p>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND operator to determine which attributes to return (in this case, all attributes). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable detectionAttributes;
 
 /**
- <p>ID you want to assign to all the faces detected in the image.</p>
+ <p>The ID you want to assign to all the faces detected in the image.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable externalImageId;
 
 /**
- <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
+ <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call Amazon Rekognition operations, passing base64-encoded image bytes isn't supported. </p>
  */
 @property (nonatomic, strong) AWSRekognitionImage * _Nullable image;
+
+/**
+ <p>The maximum number of faces to index. The value of <code>MaxFaces</code> must be greater than or equal to 1. <code>IndexFaces</code> returns no more than 100 detected faces in an image, even if you specify a larger value for <code>MaxFaces</code>.</p><p>If <code>IndexFaces</code> detects more faces than the value of <code>MaxFaces</code>, the faces with the lowest quality are filtered out first. If there are still more faces than the value of <code>MaxFaces</code>, the faces with the smallest bounding boxes are filtered out (up to the number that's needed to satisfy the value of <code>MaxFaces</code>). Information about the unindexed faces is available in the <code>UnindexedFaces</code> array. </p><p>The faces that are returned by <code>IndexFaces</code> are sorted by the largest face bounding box size to the smallest size, in descending order.</p><p><code>MaxFaces</code> can be used with a collection associated with any version of the face model.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxFaces;
+
+/**
+ <p>A filter that specifies how much filtering is done to identify faces that are detected with low quality. Filtered faces aren't indexed. If you specify <code>AUTO</code>, filtering prioritizes the identification of faces that don’t meet the required quality bar chosen by Amazon Rekognition. The quality bar is based on a variety of common use cases. Low-quality detections can occur for a number of reasons. Some examples are an object that's misidentified as a face, a face that's too blurry, or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no filtering is performed. The default value is AUTO.</p><p>To use quality filtering, the collection you are using must be associated with version 3 of the face model.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionQualityFilter qualityFilter;
 
 @end
 
@@ -1814,7 +1756,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+ <p>The version number of the face detection model that's associated with the input collection (<code>CollectionId</code>).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable faceModelVersion;
 
@@ -1824,9 +1766,32 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionFaceRecord *> * _Nullable faceRecords;
 
 /**
- <p>The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct image orientation. The bounding box coordinates returned in <code>FaceRecords</code> represent face locations before the image orientation is corrected. </p><note><p>If the input image is in jpeg format, it might contain exchangeable image (Exif) metadata. If so, and the Exif metadata populates the orientation field, the value of <code>OrientationCorrection</code> is null and the bounding box coordinates in <code>FaceRecords</code> represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata.</p></note>
+ <p>If your collection is associated with a face detection model that's later than version 3.0, the value of <code>OrientationCorrection</code> is always null and no orientation information is returned.</p><p>If your collection is associated with a face detection model that's version 3.0 or earlier, the following applies:</p><ul><li><p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation information to perform image correction - the bounding box coordinates are translated to represent object locations after the orientation information in the Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata. The value of <code>OrientationCorrection</code> is null.</p></li><li><p>If the image doesn't contain orientation information in its Exif metadata, Amazon Rekognition returns an estimated orientation (ROTATE_0, ROTATE_90, ROTATE_180, ROTATE_270). Amazon Rekognition doesn’t perform image correction for images. The bounding box coordinates aren't translated and represent the object locations before the image is rotated.</p></li></ul><p>Bounding box information is returned in the <code>FaceRecords</code> array. You can get the version of the face detection model by calling . </p>
  */
 @property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection;
+
+/**
+ <p>An array of faces that were detected in the image but weren't indexed. They weren't indexed because the quality filter identified them as low quality, or the <code>MaxFaces</code> request parameter filtered them out. To use the quality filter, you specify the <code>QualityFilter</code> request parameter.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionUnindexedFace *> * _Nullable unindexedFaces;
+
+@end
+
+/**
+ <p>An instance of a label detected by .</p>
+ */
+@interface AWSRekognitionInstance : AWSModel
+
+
+/**
+ <p>The position of the label instance on the image.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionBoundingBox * _Nullable boundingBox;
+
+/**
+ <p>The confidence that Amazon Rekognition Image has in the accuracy of the bounding box.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
 
 @end
 
@@ -1857,7 +1822,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Structure containing details about the detected label, including name, and level of confidence.</p>
+ <p>Structure containing details about the detected label, including the name, and level of confidence.</p><p>The Amazon Rekognition Image operation operation returns a hierarchical taxonomy (<code>Parents</code>) for detected labels and also bounding box information (<code>Instances</code>) for detected labels. Amazon Rekognition Video doesn't return this information and returns <code>null</code> for the <code>Parents</code> and <code>Instances</code> attributes. </p>
  */
 @interface AWSRekognitionLabel : AWSModel
 
@@ -1868,9 +1833,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable confidence;
 
 /**
- <p>The name (label) of the object.</p>
+ <p>If <code>Label</code> represents an object, <code>Instances</code> contains the bounding boxes for each instance of the detected object. Bounding boxes are returned for common object labels such as people, cars, furniture, apparel or pets.</p><note><p>Amazon Rekognition Video does not support bounding box information for detected labels. The value of <code>Instances</code> is returned as <code>null</code> by <code>GetLabelDetection</code>.</p></note>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionInstance *> * _Nullable instances;
+
+/**
+ <p>The name (label) of the object or scene.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The parent labels for a label. The response includes all ancestor labels.</p><note><p>Amazon Rekognition Video does not support a hierarchical taxonomy of detected labels. The value of <code>Parents</code> is returned as <code>null</code> by <code>GetLabelDetection</code>.</p></note>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionParent *> * _Nullable parents;
 
 @end
 
@@ -1899,17 +1874,17 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Type of the landmark.</p>
+ <p>Type of landmark.</p>
  */
 @property (nonatomic, assign) AWSRekognitionLandmarkType types;
 
 /**
- <p>x-coordinate from the top left of the landmark expressed as the ratio of the width of the image. For example, if the images is 700x200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5. </p>
+ <p>The x-coordinate from the top left of the landmark expressed as the ratio of the width of the image. For example, if the image is 700 x 200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable X;
 
 /**
- <p>y-coordinate from the top left of the landmark expressed as the ratio of the height of the image. For example, if the images is 700x200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.</p>
+ <p>The y-coordinate from the top left of the landmark expressed as the ratio of the height of the image. For example, if the image is 700 x 200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable Y;
 
@@ -2055,7 +2030,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The name for the parent label. Labels at the top-level of the hierarchy have the parent label <code>""</code>.</p>
+ <p>The name for the parent label. Labels at the top level of the hierarchy have the parent label <code>""</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable parentName;
 
@@ -2117,6 +2092,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>A parent label for a label. A label can have 0, 1, or more parents. </p>
+ */
+@interface AWSRekognitionParent : AWSModel
+
+
+/**
+ <p>The name of the parent label.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
  <p>Details about a person detected in a video analysis request.</p>
  */
 @interface AWSRekognitionPersonDetail : AWSModel
@@ -2140,25 +2128,25 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Details and tracking information for a single time a person is tracked in a video. Amazon Rekognition operations that track persons return an array of <code>PersonDetection</code> objects with elements for each time a person is tracked in a video. </p><p>For more information, see API_GetPersonTracking in the Amazon Rekognition Developer Guide. </p>
+ <p>Details and path tracking information for a single time a person's path is tracked in a video. Amazon Rekognition operations that track people's paths return an array of <code>PersonDetection</code> objects with elements for each time a person's path is tracked in a video. </p><p>For more information, see API_GetPersonTracking in the Amazon Rekognition Developer Guide. </p>
  */
 @interface AWSRekognitionPersonDetection : AWSModel
 
 
 /**
- <p>Details about a person tracked in a video.</p>
+ <p>Details about a person whose path was tracked in a video.</p>
  */
 @property (nonatomic, strong) AWSRekognitionPersonDetail * _Nullable person;
 
 /**
- <p>The time, in milliseconds from the start of the video, that the person was tracked.</p>
+ <p>The time, in milliseconds from the start of the video, that the person's path was tracked.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timestamp;
 
 @end
 
 /**
- <p>Information about a person whose face matches a face(s) in a Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection (), information about the person (<a>PersonDetail</a>) and the timestamp for when the person was detected in a video. An array of <code>PersonMatch</code> objects is returned by . </p>
+ <p>Information about a person whose face matches a face(s) in an Amazon Rekognition collection. Includes information about the faces in the Amazon Rekognition collection (), information about the person (<a>PersonDetail</a>), and the time stamp for when the person was detected in a video. An array of <code>PersonMatch</code> objects is returned by . </p>
  */
 @interface AWSRekognitionPersonMatch : AWSModel
 
@@ -2246,7 +2234,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<AWSRekognitionCelebrity *> * _Nullable celebrityFaces;
 
 /**
- <p>The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> represent face locations before the image orientation is corrected. </p><note><p>If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image's orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of <code>OrientationCorrection</code> is null and the <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata. </p></note>
+ <p>The orientation of the input image (counterclockwise direction). If your application displays the image, you can use this value to correct the orientation. The bounding box coordinates returned in <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> represent face locations before the image orientation is corrected. </p><note><p>If the input image is in .jpeg format, it might contain exchangeable image (Exif) metadata that includes the image's orientation. If so, and the Exif metadata for the input image populates the orientation field, the value of <code>OrientationCorrection</code> is null. The <code>CelebrityFaces</code> and <code>UnrecognizedFaces</code> bounding box coordinates represent face locations after Exif metadata is used to correct the image orientation. Images in .png format don't contain Exif metadata. </p></note>
  */
 @property (nonatomic, assign) AWSRekognitionOrientationCorrection orientationCorrection;
 
@@ -2258,7 +2246,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource Based Policies in the Amazon Rekognition Developer Guide. </p>
+ <p>Provides the S3 bucket name and object name.</p><p>The region for the S3 bucket containing the S3 object must match the region you use for Amazon Rekognition operations.</p><p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3 object. For more information, see Resource-Based Policies in the Amazon Rekognition Developer Guide. </p>
  */
 @interface AWSRekognitionS3Object : AWSModel
 
@@ -2388,24 +2376,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- 
- */
-@interface AWSRekognitionSection : AWSModel
-
-
-/**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable endTimestamp;
-
-/**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable startTimestamp;
-
-@end
-
-/**
  <p>Indicates whether or not the face is smiling, and the confidence level in the determination.</p>
  */
 @interface AWSRekognitionSmile : AWSModel
@@ -2433,11 +2403,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartCelebrityRecognition</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
-
-/**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable enablePersonTracking;
 
 /**
  <p>Unique identifier you specify to identify the job in the completion status published to the Amazon Simple Notification Service topic. </p>
@@ -2486,7 +2451,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value.</p>
+ <p>Specifies the minimum confidence that Amazon Rekognition must have in order to return a moderated content label. Confidence represents how certain Amazon Rekognition is that the moderated content is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition doesn't return any moderated content labels with a confidence level lower than this specified value. If you don't specify <code>MinConfidence</code>, <code>GetContentModeration</code> returns labels with confidence values greater than or equal to 50 percent.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
@@ -2576,11 +2541,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>ID of the collection that contains the faces you want to search for.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable collectionId;
-
-/**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable enablePersonTracking;
 
 /**
  <p>The minimum confidence in the person match to return. For example, don't return any matches where confidence in matches is less than 70%. </p>
@@ -2860,6 +2820,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>A face that detected, but didn't index. Use the <code>Reasons</code> response attribute to determine why a face wasn't indexed.</p>
+ */
+@interface AWSRekognitionUnindexedFace : AWSModel
+
+
+/**
+ <p>The structure that contains attributes of a face that <code>IndexFaces</code>detected, but didn't index. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionFaceDetail * _Nullable faceDetail;
+
+/**
+ <p>An array of reasons that specify why a face wasn't indexed. </p><ul><li><p>EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned too far away from the camera.</p></li><li><p>EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified by the <code>MaxFaces</code> input parameter for <code>IndexFaces</code>.</p></li><li><p>LOW_BRIGHTNESS - The image is too dark.</p></li><li><p>LOW_SHARPNESS - The image is too blurry.</p></li><li><p>LOW_CONFIDENCE - The face was detected with a low confidence.</p></li><li><p>SMALL_BOUNDING_BOX - The bounding box around the face is too small.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable reasons;
+
+@end
+
+/**
  <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
  */
 @interface AWSRekognitionVideo : AWSModel
@@ -2907,34 +2885,6 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Horizontal pixel dimension of the video.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable frameWidth;
-
-/**
- 
- */
-@property (nonatomic, strong) NSNumber * _Nullable rotation;
-
-@end
-
-/**
- 
- */
-@interface AWSRekognitionWarning : AWSModel
-
-
-/**
- 
- */
-@property (nonatomic, strong) NSString * _Nullable errorCode;
-
-/**
- 
- */
-@property (nonatomic, strong) NSString * _Nullable message;
-
-/**
- 
- */
-@property (nonatomic, strong) NSArray<AWSRekognitionSection *> * _Nullable sections;
 
 @end
 
