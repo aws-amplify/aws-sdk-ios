@@ -21,7 +21,7 @@ jobs:
           name: build sdk
           command: |
             xcodebuild  build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'         
-            xcodebuild  build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDK -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'
+            xcodebuild  build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'
   unittest:
     macos:
       xcode: "10.1.0"

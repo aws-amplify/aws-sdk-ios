@@ -1,6 +1,12 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.8.1
+
+### Bug Fixes
+
+* Fixed an issue which caused failure in building SDK from source when using `Carthage`.
+
 ## 2.8.0
 
 ### New Features

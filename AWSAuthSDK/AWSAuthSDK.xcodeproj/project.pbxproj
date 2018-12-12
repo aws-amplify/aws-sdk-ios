@@ -6,6 +6,25 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		17D6F69521C0E1CD001E5F43 /* AWSAuthSDKAllTargets */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 17D6F6F521C0E1CE001E5F43 /* Build configuration list for PBXAggregateTarget "AWSAuthSDKAllTargets" */;
+			buildPhases = (
+			);
+			dependencies = (
+				17D6F6F721C0E1DB001E5F43 /* PBXTargetDependency */,
+				17D6F6F921C0E1DB001E5F43 /* PBXTargetDependency */,
+				17D6F6FB21C0E1DB001E5F43 /* PBXTargetDependency */,
+				17D6F6FD21C0E1DB001E5F43 /* PBXTargetDependency */,
+				17D6F6FF21C0E1DB001E5F43 /* PBXTargetDependency */,
+				17D6F70121C0E1DB001E5F43 /* PBXTargetDependency */,
+			);
+			name = AWSAuthSDKAllTargets;
+			productName = AWSAuthSDKAllTargets;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		170AD35321921764004E1E88 /* AWSMobileClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 170AD35221921764004E1E88 /* AWSMobileClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		170C8BB51F43FEE200C2A1E4 /* AWSUserPoolsUIOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = 1711A4BA1F43A461006105D3 /* AWSUserPoolsUIOperations.m */; };
@@ -176,6 +195,48 @@
 			proxyType = 1;
 			remoteGlobalIDString = 17CD4B1F218244EA00953483;
 			remoteInfo = AWSAuthSDKTestApp;
+		};
+		17D6F6F621C0E1DB001E5F43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1786CA331F2BED3C003421FF;
+			remoteInfo = AWSGoogleSignIn;
+		};
+		17D6F6F821C0E1DB001E5F43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1750D0061F2D4DFA006D915E;
+			remoteInfo = AWSUserPoolsSignIn;
+		};
+		17D6F6FA21C0E1DB001E5F43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1763753F1F328D210086588B;
+			remoteInfo = AWSFacebookSignIn;
+		};
+		17D6F6FC21C0E1DB001E5F43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5345D0E1F366AFA009C1041;
+			remoteInfo = AWSAuthUI;
+		};
+		17D6F6FE21C0E1DB001E5F43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5170D971F466CE5008FD811;
+			remoteInfo = AWSAuthCore;
+		};
+		17D6F70021C0E1DB001E5F43 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175869971EF8899700F1452C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B5FC69001FAFA1AA004790CB;
+			remoteInfo = AWSMobileClient;
 		};
 		B5170C831F44EC68008FD811 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1745,6 +1806,10 @@
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Automatic;
 					};
+					17D6F69521C0E1CD001E5F43 = {
+						CreatedOnToolsVersion = 10.1;
+						ProvisioningStyle = Automatic;
+					};
 					B5170D971F466CE5008FD811 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
@@ -1787,6 +1852,7 @@
 				B5FC69001FAFA1AA004790CB /* AWSMobileClient */,
 				17CD4AA3218241AD00953483 /* AWSMobileClientTests */,
 				17CD4B1F218244EA00953483 /* AWSAuthSDKTestApp */,
+				17D6F69521C0E1CD001E5F43 /* AWSAuthSDKAllTargets */,
 			);
 		};
 /* End PBXProject section */
@@ -2655,6 +2721,36 @@
 			target = 17CD4B1F218244EA00953483 /* AWSAuthSDKTestApp */;
 			targetProxy = 17CD4B32218244F100953483 /* PBXContainerItemProxy */;
 		};
+		17D6F6F721C0E1DB001E5F43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1786CA331F2BED3C003421FF /* AWSGoogleSignIn */;
+			targetProxy = 17D6F6F621C0E1DB001E5F43 /* PBXContainerItemProxy */;
+		};
+		17D6F6F921C0E1DB001E5F43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1750D0061F2D4DFA006D915E /* AWSUserPoolsSignIn */;
+			targetProxy = 17D6F6F821C0E1DB001E5F43 /* PBXContainerItemProxy */;
+		};
+		17D6F6FB21C0E1DB001E5F43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1763753F1F328D210086588B /* AWSFacebookSignIn */;
+			targetProxy = 17D6F6FA21C0E1DB001E5F43 /* PBXContainerItemProxy */;
+		};
+		17D6F6FD21C0E1DB001E5F43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5345D0E1F366AFA009C1041 /* AWSAuthUI */;
+			targetProxy = 17D6F6FC21C0E1DB001E5F43 /* PBXContainerItemProxy */;
+		};
+		17D6F6FF21C0E1DB001E5F43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5170D971F466CE5008FD811 /* AWSAuthCore */;
+			targetProxy = 17D6F6FE21C0E1DB001E5F43 /* PBXContainerItemProxy */;
+		};
+		17D6F70121C0E1DB001E5F43 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B5FC69001FAFA1AA004790CB /* AWSMobileClient */;
+			targetProxy = 17D6F70021C0E1DB001E5F43 /* PBXContainerItemProxy */;
+		};
 		B5170C841F44EC68008FD811 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = AWSCognitoIdentityProvider;
@@ -3081,6 +3177,22 @@
 			};
 			name = Release;
 		};
+		17D6F69621C0E1CE001E5F43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		17D6F69721C0E1CE001E5F43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		B5170D9E1F466CE5008FD811 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -3277,6 +3389,15 @@
 			buildConfigurations = (
 				17CD4B30218244EC00953483 /* Debug */,
 				17CD4B31218244EC00953483 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17D6F6F521C0E1CE001E5F43 /* Build configuration list for PBXAggregateTarget "AWSAuthSDKAllTargets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17D6F69621C0E1CE001E5F43 /* Debug */,
+				17D6F69721C0E1CE001E5F43 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
