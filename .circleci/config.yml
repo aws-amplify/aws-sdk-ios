@@ -141,6 +141,26 @@ jobs:
             git commit -m "Update document via CircleCI"
             git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git  
 
+  run_ui_test:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "10.1.0"
+    steps:
+      - checkout
+      - run:
+          name: Run Sample UI Test
+          command: |
+            git clone https://github.com/awslabs/aws-sdk-ios-samples.git
+            cfolder=$(pwd)
+            cd aws-sdk-ios-samples
+            cd S3TransferUtility-Sample/Swift/
+            echo ${AWSCONFIGURATION} | base64 --decode > awsconfiguration.json
+            sed -i "" "s+'~> 2.8.0'+:path => '../../../'+" Podfile
+            pod install
+            xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.2' test
+            cd $cfolder
+            rm -rf aws-sdk-ios-samples
+
 workflows:
   version: 2
 
@@ -153,6 +173,10 @@ workflows:
       - unittest:
           requires:
             - build
+          filters:
+            branches:
+              ignore: /gh-.*/
+      - run_ui_test:
           filters:
             branches:
               ignore: /gh-.*/
@@ -177,7 +201,8 @@ workflows:
 
       - release_carthage:
           requires:
-            - unittest        
+            - unittest 
+            - run_ui_test
           filters:
             branches:
               ignore: /.*/
@@ -185,7 +210,8 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
-            - unittest          
+            - unittest 
+            - run_ui_test
           filters:
             branches:
               ignore: /.*/
@@ -193,7 +219,8 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_appledoc:
           requires:
-            - unittest          
+            - unittest 
+            - run_ui_test
           filters:
             branches:
               ignore: /.*/
