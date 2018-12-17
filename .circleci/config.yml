@@ -144,7 +144,7 @@ jobs:
   run_ui_test:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "9.2.0"
     steps:
       - checkout
       - run:
