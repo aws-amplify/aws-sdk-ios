@@ -176,6 +176,8 @@ workflows:
             branches:
               ignore: /gh-.*/
       - run_ui_test:
+          requires:
+            - build
           filters:
             branches:
               ignore: /gh-.*/
