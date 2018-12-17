@@ -200,6 +200,15 @@ workflows:
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
 
+      - run_ui_test:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+
       - release_carthage:
           requires:
             - unittest 
