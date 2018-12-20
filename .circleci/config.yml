@@ -45,7 +45,7 @@ jobs:
       - run:
           name : check unit test result 
           command : bash CircleciScripts/check_test_result.sh  "test_result"
-          
+
       - store_artifacts:
           path: test_result
   release_carthage:
@@ -59,7 +59,7 @@ jobs:
       - run:
           name: install github-release
           command: brew install github-release
-                
+
       - run:
           name: install aws cli
           command: |
