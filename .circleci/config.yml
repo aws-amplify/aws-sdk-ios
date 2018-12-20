@@ -153,7 +153,7 @@ jobs:
             git clone https://github.com/awslabs/aws-sdk-ios-samples.git
             rootDirectory=$(pwd)
             cd aws-sdk-ios-samples/S3TransferUtility-Sample/Swift/
-            echo ${AWSCONFIGURATION} | base64 --decode > awsconfiguration.json
+            echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_CONFIGURATION} | base64 --decode > awsconfiguration.json
             cat awsconfiguration.json
             sed -i "" "s+'~> 2.8.0'+:path => '../../../'+" Podfile
             pod install
