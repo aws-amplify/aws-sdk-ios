@@ -148,7 +148,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Run Sample UI Test
+          name: Run Sample UI Test 
           command: |
             git clone https://github.com/awslabs/aws-sdk-ios-samples.git
             rootDirectory=$(pwd)
