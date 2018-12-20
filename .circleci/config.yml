@@ -161,6 +161,7 @@ jobs:
             rm -rf aws-sdk-ios-samples
       - store_artifacts:
           path: raw_ui_test.log
+
 workflows:
   version: 2
 
