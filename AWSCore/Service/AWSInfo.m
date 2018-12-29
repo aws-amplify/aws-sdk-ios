@@ -22,6 +22,8 @@ NSString *const AWSInfoDefault = @"Default";
 
 static NSString *const AWSInfoRoot = @"AWS";
 static NSString *const AWSInfoCredentialsProvider = @"CredentialsProvider";
+static NSString *const AWSInfoKeychainService = @"KeychainService";
+static NSString *const AWSInfoKeychainAccessGroup = @"KeychainAccessGroup";
 static NSString *const AWSInfoRegion = @"Region";
 static NSString *const AWSInfoUserAgent = @"UserAgent";
 static NSString *const AWSInfoCognitoIdentity = @"CognitoIdentity";
@@ -90,9 +92,13 @@ static NSString *const AWSInfoIdentityManager = @"IdentityManager";
         NSDictionary <NSString *, id> *defaultCredentialsProviderDictionary = [[[_rootInfoDictionary objectForKey:AWSInfoCredentialsProvider] objectForKey:AWSInfoCognitoIdentity] objectForKey:AWSInfoDefault];
         NSString *cognitoIdentityPoolID = [defaultCredentialsProviderDictionary objectForKey:AWSInfoCognitoIdentityPoolId];
         AWSRegionType cognitoIdentityRegion =  [[defaultCredentialsProviderDictionary objectForKey:AWSInfoRegion] aws_regionTypeValue];
+        NSString *keychainService = [defaultCredentialsProviderDictionary objectForKey:AWSInfoKeychainService];
+        NSString *keychainAccessGroup = [defaultCredentialsProviderDictionary objectForKey:AWSInfoKeychainAccessGroup];
         if (cognitoIdentityPoolID && cognitoIdentityRegion != AWSRegionUnknown) {
             _defaultCognitoCredentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:cognitoIdentityRegion
-                                                                                            identityPoolId:cognitoIdentityPoolID];
+                                                                                            identityPoolId:cognitoIdentityPoolID
+                                                                                           keychainService:keychainService
+                                                                                       keychainAccessGroup:keychainAccessGroup];
         }
         
         _defaultRegion = [[defaultInfoDictionary objectForKey:AWSInfoRegion] aws_regionTypeValue];

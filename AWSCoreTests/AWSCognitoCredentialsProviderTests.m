@@ -525,6 +525,41 @@ BOOL _identityChanged;
     }] waitUntilFinished];
 }
 
+- (void)testEnhancedProviderCustomKeychain {
+    AWSCognitoCredentialsProvider *provider1 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                          identityPoolId:_identityPoolIdAuth
+                                                                                 identityProviderManager:[AWSTestFacebookIdentityProvider new]
+                                                                                         keychainService:@"TestKeychain"
+                                                                                     keychainAccessGroup:@"TestAccessGroup"];
+    
+    __block AWSCognitoCredentialsProvider *provider2 = nil;
+    
+    [[[[[[provider1 credentials] continueWithSuccessBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(provider1.identityId, @"Unable to get identityId");
+        
+        provider2 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                               identityPoolId:_identityPoolIdAuth];
+        return [provider2 getIdentityId];
+    }] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        return [provider2 credentials];
+    }] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertEqualObjects(provider1.identityId, provider2.identityId);
+        
+        AWSCredentials *credentials = task.result;
+        XCTAssertNotNil(credentials.accessKey);
+        XCTAssertNotNil(credentials.secretKey);
+        XCTAssertNotNil(credentials.sessionKey);
+        XCTAssertNotNil(credentials.expiration);
+        
+        return [provider2 credentials];
+    }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        XCTAssertNil(task.error);
+        return nil;
+    }] waitUntilFinished];
+}
+
 - (void)testEnhancedProviderFailure {
     AWSTestFacebookIdentityProvider *identityProvider = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:YES];
     AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
