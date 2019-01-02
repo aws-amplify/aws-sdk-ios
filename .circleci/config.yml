@@ -154,7 +154,7 @@ jobs:
             rootDirectory=$(pwd)
             cd aws-sdk-ios-samples/S3TransferUtility-Sample/Swift/
             echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_CONFIGURATION} | base64 --decode > awsconfiguration.json
-            sed -i "" "s+'~> 2.8.0'+:path => '../../../'+" Podfile
+            sed -i "" "s+, \$awsVersion+, :path => '../../../'+" Podfile
             pod install
             xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.2' test | tee $rootDirectory/raw_ui_test.log
             cd $rootDirectory
