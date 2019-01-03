@@ -249,12 +249,6 @@ workflows:
           filters:
             branches:
               ignore: /gh-.*/
-      - run_ui_test:
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: /gh-.*/
 
   release_sdk:
     jobs: 
