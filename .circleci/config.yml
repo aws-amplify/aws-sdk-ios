@@ -284,7 +284,6 @@ workflows:
           requires:
             - unittest  
             - integrationtest
-            - run_ui_test
           filters:
             branches:
               ignore: /.*/
@@ -294,7 +293,6 @@ workflows:
           requires:
             - unittest     
             - integrationtest    
-            - run_ui_test
           filters:
             branches:
               ignore: /.*/
@@ -304,7 +302,6 @@ workflows:
           requires:
             - unittest          
             - integrationtest
-            - run_ui_test
           filters:
             branches:
               ignore: /.*/
