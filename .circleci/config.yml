@@ -11,7 +11,7 @@ commands:
       This is useful to avoid steps that will fail due to missing credentials.
     steps:
       - run:
-          name: skip left steps and return immidieately from current job if current build is from a forked PR
+          name: skip left steps and return immediately from current job if current build is from a forked PR
           command: |
             if [ -n "$CIRCLE_PR_NUMBER" ]; then
               echo "Nothing to do for forked PRs, so marking this step successful"
@@ -273,14 +273,6 @@ workflows:
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/              
-      - run_ui_test:
           requires:
             - build
           filters:
