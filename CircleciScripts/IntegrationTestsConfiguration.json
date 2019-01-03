@@ -1,0 +1,14 @@
+{
+	'runningConfigure' : { 
+		'projectName' : "AWSiOSSDKv2.xcodeproj" ,
+		'schemeName' : "AWSAllTests",
+		'sdkName' : "iphonesimulator",
+		'paltformName' : "iOS Simulator",
+		'deviceName' : "iPhone 8" ,
+		'osVersion' : "12.1"
+	} ,
+
+	'testList' : { 
+    	'AWSSQSTests':{ }
+    }
+}

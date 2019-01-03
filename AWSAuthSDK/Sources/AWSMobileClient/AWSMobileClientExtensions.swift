@@ -176,15 +176,34 @@ extension AWSMobileClient {
     ///   - providerName: Provider name for federation provider, e.g. graph.facebook.com, accounts.google.com
     ///   - token: The `idToken`
     ///   - completionHandler: completion handler on successful credentials fetch.
-    public func federatedSignIn(providerName: String, token: String, completionHandler: @escaping ((UserState?, Error?) -> Void)) {
+    public func federatedSignIn(providerName: String, token: String, federatedSignInOptions: FederatedSignInOptions = FederatedSignInOptions(), completionHandler: @escaping ((UserState?, Error?) -> Void)) {
         
         self.tokenFetchOperationQueue.addOperation {
-            if self.federationProvider == .userPools {
-                completionHandler(nil, AWSMobileClientError.federationProviderExists(message: "User is already signed in. Please sign out before calling this method."))
+            var error: Error?
+            
+            // At the end of operation if there is an error anywhere in the flow, we return it back to the developer; else return a successful signedIn state.
+            defer {
+                if error == nil {
+                    completionHandler(UserState.signedIn, nil)
+                } else {
+                    completionHandler(nil, error)
+                }
+            }
+            
+            // If there is a userpools federation already active, we return an error.
+            // Developer cannot initiate a federatedSignIn when a UserPools sign in is active.
+            guard self.federationProvider != .userPools else {
+                error = AWSMobileClientError.federationProviderExists(message: "User is already signed in. Please sign out before calling this method.")
                 return
             }
-            if self.federationProvider == .oidcFederation {
+            
+            if self.federationProvider == .oidcFederation { // developer is providing an updated token for federatedSignIn
+                // Update the identityId if required
+                if let devAuthenticatedIdentityId = federatedSignInOptions.cognitoIdentityId {
+                    self.internalCredentialsProvider?.identityProvider.identityId = devAuthenticatedIdentityId
+                }
                 self.performFederatedSignInTasks(provider: providerName, token: token)
+                // If any credentials operation is pending, we invoke the waiting block to resume with new credentials
                 if (self.pendingAWSCredentialsCompletion != nil) {
                     self.internalCredentialsProvider?.credentials().continueWith(block: { (task) -> Any? in
                         if let credentials = task.result {
@@ -197,11 +216,19 @@ extension AWSMobileClient {
                         return nil
                     })
                 }
-            } else {
-                // first time calling federatedSignIn
+            } else { // first time calling federatedSignIn
+                // If using developer authenticated identities, identityId is required.
+                // Check if identityId is specified by the developer, else return error.
+                if providerName == IdentityProvider.developer.rawValue {
+                    if let devAuthenticatedIdentityId = federatedSignInOptions.cognitoIdentityId {
+                        self.internalCredentialsProvider?.identityProvider.identityId = devAuthenticatedIdentityId
+                    } else {
+                        error = AWSMobileClientError.invalidParameter(message: "For using developer authenticated identities, you need to specify the `CognitoIdentityId` in `FederatedSignInOptions`.")
+                        return
+                    }
+                }
                 self.performFederatedSignInTasks(provider: providerName, token: token)
             }
-            completionHandler(UserState.signedIn, nil)
         }
     }
     
@@ -423,6 +450,7 @@ extension AWSMobileClient {
         self.internalCredentialsProvider?.clearKeychain()
         self.performUserPoolSignOut()
         self.federationProvider = .none
+        self.internalCredentialsProvider?.identityProvider.identityId = nil
         self.mobileClientStatusChanged(userState: .signedOut, additionalInfo: [:])
     }
     

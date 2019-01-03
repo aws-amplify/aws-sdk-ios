@@ -53,7 +53,7 @@ API_AVAILABLE(ios(11.0))
 
 @implementation AWSCognitoAuth
 
-NSString *const AWSCognitoAuthSDKVersion = @"2.8.1";
+NSString *const AWSCognitoAuthSDKVersion = @"2.8.2";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
@@ -207,7 +207,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     NSOperation *getSessionOperation =  [NSBlockOperation blockOperationWithBlock:^{
         [self getSessionInternal:vc completion:completion];
         if(weakGetSessionOperation.isCancelled){
-            [self completeGetSession:nil error:self.getSessionError];
+            [self dismissSafariViewControllerAndCompleteGetSession:nil error:self.getSessionError];
         }
     }];
     weakGetSessionOperation = getSessionOperation;
@@ -253,7 +253,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 if (url) {
                     [self processURL:url forRedirection:NO];
                 } else {
-                    [self completeGetSession:nil error:error];
+                    [self dismissSafariViewControllerAndCompleteGetSession:nil error:error];
                 }
             }];
             [self.sfAuthSession start];
@@ -275,7 +275,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         __block UIViewController * sourceVC = presentingViewController;
         if(!sourceVC){
             if(!self.delegate){
-                [self completeGetSession:nil error:[self getError:@"delegate must be set to a valid AWSCognitoAuthDelegate" code:AWSCognitoAuthClientInvalidAuthenticationDelegate]];
+                [self dismissSafariViewControllerAndCompleteGetSession:nil error:[self getError:@"delegate must be set to a valid AWSCognitoAuthDelegate" code:AWSCognitoAuthClientInvalidAuthenticationDelegate]];
                 return;
             } else {
                 sourceVC = [self.delegate getViewController];
@@ -326,7 +326,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 NSString * idTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoAuthUserIdToken];
                 NSString * accessTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoAuthUserAccessToken];
                 AWSCognitoAuthUserSession * session = [[AWSCognitoAuthUserSession alloc] initWithIdToken:self.keychain[idTokenKey] accessToken:self.keychain[accessTokenKey] refreshToken:refreshToken expirationTime:expiration];
-                [self completeGetSession:session error:nil];
+                [self dismissSafariViewControllerAndCompleteGetSession:session error:nil];
                 return;
             }
             //else refresh it using the refresh token
@@ -352,10 +352,9 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 /**
  Dismiss ui, invoke completion and cleanup a getSession call.
  */
-- (void) completeGetSession: (nullable AWSCognitoAuthUserSession *) userSession  error:(nullable NSError *) error {
+- (void) dismissSafariViewControllerAndCompleteGetSession: (nullable AWSCognitoAuthUserSession *) userSession  error:(nullable NSError *) error {
     if(error){
-        self.getSessionError = error;
-        [self.getSessionQueue cancelAllOperations];
+        [self setInternalGetSessionErrorAndCancelSignInOperations:error];
     }
 
     if (self.sfAuthenticationSessionAvailable) {
@@ -380,10 +379,9 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 /**
  Dismiss ui, invoke completion and cleanup a signOut call.
  */
-- (void) completeSignOut:(nullable NSError *) error {
+- (void) dismissSafariViewControllerAndCompleteSignOut:(nullable NSError *) error {
     if(error){
-        self.signOutError = error;
-        [self.signOutQueue cancelAllOperations];
+        [self setInternalSignOutErrorAndCancelSignOutOperations:error];
     }
 
     if (self.sfAuthenticationSessionAvailable) {
@@ -440,7 +438,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                     [self processURL:url forRedirection:NO];
                 } else {
                     [self signOutLocallyAndClearLastKnownUser];
-                    [self completeSignOut:error];
+                    [self dismissSafariViewControllerAndCompleteSignOut:error];
                 }
             }];
             [self.sfAuthSession start];
@@ -529,10 +527,22 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 - (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
     NSError *error = [self getError:@"User cancelled operation" code:AWSCognitoAuthClientErrorUserCanceledOperation];
     if(self.getSessionBlock){
-        [self completeGetSession:nil error:error];
-    }else {
-        [self completeSignOut:error];
+        [self setInternalGetSessionErrorAndCancelSignInOperations:error];
+        [self cleanUpAndCallGetSessionBlock:nil error:error];
+    } else {
+        [self setInternalSignOutErrorAndCancelSignOutOperations:error];
+        [self cleanUpAndCallSignOutBlock:error];
     }
+}
+
+- (void)setInternalSignOutErrorAndCancelSignOutOperations:(NSError *)error {
+    self.signOutError = error;
+    [self.signOutQueue cancelAllOperations];
+}
+
+- (void)setInternalGetSessionErrorAndCancelSignInOperations:(NSError *)error {
+    self.getSessionError = error;
+    [self.getSessionQueue cancelAllOperations];
 }
 
 /*! @abstract Invoked when the initial URL load is complete.
@@ -544,9 +554,9 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     if(!didLoadSuccessfully && !self.isHandlingRedirection){
         NSError *error = [self getError:@"Loading page failed" code:AWSCognitoAuthClientErrorLoadingPageFailed];
         if(self.getSessionBlock){
-            [self completeGetSession:nil error:error];
+            [self dismissSafariViewControllerAndCompleteGetSession:nil error:error];
         }else if(self.signOutBlock){
-            [self completeSignOut:error];
+            [self dismissSafariViewControllerAndCompleteSignOut:error];
         }
     }
 }
@@ -612,7 +622,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         if(queryItemsDict[@"code"]){
             //if state doesn't match, abort
             if(![self.state isEqualToString:queryItemsDict[@"state"]]){
-                [self completeGetSession:nil error:[self getError:@"State code did not match request" code: AWSCognitoAuthClientErrorSecurityFailed]];
+                [self dismissSafariViewControllerAndCompleteGetSession:nil error:[self getError:@"State code did not match request" code: AWSCognitoAuthClientErrorSecurityFailed]];
                 return YES;
             } else {
                 //continue with authorization code request
@@ -647,7 +657,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
             if(errorDescription){
                 error = [NSString stringWithFormat:@"%@: %@", error, errorDescription];
             }
-            [self completeGetSession:nil error:[self getError:error code: AWSCognitoAuthClientErrorBadRequest]];
+            [self dismissSafariViewControllerAndCompleteGetSession:nil error:[self getError:error code: AWSCognitoAuthClientErrorBadRequest]];
             return YES;
         }
     } else if([[url absoluteString] hasPrefix:self.authConfiguration.signOutRedirectUri]){
@@ -658,10 +668,10 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 error = [NSString stringWithFormat:@"%@: %@", error, errorDescription];
             }
             [self signOutLocallyAndClearLastKnownUser];
-            [self completeSignOut:[self getError:error code:AWSCognitoAuthClientErrorBadRequest]];
+            [self dismissSafariViewControllerAndCompleteSignOut:[self getError:error code:AWSCognitoAuthClientErrorBadRequest]];
         }else{
             [self signOutLocallyAndClearLastKnownUser];
-            [self completeSignOut:nil];
+            [self dismissSafariViewControllerAndCompleteSignOut:nil];
         }
         return YES;
     }
@@ -714,7 +724,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     NSError * error;
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:self.responseData options:kNilOptions error:&error];
     if(error){
-        [self completeGetSession:nil error:[self getError:[error description] code:AWSCognitoAuthClientErrorUnknown]];
+        [self dismissSafariViewControllerAndCompleteGetSession:nil error:[self getError:[error description] code:AWSCognitoAuthClientErrorUnknown]];
         return;
     }
     else if(result[@"error"]){
@@ -727,11 +737,11 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 if (present) {
                     [self launchSignInVC:self.pvc];
                 }else {
-                    [self completeGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorExpiredRefreshToken]];
+                    [self dismissSafariViewControllerAndCompleteGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorExpiredRefreshToken]];
                 }
             }
         }else {
-            [self completeGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorUnknown]];
+            [self dismissSafariViewControllerAndCompleteGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorUnknown]];
         }
     }else {
         /** Check to see if refreshToken is received from the server.
@@ -744,16 +754,16 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         }
         AWSCognitoAuthUserSession *userSession = [[AWSCognitoAuthUserSession alloc] initWithIdToken:[result valueForKey:@"id_token"]  accessToken:[result valueForKey:@"access_token"] refreshToken:refreshToken expiresIn:[result valueForKey:@"expires_in"]];
         if(!userSession.accessToken){
-            [self completeGetSession:nil error: [self getError:@"Tokens not received" code:AWSCognitoAuthClientErrorUnknown]];
+            [self dismissSafariViewControllerAndCompleteGetSession:nil error: [self getError:@"Tokens not received" code:AWSCognitoAuthClientErrorUnknown]];
         }else{
             [self updateUsernameAndPersistTokens:userSession];
-            [self completeGetSession:userSession error:nil];
+            [self dismissSafariViewControllerAndCompleteGetSession:userSession error:nil];
         }
     }
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [self completeGetSession:nil error:[self getError:error.description code:AWSCognitoAuthClientErrorLoadingPageFailed]];
+    [self dismissSafariViewControllerAndCompleteGetSession:nil error:[self getError:error.description code:AWSCognitoAuthClientErrorLoadingPageFailed]];
 }
 
 

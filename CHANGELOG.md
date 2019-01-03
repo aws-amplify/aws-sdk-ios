@@ -1,6 +1,28 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.8.2
+
+### Enhancements
+
+* **AWSMobileClient**
+  * Added support for `Developer Authenticated Identities` for `federatedSignIn` API. See [issue #1131](https://github.com/aws-amplify/aws-sdk-ios/issues/1131)
+
+* **AWS S3**
+   * NSURL Tasks for Multipart uploads are now created during the initiation of the MulitPart request. See [issue #1088](https://github.com/aws-amplify/aws-sdk-ios/issues/1088), [issue #1065](https://github.com/aws-amplify/aws-sdk-ios/issues/1065), and [issue #769](https://github.com/aws-amplify/aws-sdk-ios/issues/769)
+
+### Bug Fixes
+
+* **AWSMobileClient**
+  * Fixed an issue where Google Sign In would not correctly reflect sign in status and completion handler callback. See [issue #1147](https://github.com/aws-amplify/aws-sdk-ios/issues/1147)
+
+* **AWSCognitoAuth**
+  * Fixed an issue where `getSession` callback is not invoked when the user hits the `Done` button. See [issue #1117](https://github.com/aws-amplify/aws-sdk-ios/issues/1117)
+
+* **Amazon S3**
+  * Fixed crash in AWSTransferUtility due to null value for subTask in inProgressPartsDictionary. See [issue #1152](https://github.com/aws-amplify/aws-sdk-ios/issues/1152)
+  * Canceled all session tasks as part of `removeS3TransferUtilityForKey` method  and implemented error propagation for NSURLSession creation. See [issue #1049](https://github.com/aws-amplify/aws-sdk-ios/issues/1049)
+
 ## 2.8.1
 
 ### Bug Fixes

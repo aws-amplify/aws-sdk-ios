@@ -143,7 +143,7 @@ You should use one of these three ways to import the AWS Mobile SDK but not mult
         
         Input Files: Empty
         Output Files: Empty
-        
+
 > Note: Currently, the AWS SDK for iOS builds the Carthage binaries using Xcode 10.1.0. To consume the pre-built binaries your Xcode version needs to be the same, else you have to build the frameworks on your machine by passing `--no-use-binaries` flag to `carthage update` command.
 
 ### Frameworks

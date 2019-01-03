@@ -2,64 +2,94 @@
 #
 # Check https://circleci.com/docs/2.0/ios-migrating-from-1-2/ for more details
 #
-version: 2
+version: 2.1
+
+commands:
+  early_return_for_forked_prs:
+    description: >-
+      If this build is from a fork, stop executing the current job and return success.
+      This is useful to avoid steps that will fail due to missing credentials.
+    steps:
+      - run:
+          name: skip left steps and return immidieately from current job if current build is from a forked PR
+          command: |
+            if [ -n "$CIRCLE_PR_NUMBER" ]; then
+              echo "Nothing to do for forked PRs, so marking this step successful"
+              circleci step halt
+            fi
+
 jobs:
   build:
     macos: 
       xcode: "10.1.0"
     steps:
       - checkout
-
       - run:
           name: create credentials
           command: |
             touch AWSCoreTests/Resources/credentials.json   
             touch AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
             touch AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
-
       - run:
           name: build sdk
           command: |
             xcodebuild  build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'         
             xcodebuild  build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'
+ 
   unittest:
     macos:
       xcode: "10.1.0"
-
     steps:
       - checkout
-
       - run:
           name: create credentials
           command: |
             touch AWSCoreTests/Resources/credentials.json 
-
       - run:
           name: build sdk
-          command: xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'      
-  
+          command: xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'        
       - run :
           name: run unit tests
           command: bash CircleciScripts/run_unittests.sh "test_result"
-
       - run:
           name : check unit test result 
-          command : bash CircleciScripts/check_test_result.sh  "test_result"
-          
+          command : bash CircleciScripts/check_test_result.sh  "test_result"         
       - store_artifacts:
           path: test_result
+
+  integrationtest:
+    macos:
+      xcode: "10.1.0"   
+    steps:
+      - early_return_for_forked_prs
+      - checkout 
+      - run: 
+          name: install json parser
+          command: pip3 install demjson
+      - run:
+          name: create credentials
+          command: |
+            echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json  
+      - run :
+          name: run integration tests
+          command: |
+            mkdir integration_test_result
+            python3 CircleciScripts/run_integrationtests.py  CircleciScripts/IntegrationTestsConfiguration.json  "integration_test_result"
+      - run:
+          name : check integration test result 
+          command : bash CircleciScripts/check_test_result.sh "integration_test_result"
+      - store_artifacts:
+          path: integration_test_result
+
   release_carthage:
     # Specify the Xcode version to use
     macos:
       xcode: "10.1.0"
-
     steps: 
       - checkout
-
       - run:
           name: install github-release
-          command: brew install github-release
-                
+          command: brew install github-release                
       - run:
           name: install aws cli
           command: |
@@ -71,7 +101,6 @@ jobs:
             unzip -a customcarthage.zip
             ls customcarthage
             chmod 111 customcarthage/carthage
-
       - run:
           name: build 
           command: |
@@ -81,11 +110,9 @@ jobs:
           command: |
             customcarthage/carthage build --no-skip-current | tee buildout.txt
           no_output_timeout: 100m
-
       - run:
           name: Create Carthage Archive
           command: bash CreateCarthageArchive.sh   
-
       - run:
           name: release the tag
           command: |
@@ -105,13 +132,13 @@ jobs:
       - run:
           name: Release cocoapods
           command : python3    cocoapods_release.py
+
   release_appledoc:
     # Specify the Xcode version to use
     macos:
       xcode: "9.2.0"
     steps:
-      - checkout  
- 
+      - checkout   
       - run:
           name: Install appledoc 
           command: |
@@ -122,24 +149,84 @@ jobs:
             bash install-appledoc.sh -t default
             popd 
             pwd
-
       - run:
           name: generate documents
           command: bash ./Scripts/GenerateAppleDocs.sh
-
       - run:
           name: copy documents
           command: |
             git config --local user.name "AWS"
             git checkout  gh-pages
             cp -R docs/html/*   docs/reference/
-
       - run:
           name: checkin documents
           command: |
             git add docs/reference
-            git commit -m "Update document via CircleCI"
+            git commit -m "Update appledoc documentation for ${CIRCLE_TAG}"
             git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git  
+
+  release_jazzydoc:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "10.1.0"
+    steps:
+      - checkout  
+      - run:
+          name: Install jazzy
+          command: |
+            sudo gem install jazzy --source http://rubygems.org
+      - run:
+          name: generate jazzy documents
+          command: |
+            currentversion=${CIRCLE_TAG}
+            bash ./Scripts/AWSMobileClientAPIRererence.sh $currentversion
+      - run:
+          name: copy jazzy documents
+          command: |
+            git config --local user.name "AWS"
+            git checkout  gh-pages
+            mkdir docs/reference/AWSMobileClient
+            cp -R docs/api/* docs/reference/AWSMobileClient
+      - run:
+          name: checkin jazzy documents
+          command: |
+            git add docs/reference/AWSMobileClient
+            git commit -m "Update jazzy documentation for ${CIRCLE_TAG}"
+            git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git  
+
+  run_ui_test:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "10.1.0"
+    steps:
+      - early_return_for_forked_prs
+      - checkout
+      - run:
+          name: Run Sample UI Test
+          command: |
+            git clone https://github.com/awslabs/aws-sdk-ios-samples.git
+            rootDirectory=$(pwd)
+            cd aws-sdk-ios-samples/S3TransferUtility-Sample/Swift/
+            echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_CONFIGURATION} | base64 --decode > awsconfiguration.json
+            sed -i "" "s+, \$awsVersion+, :path => '../../../'+" Podfile
+            pod install
+            xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.2' test | tee $rootDirectory/raw_ui_test.log
+            cd $rootDirectory
+            rm -rf aws-sdk-ios-samples
+      - store_artifacts:
+          path: raw_ui_test.log
+  add_doc_tag:
+    macos:
+      xcode: "10.1.0"  
+    steps:
+      - checkout   
+      - run:
+          name: Add documentation tags to gh-pages
+          command: |
+            git config --local user.name "AWS"
+            git checkout  gh-pages
+            git tag -a ${CIRCLE_TAG}_api_docs  -m "Add documentation tags to version ${CIRCLE_TAG}"
+            git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git   
 
 workflows:
   version: 2
@@ -156,6 +243,18 @@ workflows:
           filters:
             branches:
               ignore: /gh-.*/
+      - integrationtest:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /gh-.*/
+      - run_ui_test:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /gh-.*/
 
   release_sdk:
     jobs: 
@@ -165,7 +264,6 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-
       - unittest:
           requires:
             - build
@@ -174,10 +272,27 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-
+      - integrationtest:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/              
+      - run_ui_test:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_carthage:
           requires:
-            - unittest        
+            - unittest  
+            - integrationtest
+            - run_ui_test
           filters:
             branches:
               ignore: /.*/
@@ -185,7 +300,9 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
-            - unittest          
+            - unittest     
+            - integrationtest    
+            - run_ui_test
           filters:
             branches:
               ignore: /.*/
@@ -194,8 +311,28 @@ workflows:
       - release_appledoc:
           requires:
             - unittest          
+            - integrationtest
+            - run_ui_test
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_jazzydoc:
+          requires:
+            - release_appledoc          
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - add_doc_tag:
+          requires:
+            - release_jazzydoc          
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+
+

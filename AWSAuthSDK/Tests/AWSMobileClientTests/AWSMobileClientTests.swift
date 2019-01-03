@@ -14,6 +14,8 @@ class AWSMobileClientTests: XCTestCase {
     static var UserPoolsAdminClient: AWSCognitoIdentityProvider?
     static var UserPoolId: String?
     static var Email: String?
+    static var CognitoIdentity: AWSCognitoIdentity?
+    static var IdentityPoolId: String?
     
     let sharedPassword: String = "Abc123@@!!"
     
@@ -35,9 +37,12 @@ class AWSMobileClientTests: XCTestCase {
         let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialsProvider)
         UserPoolId = credentialsJson?["mc-userpool_id"] as? String
         AWSCognitoIdentityProvider.register(with: configuration!, forKey: "TEST")
+        AWSCognitoIdentity.register(with: configuration!, forKey: "TEST")
+        CognitoIdentity = AWSCognitoIdentity(forKey: "TEST")
         UserPoolsAdminClient = AWSCognitoIdentityProvider(forKey: "TEST")
         
         Email = credentialsJson?["mc-email"] as? String
+        IdentityPoolId = credentialsJson?["mc-pool_id_dev_auth"] as? String
     }
     
     override func setUp() {
@@ -249,10 +254,71 @@ class AWSMobileClientTests: XCTestCase {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
         signIn(username: username)
-        XCTAssertTrue(AWSMobileClient.sharedInstance().isLoggedIn == true, "Expected to return true for isSignedIn")
+        XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == true, "Expected to return true for isSignedIn")
         sleep(1)
         AWSMobileClient.sharedInstance().signOut()
-        XCTAssertTrue(AWSMobileClient.sharedInstance().isLoggedIn == false, "Expected to return false for isSignedIn")
+        XCTAssertTrue(AWSMobileClient.sharedInstance().isSignedIn == false, "Expected to return false for isSignedIn")
+    }
+    
+    func testFederatedSignInDeveloperAuthenticatedIdentities() {
+        let getOpendIdRequest = AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput()
+        getOpendIdRequest?.identityPoolId = AWSMobileClientTests.IdentityPoolId
+        getOpendIdRequest?.logins = ["login.test.awsmobileclient": "test_user"]
+        var identityId: String?
+        var token: String?
+        AWSMobileClientTests.CognitoIdentity!.getOpenIdToken(forDeveloperIdentity: getOpendIdRequest!).continueWith { (task) -> Any? in
+            if let result = task.result {
+                identityId = result.identityId
+                token = result.token
+            } else if let _ = task.error {
+                XCTAssertNil(task.error, "Unexpected Error. Expected IdentityId and Token.")
+            }
+            return nil
+        }.waitUntilFinished()
+        
+        guard  identityId != nil, token != nil else {
+            XCTFail("Could not retrieve identityId and token. Abandoning rest of the test.")
+            return
+        }
+        
+        AWSMobileClient.sharedInstance().federatedSignIn(providerName: IdentityProvider.developer.rawValue, token: token!, federatedSignInOptions: FederatedSignInOptions(cognitoIdentityId: identityId!)) { (userState, error) in
+            XCTAssertNil(error, "Expected successful federation.")
+        }
+        
+        let credentialsExpectation = expectation(description: "Successfully fetch AWS Credentials")
+        AWSMobileClient.sharedInstance().getAWSCredentials { (credentials, error) in
+            if let credentials = credentials {
+                XCTAssertNotNil(credentials.accessKey)
+                XCTAssertNotNil(credentials.secretKey)
+            } else if let error = error {
+                XCTFail("Unexpected failure: \(error.localizedDescription)")
+            }
+            credentialsExpectation.fulfill()
+        }
+        wait(for: [credentialsExpectation], timeout: 5)
+        
+        AWSMobileClient.sharedInstance().signOut()
+        
+        XCTAssertFalse(AWSMobileClient.sharedInstance().isSignedIn, "User should be signed out.")
+        XCTAssertNil(AWSMobileClient.sharedInstance().identityId, "Identity Id should be nil after signing out.")
+        
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        
+        let credentialsExpectation2 = expectation(description: "Successfully fetch AWS Credentials")
+        AWSMobileClient.sharedInstance().getAWSCredentials { (credentials, error) in
+            if let credentials = credentials {
+                XCTAssertNotNil(credentials.accessKey)
+                XCTAssertNotNil(credentials.secretKey)
+            } else if let error = error {
+                XCTFail("Unexpected failure: \(error.localizedDescription)")
+            }
+            credentialsExpectation2.fulfill()
+        }
+        wait(for: [credentialsExpectation2], timeout: 5)
+        
+        AWSMobileClient.sharedInstance().signOut()
     }
     
     func testUserStateNotifications() {
