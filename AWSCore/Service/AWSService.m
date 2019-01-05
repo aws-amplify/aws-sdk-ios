@@ -26,7 +26,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.7.4";
+NSString *const AWSiOSSDKVersion = @"2.8.2";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -240,6 +240,7 @@ static NSString *const AWSRegionNameEUWest1 = @"eu-west-1";
 static NSString *const AWSRegionNameEUWest2 = @"eu-west-2";
 static NSString *const AWSRegionNameEUWest3 = @"eu-west-3";
 static NSString *const AWSRegionNameEUCentral1 = @"eu-central-1";
+static NSString *const AWSRegionNameEUNorth1 = @"eu-north-1";
 static NSString *const AWSRegionNameAPSoutheast1 = @"ap-southeast-1";
 static NSString *const AWSRegionNameAPNortheast1 = @"ap-northeast-1";
 static NSString *const AWSRegionNameAPNortheast2 = @"ap-northeast-2";
@@ -426,6 +427,8 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
             return AWSRegionNameEUWest3;
         case AWSRegionUSGovEast1:
             return AWSRegionNameUSGovEast1;
+        case AWSRegionEUNorth1:
+            return AWSRegionNameEUNorth1;
         default:
             return nil;
     }

@@ -28,7 +28,11 @@ typedef void(^AWSInitializationCompletionBlock)(AWSMobileAnalytics *mobileAnalyt
 
 /**
  Amazon Mobile Analytics client.
+ 
+ @warning The AWSMobileAnalytics SDK is deprecated. Please use AWSPinpoint for analytics.
+ @deprecated Please use AWSPinpoint for analytics.
  */
+DEPRECATED_MSG_ATTRIBUTE("Use AWSPinpoint for analytics.")
 @interface AWSMobileAnalytics : NSObject
 
 /**
