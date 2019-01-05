@@ -9896,7 +9896,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CE0D41571C6A66A9006B91B5 /* Build configuration list for PBXProject "AWSiOSSDKv2" */;
+			buildConfigurationList = CE0D41571C6A66A9006B91B5 /* Build configuration list for PBXProject "AWSmacOSSDKv2" */;
 			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -14399,7 +14399,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-fembed-bitcode";
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				STRIP_STYLE = "non-global";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -14456,7 +14456,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "-fembed-bitcode";
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				STRIP_STYLE = "non-global";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -17103,7 +17103,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE0D41571C6A66A9006B91B5 /* Build configuration list for PBXProject "AWSiOSSDKv2" */ = {
+		CE0D41571C6A66A9006B91B5 /* Build configuration list for PBXProject "AWSmacOSSDKv2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE0D41631C6A66AA006B91B5 /* Debug */,
