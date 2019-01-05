@@ -40,31 +40,6 @@ enum FederationProvider {
 }
 
 
-/// The options object for drop-in UI which allows changing properties like logo image and background color.
-@objc public class SignInUIOptions: NSObject {
-    
-    /// If true, the end user can cancel the sign-in operation and go back to previous view controller.
-    @objc public let canCancel: Bool
-    /// The logo image to be displayed on the sign-in screen.
-    @objc public let logoImage: UIImage?
-    /// The background color of the sign-in screen.
-    @objc public let backgroundColor: UIColor?
-    
-    
-    /// Initializer for the drop-in UI configuration.
-    ///
-    /// - Parameters:
-    ///   - canCancel: If set to true, the end user can cancel the sign-in operation and go back to previous view controller.
-    ///   - logoImage: The logo image to be displayed on the sign-in screen.
-    ///   - backgroundColor: The background color of the sign-in screen.
-    @objc public init(canCancel: Bool = false,logoImage: UIImage? = nil, backgroundColor: UIColor? = nil) {
-        self.canCancel = canCancel
-        self.logoImage = logoImage
-        self.backgroundColor = backgroundColor
-    }
-}
-
-
 /// `AWSMobileClient` is used for all auth related operations when your app is accessing AWS backend.
 public class AWSMobileClient: _AWSMobileClient {
     
@@ -271,7 +246,7 @@ public class AWSMobileClient: _AWSMobileClient {
         
         _AWSMobileClient.sharedInstance().showSign(inScreen: navigationController, signInUIConfiguration: signInUIOptions, completionHandler: { providerName, token, error in
             if error == nil {
-                if (providerName == "graph.facebook.com") || (providerName == "accounts.googgle.com") {
+                if (providerName == IdentityProvider.facebook.rawValue) || (providerName == IdentityProvider.google.rawValue) {
                     self.federatedSignIn(providerName: providerName!, token: token!, completionHandler: completionHandler)
                 } else {
                     self.currentUser?.getSession().continueWith(block: { (task) -> Any? in

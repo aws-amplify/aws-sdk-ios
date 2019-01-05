@@ -199,17 +199,3 @@ public struct UserCodeDeliveryDetails {
         self.attributeName = attributeName
     }
 }
-
-
-/// Represents
-///
-/// - facebook: The provider key for Facebook.
-/// - google: The provider key for Google.
-/// - twitter: The provider key for Twitter.
-/// - amazon: The provider key for Amazon.
-public enum IdentityProvider: String {
-    case facebook = "graph.facebook.com"
-    case google = "accounts.google.com"
-    case twitter = "api.twitter.com"
-    case amazon = "www.amazon.com"
-}

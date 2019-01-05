@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,9 +26,7 @@
 #import "AWSMachineLearningResources.h"
 
 static NSString *const AWSInfoMachineLearning = @"MachineLearning";
-
-NSString *const AWSMachineLearningSDKVersion = @"2.7.4";
-
+NSString *const AWSMachineLearningSDKVersion = @"2.8.2";
 
 
 @interface AWSMachineLearningResponseSerializer : AWSJSONResponseSerializer
@@ -42,11 +40,14 @@ NSString *const AWSMachineLearningSDKVersion = @"2.7.4";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"IdempotentParameterMismatchException" : @(AWSMachineLearningErrorIdempotentParameterMismatch),
                             @"InternalServerException" : @(AWSMachineLearningErrorInternalServer),
                             @"InvalidInputException" : @(AWSMachineLearningErrorInvalidInput),
+                            @"InvalidTagException" : @(AWSMachineLearningErrorInvalidTag),
                             @"LimitExceededException" : @(AWSMachineLearningErrorLimitExceeded),
                             @"PredictorNotMountedException" : @(AWSMachineLearningErrorPredictorNotMounted),
                             @"ResourceNotFoundException" : @(AWSMachineLearningErrorResourceNotFound),
+                            @"TagLimitExceededException" : @(AWSMachineLearningErrorTagLimitExceeded),
                             };
 }
 
@@ -95,7 +96,8 @@ static NSDictionary *errorCodeDictionary = nil;
                                                        error:error];
         }
     }
-	    return responseObject;
+	
+    return responseObject;
 }
 
 @end
@@ -166,7 +168,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (!serviceConfiguration) {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
+                                           reason:@"The service configuration is `nil`. You need to configure `awsconfiguration.json`, `Info.plist` or set `defaultServiceConfiguration` before using this method."
                                          userInfo:nil];
         }
         _defaultMachineLearning = [[AWSMachineLearning alloc] initWithConfiguration:serviceConfiguration];
@@ -274,12 +276,517 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                                                              actionName:operationName
                                                                                             outputClass:outputClass];
         
-        networkingRequest.URLString = URLString;
         return [self.networking sendRequest:networkingRequest];
     }
 }
 
 #pragma mark - Service method
+
+- (AWSTask<AWSMachineLearningAddTagsOutput *> *)addTags:(AWSMachineLearningAddTagsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"AddTags"
+                   outputClass:[AWSMachineLearningAddTagsOutput class]];
+}
+
+- (void)addTags:(AWSMachineLearningAddTagsInput *)request
+     completionHandler:(void (^)(AWSMachineLearningAddTagsOutput *response, NSError *error))completionHandler {
+    [[self addTags:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningAddTagsOutput *> * _Nonnull task) {
+        AWSMachineLearningAddTagsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningCreateBatchPredictionOutput *> *)createBatchPrediction:(AWSMachineLearningCreateBatchPredictionInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"CreateBatchPrediction"
+                   outputClass:[AWSMachineLearningCreateBatchPredictionOutput class]];
+}
+
+- (void)createBatchPrediction:(AWSMachineLearningCreateBatchPredictionInput *)request
+     completionHandler:(void (^)(AWSMachineLearningCreateBatchPredictionOutput *response, NSError *error))completionHandler {
+    [[self createBatchPrediction:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningCreateBatchPredictionOutput *> * _Nonnull task) {
+        AWSMachineLearningCreateBatchPredictionOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningCreateDataSourceFromRDSOutput *> *)createDataSourceFromRDS:(AWSMachineLearningCreateDataSourceFromRDSInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"CreateDataSourceFromRDS"
+                   outputClass:[AWSMachineLearningCreateDataSourceFromRDSOutput class]];
+}
+
+- (void)createDataSourceFromRDS:(AWSMachineLearningCreateDataSourceFromRDSInput *)request
+     completionHandler:(void (^)(AWSMachineLearningCreateDataSourceFromRDSOutput *response, NSError *error))completionHandler {
+    [[self createDataSourceFromRDS:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningCreateDataSourceFromRDSOutput *> * _Nonnull task) {
+        AWSMachineLearningCreateDataSourceFromRDSOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningCreateDataSourceFromRedshiftOutput *> *)createDataSourceFromRedshift:(AWSMachineLearningCreateDataSourceFromRedshiftInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"CreateDataSourceFromRedshift"
+                   outputClass:[AWSMachineLearningCreateDataSourceFromRedshiftOutput class]];
+}
+
+- (void)createDataSourceFromRedshift:(AWSMachineLearningCreateDataSourceFromRedshiftInput *)request
+     completionHandler:(void (^)(AWSMachineLearningCreateDataSourceFromRedshiftOutput *response, NSError *error))completionHandler {
+    [[self createDataSourceFromRedshift:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningCreateDataSourceFromRedshiftOutput *> * _Nonnull task) {
+        AWSMachineLearningCreateDataSourceFromRedshiftOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningCreateDataSourceFromS3Output *> *)createDataSourceFromS3:(AWSMachineLearningCreateDataSourceFromS3Input *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"CreateDataSourceFromS3"
+                   outputClass:[AWSMachineLearningCreateDataSourceFromS3Output class]];
+}
+
+- (void)createDataSourceFromS3:(AWSMachineLearningCreateDataSourceFromS3Input *)request
+     completionHandler:(void (^)(AWSMachineLearningCreateDataSourceFromS3Output *response, NSError *error))completionHandler {
+    [[self createDataSourceFromS3:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningCreateDataSourceFromS3Output *> * _Nonnull task) {
+        AWSMachineLearningCreateDataSourceFromS3Output *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningCreateEvaluationOutput *> *)createEvaluation:(AWSMachineLearningCreateEvaluationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"CreateEvaluation"
+                   outputClass:[AWSMachineLearningCreateEvaluationOutput class]];
+}
+
+- (void)createEvaluation:(AWSMachineLearningCreateEvaluationInput *)request
+     completionHandler:(void (^)(AWSMachineLearningCreateEvaluationOutput *response, NSError *error))completionHandler {
+    [[self createEvaluation:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningCreateEvaluationOutput *> * _Nonnull task) {
+        AWSMachineLearningCreateEvaluationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningCreateMLModelOutput *> *)createMLModel:(AWSMachineLearningCreateMLModelInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"CreateMLModel"
+                   outputClass:[AWSMachineLearningCreateMLModelOutput class]];
+}
+
+- (void)createMLModel:(AWSMachineLearningCreateMLModelInput *)request
+     completionHandler:(void (^)(AWSMachineLearningCreateMLModelOutput *response, NSError *error))completionHandler {
+    [[self createMLModel:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningCreateMLModelOutput *> * _Nonnull task) {
+        AWSMachineLearningCreateMLModelOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningCreateRealtimeEndpointOutput *> *)createRealtimeEndpoint:(AWSMachineLearningCreateRealtimeEndpointInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"CreateRealtimeEndpoint"
+                   outputClass:[AWSMachineLearningCreateRealtimeEndpointOutput class]];
+}
+
+- (void)createRealtimeEndpoint:(AWSMachineLearningCreateRealtimeEndpointInput *)request
+     completionHandler:(void (^)(AWSMachineLearningCreateRealtimeEndpointOutput *response, NSError *error))completionHandler {
+    [[self createRealtimeEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningCreateRealtimeEndpointOutput *> * _Nonnull task) {
+        AWSMachineLearningCreateRealtimeEndpointOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDeleteBatchPredictionOutput *> *)deleteBatchPrediction:(AWSMachineLearningDeleteBatchPredictionInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DeleteBatchPrediction"
+                   outputClass:[AWSMachineLearningDeleteBatchPredictionOutput class]];
+}
+
+- (void)deleteBatchPrediction:(AWSMachineLearningDeleteBatchPredictionInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDeleteBatchPredictionOutput *response, NSError *error))completionHandler {
+    [[self deleteBatchPrediction:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDeleteBatchPredictionOutput *> * _Nonnull task) {
+        AWSMachineLearningDeleteBatchPredictionOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDeleteDataSourceOutput *> *)deleteDataSource:(AWSMachineLearningDeleteDataSourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DeleteDataSource"
+                   outputClass:[AWSMachineLearningDeleteDataSourceOutput class]];
+}
+
+- (void)deleteDataSource:(AWSMachineLearningDeleteDataSourceInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDeleteDataSourceOutput *response, NSError *error))completionHandler {
+    [[self deleteDataSource:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDeleteDataSourceOutput *> * _Nonnull task) {
+        AWSMachineLearningDeleteDataSourceOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDeleteEvaluationOutput *> *)deleteEvaluation:(AWSMachineLearningDeleteEvaluationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DeleteEvaluation"
+                   outputClass:[AWSMachineLearningDeleteEvaluationOutput class]];
+}
+
+- (void)deleteEvaluation:(AWSMachineLearningDeleteEvaluationInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDeleteEvaluationOutput *response, NSError *error))completionHandler {
+    [[self deleteEvaluation:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDeleteEvaluationOutput *> * _Nonnull task) {
+        AWSMachineLearningDeleteEvaluationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDeleteMLModelOutput *> *)deleteMLModel:(AWSMachineLearningDeleteMLModelInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DeleteMLModel"
+                   outputClass:[AWSMachineLearningDeleteMLModelOutput class]];
+}
+
+- (void)deleteMLModel:(AWSMachineLearningDeleteMLModelInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDeleteMLModelOutput *response, NSError *error))completionHandler {
+    [[self deleteMLModel:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDeleteMLModelOutput *> * _Nonnull task) {
+        AWSMachineLearningDeleteMLModelOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDeleteRealtimeEndpointOutput *> *)deleteRealtimeEndpoint:(AWSMachineLearningDeleteRealtimeEndpointInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DeleteRealtimeEndpoint"
+                   outputClass:[AWSMachineLearningDeleteRealtimeEndpointOutput class]];
+}
+
+- (void)deleteRealtimeEndpoint:(AWSMachineLearningDeleteRealtimeEndpointInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDeleteRealtimeEndpointOutput *response, NSError *error))completionHandler {
+    [[self deleteRealtimeEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDeleteRealtimeEndpointOutput *> * _Nonnull task) {
+        AWSMachineLearningDeleteRealtimeEndpointOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDeleteTagsOutput *> *)deleteTags:(AWSMachineLearningDeleteTagsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DeleteTags"
+                   outputClass:[AWSMachineLearningDeleteTagsOutput class]];
+}
+
+- (void)deleteTags:(AWSMachineLearningDeleteTagsInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDeleteTagsOutput *response, NSError *error))completionHandler {
+    [[self deleteTags:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDeleteTagsOutput *> * _Nonnull task) {
+        AWSMachineLearningDeleteTagsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDescribeBatchPredictionsOutput *> *)describeBatchPredictions:(AWSMachineLearningDescribeBatchPredictionsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DescribeBatchPredictions"
+                   outputClass:[AWSMachineLearningDescribeBatchPredictionsOutput class]];
+}
+
+- (void)describeBatchPredictions:(AWSMachineLearningDescribeBatchPredictionsInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDescribeBatchPredictionsOutput *response, NSError *error))completionHandler {
+    [[self describeBatchPredictions:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDescribeBatchPredictionsOutput *> * _Nonnull task) {
+        AWSMachineLearningDescribeBatchPredictionsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDescribeDataSourcesOutput *> *)describeDataSources:(AWSMachineLearningDescribeDataSourcesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DescribeDataSources"
+                   outputClass:[AWSMachineLearningDescribeDataSourcesOutput class]];
+}
+
+- (void)describeDataSources:(AWSMachineLearningDescribeDataSourcesInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDescribeDataSourcesOutput *response, NSError *error))completionHandler {
+    [[self describeDataSources:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDescribeDataSourcesOutput *> * _Nonnull task) {
+        AWSMachineLearningDescribeDataSourcesOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDescribeEvaluationsOutput *> *)describeEvaluations:(AWSMachineLearningDescribeEvaluationsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DescribeEvaluations"
+                   outputClass:[AWSMachineLearningDescribeEvaluationsOutput class]];
+}
+
+- (void)describeEvaluations:(AWSMachineLearningDescribeEvaluationsInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDescribeEvaluationsOutput *response, NSError *error))completionHandler {
+    [[self describeEvaluations:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDescribeEvaluationsOutput *> * _Nonnull task) {
+        AWSMachineLearningDescribeEvaluationsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDescribeMLModelsOutput *> *)describeMLModels:(AWSMachineLearningDescribeMLModelsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DescribeMLModels"
+                   outputClass:[AWSMachineLearningDescribeMLModelsOutput class]];
+}
+
+- (void)describeMLModels:(AWSMachineLearningDescribeMLModelsInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDescribeMLModelsOutput *response, NSError *error))completionHandler {
+    [[self describeMLModels:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDescribeMLModelsOutput *> * _Nonnull task) {
+        AWSMachineLearningDescribeMLModelsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningDescribeTagsOutput *> *)describeTags:(AWSMachineLearningDescribeTagsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"DescribeTags"
+                   outputClass:[AWSMachineLearningDescribeTagsOutput class]];
+}
+
+- (void)describeTags:(AWSMachineLearningDescribeTagsInput *)request
+     completionHandler:(void (^)(AWSMachineLearningDescribeTagsOutput *response, NSError *error))completionHandler {
+    [[self describeTags:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningDescribeTagsOutput *> * _Nonnull task) {
+        AWSMachineLearningDescribeTagsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningGetBatchPredictionOutput *> *)getBatchPrediction:(AWSMachineLearningGetBatchPredictionInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"GetBatchPrediction"
+                   outputClass:[AWSMachineLearningGetBatchPredictionOutput class]];
+}
+
+- (void)getBatchPrediction:(AWSMachineLearningGetBatchPredictionInput *)request
+     completionHandler:(void (^)(AWSMachineLearningGetBatchPredictionOutput *response, NSError *error))completionHandler {
+    [[self getBatchPrediction:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningGetBatchPredictionOutput *> * _Nonnull task) {
+        AWSMachineLearningGetBatchPredictionOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningGetDataSourceOutput *> *)getDataSource:(AWSMachineLearningGetDataSourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"GetDataSource"
+                   outputClass:[AWSMachineLearningGetDataSourceOutput class]];
+}
+
+- (void)getDataSource:(AWSMachineLearningGetDataSourceInput *)request
+     completionHandler:(void (^)(AWSMachineLearningGetDataSourceOutput *response, NSError *error))completionHandler {
+    [[self getDataSource:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningGetDataSourceOutput *> * _Nonnull task) {
+        AWSMachineLearningGetDataSourceOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningGetEvaluationOutput *> *)getEvaluation:(AWSMachineLearningGetEvaluationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"GetEvaluation"
+                   outputClass:[AWSMachineLearningGetEvaluationOutput class]];
+}
+
+- (void)getEvaluation:(AWSMachineLearningGetEvaluationInput *)request
+     completionHandler:(void (^)(AWSMachineLearningGetEvaluationOutput *response, NSError *error))completionHandler {
+    [[self getEvaluation:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningGetEvaluationOutput *> * _Nonnull task) {
+        AWSMachineLearningGetEvaluationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
 
 - (AWSTask<AWSMachineLearningGetMLModelOutput *> *)getMLModel:(AWSMachineLearningGetMLModelInput *)request {
     return [self invokeRequest:request
@@ -317,6 +824,98 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSMachineLearningPredictOutput *response, NSError *error))completionHandler {
     [[self predict:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningPredictOutput *> * _Nonnull task) {
         AWSMachineLearningPredictOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningUpdateBatchPredictionOutput *> *)updateBatchPrediction:(AWSMachineLearningUpdateBatchPredictionInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"UpdateBatchPrediction"
+                   outputClass:[AWSMachineLearningUpdateBatchPredictionOutput class]];
+}
+
+- (void)updateBatchPrediction:(AWSMachineLearningUpdateBatchPredictionInput *)request
+     completionHandler:(void (^)(AWSMachineLearningUpdateBatchPredictionOutput *response, NSError *error))completionHandler {
+    [[self updateBatchPrediction:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningUpdateBatchPredictionOutput *> * _Nonnull task) {
+        AWSMachineLearningUpdateBatchPredictionOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningUpdateDataSourceOutput *> *)updateDataSource:(AWSMachineLearningUpdateDataSourceInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"UpdateDataSource"
+                   outputClass:[AWSMachineLearningUpdateDataSourceOutput class]];
+}
+
+- (void)updateDataSource:(AWSMachineLearningUpdateDataSourceInput *)request
+     completionHandler:(void (^)(AWSMachineLearningUpdateDataSourceOutput *response, NSError *error))completionHandler {
+    [[self updateDataSource:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningUpdateDataSourceOutput *> * _Nonnull task) {
+        AWSMachineLearningUpdateDataSourceOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningUpdateEvaluationOutput *> *)updateEvaluation:(AWSMachineLearningUpdateEvaluationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"UpdateEvaluation"
+                   outputClass:[AWSMachineLearningUpdateEvaluationOutput class]];
+}
+
+- (void)updateEvaluation:(AWSMachineLearningUpdateEvaluationInput *)request
+     completionHandler:(void (^)(AWSMachineLearningUpdateEvaluationOutput *response, NSError *error))completionHandler {
+    [[self updateEvaluation:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningUpdateEvaluationOutput *> * _Nonnull task) {
+        AWSMachineLearningUpdateEvaluationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSMachineLearningUpdateMLModelOutput *> *)updateMLModel:(AWSMachineLearningUpdateMLModelInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"AmazonML_20141212"
+                 operationName:@"UpdateMLModel"
+                   outputClass:[AWSMachineLearningUpdateMLModelOutput class]];
+}
+
+- (void)updateMLModel:(AWSMachineLearningUpdateMLModelInput *)request
+     completionHandler:(void (^)(AWSMachineLearningUpdateMLModelOutput *response, NSError *error))completionHandler {
+    [[self updateMLModel:request] continueWithBlock:^id _Nullable(AWSTask<AWSMachineLearningUpdateMLModelOutput *> * _Nonnull task) {
+        AWSMachineLearningUpdateMLModelOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -26,7 +26,10 @@
 
 - (void)setUp {
     [super setUp];
-
+    //Setup Log level
+    AWSDDLog.sharedInstance.logLevel = AWSDDLogFlagVerbose;
+    [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];
+    
     [AWSTestUtility setupCognitoCredentialsProvider];
 }
 
