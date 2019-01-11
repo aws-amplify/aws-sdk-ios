@@ -81,6 +81,22 @@ jobs:
       - store_artifacts:
           path: integration_test_result
 
+  release_tag:
+    # Specify the Xcode version to use
+    macos:
+      xcode: "10.1.0"
+    steps: 
+      - checkout
+      - run:
+          name: install github-release
+          command: brew install github-release                
+      - run:
+          name: release the tag
+          command: |
+            tagdescription=$(sed -n '/## '${CIRCLE_TAG}'/,/## [0-9]*\.[0-9]*\.[0-9]/p'  CHANGELOG.md | sed '1d' | sed '$d')
+            tagname="AWS SDK for iOS "${CIRCLE_TAG}
+            echo "$tagdescription" | github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG}  --name  "$tagname" -d -         
+
   release_carthage:
     # Specify the Xcode version to use
     macos:
@@ -113,12 +129,6 @@ jobs:
       - run:
           name: Create Carthage Archive
           command: bash CreateCarthageArchive.sh   
-      - run:
-          name: release the tag
-          command: |
-            tagdescription=$(sed -n '/## '${CIRCLE_TAG}'/,/## [0-9]*\.[0-9]*\.[0-9]/p'  CHANGELOG.md | sed '1d' | sed '$d')
-            tagname="AWS SDK for iOS "${CIRCLE_TAG}
-            github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -d "$tagdescription" -n "$tagname"         
       - run:
           name: upload file to git release 
           command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME}  -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
@@ -179,14 +189,14 @@ jobs:
           name: generate jazzy documents
           command: |
             currentversion=${CIRCLE_TAG}
-            bash ./Scripts/AWSMobileClientAPIRererence.sh $currentversion
+            bash ./Scripts/AWSMobileClientAPIReference.sh $currentversion
       - run:
           name: copy jazzy documents
           command: |
             git config --local user.name "AWS"
             git checkout  gh-pages
-            mkdir docs/reference/AWSMobileClient
-            cp -R docs/api/* docs/reference/AWSMobileClient
+            mkdir -p docs/reference/AWSMobileClient     
+            cp -R docs/api/* docs/reference/AWSMobileClient               
       - run:
           name: checkin jazzy documents
           command: |
@@ -208,7 +218,7 @@ jobs:
             rootDirectory=$(pwd)
             cd aws-sdk-ios-samples/S3TransferUtility-Sample/Swift/
             echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_CONFIGURATION} | base64 --decode > awsconfiguration.json
-            sed -i "" "s+, \$awsVersion+, :path => '../../../'+" Podfile
+            echo ${AWS_S3_TRANSFER_UTILITY_SAMPLE_APP_PODFILE} | base64 --decode > Podfile
             pod install
             xcodebuild -workspace S3TransferUtilitySampleSwift.xcworkspace -scheme "S3TransferUtilitySampleSwiftUITests" -destination 'platform=iOS Simulator,name=iPhone 8 Plus,OS=11.2' test | tee $rootDirectory/raw_ui_test.log
             cd $rootDirectory
@@ -249,7 +259,12 @@ workflows:
           filters:
             branches:
               ignore: /gh-.*/
-
+      - run_ui_test:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: /gh-.*/
   release_sdk:
     jobs: 
       - build:
@@ -265,7 +280,7 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
+              only: /^[0-9]+.[0-9]+.[0-9]+$/          
       - integrationtest:
           requires:
             - build
@@ -274,7 +289,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_carthage:
+      - release_tag:
           requires:
             - unittest  
             - integrationtest
@@ -283,10 +298,17 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_carthage:
+          requires:
+            - release_tag  
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
-            - unittest     
-            - integrationtest    
+            - release_tag       
           filters:
             branches:
               ignore: /.*/
@@ -294,8 +316,8 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_appledoc:
           requires:
-            - unittest          
-            - integrationtest
+            - release_carthage          
+            - release_cocoapods
           filters:
             branches:
               ignore: /.*/

@@ -548,6 +548,7 @@ extension AWSMobileClient {
                         codeDeliveryDetailsList.append(self.getUserCodeDeliveryDetails(codeDeliveryDetail))
                     }
                 }
+                completionHandler(codeDeliveryDetailsList, nil)
             }
             return nil
         }
