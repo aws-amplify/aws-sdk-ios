@@ -18,6 +18,16 @@ commands:
               circleci step halt
             fi
 
+  update_brew:
+    description: >-
+      update brew
+    steps:            
+      - run:
+          name: update brew
+          command: |
+            HOMEBREW_LOGS=~/homebrew-logs
+            HOMEBREW_TEMP=~/homebrew-temp          
+            brew update
 jobs:
   build:
     macos: 
@@ -87,6 +97,7 @@ jobs:
       xcode: "10.1.0"
     steps: 
       - checkout
+      - update_brew
       - run:
           name: install github-release
           command: brew install github-release                
@@ -103,6 +114,7 @@ jobs:
       xcode: "10.1.0"
     steps: 
       - checkout
+      - update_brew
       - run:
           name: install github-release
           command: brew install github-release                
@@ -308,7 +320,8 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
-            - release_tag       
+            - unittest  
+            - integrationtest   
           filters:
             branches:
               ignore: /.*/
