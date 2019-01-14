@@ -513,7 +513,7 @@ static const NSString *SDK_VERSION = @"2.6.19";
     }
     
     //Invalidate the reconnect timer so that there are no reconnect attempts.
-    [self.reconnectTimer invalidate];
+    [self cleanupReconnectTimer];
     
     //Set the userDisconnect flag to true to indicate that the user has initiated the disconnect.
     self.userDidIssueDisconnect = YES;
@@ -527,6 +527,35 @@ static const NSString *SDK_VERSION = @"2.6.19";
     self.runLoopShouldContinue = NO;
 
     AWSDDLogInfo(@"AWSIoTMQTTClient: Disconnect message issued.");
+}
+
+
+/**
+ Invalidates and removes reference to the reconnect timer on the correct thread to avoid
+ creating a memory leak.
+ 
+ @discussion If called on any thread other than the reconnect thread the work is queued up on
+ the reconnect thread but the method returns without waiting for the invalidation to be completed.
+ This is called initially on the thread the consumer is calling the client's disconnect method on.
+ */
+- (void)cleanupReconnectTimer {
+    if (self.reconnectTimer == nil) {
+        return;
+    }
+    
+    if (![[NSThread currentThread] isEqual:self.reconnectThread]) {
+        // Move to reconnect thread to cleanup
+        [self performSelector:@selector(cleanupReconnectTimer)
+                     onThread:self.reconnectThread
+                   withObject:nil
+                waitUntilDone:NO];
+        return;
+    }
+
+    if (self.reconnectThread) {
+        [self.reconnectTimer invalidate];
+        self.reconnectTimer = nil;
+    }
 }
 
 - (void)reconnectToSession {
@@ -547,6 +576,10 @@ static const NSString *SDK_VERSION = @"2.6.19";
     
     self.connectionAgeInSeconds = 0;
     if (self.connectionAgeTimer != nil ) {
+        // NOTE: This does not work as intended. The reconnection attempt is always done on the reconnect thread
+        // but the timer needs to be invalidated on the streams thread to ensure memory is released.
+        // However, as currently implemented a switch to the streams thread here to clean this up is always beaten to the
+        // invalidation by other events which are are already being processed on the streams thread.
         [self.connectionAgeTimer invalidate];
         self.connectionAgeTimer = nil;
     }
@@ -639,6 +672,12 @@ static const NSString *SDK_VERSION = @"2.6.19";
     [defaultRunLoopTimer invalidate];
     
     if (!self.runLoopShouldContinue ) {
+        
+        if (self.connectionAgeTimer != nil ) {
+            [self.connectionAgeTimer invalidate];
+            self.connectionAgeTimer = nil;
+        }
+        
         [self.session close];
     
         //Set status

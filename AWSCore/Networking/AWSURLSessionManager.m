@@ -204,6 +204,11 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
     }];
 }
 
+- (void)invalidate {
+    // Invalidate the session so its strong reference to self is released.
+    [_session invalidateAndCancel];
+}
+
 #pragma mark - NSURLSessionTaskDelegate
 
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)sessionTask didCompleteWithError:(NSError *)error {
