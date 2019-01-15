@@ -181,8 +181,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
             if (task.error && [stopErrorDomains containsObject:task.error.domain]) {
                 *stop = YES;
-                return [AWSTask taskWithError:task.error];
             }
+            return [AWSTask taskWithError:task.error];
         }
         if (task.result) {
             AWSFirehosePutRecordBatchOutput *putRecordBatchOutput = task.result;
