@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.8.3 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.8.4 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -79,6 +79,8 @@
 
 	
 	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/connectUsingWebSocketWithClientId:cleanSession:customAuthorizerName:tokenKeyName:tokenValue:tokenSignature:statusCallback:">- connectUsingWebSocketWithClientId:cleanSession:customAuthorizerName:tokenKeyName:tokenValue:tokenSignature:statusCallback:</option>
 		
 		<option value="//api/name/connectUsingWebSocketWithClientId:cleanSession:statusCallback:">- connectUsingWebSocketWithClientId:cleanSession:statusCallback:</option>
 		
@@ -842,7 +844,7 @@ Must be called before calling connect.</p>
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Initialises the MQTT session and connects to AWS IoT using WebSocket/SigV4 authentication.  IAM
+				<p>Initialises the MQTT session and connects to AWS IoT using WebSocket/SigV4 authentication. IAM
 credentials are taken from the current service configuration.</p>
 			</div>
 			
@@ -879,6 +881,95 @@ credentials are taken from the current service configuration.</p>
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
 				<p>true if initialise finished with success</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSIoTDataManager.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/connectUsingWebSocketWithClientId:cleanSession:customAuthorizerName:tokenKeyName:tokenValue:tokenSignature:statusCallback:" title="connectUsingWebSocketWithClientId:cleanSession:customAuthorizerName:tokenKeyName:tokenValue:tokenSignature:statusCallback:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/connectUsingWebSocketWithClientId:cleanSession:customAuthorizerName:tokenKeyName:tokenValue:tokenSignature:statusCallback:">&ndash;&nbsp;connectUsingWebSocketWithClientId:cleanSession:customAuthorizerName:tokenKeyName:tokenValue:tokenSignature:statusCallback:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Initialises the MQTT session and connects to AWS IoT using WebSocket/CustomAuthorizer mechanism.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (BOOL)connectUsingWebSocketWithClientId:(NSString *)<em>clientId</em> cleanSession:(BOOL)<em>cleanSession</em> customAuthorizerName:(NSString *)<em>customAuthorizerName</em> tokenKeyName:(NSString *)<em>tokenKeyName</em> tokenValue:(NSString *)<em>tokenValue</em> tokenSignature:(NSString *)<em>tokenSignature</em> statusCallback:(void ( ^ ) ( AWSIoTMQTTStatus status ))<em>callback</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>clientId</code></th>
+						<td><p>The Client Identifier identifies the Client to the Server.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>cleanSession</code></th>
+						<td><p>specifies if the server should discard previous session information.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>customAuthorizerName</code></th>
+						<td><p>Name of the AWS IoT custom authorizer.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tokenKeyName</code></th>
+						<td><p>This specifies the key name that your device chooses, which indicates the token in the
+custom authorization HTTP request header.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tokenValue</code></th>
+						<td><p>This specifies the custom authorization token to authorize the request to the AWS IoT gateway.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tokenSignature</code></th>
+						<td><p>This specifies the token signature for the custom authorizer to validate the tokenValue.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>callback</code></th>
+						<td><p>When new mqtt session status is received the callback will be called with new connection status.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>true if initialise finished with success.</p>
 			</div>
 			
 
@@ -2124,7 +2215,7 @@ False if it cannot be serialized successfully.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-01-11</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-01-16</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
