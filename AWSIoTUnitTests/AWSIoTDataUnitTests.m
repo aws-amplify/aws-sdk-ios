@@ -372,4 +372,58 @@ static id mockNetworking = nil;
     [AWSIoTData removeIoTDataForKey:key];
 }
 
+- (void)testIOTWebSocketConnectionUsingCustomAuth {
+    NSString *key = @"testIOTWebSocketConnectionUsingCustomAuth";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                         credentialsProvider:nil];
+    [AWSIoTDataManager registerIoTDataManagerWithConfiguration:configuration
+                                                        forKey:key];
+
+    AWSIoTDataManager *awsClient = [AWSIoTDataManager IoTDataManagerForKey:key];
+    XCTAssertNotNil(awsClient);
+
+    NSString *clientId = @"testClientId";
+
+    BOOL connectionResult = [awsClient connectUsingWebSocketWithClientId:clientId
+                                                            cleanSession:YES
+                                                    customAuthorizerName:@"iot-custom-authorizer"
+                                                            tokenKeyName:@"token-key-name"
+                                                              tokenValue:@"token-value"
+                                                          tokenSignature:@"token-signature"
+                                                          statusCallback:^(AWSIoTMQTTStatus status) {
+
+                                                          }];
+
+    XCTAssertTrue(connectionResult);
+
+    NSString *message = @"test message";
+    NSString *topic = @"test/iot/topic";
+    BOOL returnValue = NO;
+
+    returnValue = [awsClient publishString:message
+                                   onTopic:topic
+                                       QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce];
+    XCTAssertTrue(returnValue);
+
+    returnValue = [awsClient publishData:[message dataUsingEncoding:NSUTF8StringEncoding]
+                                 onTopic:topic
+                                     QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce];
+    XCTAssertTrue(returnValue);
+
+    returnValue = [awsClient subscribeToTopic:topic
+                                          QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce
+                              messageCallback:^(NSData *data) {
+
+                              }];
+    XCTAssertTrue(returnValue);
+
+    [awsClient unsubscribeTopic:topic];
+    XCTAssertTrue(true);
+
+    [awsClient disconnect];
+    XCTAssertTrue(true);
+
+    [AWSIoTData removeIoTDataForKey:key];
+}
+
 @end

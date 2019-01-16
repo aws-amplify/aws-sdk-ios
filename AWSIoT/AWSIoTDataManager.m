@@ -415,6 +415,51 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                  statusCallback:callback];
 }
 
+- (BOOL)connectUsingWebSocketWithClientId:(NSString *)clientId
+                             cleanSession:(BOOL)cleanSession
+                     customAuthorizerName:(NSString *)customAuthorizerName
+                             tokenKeyName:(NSString *)tokenKeyName
+                               tokenValue:(NSString *)tokenValue
+                           tokenSignature:(NSString *)tokenSignature
+                           statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
+{
+    //Validate that clientId has been passed in.
+    if (clientId == nil || [clientId  isEqualToString: @""]) {
+        return false;
+    }
+    AWSDDLogInfo(@"IOTDataManager: Connecting to IoT using websocket with Custom Auth, client id: %@", clientId);
+    
+    if (_userDidIssueConnect) {
+        //User has already connected. Can't connect multiple times, return No.
+        return NO;
+    }
+    
+    _userDidIssueConnect = YES;
+    _userDidIssueDisconnect = NO;
+    
+    //set the parameters on the mqttClient from configuration
+    [self.mqttClient setBaseReconnectTime:self.mqttConfiguration.baseReconnectTimeInterval];
+    [self.mqttClient setMinimumConnectionTime:self.mqttConfiguration.minimumConnectionTimeInterval];
+    [self.mqttClient setMaximumReconnectTime:self.mqttConfiguration.maximumReconnectTimeInterval];
+    [self.mqttClient setAutoResubscribe:self.mqttConfiguration.autoResubscribe];
+    [self.mqttClient setPublishRetryThrottle:self.mqttConfiguration.publishRetryThrottle];
+    [self.mqttClient setAutoResubscribe:self.mqttConfiguration.autoResubscribe];
+
+    return [self.mqttClient connectWithClientId:clientId
+                                   cleanSession:cleanSession
+                                  configuration:self.IoTData.configuration
+                           customAuthorizerName:customAuthorizerName
+                                   tokenKeyName:tokenKeyName
+                                     tokenValue:tokenValue
+                                 tokenSignature:tokenSignature
+                                      keepAlive:self.mqttConfiguration.keepAliveTimeInterval
+                                      willTopic:self.mqttConfiguration.lastWillAndTestament.topic
+                                        willMsg:[self.mqttConfiguration.lastWillAndTestament.message dataUsingEncoding:NSUTF8StringEncoding]
+                                        willQoS:self.mqttConfiguration.lastWillAndTestament.qos
+                                 willRetainFlag:NO
+                                 statusCallback:callback];
+}
+
 - (void)disconnect{
     if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
         //Have to be connected to make this call. noop this call by returning

@@ -1,6 +1,18 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.8.4
+
+### New Features
+
+* **AWS IoT**
+  * Added support for Custom Authorizers. AWS IoT allows you to define custom authorizers that allow you to manage your own authentication and authorization strategy using a custom authentication service and a Lambda function. Custom authorizers allow AWS IoT to authenticate your devices and authorize operations using bearer token authentication and authorization strategies. See [AWS IoT Custom Authentication](https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-authentication.html) for more details.
+
+### Bug Fixes
+
+* **Amazon Kinesis Firehose**
+  * Fixed error handling in `-[AWSFirehoseRecorderHelper submitRecordsForStream:records:rowIds:putRowIds:retryRowIds:stop:]`. [See PR #1176](https://github.com/aws-amplify/aws-sdk-ios/pull/1176). Thanks @dataxpress!
+
 ## 2.8.3
 
 ### Bug Fixes

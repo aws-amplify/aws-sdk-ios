@@ -131,6 +131,20 @@
                     willQoS:(UInt8)willQoS
              willRetainFlag:(BOOL)willRetainFlag
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
+    
+- (BOOL)connectWithClientId:(NSString *)clientId
+               cleanSession:(BOOL)cleanSession
+              configuration:(AWSServiceConfiguration *)configuration
+       customAuthorizerName:(NSString *)customAuthorizerName
+               tokenKeyName:(NSString *)tokenKeyName
+                 tokenValue:(NSString *)tokenValue
+             tokenSignature:(NSString *)tokenSignature
+                  keepAlive:(UInt16)theKeepAliveInterval
+                  willTopic:(NSString*)willTopic
+                    willMsg:(NSData*)willMsg
+                    willQoS:(UInt8)willQoS
+             willRetainFlag:(BOOL)willRetainFlag
+             statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 - (void)disconnect;
 
