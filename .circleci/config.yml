@@ -4,7 +4,7 @@
 #
 version: 2.1
 
-commands:
+commands:   
   early_return_for_forked_prs:
     description: >-
       If this build is from a fork, stop executing the current job and return success.
