@@ -5,7 +5,7 @@ import subprocess
 import xml.etree.ElementTree as ET
 import os
 from datetime import datetime
-
+from functions import runcommand
 #from sets import Set
 def getfailedcases():   
     xmlfile='build/reports/junit.xml'
@@ -24,27 +24,8 @@ def getfailedcases():
             failedtests.add(testbundle + '/' + suitename + '/' + casename)
     return failedtests 
 
-def runcommand(command, timeout=0,pipein=None, pipeout =  None):
-    print("running command: ", command, "......")
-    process = Popen(command, shell=True, stdin=pipein, stdout = pipeout)
-    wait_times = 0 
-    while True:
-        try:
-            process.communicate(timeout = 10)
-        except subprocess.TimeoutExpired:        
-            #tell circleci I am still alive, don't kill me
-            if wait_times % 30 == 0 :
-                print(str(datetime.now())+ ": I am still alive")
-            # if time costed exceed timeout, quit
-            if timeout >0 and wait_times > timeout * 6 :
-                print(str(datetime.now())+ ": time out")
-                return 1
-            wait_times+=1 
 
-            continue
-        break
-    exit_code = process.wait()    
-    return exit_code
+
 
  #run test   
 def runtest(otherargments, timeout = 0):

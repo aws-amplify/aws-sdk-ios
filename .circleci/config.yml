@@ -28,6 +28,45 @@ commands:
             HOMEBREW_LOGS=~/homebrew-logs
             HOMEBREW_TEMP=~/homebrew-temp          
             brew update
+
+  set_enviroment_variables:
+    description: >-
+      set environment variables
+    steps:
+      - run:
+          name: set environment variables
+          command: |
+            sdkName=aws-ios-sdk
+            echo "export sdkName=$sdkName" >> $BASH_ENV
+
+            release_bucket=${RELEASE_BUCKET}
+            echo "export release_bucket=$release_bucket" >> $BASH_ENV
+
+            release_tag=${CIRCLE_TAG}
+            echo "export release_tag=$release_tag" >> $BASH_ENV
+
+            release_version=$(echo "$release_tag" | sed 's|.*v\([0-9\.]*\).*|\1|')
+            release_version=3.21.0
+            echo "export release_version=$release_version" >> $BASH_ENV
+
+            sdkNameWithVersion="$sdkName-$release_version"
+            echo "export sdkNameWithVersion=$sdkNameWithVersion" >> $BASH_ENV
+
+  quit_for_nominorversion:
+    description: >-
+      If current release is not a minor version bump, stop executing the current job and return success.
+    steps:
+      - run:
+          name: skip left steps and return immediately from current job if current release is not a minor version bump
+          command: |
+            echo $release_version            
+            maintenance=$(echo $release_version | sed "s/[0-9]*.[0-9]*.\([0-9]*\)/\1/")
+            echo $maintenance
+            if [ "$maintenance" != "0" ]; then
+              echo "This is not minor version bump release, so marking this step successful"
+              circleci step halt
+            fi
+
 jobs:
   build:
     macos: 
@@ -250,11 +289,59 @@ jobs:
             git tag -a ${CIRCLE_TAG}_api_docs  -m "Add documentation tags to version ${CIRCLE_TAG}"
             git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git   
 
+  bump_sampleapp_version:
+    macos: 
+      xcode: "10.1.0"
+    steps:
+      - set_enviroment_variables
+      - quit_for_nominorversion
+      - checkout  
+      - run:
+          name: checkout repository for bump version
+          command: |
+            SAMPLEAPPS_USER=sunchunqiang
+            echo "export SAMPLEAPPS_USER=$SAMPLEAPPS_USER" >> $BASH_ENV
+            git clone "https://github.com/${SAMPLEAPPS_USER}/aws-sdk-ios-samples.git"
+      - run:
+          name: bump version
+          command:
+            python3 CircleciScripts/bump_iossample_version.py "$(pwd)/aws-sdk-ios-samples" $release_version
+      - run: 
+          name: stage changes
+          command: |
+            cd aws-sdk-ios-samples
+            git config --local user.name "AWS"
+            gitstatus=$(git status)
+            echo $gitstatus
+            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then              
+              git add .
+            else
+              echo "No changes for sample application bump version"
+              circleci step halt             
+            fi                 
+      - run:
+          name: check in changes
+          command: |
+            cd aws-sdk-ios-samples
+            git status
+            git config --local user.name "AWS"
+            git commit -m "Update sample app dependency to ${release_version}"            
+            git push -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${SAMPLEAPPS_USER}/aws-sdk-ios-samples.git
+  leadtest:
+    working_directory: ~/code
+    docker:
+      - image: circleci/android:api-27-alpha
+    environment:
+      JVM_OPTS: -Xmx1024m
+    steps:
+      - checkout
+
 workflows:
   version: 2
 
   build_and_test:
     jobs: 
+      - bump_sampleapp_version   
       - build:
           filters:
             branches:
@@ -270,13 +357,17 @@ workflows:
             - build
           filters:
             branches:
-              ignore: /gh-.*/
+              only:
+                - master
+                - develop
       - run_ui_test:
           requires:
             - build
           filters:
             branches:
-              ignore: /gh-.*/
+              only:
+                - master
+                - develop
   release_sdk:
     jobs: 
       - build:

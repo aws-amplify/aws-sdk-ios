@@ -39,3 +39,6 @@ Scripts/build.sh
 Scripts/gcovr
 Scripts/jenkins.py
 Scripts/ocunit2junit
+# Python build assets #
+####################
+__pycache__
