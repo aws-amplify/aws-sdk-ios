@@ -266,10 +266,9 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
 @property (nonatomic, strong) AWSCognitoIdentity *cognitoIdentity;
 @property (nonatomic, strong) AWSUICKeyChainStore *keychain;
 @property (nonatomic, strong) AWSExecutor *refreshExecutor;
-@property (nonatomic, strong) dispatch_semaphore_t semaphore;
 @property (atomic, assign) BOOL useEnhancedFlow;
 @property (nonatomic, strong) AWSCredentials *internalCredentials;
-@property (atomic, assign, getter=isRefreshingCredentials) BOOL refreshingCredentials;
+@property (nonatomic, strong) AWSTask<AWSCredentials *> *refreshCredentialsTask;
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> *cachedLogins;
 
 @end
@@ -361,9 +360,6 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
               unauthRoleArn:(NSString *)unauthRoleArn
                 authRoleArn:(NSString *)authRoleArn {
     _refreshExecutor = [AWSExecutor executorWithOperationQueue:[NSOperationQueue new]];
-    _refreshingCredentials = NO;
-    _semaphore = dispatch_semaphore_create(0);
-
     _identityProvider = identityProvider;
     _unAuthRoleArn = unauthRoleArn;
     _authRoleArn = authRoleArn;
@@ -533,7 +529,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     }
     
     id<AWSCognitoCredentialsProviderHelper> providerRef = self.identityProvider;
-    return [[[providerRef logins] continueWithExecutor:self.refreshExecutor withSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
+    return [[providerRef logins] continueWithExecutor:self.refreshExecutor withSuccessBlock:^id _Nullable(AWSTask<NSDictionary<NSString *,NSString *> *> * _Nonnull task) {
         NSDictionary<NSString *,NSString *> *logins = task.result;
         
         AWSTask * getIdentityIdTask = nil;
@@ -550,54 +546,47 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
             // 1. The cached logins are different from the one the identity provider provided.
             // 2. The cached credentials is nil.
             // 3. The credentials expire within 10 minutes.
-            if ((!self.cachedLogins || [self.cachedLogins isEqualToDictionary:logins])
-                && self.internalCredentials
-                && [self.internalCredentials.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending) {
-                return [AWSTask taskWithResult:self.internalCredentials];
-            }
             
-            if (self.isRefreshingCredentials) {
-                // Waits up to 60 seconds for the Google SDK to refresh a token.
-                if (dispatch_semaphore_wait(self.semaphore, dispatch_time(DISPATCH_TIME_NOW, 60 * NSEC_PER_SEC)) != 0) {
-                    NSError *error = [NSError errorWithDomain:AWSCognitoCredentialsProviderErrorDomain
-                                                         code:AWSCognitoCredentialsProviderCredentialsRefreshTimeout
-                                                     userInfo:nil];
-                    return [AWSTask taskWithError:error];
+            // Atomically check whether there's a pending refresh and issue one if needed
+            @synchronized (self) {
+                if ((!self.cachedLogins || [self.cachedLogins isEqualToDictionary:logins])
+                    && self.internalCredentials
+                    && [self.internalCredentials.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending) {
+                    return [AWSTask taskWithResult:self.internalCredentials];
                 }
-            }
-            
-            if ((!self.cachedLogins || [self.cachedLogins isEqualToDictionary:logins])
-                && self.internalCredentials
-                && [self.internalCredentials.expiration compare:[NSDate dateWithTimeIntervalSinceNow:10 * 60]] == NSOrderedDescending) {
-                return [AWSTask taskWithResult:self.internalCredentials];
-            }
-            
-            self.refreshingCredentials = YES;
-            self.cachedLogins = logins;
-            
-            if (self.useEnhancedFlow) {
-                NSString * customRoleArn = nil;
-                if([providerRef.identityProviderManager respondsToSelector:@selector(customRoleArn)]){
-                    customRoleArn = providerRef.identityProviderManager.customRoleArn;
+                
+                if (self.refreshCredentialsTask) {
+                    // There's an ongoing refresh, so wait for it
+                    return self.refreshCredentialsTask;
                 }
-                return [self getCredentialsWithCognito:logins
-                                         authenticated:[providerRef isAuthenticated]
-                                         customRoleArn:customRoleArn];
-            } else {
-                return [self getCredentialsWithSTS:logins
-                                     authenticated:[providerRef isAuthenticated]];
+                
+                self.cachedLogins = logins;
+                
+                AWSTask<AWSCredentials *> *refreshTask = nil;
+                if (self.useEnhancedFlow) {
+                    NSString * customRoleArn = nil;
+                    if([providerRef.identityProviderManager respondsToSelector:@selector(customRoleArn)]){
+                        customRoleArn = providerRef.identityProviderManager.customRoleArn;
+                    }
+                    refreshTask = [self getCredentialsWithCognito:logins
+                                                    authenticated:[providerRef isAuthenticated]
+                                                    customRoleArn:customRoleArn];
+                    
+                } else {
+                    refreshTask = [self getCredentialsWithSTS:logins
+                                                authenticated:[providerRef isAuthenticated]];
+                }
+                
+                self.refreshCredentialsTask = [refreshTask continueWithBlock:^id(AWSTask *task) {
+                    if (task.error) {
+                        AWSDDLogError(@"Unable to refresh. Error is [%@]", task.error);
+                    }
+                    self.refreshCredentialsTask = nil;
+                    return task;
+                }];
+                return self.refreshCredentialsTask;
             }
-            
         }];
-    }] continueWithBlock:^id(AWSTask *task) {
-        if (task.error) {
-            AWSDDLogError(@"Unable to refresh. Error is [%@]", task.error);
-        }
-        
-        self.refreshingCredentials = NO;
-        dispatch_semaphore_signal(self.semaphore);
-        
-        return task;
     }];
 }
 
