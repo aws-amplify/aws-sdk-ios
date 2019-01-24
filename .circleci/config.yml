@@ -46,7 +46,7 @@ commands:
             echo "export release_tag=$release_tag" >> $BASH_ENV
 
             release_version=$(echo "$release_tag" | sed 's|.*v\([0-9\.]*\).*|\1|')
-            release_version=3.21.0
+            release_version=2.7.0
             echo "export release_version=$release_version" >> $BASH_ENV
 
             sdkNameWithVersion="$sdkName-$release_version"
@@ -303,9 +303,13 @@ jobs:
             echo "export SAMPLEAPPS_USER=$SAMPLEAPPS_USER" >> $BASH_ENV
             git clone "https://github.com/${SAMPLEAPPS_USER}/aws-sdk-ios-samples.git"
       - run:
-          name: bump version
+          name: update version
           command:
             python3 CircleciScripts/bump_iossample_version.py "$(pwd)/aws-sdk-ios-samples" $release_version
+      - run:
+          name: build projects
+          command:
+            python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"        
       - run: 
           name: stage changes
           command: |
