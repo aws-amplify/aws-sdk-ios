@@ -45,8 +45,7 @@ commands:
             release_tag=${CIRCLE_TAG}
             echo "export release_tag=$release_tag" >> $BASH_ENV
 
-            release_version=$(echo "$release_tag" | sed 's|.*v\([0-9\.]*\).*|\1|')
-            release_version=2.7.0
+            release_version=${CIRCLE_TAG}
             echo "export release_version=$release_version" >> $BASH_ENV
 
             sdkNameWithVersion="$sdkName-$release_version"
@@ -67,6 +66,62 @@ commands:
               circleci step halt
             fi
 
+  bump_version_pre:
+    description: >-
+      prepare bump version
+    steps:
+      - run:
+          name: checkout repository for bump version
+          command: |
+            git config --local user.name "${GITHUB_BUMPVERSION_USER}"
+            git clone "https://github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git"
+            cd ${bumpversion_repo_name}
+            git fetch
+            branches=$(git branch)
+            if [[ $branches == *"bump_version"* ]]; then    
+              echo "the branch is already pesent"
+              git checkout bump_version          
+            else
+              echo "create new branch bump_version"
+              git checkout -b bump_version                 
+            fi  
+            git remote add upstream https://github.com/${bumpversion_repo_user}/${bumpversion_repo_name}
+            git remote -v
+            git fetch upstream
+            git reset --hard upstream/master  
+            echo "push update the branch"
+            git push  --force   -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
+
+  bump_version_post:
+    description: >-
+      check in bump version change
+    steps:
+      - run: 
+          name: stage changes
+          command: |
+            cd ${bumpversion_repo_name}
+            git config --local user.name "${GITHUB_BUMPVERSION_USER}"
+            gitstatus=$(git status)
+            echo $gitstatus
+            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then              
+              git add .
+            else
+              echo "No changes for sample application bump version"
+              circleci step halt             
+            fi                 
+      - run:
+          name: check in changes
+          command: |
+            cd ${bumpversion_repo_name}
+            git status
+            git config --local user.name "${GITHUB_BUMPVERSION_USER}"
+            git commit -m "${bump_version_message}"            
+            git push  --force   -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
+            title="${bump_version_pr_title}"
+            content="${bump_version_message}" 
+            echo "title:$title"
+            echo "content:$content"
+              python3 ../CircleciScripts/create_pullrequest.py  "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "master" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_user} ${bumpversion_repo_name}
 jobs:
   build:
     macos: 
@@ -289,7 +344,7 @@ jobs:
             git tag -a ${CIRCLE_TAG}_api_docs  -m "Add documentation tags to version ${CIRCLE_TAG}"
             git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git   
 
-  bump_sampleapp_version:
+  bump_ios_sampleapp_version:
     macos: 
       xcode: "10.1.0"
     steps:
@@ -299,7 +354,7 @@ jobs:
       - run:
           name: checkout repository for bump version
           command: |
-            SAMPLEAPPS_USER=sunchunqiang
+            SAMPLEAPPS_USER=awslabs
             echo "export SAMPLEAPPS_USER=$SAMPLEAPPS_USER" >> $BASH_ENV
             git clone "https://github.com/${SAMPLEAPPS_USER}/aws-sdk-ios-samples.git"
       - run:
@@ -331,21 +386,41 @@ jobs:
             git config --local user.name "AWS"
             git commit -m "Update sample app dependency to ${release_version}"            
             git push -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${SAMPLEAPPS_USER}/aws-sdk-ios-samples.git
-  leadtest:
-    working_directory: ~/code
-    docker:
-      - image: circleci/android:api-27-alpha
-    environment:
-      JVM_OPTS: -Xmx1024m
+
+  bump_ios_applifydocs_version:
+    macos: 
+      xcode: "10.1.0"
     steps:
-      - checkout
+      - set_enviroment_variables
+      - quit_for_nominorversion
+      - checkout  
+      - run:
+          name: set_bumpversion_enviroment
+          command: |
+            bumpversion_repo_user=aws-amplify
+            bumpversion_repo_name=docs
+            minorversion=$(echo $release_version | sed "s/\([0-9]*.[0-9]*\).[0-9]*/\1/")
+            echo ${minorversion}
+            bump_version_message="Update iOS docs to ${release_version}"
+            bump_version_pr_title="Update iOS docs to ${release_version}"
+            echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
+            echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
+            echo "export minorversion=$minorversion" >> $BASH_ENV
+            echo "export bump_version_message='${bump_version_message}'" >> $BASH_ENV
+            echo "export bump_version_pr_title='${bump_version_pr_title}'" >> $BASH_ENV
+            echo "bump_version_pr_title:$bump_version_pr_title"
+      - bump_version_pre
+      - run:
+          name: bump version
+          command:
+            python3 CircleciScripts/bump_iosdocs_version.py "$(pwd)/${bumpversion_repo_name}/ios" $release_version
+      - bump_version_post
 
 workflows:
   version: 2
 
   build_and_test:
     jobs: 
-      - bump_sampleapp_version   
       - build:
           filters:
             branches:
@@ -447,4 +522,21 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-
+      - bump_ios_applifydocs_version:
+          requires:
+            - release_carthage          
+            - release_cocoapods
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - bump_ios_sampleapp_version:
+          requires:
+            - release_carthage          
+            - release_cocoapods
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
