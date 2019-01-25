@@ -39,7 +39,7 @@ commands:
             sdkName=aws-ios-sdk
             echo "export sdkName=$sdkName" >> $BASH_ENV
 
-            release_bucket=${RELEASE_BUCKET}
+            release_bucket=${S3_RELEASE_BUCKET}
             echo "export release_bucket=$release_bucket" >> $BASH_ENV
 
             release_tag=${CIRCLE_TAG}
@@ -121,7 +121,20 @@ commands:
             content="${bump_version_message}" 
             echo "title:$title"
             echo "content:$content"
-              python3 ../CircleciScripts/create_pullrequest.py  "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "master" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_user} ${bumpversion_repo_name}
+            python3 ../CircleciScripts/create_pullrequest.py  "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "master" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_user} ${bumpversion_repo_name}
+  configure_aws:
+    description: >-
+      install aws cli and configure android aws release profile
+    steps:
+      - run:
+          name: install aws cli
+          command: |
+            brew install awscli
+      - run:
+          name: configure aws profile
+          command: |
+            aws configure --profile sdk_s3_release set region us-east-1
+            echo -e "[sdk_s3_release]\naws_access_key_id=${S3_RELEASE_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${S3_RELEASE_AWS_SECRET_ACCESS_KEY}\n" >> ~/.aws/credentials
 jobs:
   build:
     macos: 
@@ -416,6 +429,50 @@ jobs:
             python3 CircleciScripts/bump_iosdocs_version.py "$(pwd)/${bumpversion_repo_name}/ios" $release_version
       - bump_version_post
 
+  release_ios_s3:
+    macos: 
+      xcode: "10.1.0"
+    steps:
+      - checkout
+      - update_brew
+      - configure_aws
+      - set_enviroment_variables
+      - run:
+          name: build libarary
+          command: |
+            bash Scripts/package.sh
+      - run:
+          name: Copy frameworks
+          command: |
+            mkdir -p "$sdkNameWithVersion/frameworks"
+            cp -R  builtFramework/framework/*  "$sdkNameWithVersion/frameworks"
+      - run:
+          name: Copy SDK resource files
+          command: |
+            mkdir -p "$sdkNameWithVersion"
+            python3 CircleciScripts/copy_resourcefiles.py "$(pwd)"  "$(pwd)/$sdkNameWithVersion"
+      - run:
+          name: zip sdk folder
+          command: |
+            zip -r "$sdkNameWithVersion.zip" "$sdkNameWithVersion"
+
+      - run:
+          name: copy zip file
+          command: |
+            mkdir -p sdkfiles
+            cp "$sdkNameWithVersion.zip" "sdkfiles/$sdkNameWithVersion.zip"
+      - store_artifacts:
+          path: sdkfiles
+      - run:
+          name: upload to s3
+          command: |
+            aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read  --profile sdk_s3_release
+            aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read  --profile sdk_s3_release
+      - run:
+          name: invalidate cloudfront
+          command: |
+            python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release  "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+
 workflows:
   version: 2
 
@@ -522,6 +579,17 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_ios_s3:
+          requires:
+            - release_carthage          
+            - release_cocoapods
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+
+
       - bump_ios_applifydocs_version:
           requires:
             - release_carthage          
