@@ -367,9 +367,9 @@ jobs:
       - run:
           name: checkout repository for bump version
           command: |
-            SAMPLEAPPS_USER=awslabs
-            echo "export SAMPLEAPPS_USER=$SAMPLEAPPS_USER" >> $BASH_ENV
-            git clone "https://github.com/${SAMPLEAPPS_USER}/aws-sdk-ios-samples.git"
+            SAMPLE_APPS_REPO_ACCOUNT=awslabs
+            echo "export SAMPLE_APPS_REPO_ACCOUNT=$SAMPLE_APPS_REPO_ACCOUNT" >> $BASH_ENV
+            git clone "https://github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git"
       - run:
           name: update version
           command:
@@ -398,9 +398,9 @@ jobs:
             git status
             git config --local user.name "AWS"
             git commit -m "Update sample app dependency to ${release_version}"            
-            git push -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${SAMPLEAPPS_USER}/aws-sdk-ios-samples.git
+            git push -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git
 
-  bump_ios_applifydocs_version:
+  bump_ios_amplifydocs_version:
     macos: 
       xcode: "10.1.0"
     steps:
@@ -528,6 +528,15 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_ios_s3:
+          requires:
+            - unittest          
+            - integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/              
       - release_tag:
           requires:
             - unittest  
@@ -536,10 +545,11 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
+              only: /^[0-9]+.[0-9]+.[0-9]+$/        
       - release_carthage:
           requires:
             - release_tag  
+            - release_ios_s3
           filters:
             branches:
               ignore: /.*/
@@ -547,8 +557,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
-            - unittest  
-            - integrationtest   
+            - release_ios_s3    
           filters:
             branches:
               ignore: /.*/
@@ -579,18 +588,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_ios_s3:
-          requires:
-            - release_carthage          
-            - release_cocoapods
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-
-
-      - bump_ios_applifydocs_version:
+      - bump_ios_amplifydocs_version:
           requires:
             - release_carthage          
             - release_cocoapods
