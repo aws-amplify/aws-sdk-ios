@@ -586,7 +586,7 @@ static const NSString *SDK_VERSION = @"2.6.19";
     }
     
     //Invalidate the reconnect timer so that there are no reconnect attempts.
-    [self.reconnectTimer invalidate];
+    [self cleanupReconnectTimer];
     
     //Set the userDisconnect flag to true to indicate that the user has initiated the disconnect.
     self.userDidIssueDisconnect = YES;
@@ -600,6 +600,35 @@ static const NSString *SDK_VERSION = @"2.6.19";
     self.runLoopShouldContinue = NO;
 
     AWSDDLogInfo(@"AWSIoTMQTTClient: Disconnect message issued.");
+}
+
+
+/**
+ Invalidates and removes reference to the reconnect timer on the correct thread to avoid
+ creating a memory leak.
+ 
+ @discussion If called on any thread other than the reconnect thread the work is queued up on
+ the reconnect thread but the method returns without waiting for the invalidation to be completed.
+ This is called initially on the thread the consumer is calling the client's disconnect method on.
+ */
+- (void)cleanupReconnectTimer {
+    if (self.reconnectTimer == nil) {
+        return;
+    }
+    
+    if (![[NSThread currentThread] isEqual:self.reconnectThread]) {
+        // Move to reconnect thread to cleanup
+        [self performSelector:@selector(cleanupReconnectTimer)
+                     onThread:self.reconnectThread
+                   withObject:nil
+                waitUntilDone:NO];
+        return;
+    }
+
+    if (self.reconnectThread) {
+        [self.reconnectTimer invalidate];
+        self.reconnectTimer = nil;
+    }
 }
 
 - (void)reconnectToSession {
@@ -619,10 +648,8 @@ static const NSString *SDK_VERSION = @"2.6.19";
     AWSDDLogInfo(@"Attempting to reconnect.");
     
     self.connectionAgeInSeconds = 0;
-    if (self.connectionAgeTimer != nil ) {
-        [self.connectionAgeTimer invalidate];
-        self.connectionAgeTimer = nil;
-    }
+    // Connection age timer will be invalidated by another event on the streams thread, we can't do that here
+    // because we're on the reconnect thread.
     
     // Double the reconnect time which will be used on the next reconnection if this one fails to connect.
     // Note that there is a maximum reconnection time beyond which
@@ -716,6 +743,12 @@ static const NSString *SDK_VERSION = @"2.6.19";
     [defaultRunLoopTimer invalidate];
     
     if (!self.runLoopShouldContinue ) {
+        
+        if (self.connectionAgeTimer != nil ) {
+            [self.connectionAgeTimer invalidate];
+            self.connectionAgeTimer = nil;
+        }
+        
         [self.session close];
     
         //Set status
