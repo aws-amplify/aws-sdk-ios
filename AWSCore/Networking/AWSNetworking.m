@@ -86,6 +86,13 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
 - (AWSTask *)sendRequest:(AWSNetworkingRequest *)request {
     return [self.networkManager dataTaskWithRequest:request];
 }
+
+- (void)dealloc {
+    // If this is being released, the network manager should be notified so it can invalidate
+    // its NSURLSession to avoid a memory leak.
+    [_networkManager invalidate];
+}
+
 @end
 
 #pragma mark - AWSNetworkingConfiguration
