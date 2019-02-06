@@ -99,7 +99,7 @@
 /**
  An optional associated object (nil by default).
  */
-@property(nonatomic, strong) NSObject *associatedObject;
+@property(nonatomic, weak) NSObject *associatedObject;
 
 /**
  Initalizer with the Delegate object
