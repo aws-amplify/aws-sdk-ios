@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -65,6 +65,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"redshiftDestinationConfiguration" : @"RedshiftDestinationConfiguration",
              @"s3DestinationConfiguration" : @"S3DestinationConfiguration",
              @"splunkDestinationConfiguration" : @"SplunkDestinationConfiguration",
+             @"tags" : @"Tags",
              };
 }
 
@@ -111,6 +112,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)splunkDestinationConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSplunkDestinationConfiguration class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSFirehoseTag class]];
 }
 
 @end
@@ -170,6 +175,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 	return @{
              @"createTimestamp" : @"CreateTimestamp",
              @"deliveryStreamARN" : @"DeliveryStreamARN",
+             @"deliveryStreamEncryptionConfiguration" : @"DeliveryStreamEncryptionConfiguration",
              @"deliveryStreamName" : @"DeliveryStreamName",
              @"deliveryStreamStatus" : @"DeliveryStreamStatus",
              @"deliveryStreamType" : @"DeliveryStreamType",
@@ -187,6 +193,10 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)deliveryStreamEncryptionConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseDeliveryStreamEncryptionConfiguration class]];
 }
 
 + (NSValueTransformer *)deliveryStreamStatusJSONTransformer {
@@ -250,6 +260,47 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSValueTransformer *)sourceJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSFirehoseSourceDescription class]];
+}
+
+@end
+
+@implementation AWSFirehoseDeliveryStreamEncryptionConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSFirehoseDeliveryStreamEncryptionStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"ENABLING"] == NSOrderedSame) {
+            return @(AWSFirehoseDeliveryStreamEncryptionStatusEnabling);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSFirehoseDeliveryStreamEncryptionStatusDisabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLING"] == NSOrderedSame) {
+            return @(AWSFirehoseDeliveryStreamEncryptionStatusDisabling);
+        }
+        return @(AWSFirehoseDeliveryStreamEncryptionStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSFirehoseDeliveryStreamEncryptionStatusEnabled:
+                return @"ENABLED";
+            case AWSFirehoseDeliveryStreamEncryptionStatusEnabling:
+                return @"ENABLING";
+            case AWSFirehoseDeliveryStreamEncryptionStatusDisabled:
+                return @"DISABLED";
+            case AWSFirehoseDeliveryStreamEncryptionStatusDisabling:
+                return @"DISABLING";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1345,6 +1396,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"encrypted" : @"Encrypted",
              @"failedPutCount" : @"FailedPutCount",
              @"requestResponses" : @"RequestResponses",
              };
@@ -1387,6 +1439,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"encrypted" : @"Encrypted",
              @"recordId" : @"RecordId",
              };
 }
@@ -2067,6 +2120,34 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"durationInSeconds" : @"DurationInSeconds",
              };
 }
+
+@end
+
+@implementation AWSFirehoseStartDeliveryStreamEncryptionInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryStreamName" : @"DeliveryStreamName",
+             };
+}
+
+@end
+
+@implementation AWSFirehoseStartDeliveryStreamEncryptionOutput
+
+@end
+
+@implementation AWSFirehoseStopDeliveryStreamEncryptionInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryStreamName" : @"DeliveryStreamName",
+             };
+}
+
+@end
+
+@implementation AWSFirehoseStopDeliveryStreamEncryptionOutput
 
 @end
 

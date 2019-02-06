@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSSimpleDBResources.h"
 
 static NSString *const AWSInfoSimpleDB = @"SimpleDB";
-NSString *const AWSSimpleDBSDKVersion = @"2.6.34";
+NSString *const AWSSimpleDBSDKVersion = @"2.8.4";
 
 
 @interface AWSSimpleDBResponseSerializer : AWSXMLResponseSerializer

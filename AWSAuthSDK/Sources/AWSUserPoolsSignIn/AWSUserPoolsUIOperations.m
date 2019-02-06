@@ -157,22 +157,24 @@ completionHandler:(nonnull void (^)(id _Nullable, NSError * _Nullable))completio
 
 + (UIStoryboard *)getUIStoryboardFromBundle:(NSString *)storyboardName {
     NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+    
+    // Check if the storyboard is available in the framework directly; if available fetch and return it.
+    // This is applicable when dependency is consumed via Carthage/ Frameworks.
+    if ([currentBundle pathForResource:storyboardName ofType:@"storyboardc"] != nil) {
+        return [UIStoryboard storyboardWithName:storyboardName
+                                         bundle:currentBundle];
+    }
+    
+    // If the storyboard is not available in the framework, it is part of the resources bundle.
+    // This is applicable when dependency is consumed via Cocoapods.
     NSURL *url = [[currentBundle resourceURL] URLByAppendingPathComponent:RESOURCES_BUNDLE];
     AWSDDLogDebug(@"URL: %@", url);
     
     NSBundle *resourcesBundle = [NSBundle bundleWithURL:url];
     AWSDDLogDebug(@"assetsBundle: %@", resourcesBundle);
     
-    [resourcesBundle load];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName
-                                                         bundle:resourcesBundle];
-    
-    if (storyboard) {
-        return storyboard;
-    } else {
-        return [UIStoryboard storyboardWithName:storyboardName
-                                         bundle:currentBundle];
-    }
+    return [UIStoryboard storyboardWithName:storyboardName
+                                     bundle:resourcesBundle];
 }
 
 @end

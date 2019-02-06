@@ -1606,7 +1606,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
                                                                       @"EncryptionStatus"];
     NSLog(@"Putting inventory");
 
-    [[s3 putBucketInventoryConfiguration:putBucketInventoryRequest] continueWithBlock:^id(AWSTask *task) {
+    [[[s3 putBucketInventoryConfiguration:putBucketInventoryRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
         if(task.error != nil){
             NSLog(@"The request failed. error: [%@]", task.error);
@@ -1615,7 +1615,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
             NSLog(@"Results %@",task.result);
         }
         return task;
-    }].waitUntilFinished;
+    }] waitUntilFinished];
 }
 
 @end

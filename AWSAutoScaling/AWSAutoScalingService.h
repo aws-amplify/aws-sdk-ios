@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 
 /**
- <fullname>Amazon EC2 Auto Scaling</fullname><p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service in conjunction with the AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing services.</p>
+ <fullname>Amazon EC2 Auto Scaling</fullname><p>Amazon EC2 Auto Scaling is designed to automatically launch or terminate EC2 instances based on user-defined policies, schedules, and health checks. Use this service with AWS Auto Scaling, Amazon CloudWatch, and Elastic Load Balancing.</p><p>For more information, see the <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html">Amazon EC2 Auto Scaling User Guide</a>.</p>
  */
 @interface AWSAutoScaling : AWSService
 
@@ -272,7 +272,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)batchDeleteScheduledAction:(AWSAutoScalingBatchDeleteScheduledActionType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingBatchDeleteScheduledActionAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged.</p>
+ <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p>
  
  @param request A container for the necessary parameters to execute the BatchPutScheduledUpdateGroupAction service method.
 
@@ -284,7 +284,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *> *)batchPutScheduledUpdateGroupAction:(AWSAutoScalingBatchPutScheduledUpdateGroupActionType *)request;
 
 /**
- <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged.</p>
+ <p>Creates or updates one or more scheduled scaling actions for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p>
  
  @param request A container for the necessary parameters to execute the BatchPutScheduledUpdateGroupAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -388,7 +388,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)createOrUpdateTags:(AWSAutoScalingCreateOrUpdateTagsType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified Auto Scaling group.</p><p>If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed.</p><p>If the group has policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p><p>To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of instances and the option to decrement the desired capacity so that Amazon EC2 Auto Scaling does not launch replacement instances.</p><p>To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a> and set the minimum size and desired capacity of the Auto Scaling group to zero.</p>
+ <p>Deletes the specified Auto Scaling group.</p><p>If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed.</p><p>If the group has policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p><p>To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement instances.</p><p>To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a> and set the minimum size and desired capacity of the Auto Scaling group to zero.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAutoScalingGroup service method.
 
@@ -399,7 +399,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)deleteAutoScalingGroup:(AWSAutoScalingDeleteAutoScalingGroupType *)request;
 
 /**
- <p>Deletes the specified Auto Scaling group.</p><p>If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed.</p><p>If the group has policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p><p>To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of instances and the option to decrement the desired capacity so that Amazon EC2 Auto Scaling does not launch replacement instances.</p><p>To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a> and set the minimum size and desired capacity of the Auto Scaling group to zero.</p>
+ <p>Deletes the specified Auto Scaling group.</p><p>If the group has instances or scaling activities in progress, you must specify the option to force the deletion in order for it to succeed.</p><p>If the group has policies, deleting the group deletes the policies, the underlying alarm actions, and any alarm that no longer has an associated action.</p><p>To remove instances from the Auto Scaling group before deleting it, call <a>DetachInstances</a> with the list of instances and the option to decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement instances.</p><p>To terminate all instances before deleting the Auto Scaling group, call <a>UpdateAutoScalingGroup</a> and set the minimum size and desired capacity of the Auto Scaling group to zero.</p>
  
  @param request A container for the necessary parameters to execute the DeleteAutoScalingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -770,7 +770,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)describeLoadBalancerTargetGroups:(AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the load balancers for the specified Auto Scaling group.</p><p>Note that this operation describes only Classic Load Balancers. If you have Application Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.</p>
+ <p>Describes the load balancers for the specified Auto Scaling group.</p><p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.</p>
  
  @param request A container for the necessary parameters to execute the DescribeLoadBalancers service method.
 
@@ -782,7 +782,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingDescribeLoadBalancersResponse *> *)describeLoadBalancers:(AWSAutoScalingDescribeLoadBalancersRequest *)request;
 
 /**
- <p>Describes the load balancers for the specified Auto Scaling group.</p><p>Note that this operation describes only Classic Load Balancers. If you have Application Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.</p>
+ <p>Describes the load balancers for the specified Auto Scaling group.</p><p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, use <a>DescribeLoadBalancerTargetGroups</a> instead.</p>
  
  @param request A container for the necessary parameters to execute the DescribeLoadBalancers service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -795,7 +795,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)describeLoadBalancers:(AWSAutoScalingDescribeLoadBalancersRequest *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDescribeLoadBalancersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p><p>Note that the <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.</p>
+ <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p><p>The <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMetricCollectionTypes service method.
 
@@ -807,7 +807,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingDescribeMetricCollectionTypesAnswer *> *)describeMetricCollectionTypes:(AWSRequest *)request;
 
 /**
- <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p><p>Note that the <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.</p>
+ <p>Describes the available CloudWatch metrics for Amazon EC2 Auto Scaling.</p><p>The <code>GroupStandbyInstances</code> metric is not returned by default. You must explicitly request this metric when calling <a>EnableMetricsCollection</a>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeMetricCollectionTypes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -970,7 +970,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)describeTags:(AWSAutoScalingDescribeTagsType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingTagsType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
+ <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which Auto Scaling Instances Terminate During Scale In</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTerminationPolicyTypes service method.
 
@@ -982,7 +982,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingDescribeTerminationPolicyTypesAnswer *> *)describeTerminationPolicyTypes:(AWSRequest *)request;
 
 /**
- <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p>
+ <p>Describes the termination policies supported by Amazon EC2 Auto Scaling.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-instance-termination.html">Controlling Which Auto Scaling Instances Terminate During Scale In</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTerminationPolicyTypes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1045,7 +1045,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)detachLoadBalancerTargetGroups:(AWSAutoScalingDetachLoadBalancerTargetGroupsType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingDetachLoadBalancerTargetGroupsResultType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p><p>Note that this operation detaches only Classic Load Balancers. If you have Application Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.</p><p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using <a>DescribeLoadBalancers</a>. Note that the instances remain running.</p>
+ <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p><p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.</p><p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using <a>DescribeLoadBalancers</a>. The instances remain running.</p>
  
  @param request A container for the necessary parameters to execute the DetachLoadBalancers service method.
 
@@ -1057,7 +1057,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingDetachLoadBalancersResultType *> *)detachLoadBalancers:(AWSAutoScalingDetachLoadBalancersType *)request;
 
 /**
- <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p><p>Note that this operation detaches only Classic Load Balancers. If you have Application Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.</p><p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using <a>DescribeLoadBalancers</a>. Note that the instances remain running.</p>
+ <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p><p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, use <a>DetachLoadBalancerTargetGroups</a> instead.</p><p>When you detach a load balancer, it enters the <code>Removing</code> state while deregistering the instances in the group. When all instances are deregistered, then you can no longer describe the load balancer using <a>DescribeLoadBalancers</a>. The instances remain running.</p>
  
  @param request A container for the necessary parameters to execute the DetachLoadBalancers service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1186,7 +1186,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)exitStandby:(AWSAutoScalingExitStandbyQuery *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingExitStandbyAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a lifecycle hook for the specified Auto Scaling Group.</p><p>A lifecycle hook tells Amazon EC2 Auto Scaling that you want to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p><p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p><ol><li><p>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.</p></li><li><p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p></li><li><p><b>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</b></p></li><li><p>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</p></li><li><p>If you finish before the timeout period ends, complete the lifecycle action.</p></li></ol><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Auto Scaling Lifecycle Hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling group, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ <p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p><p>A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p><p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p><ol><li><p>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.</p></li><li><p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p></li><li><p><b>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</b></p></li><li><p>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</p></li><li><p>If you finish before the timeout period ends, complete the lifecycle action.</p></li></ol><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Auto Scaling Lifecycle Hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling group, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutLifecycleHook service method.
 
@@ -1198,7 +1198,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingPutLifecycleHookAnswer *> *)putLifecycleHook:(AWSAutoScalingPutLifecycleHookType *)request;
 
 /**
- <p>Creates or updates a lifecycle hook for the specified Auto Scaling Group.</p><p>A lifecycle hook tells Amazon EC2 Auto Scaling that you want to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p><p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p><ol><li><p>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.</p></li><li><p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p></li><li><p><b>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</b></p></li><li><p>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</p></li><li><p>If you finish before the timeout period ends, complete the lifecycle action.</p></li></ol><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Auto Scaling Lifecycle Hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling group, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ <p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p><p>A lifecycle hook tells Amazon EC2 Auto Scaling to perform an action on an instance that is not actively in service; for example, either when the instance launches or before the instance terminates.</p><p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling group:</p><ol><li><p>(Optional) Create a Lambda function and a rule that allows CloudWatch Events to invoke your Lambda function when Amazon EC2 Auto Scaling launches or terminates instances.</p></li><li><p>(Optional) Create a notification target and an IAM role. The target can be either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish lifecycle notifications to the target.</p></li><li><p><b>Create the lifecycle hook. Specify whether the hook is used when the instances launch or terminate.</b></p></li><li><p>If you need more time, record the lifecycle action heartbeat to keep the instance in a pending state.</p></li><li><p>If you finish before the timeout period ends, complete the lifecycle action.</p></li></ol><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Auto Scaling Lifecycle Hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling group, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutLifecycleHook service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1211,7 +1211,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)putLifecycleHook:(AWSAutoScalingPutLifecycleHookType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingPutLifecycleHookAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p><p>This configuration overwrites any existing configuration.</p><p>For more information see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User Guide</i>.</p>
+ <p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p><p>This configuration overwrites any existing configuration.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutNotificationConfiguration service method.
 
@@ -1222,7 +1222,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)putNotificationConfiguration:(AWSAutoScalingPutNotificationConfigurationType *)request;
 
 /**
- <p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p><p>This configuration overwrites any existing configuration.</p><p>For more information see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User Guide</i>.</p>
+ <p>Configures an Auto Scaling group to send notifications when specified events take place. Subscribers to the specified topic can have messages delivered to an endpoint such as a web server or an email address.</p><p>This configuration overwrites any existing configuration.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting SNS Notifications When Your Auto Scaling Group Scales</a> in the <i>Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutNotificationConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1233,7 +1233,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)putNotificationConfiguration:(AWSAutoScalingPutNotificationConfigurationType *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.</p><p>If you exceed your maximum limit of step adjustments, which by default is 20 per region, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ <p>Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.</p><p>If you exceed your maximum limit of step adjustments, which by default is 20 per region, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScalingPolicy service method.
 
@@ -1245,7 +1245,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask<AWSAutoScalingPolicyARNType *> *)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)request;
 
 /**
- <p>Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters you want to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.</p><p>If you exceed your maximum limit of step adjustments, which by default is 20 per region, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ <p>Creates or updates a policy for an Auto Scaling group. To update an existing policy, use the existing policy name and set the parameters to change. Any existing parameter not changed in an update to an existing policy is not changed in this update request.</p><p>If you exceed your maximum limit of step adjustments, which by default is 20 per region, the call fails. For information about updating this limit, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">AWS Service Limits</a> in the <i>Amazon Web Services General Reference</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScalingPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1258,7 +1258,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)putScalingPolicy:(AWSAutoScalingPutScalingPolicyType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingPolicyARNType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
 
@@ -1269,7 +1269,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)putScheduledUpdateGroupAction:(AWSAutoScalingPutScheduledUpdateGroupActionType *)request;
 
 /**
- <p>Creates or updates a scheduled scaling action for an Auto Scaling group. When updating a scheduled scaling action, if you leave a parameter unspecified, the corresponding value remains unchanged.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Creates or updates a scheduled scaling action for an Auto Scaling group. If you leave a parameter unspecified when updating a scheduled scaling action, the corresponding value remains unchanged.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/schedule_time.html">Scheduled Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the PutScheduledUpdateGroupAction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1396,7 +1396,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)setInstanceProtection:(AWSAutoScalingSetInstanceProtectionQuery *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingSetInstanceProtectionAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Suspends the specified automatic scaling processes, or all processes, for the specified Auto Scaling group.</p><p>Note that if you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly.</p><p>To resume processes that have been suspended, use <a>ResumeProcesses</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and Resuming Scaling Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Suspends the specified automatic scaling processes, or all processes, for the specified Auto Scaling group.</p><p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly.</p><p>To resume processes that have been suspended, use <a>ResumeProcesses</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and Resuming Scaling Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SuspendProcesses service method.
 
@@ -1407,7 +1407,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)suspendProcesses:(AWSAutoScalingScalingProcessQuery *)request;
 
 /**
- <p>Suspends the specified automatic scaling processes, or all processes, for the specified Auto Scaling group.</p><p>Note that if you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly.</p><p>To resume processes that have been suspended, use <a>ResumeProcesses</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and Resuming Scaling Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Suspends the specified automatic scaling processes, or all processes, for the specified Auto Scaling group.</p><p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types, it can prevent other process types from functioning properly.</p><p>To resume processes that have been suspended, use <a>ResumeProcesses</a>.</p><p>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and Resuming Scaling Processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SuspendProcesses service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1443,7 +1443,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)terminateInstanceInAutoScalingGroup:(AWSAutoScalingTerminateInstanceInAutoScalingGroupType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingActivityType * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the configuration for the specified Auto Scaling group.</p><p>The new settings take effect on any scaling activities after this call returns. Scaling activities that are currently in progress aren't affected.</p><p>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to <code>false</code>, you must first disable the collection of group metrics. Otherwise, you will get an error. If you have previously enabled the collection of group metrics, you can disable it using <a>DisableMetricsCollection</a>.</p><p>Note the following:</p><ul><li><p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MinSize</code>.</p></li><li><p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MaxSize</code>.</p></li><li><p>All other optional parameters are left unchanged if not specified.</p></li></ul>
+ <p>Updates the configuration for the specified Auto Scaling group.</p><p>The new settings take effect on any scaling activities after this call returns. Scaling activities that are currently in progress aren't affected.</p><p>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to <code>false</code>, you must first disable the collection of group metrics. Otherwise, you get an error. If you have previously enabled the collection of group metrics, you can disable it using <a>DisableMetricsCollection</a>.</p><p>Note the following:</p><ul><li><p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MinSize</code>.</p></li><li><p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MaxSize</code>.</p></li><li><p>All other optional parameters are left unchanged if not specified.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the UpdateAutoScalingGroup service method.
 
@@ -1454,7 +1454,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)updateAutoScalingGroup:(AWSAutoScalingUpdateAutoScalingGroupType *)request;
 
 /**
- <p>Updates the configuration for the specified Auto Scaling group.</p><p>The new settings take effect on any scaling activities after this call returns. Scaling activities that are currently in progress aren't affected.</p><p>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to <code>false</code>, you must first disable the collection of group metrics. Otherwise, you will get an error. If you have previously enabled the collection of group metrics, you can disable it using <a>DisableMetricsCollection</a>.</p><p>Note the following:</p><ul><li><p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MinSize</code>.</p></li><li><p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MaxSize</code>.</p></li><li><p>All other optional parameters are left unchanged if not specified.</p></li></ul>
+ <p>Updates the configuration for the specified Auto Scaling group.</p><p>The new settings take effect on any scaling activities after this call returns. Scaling activities that are currently in progress aren't affected.</p><p>To update an Auto Scaling group with a launch configuration with <code>InstanceMonitoring</code> set to <code>false</code>, you must first disable the collection of group metrics. Otherwise, you get an error. If you have previously enabled the collection of group metrics, you can disable it using <a>DisableMetricsCollection</a>.</p><p>Note the following:</p><ul><li><p>If you specify a new value for <code>MinSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MinSize</code> is larger than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MinSize</code>.</p></li><li><p>If you specify a new value for <code>MaxSize</code> without specifying a value for <code>DesiredCapacity</code>, and the new <code>MaxSize</code> is smaller than the current size of the group, we implicitly call <a>SetDesiredCapacity</a> to set the size of the group to the new value of <code>MaxSize</code>.</p></li><li><p>All other optional parameters are left unchanged if not specified.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the UpdateAutoScalingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.

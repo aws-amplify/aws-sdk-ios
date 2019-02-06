@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -426,6 +426,7 @@
         \"en-IN\",\
         \"en-US\",\
         \"es-ES\",\
+        \"es-MX\",\
         \"es-US\",\
         \"fr-CA\",\
         \"fr-FR\",\
@@ -1067,7 +1068,10 @@
         \"Takumi\",\
         \"Seoyeon\",\
         \"Aditi\",\
-        \"Zhiyu\"\
+        \"Zhiyu\",\
+        \"Bianca\",\
+        \"Lucia\",\
+        \"Mia\"\
       ]\
     },\
     \"VoiceList\":{\
@@ -1077,8 +1081,7 @@
     \"VoiceName\":{\"type\":\"string\"}\
   },\
   \"documentation\":\"<p>Amazon Polly is a web service that makes it easy to synthesize speech from text.</p> <p>The Amazon Polly service provides API operations for synthesizing high-quality speech from plain text and Speech Synthesis Markup Language (SSML), along with managing pronunciations lexicons that enable you to get the best results for your application domain.</p>\"\
-}\
-";
+}";
 }
 
 @end

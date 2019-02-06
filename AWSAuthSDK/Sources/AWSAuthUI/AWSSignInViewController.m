@@ -51,6 +51,15 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 @end
 
+@interface AWSSignInManager()
+
+@property (nonatomic) BOOL shouldFederate;
+@property (nonatomic) BOOL pendingSignIn;
+@property (strong, atomic) NSString *pendingUsername;
+@property (strong, atomic) NSString *pendingPassword;
+
+@end
+
 @interface AWSUserPoolsUIOperations: NSObject
 
 -(id)initWithAuthUIConfiguration:(AWSAuthUIConfiguration *)configuration;
@@ -148,6 +157,23 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         [self setUpFont];
     }
 }
+    
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if ([AWSSignInManager sharedInstance].pendingSignIn) {
+        
+        Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);
+        AWSUserPoolsUIOperations *userPoolsOperations = [[awsUserPoolsUIOperations alloc] initWithAuthUIConfiguration:self.config];
+        [userPoolsOperations loginWithUserName:[AWSSignInManager sharedInstance].pendingUsername
+                                      password:[AWSSignInManager sharedInstance].pendingPassword
+                          navigationController:self.navigationController
+                             completionHandler:self.completionHandler];
+    }
+    [AWSSignInManager sharedInstance].pendingSignIn = NO;
+    [AWSSignInManager sharedInstance].pendingUsername = @"";
+    [AWSSignInManager sharedInstance].pendingPassword = @"";
+    
+}
 
 // This is used to dismiss the keyboard, user just has to tap outside the
 // user name and password views and it will dismiss
@@ -166,7 +192,21 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
     [[AWSSignInManager sharedInstance]
      loginWithSignInProviderKey:[signInProvider identityProviderName]
      completionHandler:^(id result, NSError *error) {
-         if (!error) {
+         
+         if (![[AWSSignInManager sharedInstance] shouldFederate]) {
+             if (error) {
+                 self.completionHandlerCustom(nil, nil, error);
+             } else {
+                 [[signInProvider token] continueWithBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
+                     if (task.result) {
+                         NSString *token = task.result;
+                         NSString *provider = signInProvider.identityProviderName;
+                         self.completionHandlerCustom(provider, token, nil);
+                     }
+                     return nil;
+                 }];
+             }
+         } else if (!error) {
              dispatch_async(dispatch_get_main_queue(), ^{
                  [self dismissViewControllerAnimated:YES
                                           completion:nil];
@@ -343,6 +383,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 - (void)barButtonClosePressed {
     [self dismissViewControllerAnimated:YES completion:nil];
+    self.completionHandlerCustom(nil, nil, [[NSError alloc] initWithDomain:@"AWSMobileClientError" code:-2 userInfo:@{@"message": @"The user cancelled the sign in operation"}]);
     AWSDDLogDebug(@"User closed sign in screen.");
 }
 
@@ -379,39 +420,44 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 + (UIImage *)getImageFromBundle:(NSString *)imageName {
     NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+    // Check if the logo image is available in the framework directly; if available fetch and return it.
+    // This is applicable when dependency is consumed via Carthage/ Frameworks.
+    UIImage *imageFromCurrentBundle = [UIImage imageNamed:imageName inBundle:currentBundle compatibleWithTraitCollection:nil];
+    if (imageFromCurrentBundle) {
+        return imageFromCurrentBundle;
+    }
+    
+    // If the image is not available in the framework, it is part of the resources bundle.
+    // This is applicable when dependency is consumed via Cocoapods.
     NSURL *url = [[currentBundle resourceURL] URLByAppendingPathComponent:RESOURCES_BUNDLE];
     AWSDDLogDebug(@"URL: %@", url);
     
     NSBundle *assetsBundle = [NSBundle bundleWithURL:url];
     AWSDDLogDebug(@"assetsBundle: %@", assetsBundle);
     
-    [assetsBundle load];
-    UIImage *imageFromBundle = [UIImage imageNamed:imageName inBundle:assetsBundle compatibleWithTraitCollection:nil];
-    if (imageFromBundle) {
-        return  imageFromBundle;
-    } else {
-        return [UIImage imageNamed:imageName inBundle:currentBundle compatibleWithTraitCollection:nil];
-    }
+    return [UIImage imageNamed:imageName inBundle:assetsBundle compatibleWithTraitCollection:nil];
 }
 
 + (UIStoryboard *)getUIStoryboardFromBundle:(NSString *)storyboardName {
     NSBundle *currentBundle = [NSBundle bundleForClass:[self class]];
+    
+    // Check if the storyboard is available in the framework directly; if available fetch and return it.
+    // This is applicable when dependency is consumed via Carthage/ Frameworks.
+    if ([currentBundle pathForResource:storyboardName ofType:@"storyboardc"] != nil) {
+        return [UIStoryboard storyboardWithName:storyboardName
+                                         bundle:currentBundle];
+    }
+    
+    // If the storyboard is not available in the framework, it is part of the resources bundle.
+    // This is applicable when dependency is consumed via Cocoapods.
     NSURL *url = [[currentBundle resourceURL] URLByAppendingPathComponent:RESOURCES_BUNDLE];
     AWSDDLogDebug(@"URL: %@", url);
     
     NSBundle *resourcesBundle = [NSBundle bundleWithURL:url];
     AWSDDLogDebug(@"assetsBundle: %@", resourcesBundle);
     
-    [resourcesBundle load];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName
-                                                         bundle:resourcesBundle];
-    
-    if (storyboard) {
-        return storyboard;
-    } else {
-        return [UIStoryboard storyboardWithName:storyboardName
-                                         bundle:currentBundle];
-    }
+    return [UIStoryboard storyboardWithName:storyboardName
+                                     bundle:resourcesBundle];
 }
 
 + (UIViewController *)getViewControllerWithName:(NSString *)viewControllerIdentitifer
@@ -430,6 +476,24 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 #pragma mark - IBActions
+
+-(void)createInternalCompletionHandler {
+    __weak AWSSignInViewController *weakSelf = self;
+    self.completionHandler = ^(id<AWSSignInProvider>  _Nonnull signInProvider, NSError * _Nullable error) {
+        if (error) {
+            weakSelf.completionHandlerCustom(nil, nil, error);
+        } else{
+            [[signInProvider token] continueWithBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
+                if (task.result) {
+                    weakSelf.completionHandlerCustom(signInProvider.identityProviderName, task.result, nil);
+                } else {
+                    weakSelf.completionHandlerCustom(nil, nil, task.error);
+                }
+                return nil;
+            }];
+        }
+    };
+}
 
 - (void)handleUserPoolSignIn {
     Class awsUserPoolsUIOperations = NSClassFromString(USERPOOLS_UI_OPERATIONS);

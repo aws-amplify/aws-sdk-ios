@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2017 Amazon.com,
+// Copyright 2014-2018 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -1478,6 +1478,10 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 }
 
 -(NSDictionary<NSString *, NSString*> *) claims {
+    return [self tokenClaims];
+}
+
+-(NSDictionary<NSString *, id> *) tokenClaims {
     NSDictionary * result = nil;
     NSArray *pieces = [self.tokenString componentsSeparatedByString:@"."];
     if(pieces.count > 2){
@@ -1499,6 +1503,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     }
     return result;
 }
+
 @end
 
 @implementation AWSCognitoIdentityUserSettings

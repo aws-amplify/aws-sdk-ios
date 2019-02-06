@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSComprehendResources.h"
 
 static NSString *const AWSInfoComprehend = @"Comprehend";
-NSString *const AWSComprehendSDKVersion = @"2.6.34";
+NSString *const AWSComprehendSDKVersion = @"2.8.4";
 
 
 @interface AWSComprehendResponseSerializer : AWSJSONResponseSerializer
@@ -45,6 +45,10 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidFilterException" : @(AWSComprehendErrorInvalidFilter),
                             @"InvalidRequestException" : @(AWSComprehendErrorInvalidRequest),
                             @"JobNotFoundException" : @(AWSComprehendErrorJobNotFound),
+                            @"ResourceInUseException" : @(AWSComprehendErrorResourceInUse),
+                            @"ResourceLimitExceededException" : @(AWSComprehendErrorResourceLimitExceeded),
+                            @"ResourceNotFoundException" : @(AWSComprehendErrorResourceNotFound),
+                            @"ResourceUnavailableException" : @(AWSComprehendErrorResourceUnavailable),
                             @"TextSizeLimitExceededException" : @(AWSComprehendErrorTextSizeLimitExceeded),
                             @"TooManyRequestsException" : @(AWSComprehendErrorTooManyRequests),
                             @"UnsupportedLanguageException" : @(AWSComprehendErrorUnsupportedLanguage),
@@ -374,6 +378,282 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendBatchDetectSyntaxResponse *> *)batchDetectSyntax:(AWSComprehendBatchDetectSyntaxRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"BatchDetectSyntax"
+                   outputClass:[AWSComprehendBatchDetectSyntaxResponse class]];
+}
+
+- (void)batchDetectSyntax:(AWSComprehendBatchDetectSyntaxRequest *)request
+     completionHandler:(void (^)(AWSComprehendBatchDetectSyntaxResponse *response, NSError *error))completionHandler {
+    [[self batchDetectSyntax:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendBatchDetectSyntaxResponse *> * _Nonnull task) {
+        AWSComprehendBatchDetectSyntaxResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendCreateDocumentClassifierResponse *> *)createDocumentClassifier:(AWSComprehendCreateDocumentClassifierRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"CreateDocumentClassifier"
+                   outputClass:[AWSComprehendCreateDocumentClassifierResponse class]];
+}
+
+- (void)createDocumentClassifier:(AWSComprehendCreateDocumentClassifierRequest *)request
+     completionHandler:(void (^)(AWSComprehendCreateDocumentClassifierResponse *response, NSError *error))completionHandler {
+    [[self createDocumentClassifier:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendCreateDocumentClassifierResponse *> * _Nonnull task) {
+        AWSComprehendCreateDocumentClassifierResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendCreateEntityRecognizerResponse *> *)createEntityRecognizer:(AWSComprehendCreateEntityRecognizerRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"CreateEntityRecognizer"
+                   outputClass:[AWSComprehendCreateEntityRecognizerResponse class]];
+}
+
+- (void)createEntityRecognizer:(AWSComprehendCreateEntityRecognizerRequest *)request
+     completionHandler:(void (^)(AWSComprehendCreateEntityRecognizerResponse *response, NSError *error))completionHandler {
+    [[self createEntityRecognizer:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendCreateEntityRecognizerResponse *> * _Nonnull task) {
+        AWSComprehendCreateEntityRecognizerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDeleteDocumentClassifierResponse *> *)deleteDocumentClassifier:(AWSComprehendDeleteDocumentClassifierRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DeleteDocumentClassifier"
+                   outputClass:[AWSComprehendDeleteDocumentClassifierResponse class]];
+}
+
+- (void)deleteDocumentClassifier:(AWSComprehendDeleteDocumentClassifierRequest *)request
+     completionHandler:(void (^)(AWSComprehendDeleteDocumentClassifierResponse *response, NSError *error))completionHandler {
+    [[self deleteDocumentClassifier:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDeleteDocumentClassifierResponse *> * _Nonnull task) {
+        AWSComprehendDeleteDocumentClassifierResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDeleteEntityRecognizerResponse *> *)deleteEntityRecognizer:(AWSComprehendDeleteEntityRecognizerRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DeleteEntityRecognizer"
+                   outputClass:[AWSComprehendDeleteEntityRecognizerResponse class]];
+}
+
+- (void)deleteEntityRecognizer:(AWSComprehendDeleteEntityRecognizerRequest *)request
+     completionHandler:(void (^)(AWSComprehendDeleteEntityRecognizerResponse *response, NSError *error))completionHandler {
+    [[self deleteEntityRecognizer:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDeleteEntityRecognizerResponse *> * _Nonnull task) {
+        AWSComprehendDeleteEntityRecognizerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDescribeDocumentClassificationJobResponse *> *)describeDocumentClassificationJob:(AWSComprehendDescribeDocumentClassificationJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeDocumentClassificationJob"
+                   outputClass:[AWSComprehendDescribeDocumentClassificationJobResponse class]];
+}
+
+- (void)describeDocumentClassificationJob:(AWSComprehendDescribeDocumentClassificationJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeDocumentClassificationJobResponse *response, NSError *error))completionHandler {
+    [[self describeDocumentClassificationJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeDocumentClassificationJobResponse *> * _Nonnull task) {
+        AWSComprehendDescribeDocumentClassificationJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDescribeDocumentClassifierResponse *> *)describeDocumentClassifier:(AWSComprehendDescribeDocumentClassifierRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeDocumentClassifier"
+                   outputClass:[AWSComprehendDescribeDocumentClassifierResponse class]];
+}
+
+- (void)describeDocumentClassifier:(AWSComprehendDescribeDocumentClassifierRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeDocumentClassifierResponse *response, NSError *error))completionHandler {
+    [[self describeDocumentClassifier:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeDocumentClassifierResponse *> * _Nonnull task) {
+        AWSComprehendDescribeDocumentClassifierResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDescribeDominantLanguageDetectionJobResponse *> *)describeDominantLanguageDetectionJob:(AWSComprehendDescribeDominantLanguageDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeDominantLanguageDetectionJob"
+                   outputClass:[AWSComprehendDescribeDominantLanguageDetectionJobResponse class]];
+}
+
+- (void)describeDominantLanguageDetectionJob:(AWSComprehendDescribeDominantLanguageDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeDominantLanguageDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self describeDominantLanguageDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeDominantLanguageDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendDescribeDominantLanguageDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDescribeEntitiesDetectionJobResponse *> *)describeEntitiesDetectionJob:(AWSComprehendDescribeEntitiesDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeEntitiesDetectionJob"
+                   outputClass:[AWSComprehendDescribeEntitiesDetectionJobResponse class]];
+}
+
+- (void)describeEntitiesDetectionJob:(AWSComprehendDescribeEntitiesDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeEntitiesDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self describeEntitiesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeEntitiesDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendDescribeEntitiesDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDescribeEntityRecognizerResponse *> *)describeEntityRecognizer:(AWSComprehendDescribeEntityRecognizerRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeEntityRecognizer"
+                   outputClass:[AWSComprehendDescribeEntityRecognizerResponse class]];
+}
+
+- (void)describeEntityRecognizer:(AWSComprehendDescribeEntityRecognizerRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeEntityRecognizerResponse *response, NSError *error))completionHandler {
+    [[self describeEntityRecognizer:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeEntityRecognizerResponse *> * _Nonnull task) {
+        AWSComprehendDescribeEntityRecognizerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDescribeKeyPhrasesDetectionJobResponse *> *)describeKeyPhrasesDetectionJob:(AWSComprehendDescribeKeyPhrasesDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeKeyPhrasesDetectionJob"
+                   outputClass:[AWSComprehendDescribeKeyPhrasesDetectionJobResponse class]];
+}
+
+- (void)describeKeyPhrasesDetectionJob:(AWSComprehendDescribeKeyPhrasesDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeKeyPhrasesDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self describeKeyPhrasesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeKeyPhrasesDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendDescribeKeyPhrasesDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDescribeSentimentDetectionJobResponse *> *)describeSentimentDetectionJob:(AWSComprehendDescribeSentimentDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeSentimentDetectionJob"
+                   outputClass:[AWSComprehendDescribeSentimentDetectionJobResponse class]];
+}
+
+- (void)describeSentimentDetectionJob:(AWSComprehendDescribeSentimentDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeSentimentDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self describeSentimentDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeSentimentDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendDescribeSentimentDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendDescribeTopicsDetectionJobResponse *> *)describeTopicsDetectionJob:(AWSComprehendDescribeTopicsDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -489,6 +769,190 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendDetectSyntaxResponse *> *)detectSyntax:(AWSComprehendDetectSyntaxRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DetectSyntax"
+                   outputClass:[AWSComprehendDetectSyntaxResponse class]];
+}
+
+- (void)detectSyntax:(AWSComprehendDetectSyntaxRequest *)request
+     completionHandler:(void (^)(AWSComprehendDetectSyntaxResponse *response, NSError *error))completionHandler {
+    [[self detectSyntax:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectSyntaxResponse *> * _Nonnull task) {
+        AWSComprehendDetectSyntaxResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendListDocumentClassificationJobsResponse *> *)listDocumentClassificationJobs:(AWSComprehendListDocumentClassificationJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListDocumentClassificationJobs"
+                   outputClass:[AWSComprehendListDocumentClassificationJobsResponse class]];
+}
+
+- (void)listDocumentClassificationJobs:(AWSComprehendListDocumentClassificationJobsRequest *)request
+     completionHandler:(void (^)(AWSComprehendListDocumentClassificationJobsResponse *response, NSError *error))completionHandler {
+    [[self listDocumentClassificationJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListDocumentClassificationJobsResponse *> * _Nonnull task) {
+        AWSComprehendListDocumentClassificationJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendListDocumentClassifiersResponse *> *)listDocumentClassifiers:(AWSComprehendListDocumentClassifiersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListDocumentClassifiers"
+                   outputClass:[AWSComprehendListDocumentClassifiersResponse class]];
+}
+
+- (void)listDocumentClassifiers:(AWSComprehendListDocumentClassifiersRequest *)request
+     completionHandler:(void (^)(AWSComprehendListDocumentClassifiersResponse *response, NSError *error))completionHandler {
+    [[self listDocumentClassifiers:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListDocumentClassifiersResponse *> * _Nonnull task) {
+        AWSComprehendListDocumentClassifiersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendListDominantLanguageDetectionJobsResponse *> *)listDominantLanguageDetectionJobs:(AWSComprehendListDominantLanguageDetectionJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListDominantLanguageDetectionJobs"
+                   outputClass:[AWSComprehendListDominantLanguageDetectionJobsResponse class]];
+}
+
+- (void)listDominantLanguageDetectionJobs:(AWSComprehendListDominantLanguageDetectionJobsRequest *)request
+     completionHandler:(void (^)(AWSComprehendListDominantLanguageDetectionJobsResponse *response, NSError *error))completionHandler {
+    [[self listDominantLanguageDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListDominantLanguageDetectionJobsResponse *> * _Nonnull task) {
+        AWSComprehendListDominantLanguageDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendListEntitiesDetectionJobsResponse *> *)listEntitiesDetectionJobs:(AWSComprehendListEntitiesDetectionJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListEntitiesDetectionJobs"
+                   outputClass:[AWSComprehendListEntitiesDetectionJobsResponse class]];
+}
+
+- (void)listEntitiesDetectionJobs:(AWSComprehendListEntitiesDetectionJobsRequest *)request
+     completionHandler:(void (^)(AWSComprehendListEntitiesDetectionJobsResponse *response, NSError *error))completionHandler {
+    [[self listEntitiesDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListEntitiesDetectionJobsResponse *> * _Nonnull task) {
+        AWSComprehendListEntitiesDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendListEntityRecognizersResponse *> *)listEntityRecognizers:(AWSComprehendListEntityRecognizersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListEntityRecognizers"
+                   outputClass:[AWSComprehendListEntityRecognizersResponse class]];
+}
+
+- (void)listEntityRecognizers:(AWSComprehendListEntityRecognizersRequest *)request
+     completionHandler:(void (^)(AWSComprehendListEntityRecognizersResponse *response, NSError *error))completionHandler {
+    [[self listEntityRecognizers:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListEntityRecognizersResponse *> * _Nonnull task) {
+        AWSComprehendListEntityRecognizersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendListKeyPhrasesDetectionJobsResponse *> *)listKeyPhrasesDetectionJobs:(AWSComprehendListKeyPhrasesDetectionJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListKeyPhrasesDetectionJobs"
+                   outputClass:[AWSComprehendListKeyPhrasesDetectionJobsResponse class]];
+}
+
+- (void)listKeyPhrasesDetectionJobs:(AWSComprehendListKeyPhrasesDetectionJobsRequest *)request
+     completionHandler:(void (^)(AWSComprehendListKeyPhrasesDetectionJobsResponse *response, NSError *error))completionHandler {
+    [[self listKeyPhrasesDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListKeyPhrasesDetectionJobsResponse *> * _Nonnull task) {
+        AWSComprehendListKeyPhrasesDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendListSentimentDetectionJobsResponse *> *)listSentimentDetectionJobs:(AWSComprehendListSentimentDetectionJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListSentimentDetectionJobs"
+                   outputClass:[AWSComprehendListSentimentDetectionJobsResponse class]];
+}
+
+- (void)listSentimentDetectionJobs:(AWSComprehendListSentimentDetectionJobsRequest *)request
+     completionHandler:(void (^)(AWSComprehendListSentimentDetectionJobsResponse *response, NSError *error))completionHandler {
+    [[self listSentimentDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListSentimentDetectionJobsResponse *> * _Nonnull task) {
+        AWSComprehendListSentimentDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendListTopicsDetectionJobsResponse *> *)listTopicsDetectionJobs:(AWSComprehendListTopicsDetectionJobsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -512,6 +976,121 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendStartDocumentClassificationJobResponse *> *)startDocumentClassificationJob:(AWSComprehendStartDocumentClassificationJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StartDocumentClassificationJob"
+                   outputClass:[AWSComprehendStartDocumentClassificationJobResponse class]];
+}
+
+- (void)startDocumentClassificationJob:(AWSComprehendStartDocumentClassificationJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStartDocumentClassificationJobResponse *response, NSError *error))completionHandler {
+    [[self startDocumentClassificationJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartDocumentClassificationJobResponse *> * _Nonnull task) {
+        AWSComprehendStartDocumentClassificationJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStartDominantLanguageDetectionJobResponse *> *)startDominantLanguageDetectionJob:(AWSComprehendStartDominantLanguageDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StartDominantLanguageDetectionJob"
+                   outputClass:[AWSComprehendStartDominantLanguageDetectionJobResponse class]];
+}
+
+- (void)startDominantLanguageDetectionJob:(AWSComprehendStartDominantLanguageDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStartDominantLanguageDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self startDominantLanguageDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartDominantLanguageDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStartDominantLanguageDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStartEntitiesDetectionJobResponse *> *)startEntitiesDetectionJob:(AWSComprehendStartEntitiesDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StartEntitiesDetectionJob"
+                   outputClass:[AWSComprehendStartEntitiesDetectionJobResponse class]];
+}
+
+- (void)startEntitiesDetectionJob:(AWSComprehendStartEntitiesDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStartEntitiesDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self startEntitiesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartEntitiesDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStartEntitiesDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStartKeyPhrasesDetectionJobResponse *> *)startKeyPhrasesDetectionJob:(AWSComprehendStartKeyPhrasesDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StartKeyPhrasesDetectionJob"
+                   outputClass:[AWSComprehendStartKeyPhrasesDetectionJobResponse class]];
+}
+
+- (void)startKeyPhrasesDetectionJob:(AWSComprehendStartKeyPhrasesDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStartKeyPhrasesDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self startKeyPhrasesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartKeyPhrasesDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStartKeyPhrasesDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStartSentimentDetectionJobResponse *> *)startSentimentDetectionJob:(AWSComprehendStartSentimentDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StartSentimentDetectionJob"
+                   outputClass:[AWSComprehendStartSentimentDetectionJobResponse class]];
+}
+
+- (void)startSentimentDetectionJob:(AWSComprehendStartSentimentDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStartSentimentDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self startSentimentDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartSentimentDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStartSentimentDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendStartTopicsDetectionJobResponse *> *)startTopicsDetectionJob:(AWSComprehendStartTopicsDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -525,6 +1104,98 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendStartTopicsDetectionJobResponse *response, NSError *error))completionHandler {
     [[self startTopicsDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartTopicsDetectionJobResponse *> * _Nonnull task) {
         AWSComprehendStartTopicsDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStopDominantLanguageDetectionJobResponse *> *)stopDominantLanguageDetectionJob:(AWSComprehendStopDominantLanguageDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StopDominantLanguageDetectionJob"
+                   outputClass:[AWSComprehendStopDominantLanguageDetectionJobResponse class]];
+}
+
+- (void)stopDominantLanguageDetectionJob:(AWSComprehendStopDominantLanguageDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStopDominantLanguageDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self stopDominantLanguageDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopDominantLanguageDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStopDominantLanguageDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStopEntitiesDetectionJobResponse *> *)stopEntitiesDetectionJob:(AWSComprehendStopEntitiesDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StopEntitiesDetectionJob"
+                   outputClass:[AWSComprehendStopEntitiesDetectionJobResponse class]];
+}
+
+- (void)stopEntitiesDetectionJob:(AWSComprehendStopEntitiesDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStopEntitiesDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self stopEntitiesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopEntitiesDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStopEntitiesDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStopKeyPhrasesDetectionJobResponse *> *)stopKeyPhrasesDetectionJob:(AWSComprehendStopKeyPhrasesDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StopKeyPhrasesDetectionJob"
+                   outputClass:[AWSComprehendStopKeyPhrasesDetectionJobResponse class]];
+}
+
+- (void)stopKeyPhrasesDetectionJob:(AWSComprehendStopKeyPhrasesDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStopKeyPhrasesDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self stopKeyPhrasesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopKeyPhrasesDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStopKeyPhrasesDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStopSentimentDetectionJobResponse *> *)stopSentimentDetectionJob:(AWSComprehendStopSentimentDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StopSentimentDetectionJob"
+                   outputClass:[AWSComprehendStopSentimentDetectionJobResponse class]];
+}
+
+- (void)stopSentimentDetectionJob:(AWSComprehendStopSentimentDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStopSentimentDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self stopSentimentDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopSentimentDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStopSentimentDetectionJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

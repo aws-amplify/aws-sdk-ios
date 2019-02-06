@@ -9,7 +9,7 @@ function cleanup
 }
 
 
-VERSION="2.6.34"
+VERSION="2.8.4"
 if [ -n $1 ] && [ "$1" == "clean" ];
 then
 	cleanup
@@ -62,8 +62,7 @@ else
     cp -r AWSAuthSDK/Sources/AWSGoogleSignIn ./docs_tmp/AWSAuthSDK/
     cp -r AWSAuthSDK/Sources/AWSUserPoolsSignIn ./docs_tmp/AWSAuthSDK/
     cp -r AWSAuthSDK/Sources/AWSAuthUI ./docs_tmp/AWSAuthSDK/
-    cp -r AWSAuthSDK/Sources/AWSMobileClient ./docs_tmp/AWSAuthSDK/
-	
+
     rm -rf ./docs_tmp/AWSCore/Bolts
     rm -rf ./docs_tmp/AWSCore/Fabric
     rm -rf ./docs_tmp/AWSCore/FMDB
