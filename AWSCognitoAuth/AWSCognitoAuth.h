@@ -157,7 +157,7 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
 /**
  Make external redirections work with interal methods/messages
  */
-- (BOOL)processURL:(NSURL *)url;
+- (BOOL)processURL:(NSURL *)url forRedirection:(BOOL)isProcessingRedirection;
 
 @end
 

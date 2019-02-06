@@ -268,7 +268,6 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 
 -(void)showSFSafariViewControllerForURL:(NSString *)url
            withPresentingViewController:(UIViewController *)presentingViewController{
-<<<<<<< HEAD
     if (self.sfAuthenticationSessionAvailable) {
         self.svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url] entersReaderIfAvailable:NO];
         self.svc.delegate = self;
@@ -277,24 +276,11 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
             __block UIViewController * sourceVC = presentingViewController;
             if(!sourceVC){
                 if(!self.delegate){
-                    [self completeGetSession:nil error:[self getError:@"delegate must be set to a valid AWSCognitoAuthDelegate" code:AWSCognitoAuthClientInvalidAuthenticationDelegate]];
+                    [self dismissSafariViewControllerAndCompleteGetSession:nil error:[self getError:@"delegate must be set to a valid AWSCognitoAuthDelegate" code:AWSCognitoAuthClientInvalidAuthenticationDelegate]];
                     return;
                 } else {
                     sourceVC = [self.delegate getViewController];
                 }
-=======
-    self.svc = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:url] entersReaderIfAvailable:NO];
-    self.svc.delegate = self;
-    self.svc.modalPresentationStyle = UIModalPresentationPopover;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        __block UIViewController * sourceVC = presentingViewController;
-        if(!sourceVC){
-            if(!self.delegate){
-                [self dismissSafariViewControllerAndCompleteGetSession:nil error:[self getError:@"delegate must be set to a valid AWSCognitoAuthDelegate" code:AWSCognitoAuthClientInvalidAuthenticationDelegate]];
-                return;
-            } else {
-                sourceVC = [self.delegate getViewController];
->>>>>>> master
             }
             [self setPopoverSource:self.svc source:sourceVC];
             [sourceVC presentViewController:self.svc animated:NO completion:nil];
@@ -728,8 +714,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
  Dismiss and reap the safari view controller
  */
 -(void) dismissSafariVC: (void (^)(void)) dismissBlock {
-<<<<<<< HEAD
-    if (self.sfAuthenticationSessionAvailable) {
+//    if (self.sfAuthenticationSessionAvailable) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if(self.svc){
                 [self.svc dismissViewControllerAnimated:NO completion:^{
@@ -741,23 +726,10 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 dismissBlock();
             }
         });
-    }
-    else {
-        dismissBlock();
-    }
-=======
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if(self.svc){
-            [self.svc dismissViewControllerAnimated:NO completion:^{
-                dismissBlock();
-                //clean up vc
-                self.svc = nil;
-            }];
-        }else {
-            dismissBlock();
-        }
-    });
->>>>>>> master
+//    }
+//    else {
+//        dismissBlock();
+//    }
 }
 
 #pragma mark NSURLConnection Delegate Methods
@@ -771,54 +743,12 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-<<<<<<< HEAD
+    // we want to be able to make a coll to processResponse from the outside of this library (e.g. when we use an internal webview
     [self processResponse:self.responseData];
-    
-    //    NSError * error;
-    //    NSDictionary *result = [NSJSONSerialization JSONObjectWithData:self.responseData options:kNilOptions error:&error];
-    //    if(error){
-    //        [self completeGetSession:nil error:[self getError:[error description] code:AWSCognitoAuthClientErrorUnknown]];
-    //        return;
-    //    }
-    //    else if(result[@"error"]){
-    //        //refresh token has expired, switch to interactive auth
-    //        if([@"invalid_grant" isEqualToString:result[@"error"]]){
-    //            if (![self.delegate respondsToSelector:@selector(shouldLaunchSignInVCIfRefreshTokenIsExpired)]) {
-    //                [self launchSignInVC:self.pvc];
-    //            }else {
-    //                BOOL present = [self.delegate shouldLaunchSignInVCIfRefreshTokenIsExpired];
-    //                if (present) {
-    //                    [self launchSignInVC:self.pvc];
-    //                }else {
-    //                    [self completeGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorExpiredRefreshToken]];
-    //                }
-    //            }
-    //        }else {
-    //            [self completeGetSession:nil error:[self getError:result[@"error"] code:AWSCognitoAuthClientErrorUnknown]];
-    //        }
-    //    }else {
-    //        /** Check to see if refreshToken is received from the server.
-    //         If not, load it from the keychain.
-    //         */
-    //        NSString * refreshToken = [result valueForKey:@"refresh_token"];
-    //        if (refreshToken == nil){
-    //            NSString * keyChainNamespace = [self keyChainNamespaceClientId: [self currentUsername]];
-    //            refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
-    //        }
-    //        AWSCognitoAuthUserSession *userSession = [[AWSCognitoAuthUserSession alloc] initWithIdToken:[result valueForKey:@"id_token"]  accessToken:[result valueForKey:@"access_token"] refreshToken:refreshToken expiresIn:[result valueForKey:@"expires_in"]];
-    //        if(!userSession.accessToken){
-    //            [self completeGetSession:nil error: [self getError:@"Tokens not received" code:AWSCognitoAuthClientErrorUnknown]];
-    //        }else{
-    //            [self updateUsernameAndPersistTokens:userSession];
-    //            [self completeGetSession:userSession error:nil];
-    //        }
-    //    }
 }
 
 - (void)processResponse:(NSData *)responseData {
-=======
     self.isHandlingRedirection = NO;
->>>>>>> master
     NSError * error;
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:self.responseData options:kNilOptions error:&error];
     
@@ -1132,21 +1062,18 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                    identityProvider:(nullable NSString *) identityProvider
                       idpIdentifier:(nullable NSString *) idpIdentifier
            userPoolIdForEnablingASF:(nullable NSString *) userPoolIdForEnablingASF {
-<<<<<<< HEAD
-    return [self initWithAppClientId:appClientId appClientSecret:appClientSecret scopes:scopes signInRedirectUri:signInRedirectUri signOutRedirectUri:signOutRedirectUri webDomain:webDomain identityProvider:identityProvider idpIdentifier:idpIdentifier userPoolIdForEnablingASF:userPoolIdForEnablingASF enableSFAuthSessionIfAvailable:NO];
-=======
-    return [self initWithAppClientId:appClientId
-                     appClientSecret:appClientSecret
-                              scopes:scopes
-                   signInRedirectUri:signInRedirectUri
-                  signOutRedirectUri:signOutRedirectUri
-                           webDomain:webDomain
-                    identityProvider:identityProvider
-                       idpIdentifier:idpIdentifier
-            userPoolIdForEnablingASF:userPoolIdForEnablingASF
-      enableSFAuthSessionIfAvailable:NO];
->>>>>>> master
+   return [self initWithAppClientId:appClientId
+                    appClientSecret:appClientSecret
+                             scopes:scopes
+                  signInRedirectUri:signInRedirectUri
+                 signOutRedirectUri:signOutRedirectUri
+                          webDomain:webDomain
+                   identityProvider:identityProvider
+                      idpIdentifier:idpIdentifier
+           userPoolIdForEnablingASF:userPoolIdForEnablingASF
+     enableSFAuthSessionIfAvailable:NO];
 }
+
 
 - (instancetype)initWithAppClientId:(NSString *) appClientId
                     appClientSecret:(nullable NSString *)appClientSecret
