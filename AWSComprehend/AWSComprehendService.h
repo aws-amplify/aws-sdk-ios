@@ -300,7 +300,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)batchDetectSyntax:(AWSComprehendBatchDetectSyntaxRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendBatchDetectSyntaxResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. </p>
+ <p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateDocumentClassifier service method.
 
@@ -312,7 +312,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendCreateDocumentClassifierResponse *> *)createDocumentClassifier:(AWSComprehendCreateDocumentClassifierRequest *)request;
 
 /**
- <p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. </p>
+ <p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateDocumentClassifier service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1173,6 +1173,56 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendStopSentimentDetectionJobResponse
  */
 - (void)stopSentimentDetectionJob:(AWSComprehendStopSentimentDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStopSentimentDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Stops a document classifier training job while in progress.</p><p>If the training job state is <code>TRAINING</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and put into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with an empty HTTP body. </p>
+ 
+ @param request A container for the necessary parameters to execute the StopTrainingDocumentClassifier service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStopTrainingDocumentClassifierResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStopTrainingDocumentClassifierRequest
+ @see AWSComprehendStopTrainingDocumentClassifierResponse
+ */
+- (AWSTask<AWSComprehendStopTrainingDocumentClassifierResponse *> *)stopTrainingDocumentClassifier:(AWSComprehendStopTrainingDocumentClassifierRequest *)request;
+
+/**
+ <p>Stops a document classifier training job while in progress.</p><p>If the training job state is <code>TRAINING</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and put into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with an empty HTTP body. </p>
+ 
+ @param request A container for the necessary parameters to execute the StopTrainingDocumentClassifier service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStopTrainingDocumentClassifierRequest
+ @see AWSComprehendStopTrainingDocumentClassifierResponse
+ */
+- (void)stopTrainingDocumentClassifier:(AWSComprehendStopTrainingDocumentClassifierRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStopTrainingDocumentClassifierResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Stops an entity recognizer training job while in progress.</p><p>If the training job state is <code>TRAINING</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and putted into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ 
+ @param request A container for the necessary parameters to execute the StopTrainingEntityRecognizer service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStopTrainingEntityRecognizerResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStopTrainingEntityRecognizerRequest
+ @see AWSComprehendStopTrainingEntityRecognizerResponse
+ */
+- (AWSTask<AWSComprehendStopTrainingEntityRecognizerResponse *> *)stopTrainingEntityRecognizer:(AWSComprehendStopTrainingEntityRecognizerRequest *)request;
+
+/**
+ <p>Stops an entity recognizer training job while in progress.</p><p>If the training job state is <code>TRAINING</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and putted into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ 
+ @param request A container for the necessary parameters to execute the StopTrainingEntityRecognizer service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorResourceNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStopTrainingEntityRecognizerRequest
+ @see AWSComprehendStopTrainingEntityRecognizerResponse
+ */
+- (void)stopTrainingEntityRecognizer:(AWSComprehendStopTrainingEntityRecognizerRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStopTrainingEntityRecognizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 

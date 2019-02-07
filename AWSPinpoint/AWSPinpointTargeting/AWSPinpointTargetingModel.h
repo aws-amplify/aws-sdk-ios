@@ -3202,17 +3202,17 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 
 
 /**
- 
+ The package name associated with the app that's recording the event.
  */
 @property (nonatomic, strong) NSString * _Nullable appPackageName;
 
 /**
- 
+ The title of the app that's recording the event.
  */
 @property (nonatomic, strong) NSString * _Nullable appTitle;
 
 /**
- 
+ The version number of the app that's recording the event.
  */
 @property (nonatomic, strong) NSString * _Nullable appVersionCode;
 
@@ -3237,7 +3237,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingTypes) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable metrics;
 
 /**
- 
+ The name of the SDK that's being used to record the event.
  */
 @property (nonatomic, strong) NSString * _Nullable sdkName;
 

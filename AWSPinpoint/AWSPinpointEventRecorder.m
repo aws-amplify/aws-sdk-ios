@@ -107,7 +107,7 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
         
         // Creates a database for the identifier if it doesn't exist.
         AWSDDLogDebug(@"Database path: [%@]", _databasePath);
-        _databaseQueue = [AWSFMDatabaseQueue databaseQueueWithPath:_databasePath];
+        _databaseQueue = [AWSFMDatabaseQueue serialDatabaseQueueWithPath:_databasePath];
         [_databaseQueue inDatabase:^(AWSFMDatabase *db) {
             db.shouldCacheStatements = YES;
             if (![db executeStatements:@"PRAGMA auto_vacuum = FULL"]) {

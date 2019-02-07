@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 
 /**
- <p>Provides translation between English and one of six languages, or between one of the six languages and English.</p>
+ <p>Provides translation between one source language and another of the same set of languages.</p>
  */
 @interface AWSTranslate : AWSService
 
@@ -175,11 +175,108 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 + (void)removeTranslateForKey:(NSString *)key;
 
 /**
- <p>Translates input text from the source language to the target language. You can translate between English (en) and one of the following languages, or between one of the following languages and English.</p><ul><li><p>Arabic (ar)</p></li><li><p>Chinese (Simplified) (zh)</p></li><li><p>French (fr)</p></li><li><p>German (de)</p></li><li><p>Portuguese (pt)</p></li><li><p>Spanish (es)</p></li></ul><p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call Amazon Comprehend to determine the source language.</p>
+ <p>A synchronous action that deletes a custom terminology.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTerminology service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateDeleteTerminologyRequest
+ */
+- (AWSTask *)deleteTerminology:(AWSTranslateDeleteTerminologyRequest *)request;
+
+/**
+ <p>A synchronous action that deletes a custom terminology.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTerminology service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateDeleteTerminologyRequest
+ */
+- (void)deleteTerminology:(AWSTranslateDeleteTerminologyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves a custom terminology.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTerminology service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateGetTerminologyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateGetTerminologyRequest
+ @see AWSTranslateGetTerminologyResponse
+ */
+- (AWSTask<AWSTranslateGetTerminologyResponse *> *)getTerminology:(AWSTranslateGetTerminologyRequest *)request;
+
+/**
+ <p>Retrieves a custom terminology.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetTerminology service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateGetTerminologyRequest
+ @see AWSTranslateGetTerminologyResponse
+ */
+- (void)getTerminology:(AWSTranslateGetTerminologyRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateGetTerminologyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates or updates a custom terminology, depending on whether or not one already exists for the given terminology name. Importing a terminology with the same name as an existing one will merge the terminologies based on the chosen merge strategy. Currently, the only supported merge strategy is OVERWRITE, and so the imported terminology will overwrite an existing terminology of the same name.</p><p>If you import a terminology that overwrites an existing one, the new terminology take up to 10 minutes to fully propagate and be available for use in a translation due to cache policies with the DataPlane service that performs the translations.</p>
+ 
+ @param request A container for the necessary parameters to execute the ImportTerminology service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateImportTerminologyResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateImportTerminologyRequest
+ @see AWSTranslateImportTerminologyResponse
+ */
+- (AWSTask<AWSTranslateImportTerminologyResponse *> *)importTerminology:(AWSTranslateImportTerminologyRequest *)request;
+
+/**
+ <p>Creates or updates a custom terminology, depending on whether or not one already exists for the given terminology name. Importing a terminology with the same name as an existing one will merge the terminologies based on the chosen merge strategy. Currently, the only supported merge strategy is OVERWRITE, and so the imported terminology will overwrite an existing terminology of the same name.</p><p>If you import a terminology that overwrites an existing one, the new terminology take up to 10 minutes to fully propagate and be available for use in a translation due to cache policies with the DataPlane service that performs the translations.</p>
+ 
+ @param request A container for the necessary parameters to execute the ImportTerminology service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateImportTerminologyRequest
+ @see AWSTranslateImportTerminologyResponse
+ */
+- (void)importTerminology:(AWSTranslateImportTerminologyRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateImportTerminologyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides a list of custom terminologies associated with your account.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTerminologies service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateListTerminologiesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateListTerminologiesRequest
+ @see AWSTranslateListTerminologiesResponse
+ */
+- (AWSTask<AWSTranslateListTerminologiesResponse *> *)listTerminologies:(AWSTranslateListTerminologiesRequest *)request;
+
+/**
+ <p>Provides a list of custom terminologies associated with your account.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTerminologies service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateListTerminologiesRequest
+ @see AWSTranslateListTerminologiesResponse
+ */
+- (void)listTerminologies:(AWSTranslateListTerminologiesRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateListTerminologiesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Translates input text from the source language to the target language. It is not necessary to use English (en) as either the source or the target language but not all language combinations are supported by Amazon Translate. For more information, see <a href="http://docs.aws.amazon.com/translate/latest/dg/pairs.html">Supported Language Pairs</a>.</p><ul><li><p>Arabic (ar)</p></li><li><p>Chinese (Simplified) (zh)</p></li><li><p>Chinese (Traditional) (zh-TW)</p></li><li><p>Czech (cs)</p></li><li><p>Danish (da)</p></li><li><p>Dutch (nl)</p></li><li><p>English (en)</p></li><li><p>Finnish (fi)</p></li><li><p>French (fr)</p></li><li><p>German (de)</p></li><li><p>Hebrew (he)</p></li><li><p>Indonesian (id)</p></li><li><p>Italian (it)</p></li><li><p>Japanese (ja)</p></li><li><p>Korean (ko)</p></li><li><p>Polish (pl)</p></li><li><p>Portuguese (pt)</p></li><li><p>Russian (ru)</p></li><li><p>Spanish (es)</p></li><li><p>Swedish (sv)</p></li><li><p>Turkish (tr)</p></li></ul><p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call Amazon Comprehend to determine the source language.</p>
  
  @param request A container for the necessary parameters to execute the TranslateText service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateTranslateTextResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorTextSizeLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorDetectedLanguageLowConfidence`, `AWSTranslateErrorInternalServer`, `AWSTranslateErrorServiceUnavailable`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateTranslateTextResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorTextSizeLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorDetectedLanguageLowConfidence`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`, `AWSTranslateErrorServiceUnavailable`.
  
  @see AWSTranslateTranslateTextRequest
  @see AWSTranslateTranslateTextResponse
@@ -187,12 +284,12 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 - (AWSTask<AWSTranslateTranslateTextResponse *> *)translateText:(AWSTranslateTranslateTextRequest *)request;
 
 /**
- <p>Translates input text from the source language to the target language. You can translate between English (en) and one of the following languages, or between one of the following languages and English.</p><ul><li><p>Arabic (ar)</p></li><li><p>Chinese (Simplified) (zh)</p></li><li><p>French (fr)</p></li><li><p>German (de)</p></li><li><p>Portuguese (pt)</p></li><li><p>Spanish (es)</p></li></ul><p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call Amazon Comprehend to determine the source language.</p>
+ <p>Translates input text from the source language to the target language. It is not necessary to use English (en) as either the source or the target language but not all language combinations are supported by Amazon Translate. For more information, see <a href="http://docs.aws.amazon.com/translate/latest/dg/pairs.html">Supported Language Pairs</a>.</p><ul><li><p>Arabic (ar)</p></li><li><p>Chinese (Simplified) (zh)</p></li><li><p>Chinese (Traditional) (zh-TW)</p></li><li><p>Czech (cs)</p></li><li><p>Danish (da)</p></li><li><p>Dutch (nl)</p></li><li><p>English (en)</p></li><li><p>Finnish (fi)</p></li><li><p>French (fr)</p></li><li><p>German (de)</p></li><li><p>Hebrew (he)</p></li><li><p>Indonesian (id)</p></li><li><p>Italian (it)</p></li><li><p>Japanese (ja)</p></li><li><p>Korean (ko)</p></li><li><p>Polish (pl)</p></li><li><p>Portuguese (pt)</p></li><li><p>Russian (ru)</p></li><li><p>Spanish (es)</p></li><li><p>Swedish (sv)</p></li><li><p>Turkish (tr)</p></li></ul><p>To have Amazon Translate determine the source language of your text, you can specify <code>auto</code> in the <code>SourceLanguageCode</code> field. If you specify <code>auto</code>, Amazon Translate will call Amazon Comprehend to determine the source language.</p>
  
  @param request A container for the necessary parameters to execute the TranslateText service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorTextSizeLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorDetectedLanguageLowConfidence`, `AWSTranslateErrorInternalServer`, `AWSTranslateErrorServiceUnavailable`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorTextSizeLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorUnsupportedLanguagePair`, `AWSTranslateErrorDetectedLanguageLowConfidence`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`, `AWSTranslateErrorServiceUnavailable`.
  
  @see AWSTranslateTranslateTextRequest
  @see AWSTranslateTranslateTextResponse
