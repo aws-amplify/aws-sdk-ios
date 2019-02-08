@@ -14,7 +14,7 @@
     <a title="AWSMobileClient Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient Docs</a> (46% documented)</p>
+        <p><a href="../index.html">AWSMobileClient Docs</a> (43% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Fgithub%2Ecom%2Faws%2Damplify%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -63,6 +63,14 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/UserState.html">UserState</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UserPoolOperationsHandler.html">UserPoolOperationsHandler</a>
               </li>
             </ul>
           </li>
@@ -464,7 +472,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">showSignIn</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">,</span> <span class="nv">signInUIOptions</span><span class="p">:</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span><span class="p">(),</span> <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping(UserState?, Error?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">showSignIn</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">,</span> <span class="nv">signInUIOptions</span><span class="p">:</span> <span class="kt"><a href="../Classes/SignInUIOptions.html">SignInUIOptions</a></span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt"><a href="../Enums/UserState.html">UserState</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -699,7 +707,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">interceptApplication</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">interceptApplication</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -727,7 +735,7 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">interceptApplication</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">resumeSessionWithCompletionHandler</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">,</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+<span class="k">override</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">interceptApplication</span><span class="p">(</span><span class="n">_</span> <span class="nv">application</span><span class="p">:</span> <span class="kt">UIApplication</span><span class="p">,</span> <span class="n">didFinishLaunchingWithOptions</span> <span class="nv">launchOptions</span><span class="p">:</span> <span class="p">[</span><span class="kt">AnyHashable</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="n">resumeSessionWithCompletionHandler</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Any</span><span class="p">,</span> <span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -866,7 +874,7 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">federatedSignIn</span><span class="p">(</span><span class="nv">providerName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">federatedSignInOptions</span><span class="p">:</span> <span class="kt"><a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a></span> <span class="o">=</span> <span class="kt"><a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a></span><span class="p">(),</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Enums/UserState.html">UserState</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">federatedSignIn</span><span class="p">(</span><span class="nv">providerName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">token</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">federatedSignInOptions</span><span class="p">:</span> <span class="kt"><a href="../Structs/FederatedSignInOptions.html">FederatedSignInOptions</a></span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Enums/UserState.html">UserState</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -936,11 +944,7 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signUp</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                   <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
-                   <span class="nv">userAttributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
-                   <span class="nv">validationData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
-                   <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignUpResult.html">SignUpResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signUp</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">userAttributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">validationData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignUpResult.html">SignUpResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -1302,7 +1306,7 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signIn</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">validationData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignInResult.html">SignInResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signIn</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">validationData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="k">default</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignInResult.html">SignInResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -1597,7 +1601,7 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateUserAttributes</span><span class="p">(</span><span class="nv">attributeMap</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">],</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(([</span><span class="kt"><a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a></span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateUserAttributes</span><span class="p">(</span><span class="nv">attributeMap</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">],</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(([</span><span class="kt"><a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a></span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -1655,7 +1659,7 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUserAttributes</span><span class="p">(</span><span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(([</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getUserAttributes</span><span class="p">(</span><span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(([</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -1841,7 +1845,7 @@ If federation provider name has changed, previous federation provider&rsquo;s to
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAWSCredentials</span><span class="p">(</span><span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping(AWSCredentials?, Error?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getAWSCredentials</span><span class="p">(</span><span class="n">_</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">AWSCredentials</span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -1949,7 +1953,7 @@ The call to wait will be synchronized so that if multiple threads call this meth
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/aws-amplify/aws-sdk-ios" target="_blank" rel="external">AWS</a>. All rights reserved. (Last updated: 2019-01-16)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/aws-amplify/aws-sdk-ios" target="_blank" rel="external">AWS</a>. All rights reserved. (Last updated: 2019-02-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

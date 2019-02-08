@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>IdentityProvider Enumeration Reference</title>
+    <title>UserPoolOperationsHandler Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/IdentityProvider" class="dashAnchor"></a>
-    <a title="IdentityProvider Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Extension/UserPoolOperationsHandler" class="dashAnchor"></a>
+    <a title="UserPoolOperationsHandler Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSMobileClient Docs</a> (43% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSMobileClient Reference</a>
         <img id="carat" src="../img/carat.png" />
-        IdentityProvider Enumeration Reference
+        UserPoolOperationsHandler Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -113,22 +113,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>IdentityProvider</h1>
+            <h1>UserPoolOperationsHandler</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">IdentityProvider</span> <span class="p">:</span> <span class="kt">String</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">internal</span> <span class="kd">class</span> <span class="kt">UserPoolOperationsHandler</span> <span class="p">:</span> <span class="kt">NSObject</span><span class="p">,</span> <span class="kt">AWSCognitoIdentityInteractiveAuthenticationDelegate</span></code></pre>
 
                 </div>
               </div>
-            <p>Represents identity provider keys.</p>
-
-<ul>
-<li>facebook: The provider key for Facebook.</li>
-<li>google: The provider key for Google.</li>
-<li>twitter: The provider key for Twitter.</li>
-<li>amazon: The provider key for Amazon.</li>
-<li>developer: The provider key for Developer Authenticated Identities.</li>
-</ul>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -137,9 +129,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO8facebookyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/facebook" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO8facebookyA2CmF">facebook</a>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)getPasswordAuthenticationDetails:passwordAuthenticationCompletionSource:"></a>
+                    <a name="//apple_ref/swift/Method/getDetails(_:passwordAuthenticationCompletionSource:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)getPasswordAuthenticationDetails:passwordAuthenticationCompletionSource:">getDetails(_:passwordAuthenticationCompletionSource:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -154,7 +146,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">facebook</span> <span class="o">=</span> <span class="s">"graph.facebook.com"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getDetails</span><span class="p">(</span><span class="n">_</span> <span class="nv">authenticationInput</span><span class="p">:</span> <span class="kt">AWSCognitoIdentityPasswordAuthenticationInput</span><span class="p">,</span> <span class="nv">passwordAuthenticationCompletionSource</span><span class="p">:</span> <span class="kt">AWSTaskCompletionSource</span><span class="o">&lt;</span><span class="kt">AWSCognitoIdentityPasswordAuthenticationDetails</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -164,9 +156,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO6googleyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/google" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO6googleyA2CmF">google</a>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)didCompletePasswordAuthenticationStepWithError:"></a>
+                    <a name="//apple_ref/swift/Method/didCompleteStepWithError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)didCompletePasswordAuthenticationStepWithError:">didCompleteStepWithError(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -181,7 +173,38 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">google</span> <span class="o">=</span> <span class="s">"accounts.google.com"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">didCompleteStepWithError</span><span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)getNewPasswordDetails:newPasswordRequiredCompletionSource:"></a>
+                    <a name="//apple_ref/swift/Method/getNewPasswordDetails(_:newPasswordRequiredCompletionSource:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)getNewPasswordDetails:newPasswordRequiredCompletionSource:">getNewPasswordDetails(_:newPasswordRequiredCompletionSource:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getNewPasswordDetails</span><span class="p">(</span><span class="n">_</span> <span class="nv">newPasswordRequiredInput</span><span class="p">:</span> <span class="kt">AWSCognitoIdentityNewPasswordRequiredInput</span><span class="p">,</span> <span class="nv">newPasswordRequiredCompletionSource</span><span class="p">:</span> <span class="kt">AWSTaskCompletionSource</span><span class="o">&lt;</span><span class="kt">AWSCognitoIdentityNewPasswordRequiredDetails</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -191,9 +214,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO7twitteryA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/twitter" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO7twitteryA2CmF">twitter</a>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)didCompleteNewPasswordStepWithError:"></a>
+                    <a name="//apple_ref/swift/Method/didCompleteNewPasswordStepWithError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)didCompleteNewPasswordStepWithError:">didCompleteNewPasswordStepWithError(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -208,7 +231,38 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">twitter</span> <span class="o">=</span> <span class="s">"api.twitter.com"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">didCompleteNewPasswordStepWithError</span><span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)getMultiFactorAuthenticationCode:mfaCodeCompletionSource:"></a>
+                    <a name="//apple_ref/swift/Method/getCode(_:mfaCodeCompletionSource:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)getMultiFactorAuthenticationCode:mfaCodeCompletionSource:">getCode(_:mfaCodeCompletionSource:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">getCode</span><span class="p">(</span><span class="n">_</span> <span class="nv">authenticationInput</span><span class="p">:</span> <span class="kt">AWSCognitoIdentityMultifactorAuthenticationInput</span><span class="p">,</span> <span class="nv">mfaCodeCompletionSource</span><span class="p">:</span> <span class="kt">AWSTaskCompletionSource</span><span class="o">&lt;</span><span class="kt">NSString</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -218,9 +272,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO6amazonyA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/amazon" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO6amazonyA2CmF">amazon</a>
+                    <a name="/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)didCompleteMultifactorAuthenticationStepWithError:"></a>
+                    <a name="//apple_ref/swift/Method/didCompleteMultifactorAuthenticationStepWithError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@CM@AWSMobileClient@objc(cs)UserPoolOperationsHandler(im)didCompleteMultifactorAuthenticationStepWithError:">didCompleteMultifactorAuthenticationStepWithError(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -235,34 +289,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">amazon</span> <span class="o">=</span> <span class="s">"www.amazon.com"</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:15AWSMobileClient16IdentityProviderO9developeryA2CmF"></a>
-                    <a name="//apple_ref/swift/Element/developer" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClient16IdentityProviderO9developeryA2CmF">developer</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">developer</span> <span class="o">=</span> <span class="s">"cognito-identity.amazonaws.com"</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">didCompleteMultifactorAuthenticationStepWithError</span><span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
