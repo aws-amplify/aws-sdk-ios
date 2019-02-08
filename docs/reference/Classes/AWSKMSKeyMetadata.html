@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.8.4 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -60,7 +60,11 @@
 		
 		<option value="//api/name/arn">arn</option>
 		
+		<option value="//api/name/cloudHsmClusterId">cloudHsmClusterId</option>
+		
 		<option value="//api/name/creationDate">creationDate</option>
+		
+		<option value="//api/name/customKeyStoreId">customKeyStoreId</option>
 		
 		<option value="//api/name/deletionDate">deletionDate</option>
 		
@@ -226,6 +230,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/cloudHsmClusterId" title="cloudHsmClusterId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/cloudHsmClusterId">&nbsp;&nbsp;cloudHsmClusterId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>The cluster ID of the AWS CloudHSM cluster that contains the key material for the CMK. When you create a CMK in a <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>, AWS KMS creates the key material for the CMK in the associated AWS CloudHSM cluster. This value is present only when the CMK is created in a custom key store.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *cloudHsmClusterId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKMSModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/creationDate" title="creationDate"></a>
 	<h3 class="method-title"><code><a href="#//api/name/creationDate">&nbsp;&nbsp;creationDate</a></code>
 </h3>
@@ -268,6 +314,48 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/customKeyStoreId" title="customKeyStoreId"></a>
+	<h3 class="method-title"><code><a href="#//api/name/customKeyStoreId">&nbsp;&nbsp;customKeyStoreId</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A unique identifier for the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a> that contains the CMK. This value is present only when the CMK is created in a custom key store.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *customKeyStoreId</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSKMSModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/deletionDate" title="deletionDate"></a>
 	<h3 class="method-title"><code><a href="#//api/name/deletionDate">&nbsp;&nbsp;deletionDate</a></code>
 </h3>
@@ -279,7 +367,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The date and time after which AWS KMS deletes the CMK. This value is present only when <code>KeyState</code> is <code>PendingDeletion</code>, otherwise this value is omitted.</p>
+				<p>The date and time after which AWS KMS deletes the CMK. This value is present only when <code>KeyState</code> is <code>PendingDeletion</code>.</p>
 
 			</div>
 			
@@ -489,7 +577,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The CMK's manager. CMKs are either customer managed or AWS managed. For more information about the difference, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+				<p>The CMK's manager. CMKs are either customer-managed or AWS-managed. For more information about the difference, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
 
 			</div>
 			
@@ -618,7 +706,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The source of the CMK's key material. When this value is <code>AWS_KMS</code>, AWS KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported from your existing key management infrastructure or the CMK lacks key material.</p>
+				<p>The source of the CMK's key material. When this value is <code>AWS_KMS</code>, AWS KMS created the key material. When this value is <code>EXTERNAL</code>, the key material was imported from your existing key management infrastructure or the CMK lacks key material. When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the AWS CloudHSM cluster associated with a custom key store.</p>
 
 			</div>
 			
@@ -705,7 +793,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-01-16</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-02-08</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.8.4 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -110,7 +110,7 @@
 					<div class="section section-overview">
 						<a title="Overview" name="overview"></a>
 						<h2 class="subtitle subtitle-overview">Overview</h2>
-						<p>Container for information about a particular replication rule.</p>
+						<p>A container for information about a specific replication rule.</p>
 
 
 <p>Required parameters: [Status, Destination]</p>
@@ -182,7 +182,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Container for replication destination information.</p>
+				<p>A container for information about the replication destination.</p>
 
 			</div>
 			
@@ -224,7 +224,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Filter that identifies subset of objects to which the replication rule applies. A <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or an <code>And</code> child element.</p>
+				<p>A filter that identifies the subset of objects to which the replication rule applies. A <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or an <code>And</code> child element.</p>
 
 			</div>
 			
@@ -266,7 +266,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>
+				<p>A unique identifier for the rule. The maximum value is 255 characters.</p>
 
 			</div>
 			
@@ -308,7 +308,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. </p>
+				<p>An object keyname prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. </p>
 
 			</div>
 			
@@ -350,13 +350,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The priority associated with the rule. If you specify multiple rules in a replication configuration, then Amazon S3 applies rule priority in the event there are conflicts (two or more rules identify the same object based on filter specified). The rule with higher priority takes precedence. For example,</p>
+				<p>The priority associated with the rule. If you specify multiple rules in a replication configuration, Amazon S3 prioritizes the rules to prevent conflicts when filtering. If two or more rules identify the same object based on a specified filter, the rule with higher priority takes precedence. For example:</p>
 
 
-<ul><li><p>Same object quality prefix based filter criteria If prefixes you specified in multiple rules overlap. </p></li><li><p>Same object qualify tag based filter criteria specified in multiple rules</p></li></ul>
+<ul><li><p>Same object quality prefix based filter criteria If prefixes you specified in multiple rules overlap </p></li><li><p>Same object qualify tag based filter criteria specified in multiple rules</p></li></ul>
 
 
-<p>For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide.</p>
+<p>For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>.</p>
 
 			</div>
 			
@@ -398,10 +398,10 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p> Container that describes additional filters in identifying source objects that you want to replicate. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using an AWS KMS-managed key. You can choose to enable or disable replication of these objects. </p>
+				<p>A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using an AWS KMS-Managed Key (SSE-KMS). </p>
 
 
-<p> if you want Amazon S3 to replicate objects created with server-side encryption using AWS KMS-managed keys. </p>
+<p> If you want Amazon S3 to replicate objects created with server-side encryption using AWS KMS-Managed Keys. </p>
 
 			</div>
 			
@@ -443,7 +443,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The rule is ignored if status is not Enabled.</p>
+				<p>If status isn't enabled, the rule is ignored.</p>
 
 			</div>
 			
@@ -488,7 +488,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-01-16</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-02-08</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

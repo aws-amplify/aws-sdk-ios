@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.8.4 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -237,6 +237,14 @@
 		<option value="//api/name/stopSentimentDetectionJob:">- stopSentimentDetectionJob:</option>
 		
 		<option value="//api/name/stopSentimentDetectionJob:completionHandler:">- stopSentimentDetectionJob:completionHandler:</option>
+		
+		<option value="//api/name/stopTrainingDocumentClassifier:">- stopTrainingDocumentClassifier:</option>
+		
+		<option value="//api/name/stopTrainingDocumentClassifier:completionHandler:">- stopTrainingDocumentClassifier:completionHandler:</option>
+		
+		<option value="//api/name/stopTrainingEntityRecognizer:">- stopTrainingEntityRecognizer:</option>
+		
+		<option value="//api/name/stopTrainingEntityRecognizer:completionHandler:">- stopTrainingEntityRecognizer:completionHandler:</option>
 		
 	</optgroup>
 	
@@ -1401,7 +1409,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. </p>
+				<p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>
 
 			</div>
 			
@@ -1471,7 +1479,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. </p>
+				<p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>
 
 			</div>
 			
@@ -6467,6 +6475,302 @@
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopTrainingDocumentClassifier:" title="stopTrainingDocumentClassifier:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopTrainingDocumentClassifier:">&ndash;&nbsp;stopTrainingDocumentClassifier:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Stops a document classifier training job while in progress.</p>
+
+
+<p>If the training job state is <code>TRAINING</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and put into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with an empty HTTP body. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSComprehendStopTrainingDocumentClassifierResponse*&gt; *)stopTrainingDocumentClassifier:(AWSComprehendStopTrainingDocumentClassifierRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StopTrainingDocumentClassifier service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStopTrainingDocumentClassifierResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSComprehendStopTrainingDocumentClassifierRequest.html">AWSComprehendStopTrainingDocumentClassifierRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSComprehendStopTrainingDocumentClassifierResponse.html">AWSComprehendStopTrainingDocumentClassifierResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopTrainingDocumentClassifier:completionHandler:" title="stopTrainingDocumentClassifier:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopTrainingDocumentClassifier:completionHandler:">&ndash;&nbsp;stopTrainingDocumentClassifier:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Stops a document classifier training job while in progress.</p>
+
+
+<p>If the training job state is <code>TRAINING</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and put into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with an empty HTTP body. </p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)stopTrainingDocumentClassifier:(AWSComprehendStopTrainingDocumentClassifierRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStopTrainingDocumentClassifierResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StopTrainingDocumentClassifier service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSComprehendStopTrainingDocumentClassifierRequest.html">AWSComprehendStopTrainingDocumentClassifierRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSComprehendStopTrainingDocumentClassifierResponse.html">AWSComprehendStopTrainingDocumentClassifierResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopTrainingEntityRecognizer:" title="stopTrainingEntityRecognizer:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopTrainingEntityRecognizer:">&ndash;&nbsp;stopTrainingEntityRecognizer:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Stops an entity recognizer training job while in progress.</p>
+
+
+<p>If the training job state is <code>TRAINING</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and putted into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with an empty HTTP body.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSComprehendStopTrainingEntityRecognizerResponse*&gt; *)stopTrainingEntityRecognizer:(AWSComprehendStopTrainingEntityRecognizerRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StopTrainingEntityRecognizer service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSComprehendStopTrainingEntityRecognizerResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSComprehendStopTrainingEntityRecognizerRequest.html">AWSComprehendStopTrainingEntityRecognizerRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSComprehendStopTrainingEntityRecognizerResponse.html">AWSComprehendStopTrainingEntityRecognizerResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopTrainingEntityRecognizer:completionHandler:" title="stopTrainingEntityRecognizer:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopTrainingEntityRecognizer:completionHandler:">&ndash;&nbsp;stopTrainingEntityRecognizer:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Stops an entity recognizer training job while in progress.</p>
+
+
+<p>If the training job state is <code>TRAINING</code>, the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the training job completes before it can be stopped, it is put into the <code>TRAINED</code>; otherwise the training job is stopped and putted into the <code>STOPPED</code> state and the service sends back an HTTP 200 response with an empty HTTP body.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)stopTrainingEntityRecognizer:(AWSComprehendStopTrainingEntityRecognizerRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSComprehendStopTrainingEntityRecognizerResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StopTrainingEntityRecognizer service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSComprehendErrorDomain</code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorResourceNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSComprehendStopTrainingEntityRecognizerRequest.html">AWSComprehendStopTrainingEntityRecognizerRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSComprehendStopTrainingEntityRecognizerResponse.html">AWSComprehendStopTrainingEntityRecognizerResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSComprehendService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -6482,7 +6786,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-01-16</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-02-08</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.8.4 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -150,6 +150,10 @@
 		
 		<option value="//api/name/deleteObjects:completionHandler:">- deleteObjects:completionHandler:</option>
 		
+		<option value="//api/name/deletePublicAccessBlock:">- deletePublicAccessBlock:</option>
+		
+		<option value="//api/name/deletePublicAccessBlock:completionHandler:">- deletePublicAccessBlock:completionHandler:</option>
+		
 		<option value="//api/name/getBucketAccelerateConfiguration:">- getBucketAccelerateConfiguration:</option>
 		
 		<option value="//api/name/getBucketAccelerateConfiguration:completionHandler:">- getBucketAccelerateConfiguration:completionHandler:</option>
@@ -206,6 +210,10 @@
 		
 		<option value="//api/name/getBucketPolicy:completionHandler:">- getBucketPolicy:completionHandler:</option>
 		
+		<option value="//api/name/getBucketPolicyStatus:">- getBucketPolicyStatus:</option>
+		
+		<option value="//api/name/getBucketPolicyStatus:completionHandler:">- getBucketPolicyStatus:completionHandler:</option>
+		
 		<option value="//api/name/getBucketReplication:">- getBucketReplication:</option>
 		
 		<option value="//api/name/getBucketReplication:completionHandler:">- getBucketReplication:completionHandler:</option>
@@ -234,6 +242,18 @@
 		
 		<option value="//api/name/getObjectAcl:completionHandler:">- getObjectAcl:completionHandler:</option>
 		
+		<option value="//api/name/getObjectLegalHold:">- getObjectLegalHold:</option>
+		
+		<option value="//api/name/getObjectLegalHold:completionHandler:">- getObjectLegalHold:completionHandler:</option>
+		
+		<option value="//api/name/getObjectLockConfiguration:">- getObjectLockConfiguration:</option>
+		
+		<option value="//api/name/getObjectLockConfiguration:completionHandler:">- getObjectLockConfiguration:completionHandler:</option>
+		
+		<option value="//api/name/getObjectRetention:">- getObjectRetention:</option>
+		
+		<option value="//api/name/getObjectRetention:completionHandler:">- getObjectRetention:completionHandler:</option>
+		
 		<option value="//api/name/getObjectTagging:">- getObjectTagging:</option>
 		
 		<option value="//api/name/getObjectTagging:completionHandler:">- getObjectTagging:completionHandler:</option>
@@ -241,6 +261,10 @@
 		<option value="//api/name/getObjectTorrent:">- getObjectTorrent:</option>
 		
 		<option value="//api/name/getObjectTorrent:completionHandler:">- getObjectTorrent:completionHandler:</option>
+		
+		<option value="//api/name/getPublicAccessBlock:">- getPublicAccessBlock:</option>
+		
+		<option value="//api/name/getPublicAccessBlock:completionHandler:">- getPublicAccessBlock:completionHandler:</option>
 		
 		<option value="//api/name/headBucket:">- headBucket:</option>
 		
@@ -366,9 +390,25 @@
 		
 		<option value="//api/name/putObjectAcl:completionHandler:">- putObjectAcl:completionHandler:</option>
 		
+		<option value="//api/name/putObjectLegalHold:">- putObjectLegalHold:</option>
+		
+		<option value="//api/name/putObjectLegalHold:completionHandler:">- putObjectLegalHold:completionHandler:</option>
+		
+		<option value="//api/name/putObjectLockConfiguration:">- putObjectLockConfiguration:</option>
+		
+		<option value="//api/name/putObjectLockConfiguration:completionHandler:">- putObjectLockConfiguration:completionHandler:</option>
+		
+		<option value="//api/name/putObjectRetention:">- putObjectRetention:</option>
+		
+		<option value="//api/name/putObjectRetention:completionHandler:">- putObjectRetention:completionHandler:</option>
+		
 		<option value="//api/name/putObjectTagging:">- putObjectTagging:</option>
 		
 		<option value="//api/name/putObjectTagging:completionHandler:">- putObjectTagging:completionHandler:</option>
+		
+		<option value="//api/name/putPublicAccessBlock:">- putPublicAccessBlock:</option>
+		
+		<option value="//api/name/putPublicAccessBlock:completionHandler:">- putPublicAccessBlock:completionHandler:</option>
 		
 		<option value="//api/name/replicateObject:">- replicateObject:</option>
 		
@@ -1832,7 +1872,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Deletes the cors configuration information set for the bucket.</p>
+				<p>Deletes the CORS configuration information set for the bucket.</p>
 
 			</div>
 			
@@ -1900,7 +1940,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Deletes the cors configuration information set for the bucket.</p>
+				<p>Deletes the CORS configuration information set for the bucket.</p>
 
 			</div>
 			
@@ -2654,7 +2694,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Deletes the replication configuration from the bucket.</p>
+				<p> Deletes the replication configuration from the bucket. For information about replication configuration, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>
 
 			</div>
 			
@@ -2722,7 +2762,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Deletes the replication configuration from the bucket.</p>
+				<p> Deletes the replication configuration from the bucket. For information about replication configuration, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>
 
 			</div>
 			
@@ -3480,6 +3520,143 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/deletePublicAccessBlock:" title="deletePublicAccessBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deletePublicAccessBlock:">&ndash;&nbsp;deletePublicAccessBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the <code>PublicAccessBlock</code> configuration from an Amazon S3 bucket.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)deletePublicAccessBlock:(AWSS3DeletePublicAccessBlockRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeletePublicAccessBlock service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3DeletePublicAccessBlockRequest.html">AWSS3DeletePublicAccessBlockRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/deletePublicAccessBlock:completionHandler:" title="deletePublicAccessBlock:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/deletePublicAccessBlock:completionHandler:">&ndash;&nbsp;deletePublicAccessBlock:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Removes the <code>PublicAccessBlock</code> configuration from an Amazon S3 bucket.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)deletePublicAccessBlock:(AWSS3DeletePublicAccessBlockRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DeletePublicAccessBlock service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3DeletePublicAccessBlockRequest.html">AWSS3DeletePublicAccessBlockRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/getBucketAccelerateConfiguration:" title="getBucketAccelerateConfiguration:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/getBucketAccelerateConfiguration:">&ndash;&nbsp;getBucketAccelerateConfiguration:</a></code>
 </h3>
@@ -3917,7 +4094,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the cors configuration for the bucket.</p>
+				<p>Returns the CORS configuration for the bucket.</p>
 
 			</div>
 			
@@ -3987,7 +4164,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Returns the cors configuration for the bucket.</p>
+				<p>Returns the CORS configuration for the bucket.</p>
 
 			</div>
 			
@@ -5468,6 +5645,148 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/getBucketPolicyStatus:" title="getBucketPolicyStatus:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getBucketPolicyStatus:">&ndash;&nbsp;getBucketPolicyStatus:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3GetBucketPolicyStatusOutput*&gt; *)getBucketPolicyStatus:(AWSS3GetBucketPolicyStatusRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetBucketPolicyStatus service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSS3GetBucketPolicyStatusOutput</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetBucketPolicyStatusRequest.html">AWSS3GetBucketPolicyStatusRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3GetBucketPolicyStatusOutput.html">AWSS3GetBucketPolicyStatusOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getBucketPolicyStatus:completionHandler:" title="getBucketPolicyStatus:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getBucketPolicyStatus:completionHandler:">&ndash;&nbsp;getBucketPolicyStatus:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getBucketPolicyStatus:(AWSS3GetBucketPolicyStatusRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSS3GetBucketPolicyStatusOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetBucketPolicyStatus service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetBucketPolicyStatusRequest.html">AWSS3GetBucketPolicyStatusRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3GetBucketPolicyStatusOutput.html">AWSS3GetBucketPolicyStatusOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/getBucketReplication:" title="getBucketReplication:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/getBucketReplication:">&ndash;&nbsp;getBucketReplication:</a></code>
 </h3>
@@ -5481,6 +5800,8 @@
 			<div class="method-subsection brief-description">
 				<p>Returns the replication configuration of a bucket.</p>
 
+
+<p><note><p> It can take a while to propagate the put or delete a replication configuration to all Amazon S3 systems. Therefore, a get request soon after put or delete can return a wrong result. </p></note></p>
 			</div>
 			
 		    
@@ -5551,6 +5872,8 @@
 			<div class="method-subsection brief-description">
 				<p>Returns the replication configuration of a bucket.</p>
 
+
+<p><note><p> It can take a while to propagate the put or delete a replication configuration to all Amazon S3 systems. Therefore, a get request soon after put or delete can return a wrong result. </p></note></p>
 			</div>
 			
 		    
@@ -6462,6 +6785,432 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/getObjectLegalHold:" title="getObjectLegalHold:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getObjectLegalHold:">&ndash;&nbsp;getObjectLegalHold:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets an object's current Legal Hold status.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3GetObjectLegalHoldOutput*&gt; *)getObjectLegalHold:(AWSS3GetObjectLegalHoldRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetObjectLegalHold service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSS3GetObjectLegalHoldOutput</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectLegalHoldRequest.html">AWSS3GetObjectLegalHoldRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectLegalHoldOutput.html">AWSS3GetObjectLegalHoldOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getObjectLegalHold:completionHandler:" title="getObjectLegalHold:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getObjectLegalHold:completionHandler:">&ndash;&nbsp;getObjectLegalHold:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets an object's current Legal Hold status.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getObjectLegalHold:(AWSS3GetObjectLegalHoldRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSS3GetObjectLegalHoldOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetObjectLegalHold service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectLegalHoldRequest.html">AWSS3GetObjectLegalHoldRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectLegalHoldOutput.html">AWSS3GetObjectLegalHoldOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getObjectLockConfiguration:" title="getObjectLockConfiguration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getObjectLockConfiguration:">&ndash;&nbsp;getObjectLockConfiguration:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3GetObjectLockConfigurationOutput*&gt; *)getObjectLockConfiguration:(AWSS3GetObjectLockConfigurationRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetObjectLockConfiguration service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSS3GetObjectLockConfigurationOutput</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectLockConfigurationRequest.html">AWSS3GetObjectLockConfigurationRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectLockConfigurationOutput.html">AWSS3GetObjectLockConfigurationOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getObjectLockConfiguration:completionHandler:" title="getObjectLockConfiguration:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getObjectLockConfiguration:completionHandler:">&ndash;&nbsp;getObjectLockConfiguration:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getObjectLockConfiguration:(AWSS3GetObjectLockConfigurationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSS3GetObjectLockConfigurationOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetObjectLockConfiguration service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectLockConfigurationRequest.html">AWSS3GetObjectLockConfigurationRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectLockConfigurationOutput.html">AWSS3GetObjectLockConfigurationOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getObjectRetention:" title="getObjectRetention:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getObjectRetention:">&ndash;&nbsp;getObjectRetention:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves an object's retention settings.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3GetObjectRetentionOutput*&gt; *)getObjectRetention:(AWSS3GetObjectRetentionRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetObjectRetention service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSS3GetObjectRetentionOutput</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectRetentionRequest.html">AWSS3GetObjectRetentionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectRetentionOutput.html">AWSS3GetObjectRetentionOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getObjectRetention:completionHandler:" title="getObjectRetention:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getObjectRetention:completionHandler:">&ndash;&nbsp;getObjectRetention:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves an object's retention settings.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getObjectRetention:(AWSS3GetObjectRetentionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSS3GetObjectRetentionOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetObjectRetention service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectRetentionRequest.html">AWSS3GetObjectRetentionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3GetObjectRetentionOutput.html">AWSS3GetObjectRetentionOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/getObjectTagging:" title="getObjectTagging:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/getObjectTagging:">&ndash;&nbsp;getObjectTagging:</a></code>
 </h3>
@@ -6731,6 +7480,148 @@
 					<li><code><p><a href="../Classes/AWSS3GetObjectTorrentRequest.html">AWSS3GetObjectTorrentRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSS3GetObjectTorrentOutput.html">AWSS3GetObjectTorrentOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getPublicAccessBlock:" title="getPublicAccessBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getPublicAccessBlock:">&ndash;&nbsp;getPublicAccessBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3GetPublicAccessBlockOutput*&gt; *)getPublicAccessBlock:(AWSS3GetPublicAccessBlockRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetPublicAccessBlock service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSS3GetPublicAccessBlockOutput</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetPublicAccessBlockRequest.html">AWSS3GetPublicAccessBlockRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3GetPublicAccessBlockOutput.html">AWSS3GetPublicAccessBlockOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getPublicAccessBlock:completionHandler:" title="getPublicAccessBlock:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getPublicAccessBlock:completionHandler:">&ndash;&nbsp;getPublicAccessBlock:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getPublicAccessBlock:(AWSS3GetPublicAccessBlockRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSS3GetPublicAccessBlockOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetPublicAccessBlock service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3GetPublicAccessBlockRequest.html">AWSS3GetPublicAccessBlockRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3GetPublicAccessBlockOutput.html">AWSS3GetPublicAccessBlockOutput</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -7503,6 +8394,8 @@
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
 					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
+					
 					<li><code><p><a href="../Classes/AWSS3ListBucketsOutput.html">AWSS3ListBucketsOutput</a></p></code></li>
 					
 				</ul>
@@ -7572,6 +8465,8 @@
 			<div class="method-subsection see-also-section">
 				<h4 class="method-subtitle">See Also</h4>
 				<ul>
+					
+					<li><code><p><a href="../Classes/AWSRequest.html">AWSRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSS3ListBucketsOutput.html">AWSS3ListBucketsOutput</a></p></code></li>
 					
@@ -8721,7 +9616,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Sets the cors configuration for a bucket.</p>
+				<p>Sets the CORS configuration for a bucket.</p>
 
 			</div>
 			
@@ -8789,7 +9684,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Sets the cors configuration for a bucket.</p>
+				<p>Sets the CORS configuration for a bucket.</p>
 
 			</div>
 			
@@ -10091,7 +10986,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p> Creates a new replication configuration (or replaces an existing one, if present). For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>
+				<p> Creates a replication configuration or replaces an existing one. For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>
 
 			</div>
 			
@@ -10159,7 +11054,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p> Creates a new replication configuration (or replaces an existing one, if present). For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>
+				<p> Creates a replication configuration or replaces an existing one. For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>
 
 			</div>
 			
@@ -11049,6 +11944,432 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/putObjectLegalHold:" title="putObjectLegalHold:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putObjectLegalHold:">&ndash;&nbsp;putObjectLegalHold:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Applies a Legal Hold configuration to the specified object.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3PutObjectLegalHoldOutput*&gt; *)putObjectLegalHold:(AWSS3PutObjectLegalHoldRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutObjectLegalHold service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSS3PutObjectLegalHoldOutput</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectLegalHoldRequest.html">AWSS3PutObjectLegalHoldRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectLegalHoldOutput.html">AWSS3PutObjectLegalHoldOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putObjectLegalHold:completionHandler:" title="putObjectLegalHold:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putObjectLegalHold:completionHandler:">&ndash;&nbsp;putObjectLegalHold:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Applies a Legal Hold configuration to the specified object.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)putObjectLegalHold:(AWSS3PutObjectLegalHoldRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSS3PutObjectLegalHoldOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutObjectLegalHold service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectLegalHoldRequest.html">AWSS3PutObjectLegalHoldRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectLegalHoldOutput.html">AWSS3PutObjectLegalHoldOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putObjectLockConfiguration:" title="putObjectLockConfiguration:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putObjectLockConfiguration:">&ndash;&nbsp;putObjectLockConfiguration:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3PutObjectLockConfigurationOutput*&gt; *)putObjectLockConfiguration:(AWSS3PutObjectLockConfigurationRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutObjectLockConfiguration service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSS3PutObjectLockConfigurationOutput</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectLockConfigurationRequest.html">AWSS3PutObjectLockConfigurationRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectLockConfigurationOutput.html">AWSS3PutObjectLockConfigurationOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putObjectLockConfiguration:completionHandler:" title="putObjectLockConfiguration:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putObjectLockConfiguration:completionHandler:">&ndash;&nbsp;putObjectLockConfiguration:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)putObjectLockConfiguration:(AWSS3PutObjectLockConfigurationRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSS3PutObjectLockConfigurationOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutObjectLockConfiguration service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectLockConfigurationRequest.html">AWSS3PutObjectLockConfigurationRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectLockConfigurationOutput.html">AWSS3PutObjectLockConfigurationOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putObjectRetention:" title="putObjectRetention:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putObjectRetention:">&ndash;&nbsp;putObjectRetention:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Places an Object Retention configuration on an object.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSS3PutObjectRetentionOutput*&gt; *)putObjectRetention:(AWSS3PutObjectRetentionRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutObjectRetention service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSS3PutObjectRetentionOutput</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectRetentionRequest.html">AWSS3PutObjectRetentionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectRetentionOutput.html">AWSS3PutObjectRetentionOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putObjectRetention:completionHandler:" title="putObjectRetention:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putObjectRetention:completionHandler:">&ndash;&nbsp;putObjectRetention:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Places an Object Retention configuration on an object.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)putObjectRetention:(AWSS3PutObjectRetentionRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSS3PutObjectRetentionOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutObjectRetention service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectRetentionRequest.html">AWSS3PutObjectRetentionRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSS3PutObjectRetentionOutput.html">AWSS3PutObjectRetentionOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/putObjectTagging:" title="putObjectTagging:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/putObjectTagging:">&ndash;&nbsp;putObjectTagging:</a></code>
 </h3>
@@ -11176,6 +12497,143 @@
 					<li><code><p><a href="../Classes/AWSS3PutObjectTaggingRequest.html">AWSS3PutObjectTaggingRequest</a></p></code></li>
 					
 					<li><code><p><a href="../Classes/AWSS3PutObjectTaggingOutput.html">AWSS3PutObjectTaggingOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putPublicAccessBlock:" title="putPublicAccessBlock:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putPublicAccessBlock:">&ndash;&nbsp;putPublicAccessBlock:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask *)putPublicAccessBlock:(AWSS3PutPublicAccessBlockRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutPublicAccessBlock service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3PutPublicAccessBlockRequest.html">AWSS3PutPublicAccessBlockRequest</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSS3Service.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/putPublicAccessBlock:completionHandler:" title="putPublicAccessBlock:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/putPublicAccessBlock:completionHandler:">&ndash;&nbsp;putPublicAccessBlock:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)putPublicAccessBlock:(AWSS3PutPublicAccessBlockRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the PutPublicAccessBlock service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSS3PutPublicAccessBlockRequest.html">AWSS3PutPublicAccessBlockRequest</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -11779,7 +13237,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-01-16</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-02-08</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

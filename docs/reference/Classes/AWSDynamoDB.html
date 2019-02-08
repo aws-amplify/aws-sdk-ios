@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.8.4 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -185,6 +185,14 @@
 		<option value="//api/name/tagResource:">- tagResource:</option>
 		
 		<option value="//api/name/tagResource:completionHandler:">- tagResource:completionHandler:</option>
+		
+		<option value="//api/name/transactGetItems:">- transactGetItems:</option>
+		
+		<option value="//api/name/transactGetItems:completionHandler:">- transactGetItems:completionHandler:</option>
+		
+		<option value="//api/name/transactWriteItems:">- transactWriteItems:</option>
+		
+		<option value="//api/name/transactWriteItems:completionHandler:">- transactWriteItems:completionHandler:</option>
 		
 		<option value="//api/name/untagResource:">- untagResource:</option>
 		
@@ -697,7 +705,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBBatchGetItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBBatchGetItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -769,7 +777,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -846,7 +854,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBBatchWriteItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBBatchWriteItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -915,7 +923,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -1661,7 +1669,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBDeleteItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBDeleteItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorTransactionConflict</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -1737,7 +1745,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorTransactionConflict</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -2240,7 +2248,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>DescribeEndpoints</p>
+				<p>Returns the regional endpoint information.</p>
+
 			</div>
 			
 		    
@@ -2309,7 +2318,8 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>DescribeEndpoints</p>
+				<p>Returns the regional endpoint information.</p>
+
 			</div>
 			
 		    
@@ -3169,7 +3179,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBGetItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBGetItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -3239,7 +3249,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -3902,7 +3912,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBPutItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBPutItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorTransactionConflict</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -3971,7 +3981,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorTransactionConflict</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -4054,7 +4064,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBQueryOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBQueryOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -4129,7 +4139,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -4548,7 +4558,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBScanOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBScanOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -4627,7 +4637,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -4793,6 +4803,326 @@
 				<ul>
 					
 					<li><code><p><a href="../Classes/AWSDynamoDBTagResourceInput.html">AWSDynamoDBTagResourceInput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/transactGetItems:" title="transactGetItems:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/transactGetItems:">&ndash;&nbsp;transactGetItems:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><code>TransactGetItems</code> is a synchronous operation that atomically retrieves multiple items from one or more tables (but not from indexes) in a single account and region. A <code>TransactGetItems</code> call can contain up to 10 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure that specifies an item to retrieve from a table in the account and region. A call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one AWS account or region.</p>
+
+
+<p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following is true:</p>
+
+
+<ul><li><p>A conflicting operation is in the process of updating an item to be read.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSDynamoDBTransactGetItemsOutput*&gt; *)transactGetItems:(AWSDynamoDBTransactGetItemsInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TransactGetItems service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBTransactGetItemsOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorTransactionCanceled</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSDynamoDBTransactGetItemsInput.html">AWSDynamoDBTransactGetItemsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSDynamoDBTransactGetItemsOutput.html">AWSDynamoDBTransactGetItemsOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/transactGetItems:completionHandler:" title="transactGetItems:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/transactGetItems:completionHandler:">&ndash;&nbsp;transactGetItems:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><code>TransactGetItems</code> is a synchronous operation that atomically retrieves multiple items from one or more tables (but not from indexes) in a single account and region. A <code>TransactGetItems</code> call can contain up to 10 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure that specifies an item to retrieve from a table in the account and region. A call to <code>TransactGetItems</code> cannot retrieve items from tables in more than one AWS account or region.</p>
+
+
+<p>DynamoDB rejects the entire <code>TransactGetItems</code> request if any of the following is true:</p>
+
+
+<ul><li><p>A conflicting operation is in the process of updating an item to be read.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)transactGetItems:(AWSDynamoDBTransactGetItemsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBTransactGetItemsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TransactGetItems service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorTransactionCanceled</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSDynamoDBTransactGetItemsInput.html">AWSDynamoDBTransactGetItemsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSDynamoDBTransactGetItemsOutput.html">AWSDynamoDBTransactGetItemsOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/transactWriteItems:" title="transactWriteItems:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/transactWriteItems:">&ndash;&nbsp;transactWriteItems:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><code>TransactWriteItems</code> is a synchronous write operation that groups up to 10 action requests. These actions can target items in different tables, but not in different AWS accounts or regions, and no two actions can target the same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same item.</p>
+
+
+<p>The actions are completed atomically so that either all of them succeed, or all of them fail. They are defined by the following objects:</p>
+
+
+<ul><li><p><code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a new item. This structure specifies the primary key of the item to be written, the name of the table to write it in, an optional condition expression that must be satisfied for the write to succeed, a list of the item's attributes, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to update an existing item. This structure specifies the primary key of the item to be updated, the name of the table where it resides, an optional condition expression that must be satisfied for the update to succeed, an expression that defines one or more attributes to be updated, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to delete an existing item. This structure specifies the primary key of the item to be deleted, the name of the table where it resides, an optional condition expression that must be satisfied for the deletion to succeed, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not being modified by the transaction. This structure specifies the primary key of the item to be checked, the name of the table where it resides, a condition expression that must be satisfied for the transaction to succeed, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li></ul>
+
+
+<p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the following is true:</p>
+
+
+<ul><li><p>A condition in one of the condition expressions is not met.</p></li><li><p>A conflicting operation is in the process of updating the same item.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>An item size becomes too large (bigger than 400 KB), a Local Secondary Index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSDynamoDBTransactWriteItemsOutput*&gt; *)transactWriteItems:(AWSDynamoDBTransactWriteItemsInput *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TransactWriteItems service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBTransactWriteItemsOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorTransactionCanceled</code>, <code>AWSDynamoDBErrorTransactionInProgress</code>, <code>AWSDynamoDBErrorIdempotentParameterMismatch</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSDynamoDBTransactWriteItemsInput.html">AWSDynamoDBTransactWriteItemsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSDynamoDBTransactWriteItemsOutput.html">AWSDynamoDBTransactWriteItemsOutput</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSDynamoDBService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/transactWriteItems:completionHandler:" title="transactWriteItems:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/transactWriteItems:completionHandler:">&ndash;&nbsp;transactWriteItems:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p><code>TransactWriteItems</code> is a synchronous write operation that groups up to 10 action requests. These actions can target items in different tables, but not in different AWS accounts or regions, and no two actions can target the same item. For example, you cannot both <code>ConditionCheck</code> and <code>Update</code> the same item.</p>
+
+
+<p>The actions are completed atomically so that either all of them succeed, or all of them fail. They are defined by the following objects:</p>
+
+
+<ul><li><p><code>Put</code>  &#x97;   Initiates a <code>PutItem</code> operation to write a new item. This structure specifies the primary key of the item to be written, the name of the table to write it in, an optional condition expression that must be satisfied for the write to succeed, a list of the item's attributes, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Update</code>  &#x97;   Initiates an <code>UpdateItem</code> operation to update an existing item. This structure specifies the primary key of the item to be updated, the name of the table where it resides, an optional condition expression that must be satisfied for the update to succeed, an expression that defines one or more attributes to be updated, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>Delete</code>  &#x97;   Initiates a <code>DeleteItem</code> operation to delete an existing item. This structure specifies the primary key of the item to be deleted, the name of the table where it resides, an optional condition expression that must be satisfied for the deletion to succeed, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li><li><p><code>ConditionCheck</code>  &#x97;   Applies a condition to an item that is not being modified by the transaction. This structure specifies the primary key of the item to be checked, the name of the table where it resides, a condition expression that must be satisfied for the transaction to succeed, and a field indicating whether or not to retrieve the item's attributes if the condition is not met.</p></li></ul>
+
+
+<p>DynamoDB rejects the entire <code>TransactWriteItems</code> request if any of the following is true:</p>
+
+
+<ul><li><p>A condition in one of the condition expressions is not met.</p></li><li><p>A conflicting operation is in the process of updating the same item.</p></li><li><p>There is insufficient provisioned capacity for the transaction to be completed.</p></li><li><p>An item size becomes too large (bigger than 400 KB), a Local Secondary Index (LSI) becomes too large, or a similar validation error occurs because of changes made by the transaction.</p></li><li><p>There is a user error, such as an invalid data format.</p></li></ul>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)transactWriteItems:(AWSDynamoDBTransactWriteItemsInput *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSDynamoDBTransactWriteItemsOutput *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the TransactWriteItems service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorTransactionCanceled</code>, <code>AWSDynamoDBErrorTransactionInProgress</code>, <code>AWSDynamoDBErrorIdempotentParameterMismatch</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSDynamoDBTransactWriteItemsInput.html">AWSDynamoDBTransactWriteItemsInput</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSDynamoDBTransactWriteItemsOutput.html">AWSDynamoDBTransactWriteItemsOutput</a></p></code></li>
 					
 				</ul>
 			</div>
@@ -5433,7 +5763,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBUpdateItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSDynamoDBUpdateItemOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorTransactionConflict</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
 			</div>
 			
 
@@ -5503,7 +5833,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSDynamoDBErrorDomain</code> domain and the following error code: <code>AWSDynamoDBErrorConditionalCheckFailed</code>, <code>AWSDynamoDBErrorProvisionedThroughputExceeded</code>, <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorItemCollectionSizeLimitExceeded</code>, <code>AWSDynamoDBErrorTransactionConflict</code>, <code>AWSDynamoDBErrorRequestLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -5867,7 +6197,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-01-16</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-02-08</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

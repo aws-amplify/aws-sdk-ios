@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.8.4 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -146,6 +146,10 @@
 		
 		<option value="//api/name/describeMetricFilters:completionHandler:">- describeMetricFilters:completionHandler:</option>
 		
+		<option value="//api/name/describeQueries:">- describeQueries:</option>
+		
+		<option value="//api/name/describeQueries:completionHandler:">- describeQueries:completionHandler:</option>
+		
 		<option value="//api/name/describeResourcePolicies:">- describeResourcePolicies:</option>
 		
 		<option value="//api/name/describeResourcePolicies:completionHandler:">- describeResourcePolicies:completionHandler:</option>
@@ -165,6 +169,18 @@
 		<option value="//api/name/getLogEvents:">- getLogEvents:</option>
 		
 		<option value="//api/name/getLogEvents:completionHandler:">- getLogEvents:completionHandler:</option>
+		
+		<option value="//api/name/getLogGroupFields:">- getLogGroupFields:</option>
+		
+		<option value="//api/name/getLogGroupFields:completionHandler:">- getLogGroupFields:completionHandler:</option>
+		
+		<option value="//api/name/getLogRecord:">- getLogRecord:</option>
+		
+		<option value="//api/name/getLogRecord:completionHandler:">- getLogRecord:completionHandler:</option>
+		
+		<option value="//api/name/getQueryResults:">- getQueryResults:</option>
+		
+		<option value="//api/name/getQueryResults:completionHandler:">- getQueryResults:completionHandler:</option>
 		
 		<option value="//api/name/listTagsLogGroup:">- listTagsLogGroup:</option>
 		
@@ -197,6 +213,14 @@
 		<option value="//api/name/putSubscriptionFilter:">- putSubscriptionFilter:</option>
 		
 		<option value="//api/name/putSubscriptionFilter:completionHandler:">- putSubscriptionFilter:completionHandler:</option>
+		
+		<option value="//api/name/startQuery:">- startQuery:</option>
+		
+		<option value="//api/name/startQuery:completionHandler:">- startQuery:completionHandler:</option>
+		
+		<option value="//api/name/stopQuery:">- stopQuery:</option>
+		
+		<option value="//api/name/stopQuery:completionHandler:">- stopQuery:completionHandler:</option>
 		
 		<option value="//api/name/tagLogGroup:">- tagLogGroup:</option>
 		
@@ -3113,6 +3137,148 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/describeQueries:" title="describeQueries:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeQueries:">&ndash;&nbsp;describeQueries:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have been executed recently in this account. You can request all queries, or limit it to queries of a specific log group or queries with a certain status.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLogsDescribeQueriesResponse*&gt; *)describeQueries:(AWSLogsDescribeQueriesRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeQueries service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLogsDescribeQueriesResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsDescribeQueriesRequest.html">AWSLogsDescribeQueriesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsDescribeQueriesResponse.html">AWSLogsDescribeQueriesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/describeQueries:completionHandler:" title="describeQueries:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/describeQueries:completionHandler:">&ndash;&nbsp;describeQueries:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have been executed recently in this account. You can request all queries, or limit it to queries of a specific log group or queries with a certain status.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)describeQueries:(AWSLogsDescribeQueriesRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsDescribeQueriesResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the DescribeQueries service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsDescribeQueriesRequest.html">AWSLogsDescribeQueriesRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsDescribeQueriesResponse.html">AWSLogsDescribeQueriesResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/describeResourcePolicies:" title="describeResourcePolicies:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/describeResourcePolicies:">&ndash;&nbsp;describeResourcePolicies:</a></code>
 </h3>
@@ -3842,6 +4008,456 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/getLogGroupFields:" title="getLogGroupFields:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getLogGroupFields:">&ndash;&nbsp;getLogGroupFields:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field. The search is limited to a time period that you specify.</p>
+
+
+<p>In the results, fields that start with @ are fields generated by CloudWatch Logs. For example, <code>@timestamp</code> is the timestamp of each log event.</p>
+
+
+<p>The response results are sorted by the frequency percentage, starting with the highest percentage.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLogsGetLogGroupFieldsResponse*&gt; *)getLogGroupFields:(AWSLogsGetLogGroupFieldsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetLogGroupFields service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLogsGetLogGroupFieldsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorLimitExceeded</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetLogGroupFieldsRequest.html">AWSLogsGetLogGroupFieldsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetLogGroupFieldsResponse.html">AWSLogsGetLogGroupFieldsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getLogGroupFields:completionHandler:" title="getLogGroupFields:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getLogGroupFields:completionHandler:">&ndash;&nbsp;getLogGroupFields:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field. The search is limited to a time period that you specify.</p>
+
+
+<p>In the results, fields that start with @ are fields generated by CloudWatch Logs. For example, <code>@timestamp</code> is the timestamp of each log event.</p>
+
+
+<p>The response results are sorted by the frequency percentage, starting with the highest percentage.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getLogGroupFields:(AWSLogsGetLogGroupFieldsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsGetLogGroupFieldsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetLogGroupFields service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorLimitExceeded</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetLogGroupFieldsRequest.html">AWSLogsGetLogGroupFieldsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetLogGroupFieldsResponse.html">AWSLogsGetLogGroupFieldsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getLogRecord:" title="getLogRecord:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getLogRecord:">&ndash;&nbsp;getLogRecord:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves all the fields and values of a single log event. All fields are retrieved, even if the original query that produced the <code>logRecordPointer</code> retrieved only a subset of fields. Fields are returned as field name/field value pairs.</p>
+
+
+<p>Additionally, the entire unparsed log event is returned within <code>@message</code>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLogsGetLogRecordResponse*&gt; *)getLogRecord:(AWSLogsGetLogRecordRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetLogRecord service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLogsGetLogRecordResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorLimitExceeded</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetLogRecordRequest.html">AWSLogsGetLogRecordRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetLogRecordResponse.html">AWSLogsGetLogRecordResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getLogRecord:completionHandler:" title="getLogRecord:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getLogRecord:completionHandler:">&ndash;&nbsp;getLogRecord:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Retrieves all the fields and values of a single log event. All fields are retrieved, even if the original query that produced the <code>logRecordPointer</code> retrieved only a subset of fields. Fields are returned as field name/field value pairs.</p>
+
+
+<p>Additionally, the entire unparsed log event is returned within <code>@message</code>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getLogRecord:(AWSLogsGetLogRecordRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsGetLogRecordResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetLogRecord service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorLimitExceeded</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetLogRecordRequest.html">AWSLogsGetLogRecordRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetLogRecordResponse.html">AWSLogsGetLogRecordResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getQueryResults:" title="getQueryResults:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getQueryResults:">&ndash;&nbsp;getQueryResults:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the results from the specified query. If the query is in progress, partial results of that current execution are returned. Only the fields requested in the query are returned.</p>
+
+
+<p><code>GetQueryResults</code> does not start a query execution. To run a query, use .</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLogsGetQueryResultsResponse*&gt; *)getQueryResults:(AWSLogsGetQueryResultsRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetQueryResults service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLogsGetQueryResultsResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetQueryResultsRequest.html">AWSLogsGetQueryResultsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetQueryResultsResponse.html">AWSLogsGetQueryResultsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/getQueryResults:completionHandler:" title="getQueryResults:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/getQueryResults:completionHandler:">&ndash;&nbsp;getQueryResults:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Returns the results from the specified query. If the query is in progress, partial results of that current execution are returned. Only the fields requested in the query are returned.</p>
+
+
+<p><code>GetQueryResults</code> does not start a query execution. To run a query, use .</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)getQueryResults:(AWSLogsGetQueryResultsRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsGetQueryResultsResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the GetQueryResults service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetQueryResultsRequest.html">AWSLogsGetQueryResultsRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsGetQueryResultsResponse.html">AWSLogsGetQueryResultsResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/listTagsLogGroup:" title="listTagsLogGroup:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/listTagsLogGroup:">&ndash;&nbsp;listTagsLogGroup:</a></code>
 </h3>
@@ -4289,7 +4905,7 @@
 <p>The batch of events must satisfy the following constraints:</p>
 
 
-<ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their time stamp. The time stamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul>
+<ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul>
 
 
 <p>If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause is an invalid AWS access key ID or secret key. </p>
@@ -4371,7 +4987,7 @@
 <p>The batch of events must satisfy the following constraints:</p>
 
 
-<ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their time stamp. The time stamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul>
+<ul><li><p>The maximum batch size is 1,048,576 bytes, and this size is calculated as the sum of all event messages in UTF-8, plus 26 bytes for each log event.</p></li><li><p>None of the log events in the batch can be more than 2 hours in the future.</p></li><li><p>None of the log events in the batch can be older than 14 days or the retention period of the log group.</p></li><li><p>The log events in the batch must be in chronological ordered by their timestamp. The timestamp is the time the event occurred, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. (In AWS Tools for PowerShell and the AWS SDK for .NET, the timestamp is specified in .NET format: yyyy-mm-ddThh:mm:ss. For example, 2017-09-15T13:45:30.) </p></li><li><p>The maximum number of log events in a batch is 10,000.</p></li><li><p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p></li></ul>
 
 
 <p>If a call to PutLogEvents returns "UnrecognizedClientException" the most likely cause is an invalid AWS access key ID or secret key. </p>
@@ -5006,6 +5622,296 @@
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/startQuery:" title="startQuery:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startQuery:">&ndash;&nbsp;startQuery:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query, and the query string to use.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLogsStartQueryResponse*&gt; *)startQuery:(AWSLogsStartQueryRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StartQuery service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLogsStartQueryResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorMalformedQuery</code>, <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorLimitExceeded</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsStartQueryRequest.html">AWSLogsStartQueryRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsStartQueryResponse.html">AWSLogsStartQueryResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/startQuery:completionHandler:" title="startQuery:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/startQuery:completionHandler:">&ndash;&nbsp;startQuery:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Schedules a query of a log group using CloudWatch Logs Insights. You specify the log group and time range to query, and the query string to use.</p>
+
+
+<p>For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html">CloudWatch Logs Insights Query Syntax</a>.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)startQuery:(AWSLogsStartQueryRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsStartQueryResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StartQuery service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorMalformedQuery</code>, <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorLimitExceeded</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsStartQueryRequest.html">AWSLogsStartQueryRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsStartQueryResponse.html">AWSLogsStartQueryResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopQuery:" title="stopQuery:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopQuery:">&ndash;&nbsp;stopQuery:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation returns an error indicating that the specified query is not running.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (AWSTask&lt;AWSLogsStopQueryResponse*&gt; *)stopQuery:(AWSLogsStopQueryRequest *)<em>request</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StopQuery service method.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+			<div class="method-subsection return">
+				<h4 class="method-subtitle parameter-title">Return Value</h4>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSLogsStopQueryResponse</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsStopQueryRequest.html">AWSLogsStopQueryRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsStopQueryResponse.html">AWSLogsStopQueryResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/stopQuery:completionHandler:" title="stopQuery:completionHandler:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/stopQuery:completionHandler:">&ndash;&nbsp;stopQuery:completionHandler:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>Stops a CloudWatch Logs Insights query that is in progress. If the query has already ended, the operation returns an error indicating that the specified query is not running.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)stopQuery:(AWSLogsStopQueryRequest *)<em>request</em> completionHandler:(void ( ^ _Nullable ) ( AWSLogsStopQueryResponse *_Nullable response , NSError *_Nullable error ))<em>completionHandler</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>request</code></th>
+						<td><p>A container for the necessary parameters to execute the StopQuery service method.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completionHandler</code></th>
+						<td><p>The completion handler to call when the load request is complete.
+                          <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSLogsErrorDomain</code> domain and the following error code: <code>AWSLogsErrorInvalidParameter</code>, <code>AWSLogsErrorResourceNotFound</code>, <code>AWSLogsErrorServiceUnavailable</code>.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/AWSLogsStopQueryRequest.html">AWSLogsStopQueryRequest</a></p></code></li>
+					
+					<li><code><p><a href="../Classes/AWSLogsStopQueryResponse.html">AWSLogsStopQueryResponse</a></p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLogsService.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/tagLogGroup:" title="tagLogGroup:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/tagLogGroup:">&ndash;&nbsp;tagLogGroup:</a></code>
 </h3>
@@ -5454,7 +6360,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-01-16</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-02-08</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

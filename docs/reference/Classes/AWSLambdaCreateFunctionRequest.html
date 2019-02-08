@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.8.4 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.0 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -69,6 +69,8 @@
 		<option value="//api/name/functionName">functionName</option>
 		
 		<option value="//api/name/handler">handler</option>
+		
+		<option value="//api/name/layers">layers</option>
 		
 		<option value="//api/name/memorySize">memorySize</option>
 		
@@ -187,7 +189,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/dlq.html">Dead Letter Queues</a>. </p>
+				<p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/dlq.html">Dead Letter Queues</a>.</p>
 
 			</div>
 			
@@ -313,13 +315,13 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the lambda function.</p>
+				<p>The name of the Lambda function.</p>
 
 
 <p class="title"><b>Name formats</b></p>
 
 
-<ul><li><p><b>Function name</b> - [code](#//api/name/code)MyFunction</code>.</p></li><li><p><b>Function ARN</b> - [code](#//api/name/code)arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - [code](#//api/name/code)123456789012:function:MyFunction</code>.</p></li></ul>
+<ul><li><p><b>Function name</b> - [code](#//api/name/code)my-function</code>.</p></li><li><p><b>Function ARN</b> - [code](#//api/name/code)arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - [code](#//api/name/code)123456789012:function:my-function</code>.</p></li></ul>
 
 
 <p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -364,7 +366,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The name of the method within your code that Lambda calls to execute your function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
+				<p>The name of the method within your code that Lambda calls to execute your function. The format includes the filename and can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
 
 			</div>
 			
@@ -406,13 +408,55 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The ARN of the KMS key used to encrypt your function's environment variables. If not provided, AWS Lambda will use a default service key.</p>
+				<p>The ARN of the AWS Key Management Service key used to encrypt your function's environment variables. If not provided, AWS Lambda uses a default service key.</p>
 
 			</div>
 			
 		    
 
 			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSString *KMSKeyArn</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">AWSLambdaModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/layers" title="layers"></a>
+	<h3 class="method-title"><code><a href="#//api/name/layers">&nbsp;&nbsp;layers</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>A list of <a href="http://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">function layers</a> to add to the function's execution environment. Specify each layer by ARN, including the version.</p>
+
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, strong) NSArray&lt;NSString*&gt; *layers</code></div>
 
 		    
 			
@@ -532,7 +576,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The Amazon Resource Name (ARN) of the function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>.</p>
+				<p>The Amazon Resource Name (ARN) of the function's execution role.</p>
 
 			</div>
 			
@@ -574,7 +618,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The runtime version for the function.</p>
+				<p>The identifier of the function's <a href="http://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime</a>.</p>
 
 			</div>
 			
@@ -616,7 +660,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>The list of tags (key-value pairs) assigned to the new function. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">Tagging Lambda Functions</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+				<p>A list of <a href="http://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a> to apply to the function.</p>
 
 			</div>
 			
@@ -742,7 +786,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>If your Lambda function accesses resources in a VPC, you provide this parameter identifying the list of security group IDs and subnet IDs. These must belong to the same VPC. You must provide at least one security group and one subnet ID.</p>
+				<p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/vpc.html">VPC Settings</a>.</p>
 
 			</div>
 			
@@ -787,7 +831,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-01-16</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-02-08</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
