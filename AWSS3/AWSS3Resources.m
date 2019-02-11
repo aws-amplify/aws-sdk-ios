@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -166,7 +166,7 @@
       },\
       \"input\":{\"shape\":\"DeleteBucketCorsRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketDELETEcors.html\",\
-      \"documentation\":\"<p>Deletes the cors configuration information set for the bucket.</p>\"\
+      \"documentation\":\"<p>Deletes the CORS configuration information set for the bucket.</p>\"\
     },\
     \"DeleteBucketEncryption\":{\
       \"name\":\"DeleteBucketEncryption\",\
@@ -222,7 +222,7 @@
         \"requestUri\":\"/{Bucket}?replication\"\
       },\
       \"input\":{\"shape\":\"DeleteBucketReplicationRequest\"},\
-      \"documentation\":\"<p>Deletes the replication configuration from the bucket.</p>\"\
+      \"documentation\":\"<p> Deletes the replication configuration from the bucket. For information about replication configuration, see <a href=\\\" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html\\\">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>\"\
     },\
     \"DeleteBucketTagging\":{\
       \"name\":\"DeleteBucketTagging\",\
@@ -277,6 +277,15 @@
       \"documentation\":\"<p>This operation enables you to delete multiple objects from a bucket using a single HTTP request. You may specify up to 1000 keys.</p>\",\
       \"alias\":\"DeleteMultipleObjects\"\
     },\
+    \"DeletePublicAccessBlock\":{\
+      \"name\":\"DeletePublicAccessBlock\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/{Bucket}?publicAccessBlock\"\
+      },\
+      \"input\":{\"shape\":\"DeletePublicAccessBlockRequest\"},\
+      \"documentation\":\"<p>Removes the <code>PublicAccessBlock</code> configuration from an Amazon S3 bucket.</p>\"\
+    },\
     \"GetBucketAccelerateConfiguration\":{\
       \"name\":\"GetBucketAccelerateConfiguration\",\
       \"http\":{\
@@ -317,7 +326,7 @@
       \"input\":{\"shape\":\"GetBucketCorsRequest\"},\
       \"output\":{\"shape\":\"GetBucketCorsOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETcors.html\",\
-      \"documentation\":\"<p>Returns the cors configuration for the bucket.</p>\"\
+      \"documentation\":\"<p>Returns the CORS configuration for the bucket.</p>\"\
     },\
     \"GetBucketEncryption\":{\
       \"name\":\"GetBucketEncryption\",\
@@ -426,6 +435,16 @@
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketGETpolicy.html\",\
       \"documentation\":\"<p>Returns the policy of a specified bucket.</p>\"\
     },\
+    \"GetBucketPolicyStatus\":{\
+      \"name\":\"GetBucketPolicyStatus\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/{Bucket}?policyStatus\"\
+      },\
+      \"input\":{\"shape\":\"GetBucketPolicyStatusRequest\"},\
+      \"output\":{\"shape\":\"GetBucketPolicyStatusOutput\"},\
+      \"documentation\":\"<p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.</p>\"\
+    },\
     \"GetBucketReplication\":{\
       \"name\":\"GetBucketReplication\",\
       \"http\":{\
@@ -434,7 +453,7 @@
       },\
       \"input\":{\"shape\":\"GetBucketReplicationRequest\"},\
       \"output\":{\"shape\":\"GetBucketReplicationOutput\"},\
-      \"documentation\":\"<p>Returns the replication configuration of a bucket.</p>\"\
+      \"documentation\":\"<p>Returns the replication configuration of a bucket.</p> <note> <p> It can take a while to propagate the put or delete a replication configuration to all Amazon S3 systems. Therefore, a get request soon after put or delete can return a wrong result. </p> </note>\"\
     },\
     \"GetBucketRequestPayment\":{\
       \"name\":\"GetBucketRequestPayment\",\
@@ -508,6 +527,36 @@
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectGETacl.html\",\
       \"documentation\":\"<p>Returns the access control list (ACL) of an object.</p>\"\
     },\
+    \"GetObjectLegalHold\":{\
+      \"name\":\"GetObjectLegalHold\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/{Bucket}/{Key+}?legal-hold\"\
+      },\
+      \"input\":{\"shape\":\"GetObjectLegalHoldRequest\"},\
+      \"output\":{\"shape\":\"GetObjectLegalHoldOutput\"},\
+      \"documentation\":\"<p>Gets an object's current Legal Hold status.</p>\"\
+    },\
+    \"GetObjectLockConfiguration\":{\
+      \"name\":\"GetObjectLockConfiguration\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/{Bucket}?object-lock\"\
+      },\
+      \"input\":{\"shape\":\"GetObjectLockConfigurationRequest\"},\
+      \"output\":{\"shape\":\"GetObjectLockConfigurationOutput\"},\
+      \"documentation\":\"<p>Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket.</p>\"\
+    },\
+    \"GetObjectRetention\":{\
+      \"name\":\"GetObjectRetention\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/{Bucket}/{Key+}?retention\"\
+      },\
+      \"input\":{\"shape\":\"GetObjectRetentionRequest\"},\
+      \"output\":{\"shape\":\"GetObjectRetentionOutput\"},\
+      \"documentation\":\"<p>Retrieves an object's retention settings.</p>\"\
+    },\
     \"GetObjectTagging\":{\
       \"name\":\"GetObjectTagging\",\
       \"http\":{\
@@ -528,6 +577,16 @@
       \"output\":{\"shape\":\"GetObjectTorrentOutput\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectGETtorrent.html\",\
       \"documentation\":\"<p>Return torrent files from a bucket.</p>\"\
+    },\
+    \"GetPublicAccessBlock\":{\
+      \"name\":\"GetPublicAccessBlock\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/{Bucket}?publicAccessBlock\"\
+      },\
+      \"input\":{\"shape\":\"GetPublicAccessBlockRequest\"},\
+      \"output\":{\"shape\":\"GetPublicAccessBlockOutput\"},\
+      \"documentation\":\"<p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>\"\
     },\
     \"HeadBucket\":{\
       \"name\":\"HeadBucket\",\
@@ -695,7 +754,7 @@
       },\
       \"input\":{\"shape\":\"PutBucketCorsRequest\"},\
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTBucketPUTcors.html\",\
-      \"documentation\":\"<p>Sets the cors configuration for a bucket.</p>\"\
+      \"documentation\":\"<p>Sets the CORS configuration for a bucket.</p>\"\
     },\
     \"PutBucketEncryption\":{\
       \"name\":\"PutBucketEncryption\",\
@@ -791,7 +850,7 @@
         \"requestUri\":\"/{Bucket}?replication\"\
       },\
       \"input\":{\"shape\":\"PutBucketReplicationRequest\"},\
-      \"documentation\":\"<p> Creates a new replication configuration (or replaces an existing one, if present). For more information, see <a href=\\\" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html\\\">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>\"\
+      \"documentation\":\"<p> Creates a replication configuration or replaces an existing one. For more information, see <a href=\\\" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html\\\">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>\"\
     },\
     \"PutBucketRequestPayment\":{\
       \"name\":\"PutBucketRequestPayment\",\
@@ -858,6 +917,36 @@
       \"documentationUrl\":\"http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTObjectPUTacl.html\",\
       \"documentation\":\"<p>uses the acl subresource to set the access control list (ACL) permissions for an object that already exists in a bucket</p>\"\
     },\
+    \"PutObjectLegalHold\":{\
+      \"name\":\"PutObjectLegalHold\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/{Bucket}/{Key+}?legal-hold\"\
+      },\
+      \"input\":{\"shape\":\"PutObjectLegalHoldRequest\"},\
+      \"output\":{\"shape\":\"PutObjectLegalHoldOutput\"},\
+      \"documentation\":\"<p>Applies a Legal Hold configuration to the specified object.</p>\"\
+    },\
+    \"PutObjectLockConfiguration\":{\
+      \"name\":\"PutObjectLockConfiguration\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/{Bucket}?object-lock\"\
+      },\
+      \"input\":{\"shape\":\"PutObjectLockConfigurationRequest\"},\
+      \"output\":{\"shape\":\"PutObjectLockConfigurationOutput\"},\
+      \"documentation\":\"<p>Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket.</p>\"\
+    },\
+    \"PutObjectRetention\":{\
+      \"name\":\"PutObjectRetention\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/{Bucket}/{Key+}?retention\"\
+      },\
+      \"input\":{\"shape\":\"PutObjectRetentionRequest\"},\
+      \"output\":{\"shape\":\"PutObjectRetentionOutput\"},\
+      \"documentation\":\"<p>Places an Object Retention configuration on an object.</p>\"\
+    },\
     \"PutObjectTagging\":{\
       \"name\":\"PutObjectTagging\",\
       \"http\":{\
@@ -867,6 +956,15 @@
       \"input\":{\"shape\":\"PutObjectTaggingRequest\"},\
       \"output\":{\"shape\":\"PutObjectTaggingOutput\"},\
       \"documentation\":\"<p>Sets the supplied tag-set to an object that already exists in a bucket</p>\"\
+    },\
+    \"PutPublicAccessBlock\":{\
+      \"name\":\"PutPublicAccessBlock\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/{Bucket}?publicAccessBlock\"\
+      },\
+      \"input\":{\"shape\":\"PutPublicAccessBlockRequest\"},\
+      \"documentation\":\"<p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>\"\
     },\
     \"RestoreObject\":{\
       \"name\":\"RestoreObject\",\
@@ -1003,7 +1101,7 @@
           \"documentation\":\"<p>The override value for the owner of the replica object.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Container for information regarding the access control for replicas.</p>\"\
+      \"documentation\":\"<p>A container for information about access control for replicas.</p>\"\
     },\
     \"AccountId\":{\"type\":\"string\"},\
     \"AllowQuotedRecordDelimiter\":{\"type\":\"boolean\"},\
@@ -1197,7 +1295,9 @@
         \"cn-northwest-1\",\
         \"us-gov-west-1\",\
         \"eu-central-1\",\
-        \"ca-central-1\"\
+        \"ca-central-1\",\
+        \"us-gov-east-1\",\
+        \"eu-north-1\"\
       ]\
     },\
     \"BucketLoggingStatus\":{\
@@ -1229,6 +1329,7 @@
         \"locationName\":\"Bucket\"\
       }\
     },\
+    \"BypassGovernanceRetention\":{\"type\":\"boolean\"},\
     \"BytesProcessed\":{\"type\":\"long\"},\
     \"BytesReturned\":{\"type\":\"long\"},\
     \"BytesScanned\":{\"type\":\"long\"},\
@@ -1289,19 +1390,19 @@
         },\
         \"Comments\":{\
           \"shape\":\"Comments\",\
-          \"documentation\":\"<p>Single character used to indicate a row should be ignored when present at the start of a row.</p>\"\
+          \"documentation\":\"<p>The single character used to indicate a row should be ignored when present at the start of a row.</p>\"\
         },\
         \"QuoteEscapeCharacter\":{\
           \"shape\":\"QuoteEscapeCharacter\",\
-          \"documentation\":\"<p>Single character used for escaping the quote character inside an already escaped value.</p>\"\
+          \"documentation\":\"<p>The single character used for escaping the quote character inside an already escaped value.</p>\"\
         },\
         \"RecordDelimiter\":{\
           \"shape\":\"RecordDelimiter\",\
-          \"documentation\":\"<p>Value used to separate individual records.</p>\"\
+          \"documentation\":\"<p>The value used to separate individual records.</p>\"\
         },\
         \"FieldDelimiter\":{\
           \"shape\":\"FieldDelimiter\",\
-          \"documentation\":\"<p>Value used to separate individual fields in a record.</p>\"\
+          \"documentation\":\"<p>The value used to separate individual fields in a record.</p>\"\
         },\
         \"QuoteCharacter\":{\
           \"shape\":\"QuoteCharacter\",\
@@ -1323,19 +1424,19 @@
         },\
         \"QuoteEscapeCharacter\":{\
           \"shape\":\"QuoteEscapeCharacter\",\
-          \"documentation\":\"<p>Single character used for escaping the quote character inside an already escaped value.</p>\"\
+          \"documentation\":\"<p>Th single character used for escaping the quote character inside an already escaped value.</p>\"\
         },\
         \"RecordDelimiter\":{\
           \"shape\":\"RecordDelimiter\",\
-          \"documentation\":\"<p>Value used to separate individual records.</p>\"\
+          \"documentation\":\"<p>The value used to separate individual records.</p>\"\
         },\
         \"FieldDelimiter\":{\
           \"shape\":\"FieldDelimiter\",\
-          \"documentation\":\"<p>Value used to separate individual fields in a record.</p>\"\
+          \"documentation\":\"<p>The value used to separate individual fields in a record.</p>\"\
         },\
         \"QuoteCharacter\":{\
           \"shape\":\"QuoteCharacter\",\
-          \"documentation\":\"<p>Value used for escaping where the field delimiter is part of the value.</p>\"\
+          \"documentation\":\"<p>The value used for escaping where the field delimiter is part of the value.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes how CSV-formatted results are formatted.</p>\"\
@@ -1766,6 +1867,24 @@
           \"documentation\":\"<p>The tag-set for the object destination object this value must be used in conjunction with the TaggingDirective. The tag-set must be encoded as URL Query parameters</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-tagging\"\
+        },\
+        \"ObjectLockMode\":{\
+          \"shape\":\"ObjectLockMode\",\
+          \"documentation\":\"<p>The Object Lock mode that you want to apply to the copied object.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-mode\"\
+        },\
+        \"ObjectLockRetainUntilDate\":{\
+          \"shape\":\"ObjectLockRetainUntilDate\",\
+          \"documentation\":\"<p>The date and time when you want the copied object's Object Lock to expire.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-retain-until-date\"\
+        },\
+        \"ObjectLockLegalHoldStatus\":{\
+          \"shape\":\"ObjectLockLegalHoldStatus\",\
+          \"documentation\":\"<p>Specifies whether you want to apply a Legal Hold to the copied object.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-legal-hold\"\
         }\
       }\
     },\
@@ -1873,6 +1992,12 @@
           \"documentation\":\"<p>Allows grantee to write the ACL for the applicable bucket.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-grant-write-acp\"\
+        },\
+        \"ObjectLockEnabledForBucket\":{\
+          \"shape\":\"ObjectLockEnabledForBucket\",\
+          \"documentation\":\"<p>Specifies whether you want S3 Object Lock to be enabled for the new bucket.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-bucket-object-lock-enabled\"\
         }\
       },\
       \"payload\":\"CreateBucketConfiguration\"\
@@ -2077,6 +2202,24 @@
           \"documentation\":\"<p>The tag-set for the object. The tag-set must be encoded as URL Query parameters</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-tagging\"\
+        },\
+        \"ObjectLockMode\":{\
+          \"shape\":\"ObjectLockMode\",\
+          \"documentation\":\"<p>Specifies the Object Lock mode that you want to apply to the uploaded object.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-mode\"\
+        },\
+        \"ObjectLockRetainUntilDate\":{\
+          \"shape\":\"ObjectLockRetainUntilDate\",\
+          \"documentation\":\"<p>Specifies the date and time when you want the Object Lock to expire.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-retain-until-date\"\
+        },\
+        \"ObjectLockLegalHoldStatus\":{\
+          \"shape\":\"ObjectLockLegalHoldStatus\",\
+          \"documentation\":\"<p>Specifies whether you want to apply a Legal Hold to the uploaded object.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-legal-hold\"\
         }\
       }\
     },\
@@ -2087,6 +2230,24 @@
     },\
     \"Days\":{\"type\":\"integer\"},\
     \"DaysAfterInitiation\":{\"type\":\"integer\"},\
+    \"DefaultRetention\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Mode\":{\
+          \"shape\":\"ObjectLockRetentionMode\",\
+          \"documentation\":\"<p>The default Object Lock retention mode you want to apply to new objects placed in the specified bucket.</p>\"\
+        },\
+        \"Days\":{\
+          \"shape\":\"Days\",\
+          \"documentation\":\"<p>The number of days that you want to specify for the default retention period.</p>\"\
+        },\
+        \"Years\":{\
+          \"shape\":\"Years\",\
+          \"documentation\":\"<p>The number of years that you want to specify for the default retention period.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The container element for specifying the default Object Lock retention settings for new objects placed in the specified bucket.</p>\"\
+    },\
     \"Delete\":{\
       \"type\":\"structure\",\
       \"required\":[\"Objects\"],\
@@ -2215,7 +2376,7 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"<p>Deletes the replication subresource associated with the specified bucket.</p> <note> <p>There is usually some time lag before replication configuration deletion is fully propagated to all the Amazon S3 systems.</p> </note> <p> For more information, see <a href=\\\" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html\\\">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>\",\
+          \"documentation\":\"<p> The bucket name. </p> <note> <p>It can take a while to propagate the deletion of a replication configuration to all Amazon S3 systems.</p> </note>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         }\
@@ -2282,7 +2443,7 @@
       \"members\":{\
         \"Status\":{\
           \"shape\":\"DeleteMarkerReplicationStatus\",\
-          \"documentation\":\"<p>The status of the delete marker replication.</p> <note> <p> In the current implementation, Amazon S3 does not replicate the delete markers. Therefore, the status must be <code>Disabled</code>. </p> </note>\"\
+          \"documentation\":\"<p>The status of the delete marker replication.</p> <note> <p> In the current implementation, Amazon S3 doesn't replicate the delete markers. The status must be <code>Disabled</code>. </p> </note>\"\
         }\
       },\
       \"documentation\":\"<p>Specifies whether Amazon S3 should replicate delete makers.</p>\"\
@@ -2355,6 +2516,12 @@
           \"shape\":\"RequestPayer\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-request-payer\"\
+        },\
+        \"BypassGovernanceRetention\":{\
+          \"shape\":\"BypassGovernanceRetention\",\
+          \"documentation\":\"<p>Indicates whether S3 Object Lock should bypass Governance-mode restrictions to process this operation.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-bypass-governance-retention\"\
         }\
       }\
     },\
@@ -2436,9 +2603,27 @@
           \"shape\":\"RequestPayer\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-request-payer\"\
+        },\
+        \"BypassGovernanceRetention\":{\
+          \"shape\":\"BypassGovernanceRetention\",\
+          \"documentation\":\"<p>Specifies whether you want to delete this object even if it has a Governance-type Object Lock in place. You must have sufficient permissions to perform this operation.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-bypass-governance-retention\"\
         }\
       },\
       \"payload\":\"Delete\"\
+    },\
+    \"DeletePublicAccessBlockRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Bucket\"],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to delete. </p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        }\
+      }\
     },\
     \"DeletedObject\":{\
       \"type\":\"structure\",\
@@ -2462,26 +2647,26 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"<p> Amazon resource name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule. </p> <p> If you have multiple rules in your replication configuration, all rules must specify the same bucket as the destination. A replication configuration can replicate objects only to one destination bucket. </p>\"\
+          \"documentation\":\"<p> The Amazon Resource Name (ARN) of the bucket where you want Amazon S3 to store replicas of the object identified by the rule. </p> <p> If there are multiple rules in your replication configuration, all rules must specify the same bucket as the destination. A replication configuration can replicate objects to only one destination bucket. </p>\"\
         },\
         \"Account\":{\
           \"shape\":\"AccountId\",\
-          \"documentation\":\"<p> Account ID of the destination bucket. Currently Amazon S3 verifies this value only if Access Control Translation is enabled. </p> <p> In a cross-account scenario, if you tell Amazon S3 to change replica ownership to the AWS account that owns the destination bucket by adding the <code>AccessControlTranslation</code> element, this is the account ID of the destination bucket owner. </p>\"\
+          \"documentation\":\"<p>The account ID of the destination bucket. Currently, Amazon S3 verifies this value only if Access Control Translation is enabled. </p> <p>In a cross-account scenario, if you change replica ownership to the AWS account that owns the destination bucket by adding the <code>AccessControlTranslation</code> element, this is the account ID of the owner of the destination bucket. </p>\"\
         },\
         \"StorageClass\":{\
           \"shape\":\"StorageClass\",\
-          \"documentation\":\"<p>The class of storage used to store the object.</p>\"\
+          \"documentation\":\"<p> The class of storage used to store the object. By default Amazon S3 uses storage class of the source object when creating a replica. </p>\"\
         },\
         \"AccessControlTranslation\":{\
           \"shape\":\"AccessControlTranslation\",\
-          \"documentation\":\"<p> Container for information regarding the access control for replicas. </p> <p> Use only in a cross-account scenario, where source and destination bucket owners are not the same, when you want to change replica ownership to the AWS account that owns the destination bucket. If you don't add this element to the replication configuration, the replicas are owned by same AWS account that owns the source object. </p>\"\
+          \"documentation\":\"<p>A container for information about access control for replicas. </p> <p>Use this element only in a cross-account scenario where source and destination bucket owners are not the same to change replica ownership to the AWS account that owns the destination bucket. If you don't add this element to the replication configuration, the replicas are owned by same AWS account that owns the source object. </p>\"\
         },\
         \"EncryptionConfiguration\":{\
           \"shape\":\"EncryptionConfiguration\",\
-          \"documentation\":\"<p> Container that provides encryption-related information. You must specify this element if the <code>SourceSelectionCriteria</code> is specified. </p>\"\
+          \"documentation\":\"<p>A container that provides information about encryption. If <code>SourceSelectionCriteria</code> is specified, you must specify this element. </p>\"\
         }\
       },\
-      \"documentation\":\"<p>Container for replication destination information.</p>\"\
+      \"documentation\":\"<p>A container for information about the replication destination.</p>\"\
     },\
     \"DisplayName\":{\"type\":\"string\"},\
     \"ETag\":{\"type\":\"string\"},\
@@ -2516,10 +2701,10 @@
       \"members\":{\
         \"ReplicaKmsKeyID\":{\
           \"shape\":\"ReplicaKmsKeyID\",\
-          \"documentation\":\"<p> The ID of the AWS KMS key for the region where the destination bucket resides. Amazon S3 uses this key to encrypt the replica object. </p>\"\
+          \"documentation\":\"<p>The ID of the AWS KMS key for the AWS Region where the destination bucket resides. Amazon S3 uses this key to encrypt the replica object. </p>\"\
         }\
       },\
-      \"documentation\":\"<p>Container for information regarding encryption based configuration for replicas.</p>\"\
+      \"documentation\":\"<p>A container for information about the encryption-based configuration for replicas.</p>\"\
     },\
     \"EndEvent\":{\
       \"type\":\"structure\",\
@@ -2553,7 +2738,7 @@
     },\
     \"Event\":{\
       \"type\":\"string\",\
-      \"documentation\":\"<p>Bucket event for which to send notifications.</p>\",\
+      \"documentation\":\"<p>The bucket event for which to send notifications.</p>\",\
       \"enum\":[\
         \"s3:ReducedRedundancyLostObject\",\
         \"s3:ObjectCreated:*\",\
@@ -2563,7 +2748,9 @@
         \"s3:ObjectCreated:CompleteMultipartUpload\",\
         \"s3:ObjectRemoved:*\",\
         \"s3:ObjectRemoved:Delete\",\
-        \"s3:ObjectRemoved:DeleteMarkerCreated\"\
+        \"s3:ObjectRemoved:DeleteMarkerCreated\",\
+        \"s3:ObjectRestore:Post\",\
+        \"s3:ObjectRestore:Completed\"\
       ]\
     },\
     \"EventList\":{\
@@ -2607,16 +2794,16 @@
       \"members\":{\
         \"Name\":{\
           \"shape\":\"FilterRuleName\",\
-          \"documentation\":\"<p>Object key name prefix or suffix identifying one or more objects to which the filtering rule applies. Maximum prefix length can be up to 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\\\">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>\"\
+          \"documentation\":\"<p>The object key name prefix or suffix identifying one or more objects to which the filtering rule applies. The maximum prefix length is 1,024 characters. Overlapping prefixes and suffixes are not supported. For more information, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\\\">Configuring Event Notifications</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>\"\
         },\
         \"Value\":{\"shape\":\"FilterRuleValue\"}\
       },\
-      \"documentation\":\"<p>Container for key value pair that defines the criteria for the filter rule.</p>\"\
+      \"documentation\":\"<p>A container for a key value pair that defines the criteria for the filter rule.</p>\"\
     },\
     \"FilterRuleList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"FilterRule\"},\
-      \"documentation\":\"<p>A list of containers for key value pair that defines the criteria for the filter rule.</p>\",\
+      \"documentation\":\"<p>A list of containers for the key value pair that defines the criteria for the filter rule.</p>\",\
       \"flattened\":true\
     },\
     \"FilterRuleName\":{\
@@ -2909,6 +3096,28 @@
         }\
       }\
     },\
+    \"GetBucketPolicyStatusOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PolicyStatus\":{\
+          \"shape\":\"PolicyStatus\",\
+          \"documentation\":\"<p>The policy status for the specified bucket.</p>\"\
+        }\
+      },\
+      \"payload\":\"PolicyStatus\"\
+    },\
+    \"GetBucketPolicyStatusRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Bucket\"],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The name of the Amazon S3 bucket whose policy status you want to retrieve.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        }\
+      }\
+    },\
     \"GetBucketReplicationOutput\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3053,6 +3262,70 @@
           \"shape\":\"RequestPayer\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-request-payer\"\
+        }\
+      }\
+    },\
+    \"GetObjectLegalHoldOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LegalHold\":{\
+          \"shape\":\"ObjectLockLegalHold\",\
+          \"documentation\":\"<p>The current Legal Hold status for the specified object.</p>\"\
+        }\
+      },\
+      \"payload\":\"LegalHold\"\
+    },\
+    \"GetObjectLegalHoldRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Bucket\",\
+        \"Key\"\
+      ],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The bucket containing the object whose Legal Hold status you want to retrieve.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        },\
+        \"Key\":{\
+          \"shape\":\"ObjectKey\",\
+          \"documentation\":\"<p>The key name for the object whose Legal Hold status you want to retrieve.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Key\"\
+        },\
+        \"VersionId\":{\
+          \"shape\":\"ObjectVersionId\",\
+          \"documentation\":\"<p>The version ID of the object whose Legal Hold status you want to retrieve.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"versionId\"\
+        },\
+        \"RequestPayer\":{\
+          \"shape\":\"RequestPayer\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-request-payer\"\
+        }\
+      }\
+    },\
+    \"GetObjectLockConfigurationOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ObjectLockConfiguration\":{\
+          \"shape\":\"ObjectLockConfiguration\",\
+          \"documentation\":\"<p>The specified bucket's Object Lock configuration.</p>\"\
+        }\
+      },\
+      \"payload\":\"ObjectLockConfiguration\"\
+    },\
+    \"GetObjectLockConfigurationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Bucket\"],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The bucket whose Object Lock configuration you want to retrieve.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
         }\
       }\
     },\
@@ -3221,6 +3494,24 @@
           \"documentation\":\"<p>The number of tags, if any, on the object.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-tagging-count\"\
+        },\
+        \"ObjectLockMode\":{\
+          \"shape\":\"ObjectLockMode\",\
+          \"documentation\":\"<p>The Object Lock mode currently in place for this object.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-mode\"\
+        },\
+        \"ObjectLockRetainUntilDate\":{\
+          \"shape\":\"ObjectLockRetainUntilDate\",\
+          \"documentation\":\"<p>The date and time when this object's Object Lock will expire.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-retain-until-date\"\
+        },\
+        \"ObjectLockLegalHoldStatus\":{\
+          \"shape\":\"ObjectLockLegalHoldStatus\",\
+          \"documentation\":\"<p>Indicates whether this object has an active legal hold. This field is only returned if you have permission to view an object's legal hold status.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-legal-hold\"\
         }\
       },\
       \"payload\":\"Body\"\
@@ -3345,6 +3636,48 @@
         }\
       }\
     },\
+    \"GetObjectRetentionOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Retention\":{\
+          \"shape\":\"ObjectLockRetention\",\
+          \"documentation\":\"<p>The container element for an object's retention settings.</p>\"\
+        }\
+      },\
+      \"payload\":\"Retention\"\
+    },\
+    \"GetObjectRetentionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Bucket\",\
+        \"Key\"\
+      ],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The bucket containing the object whose retention settings you want to retrieve.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        },\
+        \"Key\":{\
+          \"shape\":\"ObjectKey\",\
+          \"documentation\":\"<p>The key name for the object whose retention settings you want to retrieve.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Key\"\
+        },\
+        \"VersionId\":{\
+          \"shape\":\"ObjectVersionId\",\
+          \"documentation\":\"<p>The version ID for the object whose retention settings you want to retrieve.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"versionId\"\
+        },\
+        \"RequestPayer\":{\
+          \"shape\":\"RequestPayer\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-request-payer\"\
+        }\
+      }\
+    },\
     \"GetObjectTaggingOutput\":{\
       \"type\":\"structure\",\
       \"required\":[\"TagSet\"],\
@@ -3417,6 +3750,28 @@
           \"shape\":\"RequestPayer\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-request-payer\"\
+        }\
+      }\
+    },\
+    \"GetPublicAccessBlockOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PublicAccessBlockConfiguration\":{\
+          \"shape\":\"PublicAccessBlockConfiguration\",\
+          \"documentation\":\"<p>The <code>PublicAccessBlock</code> configuration currently in effect for this Amazon S3 bucket.</p>\"\
+        }\
+      },\
+      \"payload\":\"PublicAccessBlockConfiguration\"\
+    },\
+    \"GetPublicAccessBlockRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Bucket\"],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to retrieve. </p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
         }\
       }\
     },\
@@ -3643,6 +3998,24 @@
           \"documentation\":\"<p>The count of parts this object has.</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-mp-parts-count\"\
+        },\
+        \"ObjectLockMode\":{\
+          \"shape\":\"ObjectLockMode\",\
+          \"documentation\":\"<p>The Object Lock mode currently in place for this object.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-mode\"\
+        },\
+        \"ObjectLockRetainUntilDate\":{\
+          \"shape\":\"ObjectLockRetainUntilDate\",\
+          \"documentation\":\"<p>The date and time when this object's Object Lock will expire.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-retain-until-date\"\
+        },\
+        \"ObjectLockLegalHoldStatus\":{\
+          \"shape\":\"ObjectLockLegalHoldStatus\",\
+          \"documentation\":\"<p>The Legal Hold status for the specified object.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-legal-hold\"\
         }\
       }\
     },\
@@ -3844,12 +4217,12 @@
       \"members\":{\
         \"SSES3\":{\
           \"shape\":\"SSES3\",\
-          \"documentation\":\"<p>Specifies the use of SSE-S3 to encrypt delievered Inventory reports.</p>\",\
+          \"documentation\":\"<p>Specifies the use of SSE-S3 to encrypt delivered Inventory reports.</p>\",\
           \"locationName\":\"SSE-S3\"\
         },\
         \"SSEKMS\":{\
           \"shape\":\"SSEKMS\",\
-          \"documentation\":\"<p>Specifies the use of SSE-KMS to encrypt delievered Inventory reports.</p>\",\
+          \"documentation\":\"<p>Specifies the use of SSE-KMS to encrypt delivered Inventory reports.</p>\",\
           \"locationName\":\"SSE-KMS\"\
         }\
       },\
@@ -3869,7 +4242,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"CSV\",\
-        \"ORC\"\
+        \"ORC\",\
+        \"Parquet\"\
       ]\
     },\
     \"InventoryFrequency\":{\
@@ -3896,7 +4270,10 @@
         \"ETag\",\
         \"IsMultipartUploaded\",\
         \"ReplicationStatus\",\
-        \"EncryptionStatus\"\
+        \"EncryptionStatus\",\
+        \"ObjectLockRetainUntilDate\",\
+        \"ObjectLockMode\",\
+        \"ObjectLockLegalHoldStatus\"\
       ]\
     },\
     \"InventoryOptionalFields\":{\
@@ -3947,6 +4324,7 @@
     },\
     \"IsEnabled\":{\"type\":\"boolean\"},\
     \"IsLatest\":{\"type\":\"boolean\"},\
+    \"IsPublic\":{\"type\":\"boolean\"},\
     \"IsTruncated\":{\"type\":\"boolean\"},\
     \"JSONInput\":{\
       \"type\":\"structure\",\
@@ -3988,7 +4366,7 @@
         \"Id\":{\"shape\":\"NotificationId\"},\
         \"LambdaFunctionArn\":{\
           \"shape\":\"LambdaFunctionArn\",\
-          \"documentation\":\"<p>Lambda cloud function ARN that Amazon S3 can invoke when it detects events of the specified type.</p>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Lambda cloud function that Amazon S3 can invoke when it detects events of the specified type.</p>\",\
           \"locationName\":\"CloudFunction\"\
         },\
         \"Events\":{\
@@ -3997,7 +4375,7 @@
         },\
         \"Filter\":{\"shape\":\"NotificationConfigurationFilter\"}\
       },\
-      \"documentation\":\"<p>Container for specifying the AWS Lambda notification configuration.</p>\"\
+      \"documentation\":\"<p>A container for specifying the configuration for AWS Lambda notifications.</p>\"\
     },\
     \"LambdaFunctionConfigurationList\":{\
       \"type\":\"list\",\
@@ -4888,7 +5266,7 @@
           \"documentation\":\"<p>The class of storage used to store the object.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA or GLACIER storage class at a specific period in the object's lifetime.</p>\"\
+      \"documentation\":\"<p>Container for the transition rule that describes when noncurrent objects transition to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class. If your bucket is versioning-enabled (or versioning is suspended), you can set this action to request that Amazon S3 transition noncurrent object versions to the STANDARD_IA, ONEZONE_IA, INTELLIGENT_TIERING or GLACIER storage class at a specific period in the object's lifetime.</p>\"\
     },\
     \"NoncurrentVersionTransitionList\":{\
       \"type\":\"list\",\
@@ -4911,7 +5289,7 @@
           \"locationName\":\"CloudFunctionConfiguration\"\
         }\
       },\
-      \"documentation\":\"<p>Container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off on the bucket.</p>\"\
+      \"documentation\":\"<p>A container for specifying the notification configuration of the bucket. If this element is empty, notifications are turned off for the bucket.</p>\"\
     },\
     \"NotificationConfigurationDeprecated\":{\
       \"type\":\"structure\",\
@@ -4929,11 +5307,11 @@
           \"locationName\":\"S3Key\"\
         }\
       },\
-      \"documentation\":\"<p>Container for object key name filtering rules. For information about key name filtering, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\\\">Configuring Event Notifications</a> in the Amazon Simple Storage Service Developer Guide.</p>\"\
+      \"documentation\":\"<p>A container for object key name filtering rules. For information about key name filtering, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/NotificationHowTo.html\\\">Configuring Event Notifications</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>\"\
     },\
     \"NotificationId\":{\
       \"type\":\"string\",\
-      \"documentation\":\"<p>Optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>\"\
+      \"documentation\":\"<p>An optional unique identifier for configurations in a notification configuration. If you don't provide one, Amazon S3 will assign an ID.</p>\"\
     },\
     \"Object\":{\
       \"type\":\"structure\",\
@@ -4996,6 +5374,85 @@
       \"member\":{\"shape\":\"Object\"},\
       \"flattened\":true\
     },\
+    \"ObjectLockConfiguration\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ObjectLockEnabled\":{\
+          \"shape\":\"ObjectLockEnabled\",\
+          \"documentation\":\"<p>Indicates whether this bucket has an Object Lock configuration enabled.</p>\"\
+        },\
+        \"Rule\":{\
+          \"shape\":\"ObjectLockRule\",\
+          \"documentation\":\"<p>The Object Lock rule in place for the specified object.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The container element for Object Lock configuration parameters.</p>\"\
+    },\
+    \"ObjectLockEnabled\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"Enabled\"]\
+    },\
+    \"ObjectLockEnabledForBucket\":{\"type\":\"boolean\"},\
+    \"ObjectLockLegalHold\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Status\":{\
+          \"shape\":\"ObjectLockLegalHoldStatus\",\
+          \"documentation\":\"<p>Indicates whether the specified object has a Legal Hold in place.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A Legal Hold configuration for an object.</p>\"\
+    },\
+    \"ObjectLockLegalHoldStatus\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ON\",\
+        \"OFF\"\
+      ]\
+    },\
+    \"ObjectLockMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"GOVERNANCE\",\
+        \"COMPLIANCE\"\
+      ]\
+    },\
+    \"ObjectLockRetainUntilDate\":{\
+      \"type\":\"timestamp\",\
+      \"timestampFormat\":\"iso8601\"\
+    },\
+    \"ObjectLockRetention\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Mode\":{\
+          \"shape\":\"ObjectLockRetentionMode\",\
+          \"documentation\":\"<p>Indicates the Retention mode for the specified object.</p>\"\
+        },\
+        \"RetainUntilDate\":{\
+          \"shape\":\"Date\",\
+          \"documentation\":\"<p>The date on which this Object Lock Retention will expire.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A Retention configuration for an object.</p>\"\
+    },\
+    \"ObjectLockRetentionMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"GOVERNANCE\",\
+        \"COMPLIANCE\"\
+      ]\
+    },\
+    \"ObjectLockRule\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DefaultRetention\":{\
+          \"shape\":\"DefaultRetention\",\
+          \"documentation\":\"<p>The default retention period that you want to apply to new objects placed in the specified bucket.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The container element for an Object Lock rule.</p>\"\
+    },\
+    \"ObjectLockToken\":{\"type\":\"string\"},\
     \"ObjectNotInActiveTierError\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -5010,7 +5467,8 @@
         \"REDUCED_REDUNDANCY\",\
         \"GLACIER\",\
         \"STANDARD_IA\",\
-        \"ONEZONE_IA\"\
+        \"ONEZONE_IA\",\
+        \"INTELLIGENT_TIERING\"\
       ]\
     },\
     \"ObjectVersion\":{\
@@ -5111,7 +5569,7 @@
         },\
         \"Size\":{\
           \"shape\":\"Size\",\
-          \"documentation\":\"<p>Size of the uploaded part data.</p>\"\
+          \"documentation\":\"<p>Size in bytes of the uploaded part data.</p>\"\
         }\
       }\
     },\
@@ -5141,6 +5599,17 @@
       ]\
     },\
     \"Policy\":{\"type\":\"string\"},\
+    \"PolicyStatus\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IsPublic\":{\
+          \"shape\":\"IsPublic\",\
+          \"documentation\":\"<p>The policy status for this bucket. <code>TRUE</code> indicates that this bucket is public. <code>FALSE</code> indicates that the bucket is not public.</p>\",\
+          \"locationName\":\"IsPublic\"\
+        }\
+      },\
+      \"documentation\":\"<p>The container element for a bucket's policy status.</p>\"\
+    },\
     \"Prefix\":{\"type\":\"string\"},\
     \"Priority\":{\"type\":\"integer\"},\
     \"Progress\":{\
@@ -5148,15 +5617,15 @@
       \"members\":{\
         \"BytesScanned\":{\
           \"shape\":\"BytesScanned\",\
-          \"documentation\":\"<p>Current number of object bytes scanned.</p>\"\
+          \"documentation\":\"<p>The current number of object bytes scanned.</p>\"\
         },\
         \"BytesProcessed\":{\
           \"shape\":\"BytesProcessed\",\
-          \"documentation\":\"<p>Current number of uncompressed object bytes processed.</p>\"\
+          \"documentation\":\"<p>The current number of uncompressed object bytes processed.</p>\"\
         },\
         \"BytesReturned\":{\
           \"shape\":\"BytesReturned\",\
-          \"documentation\":\"<p>Current number of bytes of records payload data returned.</p>\"\
+          \"documentation\":\"<p>The current number of bytes of records payload data returned.</p>\"\
         }\
       }\
     },\
@@ -5177,6 +5646,31 @@
         \"http\",\
         \"https\"\
       ]\
+    },\
+    \"PublicAccessBlockConfiguration\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"BlockPublicAcls\":{\
+          \"shape\":\"Setting\",\
+          \"documentation\":\"<p>Specifies whether Amazon S3 should block public access control lists (ACLs) for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes the following behavior:</p> <ul> <li> <p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.</p> </li> <li> <p>PUT Object calls fail if the request includes a public ACL.</p> </li> </ul> <p>Enabling this setting doesn't affect existing policies or ACLs.</p>\",\
+          \"locationName\":\"BlockPublicAcls\"\
+        },\
+        \"IgnorePublicAcls\":{\
+          \"shape\":\"Setting\",\
+          \"documentation\":\"<p>Specifies whether Amazon S3 should ignore public ACLs for this bucket and objects in this bucket. Setting this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on this bucket and objects in this bucket.</p> <p>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set.</p>\",\
+          \"locationName\":\"IgnorePublicAcls\"\
+        },\
+        \"BlockPublicPolicy\":{\
+          \"shape\":\"Setting\",\
+          \"documentation\":\"<p>Specifies whether Amazon S3 should block public bucket policies for this bucket. Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket policy if the specified bucket policy allows public access. </p> <p>Enabling this setting doesn't affect existing bucket policies.</p>\",\
+          \"locationName\":\"BlockPublicPolicy\"\
+        },\
+        \"RestrictPublicBuckets\":{\
+          \"shape\":\"Setting\",\
+          \"documentation\":\"<p>Specifies whether Amazon S3 should restrict public bucket policies for this bucket. Setting this element to <code>TRUE</code> restricts access to this bucket to only AWS services and authorized users within this account if the bucket has a public policy.</p> <p>Enabling this setting doesn't affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked.</p>\",\
+          \"locationName\":\"RestrictPublicBuckets\"\
+        }\
+      }\
     },\
     \"PutBucketAccelerateConfigurationRequest\":{\
       \"type\":\"structure\",\
@@ -5754,6 +6248,106 @@
       },\
       \"payload\":\"AccessControlPolicy\"\
     },\
+    \"PutObjectLegalHoldOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RequestCharged\":{\
+          \"shape\":\"RequestCharged\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-request-charged\"\
+        }\
+      }\
+    },\
+    \"PutObjectLegalHoldRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Bucket\",\
+        \"Key\"\
+      ],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The bucket containing the object that you want to place a Legal Hold on.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        },\
+        \"Key\":{\
+          \"shape\":\"ObjectKey\",\
+          \"documentation\":\"<p>The key name for the object that you want to place a Legal Hold on.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Key\"\
+        },\
+        \"LegalHold\":{\
+          \"shape\":\"ObjectLockLegalHold\",\
+          \"documentation\":\"<p>Container element for the Legal Hold configuration you want to apply to the specified object.</p>\",\
+          \"locationName\":\"LegalHold\",\
+          \"xmlNamespace\":{\"uri\":\"http://s3.amazonaws.com/doc/2006-03-01/\"}\
+        },\
+        \"RequestPayer\":{\
+          \"shape\":\"RequestPayer\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-request-payer\"\
+        },\
+        \"VersionId\":{\
+          \"shape\":\"ObjectVersionId\",\
+          \"documentation\":\"<p>The version ID of the object that you want to place a Legal Hold on.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"versionId\"\
+        },\
+        \"ContentMD5\":{\
+          \"shape\":\"ContentMD5\",\
+          \"documentation\":\"<p>The MD5 hash for the request body.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"Content-MD5\"\
+        }\
+      },\
+      \"payload\":\"LegalHold\"\
+    },\
+    \"PutObjectLockConfigurationOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RequestCharged\":{\
+          \"shape\":\"RequestCharged\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-request-charged\"\
+        }\
+      }\
+    },\
+    \"PutObjectLockConfigurationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"Bucket\"],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The bucket whose Object Lock configuration you want to create or replace.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        },\
+        \"ObjectLockConfiguration\":{\
+          \"shape\":\"ObjectLockConfiguration\",\
+          \"documentation\":\"<p>The Object Lock configuration that you want to apply to the specified bucket.</p>\",\
+          \"locationName\":\"ObjectLockConfiguration\",\
+          \"xmlNamespace\":{\"uri\":\"http://s3.amazonaws.com/doc/2006-03-01/\"}\
+        },\
+        \"RequestPayer\":{\
+          \"shape\":\"RequestPayer\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-request-payer\"\
+        },\
+        \"Token\":{\
+          \"shape\":\"ObjectLockToken\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-bucket-object-lock-token\"\
+        },\
+        \"ContentMD5\":{\
+          \"shape\":\"ContentMD5\",\
+          \"documentation\":\"<p>The MD5 hash for the request body.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"Content-MD5\"\
+        }\
+      },\
+      \"payload\":\"ObjectLockConfiguration\"\
+    },\
     \"PutObjectOutput\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -5963,12 +6557,91 @@
         },\
         \"Tagging\":{\
           \"shape\":\"TaggingHeader\",\
-          \"documentation\":\"<p>The tag-set for the object. The tag-set must be encoded as URL Query parameters</p>\",\
+          \"documentation\":\"<p>The tag-set for the object. The tag-set must be encoded as URL Query parameters. (For example, \\\"Key1=Value1\\\")</p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-tagging\"\
+        },\
+        \"ObjectLockMode\":{\
+          \"shape\":\"ObjectLockMode\",\
+          \"documentation\":\"<p>The Object Lock mode that you want to apply to this object.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-mode\"\
+        },\
+        \"ObjectLockRetainUntilDate\":{\
+          \"shape\":\"ObjectLockRetainUntilDate\",\
+          \"documentation\":\"<p>The date and time when you want this object's Object Lock to expire.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-retain-until-date\"\
+        },\
+        \"ObjectLockLegalHoldStatus\":{\
+          \"shape\":\"ObjectLockLegalHoldStatus\",\
+          \"documentation\":\"<p>The Legal Hold status that you want to apply to the specified object.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-object-lock-legal-hold\"\
         }\
       },\
       \"payload\":\"Body\"\
+    },\
+    \"PutObjectRetentionOutput\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RequestCharged\":{\
+          \"shape\":\"RequestCharged\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-request-charged\"\
+        }\
+      }\
+    },\
+    \"PutObjectRetentionRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Bucket\",\
+        \"Key\"\
+      ],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The bucket that contains the object you want to apply this Object Retention configuration to.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        },\
+        \"Key\":{\
+          \"shape\":\"ObjectKey\",\
+          \"documentation\":\"<p>The key name for the object that you want to apply this Object Retention configuration to.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Key\"\
+        },\
+        \"Retention\":{\
+          \"shape\":\"ObjectLockRetention\",\
+          \"documentation\":\"<p>The container element for the Object Retention configuration.</p>\",\
+          \"locationName\":\"Retention\",\
+          \"xmlNamespace\":{\"uri\":\"http://s3.amazonaws.com/doc/2006-03-01/\"}\
+        },\
+        \"RequestPayer\":{\
+          \"shape\":\"RequestPayer\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-request-payer\"\
+        },\
+        \"VersionId\":{\
+          \"shape\":\"ObjectVersionId\",\
+          \"documentation\":\"<p>The version ID for the object that you want to apply this Object Retention configuration to.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"versionId\"\
+        },\
+        \"BypassGovernanceRetention\":{\
+          \"shape\":\"BypassGovernanceRetention\",\
+          \"documentation\":\"<p>Indicates whether this operation should bypass Governance-mode restrictions.j</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"x-amz-bypass-governance-retention\"\
+        },\
+        \"ContentMD5\":{\
+          \"shape\":\"ContentMD5\",\
+          \"documentation\":\"<p>The MD5 hash for the request body.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"Content-MD5\"\
+        }\
+      },\
+      \"payload\":\"Retention\"\
     },\
     \"PutObjectTaggingOutput\":{\
       \"type\":\"structure\",\
@@ -6016,6 +6689,34 @@
       },\
       \"payload\":\"Tagging\"\
     },\
+    \"PutPublicAccessBlockRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Bucket\",\
+        \"PublicAccessBlockConfiguration\"\
+      ],\
+      \"members\":{\
+        \"Bucket\":{\
+          \"shape\":\"BucketName\",\
+          \"documentation\":\"<p>The name of the Amazon S3 bucket whose <code>PublicAccessBlock</code> configuration you want to set.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"Bucket\"\
+        },\
+        \"ContentMD5\":{\
+          \"shape\":\"ContentMD5\",\
+          \"documentation\":\"<p>The MD5 hash of the <code>PutPublicAccessBlock</code> request body. </p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"Content-MD5\"\
+        },\
+        \"PublicAccessBlockConfiguration\":{\
+          \"shape\":\"PublicAccessBlockConfiguration\",\
+          \"documentation\":\"<p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. For more information about when Amazon S3 considers a bucket or object public, see <a href=\\\"https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status\\\">The Meaning of \\\"Public\\\"</a> in the <i>Amazon Simple Storage Service Developer Guide</i>.</p>\",\
+          \"locationName\":\"PublicAccessBlockConfiguration\",\
+          \"xmlNamespace\":{\"uri\":\"http://s3.amazonaws.com/doc/2006-03-01/\"}\
+        }\
+      },\
+      \"payload\":\"PublicAccessBlockConfiguration\"\
+    },\
     \"QueueArn\":{\"type\":\"string\"},\
     \"QueueConfiguration\":{\
       \"type\":\"structure\",\
@@ -6027,7 +6728,7 @@
         \"Id\":{\"shape\":\"NotificationId\"},\
         \"QueueArn\":{\
           \"shape\":\"QueueArn\",\
-          \"documentation\":\"<p>Amazon SQS queue ARN to which Amazon S3 will publish a message when it detects events of specified type.</p>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Amazon SQS queue to which Amazon S3 will publish a message when it detects events of the specified type.</p>\",\
           \"locationName\":\"Queue\"\
         },\
         \"Events\":{\
@@ -6036,7 +6737,7 @@
         },\
         \"Filter\":{\"shape\":\"NotificationConfigurationFilter\"}\
       },\
-      \"documentation\":\"<p>Container for specifying an configuration when you want Amazon S3 to publish events to an Amazon Simple Queue Service (Amazon SQS) queue.</p>\"\
+      \"documentation\":\"<p>A container for specifying the configuration for publication of messages to an Amazon Simple Queue Service (Amazon SQS) queue.when Amazon S3 detects specified events.</p>\"\
     },\
     \"QueueConfigurationDeprecated\":{\
       \"type\":\"structure\",\
@@ -6132,15 +6833,15 @@
       \"members\":{\
         \"Role\":{\
           \"shape\":\"Role\",\
-          \"documentation\":\"<p>Amazon Resource Name (ARN) of an IAM role for Amazon S3 to assume when replicating the objects.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that Amazon S3 can assume when replicating the objects.</p>\"\
         },\
         \"Rules\":{\
           \"shape\":\"ReplicationRules\",\
-          \"documentation\":\"<p>Container for one or more replication rules. Replication configuration must have at least one rule and can contain up to 1,000 rules. </p>\",\
+          \"documentation\":\"<p>A container for one or more replication rules. A replication configuration must have at least one rule and can contain a maximum of 1,000 rules. </p>\",\
           \"locationName\":\"Rule\"\
         }\
       },\
-      \"documentation\":\"<p>Container for replication rules. You can add as many as 1,000 rules. Total replication configuration size can be up to 2 MB.</p>\"\
+      \"documentation\":\"<p>A container for replication rules. You can add up to 1,000 rules. The maximum size of a replication configuration is 2 MB.</p>\"\
     },\
     \"ReplicationRule\":{\
       \"type\":\"structure\",\
@@ -6151,33 +6852,33 @@
       \"members\":{\
         \"ID\":{\
           \"shape\":\"ID\",\
-          \"documentation\":\"<p>Unique identifier for the rule. The value cannot be longer than 255 characters.</p>\"\
+          \"documentation\":\"<p>A unique identifier for the rule. The maximum value is 255 characters.</p>\"\
         },\
         \"Priority\":{\
           \"shape\":\"Priority\",\
-          \"documentation\":\"<p>The priority associated with the rule. If you specify multiple rules in a replication configuration, then Amazon S3 applies rule priority in the event there are conflicts (two or more rules identify the same object based on filter specified). The rule with higher priority takes precedence. For example,</p> <ul> <li> <p>Same object quality prefix based filter criteria If prefixes you specified in multiple rules overlap. </p> </li> <li> <p>Same object qualify tag based filter criteria specified in multiple rules</p> </li> </ul> <p>For more information, see <a href=\\\" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html\\\">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide.</p>\"\
+          \"documentation\":\"<p>The priority associated with the rule. If you specify multiple rules in a replication configuration, Amazon S3 prioritizes the rules to prevent conflicts when filtering. If two or more rules identify the same object based on a specified filter, the rule with higher priority takes precedence. For example:</p> <ul> <li> <p>Same object quality prefix based filter criteria If prefixes you specified in multiple rules overlap </p> </li> <li> <p>Same object qualify tag based filter criteria specified in multiple rules</p> </li> </ul> <p>For more information, see <a href=\\\" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html\\\">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>.</p>\"\
         },\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"<p>Object keyname prefix identifying one or more objects to which the rule applies. Maximum prefix length can be up to 1,024 characters. </p>\",\
+          \"documentation\":\"<p>An object keyname prefix that identifies the object or objects to which the rule applies. The maximum prefix length is 1,024 characters. </p>\",\
           \"deprecated\":true\
         },\
         \"Filter\":{\"shape\":\"ReplicationRuleFilter\"},\
         \"Status\":{\
           \"shape\":\"ReplicationRuleStatus\",\
-          \"documentation\":\"<p>The rule is ignored if status is not Enabled.</p>\"\
+          \"documentation\":\"<p>If status isn't enabled, the rule is ignored.</p>\"\
         },\
         \"SourceSelectionCriteria\":{\
           \"shape\":\"SourceSelectionCriteria\",\
-          \"documentation\":\"<p> Container that describes additional filters in identifying source objects that you want to replicate. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using an AWS KMS-managed key. You can choose to enable or disable replication of these objects. </p> <p> if you want Amazon S3 to replicate objects created with server-side encryption using AWS KMS-managed keys. </p>\"\
+          \"documentation\":\"<p>A container that describes additional filters for identifying the source objects that you want to replicate. You can choose to enable or disable the replication of these objects. Currently, Amazon S3 supports only the filter that you can specify for objects created with server-side encryption using an AWS KMS-Managed Key (SSE-KMS). </p> <p> If you want Amazon S3 to replicate objects created with server-side encryption using AWS KMS-Managed Keys. </p>\"\
         },\
         \"Destination\":{\
           \"shape\":\"Destination\",\
-          \"documentation\":\"<p>Container for replication destination information.</p>\"\
+          \"documentation\":\"<p>A container for information about the replication destination.</p>\"\
         },\
         \"DeleteMarkerReplication\":{\"shape\":\"DeleteMarkerReplication\"}\
       },\
-      \"documentation\":\"<p>Container for information about a particular replication rule.</p>\"\
+      \"documentation\":\"<p>A container for information about a specific replication rule.</p>\"\
     },\
     \"ReplicationRuleAndOperator\":{\
       \"type\":\"structure\",\
@@ -6195,18 +6896,18 @@
       \"members\":{\
         \"Prefix\":{\
           \"shape\":\"Prefix\",\
-          \"documentation\":\"<p>Object keyname prefix that identifies subset of objects to which the rule applies.</p>\"\
+          \"documentation\":\"<p>An object keyname prefix that identifies the subset of objects to which the rule applies.</p>\"\
         },\
         \"Tag\":{\
           \"shape\":\"Tag\",\
-          \"documentation\":\"<p>Container for specifying a tag key and value. </p> <p>The rule applies only to objects having the tag in its tagset.</p>\"\
+          \"documentation\":\"<p>A container for specifying a tag key and value. </p> <p>The rule applies only to objects that have the tag in their tag set.</p>\"\
         },\
         \"And\":{\
           \"shape\":\"ReplicationRuleAndOperator\",\
-          \"documentation\":\"<p>Container for specifying rule filters. These filters determine the subset of objects to which the rule applies. The element is required only if you specify more than one filter. For example: </p> <ul> <li> <p>You specify both a <code>Prefix</code> and a <code>Tag</code> filters. Then you wrap these in an <code>And</code> tag.</p> </li> <li> <p>You specify filter based on multiple tags. Then you wrap the <code>Tag</code> elements in an <code>And</code> tag.</p> </li> </ul>\"\
+          \"documentation\":\"<p>A container for specifying rule filters. The filters determine the subset of objects to which the rule applies. This element is required only if you specify more than one filter. For example: </p> <ul> <li> <p>If you specify both a <code>Prefix</code> and a <code>Tag</code> filter, wrap these filters in an <code>And</code> tag.</p> </li> <li> <p>If you specify a filter based on multiple tags, wrap the <code>Tag</code> elements in an <code>And</code> tag.</p> </li> </ul>\"\
         }\
       },\
-      \"documentation\":\"<p>Filter that identifies subset of objects to which the replication rule applies. A <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or an <code>And</code> child element.</p>\"\
+      \"documentation\":\"<p>A filter that identifies the subset of objects to which the replication rule applies. A <code>Filter</code> must specify exactly one <code>Prefix</code>, <code>Tag</code>, or an <code>And</code> child element.</p>\"\
     },\
     \"ReplicationRuleStatus\":{\
       \"type\":\"string\",\
@@ -6366,7 +7067,7 @@
         },\
         \"Redirect\":{\
           \"shape\":\"Redirect\",\
-          \"documentation\":\"<p>Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can can specify a different error code to return.</p>\"\
+          \"documentation\":\"<p>Container for redirect information. You can redirect requests to another host, to another page, or with another protocol. In the event of an error, you can specify a different error code to return.</p>\"\
         }\
       }\
     },\
@@ -6416,7 +7117,7 @@
           \"locationName\":\"FilterRule\"\
         }\
       },\
-      \"documentation\":\"<p>Container for object key name prefix and suffix filtering rules.</p>\"\
+      \"documentation\":\"<p>A container for object key name prefix and suffix filtering rules.</p>\"\
     },\
     \"S3Location\":{\
       \"type\":\"structure\",\
@@ -6472,7 +7173,7 @@
           \"documentation\":\"<p>Specifies the ID of the AWS Key Management Service (KMS) master encryption key to use for encrypting Inventory reports.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Specifies the use of SSE-KMS to encrypt delievered Inventory reports.</p>\",\
+      \"documentation\":\"<p>Specifies the use of SSE-KMS to encrypt delivered Inventory reports.</p>\",\
       \"locationName\":\"SSE-KMS\"\
     },\
     \"SSEKMSKeyId\":{\
@@ -6483,7 +7184,7 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"<p>Specifies the use of SSE-S3 to encrypt delievered Inventory reports.</p>\",\
+      \"documentation\":\"<p>Specifies the use of SSE-S3 to encrypt delivered Inventory reports.</p>\",\
       \"locationName\":\"SSE-S3\"\
     },\
     \"SelectObjectContentEventStream\":{\
@@ -6532,31 +7233,31 @@
       \"members\":{\
         \"Bucket\":{\
           \"shape\":\"BucketName\",\
-          \"documentation\":\"<p>The S3 Bucket.</p>\",\
+          \"documentation\":\"<p>The S3 bucket.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Bucket\"\
         },\
         \"Key\":{\
           \"shape\":\"ObjectKey\",\
-          \"documentation\":\"<p>The Object Key.</p>\",\
+          \"documentation\":\"<p>The object key.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"Key\"\
         },\
         \"SSECustomerAlgorithm\":{\
           \"shape\":\"SSECustomerAlgorithm\",\
-          \"documentation\":\"<p>The SSE Algorithm used to encrypt the object. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\\\"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>\",\
+          \"documentation\":\"<p>The SSE Algorithm used to encrypt the object. For more information, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\\\"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-algorithm\"\
         },\
         \"SSECustomerKey\":{\
           \"shape\":\"SSECustomerKey\",\
-          \"documentation\":\"<p>The SSE Customer Key. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\\\"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>\",\
+          \"documentation\":\"<p>The SSE Customer Key. For more information, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\\\"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key\"\
         },\
         \"SSECustomerKeyMD5\":{\
           \"shape\":\"SSECustomerKeyMD5\",\
-          \"documentation\":\"<p>The SSE Customer Key MD5. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\\\"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>\",\
+          \"documentation\":\"<p>The SSE Customer Key MD5. For more information, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html\\\"> Server-Side Encryption (Using Customer-Provided Encryption Keys</a>. </p>\",\
           \"location\":\"header\",\
           \"locationName\":\"x-amz-server-side-encryption-customer-key-MD5\"\
         },\
@@ -6566,7 +7267,7 @@
         },\
         \"ExpressionType\":{\
           \"shape\":\"ExpressionType\",\
-          \"documentation\":\"<p>The type of the provided expression (e.g., SQL).</p>\"\
+          \"documentation\":\"<p>The type of the provided expression (for example., SQL).</p>\"\
         },\
         \"RequestProgress\":{\
           \"shape\":\"RequestProgress\",\
@@ -6581,7 +7282,7 @@
           \"documentation\":\"<p>Describes the format of the data that you want Amazon S3 to return in response.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must also specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records, and returns only records that match the specified SQL expression. You must also specify the data serialization format for the response. For more information, go to <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html\\\">S3Select API Documentation</a>.</p>\"\
+      \"documentation\":\"<p>Request to filter the contents of an Amazon S3 object based on a simple Structured Query Language (SQL) statement. In the request, along with the SQL expression, you must specify a data serialization format (JSON or CSV) of the object. Amazon S3 uses this to parse object data into records. It returns only records that match the specified SQL expression. You must also specify the data serialization format for the response. For more information, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectSELECTContent.html\\\">S3Select API Documentation</a>.</p>\"\
     },\
     \"SelectParameters\":{\
       \"type\":\"structure\",\
@@ -6660,16 +7361,17 @@
       \"member\":{\"shape\":\"ServerSideEncryptionRule\"},\
       \"flattened\":true\
     },\
+    \"Setting\":{\"type\":\"boolean\"},\
     \"Size\":{\"type\":\"integer\"},\
     \"SourceSelectionCriteria\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"SseKmsEncryptedObjects\":{\
           \"shape\":\"SseKmsEncryptedObjects\",\
-          \"documentation\":\"<p> Container for filter information of selection of KMS Encrypted S3 objects. The element is required if you include <code>SourceSelectionCriteria</code> in the replication configuration. </p>\"\
+          \"documentation\":\"<p> A container for filter information for the selection of S3 objects encrypted with AWS KMS. If you include <code>SourceSelectionCriteria</code> in the replication configuration, this element is required. </p>\"\
         }\
       },\
-      \"documentation\":\"<p>Container for filters that define which source objects should be replicated.</p>\"\
+      \"documentation\":\"<p>A container for filters that define which source objects should be replicated.</p>\"\
     },\
     \"SseKmsEncryptedObjects\":{\
       \"type\":\"structure\",\
@@ -6677,10 +7379,10 @@
       \"members\":{\
         \"Status\":{\
           \"shape\":\"SseKmsEncryptedObjectsStatus\",\
-          \"documentation\":\"<p>The replication for KMS encrypted S3 objects is disabled if status is not Enabled.</p>\"\
+          \"documentation\":\"<p> If the status is not <code>Enabled</code>, replication for S3 objects encrypted with AWS KMS is disabled.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Container for filter information of selection of KMS Encrypted S3 objects.</p>\"\
+      \"documentation\":\"<p>A container for filter information for the selection of S3 objects encrypted with AWS KMS.</p>\"\
     },\
     \"SseKmsEncryptedObjectsStatus\":{\
       \"type\":\"string\",\
@@ -6695,15 +7397,15 @@
       \"members\":{\
         \"BytesScanned\":{\
           \"shape\":\"BytesScanned\",\
-          \"documentation\":\"<p>Total number of object bytes scanned.</p>\"\
+          \"documentation\":\"<p>The total number of object bytes scanned.</p>\"\
         },\
         \"BytesProcessed\":{\
           \"shape\":\"BytesProcessed\",\
-          \"documentation\":\"<p>Total number of uncompressed object bytes processed.</p>\"\
+          \"documentation\":\"<p>The total number of uncompressed object bytes processed.</p>\"\
         },\
         \"BytesReturned\":{\
           \"shape\":\"BytesReturned\",\
-          \"documentation\":\"<p>Total number of bytes of records payload data returned.</p>\"\
+          \"documentation\":\"<p>The total number of bytes of records payload data returned.</p>\"\
         }\
       }\
     },\
@@ -6724,7 +7426,9 @@
         \"STANDARD\",\
         \"REDUCED_REDUNDANCY\",\
         \"STANDARD_IA\",\
-        \"ONEZONE_IA\"\
+        \"ONEZONE_IA\",\
+        \"INTELLIGENT_TIERING\",\
+        \"GLACIER\"\
       ]\
     },\
     \"StorageClassAnalysis\":{\
@@ -6837,7 +7541,7 @@
         \"Id\":{\"shape\":\"NotificationId\"},\
         \"TopicArn\":{\
           \"shape\":\"TopicArn\",\
-          \"documentation\":\"<p>Amazon SNS topic ARN to which Amazon S3 will publish a message when it detects events of specified type.</p>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Amazon SNS topic to which Amazon S3 will publish a message when it detects events of the specified type.</p>\",\
           \"locationName\":\"Topic\"\
         },\
         \"Events\":{\
@@ -6846,7 +7550,7 @@
         },\
         \"Filter\":{\"shape\":\"NotificationConfigurationFilter\"}\
       },\
-      \"documentation\":\"<p>Container for specifying the configuration when you want Amazon S3 to publish events to an Amazon Simple Notification Service (Amazon SNS) topic.</p>\"\
+      \"documentation\":\"<p>A container for specifying the configuration for publication of messages to an Amazon Simple Notification Service (Amazon SNS) topic.when Amazon S3 detects specified events.</p>\"\
     },\
     \"TopicConfigurationDeprecated\":{\
       \"type\":\"structure\",\
@@ -6899,7 +7603,8 @@
       \"enum\":[\
         \"GLACIER\",\
         \"STANDARD_IA\",\
-        \"ONEZONE_IA\"\
+        \"ONEZONE_IA\",\
+        \"INTELLIGENT_TIERING\"\
       ]\
     },\
     \"Type\":{\
@@ -7213,7 +7918,8 @@
         \"RoutingRules\":{\"shape\":\"RoutingRules\"}\
       }\
     },\
-    \"WebsiteRedirectLocation\":{\"type\":\"string\"}\
+    \"WebsiteRedirectLocation\":{\"type\":\"string\"},\
+    \"Years\":{\"type\":\"integer\"}\
   }\
 }\
 ";

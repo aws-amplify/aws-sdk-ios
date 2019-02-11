@@ -1,5 +1,5 @@
 //
-// Copyright 2017-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2017-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -13,13 +13,21 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSMobileClient.h"
+#import "_AWSMobileClient.h"
+#import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
+#import <AWSMobileClient/AWSMobileClient-Swift.h>
+
+@interface AWSInfo()
+
++ (void)overrideCredentialsProvider:(AWSCognitoCredentialsProvider *)creds;
+
+@end
 
 @implementation AWSSignInProviderConfig
 
 @end
 
-@interface AWSMobileClient ()
+@interface _AWSMobileClient ()
 
 @property (nonatomic, strong) AWSCognitoCredentialsProvider *credentialsProvider;
 
@@ -29,7 +37,7 @@
 
 @end
 
-@implementation AWSMobileClient
+@implementation _AWSMobileClient
 
 static NSString *const AWSInfoCognitoUserPoolIdentifier = @"CognitoUserPool";
 static NSString *const AWSInfoFacebookIdentifier = @"FacebookSignIn";
@@ -45,10 +53,11 @@ Class AWSCognitoUserPoolsSignInProviderClass;
 
 + (instancetype)sharedInstance {
     AWSDDLogDebug(@"AWSMobileClient -> sharedInstance...");
-    static AWSMobileClient *_sharedMobileClient = nil;
+    static _AWSMobileClient *_sharedMobileClient = nil;
+    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _sharedMobileClient = [[AWSMobileClient alloc] init];
+        _sharedMobileClient = [[_AWSMobileClient alloc] init];
         _sharedMobileClient.isInitialized = NO;
         _sharedMobileClient.signInProviderConfig = nil;
         AWSFacebookSignInProviderClass = NSClassFromString(@"AWSFacebookSignInProvider");
@@ -72,17 +81,6 @@ Class AWSCognitoUserPoolsSignInProviderClass;
                                                            openURL:url
                                                  sourceApplication:sourceApplication
                                                         annotation:annotation];
-}
-
-- (BOOL)interceptApplication:(UIApplication *)application
-didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
-    
-    return [self interceptApplication:application
-        didFinishLaunchingWithOptions:launchOptions
-   resumeSessionWithCompletionHandler:^(id result, NSError *error) {
-       AWSDDLogInfo(@"Welcome to AWS! You are connected successfully.");
-       AWSDDLogInfo(@"result = %@,error = %@", result, error);
-   }];
 }
 
 - (BOOL)interceptApplication:(UIApplication *)application
@@ -110,8 +108,34 @@ resumeSessionWithCompletionHandler:(void (^)(id result, NSError *error))completi
     return didFinishLaunching;
 }
 
-- (void)setSignInProviders:(nullable NSArray<AWSSignInProviderConfig *> *)signInProviderConfig {
-    self.signInProviderConfig = signInProviderConfig;
+-(void)showSignInScreen:(UINavigationController *)navController
+signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
+      completionHandler:(void (^)(NSString * _Nullable signInProviderKey, NSString * _Nullable signInProviderToken, NSError * _Nullable error))completionHandler {
+    
+    Class AuthUIClass = NSClassFromString(@"AWSAuthUIViewController");
+    if (AuthUIClass == nil) {
+        completionHandler(nil, nil, [[NSError alloc] initWithDomain:@"AWSMobileClientError" code:-1 userInfo:@{@"message": @"AWSAuthUI import is not available. Please import before using this API."}]);
+        return;
+    }
+    
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wundeclared-selector"
+    if ([AuthUIClass respondsToSelector:@selector(presentViewControllerWithConfig:completionHandler:)]) {
+        NSMutableDictionary<NSString *, id> *parameters = [NSMutableDictionary new];
+        parameters[@"logoImage"] = signInUIConfiguration.logoImage;
+        parameters[@"backgroundColor"] = signInUIConfiguration.backgroundColor;
+        parameters[@"navigationController"] = navController;
+        parameters[@"canCancel"] = signInUIConfiguration.canCancel ? @"YES" : @"NO";
+        
+        [NSClassFromString(@"AWSAuthUIViewController") performSelector:@selector(presentViewControllerWithConfig:completionHandler:)
+                                                            withObject:(id)parameters
+                                                            withObject:(id)completionHandler];
+    }
+    #pragma clang diagnostic pop
+}
+
+- (void)updateCognitoCredentialsProvider:(AWSCognitoCredentialsProvider *)cognitoCreds {
+    [AWSInfo overrideCredentialsProvider:cognitoCreds];
 }
 
 #pragma mark Configuration Methods
@@ -135,10 +159,7 @@ resumeSessionWithCompletionHandler:(void (^)(id result, NSError *error))completi
 
     if ([self isConfigurationKeyPresent:providerConfigurationKey]) {
         if (providerClass == nil) {
-            @throw [NSException exceptionWithName:NSInternalInconsistencyException
-                                           reason:[NSString stringWithFormat:@"You have enabled `%@` in awsconfiguration.json "
-                                                   "but the dependencies are not imported in your application.", providerConfigurationKey]
-                                         userInfo:nil];
+            return nil;
         }
 
         AWSDDLogInfo(@"Registering SignInProvider %@ from awsconfiguration.json.", providerClass);
@@ -229,16 +250,27 @@ resumeSessionWithCompletionHandler:(void (^)(id result, NSError *error))completi
 
 #pragma mark CredentialsProvider methods
 
-- (AWSCognitoCredentialsProvider *)getCredentialsProvider {
-    if (self.credentialsProvider != nil) {
-        return self.credentialsProvider;
-    } else {
-        return [[AWSIdentityManager defaultIdentityManager] credentialsProvider];
-    }
+- (BOOL)isLoggedIn {
+    return [[AWSSignInManager sharedInstance] isLoggedIn];
 }
 
-- (void)setCredentialsProvider:(AWSCognitoCredentialsProvider *)credentialsProvider {
-    self.credentialsProvider = credentialsProvider;
+- (AWSCognitoCredentialsProvider *)getCredentialsProvider {
+    return [[AWSIdentityManager defaultIdentityManager] credentialsProvider];
+}
+
+- (void)setSignInProviders:(nullable NSArray<AWSSignInProviderConfig *> *)signInProviderConfig {
+    self.signInProviderConfig = signInProviderConfig;
+}
+
+- (BOOL)interceptApplication:(UIApplication *)application
+didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions {
+    
+    return [self interceptApplication:application
+        didFinishLaunchingWithOptions:launchOptions
+   resumeSessionWithCompletionHandler:^(id result, NSError *error) {
+       AWSDDLogInfo(@"Welcome to AWS! You are connected successfully.");
+       AWSDDLogInfo(@"result = %@,error = %@", result, error);
+   }];
 }
 
 @end

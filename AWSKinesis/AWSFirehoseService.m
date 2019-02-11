@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
 #import "AWSFirehoseSerializer.h"
 
 static NSString *const AWSInfoFirehose = @"Firehose";
-NSString *const AWSFirehoseSDKVersion = @"2.6.35";
+NSString *const AWSFirehoseSDKVersion = @"2.9.0";
 
 
 @interface AWSFirehoseResponseSerializer : AWSJSONResponseSerializer
@@ -432,6 +432,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSFirehosePutRecordBatchOutput *response, NSError *error))completionHandler {
     [[self putRecordBatch:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehosePutRecordBatchOutput *> * _Nonnull task) {
         AWSFirehosePutRecordBatchOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehoseStartDeliveryStreamEncryptionOutput *> *)startDeliveryStreamEncryption:(AWSFirehoseStartDeliveryStreamEncryptionInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Firehose_20150804"
+                 operationName:@"StartDeliveryStreamEncryption"
+                   outputClass:[AWSFirehoseStartDeliveryStreamEncryptionOutput class]];
+}
+
+- (void)startDeliveryStreamEncryption:(AWSFirehoseStartDeliveryStreamEncryptionInput *)request
+     completionHandler:(void (^)(AWSFirehoseStartDeliveryStreamEncryptionOutput *response, NSError *error))completionHandler {
+    [[self startDeliveryStreamEncryption:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseStartDeliveryStreamEncryptionOutput *> * _Nonnull task) {
+        AWSFirehoseStartDeliveryStreamEncryptionOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSFirehoseStopDeliveryStreamEncryptionOutput *> *)stopDeliveryStreamEncryption:(AWSFirehoseStopDeliveryStreamEncryptionInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Firehose_20150804"
+                 operationName:@"StopDeliveryStreamEncryption"
+                   outputClass:[AWSFirehoseStopDeliveryStreamEncryptionOutput class]];
+}
+
+- (void)stopDeliveryStreamEncryption:(AWSFirehoseStopDeliveryStreamEncryptionInput *)request
+     completionHandler:(void (^)(AWSFirehoseStopDeliveryStreamEncryptionOutput *response, NSError *error))completionHandler {
+    [[self stopDeliveryStreamEncryption:request] continueWithBlock:^id _Nullable(AWSTask<AWSFirehoseStopDeliveryStreamEncryptionOutput *> * _Nonnull task) {
+        AWSFirehoseStopDeliveryStreamEncryptionOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -436,7 +436,7 @@ NS_ASSUME_NONNULL_BEGIN
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 /**
- Initialises the MQTT session and connects to AWS IoT using WebSocket/SigV4 authentication.  IAM
+ Initialises the MQTT session and connects to AWS IoT using WebSocket/SigV4 authentication. IAM
  credentials are taken from the current service configuration.
  
  @return true if initialise finished with success
@@ -451,6 +451,34 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)connectUsingWebSocketWithClientId:(NSString *)clientId
                             cleanSession:(BOOL)cleanSession
                           statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
+    
+/**
+ Initialises the MQTT session and connects to AWS IoT using WebSocket/CustomAuthorizer mechanism.
+ 
+ @param clientId The Client Identifier identifies the Client to the Server.
+ 
+ @param cleanSession specifies if the server should discard previous session information.
+ 
+ @param customAuthorizerName Name of the AWS IoT custom authorizer.
+ 
+ @param tokenKeyName This specifies the key name that your device chooses, which indicates the token in the
+ custom authorization HTTP request header.
+ 
+ @param tokenValue This specifies the custom authorization token to authorize the request to the AWS IoT gateway.
+ 
+ @param tokenSignature This specifies the token signature for the custom authorizer to validate the tokenValue.
+ 
+ @param callback When new mqtt session status is received the callback will be called with new connection status.
+ 
+ @return true if initialise finished with success.
+ */
+- (BOOL)connectUsingWebSocketWithClientId:(NSString *)clientId
+                             cleanSession:(BOOL)cleanSession
+                     customAuthorizerName:(NSString *)customAuthorizerName
+                             tokenKeyName:(NSString *)tokenKeyName
+                               tokenValue:(NSString *)tokenValue
+                           tokenSignature:(NSString *)tokenSignature
+                           statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
 
 /**
  Disconnect from a mqtt client (close current mqtt session)

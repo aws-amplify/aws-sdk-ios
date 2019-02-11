@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -27,7 +27,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-NSString *const AWSLambdaSDKVersion = @"2.6.35";
+NSString *const AWSLambdaSDKVersion = @"2.9.0";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -330,6 +330,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
+- (AWSTask<AWSLambdaAddLayerVersionPermissionResponse *> *)addLayerVersionPermission:(AWSLambdaAddLayerVersionPermissionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy"
+                  targetPrefix:@""
+                 operationName:@"AddLayerVersionPermission"
+                   outputClass:[AWSLambdaAddLayerVersionPermissionResponse class]];
+}
+
+- (void)addLayerVersionPermission:(AWSLambdaAddLayerVersionPermissionRequest *)request
+     completionHandler:(void (^)(AWSLambdaAddLayerVersionPermissionResponse *response, NSError *error))completionHandler {
+    [[self addLayerVersionPermission:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaAddLayerVersionPermissionResponse *> * _Nonnull task) {
+        AWSLambdaAddLayerVersionPermissionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaAddPermissionResponse *> *)addPermission:(AWSLambdaAddPermissionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -511,6 +534,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteLayerVersion:(AWSLambdaDeleteLayerVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/2018-10-31/layers/{LayerName}/versions/{VersionNumber}"
+                  targetPrefix:@""
+                 operationName:@"DeleteLayerVersion"
+                   outputClass:nil];
+}
+
+- (void)deleteLayerVersion:(AWSLambdaDeleteLayerVersionRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteLayerVersion:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaGetAccountSettingsResponse *> *)getAccountSettings:(AWSLambdaGetAccountSettingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -616,6 +661,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaFunctionConfiguration *response, NSError *error))completionHandler {
     [[self getFunctionConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
         AWSLambdaFunctionConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaGetLayerVersionResponse *> *)getLayerVersion:(AWSLambdaGetLayerVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2018-10-31/layers/{LayerName}/versions/{VersionNumber}"
+                  targetPrefix:@""
+                 operationName:@"GetLayerVersion"
+                   outputClass:[AWSLambdaGetLayerVersionResponse class]];
+}
+
+- (void)getLayerVersion:(AWSLambdaGetLayerVersionRequest *)request
+     completionHandler:(void (^)(AWSLambdaGetLayerVersionResponse *response, NSError *error))completionHandler {
+    [[self getLayerVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetLayerVersionResponse *> * _Nonnull task) {
+        AWSLambdaGetLayerVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaGetLayerVersionPolicyResponse *> *)getLayerVersionPolicy:(AWSLambdaGetLayerVersionPolicyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy"
+                  targetPrefix:@""
+                 operationName:@"GetLayerVersionPolicy"
+                   outputClass:[AWSLambdaGetLayerVersionPolicyResponse class]];
+}
+
+- (void)getLayerVersionPolicy:(AWSLambdaGetLayerVersionPolicyRequest *)request
+     completionHandler:(void (^)(AWSLambdaGetLayerVersionPolicyResponse *response, NSError *error))completionHandler {
+    [[self getLayerVersionPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetLayerVersionPolicyResponse *> * _Nonnull task) {
+        AWSLambdaGetLayerVersionPolicyResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -764,6 +855,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaListLayerVersionsResponse *> *)listLayerVersions:(AWSLambdaListLayerVersionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2018-10-31/layers/{LayerName}/versions"
+                  targetPrefix:@""
+                 operationName:@"ListLayerVersions"
+                   outputClass:[AWSLambdaListLayerVersionsResponse class]];
+}
+
+- (void)listLayerVersions:(AWSLambdaListLayerVersionsRequest *)request
+     completionHandler:(void (^)(AWSLambdaListLayerVersionsResponse *response, NSError *error))completionHandler {
+    [[self listLayerVersions:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListLayerVersionsResponse *> * _Nonnull task) {
+        AWSLambdaListLayerVersionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaListLayersResponse *> *)listLayers:(AWSLambdaListLayersRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2018-10-31/layers"
+                  targetPrefix:@""
+                 operationName:@"ListLayers"
+                   outputClass:[AWSLambdaListLayersResponse class]];
+}
+
+- (void)listLayers:(AWSLambdaListLayersRequest *)request
+     completionHandler:(void (^)(AWSLambdaListLayersResponse *response, NSError *error))completionHandler {
+    [[self listLayers:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListLayersResponse *> * _Nonnull task) {
+        AWSLambdaListLayersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaListTagsResponse *> *)listTags:(AWSLambdaListTagsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -800,6 +937,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaListVersionsByFunctionResponse *response, NSError *error))completionHandler {
     [[self listVersionsByFunction:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListVersionsByFunctionResponse *> * _Nonnull task) {
         AWSLambdaListVersionsByFunctionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaPublishLayerVersionResponse *> *)publishLayerVersion:(AWSLambdaPublishLayerVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/2018-10-31/layers/{LayerName}/versions"
+                  targetPrefix:@""
+                 operationName:@"PublishLayerVersion"
+                   outputClass:[AWSLambdaPublishLayerVersionResponse class]];
+}
+
+- (void)publishLayerVersion:(AWSLambdaPublishLayerVersionRequest *)request
+     completionHandler:(void (^)(AWSLambdaPublishLayerVersionResponse *response, NSError *error))completionHandler {
+    [[self publishLayerVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaPublishLayerVersionResponse *> * _Nonnull task) {
+        AWSLambdaPublishLayerVersionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -850,6 +1010,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)removeLayerVersionPermission:(AWSLambdaRemoveLayerVersionPermissionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/2018-10-31/layers/{LayerName}/versions/{VersionNumber}/policy/{StatementId}"
+                  targetPrefix:@""
+                 operationName:@"RemoveLayerVersionPermission"
+                   outputClass:nil];
+}
+
+- (void)removeLayerVersionPermission:(AWSLambdaRemoveLayerVersionPermissionRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self removeLayerVersionPermission:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
         }
 
         return nil;

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -29,6 +29,13 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
     AWSSNSErrorInternalError,
     AWSSNSErrorInvalidParameter,
     AWSSNSErrorInvalidParameterValue,
+    AWSSNSErrorInvalidSecurity,
+    AWSSNSErrorKMSAccessDenied,
+    AWSSNSErrorKMSDisabled,
+    AWSSNSErrorKMSInvalidState,
+    AWSSNSErrorKMSNotFound,
+    AWSSNSErrorKMSOptInRequired,
+    AWSSNSErrorKMSThrottling,
     AWSSNSErrorNotFound,
     AWSSNSErrorPlatformApplicationDisabled,
     AWSSNSErrorSubscriptionLimitExceeded,
@@ -271,6 +278,11 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li></ul>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
+
+/**
  <p>The name of the topic you want to create.</p><p>Constraints: Topic names must be made up of only uppercase and lowercase ASCII letters, numbers, underscores, and hyphens, and must be between 1 and 256 characters long.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
@@ -370,7 +382,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>Attributes include the following:</p><ul><li><p><code>CustomUserData</code> -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p></li><li><p><code>Enabled</code> -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.</p></li><li><p><code>Token</code> -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li></ul>
+ <p>Attributes include the following:</p><ul><li><p><code>CustomUserData</code> – arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p></li><li><p><code>Enabled</code> – flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.</p></li><li><p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -397,7 +409,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>Attributes include the following:</p><ul><li><p><code>EventEndpointCreated</code> -- Topic ARN to which EndpointCreated event notifications should be sent.</p></li><li><p><code>EventEndpointDeleted</code> -- Topic ARN to which EndpointDeleted event notifications should be sent.</p></li><li><p><code>EventEndpointUpdated</code> -- Topic ARN to which EndpointUpdate event notifications should be sent.</p></li><li><p><code>EventDeliveryFailure</code> -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p></li></ul>
+ <p>Attributes include the following:</p><ul><li><p><code>EventEndpointCreated</code> – Topic ARN to which EndpointCreated event notifications should be sent.</p></li><li><p><code>EventEndpointDeleted</code> – Topic ARN to which EndpointDeleted event notifications should be sent.</p></li><li><p><code>EventEndpointUpdated</code> – Topic ARN to which EndpointUpdate event notifications should be sent.</p></li><li><p><code>EventDeliveryFailure</code> – Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -450,7 +462,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>A map of the subscription's attributes. Attributes in this map include the following:</p><ul><li><p><code>ConfirmationWasAuthenticated</code> -- <code>true</code> if the subscription confirmation request was authenticated.</p></li><li><p><code>DeliveryPolicy</code> -- The JSON serialization of the subscription's delivery policy.</p></li><li><p><code>EffectiveDeliveryPolicy</code> -- The JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults.</p></li><li><p><code>FilterPolicy</code> -- The filter policy JSON that is assigned to the subscription.</p></li><li><p><code>Owner</code> -- The AWS account ID of the subscription's owner.</p></li><li><p><code>PendingConfirmation</code> -- <code>true</code> if the subscription hasn't been confirmed. To confirm a pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation token.</p></li><li><p><code>RawMessageDelivery</code> -- <code>true</code> if raw message delivery is enabled for the subscription. Raw messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints.</p></li><li><p><code>SubscriptionArn</code> -- The subscription's ARN.</p></li><li><p><code>TopicArn</code> -- The topic ARN that the subscription is associated with.</p></li></ul>
+ <p>A map of the subscription's attributes. Attributes in this map include the following:</p><ul><li><p><code>ConfirmationWasAuthenticated</code> – <code>true</code> if the subscription confirmation request was authenticated.</p></li><li><p><code>DeliveryPolicy</code> – The JSON serialization of the subscription's delivery policy.</p></li><li><p><code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy that takes into account the topic delivery policy and account system defaults.</p></li><li><p><code>FilterPolicy</code> – The filter policy JSON that is assigned to the subscription.</p></li><li><p><code>Owner</code> – The AWS account ID of the subscription's owner.</p></li><li><p><code>PendingConfirmation</code> – <code>true</code> if the subscription hasn't been confirmed. To confirm a pending subscription, call the <code>ConfirmSubscription</code> action with a confirmation token.</p></li><li><p><code>RawMessageDelivery</code> – <code>true</code> if raw message delivery is enabled for the subscription. Raw messages are free of JSON formatting and can be sent to HTTP/S and Amazon SQS endpoints.</p></li><li><p><code>SubscriptionArn</code> – The subscription's ARN.</p></li><li><p><code>TopicArn</code> – The topic ARN that the subscription is associated with.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -477,7 +489,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>A map of the topic's attributes. Attributes in this map include the following:</p><ul><li><p><code>TopicArn</code> -- the topic's ARN</p></li><li><p><code>Owner</code> -- the AWS account ID of the topic's owner</p></li><li><p><code>Policy</code> -- the JSON serialization of the topic's access control policy</p></li><li><p><code>DisplayName</code> -- the human-readable name used in the "From" field for notifications to email and email-json endpoints</p></li><li><p><code>SubscriptionsPending</code> -- the number of subscriptions pending confirmation on this topic</p></li><li><p><code>SubscriptionsConfirmed</code> -- the number of confirmed subscriptions on this topic</p></li><li><p><code>SubscriptionsDeleted</code> -- the number of deleted subscriptions on this topic</p></li><li><p><code>DeliveryPolicy</code> -- the JSON serialization of the topic's delivery policy</p></li><li><p><code>EffectiveDeliveryPolicy</code> -- the JSON serialization of the effective delivery policy that takes into account system defaults</p></li></ul>
+ <p>A map of the topic's attributes. Attributes in this map include the following:</p><ul><li><p><code>TopicArn</code> – the topic's ARN</p></li><li><p><code>Owner</code> – the AWS account ID of the topic's owner</p></li><li><p><code>Policy</code> – the JSON serialization of the topic's access control policy</p></li><li><p><code>DisplayName</code> – the human-readable name used in the "From" field for notifications to email and email-json endpoints</p></li><li><p><code>SubscriptionsPending</code> – the number of subscriptions pending confirmation on this topic</p></li><li><p><code>SubscriptionsConfirmed</code> – the number of confirmed subscriptions on this topic</p></li><li><p><code>SubscriptionsDeleted</code> – the number of deleted subscriptions on this topic</p></li><li><p><code>DeliveryPolicy</code> – the JSON serialization of the topic's delivery policy</p></li><li><p><code>EffectiveDeliveryPolicy</code> – the JSON serialization of the effective delivery policy that takes into account system defaults</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -753,7 +765,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>The message you want to send.</p><p>If you are publishing to a topic and you want to send the same message to all transport protocols, include the text of the message as a String value. If you want to send different messages for each transport protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code> parameter. </p><p/><p>Constraints:</p><ul><li><p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262144 bytes, not 262144 characters).</p></li><li><p>For SMS, each message can contain up to 140 bytes, and the character limit depends on the encoding scheme. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters. If you publish a message that exceeds the size limit, Amazon SNS sends it as multiple messages, each fitting within the size limit. Messages are not cut off in the middle of a word but on whole-word boundaries. The total size limit for a single SMS publish action is 1600 bytes.</p></li></ul><p>JSON-specific constraints:</p><ul><li><p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li><li><p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li><li><p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li><li><p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li><li><p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li><li><p>Non-string values will cause the key to be ignored.</p></li><li><p>Keys that do not correspond to supported transport protocols are ignored.</p></li><li><p>Duplicate keys are not allowed.</p></li><li><p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li></ul>
+ <p>The message you want to send.</p><important><p>The <code>Message</code> parameter is always a string. If you set <code>MessageStructure</code> to <code>json</code>, you must string-encode the <code>Message</code> parameter.</p></important><p>If you are publishing to a topic and you want to send the same message to all transport protocols, include the text of the message as a String value. If you want to send different messages for each transport protocol, set the value of the <code>MessageStructure</code> parameter to <code>json</code> and use a JSON object for the <code>Message</code> parameter. </p><p/><p>Constraints:</p><ul><li><p>With the exception of SMS, messages must be UTF-8 encoded strings and at most 256 KB in size (262,144 bytes, not 262,144 characters).</p></li><li><p>For SMS, each message can contain up to 140 characters. This character limit depends on the encoding schema. For example, an SMS message can contain 160 GSM characters, 140 ASCII characters, or 70 UCS-2 characters.</p><p>If you publish a message that exceeds this size limit, Amazon SNS sends the message as multiple messages, each fitting within the size limit. Messages aren't truncated mid-word but are cut off at whole-word boundaries.</p><p>The total size limit for a single SMS <code>Publish</code> action is 1,600 characters.</p></li></ul><p>JSON-specific constraints:</p><ul><li><p>Keys in the JSON object that correspond to supported transport protocols must have simple JSON string values.</p></li><li><p>The values will be parsed (unescaped) before they are used in outgoing messages.</p></li><li><p>Outbound notifications are JSON encoded (meaning that the characters will be reescaped for sending).</p></li><li><p>Values have a minimum length of 0 (the empty string, "", is allowed).</p></li><li><p>Values have a maximum length bounded by the overall message size (so, including multiple protocols may limit message sizes).</p></li><li><p>Non-string values will cause the key to be ignored.</p></li><li><p>Keys that do not correspond to supported transport protocols are ignored.</p></li><li><p>Duplicate keys are not allowed.</p></li><li><p>Failure to parse or validate any key or value in the message will cause the <code>Publish</code> call to return an error (no partial delivery).</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
@@ -829,7 +841,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>A map of the endpoint attributes. Attributes in this map include the following:</p><ul><li><p><code>CustomUserData</code> -- arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p></li><li><p><code>Enabled</code> -- flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.</p></li><li><p><code>Token</code> -- device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li></ul>
+ <p>A map of the endpoint attributes. Attributes in this map include the following:</p><ul><li><p><code>CustomUserData</code> – arbitrary user data to associate with the endpoint. Amazon SNS does not use this data. The data must be in UTF-8 format and less than 2KB.</p></li><li><p><code>Enabled</code> – flag that enables/disables delivery to the endpoint. Amazon SNS will set this to false when a notification service indicates to Amazon SNS that the endpoint is invalid. Users can set it back to true, typically after updating Token.</p></li><li><p><code>Token</code> – device token, also referred to as a registration id, for an app and mobile device. This is returned from the notification service when an app and mobile device are registered with the notification service.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -848,7 +860,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>A map of the platform application attributes. Attributes in this map include the following:</p><ul><li><p><code>PlatformCredential</code> -- The credential received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret".</p></li><li><p><code>PlatformPrincipal</code> -- The principal received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id".</p></li><li><p><code>EventEndpointCreated</code> -- Topic ARN to which EndpointCreated event notifications should be sent.</p></li><li><p><code>EventEndpointDeleted</code> -- Topic ARN to which EndpointDeleted event notifications should be sent.</p></li><li><p><code>EventEndpointUpdated</code> -- Topic ARN to which EndpointUpdate event notifications should be sent.</p></li><li><p><code>EventDeliveryFailure</code> -- Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p></li><li><p><code>SuccessFeedbackRoleArn</code> -- IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>FailureFeedbackRoleArn</code> -- IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>SuccessFeedbackSampleRate</code> -- Sample rate percentage (0-100) of successfully delivered messages.</p></li></ul>
+ <p>A map of the platform application attributes. Attributes in this map include the following:</p><ul><li><p><code>PlatformCredential</code> – The credential received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is private key. For GCM, PlatformCredential is "API key". For ADM, PlatformCredential is "client secret".</p></li><li><p><code>PlatformPrincipal</code> – The principal received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is SSL certificate. For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is "client id".</p></li><li><p><code>EventEndpointCreated</code> – Topic ARN to which EndpointCreated event notifications should be sent.</p></li><li><p><code>EventEndpointDeleted</code> – Topic ARN to which EndpointDeleted event notifications should be sent.</p></li><li><p><code>EventEndpointUpdated</code> – Topic ARN to which EndpointUpdate event notifications should be sent.</p></li><li><p><code>EventDeliveryFailure</code> – Topic ARN to which DeliveryFailure event notifications should be sent upon Direct Publish delivery failure (permanent) to one of the application's endpoints.</p></li><li><p><code>SuccessFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>FailureFeedbackRoleArn</code> – IAM role ARN used to give Amazon SNS write access to use CloudWatch Logs on your behalf.</p></li><li><p><code>SuccessFeedbackSampleRate</code> – Sample rate percentage (0-100) of successfully delivered messages.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -889,7 +901,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>The name of the attribute you want to set. Only a subset of the subscriptions attributes are mutable.</p><p>Valid values: <code>DeliveryPolicy</code> | <code>FilterPolicy</code> | <code>RawMessageDelivery</code></p>
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetTopicAttributes</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.</p></li><li><p><code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable attributeName;
 
@@ -913,7 +925,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>The name of the attribute you want to set. Only a subset of the topic's attributes are mutable.</p><p>Valid values: <code>Policy</code> | <code>DisplayName</code> | <code>DeliveryPolicy</code></p>
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetTopicAttributes</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable attributeName;
 
@@ -937,7 +949,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>Assigns attributes to the subscription as a map of key-value pairs. You can assign any attribute that is supported by the <code>SetSubscriptionAttributes</code> action.</p>
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetTopicAttributes</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>FilterPolicy</code> – The simple JSON object that lets your subscriber receive only a subset of messages, rather than receiving every message published to the topic.</p></li><li><p><code>RawMessageDelivery</code> – When set to <code>true</code>, enables raw message delivery to Amazon SQS or HTTP/S endpoints. This eliminates the need for the endpoints to process JSON formatting, which is otherwise created for Amazon SNS metadata.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -947,7 +959,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @property (nonatomic, strong) NSString * _Nullable endpoint;
 
 /**
- <p>The protocol you want to use. Supported protocols include:</p><ul><li><p><code>http</code> -- delivery of JSON-encoded message via HTTP POST</p></li><li><p><code>https</code> -- delivery of JSON-encoded message via HTTPS POST</p></li><li><p><code>email</code> -- delivery of message via SMTP</p></li><li><p><code>email-json</code> -- delivery of JSON-encoded message via SMTP</p></li><li><p><code>sms</code> -- delivery of message via SMS</p></li><li><p><code>sqs</code> -- delivery of JSON-encoded message to an Amazon SQS queue</p></li><li><p><code>application</code> -- delivery of JSON-encoded message to an EndpointArn for a mobile app and device.</p></li><li><p><code>lambda</code> -- delivery of JSON-encoded message to an AWS Lambda function.</p></li></ul>
+ <p>The protocol you want to use. Supported protocols include:</p><ul><li><p><code>http</code> – delivery of JSON-encoded message via HTTP POST</p></li><li><p><code>https</code> – delivery of JSON-encoded message via HTTPS POST</p></li><li><p><code>email</code> – delivery of message via SMTP</p></li><li><p><code>email-json</code> – delivery of JSON-encoded message via SMTP</p></li><li><p><code>sms</code> – delivery of message via SMS</p></li><li><p><code>sqs</code> – delivery of JSON-encoded message to an Amazon SQS queue</p></li><li><p><code>application</code> – delivery of JSON-encoded message to an EndpointArn for a mobile app and device.</p></li><li><p><code>lambda</code> – delivery of JSON-encoded message to an AWS Lambda function.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable protocols;
 

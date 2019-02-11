@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2017 Amazon.com,
+// Copyright 2014-2018 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -271,8 +271,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  A NSDictionary of claims in this token.
+
+ @deprecated This property is incorrectly typed as a [String : String], but
+ claim values may be of several different type.
  */
-@property (nonatomic, readonly) NSDictionary<NSString *, NSString*> * claims;
+@property (nonatomic, readonly) NSDictionary<NSString *, NSString*> * claims DEPRECATED_MSG_ATTRIBUTE("Use `tokenClaims` instead.");
+
+/**
+ A Dictionary of claims in this token
+ */
+@property (nonatomic, readonly) NSDictionary<NSString *, id> * tokenClaims;
 
 @end
 

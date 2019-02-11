@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1095,6 +1095,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"extendedStatistic" : @"ExtendedStatistic",
              @"insufficientDataActions" : @"InsufficientDataActions",
              @"metricName" : @"MetricName",
+             @"metrics" : @"Metrics",
              @"namespace" : @"Namespace",
              @"OKActions" : @"OKActions",
              @"period" : @"Period",
@@ -1150,6 +1151,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
+}
+
++ (NSValueTransformer *)metricsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricDataQuery class]];
 }
 
 + (NSValueTransformer *)stateUpdatedTimestampJSONTransformer {
@@ -1817,6 +1822,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"extendedStatistic" : @"ExtendedStatistic",
              @"insufficientDataActions" : @"InsufficientDataActions",
              @"metricName" : @"MetricName",
+             @"metrics" : @"Metrics",
              @"namespace" : @"Namespace",
              @"OKActions" : @"OKActions",
              @"period" : @"Period",
@@ -1860,6 +1866,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
+}
+
++ (NSValueTransformer *)metricsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricDataQuery class]];
 }
 
 + (NSValueTransformer *)statisticJSONTransformer {

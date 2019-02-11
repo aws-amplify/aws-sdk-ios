@@ -25,6 +25,11 @@
 
 static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
 
++ (void)setUp {
+    [super setUp];
+    [AWSTestUtility setupCognitoIdentityService];
+}
+
 - (void)setUp {
     [super setUp];
     [AWSTestUtility setupCognitoCredentialsProvider];
@@ -144,7 +149,7 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
     XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
 
-    AWSCognitoIdentity *cib = [AWSCognitoIdentity defaultCognitoIdentity];
+    AWSCognitoIdentity *cib = [AWSCognitoIdentity CognitoIdentityForKey:AWSTestUtilityCognitoIdentityServiceKey];
     XCTAssertNotNil(cib);
 
     AWSCognitoIdentityListIdentityPoolsInput *listPools = [AWSCognitoIdentityListIdentityPoolsInput new];

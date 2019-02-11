@@ -153,7 +153,7 @@ class AWSComprehendTests: XCTestCase {
         let comprehendClient = AWSComprehend.default()
         let inputStrings:[String] = ["I love AWS Mobile SDK", "Today is Sunday", "Tomorrow is Monday","I love AWS Amplify"]
         let batchEntityRequest = AWSComprehendBatchDetectEntitiesRequest()
-        batchEntityRequest!.languageCode = "en"
+        batchEntityRequest!.languageCode = AWSComprehendLanguageCode.en
         batchEntityRequest!.textList = inputStrings
         
         comprehendClient.batchDetectEntities(batchEntityRequest!).continueWith{ (task)-> Any? in

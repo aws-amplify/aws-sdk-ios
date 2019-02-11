@@ -99,7 +99,7 @@
 /**
  An optional associated object (nil by default).
  */
-@property(nonatomic, strong) NSObject *associatedObject;
+@property(nonatomic, weak) NSObject *associatedObject;
 
 /**
  Initalizer with the Delegate object
@@ -125,6 +125,20 @@
 - (BOOL)connectWithClientId:(NSString *)clientId
                cleanSession:(BOOL)cleanSession
               configuration:(AWSServiceConfiguration *)configuration
+                  keepAlive:(UInt16)theKeepAliveInterval
+                  willTopic:(NSString*)willTopic
+                    willMsg:(NSData*)willMsg
+                    willQoS:(UInt8)willQoS
+             willRetainFlag:(BOOL)willRetainFlag
+             statusCallback:(void (^)(AWSIoTMQTTStatus status))callback;
+    
+- (BOOL)connectWithClientId:(NSString *)clientId
+               cleanSession:(BOOL)cleanSession
+              configuration:(AWSServiceConfiguration *)configuration
+       customAuthorizerName:(NSString *)customAuthorizerName
+               tokenKeyName:(NSString *)tokenKeyName
+                 tokenValue:(NSString *)tokenValue
+             tokenSignature:(NSString *)tokenSignature
                   keepAlive:(UInt16)theKeepAliveInterval
                   willTopic:(NSString*)willTopic
                     willMsg:(NSData*)willMsg

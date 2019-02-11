@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
-NSString *const AWSSNSSDKVersion = @"2.6.35";
+NSString *const AWSSNSSDKVersion = @"2.9.0";
 
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer
@@ -46,6 +46,13 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InternalError" : @(AWSSNSErrorInternalError),
                             @"InvalidParameter" : @(AWSSNSErrorInvalidParameter),
                             @"ParameterValueInvalid" : @(AWSSNSErrorInvalidParameterValue),
+                            @"InvalidSecurity" : @(AWSSNSErrorInvalidSecurity),
+                            @"KMSAccessDenied" : @(AWSSNSErrorKMSAccessDenied),
+                            @"KMSDisabled" : @(AWSSNSErrorKMSDisabled),
+                            @"KMSInvalidState" : @(AWSSNSErrorKMSInvalidState),
+                            @"KMSNotFound" : @(AWSSNSErrorKMSNotFound),
+                            @"KMSOptInRequired" : @(AWSSNSErrorKMSOptInRequired),
+                            @"KMSThrottling" : @(AWSSNSErrorKMSThrottling),
                             @"NotFound" : @(AWSSNSErrorNotFound),
                             @"PlatformApplicationDisabled" : @(AWSSNSErrorPlatformApplicationDisabled),
                             @"SubscriptionLimitExceeded" : @(AWSSNSErrorSubscriptionLimitExceeded),

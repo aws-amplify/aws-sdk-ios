@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -13794,9 +13794,17 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
         },\
+        \"Encrypted\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Specifies whether the destination AMI of the imported image should be encrypted. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href=\\\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\\\">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+        },\
         \"Hypervisor\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The target hypervisor platform.</p> <p>Valid values: <code>xen</code> </p>\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted AMI. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK identifier may be provided in any of the following formats: </p> <ul> <li> <p>Key ID</p> </li> <li> <p>Key alias, in the form <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p> </li> <li> <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p> </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p> <p>The specified CMK must exist in the region that the AMI is being copied to. </p>\"\
         },\
         \"LicenseType\":{\
           \"shape\":\"String\",\
@@ -13826,6 +13834,11 @@
           \"documentation\":\"<p>A description of the import task.</p>\",\
           \"locationName\":\"description\"\
         },\
+        \"Encrypted\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether the AMI is encypted.</p>\",\
+          \"locationName\":\"encrypted\"\
+        },\
         \"Hypervisor\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The target hypervisor of the import task.</p>\",\
@@ -13840,6 +13853,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The task ID of the import image task.</p>\",\
           \"locationName\":\"importTaskId\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted AMI.</p>\",\
+          \"locationName\":\"kmsKeyId\"\
         },\
         \"LicenseType\":{\
           \"shape\":\"String\",\
@@ -13887,6 +13905,11 @@
           \"documentation\":\"<p>A description of the import task.</p>\",\
           \"locationName\":\"description\"\
         },\
+        \"Encrypted\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether the image is encrypted.</p>\",\
+          \"locationName\":\"encrypted\"\
+        },\
         \"Hypervisor\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The target hypervisor for the import task.</p> <p>Valid values: <code>xen</code> </p>\",\
@@ -13901,6 +13924,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the import image task.</p>\",\
           \"locationName\":\"importTaskId\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted image.</p>\",\
+          \"locationName\":\"kmsKeyId\"\
         },\
         \"LicenseType\":{\
           \"shape\":\"String\",\
@@ -14074,13 +14102,6 @@
     },\
     \"ImportInstanceVolumeDetailItem\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"AvailabilityZone\",\
-        \"BytesConverted\",\
-        \"Image\",\
-        \"Status\",\
-        \"Volume\"\
-      ],\
       \"members\":{\
         \"AvailabilityZone\":{\
           \"shape\":\"String\",\
@@ -14188,6 +14209,14 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"Encrypted\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Specifies whether the destination snapshot of the imported image should be encrypted. The default CMK for EBS is used unless you specify a non-default AWS Key Management Service (AWS KMS) CMK using <code>KmsKeyId</code>. For more information, see <a href=\\\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\\\">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>An identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted snapshot. This parameter is only required if you want to use a non-default CMK; if this parameter is not specified, the default CMK for EBS is used. If a <code>KmsKeyId</code> is specified, the <code>Encrypted</code> flag must also be set. </p> <p>The CMK identifier may be provided in any of the following formats: </p> <ul> <li> <p>Key ID</p> </li> <li> <p>Key alias, in the form <code>alias/<i>ExampleAlias</i> </code> </p> </li> <li> <p>ARN using key ID. The ID ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>key</code> namespace, and then the CMK ID. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:key/<i>abcd1234-a123-456a-a12b-a123b4cd56ef</i>.</p> </li> <li> <p>ARN using key alias. The alias ARN contains the <code>arn:aws:kms</code> namespace, followed by the region of the CMK, the AWS account ID of the CMK owner, the <code>alias</code> namespace, and then the CMK alias. For example, arn:aws:kms:<i>us-east-1</i>:<i>012345678910</i>:alias/<i>ExampleAlias</i>. </p> </li> </ul> <p>AWS parses <code>KmsKeyId</code> asynchronously, meaning that the action you call may appear to complete even though you provided an invalid identifier. This action will eventually report failure. </p> <p>The specified CMK must exist in the region that the snapshot is being copied to. </p>\"\
         },\
         \"RoleName\":{\
           \"shape\":\"String\",\
@@ -15407,6 +15436,12 @@
         \"r5.16xlarge\",\
         \"r5.24xlarge\",\
         \"r5.metal\",\
+        \"r5a.large\",\
+        \"r5a.xlarge\",\
+        \"r5a.2xlarge\",\
+        \"r5a.4xlarge\",\
+        \"r5a.12xlarge\",\
+        \"r5a.24xlarge\",\
         \"r5d.large\",\
         \"r5d.xlarge\",\
         \"r5d.2xlarge\",\
@@ -15489,6 +15524,12 @@
         \"m5.4xlarge\",\
         \"m5.12xlarge\",\
         \"m5.24xlarge\",\
+        \"m5a.large\",\
+        \"m5a.xlarge\",\
+        \"m5a.2xlarge\",\
+        \"m5a.4xlarge\",\
+        \"m5a.12xlarge\",\
+        \"m5a.24xlarge\",\
         \"m5d.large\",\
         \"m5d.xlarge\",\
         \"m5d.2xlarge\",\
@@ -22158,10 +22199,6 @@
     },\
     \"SecurityGroupReference\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"GroupId\",\
-        \"ReferencingVpcId\"\
-      ],\
       \"members\":{\
         \"GroupId\":{\
           \"shape\":\"String\",\
@@ -22583,10 +22620,20 @@
           \"documentation\":\"<p>The size of the disk in the snapshot, in GiB.</p>\",\
           \"locationName\":\"diskImageSize\"\
         },\
+        \"Encrypted\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether the snapshot is encrypted.</p>\",\
+          \"locationName\":\"encrypted\"\
+        },\
         \"Format\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The format of the disk image from which the snapshot is created.</p>\",\
           \"locationName\":\"format\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The identifier for the AWS Key Management Service (AWS KMS) customer master key (CMK) that was used to create the encrypted snapshot.</p>\",\
+          \"locationName\":\"kmsKeyId\"\
         },\
         \"Progress\":{\
           \"shape\":\"String\",\
@@ -23289,7 +23336,6 @@
     },\
     \"StaleSecurityGroup\":{\
       \"type\":\"structure\",\
-      \"required\":[\"GroupId\"],\
       \"members\":{\
         \"Description\":{\
           \"shape\":\"String\",\

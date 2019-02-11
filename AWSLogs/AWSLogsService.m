@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSLogsResources.h"
 
 static NSString *const AWSInfoLogs = @"Logs";
-NSString *const AWSLogsSDKVersion = @"2.6.35";
+NSString *const AWSLogsSDKVersion = @"2.9.0";
 
 
 @interface AWSLogsResponseSerializer : AWSJSONResponseSerializer
@@ -45,6 +45,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidParameterException" : @(AWSLogsErrorInvalidParameter),
                             @"InvalidSequenceTokenException" : @(AWSLogsErrorInvalidSequenceToken),
                             @"LimitExceededException" : @(AWSLogsErrorLimitExceeded),
+                            @"MalformedQueryException" : @(AWSLogsErrorMalformedQuery),
                             @"OperationAbortedException" : @(AWSLogsErrorOperationAborted),
                             @"ResourceAlreadyExistsException" : @(AWSLogsErrorResourceAlreadyExists),
                             @"ResourceNotFoundException" : @(AWSLogsErrorResourceNotFound),
@@ -664,6 +665,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLogsDescribeQueriesResponse *> *)describeQueries:(AWSLogsDescribeQueriesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DescribeQueries"
+                   outputClass:[AWSLogsDescribeQueriesResponse class]];
+}
+
+- (void)describeQueries:(AWSLogsDescribeQueriesRequest *)request
+     completionHandler:(void (^)(AWSLogsDescribeQueriesResponse *response, NSError *error))completionHandler {
+    [[self describeQueries:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsDescribeQueriesResponse *> * _Nonnull task) {
+        AWSLogsDescribeQueriesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLogsDescribeResourcePoliciesResponse *> *)describeResourcePolicies:(AWSLogsDescribeResourcePoliciesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -768,6 +792,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLogsGetLogEventsResponse *response, NSError *error))completionHandler {
     [[self getLogEvents:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsGetLogEventsResponse *> * _Nonnull task) {
         AWSLogsGetLogEventsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsGetLogGroupFieldsResponse *> *)getLogGroupFields:(AWSLogsGetLogGroupFieldsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"GetLogGroupFields"
+                   outputClass:[AWSLogsGetLogGroupFieldsResponse class]];
+}
+
+- (void)getLogGroupFields:(AWSLogsGetLogGroupFieldsRequest *)request
+     completionHandler:(void (^)(AWSLogsGetLogGroupFieldsResponse *response, NSError *error))completionHandler {
+    [[self getLogGroupFields:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsGetLogGroupFieldsResponse *> * _Nonnull task) {
+        AWSLogsGetLogGroupFieldsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsGetLogRecordResponse *> *)getLogRecord:(AWSLogsGetLogRecordRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"GetLogRecord"
+                   outputClass:[AWSLogsGetLogRecordResponse class]];
+}
+
+- (void)getLogRecord:(AWSLogsGetLogRecordRequest *)request
+     completionHandler:(void (^)(AWSLogsGetLogRecordResponse *response, NSError *error))completionHandler {
+    [[self getLogRecord:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsGetLogRecordResponse *> * _Nonnull task) {
+        AWSLogsGetLogRecordResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsGetQueryResultsResponse *> *)getQueryResults:(AWSLogsGetQueryResultsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"GetQueryResults"
+                   outputClass:[AWSLogsGetQueryResultsResponse class]];
+}
+
+- (void)getQueryResults:(AWSLogsGetQueryResultsRequest *)request
+     completionHandler:(void (^)(AWSLogsGetQueryResultsResponse *response, NSError *error))completionHandler {
+    [[self getQueryResults:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsGetQueryResultsResponse *> * _Nonnull task) {
+        AWSLogsGetQueryResultsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -952,6 +1045,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsStartQueryResponse *> *)startQuery:(AWSLogsStartQueryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"StartQuery"
+                   outputClass:[AWSLogsStartQueryResponse class]];
+}
+
+- (void)startQuery:(AWSLogsStartQueryRequest *)request
+     completionHandler:(void (^)(AWSLogsStartQueryResponse *response, NSError *error))completionHandler {
+    [[self startQuery:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsStartQueryResponse *> * _Nonnull task) {
+        AWSLogsStartQueryResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsStopQueryResponse *> *)stopQuery:(AWSLogsStopQueryRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"StopQuery"
+                   outputClass:[AWSLogsStopQueryResponse class]];
+}
+
+- (void)stopQuery:(AWSLogsStopQueryRequest *)request
+     completionHandler:(void (^)(AWSLogsStopQueryResponse *response, NSError *error))completionHandler {
+    [[self stopQuery:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsStopQueryResponse *> * _Nonnull task) {
+        AWSLogsStopQueryResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

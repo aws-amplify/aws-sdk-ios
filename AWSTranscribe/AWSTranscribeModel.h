@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -36,7 +36,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeLanguageCode) {
     AWSTranscribeLanguageCodeEsUS,
     AWSTranscribeLanguageCodeEnAU,
     AWSTranscribeLanguageCodeFrCA,
-    AWSTranscribeLanguageCodeEnUK,
+    AWSTranscribeLanguageCodeEnGB,
+    AWSTranscribeLanguageCodeDeDE,
+    AWSTranscribeLanguageCodePtBR,
+    AWSTranscribeLanguageCodeFrFR,
+    AWSTranscribeLanguageCodeItIT,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeMediaFormat) {
@@ -271,7 +275,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>When specified, returns only transcription jobs with the specified status.</p>
+ <p>When specified, returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date. </p>
  */
 @property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus status;
 
@@ -358,7 +362,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:</p><p><code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code></p><p>For example:</p><p><code>https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4</code></p><p><code>https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code></p><p>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>
+ <p>The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:</p><p><code> https://s3-&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code></p><p>For example:</p><p><code>https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4</code></p><p><code>https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code></p><p>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable mediaFileUri;
 
@@ -429,7 +433,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeSettings * _Nullable settings;
 
 /**
- <p>The name of the job. You can't use the strings "." or ".." in the job name. The name must be unique within an AWS account.</p>
+ <p>The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The name must also be unique within an AWS account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transcriptionJobName;
 
@@ -462,7 +466,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers.</p>
+ <p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation. </p>
  */
 @interface AWSTranscribeTranscriptionJob : AWSModel
 
@@ -525,7 +529,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Provides a summary of information about a transcription job. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers.</p>
+ <p>Provides a summary of information about a transcription job. .</p>
  */
 @interface AWSTranscribeTranscriptionJobSummary : AWSModel
 
@@ -619,7 +623,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @end
 
 /**
- <p>Provides information about a custom vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>
+ <p>Provides information about a custom vocabulary. </p>
  */
 @interface AWSTranscribeVocabularyInfo : AWSModel
 

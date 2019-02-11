@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2018 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -234,6 +234,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"loadBalancerNames" : @"LoadBalancerNames",
              @"maxSize" : @"MaxSize",
              @"minSize" : @"MinSize",
+             @"mixedInstancesPolicy" : @"MixedInstancesPolicy",
              @"latestInstancesProtectedFromScaleIn" : @"NewInstancesProtectedFromScaleIn",
              @"placementGroup" : @"PlacementGroup",
              @"serviceLinkedRoleARN" : @"ServiceLinkedRoleARN",
@@ -264,6 +265,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)launchTemplateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingLaunchTemplateSpecification class]];
+}
+
++ (NSValueTransformer *)mixedInstancesPolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingMixedInstancesPolicy class]];
 }
 
 + (NSValueTransformer *)suspendedProcessesJSONTransformer {
@@ -445,6 +450,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"loadBalancerNames" : @"LoadBalancerNames",
              @"maxSize" : @"MaxSize",
              @"minSize" : @"MinSize",
+             @"mixedInstancesPolicy" : @"MixedInstancesPolicy",
              @"latestInstancesProtectedFromScaleIn" : @"NewInstancesProtectedFromScaleIn",
              @"placementGroup" : @"PlacementGroup",
              @"serviceLinkedRoleARN" : @"ServiceLinkedRoleARN",
@@ -461,6 +467,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)lifecycleHookSpecificationListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingLifecycleHookSpecification class]];
+}
+
++ (NSValueTransformer *)mixedInstancesPolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingMixedInstancesPolicy class]];
 }
 
 + (NSValueTransformer *)tagsJSONTransformer {
@@ -1212,6 +1222,21 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSAutoScalingInstancesDistribution
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"onDemandAllocationStrategy" : @"OnDemandAllocationStrategy",
+             @"onDemandBaseCapacity" : @"OnDemandBaseCapacity",
+             @"onDemandPercentageAboveBaseCapacity" : @"OnDemandPercentageAboveBaseCapacity",
+             @"spotAllocationStrategy" : @"SpotAllocationStrategy",
+             @"spotInstancePools" : @"SpotInstancePools",
+             @"spotMaxPrice" : @"SpotMaxPrice",
+             };
+}
+
+@end
+
 @implementation AWSAutoScalingLaunchConfiguration
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1289,6 +1314,35 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)launchConfigurationsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingLaunchConfiguration class]];
+}
+
+@end
+
+@implementation AWSAutoScalingLaunchTemplate
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"launchTemplateSpecification" : @"LaunchTemplateSpecification",
+             @"overrides" : @"Overrides",
+             };
+}
+
++ (NSValueTransformer *)launchTemplateSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingLaunchTemplateSpecification class]];
+}
+
++ (NSValueTransformer *)overridesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSAutoScalingLaunchTemplateOverrides class]];
+}
+
+@end
+
+@implementation AWSAutoScalingLaunchTemplateOverrides
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceType" : @"InstanceType",
+             };
 }
 
 @end
@@ -1388,6 +1442,25 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"granularity" : @"Granularity",
              };
+}
+
+@end
+
+@implementation AWSAutoScalingMixedInstancesPolicy
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instancesDistribution" : @"InstancesDistribution",
+             @"launchTemplate" : @"LaunchTemplate",
+             };
+}
+
++ (NSValueTransformer *)instancesDistributionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstancesDistribution class]];
+}
+
++ (NSValueTransformer *)launchTemplateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingLaunchTemplate class]];
 }
 
 @end
@@ -1909,6 +1982,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"launchTemplate" : @"LaunchTemplate",
              @"maxSize" : @"MaxSize",
              @"minSize" : @"MinSize",
+             @"mixedInstancesPolicy" : @"MixedInstancesPolicy",
              @"latestInstancesProtectedFromScaleIn" : @"NewInstancesProtectedFromScaleIn",
              @"placementGroup" : @"PlacementGroup",
              @"serviceLinkedRoleARN" : @"ServiceLinkedRoleARN",
@@ -1919,6 +1993,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)launchTemplateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingLaunchTemplateSpecification class]];
+}
+
++ (NSValueTransformer *)mixedInstancesPolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingMixedInstancesPolicy class]];
 }
 
 @end
