@@ -362,15 +362,15 @@ FOUNDATION_EXPORT NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalid
          return YES;
      }
 
- Then call the following to get the service client:
+ Then call the following to get the service client (the value of the client will be null if the `+ registerS3TransferUtilityWithConfiguration:forKey:` failed):
 
-     AWSS3TransferUtility *S3TransferUtility = [AWSS3TransferUtility S3ForKey:@"USWest2S3TransferUtility"];
+     AWSS3TransferUtility? *S3TransferUtility = [AWSS3TransferUtility S3ForKey:@"USWest2S3TransferUtility"];
 
  @param key A string to identify the service client.
 
  @return An instance of the service client.
  */
-+ (instancetype)S3TransferUtilityForKey:(NSString *)key;
++ (nullable instancetype)S3TransferUtilityForKey:(NSString *)key;
 
 
 

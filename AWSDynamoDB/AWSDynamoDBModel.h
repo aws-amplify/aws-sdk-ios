@@ -29,6 +29,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBErrorType) {
     AWSDynamoDBErrorContinuousBackupsUnavailable,
     AWSDynamoDBErrorGlobalTableAlreadyExists,
     AWSDynamoDBErrorGlobalTableNotFound,
+    AWSDynamoDBErrorIdempotentParameterMismatch,
     AWSDynamoDBErrorIndexNotFound,
     AWSDynamoDBErrorInternalServer,
     AWSDynamoDBErrorInvalidRestoreTime,
@@ -38,11 +39,15 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBErrorType) {
     AWSDynamoDBErrorProvisionedThroughputExceeded,
     AWSDynamoDBErrorReplicaAlreadyExists,
     AWSDynamoDBErrorReplicaNotFound,
+    AWSDynamoDBErrorRequestLimitExceeded,
     AWSDynamoDBErrorResourceInUse,
     AWSDynamoDBErrorResourceNotFound,
     AWSDynamoDBErrorTableAlreadyExists,
     AWSDynamoDBErrorTableInUse,
     AWSDynamoDBErrorTableNotFound,
+    AWSDynamoDBErrorTransactionCanceled,
+    AWSDynamoDBErrorTransactionConflict,
+    AWSDynamoDBErrorTransactionInProgress,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBAttributeAction) {
@@ -63,13 +68,21 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBBackupType) {
     AWSDynamoDBBackupTypeUnknown,
     AWSDynamoDBBackupTypeUser,
     AWSDynamoDBBackupTypeSystem,
+    AWSDynamoDBBackupTypeAwsBackup,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBBackupTypeFilter) {
     AWSDynamoDBBackupTypeFilterUnknown,
     AWSDynamoDBBackupTypeFilterUser,
     AWSDynamoDBBackupTypeFilterSystem,
+    AWSDynamoDBBackupTypeFilterAwsBackup,
     AWSDynamoDBBackupTypeFilterAll,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBBillingMode) {
+    AWSDynamoDBBillingModeUnknown,
+    AWSDynamoDBBillingModeProvisioned,
+    AWSDynamoDBBillingModePayPerRequest,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBComparisonOperator) {
@@ -166,6 +179,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBReturnValue) {
     AWSDynamoDBReturnValueUpdatedNew,
 };
 
+typedef NS_ENUM(NSInteger, AWSDynamoDBReturnValuesOnConditionCheckFailure) {
+    AWSDynamoDBReturnValuesOnConditionCheckFailureUnknown,
+    AWSDynamoDBReturnValuesOnConditionCheckFailureAllOld,
+    AWSDynamoDBReturnValuesOnConditionCheckFailureNone,
+};
+
 typedef NS_ENUM(NSInteger, AWSDynamoDBSSEStatus) {
     AWSDynamoDBSSEStatusUnknown,
     AWSDynamoDBSSEStatusEnabling,
@@ -236,8 +255,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBBatchGetItemOutput;
 @class AWSDynamoDBBatchWriteItemInput;
 @class AWSDynamoDBBatchWriteItemOutput;
+@class AWSDynamoDBBillingModeSummary;
+@class AWSDynamoDBCancellationReason;
 @class AWSDynamoDBCapacity;
 @class AWSDynamoDBCondition;
+@class AWSDynamoDBConditionCheck;
 @class AWSDynamoDBConsumedCapacity;
 @class AWSDynamoDBContinuousBackupsDescription;
 @class AWSDynamoDBCreateBackupInput;
@@ -248,6 +270,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBCreateReplicaAction;
 @class AWSDynamoDBCreateTableInput;
 @class AWSDynamoDBCreateTableOutput;
+@class AWSDynamoDBRemove;
 @class AWSDynamoDBDeleteBackupInput;
 @class AWSDynamoDBDeleteBackupOutput;
 @class AWSDynamoDBDeleteGlobalSecondaryIndexAction;
@@ -275,6 +298,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeTimeToLiveOutput;
 @class AWSDynamoDBEndpoint;
 @class AWSDynamoDBExpectedAttributeValue;
+@class AWSDynamoDBGet;
 @class AWSDynamoDBGetItemInput;
 @class AWSDynamoDBGetItemOutput;
 @class AWSDynamoDBGlobalSecondaryIndex;
@@ -285,6 +309,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBGlobalTableDescription;
 @class AWSDynamoDBGlobalTableGlobalSecondaryIndexSettingsUpdate;
 @class AWSDynamoDBItemCollectionMetrics;
+@class AWSDynamoDBItemResponse;
 @class AWSDynamoDBKeySchemaElement;
 @class AWSDynamoDBKeysAndAttributes;
 @class AWSDynamoDBListBackupsInput;
@@ -303,6 +328,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBProjection;
 @class AWSDynamoDBProvisionedThroughput;
 @class AWSDynamoDBProvisionedThroughputDescription;
+@class AWSDynamoDBPut;
 @class AWSDynamoDBPutItemInput;
 @class AWSDynamoDBPutItemOutput;
 @class AWSDynamoDBPutRequest;
@@ -332,7 +358,14 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBTagResourceInput;
 @class AWSDynamoDBTimeToLiveDescription;
 @class AWSDynamoDBTimeToLiveSpecification;
+@class AWSDynamoDBTransactGetItem;
+@class AWSDynamoDBTransactGetItemsInput;
+@class AWSDynamoDBTransactGetItemsOutput;
+@class AWSDynamoDBTransactWriteItem;
+@class AWSDynamoDBTransactWriteItemsInput;
+@class AWSDynamoDBTransactWriteItemsOutput;
 @class AWSDynamoDBUntagResourceInput;
+@class AWSDynamoDBUpdate;
 @class AWSDynamoDBUpdateContinuousBackupsInput;
 @class AWSDynamoDBUpdateContinuousBackupsOutput;
 @class AWSDynamoDBUpdateGlobalSecondaryIndexAction;
@@ -389,7 +422,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<NSData *> * _Nullable BS;
 
 /**
- <p>An attribute of type List. For example:</p><p><code>"L": ["Cookies", "Coffee", 3.14159]</code></p>
+ <p>An attribute of type List. For example:</p><p><code>"L": [ {"S": "Cookies"} , {"S": "Coffee"}, {"N", "3.14159"}]</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBAttributeValue *> * _Nullable L;
 
@@ -665,7 +698,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBBackupStatus backupStatus;
 
 /**
- <p>BackupType:</p><ul><li><p><code>USER</code> - On-demand backup created by you.</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li></ul>
+ <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion. </p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBBackupType backupType;
 
@@ -708,7 +741,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBBackupStatus backupStatus;
 
 /**
- <p>BackupType:</p><ul><li><p><code>USER</code> - On-demand backup created by you.</p></li><li><p><code>SYSTEM</code> - On-demand backup automatically created by DynamoDB.</p></li></ul>
+ <p>BackupType:</p><ul><li><p><code>USER</code> - You create and manage these using the on-demand backup feature.</p></li><li><p><code>SYSTEM</code> - If you delete a table with point-in-time recovery enabled, a <code>SYSTEM</code> backup is automatically created and is retained for 35 days (at no additional cost). System backups allow you to restore the deleted table to the state it was in just before the point of deletion. </p></li><li><p><code>AWS_BACKUP</code> - On-demand backup created by you from AWS Backup service.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBBackupType backupType;
 
@@ -819,6 +852,47 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Contains the details for the read/write capacity mode.</p>
+ */
+@interface AWSDynamoDBBillingModeSummary : AWSModel
+
+
+/**
+ <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - Sets the read/write capacity mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. </p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBBillingMode billingMode;
+
+/**
+ <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write capacity mode.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdateToPayPerRequestDateTime;
+
+@end
+
+/**
+ <p>An ordered list of errors for each item in the request which caused the transaction to get cancelled. The values of the list are ordered according to the ordering of the <code>TransactWriteItems</code> request parameter. If no error occurred for the associated item an error with a Null code and Null message will be present. </p>
+ */
+@interface AWSDynamoDBCancellationReason : AWSModel
+
+
+/**
+ <p>Status code for the result of the cancelled transaction.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable code;
+
+/**
+ <p>Item in the request which caused the transaction to get cancelled.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable item;
+
+/**
+ <p>Cancellation reason message description.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
  <p>Represents the amount of provisioned throughput capacity consumed on a table or an index.</p>
  */
 @interface AWSDynamoDBCapacity : AWSModel
@@ -828,6 +902,16 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The total number of capacity units consumed on a table or an index.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable capacityUnits;
+
+/**
+ <p>The total number of read capacity units consumed on a table or an index.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable readCapacityUnits;
+
+/**
+ <p>The total number of write capacity units consumed on a table or an index.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable writeCapacityUnits;
 
 @end
 
@@ -847,6 +931,45 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>A comparator for evaluating attributes. For example, equals, greater than, less than, etc.</p><p>The following comparison operators are available:</p><p><code>EQ | NE | LE | LT | GE | GT | NOT_NULL | NULL | CONTAINS | NOT_CONTAINS | BEGINS_WITH | IN | BETWEEN</code></p><p>The following are descriptions of each comparison operator.</p><ul><li><p><code>EQ</code> : Equal. <code>EQ</code> is supported for all data types, including lists and maps.</p><p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2", "1"]}</code>.</p><p/></li><li><p><code>NE</code> : Not equal. <code>NE</code> is supported for all data types, including lists and maps.</p><p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String, Number, Binary, String Set, Number Set, or Binary Set. If an item contains an <code>AttributeValue</code> of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not equal <code>{"NS":["6", "2", "1"]}</code>.</p><p/></li><li><p><code>LE</code> : Less than or equal. </p><p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p/></li><li><p><code>LT</code> : Less than. </p><p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p/></li><li><p><code>GE</code> : Greater than or equal. </p><p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p/></li><li><p><code>GT</code> : Greater than. </p><p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not equal <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code>.</p><p/></li><li><p><code>NOT_NULL</code> : The attribute exists. <code>NOT_NULL</code> is supported for all data types, including lists and maps.</p><note><p>This operator tests for the existence of an attribute, not its data type. If the data type of attribute "<code>a</code>" is null, and you evaluate it using <code>NOT_NULL</code>, the result is a Boolean <code>true</code>. This result is because the attribute "<code>a</code>" exists; its data type is not relevant to the <code>NOT_NULL</code> comparison operator.</p></note></li><li><p><code>NULL</code> : The attribute does not exist. <code>NULL</code> is supported for all data types, including lists and maps.</p><note><p>This operator tests for the nonexistence of an attribute, not its data type. If the data type of attribute "<code>a</code>" is null, and you evaluate it using <code>NULL</code>, the result is a Boolean <code>false</code>. This is because the attribute "<code>a</code>" exists; its data type is not relevant to the <code>NULL</code> comparison operator.</p></note></li><li><p><code>CONTAINS</code> : Checks for a subsequence, or value in a set.</p><p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is of type String, then the operator checks for a substring match. If the target attribute of the comparison is of type Binary, then the operator looks for a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("<code>SS</code>", "<code>NS</code>", or "<code>BS</code>"), then the operator evaluates to true if it finds an exact match with any member of the set.</p><p>CONTAINS is supported for lists: When evaluating "<code>a CONTAINS b</code>", "<code>a</code>" can be a list; however, "<code>b</code>" cannot be a set, a map, or a list.</p></li><li><p><code>NOT_CONTAINS</code> : Checks for absence of a subsequence, or absence of a value in a set.</p><p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> element of type String, Number, or Binary (not a set type). If the target attribute of the comparison is a String, then the operator checks for the absence of a substring match. If the target attribute of the comparison is Binary, then the operator checks for the absence of a subsequence of the target that matches the input. If the target attribute of the comparison is a set ("<code>SS</code>", "<code>NS</code>", or "<code>BS</code>"), then the operator evaluates to true if it <i>does not</i> find an exact match with any member of the set.</p><p>NOT_CONTAINS is supported for lists: When evaluating "<code>a NOT CONTAINS b</code>", "<code>a</code>" can be a list; however, "<code>b</code>" cannot be a set, a map, or a list.</p></li><li><p><code>BEGINS_WITH</code> : Checks for a prefix. </p><p><code>AttributeValueList</code> can contain only one <code>AttributeValue</code> of type String or Binary (not a Number or a set type). The target attribute of the comparison must be of type String or Binary (not a Number or a set type).</p><p/></li><li><p><code>IN</code> : Checks for matching elements in a list.</p><p><code>AttributeValueList</code> can contain one or more <code>AttributeValue</code> elements of type String, Number, or Binary. These attributes are compared against an existing attribute of an item. If any elements of the input are equal to the item attribute, the expression evaluates to true.</p></li><li><p><code>BETWEEN</code> : Greater than or equal to the first value, and less than or equal to the second value. </p><p><code>AttributeValueList</code> must contain two <code>AttributeValue</code> elements of the same type, either String, Number, or Binary (not a set type). A target attribute matches if the target value is greater than, or equal to, the first element and less than, or equal to, the second element. If an item contains an <code>AttributeValue</code> element of a different type than the one provided in the request, the value does not match. For example, <code>{"S":"6"}</code> does not compare to <code>{"N":"6"}</code>. Also, <code>{"N":"6"}</code> does not compare to <code>{"NS":["6", "2", "1"]}</code></p></li></ul><p>For usage examples of <code>AttributeValueList</code> and <code>ComparisonOperator</code>, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html">Legacy Conditional Parameters</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSDynamoDBComparisonOperator comparisonOperator;
+
+@end
+
+/**
+ <p>Represents a request to perform a check that an item exists or to check the condition of specific attributes of the item..</p>
+ Required parameters: [Key, TableName, ConditionExpression]
+ */
+@interface AWSDynamoDBConditionCheck : AWSModel
+
+
+/**
+ <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable conditionExpression;
+
+/**
+ <p>One or more substitution tokens for attribute names in an expression.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
+
+/**
+ <p>One or more values that can be substituted in an expression.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable expressionAttributeValues;
+
+/**
+ <p>The primary key of the item to be checked. Each element consists of an attribute name and a value for that attribute.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable key;
+
+/**
+ <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>ConditionCheck</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
+
+/**
+ <p>Name of the table for the check item request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
 
 @end
 
@@ -872,6 +995,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBCapacity *> * _Nullable localSecondaryIndexes;
 
 /**
+ <p>The total number of read capacity units consumed by the operation.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable readCapacityUnits;
+
+/**
  <p>The amount of throughput consumed on the table affected by the operation.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBCapacity * _Nullable table;
@@ -880,6 +1008,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The name of the table that was affected by the operation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tableName;
+
+/**
+ <p>The total number of write capacity units consumed by the operation.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable writeCapacityUnits;
 
 @end
 
@@ -935,7 +1068,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 /**
  <p>Represents a new global secondary index to be added to an existing table.</p>
- Required parameters: [IndexName, KeySchema, Projection, ProvisionedThroughput]
+ Required parameters: [IndexName, KeySchema, Projection]
  */
 @interface AWSDynamoDBCreateGlobalSecondaryIndexAction : AWSModel
 
@@ -1009,7 +1142,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 /**
  <p>Represents the input of a <code>CreateTable</code> operation.</p>
- Required parameters: [AttributeDefinitions, TableName, KeySchema, ProvisionedThroughput]
+ Required parameters: [AttributeDefinitions, TableName, KeySchema]
  */
 @interface AWSDynamoDBCreateTableInput : AWSRequest
 
@@ -1020,7 +1153,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBAttributeDefinition *> * _Nullable attributeDefinitions;
 
 /**
- <p>One or more global secondary indexes (the maximum is five) to be created on the table. Each global secondary index in the array includes the following:</p><ul><li><p><code>IndexName</code> - The name of the global secondary index. Must be unique only for this table.</p><p/></li><li><p><code>KeySchema</code> - Specifies the key schema for the global secondary index.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li></ul>
+ <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. </p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBBillingMode billingMode;
+
+/**
+ <p>One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:</p><ul><li><p><code>IndexName</code> - The name of the global secondary index. Must be unique only for this table.</p><p/></li><li><p><code>KeySchema</code> - Specifies the key schema for the global secondary index.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexes;
 
@@ -1030,12 +1168,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
 /**
- <p>One or more local secondary indexes (the maximum is five) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.</p><p>Each local secondary index in the array includes the following:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index. Must be unique only for this table.</p><p/></li><li><p><code>KeySchema</code> - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li></ul>
+ <p>One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.</p><p>Each local secondary index in the array includes the following:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index. Must be unique only for this table.</p><p/></li><li><p><code>KeySchema</code> - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBLocalSecondaryIndex *> * _Nullable localSecondaryIndexes;
 
 /**
- <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p><p>For current minimum and maximum provisioned throughput values, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p><p> If you set BillingMode as <code>PROVISIONED</code>, you must specify this property. If you set BillingMode as <code>PAY_PER_REQUEST</code>, you cannot specify this property. </p><p>For current minimum and maximum provisioned throughput values, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
 
@@ -1066,6 +1204,45 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the properties of the table.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBTableDescription * _Nullable tableDescription;
+
+@end
+
+/**
+ <p>Represents a request to perform a <code>DeleteItem</code> operation.</p>
+ Required parameters: [Key, TableName]
+ */
+@interface AWSDynamoDBRemove : AWSModel
+
+
+/**
+ <p>A condition that must be satisfied in order for a conditional delete to succeed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable conditionExpression;
+
+/**
+ <p>One or more substitution tokens for attribute names in an expression.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
+
+/**
+ <p>One or more values that can be substituted in an expression.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable expressionAttributeValues;
+
+/**
+ <p>The primary key of the item to be deleted. Each element consists of an attribute name and a value for that attribute.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable key;
+
+/**
+ <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Delete</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
+
+/**
+ <p>Name of the table in which the item to be deleted resides.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
 
 @end
 
@@ -1313,7 +1490,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- 
+ <p>List of endpoints.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBEndpoint *> * _Nullable endpoints;
 
@@ -1466,18 +1643,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
- 
+ <p>An endpoint information details.</p>
+ Required parameters: [Address, CachePeriodInMinutes]
  */
 @interface AWSDynamoDBEndpoint : AWSModel
 
 
 /**
- 
+ <p>IP address of the endpoint.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable address;
 
 /**
- 
+ <p>Endpoint cache time to live (TTL) value.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable cachePeriodInMinutes;
 
@@ -1500,7 +1678,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBComparisonOperator comparisonOperator;
 
 /**
- <p>Causes DynamoDB to evaluate the value before attempting a conditional operation:</p><ul><li><p>If <code>Exists</code> is <code>true</code>, DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <code>ConditionalCheckFailedException</code>.</p></li><li><p>If <code>Exists</code> is <code>false</code>, DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <code>ConditionalCheckFailedException</code>.</p></li></ul><p>The default setting for <code>Exists</code> is <code>true</code>. If you supply a <code>Value</code> all by itself, DynamoDB assumes the attribute exists: You don't have to set <code>Exists</code> to <code>true</code>, because it is implied.</p><p>DynamoDB returns a <code>ValidationException</code> if:</p><ul><li><p><code>Exists</code> is <code>true</code> but there is no <code>Value</code> to check. (You expect a value to exist, but don't specify what that value is.)</p></li><li><p><code>Exists</code> is <code>false</code> but you also provide a <code>Value</code>. (You cannot expect an attribute to have a value, while also expecting it not to exist.)</p></li></ul>
+ <p>Causes DynamoDB to evaluate the value before attempting a conditional operation:</p><ul><li><p>If <code>Exists</code> is <code>true</code>, DynamoDB will check to see if that attribute value already exists in the table. If it is found, then the operation succeeds. If it is not found, the operation fails with a <code>ConditionCheckFailedException</code>.</p></li><li><p>If <code>Exists</code> is <code>false</code>, DynamoDB assumes that the attribute value does not exist in the table. If in fact the value does not exist, then the assumption is valid and the operation succeeds. If the value is found, despite the assumption that it does not exist, the operation fails with a <code>ConditionCheckFailedException</code>.</p></li></ul><p>The default setting for <code>Exists</code> is <code>true</code>. If you supply a <code>Value</code> all by itself, DynamoDB assumes the attribute exists: You don't have to set <code>Exists</code> to <code>true</code>, because it is implied.</p><p>DynamoDB returns a <code>ValidationException</code> if:</p><ul><li><p><code>Exists</code> is <code>true</code> but there is no <code>Value</code> to check. (You expect a value to exist, but don't specify what that value is.)</p></li><li><p><code>Exists</code> is <code>false</code> but you also provide a <code>Value</code>. (You cannot expect an attribute to have a value, while also expecting it not to exist.)</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable exists;
 
@@ -1508,6 +1686,35 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the data for the expected attribute.</p><p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p><p>For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAttributeValue * _Nullable value;
+
+@end
+
+/**
+ <p>Specifies an item and related attribute values to retrieve in a <code>TransactGetItem</code> object.</p>
+ Required parameters: [Key, TableName]
+ */
+@interface AWSDynamoDBGet : AWSModel
+
+
+/**
+ <p>One or more substitution tokens for attribute names in the ProjectionExpression parameter.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
+
+/**
+ <p>A map of attribute names to <code>AttributeValue</code> objects that specifies the primary key of the item to retrieve.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable key;
+
+/**
+ <p>A string that identifies one or more attributes of the specified item to retrieve from the table. The attributes in the expression must be separated by commas. If no attribute names are specified, then all attributes of the specified item are returned. If any of the requested attributes are not found, they do not appear in the result.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectionExpression;
+
+/**
+ <p>The name of the table from which to retrieve the specified item.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
 
 @end
 
@@ -1575,7 +1782,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 /**
  <p>Represents the properties of a global secondary index.</p>
- Required parameters: [IndexName, KeySchema, Projection, ProvisionedThroughput]
+ Required parameters: [IndexName, KeySchema, Projection]
  */
 @interface AWSDynamoDBGlobalSecondaryIndex : AWSModel
 
@@ -1796,6 +2003,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>An estimate of item collection size, in gigabytes. This value is a two-element array containing a lower bound and an upper bound for the estimate. The estimate includes the size of all the items in the table, plus the size of all attributes projected into all of the local secondary indexes on that table. Use this estimate to measure whether a local secondary index is approaching its size limit.</p><p>The estimate is subject to change over time; therefore, do not rely on the precision or accuracy of the estimate.</p>
  */
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable sizeEstimateRangeGB;
+
+@end
+
+/**
+ <p>Details for the requested item.</p>
+ */
+@interface AWSDynamoDBItemResponse : AWSModel
+
+
+/**
+ <p>Map of attribute data consisting of the data type and attribute value.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable item;
 
 @end
 
@@ -2169,12 +2389,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The maximum number of strongly consistent reads consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p><p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable readCapacityUnits;
 
 /**
- <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>. For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p><p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to 0.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable writeCapacityUnits;
 
@@ -2210,6 +2430,45 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable writeCapacityUnits;
+
+@end
+
+/**
+ <p>Represents a request to perform a <code>PutItem</code> operation.</p>
+ Required parameters: [Item, TableName]
+ */
+@interface AWSDynamoDBPut : AWSModel
+
+
+/**
+ <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable conditionExpression;
+
+/**
+ <p>One or more substitution tokens for attribute names in an expression.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
+
+/**
+ <p>One or more values that can be substituted in an expression.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable expressionAttributeValues;
+
+/**
+ <p>A map of attribute name to attribute values, representing the primary key of the item to be written by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable item;
+
+/**
+ <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Put</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE and ALL_OLD.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
+
+/**
+ <p>Name of the table in which to write the item.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
 
 @end
 
@@ -2538,6 +2797,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable regionName;
 
 /**
+ <p>The read/write capacity mode of the replica.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBBillingModeSummary * _Nullable replicaBillingModeSummary;
+
+/**
  <p>Replica global secondary index settings for the global table.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription *> * _Nullable replicaGlobalSecondaryIndexSettings;
@@ -2729,7 +2993,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyArn;
 
 /**
- <p>Server-side encryption type:</p><ul><li><p><code>AES256</code> - Server-side encryption which uses the AES256 algorithm.</p></li><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service.</p></li></ul>
+ <p>Server-side encryption type:</p><ul><li><p><code>AES256</code> - Server-side encryption which uses the AES256 algorithm (not applicable).</p></li><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEType SSEType;
 
@@ -2747,7 +3011,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>Indicates whether server-side encryption is enabled (true) or disabled (false) on the table.</p>
+ <p>Indicates whether server-side encryption is enabled (true) or disabled (false) on the table. If enabled (true), server-side encryption type is set to <code>KMS</code>. If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -2757,7 +3021,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 
 /**
- <p>Server-side encryption type:</p><ul><li><p><code>AES256</code> - Server-side encryption which uses the AES256 algorithm.</p></li><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service. (default)</p></li></ul>
+ <p>Server-side encryption type:</p><ul><li><p><code>AES256</code> - Server-side encryption which uses the AES256 algorithm (not applicable).</p></li><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEType SSEType;
 
@@ -2893,6 +3157,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
+ <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - Sets the read/write capacity mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the read/write capacity mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. </p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBBillingMode billingMode;
+
+/**
  <p>Number of items in the table. Please note this is an approximate value. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable itemCount;
@@ -2995,6 +3264,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p><p>Each <code>AttributeDefinition</code> object in this array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>AttributeType</code> - The data type for the attribute.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBAttributeDefinition *> * _Nullable attributeDefinitions;
+
+/**
+ <p>Contains the details for the read/write capacity mode.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBBillingModeSummary * _Nullable billingModeSummary;
 
 /**
  <p>The date and time when the table was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -3153,6 +3427,130 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Specifies an item to be retrieved as part of the transaction.</p>
+ Required parameters: [Get]
+ */
+@interface AWSDynamoDBTransactGetItem : AWSModel
+
+
+/**
+ <p>Contains the primary key that identifies the item to get, together with the name of the table that contains the item, and optionally the specific attributes of the item to retrieve.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBGet * _Nullable get;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBTransactGetItemsInput : AWSRequest
+
+
+/**
+ <p>A value of <code>TOTAL</code> causes consumed capacity information to be returned, and a value of <code>NONE</code> prevents that information from being returned. No other value is valid.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ <p>An ordered array of up to 10 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBTransactGetItem *> * _Nullable transactItems;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBTransactGetItemsOutput : AWSModel
+
+
+/**
+ <p>If the <i>ReturnConsumedCapacity</i> value was <code>TOTAL</code>, this is an array of <code>ConsumedCapacity</code> objects, one for each table addressed by <code>TransactGetItem</code> objects in the <i>TransactItems</i> parameter. These <code>ConsumedCapacity</code> objects report the read-capacity units consumed by the <code>TransactGetItems</code> call in that table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBConsumedCapacity *> * _Nullable consumedCapacity;
+
+/**
+ <p>An ordered array of up to 10 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p><p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBItemResponse *> * _Nullable responses;
+
+@end
+
+/**
+ <p>A list of requests that can perform update, put, delete, or check operations on multiple items in one or more tables atomically.</p>
+ */
+@interface AWSDynamoDBTransactWriteItem : AWSModel
+
+
+/**
+ <p>A request to perform a check item operation.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBConditionCheck * _Nullable conditionCheck;
+
+/**
+ <p>A request to perform a <code>DeleteItem</code> operation.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBRemove * _Nullable remove;
+
+/**
+ <p>A request to perform a <code>PutItem</code> operation.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBPut * _Nullable put;
+
+/**
+ <p>A request to perform an <code>UpdateItem</code> operation.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBUpdate * _Nullable update;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBTransactWriteItemsInput : AWSRequest
+
+
+/**
+ <p>Providing a <code>ClientRequestToken</code> makes the call to <code>TransactWriteItems</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p><p>Although multiple identical calls using the same client request token produce the same result on the server (no side effects), the responses to the calls may not be the same. If the <code>ReturnConsumedCapacity&gt;</code> parameter is set, then the initial <code>TransactWriteItems</code> call returns the amount of write capacity units consumed in making the changes, and subsequent <code>TransactWriteItems</code> calls with the same client token return the amount of read capacity units consumed in reading the item.</p><p>A client request token is valid for 10 minutes after the first request that uses it completes. After 10 minutes, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 10 minutes or the result may not be idempotent.</p><p>If you submit a request with the same client token but a change in other parameters within the 10 minute idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>Determines the level of detail about provisioned throughput consumption that is returned in the response:</p><ul><li><p><code>INDEXES</code> - The response includes the aggregate <code>ConsumedCapacity</code> for the operation, together with <code>ConsumedCapacity</code> for each table and secondary index that was accessed.</p><p>Note that some operations, such as <code>GetItem</code> and <code>BatchGetItem</code>, do not access any indexes at all. In these cases, specifying <code>INDEXES</code> will only return <code>ConsumedCapacity</code> information for table(s).</p></li><li><p><code>TOTAL</code> - The response includes only the aggregate <code>ConsumedCapacity</code> for the operation.</p></li><li><p><code>NONE</code> - No <code>ConsumedCapacity</code> details are included in the response.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
+
+/**
+ <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>, the response includes statistics about item collections (if any), that were modified during the operation and are returned in the response. If set to <code>NONE</code> (the default), no statistics are returned. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics;
+
+/**
+ <p>An ordered array of up to 10 <code>TransactWriteItem</code> objects, each of which contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or <code>Delete</code> object. These can operate on items in different tables, but the tables must reside in the same AWS account and region, and no two of them can operate on the same item. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBTransactWriteItem *> * _Nullable transactItems;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBTransactWriteItemsOutput : AWSModel
+
+
+/**
+ <p>The capacity units consumed by the entire <code>TransactWriteItems</code> operation. The values of the list are ordered according to the ordering of the <code>TransactItems</code> request parameter. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBConsumedCapacity *> * _Nullable consumedCapacity;
+
+/**
+ <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code> or <code>DeleteItem</code> operations. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSDynamoDBItemCollectionMetrics *> *> * _Nullable itemCollectionMetrics;
+
+@end
+
+/**
  
  */
 @interface AWSDynamoDBUntagResourceInput : AWSRequest
@@ -3167,6 +3565,50 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>A list of tag keys. Existing tags of the resource whose keys are members of this list will be removed from the Amazon DynamoDB resource.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+
+@end
+
+/**
+ <p>Represents a request to perform an <code>UpdateItem</code> operation.</p>
+ Required parameters: [Key, UpdateExpression, TableName]
+ */
+@interface AWSDynamoDBUpdate : AWSModel
+
+
+/**
+ <p>A condition that must be satisfied in order for a conditional update to succeed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable conditionExpression;
+
+/**
+ <p>One or more substitution tokens for attribute names in an expression.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
+
+/**
+ <p>One or more values that can be substituted in an expression.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable expressionAttributeValues;
+
+/**
+ <p>The primary key of the item to be updated. Each element consists of an attribute name and a value for that attribute.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable key;
+
+/**
+ <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the <code>Update</code> condition fails. For <code>ReturnValuesOnConditionCheckFailure</code>, the valid values are: NONE, ALL_OLD, UPDATED_OLD, ALL_NEW, UPDATED_NEW.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBReturnValuesOnConditionCheckFailure returnValuesOnConditionCheckFailure;
+
+/**
+ <p>Name of the table for the <code>UpdateItem</code> request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+/**
+ <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable updateExpression;
 
 @end
 
@@ -3256,6 +3698,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  */
 @interface AWSDynamoDBUpdateGlobalTableSettingsInput : AWSRequest
 
+
+/**
+ <p>The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table defaults to <code>PROVISIONED</code> capacity billing mode.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBBillingMode globalTableBillingMode;
 
 /**
  <p>Represents the settings of a global secondary index for a global table that will be modified.</p>
@@ -3405,6 +3852,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>An array of attributes that describe the key schema for the table and indexes. If you are adding a new global secondary index to the table, <code>AttributeDefinitions</code> must include the key element(s) of the new index.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBAttributeDefinition *> * _Nullable attributeDefinitions;
+
+/**
+ <p>Controls how you are charged for read and write throughput and how you manage capacity. When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.</p><ul><li><p><code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. </p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBBillingMode billingMode;
 
 /**
  <p>An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:</p><ul><li><p><code>Create</code> - add a new global secondary index to the table.</p></li><li><p><code>Update</code> - modify the provisioned throughput settings of an existing global secondary index.</p></li><li><p><code>Delete</code> - remove a global secondary index from the table.</p></li></ul><p>For more information, see <a href="http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>

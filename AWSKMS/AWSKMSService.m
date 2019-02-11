@@ -26,7 +26,7 @@
 #import "AWSKMSResources.h"
 
 static NSString *const AWSInfoKMS = @"KMS";
-NSString *const AWSKMSSDKVersion = @"2.8.4";
+NSString *const AWSKMSSDKVersion = @"2.9.0";
 
 
 @interface AWSKMSResponseSerializer : AWSJSONResponseSerializer
@@ -41,10 +41,20 @@ static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
                             @"AlreadyExistsException" : @(AWSKMSErrorAlreadyExists),
+                            @"CloudHsmClusterInUseException" : @(AWSKMSErrorCloudHsmClusterInUse),
+                            @"CloudHsmClusterInvalidConfigurationException" : @(AWSKMSErrorCloudHsmClusterInvalidConfiguration),
+                            @"CloudHsmClusterNotActiveException" : @(AWSKMSErrorCloudHsmClusterNotActive),
+                            @"CloudHsmClusterNotFoundException" : @(AWSKMSErrorCloudHsmClusterNotFound),
+                            @"CloudHsmClusterNotRelatedException" : @(AWSKMSErrorCloudHsmClusterNotRelated),
+                            @"CustomKeyStoreHasCMKsException" : @(AWSKMSErrorCustomKeyStoreHasCMKs),
+                            @"CustomKeyStoreInvalidStateException" : @(AWSKMSErrorCustomKeyStoreInvalidState),
+                            @"CustomKeyStoreNameInUseException" : @(AWSKMSErrorCustomKeyStoreNameInUse),
+                            @"CustomKeyStoreNotFoundException" : @(AWSKMSErrorCustomKeyStoreNotFound),
                             @"DependencyTimeoutException" : @(AWSKMSErrorDependencyTimeout),
                             @"DisabledException" : @(AWSKMSErrorDisabled),
                             @"ExpiredImportTokenException" : @(AWSKMSErrorExpiredImportToken),
                             @"IncorrectKeyMaterialException" : @(AWSKMSErrorIncorrectKeyMaterial),
+                            @"IncorrectTrustAnchorException" : @(AWSKMSErrorIncorrectTrustAnchor),
                             @"InvalidAliasNameException" : @(AWSKMSErrorInvalidAliasName),
                             @"InvalidArnException" : @(AWSKMSErrorInvalidArn),
                             @"InvalidCiphertextException" : @(AWSKMSErrorInvalidCiphertext),
@@ -318,6 +328,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSKMSConnectCustomKeyStoreResponse *> *)connectCustomKeyStore:(AWSKMSConnectCustomKeyStoreRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"ConnectCustomKeyStore"
+                   outputClass:[AWSKMSConnectCustomKeyStoreResponse class]];
+}
+
+- (void)connectCustomKeyStore:(AWSKMSConnectCustomKeyStoreRequest *)request
+     completionHandler:(void (^)(AWSKMSConnectCustomKeyStoreResponse *response, NSError *error))completionHandler {
+    [[self connectCustomKeyStore:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSConnectCustomKeyStoreResponse *> * _Nonnull task) {
+        AWSKMSConnectCustomKeyStoreResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)createAlias:(AWSKMSCreateAliasRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -334,6 +367,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKMSCreateCustomKeyStoreResponse *> *)createCustomKeyStore:(AWSKMSCreateCustomKeyStoreRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"CreateCustomKeyStore"
+                   outputClass:[AWSKMSCreateCustomKeyStoreResponse class]];
+}
+
+- (void)createCustomKeyStore:(AWSKMSCreateCustomKeyStoreRequest *)request
+     completionHandler:(void (^)(AWSKMSCreateCustomKeyStoreResponse *response, NSError *error))completionHandler {
+    [[self createCustomKeyStore:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSCreateCustomKeyStoreResponse *> * _Nonnull task) {
+        AWSKMSCreateCustomKeyStoreResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -431,6 +487,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSKMSDeleteCustomKeyStoreResponse *> *)deleteCustomKeyStore:(AWSKMSDeleteCustomKeyStoreRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"DeleteCustomKeyStore"
+                   outputClass:[AWSKMSDeleteCustomKeyStoreResponse class]];
+}
+
+- (void)deleteCustomKeyStore:(AWSKMSDeleteCustomKeyStoreRequest *)request
+     completionHandler:(void (^)(AWSKMSDeleteCustomKeyStoreResponse *response, NSError *error))completionHandler {
+    [[self deleteCustomKeyStore:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSDeleteCustomKeyStoreResponse *> * _Nonnull task) {
+        AWSKMSDeleteCustomKeyStoreResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteImportedKeyMaterial:(AWSKMSDeleteImportedKeyMaterialRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -447,6 +526,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKMSDescribeCustomKeyStoresResponse *> *)describeCustomKeyStores:(AWSKMSDescribeCustomKeyStoresRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"DescribeCustomKeyStores"
+                   outputClass:[AWSKMSDescribeCustomKeyStoresResponse class]];
+}
+
+- (void)describeCustomKeyStores:(AWSKMSDescribeCustomKeyStoresRequest *)request
+     completionHandler:(void (^)(AWSKMSDescribeCustomKeyStoresResponse *response, NSError *error))completionHandler {
+    [[self describeCustomKeyStores:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSDescribeCustomKeyStoresResponse *> * _Nonnull task) {
+        AWSKMSDescribeCustomKeyStoresResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -514,6 +616,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKMSDisconnectCustomKeyStoreResponse *> *)disconnectCustomKeyStore:(AWSKMSDisconnectCustomKeyStoreRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"DisconnectCustomKeyStore"
+                   outputClass:[AWSKMSDisconnectCustomKeyStoreResponse class]];
+}
+
+- (void)disconnectCustomKeyStore:(AWSKMSDisconnectCustomKeyStoreRequest *)request
+     completionHandler:(void (^)(AWSKMSDisconnectCustomKeyStoreResponse *response, NSError *error))completionHandler {
+    [[self disconnectCustomKeyStore:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSDisconnectCustomKeyStoreResponse *> * _Nonnull task) {
+        AWSKMSDisconnectCustomKeyStoreResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -1058,6 +1183,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSKMSUpdateCustomKeyStoreResponse *> *)updateCustomKeyStore:(AWSKMSUpdateCustomKeyStoreRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"TrentService"
+                 operationName:@"UpdateCustomKeyStore"
+                   outputClass:[AWSKMSUpdateCustomKeyStoreResponse class]];
+}
+
+- (void)updateCustomKeyStore:(AWSKMSUpdateCustomKeyStoreRequest *)request
+     completionHandler:(void (^)(AWSKMSUpdateCustomKeyStoreResponse *response, NSError *error))completionHandler {
+    [[self updateCustomKeyStore:request] continueWithBlock:^id _Nullable(AWSTask<AWSKMSUpdateCustomKeyStoreResponse *> * _Nonnull task) {
+        AWSKMSUpdateCustomKeyStoreResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

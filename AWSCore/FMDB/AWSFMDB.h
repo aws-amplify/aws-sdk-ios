@@ -3,3 +3,6 @@
 #import "AWSFMDatabaseAdditions.h"
 #import "AWSFMDatabaseQueue.h"
 #import "AWSFMDatabasePool.h"
+
+// AWS Helpers
+#import "AWSFMDB+AWSHelpers.h"

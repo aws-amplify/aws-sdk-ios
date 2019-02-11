@@ -1997,6 +1997,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ruleName" : @"ruleName",
+             @"tags" : @"tags",
              @"topicRulePayload" : @"topicRulePayload",
              };
 }

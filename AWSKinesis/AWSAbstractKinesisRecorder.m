@@ -94,7 +94,7 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
         _databaseQueue = [AWSFMDatabaseQueue databaseQueueWithPath:_databasePath];
         [_databaseQueue inDatabase:^(AWSFMDatabase *db) {
             if (![db executeStatements:@"PRAGMA auto_vacuum = FULL"]) {
-                AWSDDLogError(@"Failed to enable 'aut_vacuum' to 'FULL'. %@", db.lastError);
+                AWSDDLogError(@"Failed to enable 'auto_vacuum' to 'FULL'. %@", db.lastError);
             }
 
             if (![db executeUpdate:

@@ -2926,6 +2926,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable ruleName;
 
 /**
+ <p>Metadata which can be used to manage the topic rule.</p><note><p>For URI Request parameters use format: ...key1=value1&amp;key2=value2...</p><p>For the CLI command-line parameter use format: --tags "key1=value1&amp;key2=value2..."</p><p>For the cli-input-json file use format: "tags": "key1=value1&amp;key2=value2..."</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable tags;
+
+/**
  <p>The rule payload.</p>
  */
 @property (nonatomic, strong) AWSIoTTopicRulePayload * _Nullable topicRulePayload;
@@ -4464,6 +4469,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 /**
  <p>Describes an action to write to a DynamoDB table.</p><p>This DynamoDB action writes each attribute in the message payload into it's own column in the DynamoDB table.</p>
+ Required parameters: [roleArn, putItem]
  */
 @interface AWSIoTDynamoDBv2Action : AWSModel
 

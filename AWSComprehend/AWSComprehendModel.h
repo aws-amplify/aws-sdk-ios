@@ -81,6 +81,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendModelStatus) {
     AWSComprehendModelStatusSubmitted,
     AWSComprehendModelStatusTraining,
     AWSComprehendModelStatusDeleting,
+    AWSComprehendModelStatusStopRequested,
+    AWSComprehendModelStatusStopped,
     AWSComprehendModelStatusInError,
     AWSComprehendModelStatusTrained,
 };
@@ -243,6 +245,10 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendStopKeyPhrasesDetectionJobResponse;
 @class AWSComprehendStopSentimentDetectionJobRequest;
 @class AWSComprehendStopSentimentDetectionJobResponse;
+@class AWSComprehendStopTrainingDocumentClassifierRequest;
+@class AWSComprehendStopTrainingDocumentClassifierResponse;
+@class AWSComprehendStopTrainingEntityRecognizerRequest;
+@class AWSComprehendStopTrainingEntityRecognizerResponse;
 @class AWSComprehendSyntaxToken;
 @class AWSComprehendTopicsDetectionJobFilter;
 @class AWSComprehendTopicsDetectionJobProperties;
@@ -1258,7 +1264,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable message;
 
 /**
- <p>The status of the document classifier. The the status is <code>TRAINED</code> the classifier is ready to use. If the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in the <code>Message</code> field.</p>
+ <p>The status of the document classifier. If the status is <code>TRAINED</code> the classifier is ready to use. If the status is <code>FAILED</code> you can see additional information about why the classifier wasn't trained in the <code>Message</code> field.</p>
  */
 @property (nonatomic, assign) AWSComprehendModelStatus status;
 
@@ -2801,6 +2807,48 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or <code>STOPPED</code> if the job was previously stopped with the <code>StopSentimentDetectionJob</code> operation.</p>
  */
 @property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStopTrainingDocumentClassifierRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) that identifies the document classifier currently being trained.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable documentClassifierArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStopTrainingDocumentClassifierResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStopTrainingEntityRecognizerRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) that identifies the entity recognizer currently being trained.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable entityRecognizerArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStopTrainingEntityRecognizerResponse : AWSModel
+
 
 @end
 

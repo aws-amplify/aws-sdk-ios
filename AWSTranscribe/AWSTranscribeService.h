@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 + (void)removeTranscribeForKey:(NSString *)key;
 
 /**
- <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message. </p>
+ <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. </p>
  
  @param request A container for the necessary parameters to execute the CreateVocabulary service method.
 
@@ -187,7 +187,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (AWSTask<AWSTranscribeCreateVocabularyResponse *> *)createVocabulary:(AWSTranscribeCreateVocabularyRequest *)request;
 
 /**
- <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message. </p>
+ <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. </p>
  
  @param request A container for the necessary parameters to execute the CreateVocabulary service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)createVocabulary:(AWSTranscribeCreateVocabularyRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeCreateVocabularyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a previously submitted transcription job as well as any other generated results such as the transcription, models, and so on.</p>
+ <p>Deletes a previously submitted transcription job along with any other generated results such as the transcription, models, and so on.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTranscriptionJob service method.
 
@@ -211,7 +211,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (AWSTask *)deleteTranscriptionJob:(AWSTranscribeDeleteTranscriptionJobRequest *)request;
 
 /**
- <p>Deletes a previously submitted transcription job as well as any other generated results such as the transcription, models, and so on.</p>
+ <p>Deletes a previously submitted transcription job along with any other generated results such as the transcription, models, and so on.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTranscriptionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -269,7 +269,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)getTranscriptionJob:(AWSTranscribeGetTranscriptionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeGetTranscriptionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about a vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>
+ <p>Gets information about a vocabulary. </p>
  
  @param request A container for the necessary parameters to execute the GetVocabulary service method.
 
@@ -281,7 +281,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (AWSTask<AWSTranscribeGetVocabularyResponse *> *)getVocabulary:(AWSTranscribeGetVocabularyRequest *)request;
 
 /**
- <p>Gets information about a vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>
+ <p>Gets information about a vocabulary. </p>
  
  @param request A container for the necessary parameters to execute the GetVocabulary service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -344,7 +344,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)listVocabularies:(AWSTranscribeListVocabulariesRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeListVocabulariesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts an asynchronous job to transcribe speech to text. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers. </p>
+ <p>Starts an asynchronous job to transcribe speech to text. </p>
  
  @param request A container for the necessary parameters to execute the StartTranscriptionJob service method.
 
@@ -356,7 +356,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (AWSTask<AWSTranscribeStartTranscriptionJobResponse *> *)startTranscriptionJob:(AWSTranscribeStartTranscriptionJobRequest *)request;
 
 /**
- <p>Starts an asynchronous job to transcribe speech to text. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers. </p>
+ <p>Starts an asynchronous job to transcribe speech to text. </p>
  
  @param request A container for the necessary parameters to execute the StartTranscriptionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -369,7 +369,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)startTranscriptionJob:(AWSTranscribeStartTranscriptionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeStartTranscriptionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>
+ <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request. </p>
  
  @param request A container for the necessary parameters to execute the UpdateVocabulary service method.
 
@@ -381,7 +381,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (AWSTask<AWSTranscribeUpdateVocabularyResponse *> *)updateVocabulary:(AWSTranscribeUpdateVocabularyRequest *)request;
 
 /**
- <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>
+ <p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request. </p>
  
  @param request A container for the necessary parameters to execute the UpdateVocabulary service method.
  @param completionHandler The completion handler to call when the load request is complete.
