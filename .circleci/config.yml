@@ -159,6 +159,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: pre-start simulator
+          command: xcrun instruments -w "iPhone XS (12.1) [" || true
+      - run:
           name: create credentials
           command: |
             touch AWSCoreTests/Resources/credentials.json 
