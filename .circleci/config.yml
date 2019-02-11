@@ -142,6 +142,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: pre-start simulator
+          command: xcrun instruments -w "iPhone XS (12.1) [" || true
+      - run:
           name: create credentials
           command: |
             touch AWSCoreTests/Resources/credentials.json   
@@ -150,8 +153,8 @@ jobs:
       - run:
           name: build sdk
           command: |
-            xcodebuild  build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'         
-            xcodebuild  build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'
+            xcodebuild  build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XS,OS=12.1'         
+            xcodebuild  build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XS,OS=12.1'
  
   unittest:
     macos:
@@ -159,12 +162,15 @@ jobs:
     steps:
       - checkout
       - run:
+          name: pre-start simulator
+          command: xcrun instruments -w "iPhone XS (12.1) [" || true
+      - run:
           name: create credentials
           command: |
             touch AWSCoreTests/Resources/credentials.json 
       - run:
           name: build sdk
-          command: xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'        
+          command: xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone XS,OS=12.1'        
       - run :
           name: run unit tests
           command: bash CircleciScripts/run_unittests.sh "test_result"
