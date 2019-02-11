@@ -42,8 +42,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
             return @(AWSTranscribeLanguageCodeFrCA);
         }
-        if ([value caseInsensitiveCompare:@"en-UK"] == NSOrderedSame) {
-            return @(AWSTranscribeLanguageCodeEnUK);
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
         }
         return @(AWSTranscribeLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -56,8 +68,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"en-AU";
             case AWSTranscribeLanguageCodeFrCA:
                 return @"fr-CA";
-            case AWSTranscribeLanguageCodeEnUK:
-                return @"en-UK";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
             default:
                 return nil;
         }
@@ -92,8 +112,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
             return @(AWSTranscribeLanguageCodeFrCA);
         }
-        if ([value caseInsensitiveCompare:@"en-UK"] == NSOrderedSame) {
-            return @(AWSTranscribeLanguageCodeEnUK);
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
         }
         return @(AWSTranscribeLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -106,8 +138,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"en-AU";
             case AWSTranscribeLanguageCodeFrCA:
                 return @"fr-CA";
-            case AWSTranscribeLanguageCodeEnUK:
-                return @"en-UK";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
             default:
                 return nil;
         }
@@ -231,8 +271,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
             return @(AWSTranscribeLanguageCodeFrCA);
         }
-        if ([value caseInsensitiveCompare:@"en-UK"] == NSOrderedSame) {
-            return @(AWSTranscribeLanguageCodeEnUK);
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
         }
         return @(AWSTranscribeLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -245,8 +297,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"en-AU";
             case AWSTranscribeLanguageCodeFrCA:
                 return @"fr-CA";
-            case AWSTranscribeLanguageCodeEnUK:
-                return @"en-UK";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
             default:
                 return nil;
         }
@@ -502,8 +562,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
             return @(AWSTranscribeLanguageCodeFrCA);
         }
-        if ([value caseInsensitiveCompare:@"en-UK"] == NSOrderedSame) {
-            return @(AWSTranscribeLanguageCodeEnUK);
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
         }
         return @(AWSTranscribeLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -516,8 +588,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"en-AU";
             case AWSTranscribeLanguageCodeFrCA:
                 return @"fr-CA";
-            case AWSTranscribeLanguageCodeEnUK:
-                return @"en-UK";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
             default:
                 return nil;
         }
@@ -637,8 +717,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
             return @(AWSTranscribeLanguageCodeFrCA);
         }
-        if ([value caseInsensitiveCompare:@"en-UK"] == NSOrderedSame) {
-            return @(AWSTranscribeLanguageCodeEnUK);
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
         }
         return @(AWSTranscribeLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -651,8 +743,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"en-AU";
             case AWSTranscribeLanguageCodeFrCA:
                 return @"fr-CA";
-            case AWSTranscribeLanguageCodeEnUK:
-                return @"en-UK";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
             default:
                 return nil;
         }
@@ -774,8 +874,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
             return @(AWSTranscribeLanguageCodeFrCA);
         }
-        if ([value caseInsensitiveCompare:@"en-UK"] == NSOrderedSame) {
-            return @(AWSTranscribeLanguageCodeEnUK);
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
         }
         return @(AWSTranscribeLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -788,8 +900,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"en-AU";
             case AWSTranscribeLanguageCodeFrCA:
                 return @"fr-CA";
-            case AWSTranscribeLanguageCodeEnUK:
-                return @"en-UK";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
             default:
                 return nil;
         }
@@ -869,8 +989,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
             return @(AWSTranscribeLanguageCodeFrCA);
         }
-        if ([value caseInsensitiveCompare:@"en-UK"] == NSOrderedSame) {
-            return @(AWSTranscribeLanguageCodeEnUK);
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
         }
         return @(AWSTranscribeLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -883,8 +1015,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"en-AU";
             case AWSTranscribeLanguageCodeFrCA:
                 return @"fr-CA";
-            case AWSTranscribeLanguageCodeEnUK:
-                return @"en-UK";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
             default:
                 return nil;
         }
@@ -918,8 +1058,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
             return @(AWSTranscribeLanguageCodeFrCA);
         }
-        if ([value caseInsensitiveCompare:@"en-UK"] == NSOrderedSame) {
-            return @(AWSTranscribeLanguageCodeEnUK);
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
         }
         return @(AWSTranscribeLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -932,8 +1084,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"en-AU";
             case AWSTranscribeLanguageCodeFrCA:
                 return @"fr-CA";
-            case AWSTranscribeLanguageCodeEnUK:
-                return @"en-UK";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
             default:
                 return nil;
         }
@@ -1001,8 +1161,20 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
             return @(AWSTranscribeLanguageCodeFrCA);
         }
-        if ([value caseInsensitiveCompare:@"en-UK"] == NSOrderedSame) {
-            return @(AWSTranscribeLanguageCodeEnUK);
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
         }
         return @(AWSTranscribeLanguageCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -1015,8 +1187,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"en-AU";
             case AWSTranscribeLanguageCodeFrCA:
                 return @"fr-CA";
-            case AWSTranscribeLanguageCodeEnUK:
-                return @"en-UK";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
             default:
                 return nil;
         }

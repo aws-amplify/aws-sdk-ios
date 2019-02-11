@@ -1333,6 +1333,12 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusDeleting);
         }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusStopped);
+        }
         if ([value caseInsensitiveCompare:@"IN_ERROR"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusInError);
         }
@@ -1348,6 +1354,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"TRAINING";
             case AWSComprehendModelStatusDeleting:
                 return @"DELETING";
+            case AWSComprehendModelStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSComprehendModelStatusStopped:
+                return @"STOPPED";
             case AWSComprehendModelStatusInError:
                 return @"IN_ERROR";
             case AWSComprehendModelStatusTrained:
@@ -1472,6 +1482,12 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusDeleting);
         }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusStopped);
+        }
         if ([value caseInsensitiveCompare:@"IN_ERROR"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusInError);
         }
@@ -1487,6 +1503,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"TRAINING";
             case AWSComprehendModelStatusDeleting:
                 return @"DELETING";
+            case AWSComprehendModelStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSComprehendModelStatusStopped:
+                return @"STOPPED";
             case AWSComprehendModelStatusInError:
                 return @"IN_ERROR";
             case AWSComprehendModelStatusTrained:
@@ -2016,6 +2036,12 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusDeleting);
         }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusStopped);
+        }
         if ([value caseInsensitiveCompare:@"IN_ERROR"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusInError);
         }
@@ -2031,6 +2057,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"TRAINING";
             case AWSComprehendModelStatusDeleting:
                 return @"DELETING";
+            case AWSComprehendModelStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSComprehendModelStatusStopped:
+                return @"STOPPED";
             case AWSComprehendModelStatusInError:
                 return @"IN_ERROR";
             case AWSComprehendModelStatusTrained:
@@ -2205,6 +2235,12 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         if ([value caseInsensitiveCompare:@"DELETING"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusDeleting);
         }
+        if ([value caseInsensitiveCompare:@"STOP_REQUESTED"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusStopRequested);
+        }
+        if ([value caseInsensitiveCompare:@"STOPPED"] == NSOrderedSame) {
+            return @(AWSComprehendModelStatusStopped);
+        }
         if ([value caseInsensitiveCompare:@"IN_ERROR"] == NSOrderedSame) {
             return @(AWSComprehendModelStatusInError);
         }
@@ -2220,6 +2256,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"TRAINING";
             case AWSComprehendModelStatusDeleting:
                 return @"DELETING";
+            case AWSComprehendModelStatusStopRequested:
+                return @"STOP_REQUESTED";
+            case AWSComprehendModelStatusStopped:
+                return @"STOPPED";
             case AWSComprehendModelStatusInError:
                 return @"IN_ERROR";
             case AWSComprehendModelStatusTrained:
@@ -3902,6 +3942,34 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
         }
     }];
 }
+
+@end
+
+@implementation AWSComprehendStopTrainingDocumentClassifierRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"documentClassifierArn" : @"DocumentClassifierArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendStopTrainingDocumentClassifierResponse
+
+@end
+
+@implementation AWSComprehendStopTrainingEntityRecognizerRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"entityRecognizerArn" : @"EntityRecognizerArn",
+             };
+}
+
+@end
+
+@implementation AWSComprehendStopTrainingEntityRecognizerResponse
 
 @end
 

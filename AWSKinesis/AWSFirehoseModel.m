@@ -716,6 +716,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"compressionFormat" : @"CompressionFormat",
              @"dataFormatConversionConfiguration" : @"DataFormatConversionConfiguration",
              @"encryptionConfiguration" : @"EncryptionConfiguration",
+             @"errorOutputPrefix" : @"ErrorOutputPrefix",
              @"prefix" : @"Prefix",
              @"processingConfiguration" : @"ProcessingConfiguration",
              @"roleARN" : @"RoleARN",
@@ -812,6 +813,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"compressionFormat" : @"CompressionFormat",
              @"dataFormatConversionConfiguration" : @"DataFormatConversionConfiguration",
              @"encryptionConfiguration" : @"EncryptionConfiguration",
+             @"errorOutputPrefix" : @"ErrorOutputPrefix",
              @"prefix" : @"Prefix",
              @"processingConfiguration" : @"ProcessingConfiguration",
              @"roleARN" : @"RoleARN",
@@ -908,6 +910,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"compressionFormat" : @"CompressionFormat",
              @"dataFormatConversionConfiguration" : @"DataFormatConversionConfiguration",
              @"encryptionConfiguration" : @"EncryptionConfiguration",
+             @"errorOutputPrefix" : @"ErrorOutputPrefix",
              @"prefix" : @"Prefix",
              @"processingConfiguration" : @"ProcessingConfiguration",
              @"roleARN" : @"RoleARN",
@@ -1669,6 +1672,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"compressionFormat" : @"CompressionFormat",
              @"encryptionConfiguration" : @"EncryptionConfiguration",
+             @"errorOutputPrefix" : @"ErrorOutputPrefix",
              @"prefix" : @"Prefix",
              @"roleARN" : @"RoleARN",
              };
@@ -1728,6 +1732,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"compressionFormat" : @"CompressionFormat",
              @"encryptionConfiguration" : @"EncryptionConfiguration",
+             @"errorOutputPrefix" : @"ErrorOutputPrefix",
              @"prefix" : @"Prefix",
              @"roleARN" : @"RoleARN",
              };
@@ -1787,6 +1792,7 @@ NSString *const AWSFirehoseErrorDomain = @"com.amazonaws.AWSFirehoseErrorDomain"
              @"cloudWatchLoggingOptions" : @"CloudWatchLoggingOptions",
              @"compressionFormat" : @"CompressionFormat",
              @"encryptionConfiguration" : @"EncryptionConfiguration",
+             @"errorOutputPrefix" : @"ErrorOutputPrefix",
              @"prefix" : @"Prefix",
              @"roleARN" : @"RoleARN",
              };

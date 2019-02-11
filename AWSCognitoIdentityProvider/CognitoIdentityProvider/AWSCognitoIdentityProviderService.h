@@ -2467,6 +2467,31 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)updateUserPoolClient:(AWSCognitoIdentityProviderUpdateUserPoolClientRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateUserPoolClientResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user pool.</p><p>You can use this operation to provide the Amazon Resource Name (ARN) of a new certificate to Amazon Cognito. You cannot use it to change the domain for a user pool.</p><p>A custom domain is used to host the Amazon Cognito hosted UI, which provides sign-up and sign-in pages for your application. When you set up a custom domain, you provide a certificate that you manage with AWS Certificate Manager (ACM). When necessary, you can use this operation to change the certificate that you applied to your custom domain.</p><p>Usually, this is unnecessary following routine certificate renewal with ACM. When you renew your existing certificate in ACM, the ARN for your certificate remains the same, and your custom domain uses the new certificate automatically.</p><p>However, if you replace your existing certificate with a new one, ACM gives the new certificate a new ARN. To apply the new certificate to your custom domain, you must provide this ARN to Amazon Cognito.</p><p>When you add your new certificate in ACM, you must choose US East (N. Virginia) as the AWS Region.</p><p>After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your custom domain.</p><p>For more information about adding a custom domain to your user pool, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateUserPoolDomain service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityProviderUpdateUserPoolDomainResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorInternalError`.
+ 
+ @see AWSCognitoIdentityProviderUpdateUserPoolDomainRequest
+ @see AWSCognitoIdentityProviderUpdateUserPoolDomainResponse
+ */
+- (AWSTask<AWSCognitoIdentityProviderUpdateUserPoolDomainResponse *> *)updateUserPoolDomain:(AWSCognitoIdentityProviderUpdateUserPoolDomainRequest *)request;
+
+/**
+ <p>Updates the Secure Sockets Layer (SSL) certificate for the custom domain for your user pool.</p><p>You can use this operation to provide the Amazon Resource Name (ARN) of a new certificate to Amazon Cognito. You cannot use it to change the domain for a user pool.</p><p>A custom domain is used to host the Amazon Cognito hosted UI, which provides sign-up and sign-in pages for your application. When you set up a custom domain, you provide a certificate that you manage with AWS Certificate Manager (ACM). When necessary, you can use this operation to change the certificate that you applied to your custom domain.</p><p>Usually, this is unnecessary following routine certificate renewal with ACM. When you renew your existing certificate in ACM, the ARN for your certificate remains the same, and your custom domain uses the new certificate automatically.</p><p>However, if you replace your existing certificate with a new one, ACM gives the new certificate a new ARN. To apply the new certificate to your custom domain, you must provide this ARN to Amazon Cognito.</p><p>When you add your new certificate in ACM, you must choose US East (N. Virginia) as the AWS Region.</p><p>After you submit your request, Amazon Cognito requires up to 1 hour to distribute your new certificate to your custom domain.</p><p>For more information about adding a custom domain to your user pool, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-add-custom-domain.html">Using Your Own Domain for the Hosted UI</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateUserPoolDomain service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityProviderErrorDomain` domain and the following error code: `AWSCognitoIdentityProviderErrorInvalidParameter`, `AWSCognitoIdentityProviderErrorNotAuthorized`, `AWSCognitoIdentityProviderErrorResourceNotFound`, `AWSCognitoIdentityProviderErrorTooManyRequests`, `AWSCognitoIdentityProviderErrorInternalError`.
+ 
+ @see AWSCognitoIdentityProviderUpdateUserPoolDomainRequest
+ @see AWSCognitoIdentityProviderUpdateUserPoolDomainResponse
+ */
+- (void)updateUserPoolDomain:(AWSCognitoIdentityProviderUpdateUserPoolDomainRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderUpdateUserPoolDomainResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Use this API to register a user's entered TOTP code and mark the user's software token MFA status as "verified" if successful. The request takes an access token or a session string, but not both.</p>
  
  @param request A container for the necessary parameters to execute the VerifySoftwareToken service method.

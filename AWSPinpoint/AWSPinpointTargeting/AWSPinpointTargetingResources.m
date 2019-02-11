@@ -4960,13 +4960,16 @@
       \"type\" : \"structure\",\
       \"members\" : {\
         \"AppPackageName\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The package name associated with the app that's recording the event.\"\
         },\
         \"AppTitle\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The title of the app that's recording the event.\"\
         },\
         \"AppVersionCode\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The version number of the app that's recording the event.\"\
         },\
         \"Attributes\" : {\
           \"shape\" : \"MapOf__string\",\
@@ -4985,7 +4988,8 @@
           \"documentation\" : \"Custom metrics related to the event.\"\
         },\
         \"SdkName\" : {\
-          \"shape\" : \"__string\"\
+          \"shape\" : \"__string\",\
+          \"documentation\" : \"The name of the SDK that's being used to record the event.\"\
         },\
         \"Session\" : {\
           \"shape\" : \"Session\",\
@@ -8532,8 +8536,7 @@
       \"timestampFormat\" : \"unixTimestamp\"\
     }\
   }\
-}\
-";
+}";
 }
 
 @end

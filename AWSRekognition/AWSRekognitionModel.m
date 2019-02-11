@@ -673,6 +673,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"moderationLabels" : @"ModerationLabels",
+             @"moderationModelVersion" : @"ModerationModelVersion",
              };
 }
 
@@ -1369,6 +1370,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"jobStatus" : @"JobStatus",
+             @"labelModelVersion" : @"LabelModelVersion",
              @"labels" : @"Labels",
              @"nextToken" : @"NextToken",
              @"statusMessage" : @"StatusMessage",

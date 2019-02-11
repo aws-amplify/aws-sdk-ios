@@ -1095,6 +1095,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"extendedStatistic" : @"ExtendedStatistic",
              @"insufficientDataActions" : @"InsufficientDataActions",
              @"metricName" : @"MetricName",
+             @"metrics" : @"Metrics",
              @"namespace" : @"Namespace",
              @"OKActions" : @"OKActions",
              @"period" : @"Period",
@@ -1150,6 +1151,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
+}
+
++ (NSValueTransformer *)metricsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricDataQuery class]];
 }
 
 + (NSValueTransformer *)stateUpdatedTimestampJSONTransformer {
@@ -1817,6 +1822,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"extendedStatistic" : @"ExtendedStatistic",
              @"insufficientDataActions" : @"InsufficientDataActions",
              @"metricName" : @"MetricName",
+             @"metrics" : @"Metrics",
              @"namespace" : @"Namespace",
              @"OKActions" : @"OKActions",
              @"period" : @"Period",
@@ -1860,6 +1866,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchDimension class]];
+}
+
++ (NSValueTransformer *)metricsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSCloudWatchMetricDataQuery class]];
 }
 
 + (NSValueTransformer *)statisticJSONTransformer {

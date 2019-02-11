@@ -28,6 +28,113 @@ commands:
             HOMEBREW_LOGS=~/homebrew-logs
             HOMEBREW_TEMP=~/homebrew-temp          
             brew update
+
+  set_enviroment_variables:
+    description: >-
+      set environment variables
+    steps:
+      - run:
+          name: set environment variables
+          command: |
+            sdkName=aws-ios-sdk
+            echo "export sdkName=$sdkName" >> $BASH_ENV
+
+            release_bucket=${S3_RELEASE_BUCKET}
+            echo "export release_bucket=$release_bucket" >> $BASH_ENV
+
+            release_tag=${CIRCLE_TAG}
+            echo "export release_tag=$release_tag" >> $BASH_ENV
+
+            release_version=${CIRCLE_TAG}
+            echo "export release_version=$release_version" >> $BASH_ENV
+
+            sdkNameWithVersion="$sdkName-$release_version"
+            echo "export sdkNameWithVersion=$sdkNameWithVersion" >> $BASH_ENV
+
+  quit_for_nominorversion:
+    description: >-
+      If current release is not a minor version bump, stop executing the current job and return success.
+    steps:
+      - run:
+          name: skip left steps and return immediately from current job if current release is not a minor version bump
+          command: |
+            echo $release_version            
+            maintenance=$(echo $release_version | sed "s/[0-9]*.[0-9]*.\([0-9]*\)/\1/")
+            echo $maintenance
+            if [ "$maintenance" != "0" ]; then
+              echo "This is not minor version bump release, so marking this step successful"
+              circleci step halt
+            fi
+
+  bump_version_pre:
+    description: >-
+      prepare bump version
+    steps:
+      - run:
+          name: checkout repository for bump version
+          command: |
+            git config --local user.name "${GITHUB_BUMPVERSION_USER}"
+            git clone "https://github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git"
+            cd ${bumpversion_repo_name}
+            git fetch
+            branches=$(git branch)
+            if [[ $branches == *"bump_version"* ]]; then    
+              echo "the branch is already pesent"
+              git checkout bump_version          
+            else
+              echo "create new branch bump_version"
+              git checkout -b bump_version                 
+            fi  
+            git remote add upstream https://github.com/${bumpversion_repo_account}/${bumpversion_repo_name}
+            git remote -v
+            git fetch upstream
+            git reset --hard upstream/master  
+            echo "push update the branch"
+            git push  --force   -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
+
+  bump_version_post:
+    description: >-
+      check in bump version change
+    steps:
+      - run: 
+          name: stage changes
+          command: |
+            cd ${bumpversion_repo_name}
+            git config --local user.name "${GITHUB_BUMPVERSION_USER}"
+            gitstatus=$(git status)
+            echo $gitstatus
+            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then              
+              git add .
+            else
+              echo "No changes for sample application bump version"
+              circleci step halt             
+            fi                 
+      - run:
+          name: check in changes
+          command: |
+            cd ${bumpversion_repo_name}
+            git status
+            git config --local user.name "${GITHUB_BUMPVERSION_USER}"
+            git commit -m "${bump_version_message}"            
+            git push  --force   -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${GITHUB_BUMPVERSION_USER}/${bumpversion_repo_name}.git
+            title="${bump_version_pr_title}"
+            content="${bump_version_message}" 
+            echo "title:$title"
+            echo "content:$content"
+            python3 ../CircleciScripts/create_pullrequest.py  "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "master" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_account} ${bumpversion_repo_name}
+  configure_aws:
+    description: >-
+      install aws cli and configure android aws release profile
+    steps:
+      - run:
+          name: install aws cli
+          command: |
+            brew install awscli
+      - run:
+          name: configure aws profile
+          command: |
+            aws configure --profile sdk_s3_release set region us-east-1
+            echo -e "[sdk_s3_release]\naws_access_key_id=${S3_RELEASE_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${S3_RELEASE_AWS_SECRET_ACCESS_KEY}\n" >> ~/.aws/credentials
 jobs:
   build:
     macos: 
@@ -250,6 +357,122 @@ jobs:
             git tag -a ${CIRCLE_TAG}_api_docs  -m "Add documentation tags to version ${CIRCLE_TAG}"
             git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git   
 
+  bump_ios_sampleapp_version:
+    macos: 
+      xcode: "10.1.0"
+    steps:
+      - set_enviroment_variables
+      - quit_for_nominorversion
+      - checkout  
+      - run:
+          name: checkout repository for bump version
+          command: |
+            SAMPLE_APPS_REPO_ACCOUNT=awslabs
+            echo "export SAMPLE_APPS_REPO_ACCOUNT=$SAMPLE_APPS_REPO_ACCOUNT" >> $BASH_ENV
+            git clone "https://github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git"
+      - run:
+          name: update version
+          command:
+            python3 CircleciScripts/bump_iossample_version.py "$(pwd)/aws-sdk-ios-samples" $release_version
+      - run:
+          name: build projects
+          command:
+            python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"        
+      - run: 
+          name: stage changes
+          command: |
+            cd aws-sdk-ios-samples
+            git config --local user.name "AWS"
+            gitstatus=$(git status)
+            echo $gitstatus
+            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then              
+              git add .
+            else
+              echo "No changes for sample application bump version"
+              circleci step halt             
+            fi                 
+      - run:
+          name: check in changes
+          command: |
+            cd aws-sdk-ios-samples
+            git status
+            git config --local user.name "AWS"
+            git commit -m "Update sample app dependency to ${release_version}"            
+            git push -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git
+
+  bump_ios_amplifydocs_version:
+    macos: 
+      xcode: "10.1.0"
+    steps:
+      - set_enviroment_variables
+      - quit_for_nominorversion
+      - checkout  
+      - run:
+          name: set_bumpversion_enviroment
+          command: |
+            bumpversion_repo_account=aws-amplify
+            bumpversion_repo_name=docs
+            minorversion=$(echo $release_version | sed "s/\([0-9]*.[0-9]*\).[0-9]*/\1/")
+            echo ${minorversion}
+            bump_version_message="Update iOS docs to ${release_version}"
+            bump_version_pr_title="Update iOS docs to ${release_version}"
+            echo "export bumpversion_repo_account=$bumpversion_repo_account" >> $BASH_ENV
+            echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
+            echo "export minorversion=$minorversion" >> $BASH_ENV
+            echo "export bump_version_message='${bump_version_message}'" >> $BASH_ENV
+            echo "export bump_version_pr_title='${bump_version_pr_title}'" >> $BASH_ENV
+            echo "bump_version_pr_title:$bump_version_pr_title"
+      - bump_version_pre
+      - run:
+          name: bump version
+          command:
+            python3 CircleciScripts/bump_iosdocs_version.py "$(pwd)/${bumpversion_repo_name}/ios" $release_version
+      - bump_version_post
+
+  release_ios_s3:
+    macos: 
+      xcode: "10.1.0"
+    steps:
+      - checkout
+      - update_brew
+      - configure_aws
+      - set_enviroment_variables
+      - run:
+          name: build libarary
+          command: |
+            bash Scripts/package.sh
+      - run:
+          name: Copy frameworks
+          command: |
+            mkdir -p "$sdkNameWithVersion/frameworks"
+            cp -R  builtFramework/framework/*  "$sdkNameWithVersion/frameworks"
+      - run:
+          name: Copy SDK resource files
+          command: |
+            mkdir -p "$sdkNameWithVersion"
+            python3 CircleciScripts/copy_resourcefiles.py "$(pwd)"  "$(pwd)/$sdkNameWithVersion"
+      - run:
+          name: zip sdk folder
+          command: |
+            zip -r "$sdkNameWithVersion.zip" "$sdkNameWithVersion"
+
+      - run:
+          name: copy zip file
+          command: |
+            mkdir -p sdkfiles
+            cp "$sdkNameWithVersion.zip" "sdkfiles/$sdkNameWithVersion.zip"
+      - store_artifacts:
+          path: sdkfiles
+      - run:
+          name: upload to s3
+          command: |
+            aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read  --profile sdk_s3_release
+            aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read  --profile sdk_s3_release
+      - run:
+          name: invalidate cloudfront
+          command: |
+            python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release  "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+
 workflows:
   version: 2
 
@@ -270,13 +493,17 @@ workflows:
             - build
           filters:
             branches:
-              ignore: /gh-.*/
+              only:
+                - master
+                - develop
       - run_ui_test:
           requires:
             - build
           filters:
             branches:
-              ignore: /gh-.*/
+              only:
+                - master
+                - develop
   release_sdk:
     jobs: 
       - build:
@@ -301,6 +528,15 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_ios_s3:
+          requires:
+            - unittest          
+            - integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/              
       - release_tag:
           requires:
             - unittest  
@@ -309,10 +545,10 @@ workflows:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
+              only: /^[0-9]+.[0-9]+.[0-9]+$/        
       - release_carthage:
           requires:
-            - release_tag  
+            - release_tag
           filters:
             branches:
               ignore: /.*/
@@ -320,8 +556,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
-            - unittest  
-            - integrationtest   
+            - release_tag
           filters:
             branches:
               ignore: /.*/
@@ -352,4 +587,21 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-
+      - bump_ios_amplifydocs_version:
+          requires:
+            - release_carthage          
+            - release_cocoapods
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - bump_ios_sampleapp_version:
+          requires:
+            - release_carthage          
+            - release_cocoapods
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/

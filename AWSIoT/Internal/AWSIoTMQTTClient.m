@@ -485,10 +485,12 @@ static const NSString *SDK_VERSION = @"2.6.19";
         //Get Credentials from credentials provider.
         [[self.configuration.credentialsProvider credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
             
-            //If an error occured when trying to get credentials, setup a timer to retry the connection after self.currentRecconectTime seconds and schedule it on the current Thread.
+            //If an error occured when trying to get credentials, setup a timer to retry the connection after self.currentReconnectTime seconds and schedule it on the reconnect Thread.
             if (task.error) {
-                self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
-                [self.reconnectThread start];
+                @synchronized(self) {
+                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
+                    [self.reconnectThread start];
+                }
                 
                 AWSDDLogError(@"Unable to connect to MQTT due to an error fetching credentials from the Credentials Provider. Will try again in %f seconds", self.currentReconnectTime);
                 return nil;
@@ -579,7 +581,7 @@ static const NSString *SDK_VERSION = @"2.6.19";
 }
 
 - (void)disconnect {
-    
+
     if (self.userDidIssueDisconnect ) {
         //Issuing disconnect multiple times. Turn this function into a noop by returning here.
         return;
@@ -602,11 +604,10 @@ static const NSString *SDK_VERSION = @"2.6.19";
     AWSDDLogInfo(@"AWSIoTMQTTClient: Disconnect message issued.");
 }
 
-
 /**
  Invalidates and removes reference to the reconnect timer on the correct thread to avoid
  creating a memory leak.
- 
+
  @discussion If called on any thread other than the reconnect thread the work is queued up on
  the reconnect thread but the method returns without waiting for the invalidation to be completed.
  This is called initially on the thread the consumer is calling the client's disconnect method on.
@@ -615,17 +616,17 @@ static const NSString *SDK_VERSION = @"2.6.19";
     if (self.reconnectTimer == nil) {
         return;
     }
-    
-    if (![[NSThread currentThread] isEqual:self.reconnectThread]) {
-        // Move to reconnect thread to cleanup
-        [self performSelector:@selector(cleanupReconnectTimer)
-                     onThread:self.reconnectThread
-                   withObject:nil
-                waitUntilDone:NO];
-        return;
-    }
 
     if (self.reconnectThread) {
+        if ( ![[NSThread currentThread] isEqual:self.reconnectThread]) {
+            // Move to reconnect thread to cleanup
+            [self performSelector:@selector(cleanupReconnectTimer)
+                         onThread:self.reconnectThread
+                       withObject:nil
+                    waitUntilDone:NO];
+            return;
+        }
+        
         [self.reconnectTimer invalidate];
         self.reconnectTimer = nil;
     }
@@ -646,10 +647,6 @@ static const NSString *SDK_VERSION = @"2.6.19";
     }
 
     AWSDDLogInfo(@"Attempting to reconnect.");
-    
-    self.connectionAgeInSeconds = 0;
-    // Connection age timer will be invalidated by another event on the streams thread, we can't do that here
-    // because we're on the reconnect thread.
     
     // Double the reconnect time which will be used on the next reconnection if this one fails to connect.
     // Note that there is a maximum reconnection time beyond which
@@ -743,12 +740,10 @@ static const NSString *SDK_VERSION = @"2.6.19";
     [defaultRunLoopTimer invalidate];
     
     if (!self.runLoopShouldContinue ) {
-        
-        if (self.connectionAgeTimer != nil ) {
+        if (self.connectionAgeTimer != nil) {
             [self.connectionAgeTimer invalidate];
             self.connectionAgeTimer = nil;
         }
-        
         [self.session close];
     
         //Set status
@@ -1008,8 +1003,10 @@ static const NSString *SDK_VERSION = @"2.6.19";
                 [self notifyConnectionStatus];
 
                 //Retry
-                self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
-                [self.reconnectThread start];
+                @synchronized(self) {
+                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
+                    [self.reconnectThread start];
+                }
             }
             break;
         case AWSMQTTSessionEventConnectionError:
@@ -1034,8 +1031,10 @@ static const NSString *SDK_VERSION = @"2.6.19";
                 [self notifyConnectionStatus];
 
                 //Retry
-                self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
-                [self.reconnectThread start];
+                @synchronized(self) {
+                    self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
+                    [self.reconnectThread start];
+                }
             }
             break;
         case AWSMQTTSessionEventProtocolError:
@@ -1176,8 +1175,11 @@ newAckForMessageId:(UInt16)msgId {
         self.mqttStatus = AWSIoTMQTTStatusConnectionError;
         // Indicate an error to the connection status callback.
         [self notifyConnectionStatus];
-        self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
-        [self.reconnectThread start];
+
+        @synchronized(self) {
+            self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
+            [self.reconnectThread start];
+        }
     }
 }
 
@@ -1213,8 +1215,11 @@ newAckForMessageId:(UInt16)msgId {
         self.mqttStatus = AWSIoTMQTTStatusConnectionError;
         // Indicate an error to the connection status callback.
         [self notifyConnectionStatus];
-        self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
-        [self.reconnectThread start];
+
+        @synchronized(self) {
+            self.reconnectThread = [[NSThread alloc] initWithTarget:self selector:@selector(initiateReconnectTimer:) object:nil];
+            [self.reconnectThread start];
+        }
     }
 }
 
