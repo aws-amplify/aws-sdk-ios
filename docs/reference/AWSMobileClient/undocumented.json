@@ -1,607 +1,544 @@
 {
   "warnings": [
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": null,
-      "symbol": "AWSMobileClient.interceptApplication(_:didFinishLaunchingWithOptions:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": null,
-      "symbol": "AWSMobileClient.interceptApplication(_:didFinishLaunchingWithOptions:resumeSessionWithCompletionHandler:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": null,
-      "symbol": "AWSMobileClient.interceptApplication(_:open:sourceApplication:annotation:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": null,
-      "symbol": "AWSMobileClient.setSignInProviders(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 30,
       "symbol": "UserState.guest",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 30,
       "symbol": "UserState.signedIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 30,
       "symbol": "UserState.signedOut",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 30,
       "symbol": "UserState.signedOutFederatedTokensInvalid",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 30,
       "symbol": "UserState.signedOutUserPoolsTokenInvalid",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 30,
       "symbol": "UserState.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": null,
-      "symbol": "IdentityProvider.amazon",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 120,
+      "symbol": "AWSMobileClient.interceptApplication(_:open:sourceApplication:annotation:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": null,
-      "symbol": "IdentityProvider.developer",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 350,
+      "symbol": "AWSMobileClient.interceptApplication(_:didFinishLaunchingWithOptions:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 355,
+      "symbol": "AWSMobileClient.interceptApplication(_:didFinishLaunchingWithOptions:resumeSessionWithCompletionHandler:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 363,
+      "symbol": "AWSMobileClient.setSignInProviders(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "line": 57,
       "symbol": "IdentityProvider.facebook",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "line": 58,
       "symbol": "IdentityProvider.google",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "line": 59,
       "symbol": "IdentityProvider.twitter",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.aliasExists(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "line": 60,
+      "symbol": "IdentityProvider.amazon",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.codeDeliveryFailure(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "line": 61,
+      "symbol": "IdentityProvider.developer",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.codeMismatch(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 24,
+      "symbol": "AWSMobileClientError.aliasExists",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.cognitoIdentityPoolNotConfigured(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 25,
+      "symbol": "AWSMobileClientError.codeDeliveryFailure",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.expiredCode(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 26,
+      "symbol": "AWSMobileClientError.codeMismatch",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.federationProviderExists(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 27,
+      "symbol": "AWSMobileClientError.expiredCode",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.groupExists(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 28,
+      "symbol": "AWSMobileClientError.groupExists",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.guestAccessNotAllowed(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 29,
+      "symbol": "AWSMobileClientError.internalError",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.identityIdUnavailable(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 30,
+      "symbol": "AWSMobileClientError.invalidLambdaResponse",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.internalError(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 31,
+      "symbol": "AWSMobileClientError.invalidOAuthFlow",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.invalidLambdaResponse(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 32,
+      "symbol": "AWSMobileClientError.invalidParameter",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.invalidOAuthFlow(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 33,
+      "symbol": "AWSMobileClientError.invalidPassword",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.invalidParameter(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 34,
+      "symbol": "AWSMobileClientError.invalidUserPoolConfiguration",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.invalidPassword(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 35,
+      "symbol": "AWSMobileClientError.limitExceeded",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.invalidState(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 36,
+      "symbol": "AWSMobileClientError.mfaMethodNotFound",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.invalidUserPoolConfiguration(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 37,
+      "symbol": "AWSMobileClientError.notAuthorized",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.limitExceeded(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 38,
+      "symbol": "AWSMobileClientError.passwordResetRequired",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.mfaMethodNotFound(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 39,
+      "symbol": "AWSMobileClientError.resourceNotFound",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.notAuthorized(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 40,
+      "symbol": "AWSMobileClientError.scopeDoesNotExist",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.notSignedIn(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 41,
+      "symbol": "AWSMobileClientError.softwareTokenMFANotFound",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.passwordResetRequired(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 42,
+      "symbol": "AWSMobileClientError.tooManyFailedAttempts",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.resourceNotFound(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 43,
+      "symbol": "AWSMobileClientError.tooManyRequests",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.scopeDoesNotExist(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 44,
+      "symbol": "AWSMobileClientError.unexpectedLambda",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.softwareTokenMFANotFound(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 45,
+      "symbol": "AWSMobileClientError.userLambdaValidation",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.tooManyFailedAttempts(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 46,
+      "symbol": "AWSMobileClientError.userNotConfirmed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.tooManyRequests(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 47,
+      "symbol": "AWSMobileClientError.userNotFound",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.unableToSignIn(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 48,
+      "symbol": "AWSMobileClientError.usernameExists",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.unexpectedLambda(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 49,
+      "symbol": "AWSMobileClientError.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.unknown(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 50,
+      "symbol": "AWSMobileClientError.notSignedIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.userCancelledSignIn(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 51,
+      "symbol": "AWSMobileClientError.identityIdUnavailable",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.userLambdaValidation(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 52,
+      "symbol": "AWSMobileClientError.guestAccessNotAllowed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.userNotConfirmed(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 53,
+      "symbol": "AWSMobileClientError.federationProviderExists",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.userNotFound(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 54,
+      "symbol": "AWSMobileClientError.cognitoIdentityPoolNotConfigured",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.userPoolNotConfigured(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 55,
+      "symbol": "AWSMobileClientError.unableToSignIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "AWSMobileClientError.usernameExists(message:)",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 56,
+      "symbol": "AWSMobileClientError.invalidState",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "ForgotPasswordResult.codeDeliveryDetails",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "ForgotPasswordResult.forgotPasswordState",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "ForgotPasswordState.confirmationCodeSent",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 57,
+      "symbol": "AWSMobileClientError.userPoolNotConfigured",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "ForgotPasswordState.done",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 58,
+      "symbol": "AWSMobileClientError.userCancelledSignIn",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInResult.codeDetails",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInResult.parameters",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInResult.signInState",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInState.adminNoSRPAuth",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInState.customChallenge",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInState.devicePasswordVerifier",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInState.deviceSRPAuth",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInState.newPasswordRequired",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInState.passwordVerifier",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInState.signedIn",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "SignInState.smsMFA",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 128,
       "symbol": "SignInState.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 129,
+      "symbol": "SignInState.smsMFA",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 130,
+      "symbol": "SignInState.passwordVerifier",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 131,
+      "symbol": "SignInState.customChallenge",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 132,
+      "symbol": "SignInState.deviceSRPAuth",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 133,
+      "symbol": "SignInState.devicePasswordVerifier",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 134,
+      "symbol": "SignInState.adminNoSRPAuth",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 135,
+      "symbol": "SignInState.newPasswordRequired",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 136,
+      "symbol": "SignInState.signedIn",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 141,
+      "symbol": "ForgotPasswordState.confirmationCodeSent",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 141,
+      "symbol": "ForgotPasswordState.done",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 146,
+      "symbol": "ForgotPasswordResult.forgotPasswordState",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 147,
+      "symbol": "ForgotPasswordResult.codeDeliveryDetails",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 157,
       "symbol": "SignUpConfirmationState.confirmed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 157,
       "symbol": "SignUpConfirmationState.unconfirmed",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 157,
       "symbol": "SignUpConfirmationState.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 162,
+      "symbol": "SignInResult.signInState",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 163,
+      "symbol": "SignInResult.parameters",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 164,
+      "symbol": "SignInResult.codeDetails",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 175,
       "symbol": "SignUpResult.codeDeliveryDetails",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 176,
       "symbol": "SignUpResult.signUpConfirmationState",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "UserCodeDeliveryDetails.attributeName",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "UserCodeDeliveryDetails.deliveryMedium",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
-      "symbol": "UserCodeDeliveryDetails.destination",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 187,
       "symbol": "UserCodeDeliveryMedium.email",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 187,
       "symbol": "UserCodeDeliveryMedium.sms",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
-      "line": null,
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 187,
       "symbol": "UserCodeDeliveryMedium.unknown",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSUserPoolOperationsHandler.swift",
-      "line": null,
-      "symbol": "UserPoolOperationsHandler",
-      "symbol_kind": "source.lang.swift.decl.extension",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 192,
+      "symbol": "UserCodeDeliveryDetails.deliveryMedium",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSUserPoolOperationsHandler.swift",
-      "line": null,
-      "symbol": "UserPoolOperationsHandler",
-      "symbol_kind": "source.lang.swift.decl.extension",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 193,
+      "symbol": "UserCodeDeliveryDetails.destination",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSUserPoolOperationsHandler.swift",
-      "line": null,
-      "symbol": "UserPoolOperationsHandler",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSUserPoolOperationsHandler.swift",
-      "line": null,
-      "symbol": "UserPoolOperationsHandler.didCompleteMultifactorAuthenticationStepWithError(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSUserPoolOperationsHandler.swift",
-      "line": null,
-      "symbol": "UserPoolOperationsHandler.didCompleteNewPasswordStepWithError(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSUserPoolOperationsHandler.swift",
-      "line": null,
-      "symbol": "UserPoolOperationsHandler.didCompleteStepWithError(_:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSUserPoolOperationsHandler.swift",
-      "line": null,
-      "symbol": "UserPoolOperationsHandler.getCode(_:mfaCodeCompletionSource:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSUserPoolOperationsHandler.swift",
-      "line": null,
-      "symbol": "UserPoolOperationsHandler.getDetails(_:passwordAuthenticationCompletionSource:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/private/tmp/sdk_release/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSUserPoolOperationsHandler.swift",
-      "line": null,
-      "symbol": "UserPoolOperationsHandler.getNewPasswordDetails(_:newPasswordRequiredCompletionSource:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileResults.swift",
+      "line": 194,
+      "symbol": "UserCodeDeliveryDetails.attributeName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/private/tmp/sdk_release/aws-sdk-ios"
+  "source_directory": "/Users/karthba/Desktop/H1b/PayStubs/aws-sdk-ios"
 }
