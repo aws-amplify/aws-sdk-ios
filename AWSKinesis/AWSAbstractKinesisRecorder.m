@@ -15,11 +15,6 @@
 
 #import "AWSAbstractKinesisRecorder.h"
 #import "AWSKinesis.h"
-#import "AWSBolts.h"
-#import "AWSCocoaLumberjack.h"
-#import "AWSCategory.h"
-#import "AWSFMDB.h"
-#import "AWSSynchronizedMutableDictionary.h"
 
 // Kinesis Abstract Client
 NSUInteger const AWSKinesisAbstractClientByteLimitDefault = 5 * 1024 * 1024; // 5MB
