@@ -417,6 +417,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)enableMetricsCollection:(BOOL)enabled;
 
 /**
+ Set user-specified dictionary of the additional values to be passed as components of
+ connection username.
+ */
+- (void)setUsernameFields:(NSDictionary<NSString *, NSString *> *)usernameFields;
+
+/**
  Initialises the MQTT session and connects to AWS IoT using certificate-based mutual authentication
 
  @return true if initialise finished with success

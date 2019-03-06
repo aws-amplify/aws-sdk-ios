@@ -283,9 +283,16 @@ static const NSString *SDK_VERSION = @"2.6.19";
         [self.topicListeners removeAllObjects];
     }
     
-    NSString *username;
+    NSMutableString *username;
     if (self.isMetricsEnabled) {
-        username = [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
+        username = [NSMutableString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
+
+        // Append each of the user-specified key-value pair to the connection username
+        if (self.usernameFields != [ NSNull null ]) {
+            for (id key in self.usernameFields) {
+                [username appendFormat:@"&%@=%@", key, [self.usernameFields objectForKey:key]];
+            }
+        }
         AWSDDLogInfo(@"username is : %@", username);
     }
     AWSDDLogInfo(@"Metrics collection is: %@", self.isMetricsEnabled ? @"Enabled" : @"Disabled");
@@ -542,9 +549,16 @@ static const NSString *SDK_VERSION = @"2.6.19";
     }
     
     //Setup userName if metrics are enabled
-    NSString *username;
+    NSMutableString *username;
     if (self.isMetricsEnabled) {
-        username = [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
+        username = [NSMutableString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
+
+        // Append each of the user-specified key-value pair to the connection username
+        if (self.usernameFields != [ NSNull null ]) {
+            for (id key in self.usernameFields) {
+                [username appendFormat:@"&%@=%@", key, [self.usernameFields objectForKey:key]];
+            }
+        }
         AWSDDLogInfo(@"username is : %@", username);
     }
     AWSDDLogInfo(@"Metrics collection is: %@", self.isMetricsEnabled ? @"Enabled" : @"Disabled");

@@ -356,6 +356,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                certificateId:certificateId
                               statusCallback:callback
                                   port:8883];
+
+- (void)setUsernameFields:(NSDictionary<NSString *, NSString *> *)usernameFields {
+    [self.mqttClient setUsernameFields:usernameFields];
 }
 
 - (BOOL)connectWithClientId:(NSString*)clientId
