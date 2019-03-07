@@ -85,7 +85,7 @@
         {\"shape\":\"InternalFailureException\"},\
         {\"shape\":\"ConflictException\"}\
       ],\
-      \"documentation\":\"<p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message. </p>\"\
+      \"documentation\":\"<p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. </p>\"\
     },\
     \"DeleteTranscriptionJob\":{\
       \"name\":\"DeleteTranscriptionJob\",\
@@ -99,7 +99,7 @@
         {\"shape\":\"BadRequestException\"},\
         {\"shape\":\"InternalFailureException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a previously submitted transcription job as well as any other generated results such as the transcription, models, and so on.</p>\"\
+      \"documentation\":\"<p>Deletes a previously submitted transcription job along with any other generated results such as the transcription, models, and so on.</p>\"\
     },\
     \"DeleteVocabulary\":{\
       \"name\":\"DeleteVocabulary\",\
@@ -146,7 +146,7 @@
         {\"shape\":\"InternalFailureException\"},\
         {\"shape\":\"BadRequestException\"}\
       ],\
-      \"documentation\":\"<p>Gets information about a vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>\"\
+      \"documentation\":\"<p>Gets information about a vocabulary. </p>\"\
     },\
     \"ListTranscriptionJobs\":{\
       \"name\":\"ListTranscriptionJobs\",\
@@ -192,7 +192,7 @@
         {\"shape\":\"InternalFailureException\"},\
         {\"shape\":\"ConflictException\"}\
       ],\
-      \"documentation\":\"<p>Starts an asynchronous job to transcribe speech to text. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers. </p>\"\
+      \"documentation\":\"<p>Starts an asynchronous job to transcribe speech to text. </p>\"\
     },\
     \"UpdateVocabulary\":{\
       \"name\":\"UpdateVocabulary\",\
@@ -209,7 +209,7 @@
         {\"shape\":\"NotFoundException\"},\
         {\"shape\":\"ConflictException\"}\
       ],\
-      \"documentation\":\"<p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>\"\
+      \"documentation\":\"<p>Updates an existing vocabulary with new values. The <code>UpdateVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request. </p>\"\
     }\
   },\
   \"shapes\":{\
@@ -218,7 +218,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"FailureReason\"}\
       },\
-      \"documentation\":\"<p>Your request didn't pass one or more validation tests. For example, if the transcription you're trying to delete doesn't exist of if it is in a non-terminal state (for example, it's \\\"in progress\\\"). See the exception <code>Message</code> field for more information.</p>\",\
+      \"documentation\":\"<p>Your request didn't pass one or more validation tests. For example, if the transcription you're trying to delete doesn't exist or if it is in a non-terminal state (for example, it's \\\"in progress\\\"). See the exception <code>Message</code> field for more information.</p>\",\
       \"exception\":true\
     },\
     \"Boolean\":{\"type\":\"boolean\"},\
@@ -373,7 +373,11 @@
         \"es-US\",\
         \"en-AU\",\
         \"fr-CA\",\
-        \"en-UK\"\
+        \"en-GB\",\
+        \"de-DE\",\
+        \"pt-BR\",\
+        \"fr-FR\",\
+        \"it-IT\"\
       ]\
     },\
     \"LimitExceededException\":{\
@@ -389,7 +393,7 @@
       \"members\":{\
         \"Status\":{\
           \"shape\":\"TranscriptionJobStatus\",\
-          \"documentation\":\"<p>When specified, returns only transcription jobs with the specified status.</p>\"\
+          \"documentation\":\"<p>When specified, returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you donât specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date. </p>\"\
         },\
         \"JobNameContains\":{\
           \"shape\":\"TranscriptionJobName\",\
@@ -475,7 +479,7 @@
       \"members\":{\
         \"MediaFileUri\":{\
           \"shape\":\"Uri\",\
-          \"documentation\":\"<p>The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:</p> <p> <code> https://&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4</code> </p> <p> <code>https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code> </p> <p>For more information about S3 object names, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\\\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>\"\
+          \"documentation\":\"<p>The S3 location of the input media file. The URI must be in the same region as the API endpoint that you are calling. The general form is:</p> <p> <code> https://s3-&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code> </p> <p>For example:</p> <p> <code>https://s3-us-east-1.amazonaws.com/examplebucket/example.mp4</code> </p> <p> <code>https://s3-us-east-1.amazonaws.com/examplebucket/mediadocs/example.mp4</code> </p> <p>For more information about S3 object names, see <a href=\\\"http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys\\\">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the input media file in a transcription request.</p>\"\
@@ -559,7 +563,7 @@
       \"members\":{\
         \"TranscriptionJobName\":{\
           \"shape\":\"TranscriptionJobName\",\
-          \"documentation\":\"<p>The name of the job. You can't use the strings \\\".\\\" or \\\"..\\\" in the job name. The name must be unique within an AWS account.</p>\"\
+          \"documentation\":\"<p>The name of the job. Note that you can't use the strings \\\".\\\" or \\\"..\\\" by themselves as the job name. The name must also be unique within an AWS account.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
@@ -655,7 +659,7 @@
           \"documentation\":\"<p>Optional settings for the transcription job. Use these settings to turn on speaker recognition, to set the maximum number of speakers that should be identified and to specify a custom vocabulary to use when processing the transcription job.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers.</p>\"\
+      \"documentation\":\"<p>Describes an asynchronous transcription job that was created with the <code>StartTranscriptionJob</code> operation. </p>\"\
     },\
     \"TranscriptionJobName\":{\
       \"type\":\"string\",\
@@ -707,7 +711,7 @@
           \"documentation\":\"<p>Indicates the location of the output of the transcription job.</p> <p>If the value is <code>CUSTOMER_BUCKET</code> then the location is the S3 bucket specified in the <code>outputBucketName</code> field when the transcription job was started with the <code>StartTranscriptionJob</code> operation.</p> <p>If the value is <code>SERVICE_BUCKET</code> then the output is stored by Amazon Transcribe and can be retrieved using the URI in the <code>GetTranscriptionJob</code> response's <code>TranscriptFileUri</code> field.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Provides a summary of information about a transcription job. Note that en-AU, en-UK, and fr-CA languages are in preview and are only available to whitelisted customers.</p>\"\
+      \"documentation\":\"<p>Provides a summary of information about a transcription job. .</p>\"\
     },\
     \"UpdateVocabularyRequest\":{\
       \"type\":\"structure\",\
@@ -781,7 +785,7 @@
           \"documentation\":\"<p>The processing state of the vocabulary. If the state is <code>READY</code> you can use the vocabulary in a <code>StartTranscriptionJob</code> request.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Provides information about a custom vocabulary. Note that vocabularies for en-AU, en-UK, and fr-CA languages that are in preview are not available. In the console, the vocabulary section will be greyed-out and SDK will return error message.</p>\"\
+      \"documentation\":\"<p>Provides information about a custom vocabulary. </p>\"\
     },\
     \"VocabularyName\":{\
       \"type\":\"string\",\

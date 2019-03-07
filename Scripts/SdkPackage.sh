@@ -21,7 +21,7 @@ fi
 
 project_name=$1
 #set the project_path if $2 exists, if not, assign it to "."
-project_path=${2-.}
+project_path=${2-$(pwd)/AWSiOSSDKv2.xcodeproj}
 echo "Project name: ${project_name}, Project Path: ${project_path}"
 
 # Define these to suit your nefarious purposes
@@ -45,26 +45,23 @@ then
 fi
 
 # Build .a files
-xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
+xcodebuild ARCHS="i386 x86_64" \
 	ONLY_ACTIVE_ARCH=NO \
 	-configuration Debug \
-    -project "${project_path}/AWSiOSSDKv2.xcodeproj" \
+    -project "${project_path}" \
     -target "${project_name}" \
     -sdk iphonesimulator \
-    SYMROOT=$(PWD)/builtFramework \
-    clean build
+    SYMROOT=$(PWD)/builtFramework 
 
 exitOnFailureCode $?
 
-xcodebuild ARCHS="armv7 armv7s arm64 i386 x86_64" \
+xcodebuild ARCHS="armv7  arm64" \
 	ONLY_ACTIVE_ARCH=NO \
 	-configuration Release \
-    -project "${project_path}/AWSiOSSDKv2.xcodeproj" \
+    -project "${project_path}" \
     -target "${project_name}" \
-    -sdk iphoneos \
-    SYMROOT=$(PWD)/builtFramework \
-    clean build
-
+    -sdk iphoneos  \
+    SYMROOT=$(PWD)/builtFramework 
 exitOnFailureCode $?
 
 # This is the full name of the framework we'll
@@ -73,9 +70,10 @@ FRAMEWORK_DIR=$FRAMEWORK_BUILD_PATH/$FRAMEWORK_NAME.framework
 
 # clean up old framework directory if exists
 mkdir -p $FRAMEWORK_DIR
-rm -rf $FRAMEWORK_DIR
-cp -aR "builtFramework/Release-iphoneos/${project_name}.framework" "$FRAMEWORK_DIR"
-
+# rm -rf $FRAMEWORK_DIR
+echo "copy framework"
+echo "builtFramework/Release-iphoneos/${project_name}.framework $FRAMEWORK_DIR"
+cp -aR "builtFramework/Release-iphoneos/${project_name}.framework/" "$FRAMEWORK_DIR"
 # The trick for creating a fully usable library is
 # to use lipo to glue the different library
 # versions together into one file. When an

@@ -250,7 +250,7 @@ static char mockDateKey;
     return objc_getAssociatedObject([NSDate class], &mockDateKey);
 }
 
-// Convenience method so tests can set want they want [NSDate date] to return
+// Convenience method so tests can set what they want [NSDate date] to return
 + (void)setMockDate:(NSDate *)aMockDate {
     objc_setAssociatedObject([NSDate class], &mockDateKey, aMockDate, OBJC_ASSOCIATION_RETAIN);
 }

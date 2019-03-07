@@ -1,6 +1,66 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.1
+
+### Enhancements
+
+* **AWSAuthSDK**
+  - Added a configurable option to disable & hide the "Create new account" (SignUp) button in the Amazon Cognito User Pools UI. See [PR #1094](https://github.com/aws-amplify/aws-sdk-ios/pull/1094). Thanks @jamesingham!
+
+### Bug Fixes
+
+* **Amazon Pinpoint**
+  - Fixed a deadlock that can occur when adding events from the main queue
+    while the app is moving to the background or manually stopping a Pinpoint
+    session.
+
+* **AWSCore**
+  - Fixed threading issue in `AWSCredentialsProvider`. See [PR #1192](https://github.com/aws-amplify/aws-sdk-ios/pull/1192/files). Thanks @fer662!
+
+### Misc. Updates
+
+* **AWS Core**
+  - Added `+[AWSEndpoint regionNameFromType:]` utility method to get a string
+    (e.g., "us-east-1") from an AWSRegionType
+
+## 2.9.0
+
+### Misc. Updates
+
+* **Amazon S3**
+  * **Breaking API Change** The return value for the `S3TransferUtilityForKey` method is set to nullable and will map to an Optional type in Swift. The `S3TransferUtilityForKey` method is typically used in conjunction with a previously registered client (using one of the `registerS3TransferUtility*` methods). The lookup will return a null value if the registration had failed due to errors instantiating the client. 
+
+* **Amazon Transcribe**
+  * **Breaking API Change** The enum value `EnUK` in the `AWSTranscribeLanguageCode` enum has been replaced with `EnGB`.
+
+* Model updates for the following services
+  * Amazon Rekognition
+  * Amazon DynamoDB
+  * Amazon Cognito Identity Provider
+  * Amazon Comprehend
+  * AWS IoT
+  * Amazon Kinesis Firehose
+  * AWS KMS
+  * AWS Lambda
+  * Amazon Lex
+  * Amazon Translate
+  * Amazon Transcribe
+  * Amazon Polly
+  * Amazon Pinpoint
+  * Amazon CloudWatch
+  * Amazon CloudWatch Logs
+  * Amazon S3 
+
+### Bug Fixes
+
+* **AWS IoT**
+  * Fixed memory leaks in MQTT Client.See [PR #1202](https://github.com/aws-amplify/aws-sdk-ios/pull/1202). Thanks @jkennington!
+  * Fixed crash due to the same thread being started multiple times. See [Issue #1190](https://github.com/aws-amplify/aws-sdk-ios/issues/1190)
+
+* **Amazon Pinpoint**
+  * Pinpoint now opens its SQLite connections in serial mode, which resolves occasional crashes on entering background
+
 ## 2.8.4
 
 ### New Features

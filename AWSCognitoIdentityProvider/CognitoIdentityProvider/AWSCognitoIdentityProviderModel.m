@@ -4289,6 +4289,32 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderUpdateUserPoolDomainRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customDomainConfig" : @"CustomDomainConfig",
+             @"domain" : @"Domain",
+             @"userPoolId" : @"UserPoolId",
+             };
+}
+
++ (NSValueTransformer *)customDomainConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderCustomDomainConfigType class]];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderUpdateUserPoolDomainResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cloudFrontDomain" : @"CloudFrontDomain",
+             };
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderUpdateUserPoolRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {

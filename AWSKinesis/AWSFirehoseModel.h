@@ -611,7 +611,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The Elasticsearch index rotation period. Index rotation appends a time stamp to the <code>IndexName</code> to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for the Amazon ES Destination</a>. The default value is <code>OneDay</code>.</p>
+ <p>The Elasticsearch index rotation period. Index rotation appends a timestamp to the <code>IndexName</code> to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for the Amazon ES Destination</a>. The default value is <code>OneDay</code>.</p>
  */
 @property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod;
 
@@ -717,7 +717,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 
 /**
- <p>The buffering options. If no value is specified, <b>ElasticsearchBufferingHints</b> object default values are used. </p>
+ <p>The buffering options. If no value is specified, <code>ElasticsearchBufferingHints</code> object default values are used. </p>
  */
 @property (nonatomic, strong) AWSFirehoseElasticsearchBufferingHints * _Nullable bufferingHints;
 
@@ -727,7 +727,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseCloudWatchLoggingOptions * _Nullable cloudWatchLoggingOptions;
 
 /**
- <p>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeElasticsearchDomain</code>, <code>DescribeElasticsearchDomains</code>, and <code>DescribeElasticsearchDomainConfig</code> after assuming the IAM role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+ <p>The ARN of the Amazon ES domain. The IAM role must have permissions for <code>DescribeElasticsearchDomain</code>, <code>DescribeElasticsearchDomains</code>, and <code>DescribeElasticsearchDomainConfig</code> after assuming the IAM role specified in <code>RoleARN</code>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable domainARN;
 
@@ -737,7 +737,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The Elasticsearch index rotation period. Index rotation appends a time stamp to <code>IndexName</code> to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for the Amazon ES Destination</a>. Default value is <code>OneDay</code>.</p>
+ <p>The Elasticsearch index rotation period. Index rotation appends a timestamp to <code>IndexName</code> to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index Rotation for the Amazon ES Destination</a>. Default value is <code>OneDay</code>.</p>
  */
 @property (nonatomic, assign) AWSFirehoseElasticsearchIndexRotationPeriod indexRotationPeriod;
 
@@ -837,6 +837,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
 
 /**
+ <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorOutputPrefix;
+
+/**
  <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Data Firehose Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable prefix;
@@ -899,6 +904,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The encryption configuration. If no value is specified, the default is no encryption.</p>
  */
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
+
+/**
+ <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorOutputPrefix;
 
 /**
  <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Data Firehose Developer Guide</i>.</p>
@@ -964,6 +974,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
 
 /**
+ <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorOutputPrefix;
+
+/**
  <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Data Firehose Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable prefix;
@@ -997,7 +1012,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 
 /**
- <p>Indicates how you want Kinesis Data Firehose to parse the date and time stamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see <a href="https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html">Class DateTimeFormat</a>. You can also use the special value <code>millis</code> to parse time stamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses <code>java.sql.Timestamp::valueOf</code> by default.</p>
+ <p>Indicates how you want Kinesis Data Firehose to parse the date and timestamps that may be present in your input data JSON. To specify these format strings, follow the pattern syntax of JodaTime's DateTimeFormat format strings. For more information, see <a href="https://www.joda.org/joda-time/apidocs/org/joda/time/format/DateTimeFormat.html">Class DateTimeFormat</a>. You can also use the special value <code>millis</code> to parse timestamps in epoch milliseconds. If you don't specify a format, Kinesis Data Firehose uses <code>java.sql.Timestamp::valueOf</code> by default.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable timestampFormats;
 
@@ -1056,7 +1071,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 
 /**
- <p>Kinesis Data Firehose starts retrieving records from the Kinesis data stream starting with this time stamp.</p>
+ <p>Kinesis Data Firehose starts retrieving records from the Kinesis data stream starting with this timestamp.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable deliveryStartTimestamp;
 
@@ -1688,6 +1703,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
 
 /**
+ <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorOutputPrefix;
+
+/**
  <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Data Firehose Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable prefix;
@@ -1732,6 +1752,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
 
 /**
+ <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorOutputPrefix;
+
+/**
  <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Data Firehose Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable prefix;
@@ -1773,6 +1798,11 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
  <p>The encryption configuration. If no value is specified, the default is no encryption.</p>
  */
 @property (nonatomic, strong) AWSFirehoseEncryptionConfiguration * _Nullable encryptionConfiguration;
+
+/**
+ <p>A prefix that Kinesis Data Firehose evaluates and adds to failed records before writing them to S3. This prefix appears immediately following the bucket name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorOutputPrefix;
 
 /**
  <p>The "YYYY/MM/DD/HH" time format prefix is automatically used for delivered Amazon S3 files. You can specify an extra prefix to be added in front of the time format prefix. If the prefix ends with a slash, it appears as a folder in the S3 bucket. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#s3-object-name">Amazon S3 Object Name Format</a> in the <i>Amazon Kinesis Data Firehose Developer Guide</i>.</p>
@@ -2148,7 +2178,7 @@ typedef NS_ENUM(NSInteger, AWSFirehoseSplunkS3BackupMode) {
 
 
 /**
- <p>Obtain this value from the <b>VersionId</b> result of <a>DeliveryStreamDescription</a>. This value is required, and helps the service perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the <code>VersionId</code> value is updated. The service then performs a merge of the old configuration with the new configuration.</p>
+ <p>Obtain this value from the <code>VersionId</code> result of <a>DeliveryStreamDescription</a>. This value is required, and helps the service perform conditional operations. For example, if there is an interleaving update and this value is null, then the update destination fails. After the update is successful, the <code>VersionId</code> value is updated. The service then performs a merge of the old configuration with the new configuration.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable currentDeliveryStreamVersionId;
 

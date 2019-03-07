@@ -26,7 +26,7 @@
 #import "AWSComprehendResources.h"
 
 static NSString *const AWSInfoComprehend = @"Comprehend";
-NSString *const AWSComprehendSDKVersion = @"2.8.4";
+NSString *const AWSComprehendSDKVersion = @"2.9.1";
 
 
 @interface AWSComprehendResponseSerializer : AWSJSONResponseSerializer
@@ -1196,6 +1196,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendStopSentimentDetectionJobResponse *response, NSError *error))completionHandler {
     [[self stopSentimentDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopSentimentDetectionJobResponse *> * _Nonnull task) {
         AWSComprehendStopSentimentDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStopTrainingDocumentClassifierResponse *> *)stopTrainingDocumentClassifier:(AWSComprehendStopTrainingDocumentClassifierRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StopTrainingDocumentClassifier"
+                   outputClass:[AWSComprehendStopTrainingDocumentClassifierResponse class]];
+}
+
+- (void)stopTrainingDocumentClassifier:(AWSComprehendStopTrainingDocumentClassifierRequest *)request
+     completionHandler:(void (^)(AWSComprehendStopTrainingDocumentClassifierResponse *response, NSError *error))completionHandler {
+    [[self stopTrainingDocumentClassifier:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopTrainingDocumentClassifierResponse *> * _Nonnull task) {
+        AWSComprehendStopTrainingDocumentClassifierResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStopTrainingEntityRecognizerResponse *> *)stopTrainingEntityRecognizer:(AWSComprehendStopTrainingEntityRecognizerRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StopTrainingEntityRecognizer"
+                   outputClass:[AWSComprehendStopTrainingEntityRecognizerResponse class]];
+}
+
+- (void)stopTrainingEntityRecognizer:(AWSComprehendStopTrainingEntityRecognizerRequest *)request
+     completionHandler:(void (^)(AWSComprehendStopTrainingEntityRecognizerResponse *response, NSError *error))completionHandler {
+    [[self stopTrainingEntityRecognizer:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopTrainingEntityRecognizerResponse *> * _Nonnull task) {
+        AWSComprehendStopTrainingEntityRecognizerResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -27,7 +27,7 @@
 #import "AWSDynamoDBRequestRetryHandler.h"
 
 static NSString *const AWSInfoDynamoDB = @"DynamoDB";
-NSString *const AWSDynamoDBSDKVersion = @"2.8.4";
+NSString *const AWSDynamoDBSDKVersion = @"2.9.1";
 
 
 @interface AWSDynamoDBResponseSerializer : AWSJSONResponseSerializer
@@ -47,6 +47,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ContinuousBackupsUnavailableException" : @(AWSDynamoDBErrorContinuousBackupsUnavailable),
                             @"GlobalTableAlreadyExistsException" : @(AWSDynamoDBErrorGlobalTableAlreadyExists),
                             @"GlobalTableNotFoundException" : @(AWSDynamoDBErrorGlobalTableNotFound),
+                            @"IdempotentParameterMismatchException" : @(AWSDynamoDBErrorIdempotentParameterMismatch),
                             @"IndexNotFoundException" : @(AWSDynamoDBErrorIndexNotFound),
                             @"InternalServerError" : @(AWSDynamoDBErrorInternalServer),
                             @"InvalidRestoreTimeException" : @(AWSDynamoDBErrorInvalidRestoreTime),
@@ -56,11 +57,15 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"ProvisionedThroughputExceededException" : @(AWSDynamoDBErrorProvisionedThroughputExceeded),
                             @"ReplicaAlreadyExistsException" : @(AWSDynamoDBErrorReplicaAlreadyExists),
                             @"ReplicaNotFoundException" : @(AWSDynamoDBErrorReplicaNotFound),
+                            @"RequestLimitExceeded" : @(AWSDynamoDBErrorRequestLimitExceeded),
                             @"ResourceInUseException" : @(AWSDynamoDBErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSDynamoDBErrorResourceNotFound),
                             @"TableAlreadyExistsException" : @(AWSDynamoDBErrorTableAlreadyExists),
                             @"TableInUseException" : @(AWSDynamoDBErrorTableInUse),
                             @"TableNotFoundException" : @(AWSDynamoDBErrorTableNotFound),
+                            @"TransactionCanceledException" : @(AWSDynamoDBErrorTransactionCanceled),
+                            @"TransactionConflictException" : @(AWSDynamoDBErrorTransactionConflict),
+                            @"TransactionInProgressException" : @(AWSDynamoDBErrorTransactionInProgress),
                             };
 }
 
@@ -902,6 +907,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBTransactGetItemsOutput *> *)transactGetItems:(AWSDynamoDBTransactGetItemsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"TransactGetItems"
+                   outputClass:[AWSDynamoDBTransactGetItemsOutput class]];
+}
+
+- (void)transactGetItems:(AWSDynamoDBTransactGetItemsInput *)request
+     completionHandler:(void (^)(AWSDynamoDBTransactGetItemsOutput *response, NSError *error))completionHandler {
+    [[self transactGetItems:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBTransactGetItemsOutput *> * _Nonnull task) {
+        AWSDynamoDBTransactGetItemsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBTransactWriteItemsOutput *> *)transactWriteItems:(AWSDynamoDBTransactWriteItemsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"TransactWriteItems"
+                   outputClass:[AWSDynamoDBTransactWriteItemsOutput class]];
+}
+
+- (void)transactWriteItems:(AWSDynamoDBTransactWriteItemsInput *)request
+     completionHandler:(void (^)(AWSDynamoDBTransactWriteItemsOutput *response, NSError *error))completionHandler {
+    [[self transactWriteItems:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBTransactWriteItemsOutput *> * _Nonnull task) {
+        AWSDynamoDBTransactWriteItemsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

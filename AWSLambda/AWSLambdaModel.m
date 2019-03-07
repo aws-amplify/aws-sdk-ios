@@ -43,6 +43,33 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaAddLayerVersionPermissionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"action" : @"Action",
+             @"layerName" : @"LayerName",
+             @"organizationId" : @"OrganizationId",
+             @"principal" : @"Principal",
+             @"revisionId" : @"RevisionId",
+             @"statementId" : @"StatementId",
+             @"versionNumber" : @"VersionNumber",
+             };
+}
+
+@end
+
+@implementation AWSLambdaAddLayerVersionPermissionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"revisionId" : @"RevisionId",
+             @"statement" : @"Statement",
+             };
+}
+
+@end
+
 @implementation AWSLambdaAddPermissionRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -188,6 +215,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
              @"KMSKeyArn" : @"KMSKeyArn",
+             @"layers" : @"Layers",
              @"memorySize" : @"MemorySize",
              @"publish" : @"Publish",
              @"role" : @"Role",
@@ -234,6 +262,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.6"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython36);
         }
+        if ([value caseInsensitiveCompare:@"python3.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython37);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -248,6 +279,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"go1.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeGo1X);
+        }
+        if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby25);
+        }
+        if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvided);
         }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -266,6 +303,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python2.7";
             case AWSLambdaRuntimePython36:
                 return @"python3.6";
+            case AWSLambdaRuntimePython37:
+                return @"python3.7";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -276,6 +315,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs4.3-edge";
             case AWSLambdaRuntimeGo1X:
                 return @"go1.x";
+            case AWSLambdaRuntimeRuby25:
+                return @"ruby2.5";
+            case AWSLambdaRuntimeProvided:
+                return @"provided";
             default:
                 return nil;
         }
@@ -339,6 +382,17 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 	return @{
              @"functionName" : @"FunctionName",
              @"qualifier" : @"Qualifier",
+             };
+}
+
+@end
+
+@implementation AWSLambdaDeleteLayerVersionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"layerName" : @"LayerName",
+             @"versionNumber" : @"VersionNumber",
              };
 }
 
@@ -443,6 +497,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"handler" : @"Handler",
              @"KMSKeyArn" : @"KMSKeyArn",
              @"lastModified" : @"LastModified",
+             @"layers" : @"Layers",
              @"masterArn" : @"MasterArn",
              @"memorySize" : @"MemorySize",
              @"revisionId" : @"RevisionId",
@@ -461,6 +516,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)environmentJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEnvironmentResponse class]];
+}
+
++ (NSValueTransformer *)layersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaLayer class]];
 }
 
 + (NSValueTransformer *)runtimeJSONTransformer {
@@ -486,6 +545,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.6"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython36);
         }
+        if ([value caseInsensitiveCompare:@"python3.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython37);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -500,6 +562,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"go1.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeGo1X);
+        }
+        if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby25);
+        }
+        if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvided);
         }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -518,6 +586,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python2.7";
             case AWSLambdaRuntimePython36:
                 return @"python3.6";
+            case AWSLambdaRuntimePython37:
+                return @"python3.7";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -528,6 +598,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs4.3-edge";
             case AWSLambdaRuntimeGo1X:
                 return @"go1.x";
+            case AWSLambdaRuntimeRuby25:
+                return @"ruby2.5";
+            case AWSLambdaRuntimeProvided:
+                return @"provided";
             default:
                 return nil;
         }
@@ -631,6 +705,60 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)configurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaFunctionConfiguration class]];
+}
+
+@end
+
+@implementation AWSLambdaGetLayerVersionPolicyRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"layerName" : @"LayerName",
+             @"versionNumber" : @"VersionNumber",
+             };
+}
+
+@end
+
+@implementation AWSLambdaGetLayerVersionPolicyResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policy" : @"Policy",
+             @"revisionId" : @"RevisionId",
+             };
+}
+
+@end
+
+@implementation AWSLambdaGetLayerVersionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"layerName" : @"LayerName",
+             @"versionNumber" : @"VersionNumber",
+             };
+}
+
+@end
+
+@implementation AWSLambdaGetLayerVersionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"compatibleRuntimes" : @"CompatibleRuntimes",
+             @"content" : @"Content",
+             @"createdDate" : @"CreatedDate",
+             @"detail" : @"Description",
+             @"layerArn" : @"LayerArn",
+             @"layerVersionArn" : @"LayerVersionArn",
+             @"licenseInfo" : @"LicenseInfo",
+             @"version" : @"Version",
+             };
+}
+
++ (NSValueTransformer *)contentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaLayerVersionContentOutput class]];
 }
 
 @end
@@ -754,6 +882,73 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaLayer
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"codeSize" : @"CodeSize",
+             };
+}
+
+@end
+
+@implementation AWSLambdaLayerVersionContentInput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3Bucket" : @"S3Bucket",
+             @"s3Key" : @"S3Key",
+             @"s3ObjectVersion" : @"S3ObjectVersion",
+             @"zipFile" : @"ZipFile",
+             };
+}
+
+@end
+
+@implementation AWSLambdaLayerVersionContentOutput
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSha256" : @"CodeSha256",
+             @"codeSize" : @"CodeSize",
+             @"location" : @"Location",
+             };
+}
+
+@end
+
+@implementation AWSLambdaLayerVersionsListItem
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"compatibleRuntimes" : @"CompatibleRuntimes",
+             @"createdDate" : @"CreatedDate",
+             @"detail" : @"Description",
+             @"layerVersionArn" : @"LayerVersionArn",
+             @"licenseInfo" : @"LicenseInfo",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSLambdaLayersListItem
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"latestMatchingVersion" : @"LatestMatchingVersion",
+             @"layerArn" : @"LayerArn",
+             @"layerName" : @"LayerName",
+             };
+}
+
++ (NSValueTransformer *)latestMatchingVersionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaLayerVersionsListItem class]];
+}
+
+@end
+
 @implementation AWSLambdaListAliasesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -854,6 +1049,233 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaListLayerVersionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"compatibleRuntime" : @"CompatibleRuntime",
+             @"layerName" : @"LayerName",
+             @"marker" : @"Marker",
+             @"maxItems" : @"MaxItems",
+             };
+}
+
++ (NSValueTransformer *)compatibleRuntimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"nodejs"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs);
+        }
+        if ([value caseInsensitiveCompare:@"nodejs4.3"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs43);
+        }
+        if ([value caseInsensitiveCompare:@"nodejs6.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs610);
+        }
+        if ([value caseInsensitiveCompare:@"nodejs8.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs810);
+        }
+        if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava8);
+        }
+        if ([value caseInsensitiveCompare:@"python2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython27);
+        }
+        if ([value caseInsensitiveCompare:@"python3.6"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython36);
+        }
+        if ([value caseInsensitiveCompare:@"python3.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython37);
+        }
+        if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore10);
+        }
+        if ([value caseInsensitiveCompare:@"dotnetcore2.0"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore20);
+        }
+        if ([value caseInsensitiveCompare:@"dotnetcore2.1"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore21);
+        }
+        if ([value caseInsensitiveCompare:@"nodejs4.3-edge"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs43Edge);
+        }
+        if ([value caseInsensitiveCompare:@"go1.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeGo1X);
+        }
+        if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby25);
+        }
+        if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvided);
+        }
+        return @(AWSLambdaRuntimeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaRuntimeNodejs:
+                return @"nodejs";
+            case AWSLambdaRuntimeNodejs43:
+                return @"nodejs4.3";
+            case AWSLambdaRuntimeNodejs610:
+                return @"nodejs6.10";
+            case AWSLambdaRuntimeNodejs810:
+                return @"nodejs8.10";
+            case AWSLambdaRuntimeJava8:
+                return @"java8";
+            case AWSLambdaRuntimePython27:
+                return @"python2.7";
+            case AWSLambdaRuntimePython36:
+                return @"python3.6";
+            case AWSLambdaRuntimePython37:
+                return @"python3.7";
+            case AWSLambdaRuntimeDotnetcore10:
+                return @"dotnetcore1.0";
+            case AWSLambdaRuntimeDotnetcore20:
+                return @"dotnetcore2.0";
+            case AWSLambdaRuntimeDotnetcore21:
+                return @"dotnetcore2.1";
+            case AWSLambdaRuntimeNodejs43Edge:
+                return @"nodejs4.3-edge";
+            case AWSLambdaRuntimeGo1X:
+                return @"go1.x";
+            case AWSLambdaRuntimeRuby25:
+                return @"ruby2.5";
+            case AWSLambdaRuntimeProvided:
+                return @"provided";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLambdaListLayerVersionsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"layerVersions" : @"LayerVersions",
+             @"nextMarker" : @"NextMarker",
+             };
+}
+
++ (NSValueTransformer *)layerVersionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaLayerVersionsListItem class]];
+}
+
+@end
+
+@implementation AWSLambdaListLayersRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"compatibleRuntime" : @"CompatibleRuntime",
+             @"marker" : @"Marker",
+             @"maxItems" : @"MaxItems",
+             };
+}
+
++ (NSValueTransformer *)compatibleRuntimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"nodejs"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs);
+        }
+        if ([value caseInsensitiveCompare:@"nodejs4.3"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs43);
+        }
+        if ([value caseInsensitiveCompare:@"nodejs6.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs610);
+        }
+        if ([value caseInsensitiveCompare:@"nodejs8.10"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs810);
+        }
+        if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava8);
+        }
+        if ([value caseInsensitiveCompare:@"python2.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython27);
+        }
+        if ([value caseInsensitiveCompare:@"python3.6"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython36);
+        }
+        if ([value caseInsensitiveCompare:@"python3.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython37);
+        }
+        if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore10);
+        }
+        if ([value caseInsensitiveCompare:@"dotnetcore2.0"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore20);
+        }
+        if ([value caseInsensitiveCompare:@"dotnetcore2.1"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeDotnetcore21);
+        }
+        if ([value caseInsensitiveCompare:@"nodejs4.3-edge"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeNodejs43Edge);
+        }
+        if ([value caseInsensitiveCompare:@"go1.x"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeGo1X);
+        }
+        if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby25);
+        }
+        if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvided);
+        }
+        return @(AWSLambdaRuntimeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaRuntimeNodejs:
+                return @"nodejs";
+            case AWSLambdaRuntimeNodejs43:
+                return @"nodejs4.3";
+            case AWSLambdaRuntimeNodejs610:
+                return @"nodejs6.10";
+            case AWSLambdaRuntimeNodejs810:
+                return @"nodejs8.10";
+            case AWSLambdaRuntimeJava8:
+                return @"java8";
+            case AWSLambdaRuntimePython27:
+                return @"python2.7";
+            case AWSLambdaRuntimePython36:
+                return @"python3.6";
+            case AWSLambdaRuntimePython37:
+                return @"python3.7";
+            case AWSLambdaRuntimeDotnetcore10:
+                return @"dotnetcore1.0";
+            case AWSLambdaRuntimeDotnetcore20:
+                return @"dotnetcore2.0";
+            case AWSLambdaRuntimeDotnetcore21:
+                return @"dotnetcore2.1";
+            case AWSLambdaRuntimeNodejs43Edge:
+                return @"nodejs4.3-edge";
+            case AWSLambdaRuntimeGo1X:
+                return @"go1.x";
+            case AWSLambdaRuntimeRuby25:
+                return @"ruby2.5";
+            case AWSLambdaRuntimeProvided:
+                return @"provided";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSLambdaListLayersResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"layers" : @"Layers",
+             @"nextMarker" : @"NextMarker",
+             };
+}
+
++ (NSValueTransformer *)layersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaLayersListItem class]];
+}
+
+@end
+
 @implementation AWSLambdaListTagsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -901,6 +1323,45 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaPublishLayerVersionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"compatibleRuntimes" : @"CompatibleRuntimes",
+             @"content" : @"Content",
+             @"detail" : @"Description",
+             @"layerName" : @"LayerName",
+             @"licenseInfo" : @"LicenseInfo",
+             };
+}
+
++ (NSValueTransformer *)contentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaLayerVersionContentInput class]];
+}
+
+@end
+
+@implementation AWSLambdaPublishLayerVersionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"compatibleRuntimes" : @"CompatibleRuntimes",
+             @"content" : @"Content",
+             @"createdDate" : @"CreatedDate",
+             @"detail" : @"Description",
+             @"layerArn" : @"LayerArn",
+             @"layerVersionArn" : @"LayerVersionArn",
+             @"licenseInfo" : @"LicenseInfo",
+             @"version" : @"Version",
+             };
+}
+
++ (NSValueTransformer *)contentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaLayerVersionContentOutput class]];
+}
+
+@end
+
 @implementation AWSLambdaPublishVersionRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -920,6 +1381,19 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 	return @{
              @"functionName" : @"FunctionName",
              @"reservedConcurrentExecutions" : @"ReservedConcurrentExecutions",
+             };
+}
+
+@end
+
+@implementation AWSLambdaRemoveLayerVersionPermissionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"layerName" : @"LayerName",
+             @"revisionId" : @"RevisionId",
+             @"statementId" : @"StatementId",
+             @"versionNumber" : @"VersionNumber",
              };
 }
 
@@ -1081,6 +1555,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
              @"KMSKeyArn" : @"KMSKeyArn",
+             @"layers" : @"Layers",
              @"memorySize" : @"MemorySize",
              @"revisionId" : @"RevisionId",
              @"role" : @"Role",
@@ -1122,6 +1597,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.6"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython36);
         }
+        if ([value caseInsensitiveCompare:@"python3.7"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython37);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -1136,6 +1614,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"go1.x"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeGo1X);
+        }
+        if ([value caseInsensitiveCompare:@"ruby2.5"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeRuby25);
+        }
+        if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvided);
         }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -1154,6 +1638,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python2.7";
             case AWSLambdaRuntimePython36:
                 return @"python3.6";
+            case AWSLambdaRuntimePython37:
+                return @"python3.7";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -1164,6 +1650,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs4.3-edge";
             case AWSLambdaRuntimeGo1X:
                 return @"go1.x";
+            case AWSLambdaRuntimeRuby25:
+                return @"ruby2.5";
+            case AWSLambdaRuntimeProvided:
+                return @"provided";
             default:
                 return nil;
         }

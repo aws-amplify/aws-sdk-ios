@@ -344,7 +344,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (void)deleteBucketAnalyticsConfiguration:(AWSS3DeleteBucketAnalyticsConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the cors configuration information set for the bucket.</p>
+ <p>Deletes the CORS configuration information set for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketCors service method.
 
@@ -355,7 +355,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (AWSTask *)deleteBucketCors:(AWSS3DeleteBucketCorsRequest *)request;
 
 /**
- <p>Deletes the cors configuration information set for the bucket.</p>
+ <p>Deletes the CORS configuration information set for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketCors service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -476,7 +476,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (void)deleteBucketPolicy:(AWSS3DeleteBucketPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the replication configuration from the bucket.</p>
+ <p> Deletes the replication configuration from the bucket. For information about replication configuration, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketReplication service method.
 
@@ -487,7 +487,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (AWSTask *)deleteBucketReplication:(AWSS3DeleteBucketReplicationRequest *)request;
 
 /**
- <p>Deletes the replication configuration from the bucket.</p>
+ <p> Deletes the replication configuration from the bucket. For information about replication configuration, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the DeleteBucketReplication service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -617,6 +617,28 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (void)deleteObjects:(AWSS3DeleteObjectsRequest *)request completionHandler:(void (^ _Nullable)(AWSS3DeleteObjectsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Removes the <code>PublicAccessBlock</code> configuration from an Amazon S3 bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeletePublicAccessBlock service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ 
+ @see AWSS3DeletePublicAccessBlockRequest
+ */
+- (AWSTask *)deletePublicAccessBlock:(AWSS3DeletePublicAccessBlockRequest *)request;
+
+/**
+ <p>Removes the <code>PublicAccessBlock</code> configuration from an Amazon S3 bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeletePublicAccessBlock service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3DeletePublicAccessBlockRequest
+ */
+- (void)deletePublicAccessBlock:(AWSS3DeletePublicAccessBlockRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns the accelerate configuration of a bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketAccelerateConfiguration service method.
@@ -692,7 +714,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (void)getBucketAnalyticsConfiguration:(AWSS3GetBucketAnalyticsConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketAnalyticsConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the cors configuration for the bucket.</p>
+ <p>Returns the CORS configuration for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketCors service method.
 
@@ -704,7 +726,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (AWSTask<AWSS3GetBucketCorsOutput *> *)getBucketCors:(AWSS3GetBucketCorsRequest *)request;
 
 /**
- <p>Returns the cors configuration for the bucket.</p>
+ <p>Returns the CORS configuration for the bucket.</p>
  
  @param request A container for the necessary parameters to execute the GetBucketCors service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -967,7 +989,32 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (void)getBucketPolicy:(AWSS3GetBucketPolicyRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketPolicyOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the replication configuration of a bucket.</p>
+ <p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetBucketPolicyStatus service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetBucketPolicyStatusOutput`.
+ 
+ @see AWSS3GetBucketPolicyStatusRequest
+ @see AWSS3GetBucketPolicyStatusOutput
+ */
+- (AWSTask<AWSS3GetBucketPolicyStatusOutput *> *)getBucketPolicyStatus:(AWSS3GetBucketPolicyStatusRequest *)request;
+
+/**
+ <p>Retrieves the policy status for an Amazon S3 bucket, indicating whether the bucket is public.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetBucketPolicyStatus service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3GetBucketPolicyStatusRequest
+ @see AWSS3GetBucketPolicyStatusOutput
+ */
+- (void)getBucketPolicyStatus:(AWSS3GetBucketPolicyStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetBucketPolicyStatusOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns the replication configuration of a bucket.</p><note><p> It can take a while to propagate the put or delete a replication configuration to all Amazon S3 systems. Therefore, a get request soon after put or delete can return a wrong result. </p></note>
  
  @param request A container for the necessary parameters to execute the GetBucketReplication service method.
 
@@ -979,7 +1026,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (AWSTask<AWSS3GetBucketReplicationOutput *> *)getBucketReplication:(AWSS3GetBucketReplicationRequest *)request;
 
 /**
- <p>Returns the replication configuration of a bucket.</p>
+ <p>Returns the replication configuration of a bucket.</p><note><p> It can take a while to propagate the put or delete a replication configuration to all Amazon S3 systems. Therefore, a get request soon after put or delete can return a wrong result. </p></note>
  
  @param request A container for the necessary parameters to execute the GetBucketReplication service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1142,6 +1189,81 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (void)getObjectAcl:(AWSS3GetObjectAclRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetObjectAclOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets an object's current Legal Hold status.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetObjectLegalHold service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetObjectLegalHoldOutput`.
+ 
+ @see AWSS3GetObjectLegalHoldRequest
+ @see AWSS3GetObjectLegalHoldOutput
+ */
+- (AWSTask<AWSS3GetObjectLegalHoldOutput *> *)getObjectLegalHold:(AWSS3GetObjectLegalHoldRequest *)request;
+
+/**
+ <p>Gets an object's current Legal Hold status.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetObjectLegalHold service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3GetObjectLegalHoldRequest
+ @see AWSS3GetObjectLegalHoldOutput
+ */
+- (void)getObjectLegalHold:(AWSS3GetObjectLegalHoldRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetObjectLegalHoldOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetObjectLockConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetObjectLockConfigurationOutput`.
+ 
+ @see AWSS3GetObjectLockConfigurationRequest
+ @see AWSS3GetObjectLockConfigurationOutput
+ */
+- (AWSTask<AWSS3GetObjectLockConfigurationOutput *> *)getObjectLockConfiguration:(AWSS3GetObjectLockConfigurationRequest *)request;
+
+/**
+ <p>Gets the Object Lock configuration for a bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetObjectLockConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3GetObjectLockConfigurationRequest
+ @see AWSS3GetObjectLockConfigurationOutput
+ */
+- (void)getObjectLockConfiguration:(AWSS3GetObjectLockConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetObjectLockConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves an object's retention settings.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetObjectRetention service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetObjectRetentionOutput`.
+ 
+ @see AWSS3GetObjectRetentionRequest
+ @see AWSS3GetObjectRetentionOutput
+ */
+- (AWSTask<AWSS3GetObjectRetentionOutput *> *)getObjectRetention:(AWSS3GetObjectRetentionRequest *)request;
+
+/**
+ <p>Retrieves an object's retention settings.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetObjectRetention service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3GetObjectRetentionRequest
+ @see AWSS3GetObjectRetentionOutput
+ */
+- (void)getObjectRetention:(AWSS3GetObjectRetentionRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetObjectRetentionOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns the tag-set of an object.</p>
  
  @param request A container for the necessary parameters to execute the GetObjectTagging service method.
@@ -1190,6 +1312,31 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
  @see AWSS3GetObjectTorrentOutput
  */
 - (void)getObjectTorrent:(AWSS3GetObjectTorrentRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetObjectTorrentOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetPublicAccessBlock service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3GetPublicAccessBlockOutput`.
+ 
+ @see AWSS3GetPublicAccessBlockRequest
+ @see AWSS3GetPublicAccessBlockOutput
+ */
+- (AWSTask<AWSS3GetPublicAccessBlockOutput *> *)getPublicAccessBlock:(AWSS3GetPublicAccessBlockRequest *)request;
+
+/**
+ <p>Retrieves the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetPublicAccessBlock service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3GetPublicAccessBlockRequest
+ @see AWSS3GetPublicAccessBlockOutput
+ */
+- (void)getPublicAccessBlock:(AWSS3GetPublicAccessBlockRequest *)request completionHandler:(void (^ _Nullable)(AWSS3GetPublicAccessBlockOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This operation is useful to determine if a bucket exists and you have permission to access it.</p>
@@ -1530,7 +1677,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (void)putBucketAnalyticsConfiguration:(AWSS3PutBucketAnalyticsConfigurationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sets the cors configuration for a bucket.</p>
+ <p>Sets the CORS configuration for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketCors service method.
 
@@ -1541,7 +1688,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (AWSTask *)putBucketCors:(AWSS3PutBucketCorsRequest *)request;
 
 /**
- <p>Sets the cors configuration for a bucket.</p>
+ <p>Sets the CORS configuration for a bucket.</p>
  
  @param request A container for the necessary parameters to execute the PutBucketCors service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1750,7 +1897,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (void)putBucketPolicy:(AWSS3PutBucketPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p> Creates a new replication configuration (or replaces an existing one, if present). For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>
+ <p> Creates a replication configuration or replaces an existing one. For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the PutBucketReplication service method.
 
@@ -1761,7 +1908,7 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (AWSTask *)putBucketReplication:(AWSS3PutBucketReplicationRequest *)request;
 
 /**
- <p> Creates a new replication configuration (or replaces an existing one, if present). For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the Amazon S3 Developer Guide. </p>
+ <p> Creates a replication configuration or replaces an existing one. For more information, see <a href=" https://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html">Cross-Region Replication (CRR)</a> in the <i>Amazon S3 Developer Guide</i>. </p>
  
  @param request A container for the necessary parameters to execute the PutBucketReplication service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1910,6 +2057,81 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
 - (void)putObjectAcl:(AWSS3PutObjectAclRequest *)request completionHandler:(void (^ _Nullable)(AWSS3PutObjectAclOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Applies a Legal Hold configuration to the specified object.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutObjectLegalHold service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3PutObjectLegalHoldOutput`.
+ 
+ @see AWSS3PutObjectLegalHoldRequest
+ @see AWSS3PutObjectLegalHoldOutput
+ */
+- (AWSTask<AWSS3PutObjectLegalHoldOutput *> *)putObjectLegalHold:(AWSS3PutObjectLegalHoldRequest *)request;
+
+/**
+ <p>Applies a Legal Hold configuration to the specified object.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutObjectLegalHold service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3PutObjectLegalHoldRequest
+ @see AWSS3PutObjectLegalHoldOutput
+ */
+- (void)putObjectLegalHold:(AWSS3PutObjectLegalHoldRequest *)request completionHandler:(void (^ _Nullable)(AWSS3PutObjectLegalHoldOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutObjectLockConfiguration service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3PutObjectLockConfigurationOutput`.
+ 
+ @see AWSS3PutObjectLockConfigurationRequest
+ @see AWSS3PutObjectLockConfigurationOutput
+ */
+- (AWSTask<AWSS3PutObjectLockConfigurationOutput *> *)putObjectLockConfiguration:(AWSS3PutObjectLockConfigurationRequest *)request;
+
+/**
+ <p>Places an Object Lock configuration on the specified bucket. The rule specified in the Object Lock configuration will be applied by default to every new object placed in the specified bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutObjectLockConfiguration service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3PutObjectLockConfigurationRequest
+ @see AWSS3PutObjectLockConfigurationOutput
+ */
+- (void)putObjectLockConfiguration:(AWSS3PutObjectLockConfigurationRequest *)request completionHandler:(void (^ _Nullable)(AWSS3PutObjectLockConfigurationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Places an Object Retention configuration on an object.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutObjectRetention service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSS3PutObjectRetentionOutput`.
+ 
+ @see AWSS3PutObjectRetentionRequest
+ @see AWSS3PutObjectRetentionOutput
+ */
+- (AWSTask<AWSS3PutObjectRetentionOutput *> *)putObjectRetention:(AWSS3PutObjectRetentionRequest *)request;
+
+/**
+ <p>Places an Object Retention configuration on an object.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutObjectRetention service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3PutObjectRetentionRequest
+ @see AWSS3PutObjectRetentionOutput
+ */
+- (void)putObjectRetention:(AWSS3PutObjectRetentionRequest *)request completionHandler:(void (^ _Nullable)(AWSS3PutObjectRetentionOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Sets the supplied tag-set to an object that already exists in a bucket</p>
  
  @param request A container for the necessary parameters to execute the PutObjectTagging service method.
@@ -1933,6 +2155,28 @@ FOUNDATION_EXPORT NSString *const AWSS3SDKVersion;
  @see AWSS3PutObjectTaggingOutput
  */
 - (void)putObjectTagging:(AWSS3PutObjectTaggingRequest *)request completionHandler:(void (^ _Nullable)(AWSS3PutObjectTaggingOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutPublicAccessBlock service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ 
+ @see AWSS3PutPublicAccessBlockRequest
+ */
+- (AWSTask *)putPublicAccessBlock:(AWSS3PutPublicAccessBlockRequest *)request;
+
+/**
+ <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.</p>
+ 
+ @param request A container for the necessary parameters to execute the PutPublicAccessBlock service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSS3PutPublicAccessBlockRequest
+ */
+- (void)putPublicAccessBlock:(AWSS3PutPublicAccessBlockRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Restores an archived copy of an object back into Amazon S3</p>

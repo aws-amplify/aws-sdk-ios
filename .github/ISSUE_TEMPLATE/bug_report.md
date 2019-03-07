@@ -8,11 +8,10 @@ about: Create a report to help us improve
 A clear and concise description of what the bug is.
 
 **To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+A code sample or steps:
+```
+Your code
+```
 
 **Which AWS service(s) are affected?**
 
@@ -23,14 +22,12 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Environment(please complete the following information):**
- - SDK Version: [e.g. 2.6.29]
+ - AWS iOS SDK Version: [e.g. 2.6.29]
  - Dependency Manager: [e.g. Cocoapods, Carthage]
  - Swift Version : [e.g. 4.0]
-
-**Device Information (please complete the following information):**
  - Device: [e.g. iPhone6, Simulator]
  - iOS Version: [e.g. iOS 11.4]
- - Specific to simulators:
+ - Specific to simulators:  [e.g. Yes/No]
 
 **Additional context**
 Add any other context about the problem here.

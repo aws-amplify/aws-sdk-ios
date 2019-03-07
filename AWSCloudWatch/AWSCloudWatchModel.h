@@ -852,7 +852,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
 
 /**
- <p>The name of the metric.</p>
+ <p>The name of the metric. This is a required field.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
@@ -940,6 +940,11 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
+ <p/>
+ */
+@property (nonatomic, strong) NSArray<AWSCloudWatchMetricDataQuery *> * _Nullable metrics;
+
+/**
  <p>The namespace of the metric associated with the alarm.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable namespace;
@@ -997,19 +1002,19 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @end
 
 /**
- <p>This structure indicates the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. A single <code>GetMetricData</code> call can include up to 100 <code>MetricDataQuery</code> structures.</p>
+ <p>This structure is used in both <code>GetMetricData</code> and <code>PutMetricAlarm</code>. The supported use of this structure is different for those two operations.</p><p>When used in <code>GetMetricData</code>, it indicates the metric data to return, and whether this call is just retrieving a batch set of data for one metric, or is performing a math expression on metric data. A single <code>GetMetricData</code> call can include up to 100 <code>MetricDataQuery</code> structures.</p><p>When used in <code>PutMetricAlarm</code>, it enables you to create an alarm based on a metric math expression. Each <code>MetricDataQuery</code> in the array specifies either a metric to retrieve, or a math expression to be performed on retrieved metrics. A single <code>PutMetricAlarm</code> call can include up to 20 <code>MetricDataQuery</code> structures in the array. The 20 structures can include as many as 10 structures that contain a <code>MetricStat</code> parameter to retrieve a metric, and as many as 10 structures that contain the <code>Expression</code> parameter to perform a math expression. Any expression used in a <code>PutMetricAlarm</code> operation must return a single time series. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.</p><p>Some of the parameters of this structure also have different uses whether you are using this structure in a <code>GetMetricData</code> operation or a <code>PutMetricAlarm</code> operation. These differences are explained in the following parameter list.</p>
  Required parameters: [Id]
  */
 @interface AWSCloudWatchMetricDataQuery : AWSModel
 
 
 /**
- <p>The math expression to be performed on the returned data, if this structure is performing a math expression. For more information about metric math expressions, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.</p><p>Within one MetricDataQuery structure, you must specify either <code>Expression</code> or <code>MetricStat</code> but not both.</p>
+ <p>The math expression to be performed on the returned data, if this object is performing a math expression. This expression can use the <code>Id</code> of the other metrics to refer to those metrics, and can also use the <code>Id</code> of other expressions to use the result of those expressions. For more information about metric math expressions, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax">Metric Math Syntax and Functions</a> in the <i>Amazon CloudWatch User Guide</i>.</p><p>Within each MetricDataQuery object, you must specify either <code>Expression</code> or <code>MetricStat</code> but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable expression;
 
 /**
- <p>A short name used to tie this structure to the results in the response. This name must be unique within a single call to <code>GetMetricData</code>. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.</p>
+ <p>A short name used to tie this object to the results in the response. This name must be unique within a single call to <code>GetMetricData</code>. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
@@ -1019,19 +1024,19 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSString * _Nullable label;
 
 /**
- <p>The metric to be returned, along with statistics, period, and units. Use this parameter only if this structure is performing a data retrieval and not performing a math expression on the returned data.</p><p>Within one MetricDataQuery structure, you must specify either <code>Expression</code> or <code>MetricStat</code> but not both.</p>
+ <p>The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.</p><p>Within one MetricDataQuery object, you must specify either <code>Expression</code> or <code>MetricStat</code> but not both.</p>
  */
 @property (nonatomic, strong) AWSCloudWatchMetricStat * _Nullable metricStat;
 
 /**
- <p>Indicates whether to return the time stamps and raw data values of this metric. If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify <code>False</code>. If you omit this, the default of <code>True</code> is used.</p>
+ <p>When used in <code>GetMetricData</code>, this option indicates whether to return the timestamps and raw data values of this metric. If you are performing this call just to do math expressions and do not also need the raw data returned, you can specify <code>False</code>. If you omit this, the default of <code>True</code> is used.</p><p>When used in <code>PutMetricAlarm</code>, specify <code>True</code> for the one expression result to use as the alarm. For all other metrics and expressions in the same <code>PutMetricAlarm</code> operation, specify <code>ReturnData</code> as False.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable returnData;
 
 @end
 
 /**
- <p>A <code>GetMetricData</code> call returns an array of <code>MetricDataResult</code> structures. Each of these structures includes the data points for that metric, along with the time stamps of those data points and other identifying information.</p>
+ <p>A <code>GetMetricData</code> call returns an array of <code>MetricDataResult</code> structures. Each of these structures includes the data points for that metric, along with the timestamps of those data points and other identifying information.</p>
  */
 @interface AWSCloudWatchMetricDataResult : AWSModel
 
@@ -1057,12 +1062,12 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, assign) AWSCloudWatchStatusCode statusCode;
 
 /**
- <p>The time stamps for the data points, formatted in Unix timestamp format. The number of time stamps always matches the number of values and the value for Timestamps[x] is Values[x].</p>
+ <p>The timestamps for the data points, formatted in Unix timestamp format. The number of timestamps always matches the number of values and the value for Timestamps[x] is Values[x].</p>
  */
 @property (nonatomic, strong) NSArray<NSDate *> * _Nullable timestamps;
 
 /**
- <p>The data points for the metric corresponding to <code>Timestamps</code>. The number of values always matches the number of time stamps and the time stamp for Values[x] is Timestamps[x].</p>
+ <p>The data points for the metric corresponding to <code>Timestamps</code>. The number of values always matches the number of timestamps and the timestamp for Values[x] is Timestamps[x].</p>
  */
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable values;
 
@@ -1135,7 +1140,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) AWSCloudWatchMetric * _Nullable metric;
 
 /**
- <p>The period to use when retrieving the metric.</p>
+ <p>The period, in seconds, to use when retrieving the metric.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable period;
 
@@ -1189,7 +1194,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 
 
 /**
- <p>Indicates whether actions should be executed during any changes to the alarm state.</p>
+ <p>Indicates whether actions should be executed during any changes to the alarm state. The default is TRUE.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable actionsEnabled;
 
@@ -1204,7 +1209,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSString * _Nullable alarmDescription;
 
 /**
- <p>The name for the alarm. This name must be unique within the AWS account.</p>
+ <p>The name for the alarm. This name must be unique within your AWS account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alarmName;
 
@@ -1219,7 +1224,7 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable datapointsToAlarm;
 
 /**
- <p>The dimensions for the metric associated with the alarm.</p>
+ <p>The dimensions for the metric specified in <code>MetricName</code>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCloudWatchDimension *> * _Nullable dimensions;
 
@@ -1229,12 +1234,12 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSString * _Nullable evaluateLowSampleCountPercentile;
 
 /**
- <p>The number of periods over which data is compared to the specified threshold. If you are setting an alarm which requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N.</p><p>An alarm's total current evaluation period can be no longer than one day, so this number multiplied by <code>Period</code> cannot be more than 86,400 seconds.</p>
+ <p>The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N.</p><p>An alarm's total current evaluation period can be no longer than one day, so this number multiplied by <code>Period</code> cannot be more than 86,400 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable evaluationPeriods;
 
 /**
- <p>The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100. When you call <code>PutMetricAlarm</code>, you must specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
+ <p>The percentile statistic for the metric specified in <code>MetricName</code>. Specify a value between p0.0 and p100. When you call <code>PutMetricAlarm</code> and specify a <code>MetricName</code>, you must specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable extendedStatistic;
 
@@ -1244,27 +1249,32 @@ typedef NS_ENUM(NSInteger, AWSCloudWatchStatusCode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable insufficientDataActions;
 
 /**
- <p>The name for the metric associated with the alarm.</p>
+ <p>The name for the metric associated with the alarm.</p><p>If you are creating an alarm based on a math expression, you cannot specify this parameter, or any of the <code>Dimensions</code>, <code>Period</code>, <code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters. Instead, you specify all this information in the <code>Metrics</code> array.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p>The namespace for the metric associated with the alarm.</p>
+ <p>An array of <code>MetricDataQuery</code> structures that enable you to create an alarm based on the result of a metric math expression. Each item in the <code>Metrics</code> array either retrieves a metric or performs a math expression.</p><p>If you use the <code>Metrics</code> parameter, you cannot include the <code>MetricName</code>, <code>Dimensions</code>, <code>Period</code>, <code>Namespace</code>, <code>Statistic</code>, or <code>ExtendedStatistic</code> parameters of <code>PutMetricAlarm</code> in the same operation. Instead, you retrieve the metrics you are using in your math expression as part of the <code>Metrics</code> array.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSCloudWatchMetricDataQuery *> * _Nullable metrics;
+
+/**
+ <p>The namespace for the metric associated specified in <code>MetricName</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable namespace;
 
 /**
- <p>The actions to execute when this alarm transitions to an <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code> | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></p><p>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></p>
+ <p>The actions to execute when this alarm transitions to an <code>OK</code> state from any other state. Each action is specified as an Amazon Resource Name (ARN).</p><p>Valid Values: <code>arn:aws:automate:<i>region</i>:ec2:stop</code> | <code>arn:aws:automate:<i>region</i>:ec2:terminate</code> | <code>arn:aws:automate:<i>region</i>:ec2:recover</code> | <code>arn:aws:automate:<i>region</i>:ec2:reboot</code> | <code>arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i></code> | <code>arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></code></p><p>Valid Values (for use with IAM roles): <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Stop/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Terminate/1.0</code> | <code>arn:aws:swf:<i>region</i>:<i>account-id</i>:action/actions/AWS_EC2.InstanceId.Reboot/1.0</code></p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable OKActions;
 
 /**
- <p>The period, in seconds, over which the specified statistic is applied. Valid values are 10, 30, and any multiple of 60.</p><p>Be sure to specify 10 or 30 only for metrics that are stored by a <code>PutMetricData</code> call with a <code>StorageResolution</code> of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p><p>An alarm's total current evaluation period can be no longer than one day, so <code>Period</code> multiplied by <code>EvaluationPeriods</code> cannot be more than 86,400 seconds.</p>
+ <p>The length, in seconds, used each time the metric specified in <code>MetricName</code> is evaluated. Valid values are 10, 30, and any multiple of 60.</p><p>Be sure to specify 10 or 30 only for metrics that are stored by a <code>PutMetricData</code> call with a <code>StorageResolution</code> of 1. If you specify a period of 10 or 30 for a metric that does not have sub-minute resolution, the alarm still attempts to gather data at the period rate that you specify. In this case, it does not receive data for the attempts that do not correspond to a one-minute data resolution, and the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets this alarm as a high-resolution alarm, which has a higher charge than other alarms. For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch Pricing</a>.</p><p>An alarm's total current evaluation period can be no longer than one day, so <code>Period</code> multiplied by <code>EvaluationPeriods</code> cannot be more than 86,400 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable period;
 
 /**
- <p>The statistic for the metric associated with the alarm, other than percentile. For percentile statistics, use <code>ExtendedStatistic</code>. When you call <code>PutMetricAlarm</code>, you must specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
+ <p>The statistic for the metric specified in <code>MetricName</code>, other than percentile. For percentile statistics, use <code>ExtendedStatistic</code>. When you call <code>PutMetricAlarm</code> and specify a <code>MetricName</code>, you must specify either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</p>
  */
 @property (nonatomic, assign) AWSCloudWatchStatistic statistic;
 
