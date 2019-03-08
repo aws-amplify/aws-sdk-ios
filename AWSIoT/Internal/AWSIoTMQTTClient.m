@@ -315,6 +315,7 @@ static const NSString *SDK_VERSION = @"2.6.19";
     //Creates readable and writable streams connected to ip and port. The socket will not be created or a
     //connection established with the server until one of the streams is opened.
     CFStreamCreatePairWithSocketToHost(NULL, (__bridge CFStringRef)_host, _port, &readStream, &writeStream);
+
     self.decoderStream = (__bridge_transfer NSInputStream *) readStream;
     self.encoderStream = (__bridge_transfer NSOutputStream *) writeStream;
     
@@ -345,6 +346,23 @@ static const NSString *SDK_VERSION = @"2.6.19";
     CFWriteStreamSetProperty(writeStream, kCFStreamPropertySSLSettings, sslSettings);
     CFRelease(sslSettings);
     
+    //The "x-amzn-mqtt-ca" protocol is only supported on port 443.
+    if (self.port == 443) {
+        //SSLSetALPNProtocols is only available from iOS 11 onwards.
+        if (@available(iOS 11.0, *)) {
+            //Get the SSL Context
+            SSLContextRef context = (__bridge SSLContextRef) [_decoderStream propertyForKey: (__bridge NSString *) kCFStreamPropertySSLContext ];
+
+            //Set ALPN protocol list
+            CFStringRef strs[1];
+            strs[0] = CFSTR("x-amzn-mqtt-ca");
+            CFArrayRef protocols = CFArrayCreate(NULL, (void *)strs, 1, &kCFTypeArrayCallBacks);
+
+            SSLSetALPNProtocols(context, protocols);
+            CFRelease(protocols);
+        }
+    }
+
     //Create Thread and start with "openStreams" being the entry point.
     if (self.streamsThread) {
         AWSDDLogVerbose(@"Issued Cancel on thread [%@]", self.streamsThread);
