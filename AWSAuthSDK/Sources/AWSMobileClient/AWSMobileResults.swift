@@ -123,6 +123,49 @@ extension AWSMobileClient {
     }
 }
 
+extension AWSMobileClientError {
+    /// Underlying error message of `AWSMobileClientError`
+    var message: String {
+        switch self {
+        case .aliasExists(let message): return message
+        case .codeDeliveryFailure(let message): return message
+        case .codeMismatch(let message): return message
+        case .expiredCode(let message): return message
+        case .groupExists(let message): return message
+        case .internalError(let message): return message
+        case .invalidLambdaResponse(let message): return message
+        case .invalidOAuthFlow(let message): return message
+        case .invalidParameter(let message): return message
+        case .invalidPassword(let message): return message
+        case .invalidUserPoolConfiguration(let message): return message
+        case .limitExceeded(let message): return message
+        case .mfaMethodNotFound(let message): return message
+        case .notAuthorized(let message): return message
+        case .passwordResetRequired(let message): return message
+        case .resourceNotFound(let message): return message
+        case .scopeDoesNotExist(let message): return message
+        case .softwareTokenMFANotFound(let message): return message
+        case .tooManyFailedAttempts(let message): return message
+        case .tooManyRequests(let message): return message
+        case .unexpectedLambda(let message): return message
+        case .userLambdaValidation(let message): return message
+        case .userNotConfirmed(let message): return message
+        case .userNotFound(let message): return message
+        case .usernameExists(let message): return message
+        case .unknown(let message): return message
+        case .notSignedIn(let message): return message
+        case .identityIdUnavailable(let message): return message
+        case .guestAccessNotAllowed(let message): return message
+        case .federationProviderExists(let message): return message
+        case .cognitoIdentityPoolNotConfigured(let message): return message
+        case .unableToSignIn(let message): return message
+        case .invalidState(let message): return message
+        case .userPoolNotConfigured(let message): return message
+        case .userCancelledSignIn(let message): return message
+        }
+    }
+}
+
 /// Indicates sign in state of the user in the sign in process.
 public enum SignInState: String {
     case unknown = "UNKNOWN"
