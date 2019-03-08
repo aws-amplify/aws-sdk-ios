@@ -653,6 +653,11 @@ extension AWSMobileClient {
         }
     }
     
+    public func confirmMFAIsSetup(softwareMfaSetupRequiredDetails: AWSCognitoIdentitySoftwareMfaSetupRequiredDetails, completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
+        self.userpoolOpsHelper.currentSignInHandlerCallback = completionHandler
+        self.userpoolOpsHelper.mfaSetupCompletionSource?.set(result: softwareMfaSetupRequiredDetails)
+    }
+    
     
     /// Change password of a logged in user.
     ///
@@ -934,8 +939,36 @@ extension AWSMobileClient {
         }
         return Tokens(idToken: idToken, accessToken: accessToken, refreshToken: refreshToken, expiration: userSession.expirationTime)
     }
+    
+    public func getSoftwareTokenForMFA(_ completionHandler: @escaping (AWSCognitoIdentityUserAssociateSoftwareTokenResponse?, Error?) -> Void) {
+        if (self.federationProvider !=  .userPools) {
+            completionHandler(nil, AWSMobileClientError.notSignedIn(message: "User is not signed in, please sign in to use this API."))
+            return
+        }
+        
+        self.currentUser?.associateSoftwareToken().continueWith(block: { (task) -> Any? in
+            if let error = task.error {
+                completionHandler(nil, error)
+            } else if let softwareTokenResponse = task.result {
+                completionHandler(softwareTokenResponse, nil)
+            }
+            return nil
+        })
+    }
 
+    public func verifyCodeForMFASoftwareToken(userCode: String, friendlyDeviceName: String, completionHandler: @escaping (AWSCognitoIdentityUserVerifySoftwareTokenResponse?, Error?) -> Void) {
+        self.currentUser?.verifySoftwareToken(userCode, friendlyDeviceName: friendlyDeviceName).continueWith(block: { (task) -> Any? in
+            if let error = task.error {
+                completionHandler(nil, error)
+            } else if let softwareTokenResponse = task.result {
+                completionHandler(softwareTokenResponse, nil)
+            }
+            return nil
+        })
+    }
 }
+
+public let AWSMobileClientMFASetupSecretKey = "AWSMobileClientMFASetupSecretKey"
 
 extension AWSMobileClient: UserPoolAuthHelperlCallbacks{
     
@@ -967,6 +1000,22 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks{
     }
     
     func didCompleteNewPasswordStepWithError(_ error: Error?) {
+        if error != nil {
+            self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, self.getMobileError(for: error!))
+            self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+        }
+    }
+    
+    func getSoftwareMfaSetupDetails(_ softwareMfaSetupInput: AWSCognitoIdentitySoftwareMfaSetupRequiredInput, softwareMfaSetupRequiredCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentitySoftwareMfaSetupRequiredDetails>) {
+        self.userpoolOpsHelper.mfaSetupCompletionSource = softwareMfaSetupRequiredCompletionSource
+        self.userpoolOpsHelper.softwareMfaSetupInput = softwareMfaSetupInput
+        
+        let result = SignInResult(signInState: .totpMFASetupRequired, parameters: [AWSMobileClientMFASetupSecretKey: softwareMfaSetupInput.secretCode])
+        self.userpoolOpsHelper.currentSignInHandlerCallback?(result, nil)
+        self.userpoolOpsHelper.currentSignInHandlerCallback = nil
+    }
+    
+    func didCompleteMfaSetupStepWithError(_ error: Error?) {
         if error != nil {
             self.userpoolOpsHelper.currentSignInHandlerCallback?(nil, self.getMobileError(for: error!))
             self.userpoolOpsHelper.currentSignInHandlerCallback = nil

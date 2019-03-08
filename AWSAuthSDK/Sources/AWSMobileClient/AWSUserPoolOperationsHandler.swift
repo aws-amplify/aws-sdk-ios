@@ -29,6 +29,10 @@ protocol UserPoolAuthHelperlCallbacks {
     
     func didCompleteNewPasswordStepWithError(_ error: Error?)
     
+    func getSoftwareMfaSetupDetails(_ softwareMfaSetupInput: AWSCognitoIdentitySoftwareMfaSetupRequiredInput, softwareMfaSetupRequiredCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentitySoftwareMfaSetupRequiredDetails>)
+    
+    func didCompleteMfaSetupStepWithError(_ error: Error?)
+    
     func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput, mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>)
     
     func didCompleteMultifactorAuthenticationStepWithError(_ error: Error?)
@@ -53,6 +57,9 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     internal var mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>?
     
     internal var currentSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
+    
+    internal var softwareMfaSetupInput: AWSCognitoIdentitySoftwareMfaSetupRequiredInput?
+    internal var mfaSetupCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentitySoftwareMfaSetupRequiredDetails>?
     
     var authHelperDelegate: UserPoolAuthHelperlCallbacks?
     
@@ -80,6 +87,10 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     
     internal func setAuthHelperDelegate(authHelperDelegate: UserPoolAuthHelperlCallbacks) {
         self.authHelperDelegate = authHelperDelegate
+    }
+    
+    internal func startSoftwareMfaSetupRequired() -> AWSCognitoIdentitySoftwareMfaSetupRequired {
+        return self
     }
 }
 
@@ -115,5 +126,16 @@ extension UserPoolOperationsHandler: AWSCognitoIdentityMultiFactorAuthentication
     
     public func didCompleteMultifactorAuthenticationStepWithError(_ error: Error?) {
         self.authHelperDelegate?.didCompleteMultifactorAuthenticationStepWithError(error)
+    }
+}
+
+extension UserPoolOperationsHandler: AWSCognitoIdentitySoftwareMfaSetupRequired {
+    func getSoftwareMfaSetupDetails(_ softwareMfaSetupInput: AWSCognitoIdentitySoftwareMfaSetupRequiredInput, softwareMfaSetupRequiredCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentitySoftwareMfaSetupRequiredDetails>) {
+        self.softwareMfaSetupInput = softwareMfaSetupInput
+        self.authHelperDelegate?.getSoftwareMfaSetupDetails(softwareMfaSetupInput, softwareMfaSetupRequiredCompletionSource: softwareMfaSetupRequiredCompletionSource)
+    }
+    
+    func didCompleteMfaSetupStepWithError(_ error: Error?) {
+        self.authHelperDelegate?.didCompleteMfaSetupStepWithError(error)
     }
 }

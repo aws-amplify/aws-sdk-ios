@@ -157,6 +157,7 @@ extension AWSMobileClient {
 /// Indicates sign in state of the user in the sign in process.
 public enum SignInState: String {
     case unknown = "UNKNOWN"
+    case totpMFASetupRequired = "MFAS_CAN_SETUP"
     case smsMFA = "CONFIRMATION_CODE"
     case passwordVerifier = "PASSWORD_VERIFIER"
     case customChallenge = "CUSTOM_CHALLENGE"
