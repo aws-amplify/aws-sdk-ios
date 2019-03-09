@@ -14,7 +14,7 @@
 		<div class="container" class="hide-in-xcode">
 			
 			<h1 id="library-title">
-				<a href="../index.html">AWS Mobile SDK for iOS v2.9.1 </a>
+				<a href="../index.html">AWS Mobile SDK for iOS v2.9.2 </a>
 			</h1>
 
 			<p id="developer-home">
@@ -579,7 +579,7 @@
 <p><code>CreateStream</code> is an asynchronous operation.</p>
 
 
-<p>For information about how the service works, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p>
+<p>For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p>
 
 
 <p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>
@@ -608,7 +608,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSKinesisVideoCreateStreamOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoErrorAccountStreamLimitExceeded</code>, <code>AWSKinesisVideoErrorDeviceStreamLimitExceeded</code>, <code>AWSKinesisVideoErrorResourceInUse</code>, <code>AWSKinesisVideoErrorInvalidDevice</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorClientLimitExceeded</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSKinesisVideoCreateStreamOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoErrorAccountStreamLimitExceeded</code>, <code>AWSKinesisVideoErrorDeviceStreamLimitExceeded</code>, <code>AWSKinesisVideoErrorResourceInUse</code>, <code>AWSKinesisVideoErrorInvalidDevice</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorTagsPerResourceExceededLimit</code>.</p>
 			</div>
 			
 
@@ -661,7 +661,7 @@
 <p><code>CreateStream</code> is an asynchronous operation.</p>
 
 
-<p>For information about how the service works, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p>
+<p>For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p>
 
 
 <p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>
@@ -687,7 +687,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoErrorAccountStreamLimitExceeded</code>, <code>AWSKinesisVideoErrorDeviceStreamLimitExceeded</code>, <code>AWSKinesisVideoErrorResourceInUse</code>, <code>AWSKinesisVideoErrorInvalidDevice</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorClientLimitExceeded</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoErrorAccountStreamLimitExceeded</code>, <code>AWSKinesisVideoErrorDeviceStreamLimitExceeded</code>, <code>AWSKinesisVideoErrorResourceInUse</code>, <code>AWSKinesisVideoErrorInvalidDevice</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorTagsPerResourceExceededLimit</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -774,7 +774,7 @@
 			
 			<div class="method-subsection return">
 				<h4 class="method-subtitle parameter-title">Return Value</h4>
-				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSKinesisVideoDeleteStreamOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorResourceNotFound</code>, <code>AWSKinesisVideoErrorNotAuthorized</code>.</p>
+				<p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code>AWSKinesisVideoDeleteStreamOutput</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorResourceNotFound</code>, <code>AWSKinesisVideoErrorNotAuthorized</code>, <code>AWSKinesisVideoErrorVersionMismatch</code>.</p>
 			</div>
 			
 
@@ -853,7 +853,7 @@
 						<th scope="row" class="argument-name"><code>completionHandler</code></th>
 						<td><p>The completion handler to call when the load request is complete.
                           <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorResourceNotFound</code>, <code>AWSKinesisVideoErrorNotAuthorized</code>.</p></td>
+                          <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code>AWSKinesisVideoErrorDomain</code> domain and the following error code: <code>AWSKinesisVideoErrorClientLimitExceeded</code>, <code>AWSKinesisVideoErrorInvalidArgument</code>, <code>AWSKinesisVideoErrorResourceNotFound</code>, <code>AWSKinesisVideoErrorNotAuthorized</code>, <code>AWSKinesisVideoErrorVersionMismatch</code>.</p></td>
 					</tr>
 				
 				</table>
@@ -1480,7 +1480,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
+				<p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
 
 
 <p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -1559,7 +1559,7 @@
 			
 			
 			<div class="method-subsection brief-description">
-				<p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
+				<p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
 
 
 <p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -2097,7 +2097,7 @@
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-02-14</p>
+						<p class="copyright">Copyright &copy; 2019 Amazon Web Services, Inc. All rights reserved. Updated: 2019-03-08</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
