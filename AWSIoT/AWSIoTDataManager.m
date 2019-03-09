@@ -333,10 +333,36 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [self.mqttClient setIsMetricsEnabled:enabled];
 }
 
+
+- (BOOL)connectUsingALPNWithClientId:(NSString *)clientId
+                        cleanSession:(BOOL)cleanSession
+                       certificateId:(NSString *)certificateId
+                      statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
+{
+    return [self connectWithClientId:clientId
+                        cleanSession:cleanSession
+                       certificateId:certificateId
+                      statusCallback:callback
+                                port:443];
+}
+
+- (BOOL)connectWithClientId:(NSString*)clientId
+               cleanSession:(BOOL)cleanSession
+              certificateId:(NSString *)certificateId
+             statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
+{
+      return [self connectWithClientId:clientId
+                                cleanSession:cleanSession
+                               certificateId:certificateId
+                              statusCallback:callback
+                                  port:8883];
+}
+
 - (BOOL)connectWithClientId:(NSString*)clientId
                cleanSession:(BOOL)cleanSession
                 certificateId:(NSString *)certificateId
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
+                       port:(UInt32)port
 {
     AWSDDLogDebug(@"<<%@>>In connectWithClientID", [NSThread currentThread]);
     AWSDDLogInfo(@"hostName: %@", self.IoTData.configuration.endpoint.hostName);
@@ -367,7 +393,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     
     return [self.mqttClient connectWithClientId:clientId
                                      toHost:self.IoTData.configuration.endpoint.hostName
-                                       port:8883
+                                       port:port
                                cleanSession:cleanSession
                               certificateId:certificateId
                                   keepAlive:self.mqttConfiguration.keepAliveTimeInterval

@@ -297,7 +297,7 @@ jobs:
   release_jazzydoc:
     # Specify the Xcode version to use
     macos:
-      xcode: "10.1.0"
+      xcode: "10.2.0"
     steps:
       - checkout  
       - run:
