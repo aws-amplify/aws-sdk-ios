@@ -103,6 +103,9 @@
         else if ([lKey isEqualToString:@"content-type" ]) {
             uploadRequest.contentType = expression.requestHeaders[key];
         }
+        else if ([lKey isEqualToString:@"content-disposition" ]) {
+            uploadRequest.contentDisposition = expression.requestHeaders[key];
+        }
         else if([lKey isEqualToString:@"cache-control"]) {
             uploadRequest.cacheControl = expression.requestHeaders[key];
         }
