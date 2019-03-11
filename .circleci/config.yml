@@ -39,6 +39,9 @@ commands:
             sdkName=aws-ios-sdk
             echo "export sdkName=$sdkName" >> $BASH_ENV
 
+            destination="platform=iOS Simulator,name=iPhone 8,OS=12.1"
+            echo "export destination='platform=iOS Simulator,name=iPhone 8,OS=12.1'" >> $BASH_ENV
+
             release_bucket=${S3_RELEASE_BUCKET}
             echo "export release_bucket=$release_bucket" >> $BASH_ENV
 
@@ -135,24 +138,33 @@ commands:
           command: |
             aws configure --profile sdk_s3_release set region us-east-1
             echo -e "[sdk_s3_release]\naws_access_key_id=${S3_RELEASE_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${S3_RELEASE_AWS_SECRET_ACCESS_KEY}\n" >> ~/.aws/credentials
+  pre_start_simulator:
+    description: >-
+      pre start simulator, build may fail is simulator is not started
+    steps:
+      - run:   
+          name: pre-start simulator
+          command: xcrun instruments -w "iPhone X (12.1) [" -t "Blank" || true    
 jobs:
   build:
     macos: 
       xcode: "10.1.0"
     steps:
       - checkout
+      - set_enviroment_variables
       - run:
           name: create credentials
           command: |
             touch AWSCoreTests/Resources/credentials.json   
             touch AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
-            touch AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
+            touch AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json    
+      - pre_start_simulator                 
       - run:
           name: build sdk
           command: |
-            xcodebuild  build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'         
-            xcodebuild  build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'
- 
+            echo "${destination}"
+            xcodebuild  build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
+            xcodebuild  build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"  
   unittest:
     macos:
       xcode: "10.1.0"
@@ -162,6 +174,7 @@ jobs:
           name: create credentials
           command: |
             touch AWSCoreTests/Resources/credentials.json 
+      - pre_start_simulator 
       - run:
           name: build sdk
           command: xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 8,OS=12.1'        
@@ -173,13 +186,111 @@ jobs:
           command : bash CircleciScripts/check_test_result.sh  "test_result"         
       - store_artifacts:
           path: test_result
+  pre_integrationtest:
+    macos: 
+      xcode: "10.1.0"
+    steps:
+      - run:
+          name: check environment variabe 
+          command: |
+              if [ "${SKIP_INTEGRATIONTEST}" == "TRUE" ]; then
+                echo "project enviroment variabe SKIP_INTEGRATIONTEST should not be TRUE at the moment, this will skip all integration tests"
+                exit 1
+              fi    
+      - checkout
+      - set_enviroment_variables
+      - configure_aws
+      - run:
+          name: create credentials
+          command: |
+            echo "${destination}" 
+            aws s3 cp s3://ios-circleci-payload/credentials.json  AWSCoreTests/Resources/credentials.json 
+            aws s3 cp s3://ios-circleci-payload/awsconfiguration.json  AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
+            aws s3 cp s3://ios-circleci-payload/credentials-mc.json   AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json     
+      - pre_start_simulator   
+      - run:
+          name: build sdk
+          command: |
+            xcodebuild  build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination  "${destination}"   -derivedDataPath  ./build_result/AWSiOSSDKv2        
+            xcodebuild  build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}"   -derivedDataPath  ./build_result/AWSAuthSDK  
+      - save_cache:
+          key: build_result-{{ .Revision }}
+          paths:
+            - build_result
+  post_integrationtest:
+    macos: 
+      xcode: "10.1.0"
+    steps:
+      #TODO need check why multiple key does not work here
+      - restore_cache:
+          key: test_result-{{ .Revision }}-AWSMobileClient
+      - restore_cache:
+          key: test_result-{{ .Revision }}-SQS 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-MobileAnalytics 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Rekognition 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-SES 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-SNS 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-CloudWatch
+      - restore_cache:
+          key: test_result-{{ .Revision }}-AutoScaling
+      - restore_cache:
+          key: test_result-{{ .Revision }}-APIGateway 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Translate
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Transcribe
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Polly
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Cognito
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Comprehend
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Core
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Kinesis 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-KMS 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-ElasticLoadBalancing
+      - restore_cache:
+          key: test_result-{{ .Revision }}-EC2 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Lambda
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Lex 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-IoT
+      - restore_cache:
+          key: test_result-{{ .Revision }}-MachineLearning
+      - restore_cache:
+          key: test_result-{{ .Revision }}-Pinpoint 
+      - restore_cache:
+          key: test_result-{{ .Revision }}-S3
+      - restore_cache:
+          key: test_result-{{ .Revision }}-DynamoDB
+      - store_artifacts:
+          path: integration_test_result          
 
   integrationtest:
+    description: run integration tests
+    parameters:
+      groupname:
+        default: stable_testList
+        type: string    
     macos:
       xcode: "10.1.0"   
     steps:
       - early_return_for_forked_prs
+      - set_enviroment_variables
       - checkout 
+      - restore_cache:
+          key: build_result-{{ .Revision }}  
       - run: 
           name: install json parser
           command: pip3 install demjson
@@ -187,16 +298,31 @@ jobs:
           name: create credentials
           command: |
             echo ${IOS_TESTS_CREDENTIALS_JSON}  | base64 --decode  > AWSCoreTests/Resources/credentials.json  
+      - run:   
+          name: pre-start simulator
+          command: xcrun instruments -w "iPhone 8 (10.2) [" || true   
       - run :
           name: run integration tests
           command: |
             mkdir integration_test_result
-            python3 CircleciScripts/run_integrationtests.py  CircleciScripts/IntegrationTestsConfiguration.json  "integration_test_result"
+            python3 CircleciScripts/run_integrationtests.py  CircleciScripts/IntegrationTestsConfiguration.json  "integration_test_result" "<< parameters.groupname >>" "${destination}"  "./build_result"
       - run:
           name : check integration test result 
-          command : bash CircleciScripts/check_test_result.sh "integration_test_result"
+          command : |
+            echo "testresult=$testresult"
+            if [ "$testresult" == "0" ] 
+            then
+                echo "test succeed!"
+            else
+                echo "There are test failures"
+                exit 1
+            fi
       - store_artifacts:
           path: integration_test_result
+      - save_cache:
+          key: test_result-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
+          paths:
+            - integration_test_result       
 
   release_tag:
     # Specify the Xcode version to use
@@ -488,14 +614,305 @@ workflows:
           filters:
             branches:
               ignore: /gh-.*/
+      - pre_integrationtest:
+          filters:
+            branches:
+              only:
+                - master
+                - develop 
       - integrationtest:
+          name: AWSMobileClient
+          groupname: AWSMobileClient
           requires:
-            - build
+            - pre_integrationtest
           filters:
             branches:
               only:
                 - master
                 - develop
+      - integrationtest:
+          name: SQS 
+          groupname: SQS 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: MobileAnalytics 
+          groupname: MobileAnalytics 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Rekognition 
+          groupname: Rekognition 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: SES 
+          groupname: SES 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: SNS 
+          groupname: SNS 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: CloudWatch
+          groupname: CloudWatch
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: AutoScaling
+          groupname: AutoScaling
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: APIGateway 
+          groupname: APIGateway 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Translate
+          groupname: Translate
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Transcribe
+          groupname: Transcribe
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Polly
+          groupname: Polly
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Cognito
+          groupname: Cognito
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Comprehend
+          groupname: Comprehend
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Core
+          groupname: Core
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Kinesis 
+          groupname: Kinesis 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: KMS 
+          groupname: KMS 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: ElasticLoadBalancing
+          groupname: ElasticLoadBalancing
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: EC2 
+          groupname: EC2 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Lambda
+          groupname: Lambda
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: Lex 
+          groupname: Lex 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: IoT
+          groupname: IoT
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      # - integrationtest:
+      #     name: MachineLearning
+      #     groupname: MachineLearning
+      #     requires:
+      #       - pre_integrationtest
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
+      #           - develop
+      - integrationtest:
+          name: Pinpoint 
+          groupname: Pinpoint 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: S3
+          groupname: S3
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - integrationtest:
+          name: DynamoDB
+          groupname: DynamoDB
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              only:
+                - master
+                - develop
+      - post_integrationtest:
+          requires:
+            - AWSMobileClient
+            - SQS 
+            - MobileAnalytics 
+            - Rekognition 
+            - SES 
+            - SNS 
+            - CloudWatch
+            - AutoScaling
+            - APIGateway 
+            - Translate
+            - Transcribe
+            - Polly
+            - Cognito
+            - Comprehend
+            - Core
+            - Kinesis 
+            - KMS 
+            - ElasticLoadBalancing
+            - EC2 
+            - Lambda
+            - Lex 
+            - IoT
+            # - MachineLearning
+            - Pinpoint 
+            - S3
+            - DynamoDB
+          filters:
+            branches:
+              only:
+                - master
+                - develop                                                                                                    
       - run_ui_test:
           requires:
             - build
@@ -520,18 +937,309 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/          
-      - integrationtest:
-          requires:
-            - build
+      - pre_integrationtest:
           filters:
             branches:
               ignore: /.*/
             tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: AWSMobileClient
+          groupname: AWSMobileClient
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: SQS 
+          groupname: SQS 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/                     
+      - integrationtest:
+          name: MobileAnalytics 
+          groupname: MobileAnalytics 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Rekognition 
+          groupname: Rekognition 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: SES 
+          groupname: SES 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: SNS 
+          groupname: SNS 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: CloudWatch
+          groupname: CloudWatch
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: AutoScaling
+          groupname: AutoScaling
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: APIGateway 
+          groupname: APIGateway 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Translate
+          groupname: Translate
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Transcribe
+          groupname: Transcribe
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Polly
+          groupname: Polly
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Cognito
+          groupname: Cognito
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Comprehend
+          groupname: Comprehend
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Core
+          groupname: Core
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Kinesis 
+          groupname: Kinesis 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: KMS 
+          groupname: KMS 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: ElasticLoadBalancing
+          groupname: ElasticLoadBalancing
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: EC2 
+          groupname: EC2 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Lambda
+          groupname: Lambda
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Lex 
+          groupname: Lex 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: IoT
+          groupname: IoT
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      # - integrationtest:
+      #     name: MachineLearning
+      #     groupname: MachineLearning
+      #     requires:
+      #       - pre_integrationtest
+      #     filters:
+      #       branches:
+      #         ignore: /.*/
+      #       tags:
+      #         only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: Pinpoint 
+          groupname: Pinpoint 
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: S3
+          groupname: S3
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - integrationtest:
+          name: DynamoDB
+          groupname: DynamoDB
+          requires:
+            - pre_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/   
+      - post_integrationtest:
+          requires:
+            - AWSMobileClient
+            - SQS 
+            - MobileAnalytics 
+            - Rekognition 
+            - SES 
+            - SNS 
+            - CloudWatch
+            - AutoScaling
+            - APIGateway 
+            - Translate
+            - Transcribe
+            - Polly
+            - Cognito
+            - Comprehend
+            - Core
+            - Kinesis 
+            - KMS 
+            - ElasticLoadBalancing
+            - EC2 
+            - Lambda
+            - Lex 
+            - IoT
+            # - MachineLearning
+            - Pinpoint 
+            - S3
+            - DynamoDB
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/          
       - release_ios_s3:
           requires:
             - unittest          
-            - integrationtest
+            - post_integrationtest
           filters:
             branches:
               ignore: /.*/
@@ -540,7 +1248,7 @@ workflows:
       - release_tag:
           requires:
             - unittest  
-            - integrationtest
+            - post_integrationtest
           filters:
             branches:
               ignore: /.*/
