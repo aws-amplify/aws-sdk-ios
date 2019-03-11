@@ -1525,12 +1525,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (<code>value</code>).</p>
+ <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code>.</p>
  */
 @property (nonatomic, assign) AWSIoTComparisonOperator comparisonOperator;
 
 /**
- <p>Use this to specify the period of time over which the behavior is evaluated, for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>).</p>
+ <p>Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>). </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable durationSeconds;
 
@@ -1959,12 +1959,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable metricNamespace;
 
 /**
- <p>An optional <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix timestamp</a>.</p>
+ <p>An optional <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp">Unix timestamp</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricTimestamp;
 
 /**
- <p>The <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit">metric unit</a> supported by CloudWatch.</p>
+ <p>The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit">metric unit</a> supported by CloudWatch.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricUnit;
 
@@ -2198,7 +2198,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The dynamic thing group search query string.</p><p>See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
+ <p>The dynamic thing group search query string.</p><p>See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/query-syntax.html">Query Syntax</a> for information about query string syntax.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queryString;
 
@@ -2635,6 +2635,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The name you want to give to the scheduled audit. (Max. 128 chars)</p>
  */
 @property (nonatomic, strong) NSString * _Nullable scheduledAuditName;
+
+/**
+ <p>Metadata which can be used to manage the scheduled audit.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTTag *> * _Nullable tags;
 
 /**
  <p>Which checks are performed during the scheduled audit. Checks must be enabled for your account. (Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks including those that are enabled or <code>UpdateAccountAuditConfiguration</code> to select which checks are enabled.)</p>
@@ -5097,12 +5102,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable comment;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job was completed.</p>
+ <p>The time, in seconds since the epoch, when the job was completed.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable completedAt;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job was created.</p>
+ <p>The time, in seconds since the epoch, when the job was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable createdAt;
 
@@ -5137,7 +5142,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) AWSIoTJobProcessDetails * _Nullable jobProcessDetails;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job was last updated.</p>
+ <p>The time, in seconds since the epoch, when the job was last updated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastUpdatedAt;
 
@@ -5200,17 +5205,17 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>
+ <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastUpdatedAt;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job execution was queued.</p>
+ <p>The time, in seconds since the epoch, when the job execution was queued.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable queuedAt;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job execution started.</p>
+ <p>The time, in seconds since the epoch, when the job execution started.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startedAt;
 
@@ -5261,17 +5266,17 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable executionNumber;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job execution was last updated.</p>
+ <p>The time, in seconds since the epoch, when the job execution was last updated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastUpdatedAt;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job execution was queued.</p>
+ <p>The time, in seconds since the epoch, when the job execution was queued.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable queuedAt;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job execution started.</p>
+ <p>The time, in seconds since the epoch, when the job execution started.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startedAt;
 
@@ -5396,12 +5401,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The time, in milliseconds since the epoch, when the job completed.</p>
+ <p>The time, in seconds since the epoch, when the job completed.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable completedAt;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job was created.</p>
+ <p>The time, in seconds since the epoch, when the job was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable createdAt;
 
@@ -5416,7 +5421,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
- <p>The time, in milliseconds since the epoch, when the job was last updated.</p>
+ <p>The time, in seconds since the epoch, when the job was last updated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastUpdatedAt;
 
@@ -7728,12 +7733,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The parameters for provisioning a thing. See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic Provisioning</a> for more information.</p>
+ <p>The parameters for provisioning a thing. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic Provisioning</a> for more information.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable parameters;
 
 /**
- <p>The provisioning template. See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic Provisioning</a> for more information.</p>
+ <p>The provisioning template. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/programmatic-provisioning.html">Programmatic Provisioning</a> for more information.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateBody;
 
@@ -8021,7 +8026,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable bucketName;
 
 /**
- <p>The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3 canned ACLs</a>.</p>
+ <p>The Amazon S3 canned ACL that controls access to the object identified by the object key. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">S3 canned ACLs</a>.</p>
  */
 @property (nonatomic, assign) AWSIoTCannedAccessControlList cannedAcl;
 
@@ -8373,7 +8378,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>(Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href="http://docs.aws.amazon.com/sns/latest/dg/json-formats.html">http://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>
+ <p>(Optional) The message format of the message to publish. Accepted values are "JSON" and "RAW". The default value of the attribute is "RAW". SNS uses this setting to determine if the payload should be parsed and relevant platform-specific bits of the payload should be extracted. To read more about SNS message formats, see <a href="https://docs.aws.amazon.com/sns/latest/dg/json-formats.html">https://docs.aws.amazon.com/sns/latest/dg/json-formats.html</a> refer to their official documentation.</p>
  */
 @property (nonatomic, assign) AWSIoTMessageFormat messageFormat;
 
@@ -9251,7 +9256,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable ruleDisabled;
 
 /**
- <p>The SQL statement used to query the topic. For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference">AWS IoT SQL Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ <p>The SQL statement used to query the topic. For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-rules.html#aws-iot-sql-reference">AWS IoT SQL Reference</a> in the <i>AWS IoT Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sql;
 

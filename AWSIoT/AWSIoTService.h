@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 
 /**
- <fullname>AWS IoT</fullname><p>AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p><p>For more information about how AWS IoT works, see the <a href="http://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p><p>For information about how to use the credentials provider for AWS IoT, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to AWS Services</a>.</p>
+ <fullname>AWS IoT</fullname><p>AWS IoT provides secure, bi-directional communication between Internet-connected devices (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. You can discover your custom IoT-Data endpoint to communicate with, configure rules for data processing and integration with other services, organize resources associated with each device (Registry), configure logging, and create and manage policies and credentials to authenticate devices.</p><p>For more information about how AWS IoT works, see the <a href="https://docs.aws.amazon.com/iot/latest/developerguide/aws-iot-how-it-works.html">Developer Guide</a>.</p><p>For information about how to use the credentials provider for AWS IoT, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorizing-direct-aws.html">Authorizing Direct Calls to AWS Services</a>.</p>
  */
 @interface AWSIoT : AWSService
 
@@ -810,7 +810,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createStream:(AWSIoTCreateStreamRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateStreamResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a thing record in the registry.</p><note><p>This is a control plane operation. See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
+ <p>Creates a thing record in the registry.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateThing service method.
 
@@ -822,7 +822,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateThingResponse *> *)createThing:(AWSIoTCreateThingRequest *)request;
 
 /**
- <p>Creates a thing record in the registry.</p><note><p>This is a control plane operation. See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
+ <p>Creates a thing record in the registry.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateThing service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -835,7 +835,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createThing:(AWSIoTCreateThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Create a thing group.</p><note><p>This is a control plane operation. See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
+ <p>Create a thing group.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateThingGroup service method.
 
@@ -847,7 +847,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateThingGroupResponse *> *)createThingGroup:(AWSIoTCreateThingGroupRequest *)request;
 
 /**
- <p>Create a thing group.</p><note><p>This is a control plane operation. See <a href="http://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
+ <p>Create a thing group.</p><note><p>This is a control plane operation. See <a href="https://docs.aws.amazon.com/iot/latest/developerguide/authorization.html">Authorization</a> for information about authorizing control plane actions.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateThingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2774,7 +2774,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listPolicyVersions:(AWSIoTListPolicyVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListPolicyVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
+ <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
  
  @param request A container for the necessary parameters to execute the ListPrincipalPolicies service method.
 
@@ -2786,7 +2786,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListPrincipalPoliciesResponse *> *)listPrincipalPolicies:(AWSIoTListPrincipalPoliciesRequest *)request;
 
 /**
- <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
+ <p>Lists the policies attached to the specified principal. If you use an Cognito identity, the ID must be in <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito Identity format</a>.</p><p><b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.</p>
  
  @param request A container for the necessary parameters to execute the ListPrincipalPolicies service method.
  @param completionHandler The completion handler to call when the load request is complete.
