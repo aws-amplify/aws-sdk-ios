@@ -1904,6 +1904,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         expression.setValue("Project=blue&Classification=confidential", forRequestHeader: "x-amz-tagging")
         expression.setValue("requester", forRequestHeader: "x-amz-request-payer")
         expression.setValue("AES256", forRequestHeader: "x-amz-server-side-encryption")
+        expression.setValue("attachment", forRequestHeader: "Content-Disposition");
         print(expression.requestHeaders)
         expression.progressBlock = {(task, progress) in
             print("Upload progress: ", progress.fractionCompleted)
@@ -1931,6 +1932,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
                 XCTAssertEqual(output.serverSideEncryption, AWSS3ServerSideEncryption.AES256)
                 XCTAssertEqual("video/mp4", output.contentType)
                 XCTAssertEqual("no-cache", output.cacheControl)
+                XCTAssertEqual("attachment", output.contentDisposition)
                 XCTAssertEqual(output.storageClass,AWSS3StorageClass.reducedRedundancy)
                 
                 expectation.fulfill()
