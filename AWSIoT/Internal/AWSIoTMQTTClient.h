@@ -111,7 +111,7 @@
 /**
  Utility method to return username composed from usernameFields
  */
-- (NSMutableString *) getUsername;
+- (NSMutableString *) getUserMetaData;
 
 - (BOOL)connectWithClientId:(NSString *)clientId
                presignedURL:(NSString *)presignedURL

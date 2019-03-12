@@ -362,9 +362,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [self.mqttClient setUserMetaData:userMetaData];
 
     // validate the length of username field
-    NSMutableString *username = [self.mqttClient getUsername];
+    NSMutableString *userMetadata = [self.mqttClient getUserMetaData];
     NSString *baseUsername = [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", [self.mqttClient SDK_VERSION]];
-    if ([username length] > 255) {
+    if ([userMetadata length] > 255) {
         [NSException raise:NSInvalidArgumentException format:@"Total number of characters in username fields cannot exceed (%lu)", (255 - [baseUsername length])];
     }
 }
