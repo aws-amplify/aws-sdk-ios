@@ -276,7 +276,7 @@ static const NSString *SDK_VERSION = @"2.6.19";
     return [self connectWithCert];
 }
 
-- (NSMutableString *) getUsername {
+- (NSString *) getUsername {
     NSMutableString *username = [NSMutableString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
 
     // Append each of the user-specified key-value pair to the connection username
@@ -285,7 +285,7 @@ static const NSString *SDK_VERSION = @"2.6.19";
             [username appendFormat:@"&%@=%@", key, [self.userMetaData objectForKey:key]];
         }
     }
-    return username;
+    return [NSString stringWithString:username];
 }
 
 - (BOOL) connectWithCert {
@@ -295,7 +295,7 @@ static const NSString *SDK_VERSION = @"2.6.19";
         [self.topicListeners removeAllObjects];
     }
     
-    NSMutableString *username;
+    NSString *username;
     if (self.isMetricsEnabled) {
         username = [self getUsername];
         AWSDDLogInfo(@"username is : %@", username);
@@ -554,7 +554,7 @@ static const NSString *SDK_VERSION = @"2.6.19";
     }
     
     //Setup userName if metrics are enabled
-    NSMutableString *username;
+    NSString *username;
     if (self.isMetricsEnabled) {
         username = [self getUsername];
         AWSDDLogInfo(@"username is : %@", username);

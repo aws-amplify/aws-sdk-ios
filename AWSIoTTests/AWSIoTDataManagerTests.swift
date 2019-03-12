@@ -670,6 +670,9 @@ class AWSIoTDataManagerTests: XCTestCase {
         let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker")
         let uuid = UUID().uuidString
         print("Calling Connect")
+
+        let userMetaData: [String: String] = ["AFRSDK": "ios", "AFRSDKVersion": "1.0.0", "AFRLibVersion":"1.4.1"]
+        iotDataManager.addUserMetaData(userMetaData)
         
         iotDataManager.connectUsingWebSocket(withClientId: uuid, cleanSession: true, statusCallback: mqttEventCallback)
         print("Connect call completed")

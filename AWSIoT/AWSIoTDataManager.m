@@ -358,8 +358,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                   port:8883];
 }
 
-- (void)setUserMetaData:(NSDictionary<NSString *, NSString *> *)usernameFields {
-    [self.mqttClient setUserMetaData:usernameFields];
+- (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData {
+    [self.mqttClient setUserMetaData:userMetaData];
 
     // validate the length of username field
     NSMutableString *username = [self.mqttClient getUsername];
