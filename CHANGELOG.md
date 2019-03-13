@@ -1,6 +1,13 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.3
+
+### New Features
+
+* **AWS IoT**
+- AWSIotDataManager now exposes an API `addUserMetaData` for clients to pass additional key-value pairs which are appended to the username used for connection.
+
 ## 2.9.2
 
 ### New Features
