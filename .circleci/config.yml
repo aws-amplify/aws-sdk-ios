@@ -598,12 +598,48 @@ jobs:
           name: invalidate cloudfront
           command: |
             python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release  "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
-
+  bump_sdk_version:
+    macos: 
+      xcode: "10.1.0"
+    steps:
+      - checkout
+      - set_enviroment_variables
+      - run:
+          name: checkout_developbranch
+          command: |
+            git fetch
+            git checkout bump_sdk_version         
+            currentbranch=$(git branch | grep \* | cut -d ' ' -f2)
+            echo "$currentbranch"
+            echo "$newsdkversion" 
+      - run: 
+          name: Install json parser
+          command: sudo pip3 install demjson
+      - run: 
+          name: Install lxml
+          command: sudo pip3 install lxml    
+      - run:
+          name: bump version
+          command: |
+            python3 CircleciScripts/bump_sdk_version.py "$(pwd)" $newsdkversion 
+      - run:
+          name: check in the change 
+          command: |
+            gitstatus=$(git status)
+            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then
+              git config --local user.name "${GITHUB_USER}"
+              git add .
+              git commit -m "[bump version $newsdkversion]"            
+              git push  -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            else
+              echo "No changes"
+              exit 1
+            fi   
 workflows:
   version: 2
-
   build_and_test:
     jobs: 
+      - bump_sdk_version
       - build:
           filters:
             branches:
