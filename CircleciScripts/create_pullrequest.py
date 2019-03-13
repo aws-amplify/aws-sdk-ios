@@ -13,5 +13,5 @@ repo =  sys.argv[8]
 
 data='{{"title":"{0}","base":"{1}","head":"{2}", "body":"{3}"}}'.format(title, base, head,body)
 print("data:", data)
-rn = runcommand(command = "curl --user  '{0}:{1}' --request POST  --data  '{2}' 'https://api.github.com/repos/{3}/{4}/pulls'".format(user,token,data, touser, repo), logcommandline = False)
+rn = runcommand(command = "curl --user  '{0}:{1}' --request POST  --data  '{2}' 'https://api.github.com/repos/{3}/{4}/pulls'".format(user,token,data, touser, repo), logcommandline = True)
 exit(rn)
