@@ -339,6 +339,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [self.mqttClient setIsMetricsEnabled:enabled];
 }
 
+<<<<<<< HEAD
 
 - (BOOL)connectUsingALPNWithClientId:(NSString *)clientId
                         cleanSession:(BOOL)cleanSession
@@ -389,7 +390,6 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                cleanSession:(BOOL)cleanSession
                 certificateId:(NSString *)certificateId
              statusCallback:(void (^)(AWSIoTMQTTStatus status))callback
-                       port:(UInt32)port
 {
     AWSDDLogDebug(@"<<%@>>In connectWithClientID", [NSThread currentThread]);
     AWSDDLogInfo(@"hostName: %@", self.IoTData.configuration.endpoint.hostName);
@@ -420,7 +420,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     
     return [self.mqttClient connectWithClientId:clientId
                                      toHost:self.IoTData.configuration.endpoint.hostName
-                                       port:port
+                                       port:8883
                                cleanSession:cleanSession
                               certificateId:certificateId
                                   keepAlive:self.mqttConfiguration.keepAliveTimeInterval

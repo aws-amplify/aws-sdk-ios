@@ -104,12 +104,12 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) NSString * _Nullable deviceName;
 
 /**
- <p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p><p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p><p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
+ <p>The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data.</p><p>If no key ID is specified, the default, Kinesis Video-managed key (<code>aws/kinesisvideo</code>) is used.</p><p> For more information, see <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a> for guidelines.</p><p>Example valid values include "video/h264" and "video/h264,audio/aac".</p><p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>
+ <p>The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see <a href="http://www.iana.org/assignments/media-types/media-types.xhtml">Media Types</a>. If you choose to specify the <code>MediaType</code>, see <a href="https://tools.ietf.org/html/rfc6838#section-4.2">Naming Requirements</a> for guidelines.</p><p>To play video on the console, the media must be H.264 encoded, and you need to specify this video type in this parameter as <code>video/h264</code>. </p><p>This parameter is optional; the default value is <code>null</code> (or empty in JSON).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable mediaType;
 
@@ -117,11 +117,6 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
  <p>A name for the stream that you are creating.</p><p>The stream name is an identifier for the stream, and must be unique for each account and region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable streamName;
-
-/**
- <p>A list of tags to associate with the specified stream. Each tag is a key-value pair (the value is optional).</p>
- */
-@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -458,7 +453,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) NSString * _Nullable currentVersion;
 
 /**
- <p>The retention period, in hours. The value you specify replaces the current value. The maximum value for this parameter is 87600 (ten years).</p>
+ <p>The retention period, in hours. The value you specify replaces the current value.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dataRetentionChangeInHours;
 

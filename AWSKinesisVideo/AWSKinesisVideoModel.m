@@ -27,7 +27,6 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
              @"kmsKeyId" : @"KmsKeyId",
              @"mediaType" : @"MediaType",
              @"streamName" : @"StreamName",
-             @"tags" : @"Tags",
              };
 }
 

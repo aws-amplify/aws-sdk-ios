@@ -175,11 +175,11 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 + (void)removeKinesisVideoForKey:(NSString *)key;
 
 /**
- <p>Creates a new Kinesis video stream. </p><p>When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version. </p><p><code>CreateStream</code> is an asynchronous operation.</p><p>For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p><p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>
+ <p>Creates a new Kinesis video stream. </p><p>When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version. </p><p><code>CreateStream</code> is an asynchronous operation.</p><p>For information about how the service works, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p><p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateStream service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoCreateStreamOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccountStreamLimitExceeded`, `AWSKinesisVideoErrorDeviceStreamLimitExceeded`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorInvalidDevice`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorTagsPerResourceExceededLimit`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoCreateStreamOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccountStreamLimitExceeded`, `AWSKinesisVideoErrorDeviceStreamLimitExceeded`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorInvalidDevice`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`.
  
  @see AWSKinesisVideoCreateStreamInput
  @see AWSKinesisVideoCreateStreamOutput
@@ -187,12 +187,12 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (AWSTask<AWSKinesisVideoCreateStreamOutput *> *)createStream:(AWSKinesisVideoCreateStreamInput *)request;
 
 /**
- <p>Creates a new Kinesis video stream. </p><p>When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version. </p><p><code>CreateStream</code> is an asynchronous operation.</p><p>For information about how the service works, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p><p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>
+ <p>Creates a new Kinesis video stream. </p><p>When you create a new stream, Kinesis Video Streams assigns it a version number. When you change the stream's metadata, Kinesis Video Streams updates the version. </p><p><code>CreateStream</code> is an asynchronous operation.</p><p>For information about how the service works, see <a href="http://docs.aws.amazon.com/kinesisvideostreams/latest/dg/how-it-works.html">How it Works</a>. </p><p>You must have permissions for the <code>KinesisVideo:CreateStream</code> action.</p>
  
  @param request A container for the necessary parameters to execute the CreateStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccountStreamLimitExceeded`, `AWSKinesisVideoErrorDeviceStreamLimitExceeded`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorInvalidDevice`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorTagsPerResourceExceededLimit`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorAccountStreamLimitExceeded`, `AWSKinesisVideoErrorDeviceStreamLimitExceeded`, `AWSKinesisVideoErrorResourceInUse`, `AWSKinesisVideoErrorInvalidDevice`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorClientLimitExceeded`.
  
  @see AWSKinesisVideoCreateStreamInput
  @see AWSKinesisVideoCreateStreamOutput
@@ -204,7 +204,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteStream service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDeleteStreamOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorNotAuthorized`, `AWSKinesisVideoErrorVersionMismatch`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSKinesisVideoDeleteStreamOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorNotAuthorized`.
  
  @see AWSKinesisVideoDeleteStreamInput
  @see AWSKinesisVideoDeleteStreamOutput
@@ -217,7 +217,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
  @param request A container for the necessary parameters to execute the DeleteStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorNotAuthorized`, `AWSKinesisVideoErrorVersionMismatch`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSKinesisVideoErrorDomain` domain and the following error code: `AWSKinesisVideoErrorClientLimitExceeded`, `AWSKinesisVideoErrorInvalidArgument`, `AWSKinesisVideoErrorResourceNotFound`, `AWSKinesisVideoErrorNotAuthorized`.
  
  @see AWSKinesisVideoDeleteStreamInput
  @see AWSKinesisVideoDeleteStreamOutput
@@ -325,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (void)listTagsForStream:(AWSKinesisVideoListTagsForStreamInput *)request completionHandler:(void (^ _Nullable)(AWSKinesisVideoListTagsForStreamOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p><p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p><p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p><p>Kinesis video streams support up to 50 tags.</p>
+ <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p><p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p><p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p><p>Kinesis video streams support up to 50 tags.</p>
  
  @param request A container for the necessary parameters to execute the TagStream service method.
 
@@ -337,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSKinesisVideoSDKVersion;
 - (AWSTask<AWSKinesisVideoTagStreamOutput *> *)tagStream:(AWSKinesisVideoTagStreamInput *)request;
 
 /**
- <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p><p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p><p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p><p>Kinesis video streams support up to 50 tags.</p>
+ <p>Adds one or more tags to a stream. A <i>tag</i> is a key-value pair (the value is optional) that you can define and assign to AWS resources. If you specify a tag that already exists, the tag value is replaced with the value that you specify in the request. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p><p>You must provide either the <code>StreamName</code> or the <code>StreamARN</code>.</p><p>This operation requires permission for the <code>KinesisVideo:TagStream</code> action.</p><p>Kinesis video streams support up to 50 tags.</p>
  
  @param request A container for the necessary parameters to execute the TagStream service method.
  @param completionHandler The completion handler to call when the load request is complete.
