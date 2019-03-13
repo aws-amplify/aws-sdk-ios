@@ -90,12 +90,6 @@
 
 @implementation AWSIoTMQTTClient
 
-/*
-This version is for metrics collection for AWS IoT purpose only. It may be different
- than the version of AWS SDK for iOS. Update this version when there's a change in AWSIoT.
- */
-static const NSString *SDK_VERSION = @"2.6.19";
-
 
 #pragma mark Intialitalizers
 - (instancetype)init {

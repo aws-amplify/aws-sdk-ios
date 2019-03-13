@@ -90,7 +90,6 @@
 
 @property(atomic, assign) BOOL isMetricsEnabled;
 @property(atomic, assign) NSUInteger publishRetryThrottle;
-@property(atomic, assign) NSString *SDK_VERSION;
 @property(atomic, assign) NSString *userMetaData;
 
 /**
