@@ -276,18 +276,6 @@ static const NSString *SDK_VERSION = @"2.6.19";
     return [self connectWithCert];
 }
 
-- (NSString *) getUserMetaData {
-    NSMutableString *userMetaData = [NSMutableString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
-
-    // Append each of the user-specified key-value pair to the connection username
-    if (self.userMetaData != [ NSNull null ]) {
-        for (id key in self.userMetaData) {
-            [userMetaData appendFormat:@"&%@=%@", key, [self.userMetaData objectForKey:key]];
-        }
-    }
-    return [NSString stringWithString:userMetaData];
-}
-
 - (BOOL) connectWithCert {
     self.mqttStatus = AWSIoTMQTTStatusConnecting;
     
@@ -296,17 +284,15 @@ static const NSString *SDK_VERSION = @"2.6.19";
     }
 
     //Setup userName if metrics are enabled. We use the connection username as metadata for metrics calculation.
-    NSString *userMetaData;
     if (self.isMetricsEnabled) {
-        userMetaData = [self getUserMetaData];
-        AWSDDLogInfo(@"username is : %@", userMetaData);
+        AWSDDLogInfo(@"user metadata is : %@", self.userMetaData);
     }
     AWSDDLogInfo(@"Metrics collection is: %@", self.isMetricsEnabled ? @"Enabled" : @"Disabled");
     
     //Create Session
     if (self.session == nil ) {
         self.session= [[AWSMQTTSession alloc] initWithClientId:self.clientId
-                                               userName:userMetaData
+                                               userName:self.userMetaData
                                                password:@""
                                               keepAlive:self.keepAliveInterval
                                            cleanSession:self.cleanSession
@@ -555,17 +541,15 @@ static const NSString *SDK_VERSION = @"2.6.19";
     }
     
     //Setup userName if metrics are enabled. We use the connection username as metadata for metrics calculation.
-    NSString *userMetaData;
     if (self.isMetricsEnabled) {
-        userMetaData = [self getUserMetaData];
-        AWSDDLogInfo(@"username is : %@", userMetaData);
+        AWSDDLogInfo(@"user metadata is : %@", self.userMetaData);
     }
     AWSDDLogInfo(@"Metrics collection is: %@", self.isMetricsEnabled ? @"Enabled" : @"Disabled");
     
     //create Session if one doesn't already exist
     if (self.session == nil ) {
         self.session = [[AWSMQTTSession alloc] initWithClientId:self.clientId
-                                                       userName:userMetaData
+                                                       userName:self.userMetaData
                                                        password:@""
                                                       keepAlive:self.keepAliveInterval
                                                    cleanSession:self.cleanSession

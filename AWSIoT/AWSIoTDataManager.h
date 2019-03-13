@@ -425,7 +425,7 @@ NS_ASSUME_NONNULL_BEGIN
  let userMetaData: [String: String] = ["AFRSDK": "ios", "AFRSDKVersion": "1.0.0", "AFRLibVersion":"1.4.1"]
  iotDataManager.addUserMetaData(userMetaData)
 
- @param userMetaData A dictionary of key-value meta data pair to be appended to the connection username
+ @param userMetaData A dictionary of key-value metadata pairs to be appended to the connection username
  */
 - (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData;
 

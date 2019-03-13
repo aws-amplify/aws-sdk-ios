@@ -359,13 +359,24 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData {
-    [self.mqttClient setUserMetaData:userMetaData];
 
     // validate the length of username field
-    NSMutableString *userMetadata = [self.mqttClient getUserMetaData];
+    NSMutableString *userMetadata = [NSMutableString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", [self.mqttClient SDK_VERSION]];
+
+    // Append each of the user-specified key-value pair to the connection username
+    if (userMetaData != [ NSNull null ]) {
+        for (id key in userMetaData) {
+            [userMetadata appendFormat:@"&%@=%@", key, [userMetaData objectForKey:key]];
+        }
+    }
     NSString *baseUsername = [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", [self.mqttClient SDK_VERSION]];
     if ([userMetadata length] > 255) {
-        [NSException raise:NSInvalidArgumentException format:@"Total number of characters in username fields cannot exceed (%lu)", (255 - [baseUsername length])];
+        AWSDDLogWarn(@"Total number of characters in username fields cannot exceed (%lu)", (255 - [baseUsername length]));
+        NSRange range = {0, MIN([userMetadata length], 255)};
+        NSString *truncatedUserMetaData = [userMetadata substringWithRange:range];
+        self.mqttClient.userMetaData = truncatedUserMetaData;
+    } else {
+        self.mqttClient.userMetaData = userMetadata;
     }
 }
 

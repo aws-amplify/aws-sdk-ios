@@ -90,8 +90,8 @@
 
 @property(atomic, assign) BOOL isMetricsEnabled;
 @property(atomic, assign) NSUInteger publishRetryThrottle;
-@property(nonatomic, strong) NSDictionary<NSString *, NSString *> *userMetaData;
 @property(atomic, assign) NSString *SDK_VERSION;
+@property(atomic, assign) NSString *userMetaData;
 
 /**
  The client ID for the current connection; can be nil if not connected.
@@ -107,11 +107,6 @@
  Initalizer with the Delegate object
  */
 - (instancetype)initWithDelegate:(id<AWSIoTMQTTClientDelegate>)delegate;
-
-/**
- Utility method to return username composed from usernameFields
- */
-- (NSMutableString *) getUserMetaData;
 
 - (BOOL)connectWithClientId:(NSString *)clientId
                presignedURL:(NSString *)presignedURL
