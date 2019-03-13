@@ -10,8 +10,16 @@ base =  sys.argv[5]
 head =  sys.argv[6]
 touser =  sys.argv[7]
 repo =  sys.argv[8]
-
+print('---------------')
+print('user:', user)
+print('title:', title)
+print('body:', body)
+print('base:', base)
+print('head:', head)
+print('touser:', touser)
+print('touser:', touser)
+print('---------------')
 data='{{"title":"{0}","base":"{1}","head":"{2}", "body":"{3}"}}'.format(title, base, head,body)
 print("data:", data)
-rn = runcommand(command = "curl --user  '{0}:{1}' --request POST  --data  '{2}' 'https://api.github.com/repos/{3}/{4}/pulls'".format(user,token,data, touser, repo), logcommandline = False)
+rn = runcommand(command = "curl --user  '{0}:{1}' --request POST  --data  '{2}' 'https://api.github.com/repos/{3}/{4}/pulls'".format(user,token,data, touser, repo), logcommandline = True)
 exit(rn)
