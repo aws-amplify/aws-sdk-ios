@@ -1312,6 +1312,9 @@ class AWSS3TransferUtilityTests: XCTestCase {
 
     func testMultiPartUploadLargeFile() {
         //Create a large temp file;
+      
+        let customerKey = "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI="
+        let customerKeyMD5 = "dnF5x6K/8ZZRzpfSlMMM+w=="
         let filePath = NSTemporaryDirectory() + "testMultiPartUploadLargeFile.tmp"
         var testData = "Test123456789"
         for _ in 1...21 {
@@ -1337,6 +1340,9 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let author:(String) = "integration test"
         expression.setValue(author, forRequestHeader: "x-amz-meta-author")
         expression.setValue(uuid, forRequestHeader: "x-amz-meta-id")
+        expression.setValue("AES256", forRequestHeader: "x-amz-server-side-encryption-customer-algorithm")
+        expression.setValue(customerKey, forRequestHeader: "x-amz-server-side-encryption-customer-key")
+        expression.setValue(customerKeyMD5, forRequestHeader: "x-amz-server-side-encryption-customer-key-MD5")
         expression.progressBlock = {(task, progress) in
             print("Upload progress: ", progress.fractionCompleted)
         }
@@ -1350,6 +1356,9 @@ class AWSS3TransferUtilityTests: XCTestCase {
             let headObjectRequest = AWSS3HeadObjectRequest()
             headObjectRequest?.bucket = "ios-v2-s3.periods"
             headObjectRequest?.key = "testMultiPartUploadLargeFile.txt"
+            headObjectRequest?.sseCustomerAlgorithm = "AES256"
+            headObjectRequest?.sseCustomerKey = customerKey
+            headObjectRequest?.sseCustomerKeyMD5 = customerKeyMD5
             
             s3.headObject(headObjectRequest!).continueWith(block: { (task:AWSTask<AWSS3HeadObjectOutput> ) -> Any? in
                 XCTAssertNil(task.error)
@@ -1361,10 +1370,18 @@ class AWSS3TransferUtilityTests: XCTestCase {
                     XCTAssertEqual(author, output.metadata?["author"])
                     XCTAssertEqual(uuid, output.metadata?["id"])
                 }
+                
+                let headers =  [
+                    "x-amz-server-side-encryption-customer-algorithm": "AES256",
+                    "x-amz-server-side-encryption-customer-key": customerKey,
+                    "x-amz-server-side-encryption-customer-key-MD5" : customerKeyMD5]
+                
                 self.verifyContent(tu: transferUtility!,
                                    bucket: "ios-v2-s3.periods",
                                    key: "testMultiPartUploadLargeFile.txt",
-                                   hash: calculatedHash)
+                                   hash: calculatedHash,
+                                   headerKeyValues: headers)
+                
                 expectation.fulfill()
                 return nil
             })
@@ -2769,10 +2786,15 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
     }
 
-    func verifyContent(tu:AWSS3TransferUtility, bucket: String, key:String, hash:String) {
+    func verifyContent(tu:AWSS3TransferUtility, bucket: String, key:String, hash:String, headerKeyValues:[String:String] = [:] ) {
         let filePath = NSTemporaryDirectory() + UUID().uuidString
         let fileURL = URL(fileURLWithPath: filePath)
         let downloadExpression = AWSS3TransferUtilityDownloadExpression()
+      
+        for(headerKey, headerValue) in headerKeyValues {
+            downloadExpression.setValue(headerValue, forRequestHeader: headerKey)
+        }
+        
         downloadExpression.progressBlock = {(task, progress) in
             print("Download progress: ", progress.fractionCompleted)
         }
