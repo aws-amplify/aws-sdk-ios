@@ -379,9 +379,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
     if ([userMetadata length] > 255) {
         AWSDDLogWarn(@"Total number of characters in username fields cannot exceed (%lu)", (255 - baseLength));
-        NSRange range = {0, MIN([userMetadata length], 255)};
-        NSString *truncatedUserMetaData = [userMetadata substringWithRange:range];
-        self.mqttClient.userMetaData = truncatedUserMetaData;
+        self.mqttClient.userMetaData = [userMetadata substringToIndex:255];
     } else {
         self.mqttClient.userMetaData = userMetadata;
     }
