@@ -143,10 +143,6 @@ public class AWSMobileClient: _AWSMobileClient {
     
     @objc override public func interceptApplication(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
-        if (isCognitoAuthRegistered) {
-            AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).application(application, open: url, options: [:])
-        }
-        
         return _AWSMobileClient.sharedInstance().interceptApplication(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
@@ -167,6 +163,12 @@ public class AWSMobileClient: _AWSMobileClient {
     /// - Returns: The singleton `AWSMobileClient` instance.
     @objc override public class func sharedInstance() -> AWSMobileClient {
         return _sharedInstance
+    }
+    
+    public func handleAuthResponse(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) {
+        if (isCognitoAuthRegistered) {
+            AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).application(application, open: url, options: [:])
+        }
     }
     
     
