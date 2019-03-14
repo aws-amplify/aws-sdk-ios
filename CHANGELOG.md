@@ -6,7 +6,7 @@
 ### New Features
 
 * **AWS IoT**
-  * AWSIotDataManager now exposes an API `addUserMetaData` for clients to pass additional key-value pairs which are appended to the username used for connection.
+  * AWSIotDataManager now exposes an API `addUserMetaData` for clients to pass additional key-value pairs which are appended to the username used for connection. See [PR #1283](https://github.com/aws-amplify/aws-sdk-ios/pull/1283)
 
 ### Bug Fixes
 
