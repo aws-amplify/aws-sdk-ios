@@ -16,6 +16,13 @@
 #import "_AWSMobileClient.h"
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
 #import <AWSMobileClient/AWSMobileClient-Swift.h>
+#import "AWSCognitoAuth.h"
+
+@interface AWSCognitoCredentialsProvider()
+
+@property (nonatomic, strong) NSString *customRoleArnOverride;
+
+@end
 
 @interface AWSInfo()
 
@@ -54,7 +61,6 @@ Class AWSCognitoUserPoolsSignInProviderClass;
 + (instancetype)sharedInstance {
     AWSDDLogDebug(@"AWSMobileClient -> sharedInstance...");
     static _AWSMobileClient *_sharedMobileClient = nil;
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedMobileClient = [[_AWSMobileClient alloc] init];
@@ -136,6 +142,11 @@ signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
 
 - (void)updateCognitoCredentialsProvider:(AWSCognitoCredentialsProvider *)cognitoCreds {
     [AWSInfo overrideCredentialsProvider:cognitoCreds];
+}
+
+- (void)setCustomRoleArnInternal:(NSString * _Nullable)customRoleArnInternal
+                             for:(AWSCognitoCredentialsProvider *)credsProvider {
+    credsProvider.customRoleArnOverride = customRoleArnInternal;
 }
 
 #pragma mark Configuration Methods
