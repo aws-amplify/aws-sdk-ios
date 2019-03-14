@@ -1,6 +1,17 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
+## 2.9.3
+
+### New Features
+
+* **AWSMobileClient**
+  * Added support for `SAML` in `federatedSignIn` API.
+  * Added support Cognito Hosted UI in `showSignIn` method.
+  * Added support to use external OAuth 2.0 provider (JWT based provider) like `Auth0` in `showSignIn` method.
+  * Added support for global sign out.
+  * Added support for `Device` features which include `list`, `get`, `updateStatus` and `forget`. This APIs are available in the `deviceOperations` namespace. 
+
 ## 2.9.2
 
 ### New Features
