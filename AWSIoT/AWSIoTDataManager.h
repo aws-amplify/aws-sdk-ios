@@ -417,6 +417,16 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)enableMetricsCollection:(BOOL)enabled;
 
 /**
+ Set user-specified dictionary of the additional values to be passed as components of
+ connection username.
+ *Swift*
+ let userMetaData: [String: String] = ["AFRSDK": "ios", "AFRSDKVersion": "1.0.0", "AFRLibVersion":"1.4.1"]
+ iotDataManager.addUserMetaData(userMetaData)
+ @param userMetaData A dictionary of key-value metadata pairs to be appended to the connection username
+ */
+- (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData;
+
+/**
  Initialises the MQTT session and connects to AWS IoT using certificate-based mutual authentication
 
  @return true if initialise finished with success
