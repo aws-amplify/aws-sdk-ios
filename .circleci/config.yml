@@ -882,7 +882,6 @@ workflows:
                 - develop
       - post_integrationtest:
           requires:
-            - AWSMobileClient
             - SQS 
             - MobileAnalytics 
             - Rekognition 
@@ -1238,8 +1237,8 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/          
       - release_ios_s3:
           requires:
-            - unittest          
-            - post_integrationtest
+            - build
+            - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
@@ -1247,8 +1246,8 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/              
       - release_tag:
           requires:
-            - unittest  
-            - post_integrationtest
+            - build
+            - pre_integrationtest
           filters:
             branches:
               ignore: /.*/
