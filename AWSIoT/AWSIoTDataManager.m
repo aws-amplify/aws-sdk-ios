@@ -209,6 +209,12 @@ static NSString *const AWSInfoIoTDataManager = @"IoTDataManager";
 
 @implementation AWSIoTDataManager
 
+/*
+ This version is for metrics collection for AWS IoT purpose only. It may be different
+ than the version of AWS SDK for iOS. Update this version when there's a change in AWSIoT.
+ */
+static const NSString *SDK_VERSION = @"2.6.19";
+
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (instancetype)defaultIoTDataManager {
@@ -333,6 +339,26 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [self.mqttClient setIsMetricsEnabled:enabled];
 }
 
+- (void)addUserMetaData:(NSDictionary<NSString *, NSString *> *)userMetaData {
+
+    // validate the length of username field
+    NSMutableString *userMetadata = [NSMutableString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", SDK_VERSION];
+    NSUInteger baseLength = [userMetadata length];
+
+    // Append each of the user-specified key-value pair to the connection username
+    if (userMetaData != [ NSNull null ]) {
+        for (id key in userMetaData) {
+            [userMetadata appendFormat:@"&%@=%@", key, [userMetaData objectForKey:key]];
+        }
+    }
+
+    if ([userMetadata length] > 255) {
+        AWSDDLogWarn(@"Total number of characters in username fields cannot exceed (%lu)", (255 - baseLength));
+        self.mqttClient.userMetaData = [userMetadata substringToIndex:255];
+    } else {
+        self.mqttClient.userMetaData = userMetadata;
+    }
+}
 
 - (BOOL)connectUsingALPNWithClientId:(NSString *)clientId
                         cleanSession:(BOOL)cleanSession

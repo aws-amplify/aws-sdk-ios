@@ -12,6 +12,11 @@
   * Added support for global sign out.
   * Added support for device features which include `list`, `get`, `updateStatus` and `forget`. These APIs are available through `getDeviceOperations()`.
 
+### Bug Fixes
+
+* **Amazon S3**
+  * Fixed TransferUtility issue with serverside encryption using customer provided key. See [PR #1282](https://github.com/aws-amplify/aws-sdk-ios/pull/1282)
+
 ## 2.9.2
 
 ### New Features
