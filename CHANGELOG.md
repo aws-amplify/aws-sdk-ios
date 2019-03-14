@@ -3,6 +3,15 @@
 
 ## 2.9.3
 
+### New Features
+
+* **AWSMobileClient**
+  * Added support for SAML in `federatedSignIn()`.
+  * Added support Cognito Hosted UI in `showSignIn()`.
+  * Added support to use OAuth 2.0 provider like `Auth0` in `showSignIn()`. Federation for AWS credentials requires OpenID support from the provider.
+  * Added support for global sign out.
+  * Added support for device features which include `list`, `get`, `updateStatus` and `forget`. These APIs are available through `getDeviceOperations()`.
+
 ### Bug Fixes
 
 * **Amazon S3**
