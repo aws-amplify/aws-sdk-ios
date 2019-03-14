@@ -1,18 +1,6 @@
 
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.9.3
-
-### New Features
-
-* **AWS IoT**
-  * AWSIotDataManager now exposes an API `addUserMetaData` for clients to pass additional key-value pairs which are appended to the username used for connection. See [PR #1283](https://github.com/aws-amplify/aws-sdk-ios/pull/1283)
-
-### Bug Fixes
-
-* **Amazon S3**
-  * Fixed TransferUtility issue with serverside encryption using customer provided key. See [PR #1282](https://github.com/aws-amplify/aws-sdk-ios/pull/1282)
-
 ## 2.9.2
 
 ### New Features
