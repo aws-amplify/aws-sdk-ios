@@ -65,7 +65,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         //Setup iOT Data Manager for Broker 1
         let endpoint1 = AWSTestUtility.getIoTEndPoint("iot-us-east1-endpoint")
         XCTAssert(endpoint1 != nil, "Could not fetch the iot endpoint from the config file.")
-        let iotDataManagerConfigurationBroker1 = AWSServiceConfiguration(region: .USEast1,
+        let iotDataManagerConfigurationBroker1 = AWSServiceConfiguration(region: .USWest2,
                 endpoint: AWSEndpoint(urlString: endpoint1!),
                 credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
         AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with: mqttConfig, forKey:"iot-data-manager-broker1")
@@ -670,7 +670,9 @@ class AWSIoTDataManagerTests: XCTestCase {
         let iotDataManager:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker")
         let uuid = UUID().uuidString
         print("Calling Connect")
-        
+
+        let userMetaData: [String: String] = ["AFRSDK": "ios", "AFRSDKVersion": "1.0.0", "AFRLibVersion":"1.4.1"]
+        iotDataManager.addUserMetaData(userMetaData)
         iotDataManager.connectUsingWebSocket(withClientId: uuid, cleanSession: true, statusCallback: mqttEventCallback)
         print("Connect call completed")
         
